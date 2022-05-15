@@ -1,22 +1,38 @@
-package users
+package routes
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
-// Ping users
+type CreateUserDto struct {
+	Name      string `json:"name" binding:"required"`
+	AuthToken string `json:"authToken" binding:"required"`
+	// TODO fields representing data collected from user questionnaire
+}
+
+// Ping
 // @Summary Ping
-// @Description Ping testing method
 // @Router /api/users/ping [get]
 func Ping(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{"message": "pong"})
+}
+
+// Create a new user
+// @Param body body CreateUserDto true "Details of newly created user"
+// @Router /api/users/create [post]
+func Create(ctx *gin.Context) {
+	var createUserDto CreateUserDto
+	if err := Body(ctx, &createUserDto); err != nil {
+		return
+	}
+	ctx.JSON(http.StatusOK, gin.H{"message": createUserDto.Name})
 }
 
 func Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	{
 		users.GET("ping", Ping)
+		users.POST("create", Create)
 	}
 }
