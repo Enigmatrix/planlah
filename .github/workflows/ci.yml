@@ -1,0 +1,16 @@
+name: ci
+on: [push]
+jobs:
+
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: './backend/go.mod'
+      - run: go build
+      - run: go test
