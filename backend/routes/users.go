@@ -29,10 +29,22 @@ func Create(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{"message": createUserDto.Name})
 }
 
+// Login a user
+// @Param body body CreateUserDto true "Details of user profile"
+// @Router /api/users/login [post]
+func Login(ctx *gin.Context) {
+	var createUserDto CreateUserDto
+	if err := Body(ctx, &createUserDto); err != nil {
+		return
+	}
+	ctx.JSON(http.StatusOK, gin.H{"message": createUserDto.Name})
+}
+
 func Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	{
 		users.GET("ping", Ping)
 		users.POST("create", Create)
+		users.POST("login", Login)
 	}
 }
