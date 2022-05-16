@@ -73,7 +73,6 @@ dependencies {
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:30.0.1')
 
-    // Declare the dependencies for any other desired Firebase products
-    // For example, declare the dependencies for Firebase Authentication and Cloud Firestore
+    // Declare the dependencies for any other desired Firebase products (without version numbers)
     implementation 'com.google.firebase:firebase-auth'
 }
