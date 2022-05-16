@@ -24,3 +24,6 @@ go.work
 
 # ignore docs folder (swagger docs)
 /docs
+
+# ignore .idea folder
+/.idea
