@@ -23,21 +23,18 @@ class AuthService extends ChangeNotifier {
   // https://blog.logrocket.com/how-to-build-chat-application-flutter-firebase/#building-a-basic-ui-for-the-chat-application
   Future<User?> signInWithGoogle() async {
     try {
-      final GoogleSignInAccount? googleSignInAccount =
-          await _googleSignIn.signIn();
+      var googleSignInAccount = await _googleSignIn.signIn();
       if (googleSignInAccount == null) {
         // TODO display this auth exception as a widget
         print("Google sign-in failed!");
         return null;
       }
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
-      final AuthCredential credential = GoogleAuthProvider.credential(
+      var googleSignInAuthentication = await googleSignInAccount.authentication;
+      var credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
         idToken: googleSignInAuthentication.idToken,
       );
-      final UserCredential userCreds =
-          await _auth.signInWithCredential(credential);
+      var userCreds = await _auth.signInWithCredential(credential);
 
       return userCreds.user;
     } on FirebaseAuthException catch (e) {
