@@ -48,7 +48,8 @@ class GoogleSignInState extends State<GoogleSignIn> {
 
                   var user = await authSvc.signInWithGoogle();
                   if (user != null) {
-                    print(user.uid);
+                    if (mounted) await Navigator.pushReplacementNamed(context, "home");
+                    return;
                   }
 
                   setState(() {

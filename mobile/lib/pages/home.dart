@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/pages/sign_in.dart';
 import 'package:mobile/services/auth.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,12 +13,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    if (AuthService().currentUser() == null) {}
-    return MaterialApp(
-        title: 'planlah',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const SignInPage());
+    var auth = Provider.of<AuthService>(context, listen: false);
+    return Scaffold(
+      appBar: AppBar(title: const Text("Home")),
+      body: Stack(children: [
+        ElevatedButton(onPressed: () async {
+          await auth.signOutFromGoogle();
+          if (mounted) await Navigator.pushReplacementNamed(context, "signIn");
+        }, child: const Text("LOG OUT"))
+      ])
+    );
   }
 }
