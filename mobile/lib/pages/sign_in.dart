@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/services/auth.dart';
+import 'package:provider/provider.dart';
 
 // based off https://petercoding.com/firebase/2021/05/24/using-google-sign-in-with-firebase-in-flutter/
 
@@ -30,34 +31,37 @@ class GoogleSignInState extends State<GoogleSignIn> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    // listen: false since we are only calling a method
+    final authSvc = Provider.of<AuthService>(context, listen: false);
+
     return isLoading
         ? const CircularProgressIndicator()
         : SizedBox(
             width: size.width * 0.8,
             child: ElevatedButton.icon(
-              icon: Image.asset("./assets/sign_in/google_logo.png", height: 24, width: 24),
-              onPressed: () async {
-                setState(() {
-                  isLoading = true;
-                });
+                icon: Image.asset("./assets/google_logo.png",
+                    height: 24, width: 24),
+                onPressed: () async {
+                  setState(() {
+                    isLoading = true;
+                  });
 
-                AuthService auth = AuthService();
-                var creds = await auth.signInwithGoogle();
-                if (creds == null) return;
-                print(creds.user?.uid);
+                  var user = await authSvc.signInWithGoogle();
+                  if (user != null) {
+                    print(user.uid);
+                  }
 
-                setState(() {
-                  isLoading = false;
-                });
-              },
-              label: const Text(
-                "SIGN IN",
-                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white)
-              )
-            ),
+                  setState(() {
+                    isLoading = false;
+                  });
+                },
+                label: const Text(
+                  "SIGN IN",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.blue),
+                ),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white))),
           );
   }
 }
