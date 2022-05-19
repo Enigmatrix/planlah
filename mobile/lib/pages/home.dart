@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/pages/sign_in.dart';
+import 'package:get/get.dart';
 import 'package:mobile/services/auth.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,15 +12,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    var auth = Provider.of<AuthService>(context, listen: false);
+    final AuthService auth = Get.find();
+
     return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
-      body: Stack(children: [
-        ElevatedButton(onPressed: () async {
-          await auth.signOutFromGoogle();
-          if (mounted) await Navigator.pushReplacementNamed(context, "signIn");
-        }, child: const Text("LOG OUT"))
-      ])
-    );
+        appBar: AppBar(title: const Text("Home")),
+        body: Stack(children: [
+          ElevatedButton(
+              onPressed: () async {
+                await auth.signOutFromGoogle();
+                await Get.offAndToNamed('signIn');
+              },
+              child: const Text("LOG OUT"))
+        ]));
   }
 }
