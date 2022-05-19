@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile/services/auth.dart';
-import 'package:provider/provider.dart';
 
 // based off https://petercoding.com/firebase/2021/05/24/using-google-sign-in-with-firebase-in-flutter/
 
@@ -32,7 +32,7 @@ class GoogleSignInState extends State<GoogleSignIn> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     // listen: false since we are only calling a method
-    final authSvc = Provider.of<AuthService>(context, listen: false);
+    final AuthService auth = Get.find();
 
     return isLoading
         ? const CircularProgressIndicator()
@@ -46,9 +46,9 @@ class GoogleSignInState extends State<GoogleSignIn> {
                     isLoading = true;
                   });
 
-                  var user = await authSvc.signInWithGoogle();
+                  var user = await auth.signInWithGoogle();
                   if (user != null) {
-                    if (mounted) await Navigator.pushReplacementNamed(context, "home");
+                    await Get.offAndToNamed('home');
                     return;
                   }
 

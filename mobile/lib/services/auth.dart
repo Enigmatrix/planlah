@@ -1,22 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:get/get.dart';
 
 // based off https://petercoding.com/firebase/2021/05/24/using-google-sign-in-with-firebase-in-flutter/
 
-class AuthService extends ChangeNotifier {
+class AuthService extends GetxService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  AuthService() {
-    // fire user changes
-    _auth.userChanges().forEach((_) {
-      notifyListeners();
-    });
-  }
+  final Rxn<User?> user = Rxn<User?>(FirebaseAuth.instance.currentUser);
 
-  User? currentUser() {
-    return _auth.currentUser;
+  @override
+  void onReady() async {
+    // fire user changes
+    user.bindStream(_auth.userChanges());
+
+    super.onReady();
   }
 
   // TODO check if user images are already uploaded
