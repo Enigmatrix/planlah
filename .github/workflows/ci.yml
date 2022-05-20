@@ -12,8 +12,8 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version-file: './backend/go.mod'
-      - name: Generate Swagger Docs
-        run: go install github.com/swaggo/swag/cmd/swag && swag init
+      - name: Generate Swagger Dos
+        run: go install github.com/swaggo/swag/cmd/swag@latest && swag init
       - run: go build
       - run: go test
   mobile:
