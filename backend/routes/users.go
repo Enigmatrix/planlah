@@ -1,9 +1,14 @@
 package routes
 
 import (
+	firebase "firebase.google.com/go/v4"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
+
+type UserController struct {
+	FirebaseApp *firebase.App
+}
 
 type CreateUserDto struct {
 	Name      string `json:"name" binding:"required"`
@@ -11,17 +16,11 @@ type CreateUserDto struct {
 	// TODO fields representing data collected from user questionnaire
 }
 
-// Ping
-// @Summary Ping
-// @Router /api/users/ping [get]
-func Ping(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{"message": "pong"})
-}
-
-// Create a new user
+// Create
+// @Summary Create a new User
 // @Param body body CreateUserDto true "Details of newly created user"
 // @Router /api/users/create [post]
-func Create(ctx *gin.Context) {
+func (controller UserController) Create(ctx *gin.Context) {
 	var createUserDto CreateUserDto
 	if err := Body(ctx, &createUserDto); err != nil {
 		return
@@ -29,22 +28,8 @@ func Create(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{"message": createUserDto.Name})
 }
 
-// Login a user
-// @Param body body CreateUserDto true "Details of user profile"
-// @Router /api/users/login [post]
-func Login(ctx *gin.Context) {
-	var createUserDto CreateUserDto
-	if err := Body(ctx, &createUserDto); err != nil {
-		return
-	}
-	ctx.JSON(http.StatusOK, gin.H{"message": createUserDto.Name})
-}
-
-func Register(router *gin.RouterGroup) {
-	users := router.Group("users")
-	{
-		users.GET("ping", Ping)
-		users.POST("create", Create)
-		users.POST("login", Login)
-	}
+// Register the routes for this controller
+func (controller UserController) Register(router *gin.RouterGroup) {
+	group := router.Group("users")
+	group.POST("create", controller.Create)
 }
