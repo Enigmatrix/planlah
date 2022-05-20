@@ -3,6 +3,7 @@ module planlah.sg/backend
 go 1.18
 
 require (
+	firebase.google.com/go/v4 v4.8.0
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-playground/validator/v10 v10.11.0
 	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2
@@ -16,7 +17,6 @@ require (
 	cloud.google.com/go/firestore v1.6.1 // indirect
 	cloud.google.com/go/iam v0.1.1 // indirect
 	cloud.google.com/go/storage v1.21.0 // indirect
-	firebase.google.com/go/v4 v4.8.0 // indirect
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
