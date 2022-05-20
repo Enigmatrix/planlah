@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "87066124475-hk8jlonm57rhgctpq22a7ph9u17e4f23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sg.planlah.app",
+            "certificate_hash": "11e4b0278205a6d270b9f4800a4c0c7dd42ea12b"
+          }
+        },
+        {
           "client_id": "87066124475-p8tdtj08q68nmk1flu6sl4mhtau8cads.apps.googleusercontent.com",
           "client_type": 3
         }
