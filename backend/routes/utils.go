@@ -9,6 +9,10 @@ import (
 	"net/http"
 )
 
+type ErrorMessage struct {
+	Message string `json:"message" binding:"required"`
+}
+
 func Body[T any](ctx *gin.Context, dto *T) error {
 	err := ctx.ShouldBindJSON(&dto)
 	if err == nil {
