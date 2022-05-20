@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/services/auth.dart';
@@ -16,13 +18,19 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
         appBar: AppBar(title: const Text("Home")),
-        body: Stack(children: [
+        body: ListView(
+            children: [
           ElevatedButton(
               onPressed: () async {
                 await auth.signOutFromGoogle();
                 await Get.offAndToNamed('signIn');
               },
-              child: const Text("LOG OUT"))
+              child: const Text("LOG OUT")),
+          ElevatedButton(
+              onPressed: () async {
+                log((await auth.user.value?.getIdToken()).toString());
+              },
+              child: const Text("PRINT TOKEN"))
         ]));
   }
 }
