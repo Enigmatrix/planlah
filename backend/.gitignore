@@ -27,3 +27,6 @@ go.work
 
 # ignore .idea folder
 /.idea
+
+# Firebase Admin SDK
+*adminsdk*.json
