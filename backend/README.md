@@ -1,11 +1,16 @@
-## Notes
+## Building & Running
 - First build will fail:
   - need to run `swag init` atleast once (refer below)
   - need to run `wire` atleast once (refer below)
 
+### Docker
+- Paste `.env` file into `/backend`
+- Run `docker-compose up --build` to build the Docker setup (including the database)
+
 ### Firebase
 - Paste `planlah..adminsdk...json` into `/backend`.
 - Need to set `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the path of the above file.
+  - Can also do this in GoLang's Run configuration (Environment variables)
 
 ### Wire (Dependency Injection)
 - Run `wire` to turn compile `deps.go` and inject dependencies
