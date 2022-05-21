@@ -28,5 +28,8 @@ go.work
 # ignore .idea folder
 /.idea
 
+# Wire-generated file
+wire_gen.go
+
 # Firebase Admin SDK
 *adminsdk*.json
