@@ -33,3 +33,6 @@ wire_gen.go
 
 # Firebase Admin SDK
 *adminsdk*.json
+
+# Environment files for docker
+.env
