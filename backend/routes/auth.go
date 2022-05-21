@@ -1,15 +1,13 @@
 package routes
 
 import (
-	"context"
-	firebase "firebase.google.com/go/v4"
 	"github.com/gin-gonic/gin"
-	"log"
 	"net/http"
+	"planlah.sg/backend/services"
 )
 
 type AuthController struct {
-	FirebaseApp *firebase.App
+	AuthService *services.AuthService
 }
 
 type TokenDto struct {
@@ -29,21 +27,14 @@ func (controller AuthController) Verify(ctx *gin.Context) {
 		return
 	}
 	firebaseToken := dto.Token
-	auth, err := controller.FirebaseApp.Auth(context.Background())
-	if err != nil {
-		log.Fatalf("Firebase Auth session failed to initialize: %v", err)
-	}
 
-	// TODO check possible errs?
-	verifiedToken, err := auth.VerifyIDToken(context.Background(), firebaseToken)
+	uid, err := controller.AuthService.Verify(firebaseToken)
 	if err != nil {
 		ctx.JSON(http.StatusUnauthorized, ErrorMessage{Message: "invalid credentials"})
 		return
 	}
 
-	token := verifiedToken.UID
-
-	ctx.JSON(http.StatusOK, TokenDto{Token: token})
+	ctx.JSON(http.StatusOK, TokenDto{Token: *uid})
 }
 
 // Register the routes for this controller

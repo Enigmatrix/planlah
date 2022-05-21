@@ -1,27 +1,27 @@
 package main
 
 import (
-	"context"
-	firebase "firebase.google.com/go/v4"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"log"
 	_ "planlah.sg/backend/docs" // to get generated swagger docs to be enabled
 	"planlah.sg/backend/routes"
+	"planlah.sg/backend/services"
 )
 
 func main() {
 	srv := gin.Default()
-	firebaseApp, err := firebase.NewApp(context.Background(), nil)
+
+	user := routes.UserController{}
+
+	authSvc, err := services.NewAuthService()
 	if err != nil {
-		log.Fatalf("Firebase app initialization failed: %v", err)
+		log.Fatalf("Firebase Auth Service initialization failed: %v", err)
 	}
-	user := routes.UserController{
-		FirebaseApp: firebaseApp,
-	}
+
 	auth := routes.AuthController{
-		FirebaseApp: firebaseApp,
+		AuthService: authSvc,
 	}
 
 	api := srv.Group("api")

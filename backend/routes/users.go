@@ -1,13 +1,11 @@
 package routes
 
 import (
-	firebase "firebase.google.com/go/v4"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
 type UserController struct {
-	FirebaseApp *firebase.App
 }
 
 type CreateUserDto struct {
