@@ -34,7 +34,7 @@ func NewServer(user routes.UserController, authSvc *services.AuthService) (*gin.
 		PayloadFunc: func(payload interface{}) jwt.MapClaims {
 			if user, ok := payload.(*data.User); ok {
 				return jwt.MapClaims{
-					identityKey: user.Model.ID,
+					identityKey: user.ID,
 				}
 			}
 			return jwt.MapClaims{}
