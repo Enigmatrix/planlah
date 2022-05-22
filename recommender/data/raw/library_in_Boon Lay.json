@@ -1,0 +1,653 @@
+{
+    "html_attributions": [],
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Jurong West Central 3, #01-03, Singapore 648346",
+            "geometry": {
+                "location": {
+                    "lat": 1.3403489,
+                    "lng": 103.7045227
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.341544079892722,
+                        "lng": 103.7059287298927
+                    },
+                    "southwest": {
+                        "lat": 1.338844420107278,
+                        "lng": 103.7032290701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Jurong West Public Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106281854876240602494\">Lydia Sista</a>"
+                    ],
+                    "photo_reference": "Aap_uEDXcDeMOVfUUQ2ItXa2XblWQ-TmO0QVAjnOQQI76uX8NuWTKJ3uWqEVrvZvZiBRAgkCDXgdCvogJ44jk5qhh_vOHcWam1K8KWXLHFohDevgFE3uqubOUXsrzvcys295dD8yIJ8LMaxQqou23UTJjHuh04-x23avwMJT7A2oJ3hlH6F-",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJF3XNQ5MP2jERXeUO2D_OtYY",
+            "plus_code": {
+                "compound_code": "8PR3+4R Singapore",
+                "global_code": "6PH58PR3+4R"
+            },
+            "rating": 4.4,
+            "reference": "ChIJF3XNQ5MP2jERXeUO2D_OtYY",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 151
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "21 Jurong East Central 1, Singapore 609732",
+            "geometry": {
+                "location": {
+                    "lat": 1.3329176,
+                    "lng": 103.7394997
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.334300579892722,
+                        "lng": 103.7409789298927
+                    },
+                    "southwest": {
+                        "lat": 1.331600920107278,
+                        "lng": 103.7382792701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Jurong Regional Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3096,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104996821761507874195\">Asogan Asogan</a>"
+                    ],
+                    "photo_reference": "Aap_uEA5DNjAawmnjSJV0VRz49hBCWI6p5SFUVl675AuFSyKqIRjqgTk57SWlt-enoW6fDhJSWbT0-EnUMWVZNkyp-1WIN3qvDvxdj_peCqqWJ4O_KN4YE6jGA7LTMh_yFKIreB9WwN4IiLq8aOv-Gec77J6wLi_0OYypJczwz5xSeRGEK0k",
+                    "width": 4128
+                }
+            ],
+            "place_id": "ChIJraqq-gUQ2jERYpaqvOqNXdk",
+            "plus_code": {
+                "compound_code": "8PMQ+5Q Singapore",
+                "global_code": "6PH58PMQ+5Q"
+            },
+            "rating": 4.6,
+            "reference": "ChIJraqq-gUQ2jERYpaqvOqNXdk",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 360
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "900 S Woodlands Dr, #01-03 Civic Centre, Singapore 730900",
+            "geometry": {
+                "location": {
+                    "lat": 1.4349053,
+                    "lng": 103.78678
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.436267779892722,
+                        "lng": 103.7885457798927
+                    },
+                    "southwest": {
+                        "lat": 1.433568120107278,
+                        "lng": 103.7858461201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Woodlands Regional Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2976,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108997811619065477576\">Kiew LW</a>"
+                    ],
+                    "photo_reference": "Aap_uEB_tdxPnwrprKtfiTZtPO_wjvtXtw32wTQJoYKQ5Av56YVHdVvpLRNZPjUWzDbWlRm9bqLpj_2aplwAzMsimViUJm-6-Mh3hM-KyrQ-ropFgBNbLTNlphtciZ5O9vWIAMgdIS_CCKUR8_Fv14VJ-_nGPecOknQMSG9KEwQMhVj_qGY1",
+                    "width": 3968
+                }
+            ],
+            "place_id": "ChIJqVqJA6YT2jERen84koMFzGM",
+            "plus_code": {
+                "compound_code": "CQMP+XP Singapore",
+                "global_code": "6PH5CQMP+XP"
+            },
+            "rating": 4.4,
+            "reference": "ChIJqVqJA6YT2jERen84koMFzGM",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 333
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Toa Payoh Central, Singapore 319191",
+            "geometry": {
+                "location": {
+                    "lat": 1.3336319,
+                    "lng": 103.8505072
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.335241429892722,
+                        "lng": 103.8517677298927
+                    },
+                    "southwest": {
+                        "lat": 1.332541770107278,
+                        "lng": 103.8490680701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Toa Payoh Public Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106433561089004003388\">pp</a>"
+                    ],
+                    "photo_reference": "Aap_uECEXrBtntjVilbc9JKHMaAU0q0bJzB0gROQIFQ2lX3xHXNMXB_hnDhmJSuIj1R87UjBnHkD2Wc6_Cz0ctIZU9njo5EV48sCT2UUi-CRZTPDI63Z1d4ytDbmMkJvgQxNqMReHgUdY1h8A3TQF5raz5BNqf8nCmbVNGqUjpNFDPIFPik1",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJx-7QmZYX2jERht7ofTYcNs0",
+            "plus_code": {
+                "compound_code": "8VM2+C6 Singapore",
+                "global_code": "6PH58VM2+C6"
+            },
+            "rating": 4.4,
+            "reference": "ChIJx-7QmZYX2jERht7ofTYcNs0",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 210
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Bukit Batok Central Link #03-01 West Mall, 658713",
+            "geometry": {
+                "location": {
+                    "lat": 1.3499905,
+                    "lng": 103.7490112
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.351187079892722,
+                        "lng": 103.7506302298927
+                    },
+                    "southwest": {
+                        "lat": 1.348487420107278,
+                        "lng": 103.7479305701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Bukit Batok Public Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1152,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103713996718812454034\">.</a>"
+                    ],
+                    "photo_reference": "Aap_uEAnyQRBQJyiqUH8wimUo-ZGQa7LMN5F2-a5a-Jf0ZiRIUMS8i61FB45ao5Dp6IhUet9VZNXr17_NNUHBnfsbxfjXKpY5adWTBPv3tu3WmnO-aSLOH0xhw7Aogowb5KgUntQVeOXHL6uCZEaqAPnjli5Ta64sTPuOqIQNmmisuPBlMHO",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJxzbY1z4Q2jERJ6mezML68e8",
+            "plus_code": {
+                "compound_code": "8PXX+XJ Singapore",
+                "global_code": "6PH58PXX+XJ"
+            },
+            "rating": 4.4,
+            "reference": "ChIJxzbY1z4Q2jERJ6mezML68e8",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 137
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "100 Victoria St, Singapore 188064",
+            "geometry": {
+                "location": {
+                    "lat": 1.2975884,
+                    "lng": 103.8543081
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.298959929892722,
+                        "lng": 103.8553889298927
+                    },
+                    "southwest": {
+                        "lat": 1.296260270107278,
+                        "lng": 103.8526892701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "National Library / Lee Kong Chian Reference Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104963113794598927291\">National Library, Singapore</a>"
+                    ],
+                    "photo_reference": "Aap_uECB1eWwU0hFokYxWR3JdgrVHZtdT00y29H20H4hfWKQWHno9O57RTl2J3s3pdKzUDnskOhj9PPxhq-asJmstNRi3tgKdjnv3QG46T8VPGUAqjLtOfczwn5aq6WtS_cmEQT5nlwotePzfG-nMwBfYZsNAVmJtBD3Hl-Ew_cgVAL9ul-k",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJKaGsJKUZ2jERxa8yhKrdPfI",
+            "plus_code": {
+                "compound_code": "7VX3+2P Singapore",
+                "global_code": "6PH57VX3+2P"
+            },
+            "rating": 4.6,
+            "reference": "ChIJKaGsJKUZ2jERxa8yhKrdPfI",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 983
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "30 Sembawang Dr, #05 - 01 Sun Plaza, Singapore 757713",
+            "geometry": {
+                "location": {
+                    "lat": 1.4482825,
+                    "lng": 103.8195571
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.449821629892722,
+                        "lng": 103.8210520298927
+                    },
+                    "southwest": {
+                        "lat": 1.447121970107278,
+                        "lng": 103.8183523701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Sembawang Public Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103535925103011213538\">L Hickok</a>"
+                    ],
+                    "photo_reference": "Aap_uEB-pMLWcKcaoTrxRRKImJy7Xn0wrRRmc7KZOyQ7NqIL4yi3t-X7i1pA6sqsG8GYZMtf2ruV2Dm9DWiszXeqhF2J3LI8393EgEfDztxcwzvOCwY6UZqyxZkdFdCSnQfQR8TxJOT_lq1qYI_m1div438fnhsWZYqtFvBqNDswjTBawrlq",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJW6IeMH0T2jERiY_tOOMSWeI",
+            "plus_code": {
+                "compound_code": "CRX9+8R Singapore",
+                "global_code": "6PH5CRX9+8R"
+            },
+            "rating": 4.1,
+            "reference": "ChIJW6IeMH0T2jERiY_tOOMSWeI",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 111
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4300 Ang Mo Kio Ave 6, Singapore 569842",
+            "geometry": {
+                "location": {
+                    "lat": 1.3748331,
+                    "lng": 103.845503
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.376103629892722,
+                        "lng": 103.8469458298927
+                    },
+                    "southwest": {
+                        "lat": 1.373403970107278,
+                        "lng": 103.8442461701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Ang Mo Kio Public Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1037,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117056997405147278441\">Ang Mo Kio Public Library</a>"
+                    ],
+                    "photo_reference": "Aap_uEA0HMo_YGwrMX1qJkmIFPvtOILwzUXwrevTSoAI_2J18xBSKDp0eoSZWucxh0RRboR9tqGZvpejElO1pKWrwL1MZJN2cKNDCj3Q0UHhXggKKozGCODd1S9CutoJTFLYuELd8cU58NRaHGJ7_SIJ4BqwQduwxbxBu9oM_IL0iP50MtRe",
+                    "width": 3032
+                }
+            ],
+            "place_id": "ChIJ____L-gW2jERhNi3iyGZ39w",
+            "plus_code": {
+                "compound_code": "9RFW+W6 Singapore",
+                "global_code": "6PH59RFW+W6"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ____L-gW2jERhNi3iyGZ39w",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 237
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Tampines Walk, #02-01 Our Tampines Hub, Singapore 528523",
+            "geometry": {
+                "location": {
+                    "lat": 1.3522195,
+                    "lng": 103.941163
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353734179892722,
+                        "lng": 103.9424132
+                    },
+                    "southwest": {
+                        "lat": 1.351034520107278,
+                        "lng": 103.938096
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Tampines Regional Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118082395255459356366\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECb4aoxPWemRAGGyWIm4mhFd5yjrytV6Vg0Asz3nx7GneWXKrTloXui1ok6iw7qtu_Ecy2IWsb9hDIsOWshuKTNNu4PYou8uGQ0_S2yK_OKJHRrcgTUJ_CDDpFmvi4_wpCz9F5xs9GJlkyyrt39A3IoF-bOW-gr07DVAporNJrlaGac",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJ8V6JYQ492jERAjykK83B_KU",
+            "plus_code": {
+                "compound_code": "9W2R+VF Singapore",
+                "global_code": "6PH59W2R+VF"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ8V6JYQ492jERAjykK83B_KU",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 352
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "53 Margaret Dr, Singapore 149297",
+            "geometry": {
+                "location": {
+                    "lat": 1.2986449,
+                    "lng": 103.8051823
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.299926279892722,
+                        "lng": 103.8064987798927
+                    },
+                    "southwest": {
+                        "lat": 1.297226620107278,
+                        "lng": 103.8037991201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Queenstown Public Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1458,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105863133358477079886\">Xoom Too</a>"
+                    ],
+                    "photo_reference": "Aap_uEDnO1GRVGiIqo9ZCMzhwBquBqxSpBEsbKftThPah7qN6QOMvCGaaWGazYRgCszOni0NSGL1ob14kx8KuyhxYHLdY4Uw2L75tIBCu49_NtsS7Lgv-tXhHu5Bjx_2Wbg2xjM87gvxMwU3EMkYeQM_1wm2MJ9M-sC4azkVjc471V4ep_iU",
+                    "width": 2592
+                }
+            ],
+            "place_id": "ChIJ-cuboDAa2jERf6hKqh96UC0",
+            "plus_code": {
+                "compound_code": "7RX4+F3 Singapore",
+                "global_code": "6PH57RX4+F3"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ-cuboDAa2jERf6hKqh96UC0",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 205
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "133 New Bridge Rd, #04-12 Chinatown Point, Singapore 059413",
+            "geometry": {
+                "location": {
+                    "lat": 1.2852093,
+                    "lng": 103.8447228
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.286588229892722,
+                        "lng": 103.8460095798927
+                    },
+                    "southwest": {
+                        "lat": 1.283888570107278,
+                        "lng": 103.8433099201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "library@chinatown",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2256,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115615589102659578379\">Benson Kong</a>"
+                    ],
+                    "photo_reference": "Aap_uECqPLWdNYdraAnWP6D1oNpSomQ5V-IxZiCPptXC0b24Qi86W9fttk2qppSYzwQd2zoBf3myzNwptEPaotQnRK28G75OFnRtnHQ8oHJEgFLeUcHneMpEjeQNybaCM_wceT2el2b9bIj2DhYexz7zDWGOVpPeSNkKOHDS29-mV1zK4YZq",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ2zOiSwsZ2jERY2Wt9PYlO_A",
+            "plus_code": {
+                "compound_code": "7RPV+3V Singapore",
+                "global_code": "6PH57RPV+3V"
+            },
+            "rating": 3.8,
+            "reference": "ChIJ2zOiSwsZ2jERY2Wt9PYlO_A",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 78
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Bishan Pl, #01-01, Singapore 579841",
+            "geometry": {
+                "location": {
+                    "lat": 1.3498471,
+                    "lng": 103.8487828
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.351226329892722,
+                        "lng": 103.8500783298927
+                    },
+                    "southwest": {
+                        "lat": 1.348526670107278,
+                        "lng": 103.8473786701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Bishan Public Library",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106433561089004003388\">pp</a>"
+                    ],
+                    "photo_reference": "Aap_uECNRBWMPVktdOF7nOxWwbqXN1msGhzxMOgBSMiBOKnmUx7F8TARjHSm0U6Z2RQcrk93kOyhnHtEioE7qQpnumKt9KLUv8dx4VX9U_szZ3c9e-oUhqL3GxFLVweEaYmSjK4LdmyI4s6ZPfswTFWZoykyxNX5ds25BkoaJZOe3rEFndk6",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ_yBIIRQX2jERvEDz9aXhFoU",
+            "plus_code": {
+                "compound_code": "8RXX+WG Singapore",
+                "global_code": "6PH58RXX+WG"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ_yBIIRQX2jERvEDz9aXhFoU",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 287
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "16 Clive St, Singapore 209776",
+            "geometry": {
+                "location": {
+                    "lat": 1.3052124,
+                    "lng": 103.852191
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306608979892722,
+                        "lng": 103.8534960798927
+                    },
+                    "southwest": {
+                        "lat": 1.303909320107278,
+                        "lng": 103.8507964201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "India Heritage Place",
+            "photos": [
+                {
+                    "height": 2736,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102797096805815923633\">U. U. S.</a>"
+                    ],
+                    "photo_reference": "Aap_uEC9Ud--TVwVUIKT7091gJ_JZZBM93ykJy9znzyDRrmncO4aqUeQyn3E9ERTvH8HEmAv0R2_uZ6YgU1lbI4Q-vvX-BIWgs3zUKIjx3GGRyU1MNaxQT7dmVR9h7zkqRAaUhfbudLyeU7Z1zChC4O7B1NubJiAQrJRFDhY-NchxbVE9J9B",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJB-N6JLkZ2jERfFlAFghMXxI",
+            "plus_code": {
+                "compound_code": "8V42+3V Singapore",
+                "global_code": "6PH58V42+3V"
+            },
+            "rating": 4.5,
+            "reference": "ChIJB-N6JLkZ2jERfFlAFghMXxI",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2
+        }
+    ],
+    "status": "OK"
+}

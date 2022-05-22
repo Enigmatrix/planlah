@@ -1,0 +1,1044 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEBcylcbdbl0iibFIBlA65-EZtKrTuoVbVtbKywfxJlJzMmWdivnRluPuXrl9-D10xjI4spbP7VrbcHpTpR0rqMaHQjH62nRvovNVtl-OfJL5w2I-VAgRR70dhaf1g-ADwH0s3h4kX3AeMsssrGa5MeAwQlX05WmK6v5Dxx_bi3_2EO8w6BuRmh53jg4H9ewLl5EUY06A7tvau9WdwnrKMxc2ZnGCvrWHhLR94eBU5txLDv0TVK1pX3_oJFnYEQA2H8ziqvNKNs6rxlz1aj7-6Mys2YKSk1MBVzXejD8QhDkwj0l7nT49niOOhJFoBZplyVhqE_9JxiHulcp0mrAcanG_O09ZoKKXC2krZ__S6CrjuxPwgVXdbDffcp3fnT_v-wfMcw9Qu4qe2zQAi7kMJjLs9uEb9sa2HQN03T5R3LkTbV-I6puWHhnD70NpqMSjTACI19nTeeQKNaD-Q",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Shenton Way OUE Downtown 1, Level 7, 068809",
+            "geometry": {
+                "location": {
+                    "lat": 1.2770952,
+                    "lng": 103.8484544
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.278486579892722,
+                        "lng": 103.8497360298927
+                    },
+                    "southwest": {
+                        "lat": 1.275786920107278,
+                        "lng": 103.8470363701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "SE7ENTH",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2038,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102400480542596292409\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDpizA7tIOH05ME4UNU5Uj6Xr8MdYuvt-_FQ-0lT2jGrljUKwK4IHXpQIwMOZkzwF6nQVbe4He4cYBdKyF-f2PqTyYYQ6M0DZrKYhM-ZwCReKo3NcJywczcWJR3RUoaIcrbJAMJW2zVthMVep68Ud-d9Rj5aLjnxrgeo3tAsSQt1CRq",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJ3ZlNshMZ2jERhqznV9CVZf0",
+            "plus_code": {
+                "compound_code": "7RGX+R9 Singapore",
+                "global_code": "6PH57RGX+R9"
+            },
+            "rating": 3.9,
+            "reference": "ChIJ3ZlNshMZ2jERhqznV9CVZf0",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 119
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "9 Wallich St, #5th Floor Sofitel Singapore City Centre, Singapore 078885",
+            "geometry": {
+                "location": {
+                    "lat": 1.2768365,
+                    "lng": 103.8454244
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.278090879892722,
+                        "lng": 103.8464876298927
+                    },
+                    "southwest": {
+                        "lat": 1.275391220107278,
+                        "lng": 103.8437879701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Racines, Sofitel Singapore City Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5792,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110611917034719881160\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAg5pErzDV4DKFj9G-uXhHaIylfuWqBPxde_pkpaJ2UmdvEsw629zdMV7PMvvh_1KOycKxVoz7CG8_E5LxGET8lfAkO34G_EHDFLZi8keVIqdc7WXhaSyqxHVdxDj8Vj9iEZAzK7EqTjMYmgOzodL2es_nNfIcwto3zZspo460DjibM",
+                    "width": 8688
+                }
+            ],
+            "place_id": "ChIJ40XBLRMZ2jERbbfLmu6y9z0",
+            "plus_code": {
+                "compound_code": "7RGW+P5 Singapore",
+                "global_code": "6PH57RGW+P5"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ40XBLRMZ2jERbbfLmu6y9z0",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 195
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "15 Stamford Rd, Singapore 178906",
+            "geometry": {
+                "location": {
+                    "lat": 1.293891,
+                    "lng": 103.8513613
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.295062879892722,
+                        "lng": 103.8525125298927
+                    },
+                    "southwest": {
+                        "lat": 1.292363220107278,
+                        "lng": 103.8498128701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "15 Stamford by Alvin Leung",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1824,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115493424453690470466\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDBYDG3K0LcGYBkifHf-PYEuKr7T43fkqemfVUW98lQ5Ae7rQmx2_yo8wzEODd1z129XYFC1DOSCUUh8NTjBsIY63WZUyA-kIDh84dAW4i8nGT4JGO64qPBoR4P7uIZYQSYYTaz6tiPH0pLGZWX3nwwaSvcSruX3TYI1tO0qhIxystA",
+                    "width": 2736
+                }
+            ],
+            "place_id": "ChIJywh1ppkZ2jERpvJYgCJhEhQ",
+            "plus_code": {
+                "compound_code": "7VV2+HG Singapore",
+                "global_code": "6PH57VV2+HG"
+            },
+            "rating": 4.3,
+            "reference": "ChIJywh1ppkZ2jERpvJYgCJhEhQ",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 301
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Straits Blvd, #01-02, Singapore 018906",
+            "geometry": {
+                "location": {
+                    "lat": 1.275766,
+                    "lng": 103.8496856
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.277096129892722,
+                        "lng": 103.8509208798927
+                    },
+                    "southwest": {
+                        "lat": 1.274396470107278,
+                        "lng": 103.8482212201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Cherki",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1575,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104304476343076022916\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAJ5WxdIZlK-hnVcA5fw2XBSp7hiRVJA9BvgUumLtojrMbQ-GUYwNVCWbJFaBjhgOcGyO8dWHECnZZV-uEoXVskkKVUj4edFo5W5w_qoJEs9W3K2LeA-sujGptMhWm1nre2MsgJZ-6bgNZimZs8KvceaS9Nu21q5NQ5xsEDclLhP_pT",
+                    "width": 2362
+                }
+            ],
+            "place_id": "ChIJzznLm3EZ2jER2QN1HQcWgz0",
+            "plus_code": {
+                "compound_code": "7RGX+8V Singapore",
+                "global_code": "6PH57RGX+8V"
+            },
+            "rating": 4.6,
+            "reference": "ChIJzznLm3EZ2jER2QN1HQcWgz0",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 277
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6A Shenton Way, #01-09/10 OUE Downtown Gallery, Singapore 068815",
+            "geometry": {
+                "location": {
+                    "lat": 1.2766707,
+                    "lng": 103.8483399
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.277974929892722,
+                        "lng": 103.8497639798927
+                    },
+                    "southwest": {
+                        "lat": 1.275275270107278,
+                        "lng": 103.8470643201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Takayama",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 5792,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108794349699885457778\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDwWqQsaIVbJtXeA_b5kUYHeqB3vGBf301KyN8StQBjqPqjQj6TZxmcq2CTJ_k0bmim5VaXn38Fe3TiQNLvQkI93BV27NNtyJLBgqt4KImKPzRAkFa47x1FnuVx-gba6UMVukOXY0zzCJwBjBEFuMWxIo6gSRzMc_vFz2Y3P40oENvB",
+                    "width": 8688
+                }
+            ],
+            "place_id": "ChIJp8B_pBMZ2jERHR4XzRxCqvM",
+            "plus_code": {
+                "compound_code": "7RGX+M8 Singapore",
+                "global_code": "6PH57RGX+M8"
+            },
+            "rating": 4.7,
+            "reference": "ChIJp8B_pBMZ2jERHR4XzRxCqvM",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 90
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6A Shenton Way, #03-20 Oue Downtown Gallery, Singapore 068815",
+            "geometry": {
+                "location": {
+                    "lat": 1.2771468,
+                    "lng": 103.8485274
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.278427179892722,
+                        "lng": 103.8499892298927
+                    },
+                    "southwest": {
+                        "lat": 1.275727520107278,
+                        "lng": 103.8472895701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Peace Japanese Cuisine",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 768,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103662071038359445948\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDojUdq-9jOtSfAVeJMyn3nnQzkLY1Jf6i3qDyEfYT_9zBm_mCu-Jrj03-geOajdJkOhLEp0gPpbZFKFc_lSg2Ziu4yk3udYL7_U3SEcRtmULU8Gde3EUylopX0LdPGAYC7ysUL529q48M5mbw-btPFJB0cKHn4CMm1A_gAwVDZVVXX",
+                    "width": 1024
+                }
+            ],
+            "place_id": "ChIJJ-XUGm4Q2jERpYrkjWbYjyw",
+            "plus_code": {
+                "compound_code": "7RGX+VC Singapore",
+                "global_code": "6PH57RGX+VC"
+            },
+            "rating": 4.2,
+            "reference": "ChIJJ-XUGm4Q2jERpYrkjWbYjyw",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 242
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6A Shenton Way, #B1-07 OUE Downtown Gallery, Singapore 068815",
+            "geometry": {
+                "location": {
+                    "lat": 1.2783427,
+                    "lng": 103.8493227
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.279639479892722,
+                        "lng": 103.8507617798927
+                    },
+                    "southwest": {
+                        "lat": 1.276939820107278,
+                        "lng": 103.8480621201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Providore (Downtown Gallery)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106994956614980502611\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAFxowXB0JYkkAW202b_uNTrEG717YWSdNiXbl9x9mgSz5hAxKb9wfKpaPa_S-RkFKYq0ONXs1yNQ32Hz-RMCCJTmBUjcnwswHd551cLlRcvW9TZ41HdYE9lfhju-axfiLT_GYq0IzvSpNSdWbXL2TlGzeEI-J7PmShQyqoDc08p-pE",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJi5p3pRMZ2jERqmLSlcFVZb0",
+            "plus_code": {
+                "compound_code": "7RHX+8P Singapore",
+                "global_code": "6PH57RHX+8P"
+            },
+            "rating": 4,
+            "reference": "ChIJi5p3pRMZ2jERqmLSlcFVZb0",
+            "types": [
+                "cafe",
+                "grocery_or_supermarket",
+                "bakery",
+                "meal_takeaway",
+                "store",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 199
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "83 Club St, Singapore 069451",
+            "geometry": {
+                "location": {
+                    "lat": 1.281828,
+                    "lng": 103.8458368
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.283196629892722,
+                        "lng": 103.8471918298927
+                    },
+                    "southwest": {
+                        "lat": 1.280496970107278,
+                        "lng": 103.8444921701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "NOX - Dine in the Dark",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2832,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115371392198748737679\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAovBx6T6QigLtIZA67Fb1kg3NGyNMb9unjb3FzIxf0xwdx_pxrWCctwElpI249Rso9AFVAkrikm8UCAe-9RLPkB3xANrTjsamjEbjHVjNc-bEliWjUbRi9K7A6Cwi8mxsyzIuMWykit0C3B_8YC-KiFw_R3XJiuKnPEurgxLj7VzbS",
+                    "width": 4256
+                }
+            ],
+            "place_id": "ChIJ8aeYp7EZ2jER1_QRLriAt_E",
+            "plus_code": {
+                "compound_code": "7RJW+P8 Singapore",
+                "global_code": "6PH57RJW+P8"
+            },
+            "price_level": 3,
+            "rating": 4.4,
+            "reference": "ChIJ8aeYp7EZ2jER1_QRLriAt_E",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 720
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Coleman St, Level 3, Singapore 179809",
+            "geometry": {
+                "location": {
+                    "lat": 1.2927303,
+                    "lng": 103.8502489
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293859679892722,
+                        "lng": 103.8514792798927
+                    },
+                    "southwest": {
+                        "lat": 1.291160020107278,
+                        "lng": 103.8487796201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Tablescape Restaurant and Bar",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1591,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115352633168279282697\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDxlpTNOGz5ObKzpWQ0pHbXJN9MrKG7YCcnbrhuU3DzwzLunLYjV51LwpYBNDU7ZSW_ma5DDEojqA8aPF71Euueu1W8MMvhY7OM090edQa0bWlAHNrM7j8poxgBz6TLtjFMHDzl4t7XHkObf1YAQK4MpFkvMLVpWV3qyPq5xjrXSGCB",
+                    "width": 1061
+                }
+            ],
+            "place_id": "ChIJt0qESaEZ2jER7u_74WZ58yI",
+            "plus_code": {
+                "compound_code": "7VV2+33 Singapore",
+                "global_code": "6PH57VV2+33"
+            },
+            "rating": 4.5,
+            "reference": "ChIJt0qESaEZ2jER7u_74WZ58yI",
+            "types": [
+                "bar",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 130
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "100 Peck Seah St, #01-01 Oasia Hotel Downtown, Singapore 079333",
+            "geometry": {
+                "location": {
+                    "lat": 1.2758957,
+                    "lng": 103.8442496
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.277221029892722,
+                        "lng": 103.8455767798927
+                    },
+                    "southwest": {
+                        "lat": 1.274521370107278,
+                        "lng": 103.8428771201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Marmalade Pantry (Downtown)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114719851114610534725\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECd5luh6CRMtnc3pM65Bf6k3gD_SvLkGuSrpBW1BdN7L4utb--JL9ZRCyQsC8jFJWFbua4Zju7bdoaq8svgVumarUp8chhZ4lFXAWXDrH6S5JL24dlNmHpbNdKpRWU3wv5Xx1kEuxTCwOAt79bXjowTj6gDqjPWuhtS3E06PAr9c8hS",
+                    "width": 1080
+                }
+            ],
+            "place_id": "ChIJ4TWEs2wZ2jERlHnfsC0JPQU",
+            "plus_code": {
+                "compound_code": "7RGV+9M Singapore",
+                "global_code": "6PH57RGV+9M"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ4TWEs2wZ2jERlHnfsC0JPQU",
+            "types": [
+                "restaurant",
+                "bakery",
+                "cafe",
+                "store",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 365
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Marina Blvd, #01-02, Singapore 018987",
+            "geometry": {
+                "location": {
+                    "lat": 1.2811436,
+                    "lng": 103.8530077
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.282622129892722,
+                        "lng": 103.8544217798927
+                    },
+                    "southwest": {
+                        "lat": 1.279922470107278,
+                        "lng": 103.8517221201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Sommer",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3703,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109254304207063601903\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB6e4jDMK16qiNEdGx-KSBrDEvXaTfzh4YGFpA6lVPq7j8_NtDo9EnbM3rmiZ8tFQ9jva_LTwMIzeBh1bpKJTdcQHK-16-0MDr_BCpXUQmMZaEZT9n4pvMWazVAAqUxBiayQi5UIMb5DLwC6U2sni7zOlH6u_w0Djd5719Bg1p4YmYQ",
+                    "width": 3720
+                }
+            ],
+            "place_id": "ChIJhQtWUpcZ2jERZop-FeD1cCY",
+            "plus_code": {
+                "compound_code": "7VJ3+F6 Singapore",
+                "global_code": "6PH57VJ3+F6"
+            },
+            "rating": 4.7,
+            "reference": "ChIJhQtWUpcZ2jERZop-FeD1cCY",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 73
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Collyer Quay, Level 43 Ocean Financial Centre, Singapore 049315",
+            "geometry": {
+                "location": {
+                    "lat": 1.2832397,
+                    "lng": 103.8520217
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.284437079892722,
+                        "lng": 103.8535165798927
+                    },
+                    "southwest": {
+                        "lat": 1.281737420107278,
+                        "lng": 103.8508169201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Zafferano Italian Restaurant & Lounge",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1367,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104019069556588529144\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEC3e_Dp7wW9WYcbQi3g3RUlAagkXbSwyAP1cQrbghMV8jiCgCubil32L3xqH36vG7qiefibgiuAuBVKz1BqKHpNGjlGrN_lHpxLaVjYDZR7Wu6LuCt7Ye1c3ijURDxDPOx13rjDRrLTTwufJCQxxS-sTpZmz9Qgr6ffW0FQOfEbhFZg",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJ8Ts47w4Z2jER3wgHYemC4hw",
+            "plus_code": {
+                "compound_code": "7VM2+7R Singapore",
+                "global_code": "6PH57VM2+7R"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ8Ts47w4Z2jER3wgHYemC4hw",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 703
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Pasir Ris Cl, Singapore 519599",
+            "geometry": {
+                "location": {
+                    "lat": 1.3776279,
+                    "lng": 103.9546233
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.37887275,
+                        "lng": 103.9576651
+                    },
+                    "southwest": {
+                        "lat": 1.37389335,
+                        "lng": 103.9514175
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Downtown East",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2263,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116158461467146152367\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDNsrVdLIG2LHWCXmUsv9RxYCLck6X1auhTqGX1TNInOBzkWaazWfo2viYeFKmz8J_M3UyL_RVKLkhYAllOb3DaNYdsaOxz_Gs_E7l3eP8Ngqi9rirFTdjcamgUx1t2qE5fHn4z_roWiJ8z82FMb4KEJJy6hJQZu90iZpXdUlgqb8cz",
+                    "width": 4021
+                }
+            ],
+            "place_id": "ChIJHeeu2LU92jER7QLDVe4tKf0",
+            "plus_code": {
+                "compound_code": "9XH3+3R Singapore",
+                "global_code": "6PH59XH3+3R"
+            },
+            "rating": 4.3,
+            "reference": "ChIJHeeu2LU92jER7QLDVe4tKf0",
+            "types": [
+                "shopping_mall",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 8356
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Scotts Rd, #03 - 07, Singapore 228208",
+            "geometry": {
+                "location": {
+                    "lat": 1.3064282,
+                    "lng": 103.8318919
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.307778629892722,
+                        "lng": 103.8333056298927
+                    },
+                    "southwest": {
+                        "lat": 1.305078970107278,
+                        "lng": 103.8306059701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Kausmo",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118025284559785164962\">Christopher Wan</a>"
+                    ],
+                    "photo_reference": "Aap_uEDGAeJ2vgzOzyV5d2YZYuhXvHmHiQ0iz2anLEXtn0xevTJZQWnaajmdGaYo1EkQt-RtbWymAelrT8mL01WCxYB7csM4j_pCiF_sL93gkqV7lIjAvwRUdfXYOcliqxPQKOCmXTQAwpOtVVVtnWw1adq1JXrpFdqhnP_nAEJf039WU0MK",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJPd6AnO4Z2jERcT9poPcD8vk",
+            "plus_code": {
+                "compound_code": "8R4J+HQ Singapore",
+                "global_code": "6PH58R4J+HQ"
+            },
+            "rating": 4.7,
+            "reference": "ChIJPd6AnO4Z2jERcT9poPcD8vk",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 57
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "45 Amoy St, Singapore 069871",
+            "geometry": {
+                "location": {
+                    "lat": 1.2804262,
+                    "lng": 103.8468933
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.281777229892722,
+                        "lng": 103.8482400298927
+                    },
+                    "southwest": {
+                        "lat": 1.279077570107278,
+                        "lng": 103.8455403701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Solo Ristorante",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109997351426476422863\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB0bzgsM5IfA9P-zoNU6V7peN-wk1Dg8xw8LfiBi0wpUYWrY5jjidFi8GZD8Q4MWH5AEGM_6LHpLHuDm072kNAbH49_lK373fyudUJjLod-hEYRVFnvu6233krrWEuasuhST1pMADG2Pn-w223A9Pf0zhOEills2AZ0cYHK9ziRxId2",
+                    "width": 2047
+                }
+            ],
+            "place_id": "ChIJYXLLQe4Z2jERB0NIfypwc8I",
+            "plus_code": {
+                "compound_code": "7RJW+5Q Singapore",
+                "global_code": "6PH57RJW+5Q"
+            },
+            "rating": 4.6,
+            "reference": "ChIJYXLLQe4Z2jERB0NIfypwc8I",
+            "types": [
+                "meal_delivery",
+                "store",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 296
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "7 Raffles Ave, Singapore 039799",
+            "geometry": {
+                "location": {
+                    "lat": 1.2908195,
+                    "lng": 103.86009
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2923304,
+                        "lng": 103.8610879298927
+                    },
+                    "southwest": {
+                        "lat": 1.288708,
+                        "lng": 103.8583882701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Colony",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 953,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103021670346956940856\">Colony</a>"
+                    ],
+                    "photo_reference": "Aap_uECgqn4Je5kaGqKztahWPENbTfelHWnLdXeAoFD3wvsAzKLTv9NW19a11H9jrD330RiA5YJ5CvnEDv0Fv8lGtns489lfljeJGMHDq4K1uuUm48y6jnGdCSSo4EIUE7vN3xqL_JPFzHK2tB7eK2_J0Ete_bMOc72ZAUDcDYtAvbiYUks",
+                    "width": 1500
+                }
+            ],
+            "place_id": "ChIJ02kZpakZ2jERDQVTq10I8b0",
+            "plus_code": {
+                "compound_code": "7VR6+82 Singapore",
+                "global_code": "6PH57VR6+82"
+            },
+            "price_level": 4,
+            "rating": 4.6,
+            "reference": "ChIJ02kZpakZ2jERDQVTq10I8b0",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 1099
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "36 Purvis St, #01-03, Singapore 188613",
+            "geometry": {
+                "location": {
+                    "lat": 1.2966208,
+                    "lng": 103.8549145
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.298006029892722,
+                        "lng": 103.8562925298927
+                    },
+                    "southwest": {
+                        "lat": 1.295306370107278,
+                        "lng": 103.8535928701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Gunther's",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4397,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107049329597080540256\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBB6elY4Jx4gd4Ly9tF2-8_x6RuFPBM_vynJSB9KVKIeX1UiBhxz1x2cr-rilozQM03GYbbBz6cKH0PdEAWvGr4QmTjjk4slHZjfhc-das541LYRw3NO5OvfTTLwIqM-U40WERadqNqWTlCadNUNNVBxLSTHFLKTqibcj2xsS7WcY7j",
+                    "width": 6526
+                }
+            ],
+            "place_id": "ChIJ0Wkqc6UZ2jERmam6mzVinfg",
+            "plus_code": {
+                "compound_code": "7VW3+JX Singapore",
+                "global_code": "6PH57VW3+JX"
+            },
+            "price_level": 4,
+            "rating": 4.5,
+            "reference": "ChIJ0Wkqc6UZ2jERmam6mzVinfg",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 222
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Collyer Quay, Tower, Level 8 & 10, OUE 049322",
+            "geometry": {
+                "location": {
+                    "lat": 1.2834932,
+                    "lng": 103.8531439
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.284858629892722,
+                        "lng": 103.8543308798927
+                    },
+                    "southwest": {
+                        "lat": 1.282158970107278,
+                        "lng": 103.8516312201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "T\u00f3ng L\u00e8 Private Dining",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113121521961034964626\">The Red Marker SG</a>"
+                    ],
+                    "photo_reference": "Aap_uEAHnFDwW7hjEouLU-OzVIrCnbyvq-LB2LiASGx8CYaJcJPYifg56STA4oYDP4VzrPgn4QkECcOR1Magl8a-UXu4rdzPN7BKhRFuSQ5AcA_BZmcQeYFVsnVhg9WopvPTiinIAh3WUPP2bH7YrJwJGFAm7IdZwMNOQY0x6ES6Ftv97vha",
+                    "width": 5760
+                }
+            ],
+            "place_id": "ChIJ6bdv5g4Z2jER4MBnHQehiOE",
+            "plus_code": {
+                "compound_code": "7VM3+97 Singapore",
+                "global_code": "6PH57VM3+97"
+            },
+            "price_level": 3,
+            "rating": 4.4,
+            "reference": "ChIJ6bdv5g4Z2jER4MBnHQehiOE",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 211
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "104 Amoy St, Singapore 069924",
+            "geometry": {
+                "location": {
+                    "lat": 1.281756,
+                    "lng": 103.8474108
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.283070029892722,
+                        "lng": 103.8488238298927
+                    },
+                    "southwest": {
+                        "lat": 1.280370370107278,
+                        "lng": 103.8461241701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Lerouy",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 713,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114338331717350966917\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEARMxEv9wpWxr84fIKAR9q6unWMrCn5cBvFKStYEymDmgq42BpDMxkc3Wt51SbcXBdYS05XAUMdoqBb46gaUsZnpqYGGpJOKcy9tm7hWcRrnZeECyb-8aUam0V79n8GU5T9BX_ZuJNndc9W3OtWlNhY5x_aPUo7uU3dlIghOkDGQuIw",
+                    "width": 1080
+                }
+            ],
+            "place_id": "ChIJbSjVgQ0Z2jER4D6B04Wg9tY",
+            "plus_code": {
+                "compound_code": "7RJW+PX Singapore",
+                "global_code": "6PH57RJW+PX"
+            },
+            "rating": 4.5,
+            "reference": "ChIJbSjVgQ0Z2jER4D6B04Wg9tY",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 341
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6A Shenton Way, #02-23 Oue Downtown Gallery, Singapore 068815",
+            "geometry": {
+                "location": {
+                    "lat": 1.2780913,
+                    "lng": 103.8491641
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.279385929892722,
+                        "lng": 103.8506047798927
+                    },
+                    "southwest": {
+                        "lat": 1.276686270107278,
+                        "lng": 103.8479051201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Wafuken",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110429727831484436497\">Gary Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uECC4mShmA5sz58rDQxR6eUrmuq_zYOzW01zTc3BhcphbvNjGWXwAXH958EqWjRfh4B4ULIScQsr-f2i0Cps68oly-Wz_6EDyfWXov6hottScLVvKDVpX-_fdgf0XXv3bpB5cVD4uOrgDRz2YE-Y4_6aBi963b6DnQ7T1CIs4NfH9c5X",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJi5p3pRMZ2jERlhUUebnlBGk",
+            "plus_code": {
+                "compound_code": "7RHX+6M Singapore",
+                "global_code": "6PH57RHX+6M"
+            },
+            "rating": 4.3,
+            "reference": "ChIJi5p3pRMZ2jERlhUUebnlBGk",
+            "types": [
+                "health",
+                "store",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 125
+        }
+    ],
+    "status": "OK"
+}

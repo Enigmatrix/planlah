@@ -1,0 +1,1004 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEBh_Vw2gf5Ns_Q5kMSv-x_oJmiqD8CEs2uZLyTApX8dV-T_6G_1dDCHBt6nuZqxrh9QpJDRuH2myyhSbQ1MNfBbwb8NAQHQjPXy9_vqs0QUXVD-JNKhOwdJ4gkXp2yMOHbjHOcpxzMEeUcsCchYmhk6fvkPJ3iltuqeHcvVEyTIjuLCeRcfiSOKnc7hrPewHAHHzRn7_yjTnLQJJlrQJteCxYVSv3gIa_uxIYj-UQGPcMngCN8C1c1D9uh96JHoI3h29_pjgd6GaqFqOVae97yltNHShGZMf8FHLgJJWcularI6_SFO7184-sfKxeuvU3wtJwSJT0A_vdxcmKs3TlxEATA-4SAFm_rQRW6N0zCg0XTTq4kkXZ3R6OWoSviKls-6qI0PEzSaVCbxppaCAArKhxZ_nd9AFMb9DivIFG3F9EYE7MQub8yGpe0EzjPnxrX3pdELoyC8fMW-PTAv8g",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Shenton Way, Singapore 068809",
+            "geometry": {
+                "location": {
+                    "lat": 1.2783805,
+                    "lng": 103.8491975
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2792787,
+                        "lng": 103.8501256
+                    },
+                    "southwest": {
+                        "lat": 1.2759099,
+                        "lng": 103.8473804
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "OUE Downtown 2",
+            "photos": [
+                {
+                    "height": 2941,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110316451866688483932\">Simon Yang</a>"
+                    ],
+                    "photo_reference": "Aap_uEBOp5rgsv5Ep0dnEKqTcKZ9bqXo2D8BFzYDaaBSu2zZZ6BjgHJJ1AQkvqhT7UFxm-oYY5OnujFghOLBvutsCF1Cb_oBJFiZ_dhVkjQHg9xHRLheYL4U6HixMKJBlZbeK9AWfVuKiPkyVnUYfCQ6NeGcvzeV62jbWbI00FBujlWtLP5G",
+                    "width": 3921
+                }
+            ],
+            "place_id": "ChIJddB_G30Z2jERTtNZy8DQEI0",
+            "plus_code": {
+                "compound_code": "7RHX+9M Singapore",
+                "global_code": "6PH57RHX+9M"
+            },
+            "rating": 4.3,
+            "reference": "ChIJddB_G30Z2jERTtNZy8DQEI0",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 225
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "35 Selegie Rd, Singapore 188307",
+            "geometry": {
+                "location": {
+                    "lat": 1.300672,
+                    "lng": 103.8494284
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302014229892722,
+                        "lng": 103.8508301798927
+                    },
+                    "southwest": {
+                        "lat": 1.299314570107278,
+                        "lng": 103.8481305201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Parklane Shopping Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118265022714654251397\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBOi-FNw9Zq0yF-scp_Qs86r3wIfgHKL3vxSy9YwvfjMlAT7pbxj8vIvnZ1-hDZREUvAw2yHhmCuVfpp8l0GcrHcMxJOjTk2RN_f5KV8iwYgpFmjIXs6S1_cgBJMigWjoKzpOlN5aHdSr8FQ8_u5OcQaJXB7m39LtIFkWHjOutQ8-g",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ77IWi94Z2jERf9Jx6rdK8O0",
+            "plus_code": {
+                "compound_code": "8R2X+7Q Singapore",
+                "global_code": "6PH58R2X+7Q"
+            },
+            "rating": 3.7,
+            "reference": "ChIJ77IWi94Z2jERf9Jx6rdK8O0",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 110
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "583 Orchard Rd, Singapore 238884",
+            "geometry": {
+                "location": {
+                    "lat": 1.3061667,
+                    "lng": 103.8284991
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.307537879892722,
+                        "lng": 103.8297422298927
+                    },
+                    "southwest": {
+                        "lat": 1.304838220107278,
+                        "lng": 103.8270425701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Forum The Shopping Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100261599938038600892\">Eric Wong</a>"
+                    ],
+                    "photo_reference": "Aap_uEAZv0cEkZP-cYmfyawwB_kiy6-TfY2wSIm_wUkFafY-dbT5azojwrW16IY6EzESnmvoN6qC9Mp2BBknUzwBt2DSdzZL2oiQaHPWtJ8s_-I54Ic2VS0m_w3EsCAM2I60PoPLrazSsteX9hADPemJRlZUZHLIDNK8QzFmBTI6-4r0pkqw",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJQe8Ik4wZ2jERM78XCNBVhe0",
+            "plus_code": {
+                "compound_code": "8R4H+F9 Singapore",
+                "global_code": "6PH58R4H+F9"
+            },
+            "rating": 4,
+            "reference": "ChIJQe8Ik4wZ2jERM78XCNBVhe0",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2338
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "23 Serangoon Central, Singapore 556083",
+            "geometry": {
+                "location": {
+                    "lat": 1.3504646,
+                    "lng": 103.8727453
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.352152529892722,
+                        "lng": 103.8737684798927
+                    },
+                    "southwest": {
+                        "lat": 1.349452870107278,
+                        "lng": 103.8710688201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "NEX",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115217123530634184070\">ben lim</a>"
+                    ],
+                    "photo_reference": "Aap_uEDV517OwdAPyrGs0aipR1A1k--l2aSMlAZyxdDBGYzI7kc1Q3EYTaWwlf9jaWvfHba43SUqG8Dolv3G2sJpTkVfCZYFWGcMsMdX67P5tcIbr9YpO35DTA77z3_0bAld1xfC3CtEaq9xAXOkYpx8QcEj-BnhhM7zaoRExsUs0stCkcy3",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJeRqAraYX2jERQpyIAXSU1SU",
+            "plus_code": {
+                "compound_code": "9V2F+53 Singapore",
+                "global_code": "6PH59V2F+53"
+            },
+            "rating": 4.3,
+            "reference": "ChIJeRqAraYX2jERQpyIAXSU1SU",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 18626
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 New Bugis Street, Singapore 188867",
+            "geometry": {
+                "location": {
+                    "lat": 1.3006613,
+                    "lng": 103.8549626
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302137579892722,
+                        "lng": 103.8561470798927
+                    },
+                    "southwest": {
+                        "lat": 1.299437920107278,
+                        "lng": 103.8534474201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Bugis Street",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103253506566773081618\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uED2xAjrl8GID-MIzkr7WUcen9SFZnTjxCLpYx9uOZY72cuRwhgu_zyZrt9wkK29W-FU5Usl7KRGezvfAlRKcuLOSbEnzDxvsDPDnNA1JoRdgsDYfnkGDKrgJEaNR9_H8_W4ZqrOuNKsmKMipVl4Ze0SpB_WxCeP0T_35Rs2tcESW18V",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJj7TW9LoZ2jERQgNlXkKhASQ",
+            "plus_code": {
+                "compound_code": "8V23+7X Singapore",
+                "global_code": "6PH58V23+7X"
+            },
+            "rating": 4.3,
+            "reference": "ChIJj7TW9LoZ2jERQgNlXkKhASQ",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 16414
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "101 Thomson Rd, Singapore 307591",
+            "geometry": {
+                "location": {
+                    "lat": 1.3171849,
+                    "lng": 103.8436045
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318504329892722,
+                        "lng": 103.8451681298927
+                    },
+                    "southwest": {
+                        "lat": 1.315804670107278,
+                        "lng": 103.8424684701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "United Square Shopping Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110331636782011701321\">Lin Yaw Lim</a>"
+                    ],
+                    "photo_reference": "Aap_uECs-7n5USOlkDWyHwc9MkUcTnrYGa5P-gVGj4TUZ9GeO_5P6018YjeAgIaV75ZfJqSPEYBYLoNIKXuRalJ7oiUJeU1G4WM0Nm37RMbPLSBSB-PoTJVNn7TINI0vZVmpBQHzi6X1OIYfEbdihrdnBwrF0hvKVg4CFNzpzOpnf9pu2xmO",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJRX3v4ecZ2jERD0BlqjhXKCc",
+            "plus_code": {
+                "compound_code": "8R8V+VC Singapore",
+                "global_code": "6PH58R8V+VC"
+            },
+            "rating": 4.1,
+            "reference": "ChIJRX3v4ecZ2jERD0BlqjhXKCc",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4353
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "68 Orchard Rd, Singapore 238839",
+            "geometry": {
+                "location": {
+                    "lat": 1.3005317,
+                    "lng": 103.8452356
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.30155065,
+                        "lng": 103.8468651
+                    },
+                    "southwest": {
+                        "lat": 1.29829685,
+                        "lng": 103.8433031
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Plaza Singapura",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116675207955272717700\">Michael</a>"
+                    ],
+                    "photo_reference": "Aap_uEDKiUBKOtXHxNlz7aAdf7lKaHeDJu-3zZCRQqpo_8a7mWUEqO4TyR83riPZ0kSuz7xwHywE-D4W65OS1I-S1mUf5VXuew4oAWWeRyq0fxhFrmGZw1DAwfV52f86a9tBJXce48dlsWeN8eIQjins4Njs3cWa9HaKh1HfnOIGI-9rPCuQ",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJR1Fyfr0Z2jERzwO-AZiJ-HM",
+            "plus_code": {
+                "compound_code": "8R2W+63 Singapore",
+                "global_code": "6PH58R2W+63"
+            },
+            "rating": 4.4,
+            "reference": "ChIJR1Fyfr0Z2jERzwO-AZiJ-HM",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 18363
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "252 North Bridge Rd, Singapore 179103",
+            "geometry": {
+                "location": {
+                    "lat": 1.29401,
+                    "lng": 103.8531473
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.295191179892722,
+                        "lng": 103.85510275
+                    },
+                    "southwest": {
+                        "lat": 1.292491520107278,
+                        "lng": 103.85193535
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Raffles City Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116675207955272717700\">Michael</a>"
+                    ],
+                    "photo_reference": "Aap_uEDLwkGshX26SBHt-uvwAlhigRTb7qiGGajEy1Og5jrr1KQUhRWBR9fmosJkFEftC20u8IZvIWXwwM32PeW_2UzdOzJatv1Z-WOQQbnVZh4pkv5vDGQps95o4qSUEZrIubBghS5qJzIBuvDMl3d4WmK6erLU4HfqycTBPB4Xqm5_r8Lb",
+                    "width": 3146
+                }
+            ],
+            "place_id": "ChIJ5QaXI4kZ2jER6yB_aFocFMw",
+            "plus_code": {
+                "compound_code": "7VV3+J7 Singapore",
+                "global_code": "6PH57VV3+J7"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ5QaXI4kZ2jER6yB_aFocFMw",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1372
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Raffles Blvd, Marina Square, Singapore 039594",
+            "geometry": {
+                "location": {
+                    "lat": 1.2911534,
+                    "lng": 103.8576778
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.292906679892722,
+                        "lng": 103.8589905298927
+                    },
+                    "southwest": {
+                        "lat": 1.290207020107278,
+                        "lng": 103.8562908701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Marina Square",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1992,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">Thiam Beng Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBGQmX7_8JcBv-i42xZvMYsmIJaYWELo7easiXsCeSW1zWPkjcmmOhyKnomnc2ajGGguLZSc1_NrAeiJpEh73tKOlEsIelU6smYulVV8SueSgGHla4SxKYIzSi1iG5ySEfXwq-Hx0i1gAN4BBlb1vVSXehz3CwkcoeBOxeS0obJTcz2",
+                    "width": 3541
+                }
+            ],
+            "place_id": "ChIJ9UKUtjsZ2jER-VszUURb3LI",
+            "plus_code": {
+                "compound_code": "7VR5+F3 Singapore",
+                "global_code": "6PH57VR5+F3"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ9UKUtjsZ2jER-VszUURb3LI",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14773
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Orchard Turn, Singapore 238801",
+            "geometry": {
+                "location": {
+                    "lat": 1.3039288,
+                    "lng": 103.8319512
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305012279892722,
+                        "lng": 103.8332096298927
+                    },
+                    "southwest": {
+                        "lat": 1.302312620107278,
+                        "lng": 103.8305099701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "ION Orchard",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116675207955272717700\">Michael</a>"
+                    ],
+                    "photo_reference": "Aap_uECsThV_90UrdBcDvhqqDXNwUlAVrXHVo3lJThDaXGuCJgNetUV6i_G18BB7NkAm9rGRZLEbjR96I-Zy1VyLivSbfGKExqKV_drHyTducEHdT4TUyC-_BB5NGLQh2uHjYbAx4Jqk9k1UsrrHE8018amUylHY-MLtiA8y-nCKWiHbPjLg",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJu6qq6Y0Z2jERZQZRLwnba5k",
+            "plus_code": {
+                "compound_code": "8R3J+HQ Singapore",
+                "global_code": "6PH58R3J+HQ"
+            },
+            "rating": 4.5,
+            "reference": "ChIJu6qq6Y0Z2jERZQZRLwnba5k",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 23952
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 HarbourFront Walk, Singapore 098585",
+            "geometry": {
+                "location": {
+                    "lat": 1.2644032,
+                    "lng": 103.8222071
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.266095279892722,
+                        "lng": 103.8228901
+                    },
+                    "southwest": {
+                        "lat": 1.263395620107278,
+                        "lng": 103.8201581
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "VivoCity",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116675207955272717700\">Michael</a>"
+                    ],
+                    "photo_reference": "Aap_uEDd8CFpj2KrpEc7ctZzmMnU5MyUJqRD5vti8A4k2Zml0K_dmrtFgsfUnkE9lGqL4gzVoQPTbIU08bt9f7SaSNvgj4uAQ71TBfqWnIn_8fCF432EheaH0j4wSTyj9ecsRrRdfMBvl5YrdTq1nr4SW9GRQfnu3lYYyVkDk04K6nQ-juFf",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJK7xLl1gZ2jERP_GdUY9XNLo",
+            "plus_code": {
+                "compound_code": "7R7C+QV Singapore",
+                "global_code": "6PH57R7C+QV"
+            },
+            "rating": 4.5,
+            "reference": "ChIJK7xLl1gZ2jERP_GdUY9XNLo",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 43469
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "501 Orchard Rd, Singapore 238880",
+            "geometry": {
+                "location": {
+                    "lat": 1.3047145,
+                    "lng": 103.8305375
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306256179892722,
+                        "lng": 103.8317471798927
+                    },
+                    "southwest": {
+                        "lat": 1.303556520107278,
+                        "lng": 103.8290475201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Wheelock Place",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114303448308582493090\">Chong Keat hoau</a>"
+                    ],
+                    "photo_reference": "Aap_uEDoVy0lEDQb4RoNo2wcmH-iEOv6r3xYAD6lUWGwJpVleiE0OQDtF6NGBKh4d0BncHXwNSnzcrq5efp5-wY5EXAGDq8JqDfgQZ9kXqlpsubAmjicUONgYHtAZ4rCaoY5MKxH90MpzGftzI56-0wySlvU3KV6HRaHxQm84wOiOTJlpj3s",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJmbzds40Z2jERALKuryaSSVI",
+            "plus_code": {
+                "compound_code": "8R3J+V6 Singapore",
+                "global_code": "6PH58R3J+V6"
+            },
+            "rating": 4.1,
+            "reference": "ChIJmbzds40Z2jERALKuryaSSVI",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3202
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "391A Orchard Rd, Singapore 238873",
+            "geometry": {
+                "location": {
+                    "lat": 1.3025572,
+                    "lng": 103.834568
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3046072,
+                        "lng": 103.83676605
+                    },
+                    "southwest": {
+                        "lat": 1.3008956,
+                        "lng": 103.83264705
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Ngee Ann City",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1980,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">Thiam Beng Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBznx0eVZyov6cjTobJrRzDlC070Y4F_NMMkAzd7bQWBvuctAg27Z2tVuLnBYxTDC8DeEd-9k4SkxXM-zHOKf2mdPs6zIjFlFPBd7TINeXKNvkTat-HTj_jZkCrGTz37bIFstvJnyynQhLIM3kfgguMdDWopil4o8gV03ReXbFefcno",
+                    "width": 4179
+                }
+            ],
+            "place_id": "ChIJ_7pt85EZ2jERPfKpmuwrzys",
+            "plus_code": {
+                "compound_code": "8R3M+2R Singapore",
+                "global_code": "6PH58R3M+2R"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ_7pt85EZ2jERPfKpmuwrzys",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14357
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "12 Gopeng St, Singapore 078877",
+            "geometry": {
+                "location": {
+                    "lat": 1.2749072,
+                    "lng": 103.84443
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.276106779892722,
+                        "lng": 103.8456050298927
+                    },
+                    "southwest": {
+                        "lat": 1.273407120107278,
+                        "lng": 103.8429053701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Icon Village",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109532441449540262596\">Bobby Wan</a>"
+                    ],
+                    "photo_reference": "Aap_uEDD0dfhYL9xe2kMBnXP5vQ86XVLOHt8pWGaBVJEz-wnkannj9TNsPR21R0c02LRD587MwTQmCP0WDkSPSFx-EjXQGjnRJ5hCaoicU0Ig3MzAnzjqlVPrbLTyZxpYzwD7sVFn9cLuY1HNIZnoBif4EKFri1PMHpO-xjUWGaAg4hsEMjO",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJpZh7TmsZ2jER8N5QwOBLdIw",
+            "plus_code": {
+                "compound_code": "7RFV+XQ Singapore",
+                "global_code": "6PH57RFV+XQ"
+            },
+            "rating": 4.1,
+            "reference": "ChIJpZh7TmsZ2jER8N5QwOBLdIw",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 565
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "435 Orchard Rd, Singapore 238877",
+            "geometry": {
+                "location": {
+                    "lat": 1.3037148,
+                    "lng": 103.8332642
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304832229892722,
+                        "lng": 103.8349414798927
+                    },
+                    "southwest": {
+                        "lat": 1.302132570107278,
+                        "lng": 103.8322418201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Wisma Atria",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2048,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">Thiam Beng Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEAS6qwoYwlxH6XvkVZWjD-cmUqWlDY6Iw2iM5SReTdq944ybjY3dyDL6HSR3xJfIu9cehThxm95c21j1_0etORa9MhsQtAa3zPKwjsuo-LO1gSygpvvQZBc7Q3Q0JwRak8i2Hoe5B9hR-Y7njfc4UCEcDlmoEZQfKGSKov3jePeGpoI",
+                    "width": 2560
+                }
+            ],
+            "place_id": "ChIJSZHC-I0Z2jERm8BlwXqhcfc",
+            "plus_code": {
+                "compound_code": "8R3M+F8 Singapore",
+                "global_code": "6PH58R3M+F8"
+            },
+            "rating": 4.2,
+            "reference": "ChIJSZHC-I0Z2jERm8BlwXqhcfc",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6800
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 Temasek Blvd, Singapore 038983",
+            "geometry": {
+                "location": {
+                    "lat": 1.29503,
+                    "lng": 103.8583026
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2978256,
+                        "lng": 103.8599335
+                    },
+                    "southwest": {
+                        "lat": 1.2934572,
+                        "lng": 103.8568827
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Suntec City",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108039147759375644629\">redannson</a>"
+                    ],
+                    "photo_reference": "Aap_uEBn7V6c-NkGx0glXuiVJ5s08DDwn5XbKH2KQAnKK7RrxwOqUInpit_nGUDbzZ9-_PSznTUEYNKQ7Ybts5B3gp-IWXe5tC1mlWlfGhAzYLvLvNH8_f4qOlac1VKBSVyv0WVt_Wmsq38tEnb_xEH49qxJiFa_6G0pWBtWdTqzLynwDg6g",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJ20X__K4Z2jERRE8GRs-d8HE",
+            "plus_code": {
+                "compound_code": "7VW5+28 Singapore",
+                "global_code": "6PH57VW5+28"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ20X__K4Z2jERRE8GRs-d8HE",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 22078
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "277 Orchard Rd, Singapore 238858",
+            "geometry": {
+                "location": {
+                    "lat": 1.300459,
+                    "lng": 103.8393516
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.301820429892722,
+                        "lng": 103.8404623298927
+                    },
+                    "southwest": {
+                        "lat": 1.299120770107278,
+                        "lng": 103.8377626701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Orchardgateway",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1800,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115615589102659578379\">Benson Kong</a>"
+                    ],
+                    "photo_reference": "Aap_uED2nYWD4jMYCLtnyFaeHHY9B-FhNUDnFs9GyRI5CerfmfNDlWHOi5CDcaFgv_gdMWEexnanqz-moEgNCr7MRBy_paGEF4pfnOPhmVBsAfg57WuGBV6zFVdqILptnG68atZSTZAa6ORW7vvfjLXYBNW9WnpG6Yq94aqZB0vKGrr12tic",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJfZmGM5EZ2jERgDzwv5rdA-U",
+            "plus_code": {
+                "compound_code": "8R2Q+5P Singapore",
+                "global_code": "6PH58R2Q+5P"
+            },
+            "rating": 4.3,
+            "reference": "ChIJfZmGM5EZ2jERgDzwv5rdA-U",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3768
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11 Tanjong Katong Rd, Singapore 437157",
+            "geometry": {
+                "location": {
+                    "lat": 1.3147221,
+                    "lng": 103.8947554
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.315939679892722,
+                        "lng": 103.8961726798927
+                    },
+                    "southwest": {
+                        "lat": 1.313240020107278,
+                        "lng": 103.8934730201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "KINEX",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116669194320097132250\">Globe Trekka</a>"
+                    ],
+                    "photo_reference": "Aap_uECYKnlfLqpf865Im2N9fOEFjfoA_9P8H3XpMVkqtcQjnYc8kshE-FG8HACpubKAg1T1A86TFsmUQUpu1FnA2lzUUYd__bNH7dKvD1wN8i-1G8joHkFntqTziJ8PmjQyQTEn1mtXPOJhd-UfW0_6BKONgkhw33y__B7Fi8MCaNuVfp_G",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJYQPdBBcY2jERfCgwBWK0mp0",
+            "plus_code": {
+                "compound_code": "8V7V+VW Singapore",
+                "global_code": "6PH58V7V+VW"
+            },
+            "rating": 4,
+            "reference": "ChIJYQPdBBcY2jERfCgwBWK0mp0",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4616
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Maritime Square, Singapore 099253",
+            "geometry": {
+                "location": {
+                    "lat": 1.2643689,
+                    "lng": 103.8200727
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.266030579892722,
+                        "lng": 103.8213288298927
+                    },
+                    "southwest": {
+                        "lat": 1.263330920107278,
+                        "lng": 103.8186291701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "HarbourFront Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114263897571763641736\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECN6Hp_OCjGGE1Hv08lVkg4XQTDqbQhdGil3mHg8hoep8c18GjaB59RKEDoDAwdo3-Bc_IYlYzXA07szaLohaXe7Wc84hsO1zSjU4VjdEfcRUemcofW61vAS61m5Q-aa56_eMraWdaQ6jnt_Y-PbgMR2SmJpSH8fEhiMLfS4YMxqJq_",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJ5Qx1aOIb2jERwQsRlRdHaWM",
+            "plus_code": {
+                "compound_code": "7R7C+P2 Singapore",
+                "global_code": "6PH57R7C+P2"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ5Qx1aOIb2jERwQsRlRdHaWM",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6283
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 Lor Liput, Singapore 277725",
+            "geometry": {
+                "location": {
+                    "lat": 1.3106827,
+                    "lng": 103.7952282
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.312144779892722,
+                        "lng": 103.7966267798927
+                    },
+                    "southwest": {
+                        "lat": 1.309445120107278,
+                        "lng": 103.7939271201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Holland Piazza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108470157928745993424\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECeoV5laR9RUbU9_COA-C_QnLQPwBJ76ApI3h_UZdoeBuXHmKtudoTSMhMXcUXjOI-xYFXAQkYb-GxI-Xux9IdGL-0kEzINv04UXEY_acnzLXK6o2ygYmlnIjidBbQ9oNr7Go2yY3I_nFCHJbnz4POVUBcqIi4WvGNLglY9XwuLEVQ9",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJHT9PqWsa2jER7cXRi00lkjY",
+            "plus_code": {
+                "compound_code": "8Q6W+73 Singapore",
+                "global_code": "6PH58Q6W+73"
+            },
+            "rating": 4.2,
+            "reference": "ChIJHT9PqWsa2jER7cXRi00lkjY",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 361
+        }
+    ],
+    "status": "OK"
+}

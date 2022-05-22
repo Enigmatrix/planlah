@@ -1,0 +1,975 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uECbvDxGMxGFfeHQ8RYiQASGz-vxD5JPyccVsNEfB4yuv2_qq8SqjM0LCg0BYQ2tXLAyfMWcy8KB9MtSA5IO3-O0EP1hbIDfRTVBh90pTDlzXZt69cPDv7s0oTu2uIjPKKh4_1QRYjsfBbZB-gDNnOC1uvFtn6vp2aODtNJdZ4iUUVraRldjX2pzMfLe2OgMu8B-1ddtaqGiWEd-VR7CzTZNOWv22yvy2k7wTRvFsvFB5DTd6XtF7NU2Yd4x8mUiM3eusAk8B4j1_HcNvqVQ21Etx17om6_6ttTlKNbN_R-TRy5lKMRpEOWQYq4G_IQC6YZWgj5iWIyC6f5ScOvp7lxPK7ux0uLQNrbxJmgIyRV-zf2jr59fItGLnnSaJHoWmwAIF_hwJSKJ7Hl4e6dVmTXxO9gucgtDZnyU301Ad0iStcSQnYRui4QqZXxq7xYgKcNNrijYjA",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 HarbourFront Walk, #02-30 VivoCity, Singapore 098585",
+            "geometry": {
+                "location": {
+                    "lat": 1.2647884,
+                    "lng": 103.822894
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.266573279892722,
+                        "lng": 103.8243119298927
+                    },
+                    "southwest": {
+                        "lat": 1.263873620107278,
+                        "lng": 103.8216122701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Golden Village VivoCity",
+            "photos": [
+                {
+                    "height": 3280,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109174253732593941726\">Golden Village VivoCity</a>"
+                    ],
+                    "photo_reference": "Aap_uEBtsyr0QJ3nHERUNhKoAx44VkN6k0nhUz7cGlatc8sG7-8z0c-8YwmlJnP-y_XsBQCjGllzlQj7aT3cU8CCRAoBylYDE1_OuHPW_kNteDYqCO9L5e6Lun0tcd3GkeNMD8AKRU4Bhy1TyKJoX0aBKRAjcGb17dZM8FXqIZmNUbL_1oSv",
+                    "width": 4928
+                }
+            ],
+            "place_id": "ChIJQ7ONulgZ2jER9KaGJ6gbEuc",
+            "plus_code": {
+                "compound_code": "7R7F+W5 Singapore",
+                "global_code": "6PH57R7F+W5"
+            },
+            "rating": 4.4,
+            "reference": "ChIJQ7ONulgZ2jER9KaGJ6gbEuc",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2896
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "302 Tiong Bahru Rd, #04 - 105, Singapore 168732",
+            "geometry": {
+                "location": {
+                    "lat": 1.286355,
+                    "lng": 103.8268685
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287568029892722,
+                        "lng": 103.8284870298927
+                    },
+                    "southwest": {
+                        "lat": 1.284868370107278,
+                        "lng": 103.8257873701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Golden Village Tiong Bahru",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5304,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116684657869748670178\">Golden Village Tiong Bahru</a>"
+                    ],
+                    "photo_reference": "Aap_uEBoFSJl40n556zLXPl_Jd105SA1uMg-FVzjoQ_z2v3Ca4iOG9T2uBetAukOeZQnPTkeK0CFTkQkJAG9qQms97UJXpm-USk9FzGs0VkLCrul1oOM7JXduROMGcMJUU4WfDHcHRp8q_mztjBygiY2ascnRMjg3-uYmtWdSUid2mTbhWs2",
+                    "width": 7952
+                }
+            ],
+            "place_id": "ChIJqdYizX4Z2jERwkiYfbUZw1E",
+            "plus_code": {
+                "compound_code": "7RPG+GP Singapore",
+                "global_code": "6PH57RPG+GP"
+            },
+            "rating": 4.2,
+            "reference": "ChIJqdYizX4Z2jERwkiYfbUZw1E",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 940
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "321 Clementi Ave 3, #03-03 321, Singapore 129905",
+            "geometry": {
+                "location": {
+                    "lat": 1.3119172,
+                    "lng": 103.7650692
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.313184979892722,
+                        "lng": 103.7663153798927
+                    },
+                    "southwest": {
+                        "lat": 1.310485320107278,
+                        "lng": 103.7636157201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "WE Cinemas",
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111554539591116872939\">Carl Gruenenfelder</a>"
+                    ],
+                    "photo_reference": "Aap_uEDbuDI1Q2aY8gILRAWX7I3mcnYZCMvwpz_ho4y6oAK5nWRDsQMrV3-G_8EJG4dLsdDtku7Rc6IbIRqcoLf2F3Nk4mAdmNHHluWh3yzaadA7riYO_9ZFXhUx8qOfF92TGRXGM8i-wKv5ukbsj1erdv92z7wNl2Kb1GwBt7WfYyVez566",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJ91kj6o0a2jERgiLubxWHDTo",
+            "plus_code": {
+                "compound_code": "8Q68+Q2 Singapore",
+                "global_code": "6PH58Q68+Q2"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ91kj6o0a2jERgiLubxWHDTo",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1253
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "9 King Albert Park, #01-58, Singapore 598332",
+            "geometry": {
+                "location": {
+                    "lat": 1.3369213,
+                    "lng": 103.7790175
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.338320679892722,
+                        "lng": 103.7807780298927
+                    },
+                    "southwest": {
+                        "lat": 1.335621020107278,
+                        "lng": 103.7780783701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "EagleWings Cinematics",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118242540890986634279\">Jialing Cai</a>"
+                    ],
+                    "photo_reference": "Aap_uEBzQhFQzqiQgqafnx216-KKhYyMWfusFhW-i2_XrMv4EAvFiR-fY1Oo4H2nyuLBQ5kHrf8sXcAb2LM4bwdOf6po9V6zxOOkWAXiBGm8LqcfTtU1OwrHvGwdNC44acbUS9X-6WdfYGJE4bU5r2GzpkY88F_NqBprLlIq58t8QrvFGUj1",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ3dSCfKMR2jERsBpC6UoFuaQ",
+            "plus_code": {
+                "compound_code": "8QPH+QJ Singapore",
+                "global_code": "6PH58QPH+QJ"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ3dSCfKMR2jERsBpC6UoFuaQ",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 299
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Beach Rd, #03/00 GOLDEN MILE TOWER, Singapore 199589",
+            "geometry": {
+                "location": {
+                    "lat": 1.3019183,
+                    "lng": 103.8641324
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303512129892722,
+                        "lng": 103.8653209798927
+                    },
+                    "southwest": {
+                        "lat": 1.300812470107277,
+                        "lng": 103.8626213201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Carnival Cinemas Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 607,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112156630071726645066\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEC-wptAs_GWcxblmh81NEiy6H_2MKcBeO1aDL7l3sNNb98zQ6ytwjqg05ERQPz_ycR8PGHIxk-Qu0GaQ9kTzXE6TlSyoutQOQiBpLr8iubGQaoqB77zXiWwuyQ3aVQovOfFfuZDcxo3rZejJmY5dqlc7ccwZv08iRZSoNXTS0nlnQoi",
+                    "width": 1080
+                }
+            ],
+            "place_id": "ChIJNwash68Z2jER_pH5C9K-Bj4",
+            "plus_code": {
+                "compound_code": "8V27+QM Singapore",
+                "global_code": "6PH58V27+QM"
+            },
+            "rating": 4,
+            "reference": "ChIJNwash68Z2jER_pH5C9K-Bj4",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 765
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "360, 04-04 Balestier Rd, Shaw Plaza, 329783",
+            "geometry": {
+                "location": {
+                    "lat": 1.3250923,
+                    "lng": 103.8510175
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.326340329892722,
+                        "lng": 103.8522722798927
+                    },
+                    "southwest": {
+                        "lat": 1.323640670107278,
+                        "lng": 103.8495726201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Shaw Theatres Balestier",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 2368,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102031330891448672943\">Tim Chung</a>"
+                    ],
+                    "photo_reference": "Aap_uEDk_Q_gEW_H0E3C8OQItli3MkU4ZidpNG038SmtiZIXLKilY3UEjHUSAVJOFkPJezVSt9ueSn8-7j8lXIhbSe1ZezLPSM6ekAbEzFPA6KYPNum_ElpJnU6BbIA2FTkbBfL6PK-ZhHjoyXubNBAqOLZkuIGGR1lxAU_A4_5TMF69odK3",
+                    "width": 4224
+                }
+            ],
+            "place_id": "ChIJkV7-t9gZ2jERaxT9li_npF0",
+            "plus_code": {
+                "compound_code": "8VG2+2C Singapore",
+                "global_code": "6PH58VG2+2C"
+            },
+            "rating": 3.9,
+            "reference": "ChIJkV7-t9gZ2jERaxT9li_npF0",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 461
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "68 Orchard Rd, #07-01, Singapore 238839",
+            "geometry": {
+                "location": {
+                    "lat": 1.3006954,
+                    "lng": 103.84475
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.301490879892722,
+                        "lng": 103.8463139298927
+                    },
+                    "southwest": {
+                        "lat": 1.298791220107278,
+                        "lng": 103.8436142701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Golden Village Plaza",
+            "photos": [
+                {
+                    "height": 747,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113322721172172764929\">Golden Village Plaza</a>"
+                    ],
+                    "photo_reference": "Aap_uECeVwpennmjygsfXLr6tfCkibFa5Ld77LiOTQAbXXeKYEhW-YmDfsCXTzstJt3HFUzvt16bdO7zF6dK3makiPOP6BJp7nzh7A210gtECzlgOmAMMcOjRqZFTAlFXKNsdwPuv54J_JSatpYyyMsBltiZu_-9wWI4NAn4T544tsTBSN0Q",
+                    "width": 1328
+                }
+            ],
+            "place_id": "ChIJnaqqer0Z2jER4QIHP-kYIcU",
+            "plus_code": {
+                "compound_code": "8R2V+7V Singapore",
+                "global_code": "6PH58R2V+7V"
+            },
+            "rating": 4.3,
+            "reference": "ChIJnaqqer0Z2jER4QIHP-kYIcU",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2356
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Bukit Batok Central Link Level 5 West Mall, 658713",
+            "geometry": {
+                "location": {
+                    "lat": 1.3499928,
+                    "lng": 103.7493381
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.351188229892722,
+                        "lng": 103.7507936798927
+                    },
+                    "southwest": {
+                        "lat": 1.348488570107278,
+                        "lng": 103.7480940201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Cathay Cineplex West Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105338990048313425892\">Gini Gangadharan</a>"
+                    ],
+                    "photo_reference": "Aap_uEBbbnQ4Q7Iq8ehJe3DJElz0bxtUn-BRlkm4AssVjN-2eC_XgmP-HzGzjCyzzF0hOHzllp0j_Q6CrdlCr4I4r9-FsXMKHpIRbYgBbpZfUmiVL1zaqr6V8NAGgGK5Fp8ebwctMsaG1PVLNJVlj1qKxpBNxERD5kfhoUFG8I8DgCHNeEsb",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJZ3lA1j4Q2jERHw-uh-Ry9Vo",
+            "plus_code": {
+                "compound_code": "8PXX+XP Singapore",
+                "global_code": "6PH58PXX+XP"
+            },
+            "rating": 4.3,
+            "reference": "ChIJZ3lA1j4Q2jERHw-uh-Ry9Vo",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1069
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "350 Orchard Road 5th, #6th floor Shaw House, 238868",
+            "geometry": {
+                "location": {
+                    "lat": 1.3054665,
+                    "lng": 103.8316062
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306816329892722,
+                        "lng": 103.8329560298927
+                    },
+                    "southwest": {
+                        "lat": 1.304116670107278,
+                        "lng": 103.8302563701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Shaw Theatres Lido",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103458881562290659555\">Thomas King</a>"
+                    ],
+                    "photo_reference": "Aap_uECFn0Nas1h_mJlDHrkGmgKuKpnSCl1karWKABPNxQqIYVi8eUGErrp0myw7PLK_-_ML0hKdBEusooxbkipJ98z9DGsuRvo0_qChKR71NbKyYCbLYkmiAaLdU8ms5v-8OQ0qvWnS8f39IJlZR8DWzjHkB9KO41x2l7gbktG834kdp4pk",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJvYAsbY0Z2jERqAXNqB3iKHI",
+            "plus_code": {
+                "compound_code": "8R4J+5J Singapore",
+                "global_code": "6PH58R4J+5J"
+            },
+            "rating": 4.4,
+            "reference": "ChIJvYAsbY0Z2jERqAXNqB3iKHI",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4969
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Jurong West Central 1, #03 - 26 26A, Singapore 648886",
+            "geometry": {
+                "location": {
+                    "lat": 1.3400936,
+                    "lng": 103.7062604
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.340907879892722,
+                        "lng": 103.7088393
+                    },
+                    "southwest": {
+                        "lat": 1.338208220107278,
+                        "lng": 103.7027597
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Golden Village Jurong Point",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109518962555368439710\">Golden Village Jurong Point</a>"
+                    ],
+                    "photo_reference": "Aap_uEDEEyKF9lTDlVlTcV3R3t1F9voUc6yd8Sh2Uj120XeCb4rTp1n30weW8yj99dVcDnBqdp6Esut51vS_3LdiTN9Oz5ywh_Av4k8nXjCUW7IaDy0cXwgax5LSj4rk_Dz0OlUsCCUpQ7BpShRH9HX0cWwe-MR8Z5mGG0comSbK4yHcKn8",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJgWtqxOwP2jERydU8CT8sako",
+            "plus_code": {
+                "compound_code": "8PR4+2G Singapore",
+                "global_code": "6PH58PR4+2G"
+            },
+            "rating": 4.3,
+            "reference": "ChIJgWtqxOwP2jERydU8CT8sako",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1852
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "180 Kitchener Rd, #05 - 02 / 03 City Square, Singapore 208539",
+            "geometry": {
+                "location": {
+                    "lat": 1.3115828,
+                    "lng": 103.8566935
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.312863379892722,
+                        "lng": 103.8577040798927
+                    },
+                    "southwest": {
+                        "lat": 1.310163720107278,
+                        "lng": 103.8550044201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Golden Village City Square",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113643544042489060615\">Golden Village- City Square</a>"
+                    ],
+                    "photo_reference": "Aap_uEB9iCDZxvlJvzR1IH1S7qH4oaBVFPtawKEm0ybUilO__DM7hH4A5pSX2GOx0cIVn53T9EO8Dmrw7f4BpsuZNa_E8TOD-g1ZuFqLEnBvvuyEbNVBjQ1Od9PG3CF6yEafaCUtlKk2bQ-XnQ69ASk2XPbf6nu7gKZedXJ39Q7FnP3pN7yT",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJsQFvocgZ2jERPoAgXnhT8kM",
+            "plus_code": {
+                "compound_code": "8V64+JM Singapore",
+                "global_code": "6PH58V64+JM"
+            },
+            "rating": 4.4,
+            "reference": "ChIJsQFvocgZ2jERPoAgXnhT8kM",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2136
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "9 Bishan Pl, #04-03 Bishan Bus Interchange, Singapore 579837",
+            "geometry": {
+                "location": {
+                    "lat": 1.3502196,
+                    "lng": 103.8483852
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.351621729892722,
+                        "lng": 103.8499122798927
+                    },
+                    "southwest": {
+                        "lat": 1.348922070107278,
+                        "lng": 103.8472126201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Golden Village Bishan",
+            "photos": [
+                {
+                    "height": 1095,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101362617745564604713\">Golden Village Bishan</a>"
+                    ],
+                    "photo_reference": "Aap_uEDLXjrP_bQtMSTmbtE2w569uaLEgtFMfj8I5ZEtG3i5T1wcMo1-o1HGT095Jr52gy24q50_EiK6OQIUAvI05gxyaXqlS20zmOPqoIeUavurleU9tqWv8myfJZUfnGnXbtWq0gCSwYIGBxJzWCmvjgA_DxeWdLkVGRC8DUAMLCy_Qkdb",
+                    "width": 1642
+                }
+            ],
+            "place_id": "ChIJb-ErmBYX2jERy_hyLaRHMdk",
+            "plus_code": {
+                "compound_code": "9R2X+39 Singapore",
+                "global_code": "6PH59R2X+39"
+            },
+            "rating": 4.1,
+            "reference": "ChIJb-ErmBYX2jERy_hyLaRHMdk",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1447
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "78 Airport Boulevard B2, #237, 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3601501,
+                    "lng": 103.9891594
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.361563729892722,
+                        "lng": 103.9903177298927
+                    },
+                    "southwest": {
+                        "lat": 1.358864070107278,
+                        "lng": 103.9876180701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Shaw Theatres Jewel",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112403987693678430009\">Ivan Lam</a>"
+                    ],
+                    "photo_reference": "Aap_uEDb2Q0zsQ3L67lP6m-J1H6nvokPl8TEC4MaC-Ucu16xv8pxhku5bsmlQRGxso3OUWJd8-QqlusPC0ax6GVj4oTAZpQIANL1WkcwHGSplQj1E-pz5z8kaYNuv_aCxHFF2imCD03Rkho3jCK-cM3MamPCm5IHUmCacp-niEXiFOaHlHg",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJEWhFewI92jERAPI2lTw1JS0",
+            "plus_code": {
+                "compound_code": "9X6Q+3M Singapore",
+                "global_code": "6PH59X6Q+3M"
+            },
+            "rating": 4.5,
+            "reference": "ChIJEWhFewI92jERAPI2lTw1JS0",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 369
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "201 Victoria St, Level 5-01 Bugis+, Singapore 188067",
+            "geometry": {
+                "location": {
+                    "lat": 1.2997944,
+                    "lng": 103.8542708
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.301393529892722,
+                        "lng": 103.8555372298927
+                    },
+                    "southwest": {
+                        "lat": 1.298693870107278,
+                        "lng": 103.8528375701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Filmgarde @ Bugis+",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113472097862270579972\">Gjay Martinez</a>"
+                    ],
+                    "photo_reference": "Aap_uED6B6u5HqsOhtBaR-Ru6Aartqbe6lXWjwYBQDURZV9fqwI4t_m9BQi6yUlOGQhGJvMLq6EBd4emNwDS0pHk_2PrH5R8_OUgzN8Nv8tQqP_XyRwJ34RVMGzbYfwKEI9uPT6kk_wQgJSKhoagalegznhj0PurOgzjT6B9LM3Sx4fbHioC",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJl-iXwroZ2jERVF9l8GehO24",
+            "plus_code": {
+                "compound_code": "7VX3+WP Singapore",
+                "global_code": "6PH57VX3+WP"
+            },
+            "rating": 4.3,
+            "reference": "ChIJl-iXwroZ2jERVF9l8GehO24",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1129
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Handy Rd, Former Cathay Building, Singapore 229233",
+            "geometry": {
+                "location": {
+                    "lat": 1.29944,
+                    "lng": 103.847353
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.300719279892722,
+                        "lng": 103.8486625798927
+                    },
+                    "southwest": {
+                        "lat": 1.298019620107278,
+                        "lng": 103.8459629201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Platinum Movie Suites",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2949,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109668483813052573757\">YJ Yip</a>"
+                    ],
+                    "photo_reference": "Aap_uEDPsN8hQdpEWdLm7gI3YE45cs13TcjoAIMtXb_mxdtAGFGyQ4loZOetq7wMXf8CjWt2Rbkou7iziU5o8pbHqk3DPJFtzqeOY_f_qVhIg3qwkmiddC97Gye5iMnVhXkEZK0gVonQacpDJhHmEwCtAq6ybTetqx-2rl75Z8PZj8QiGGS8",
+                    "width": 3933
+                }
+            ],
+            "place_id": "ChIJs4LrI70Z2jER9E9dLOXoNrk",
+            "plus_code": {
+                "compound_code": "7RXW+QW Singapore",
+                "global_code": "6PH57RXW+QW"
+            },
+            "rating": 4.4,
+            "reference": "ChIJs4LrI70Z2jER9E9dLOXoNrk",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 139
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "23 Serangoon Central, Singapore 556083",
+            "geometry": {
+                "location": {
+                    "lat": 1.3504852,
+                    "lng": 103.8716194
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.352151679892722,
+                        "lng": 103.8735766798927
+                    },
+                    "southwest": {
+                        "lat": 1.349452020107278,
+                        "lng": 103.8708770201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Shaw Theatres NEX",
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103050650165618181064\">Sanjay Rai</a>"
+                    ],
+                    "photo_reference": "Aap_uEBnu2F8Md0rIbIJ-DY6nfgtQQe8XW06nlNvWDDx32SJcnlU8SkRz5eZFf9f-PSo_8uuFk411f0XWWHu1wZ8u1l3EarQanzUvQCqJm5EoeTlwXh3MUWs9_a9elOxdoIDqwJDuBE3c52N7_i-gRyVzFHfMOac5Kif8pe0tYs4ntCxYAgi",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJZXCBxKYX2jER-Q7SQh3EA6A",
+            "plus_code": {
+                "compound_code": "9V2C+5J Singapore",
+                "global_code": "6PH59V2C+5J"
+            },
+            "rating": 4.3,
+            "reference": "ChIJZXCBxKYX2jER-Q7SQh3EA6A",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1815
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Jurong East Central 1, #04-11 JCube, Singapore 609731",
+            "geometry": {
+                "location": {
+                    "lat": 1.333333,
+                    "lng": 103.7398841
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.334644729892722,
+                        "lng": 103.7416211798927
+                    },
+                    "southwest": {
+                        "lat": 1.331945070107278,
+                        "lng": 103.7389215201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Shaw Theatres JCube",
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100583373750507159946\">Wang Jiale</a>"
+                    ],
+                    "photo_reference": "Aap_uECDpT34ZZMph_jlHKG3KNg4z6TVx-HjG1kqPt23cnBUCfX8hnC3ktbmrTDsLl6cYuVrgfq5QXzHTPv395DXNOWFiZXeKw-M6PX0YPwMRwdLQQfMWq6ByYnSz0W1BgBqvda-u4MZ_XZV5sN7vPNk_fRvQsWm6kUzfU2dHAoO2nIRyHOb",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJIU1XigUQ2jERnmoHug3eYKY",
+            "plus_code": {
+                "compound_code": "8PMQ+8X Singapore",
+                "global_code": "6PH58PMQ+8X"
+            },
+            "rating": 4.3,
+            "reference": "ChIJIU1XigUQ2jERnmoHug3eYKY",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1354
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "B2-11, Waterway Point, 83 Punggol Central, 828761",
+            "geometry": {
+                "location": {
+                    "lat": 1.4070679,
+                    "lng": 103.9029599
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.408186379892722,
+                        "lng": 103.90387165
+                    },
+                    "southwest": {
+                        "lat": 1.405486720107278,
+                        "lng": 103.90022465
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Shaw Theatres Waterway Point",
+            "photos": [
+                {
+                    "height": 3036,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108588974842614534821\">Sampson Teo</a>"
+                    ],
+                    "photo_reference": "Aap_uECzBT81AOtxsPcBp82hshzrRaVcmWRRKXrlU1KnGmR3bhXEF47-w-7kaLH2a8O4lhN9w5Jpagk6_ae9ftfDboEko1yTblSbgpxsF3o3C1KpzVtnHNFAqW0xUFGikHWCk_KuLchlo-vWhSxlXglzBTr2IetfHTdHb3rVa4rka2fd2ABO",
+                    "width": 4048
+                }
+            ],
+            "place_id": "ChIJC0gVreQV2jER8txK7xDH-eA",
+            "plus_code": {
+                "compound_code": "CW43+R5 Singapore",
+                "global_code": "6PH5CW43+R5"
+            },
+            "rating": 4.4,
+            "reference": "ChIJC0gVreQV2jER8txK7xDH-eA",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2188
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 Temasek Blvd, #03-373, Singapore 038983",
+            "geometry": {
+                "location": {
+                    "lat": 1.2957055,
+                    "lng": 103.8597298
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.296610279892722,
+                        "lng": 103.8608572798927
+                    },
+                    "southwest": {
+                        "lat": 1.293910620107278,
+                        "lng": 103.8581576201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Golden Village Suntec City",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 400,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111153577456212699479\">Golden Village Suntec City</a>"
+                    ],
+                    "photo_reference": "Aap_uEA58CcD1vD7HuJuf3N75KohdNkQV5l6gnJqlOH8iurhwOda2EN7TzhJnlU_ZrFvQhD4qntZwW8gXWbDDDTE2VmJD7LaFv92bdmrXEbqOr5-bTmSCONJisGC89jXbfPjAVV1pQJeFofws0CptfJIX4l6WlJSeQifby6-p9RT3K8ozngX",
+                    "width": 640
+                }
+            ],
+            "place_id": "ChIJJSmuS6gZ2jERwNCREzZaZnA",
+            "plus_code": {
+                "compound_code": "7VW5+7V Singapore",
+                "global_code": "6PH57VW5+7V"
+            },
+            "rating": 4.4,
+            "reference": "ChIJJSmuS6gZ2jERwNCREzZaZnA",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2163
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Tampines Central 4, #04-17/18 Tampines Mall Shopping Centre, Singapore 529510",
+            "geometry": {
+                "location": {
+                    "lat": 1.3522477,
+                    "lng": 103.9444287
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353352079892722,
+                        "lng": 103.9457372798927
+                    },
+                    "southwest": {
+                        "lat": 1.350652420107278,
+                        "lng": 103.9430376201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/movies-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/movie_pinlet",
+            "name": "Golden Village Tampines",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115438217534114105508\">Golden Village Tampines</a>"
+                    ],
+                    "photo_reference": "Aap_uEA-BZSA07GpdCb88WOZkNcwUfcfEJQ3hW7TN1MnCkn8RbrPkt-FEpZrFARUOk45whGK0K5PA9M1KfZ9NKT3sFVm0YBC_zz0iYxyFFrMJ2L-pa9rj1hxsCwqO2k4ZkVmy1z1P6SQw-I-6t-XrBo-XzhC6R7MYWh1yM5cuhF_3GhHhIGc",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJWZqClhE92jERndP6ZJelIls",
+            "plus_code": {
+                "compound_code": "9W2V+VQ Singapore",
+                "global_code": "6PH59W2V+VQ"
+            },
+            "rating": 4.2,
+            "reference": "ChIJWZqClhE92jERndP6ZJelIls",
+            "types": [
+                "movie_theater",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2277
+        }
+    ],
+    "status": "OK"
+}

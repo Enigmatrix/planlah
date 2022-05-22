@@ -1,0 +1,974 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEDxd1PUzT5WaNePYFGXpphCqF_cjYAjSQiT9zNRd6w6jBe3LXsBy3O1-LFo2ZakCVUiHf4is47vUmyraAEipqegr1FAVd7Bmo1UCwr2mXzkRc1JI5JywJHMb8oKK9wkHff9dDly4sf8qUuM2u7fbwWznjHLvFMas9eCJqcrTvUipI-PK21iOfNyqoShoTy4CHnBLmXm4V7fCMSe6fJt50ji-dYotG4SSqYFEHP8HStsvwbEDczPp4ngAjt0HtHJu8SDxdVpTBGHcCB_GlOyS7aO9q8_vFV7Zy-2jI-N5Cq19fGscBaLx1Ncu_4nLdWjrLsxZHv38w8KKp7D0FdSkzLMmmajdNeA1_tAIDjw6_JLAF-4NaYUIADt0K6BtQlvQuVy",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "404 Pasir Panjang Rd, Singapore 118741",
+            "geometry": {
+                "location": {
+                    "lat": 1.2919397,
+                    "lng": 103.7701983
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293271779892722,
+                        "lng": 103.7715517298927
+                    },
+                    "southwest": {
+                        "lat": 1.290572120107278,
+                        "lng": 103.7688520701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Pasir Panjang Inn",
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100451468944670066803\">Charitha Panditharatne</a>"
+                    ],
+                    "photo_reference": "Aap_uEARLjavpp1_zgDXBgpUJ07cz6aRTxrLByjxOIvHdx1UyeRNP_Uf5wH30X0rk0rxwcL436aQnwssJmrCFcogNduwWkdEQtlf3QSUqdG30w7AkFgCECDidz6KIzu0qBlhrpFv9Kl4_ZT8LG1DKuR3ZWiH2WPHAcEqbusR2wbsKHISGljw",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJX7Qdhv4a2jERtIK6a0kbWl4",
+            "plus_code": {
+                "compound_code": "7QRC+R3 Singapore",
+                "global_code": "6PH57QRC+R3"
+            },
+            "rating": 3.6,
+            "reference": "ChIJX7Qdhv4a2jERtIK6a0kbWl4",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 270
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Town Hall Link, Singapore 608516",
+            "geometry": {
+                "location": {
+                    "lat": 1.3315459,
+                    "lng": 103.7393882
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.332681429892722,
+                        "lng": 103.7408800298927
+                    },
+                    "southwest": {
+                        "lat": 1.329981770107278,
+                        "lng": 103.7381803701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Genting Hotel Jurong",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 490,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102542497025751315041\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDOPRg0V3bPd1aWM51hcn3WPlhzhdcQmyxyzNMYiZYQLm3JrA3sFfOflbVVI7n_6AARbhQ7c8eqK3AUTMKcVTIUTV6cRtHfxw_nMLBnZW2-zfOmGTFvTTkuSWoSwZWRkabq66gxhdk5XzCOuHtgg7EFfQuA1nvaV6L57UIPBPlKFJxm",
+                    "width": 1000
+                }
+            ],
+            "place_id": "ChIJsVTkHAYQ2jERmSJKtgOdmQk",
+            "plus_code": {
+                "compound_code": "8PJQ+JQ Singapore",
+                "global_code": "6PH58PJQ+JQ"
+            },
+            "rating": 4.1,
+            "reference": "ChIJsVTkHAYQ2jERmSJKtgOdmQk",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2609
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "418 Pasir Panjang Rd, Singapore 118759",
+            "geometry": {
+                "location": {
+                    "lat": 1.2921943,
+                    "lng": 103.7688834
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293595279892722,
+                        "lng": 103.7701759798927
+                    },
+                    "southwest": {
+                        "lat": 1.290895620107278,
+                        "lng": 103.7674763201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "ibis budget Singapore West Coast",
+            "photos": [
+                {
+                    "height": 5333,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118026723003806800613\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECZZbgB8EsxtnBnTr2rwVT-WEhDrQ5FOi8l_1JA3-mVaxZx1v4qPIwPI3OKE9bt5quqcu5RIoenY-xeUn4xSZAb20WF__feO0nwXWouSuF5NbAwBLuVRXFAvRhbZdE3OOfCCZV78usGofZDBtLw-SYuOJE4a3eSGstsDC_NkbX4s5Uk",
+                    "width": 8000
+                }
+            ],
+            "place_id": "ChIJs60pLPwa2jERIh07G49yiVY",
+            "plus_code": {
+                "compound_code": "7QR9+VH Singapore",
+                "global_code": "6PH57QR9+VH"
+            },
+            "rating": 3.7,
+            "reference": "ChIJs60pLPwa2jERIh07G49yiVY",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 282
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "428 Pasir Panjang Rd, Singapore 118769",
+            "geometry": {
+                "location": {
+                    "lat": 1.2923601,
+                    "lng": 103.7685275
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293635529892722,
+                        "lng": 103.7698086298927
+                    },
+                    "southwest": {
+                        "lat": 1.290935870107278,
+                        "lng": 103.7671089701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "The Quay Hotel West Coast",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4928,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111228825731825422102\">Santa Grand Hotel West Coast</a>"
+                    ],
+                    "photo_reference": "Aap_uEDqoWs9f3P__Hpey1f6CGBTMhrQ_TASixgn9LdInbulNrXfqxzsSs2LFfWTZ2j7I0LE54CooxOLB4_GkK2tOGrNGlpdnQ5fvNrppTT6wagVzcfVCFohgVlkXmCYN1cJ9KWkkYs6L1c9b2a1OgLkI1XGDEYT5jEv-fsB5i7OG_C2WETz",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJKdkEMfwa2jERh6bmZuL0Hpo",
+            "plus_code": {
+                "compound_code": "7QR9+WC Singapore",
+                "global_code": "6PH57QR9+WC"
+            },
+            "rating": 3.7,
+            "reference": "ChIJKdkEMfwa2jERh6bmZuL0Hpo",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 234
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "31 Rochester Dr, Singapore 138637",
+            "geometry": {
+                "location": {
+                    "lat": 1.305,
+                    "lng": 103.7888889
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3066995,
+                        "lng": 103.7904027798927
+                    },
+                    "southwest": {
+                        "lat": 1.3039183,
+                        "lng": 103.7877031201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Park Avenue Rochester",
+            "photos": [
+                {
+                    "height": 1100,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109100332404332216184\">Park Avenue Rochester Hotel</a>"
+                    ],
+                    "photo_reference": "Aap_uEDL23H9WcA4yDdATbv1BZA6W8Rl3uBj7mvswAzbKhqfjzU84nblEx3eFPQoQJXLzGcanmZAHAcGsbEeycrjkJQj0Zpvu6pkqwt7HxJA4prU70S0MFjdQQLBqm2yU9JLVq30TjMtr-PfCjtXD1ZtZBXHcFvb9e7qssHGjkblNPu3MojT",
+                    "width": 859
+                }
+            ],
+            "place_id": "ChIJvXM_GEMa2jERz4K2sABK2Mo",
+            "plus_code": {
+                "compound_code": "8Q4Q+2H Singapore",
+                "global_code": "6PH58Q4Q+2H"
+            },
+            "rating": 4.2,
+            "reference": "ChIJvXM_GEMa2jERz4K2sABK2Mo",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1141
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "51 Imbiah Walk, Singapore 099538",
+            "geometry": {
+                "location": {
+                    "lat": 1.2549596,
+                    "lng": 103.8144925
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.25940875,
+                        "lng": 103.8156261
+                    },
+                    "southwest": {
+                        "lat": 1.25347655,
+                        "lng": 103.8110917
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Siloso Beach Resort",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117289322844335699225\">Siloso Beach Resort</a>"
+                    ],
+                    "photo_reference": "Aap_uECAkmdk9L45tpbiRv4u3cCc1f5qqIWS_hcQM_3DE_-YA6-xBtr8MbV9w8eTXbO2sLZOola7tGl2ctUV80YxAFw49tIYzlh1LyvwC96PuqcbE_qT0aqanIzLueIq8MB7ey_yOECpVJK03Vwi8zTUPtBC54RiTAmP3YGd83thfgdPLFYG",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJ2fMLhvkb2jERGXi1umRWDuE",
+            "plus_code": {
+                "compound_code": "7R37+XQ Singapore",
+                "global_code": "6PH57R37+XQ"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ2fMLhvkb2jERGXi1umRWDuE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2033
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "512 Kampong Bahru Rd, Singapore 099448",
+            "geometry": {
+                "location": {
+                    "lat": 1.2725267,
+                    "lng": 103.8277855
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.273907729892722,
+                        "lng": 103.8290703798927
+                    },
+                    "southwest": {
+                        "lat": 1.271208070107278,
+                        "lng": 103.8263707201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Harbour Ville Hotel",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105210891711753371903\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDDdaZL6V9YHV720w4YgeiZxLeicnW5IJzU63SceQ3b3XIz9siXg8R4MCgd-wub_kyLK-eatmne4izVM6bCacfA5CTBBP-6dmj_wQktfBXvetPce3stINlf2LZXh9YsjT4T4K6hIUi5oy2I4z1BaZNi0e7oqb-HLG3-EjVeiTI9KxS5",
+                    "width": 6000
+                }
+            ],
+            "place_id": "ChIJPQSb1mYZ2jERPDZUusvjB8c",
+            "plus_code": {
+                "compound_code": "7RFH+24 Singapore",
+                "global_code": "6PH57RFH+24"
+            },
+            "rating": 3.6,
+            "reference": "ChIJPQSb1mYZ2jERPDZUusvjB8c",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 727
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "432 Pasir Panjang Rd, Singapore 118773",
+            "geometry": {
+                "location": {
+                    "lat": 1.292355,
+                    "lng": 103.768469
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293634079892722,
+                        "lng": 103.7697805298927
+                    },
+                    "southwest": {
+                        "lat": 1.290934420107278,
+                        "lng": 103.7670808701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Fragrance Hotel - Ocean View",
+            "photos": [
+                {
+                    "height": 3333,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102055729927699363153\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEC3LGJC8cluKVWgj9s0yHktFnyIQU3p5Lk8xm1FOj93ds8n42WT6PSY_EDRnVaY-otsQE8jl7qxqS8bj9FUdmLQv-kLy5Ki0Qllgul-SwXkGVoHvxfwyV8HM3wgBIutiN1oPOIZzpskc5QPUZ7w74lghOSe3MlFKaDSXTvADxKziC1u",
+                    "width": 5000
+                }
+            ],
+            "place_id": "ChIJs60pLPwa2jER4Tlwz5d956o",
+            "plus_code": {
+                "compound_code": "7QR9+W9 Singapore",
+                "global_code": "6PH57QR9+W9"
+            },
+            "rating": 3.8,
+            "reference": "ChIJs60pLPwa2jER4Tlwz5d956o",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 190
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "392 Havelock Rd, Singapore 169663",
+            "geometry": {
+                "location": {
+                    "lat": 1.2905162,
+                    "lng": 103.8350276
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291900829892722,
+                        "lng": 103.8363222298927
+                    },
+                    "southwest": {
+                        "lat": 1.289201170107278,
+                        "lng": 103.8336225701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Grand Copthorne Waterfront",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 885,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106359898167788190204\">Grand Copthorne Waterfront</a>"
+                    ],
+                    "photo_reference": "Aap_uECtyzKd79_mLVjWoKsyNniaLGKLW2FUEiozUfmQfLJdpVSkCrJ05mWdQ1IgftX3fRQqf3xhbidScplDaIDoXxiXHqKb0RTZU7dykQD5wVlRSpfGYlozf0o_IU8vYquz3gnFI3V3FNGIyKr2UKjWefWIH05WF4-g448SwptlmoUzyFDK",
+                    "width": 1400
+                }
+            ],
+            "place_id": "ChIJJwg-FJ0Z2jERu90t4MN7JeA",
+            "plus_code": {
+                "compound_code": "7RRP+62 Singapore",
+                "global_code": "6PH57RRP+62"
+            },
+            "rating": 4.4,
+            "reference": "ChIJJwg-FJ0Z2jERu90t4MN7JeA",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6332
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "366 Orchard Rd, Singapore 238904",
+            "geometry": {
+                "location": {
+                    "lat": 1.3064411,
+                    "lng": 103.8312429
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.307787729892722,
+                        "lng": 103.8325914798927
+                    },
+                    "southwest": {
+                        "lat": 1.305088070107278,
+                        "lng": 103.8298918201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "YOTEL Singapore Orchard Road",
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109096289094309890838\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDSf1XuWSzhRe1tV14vEtsrYN6byksSHTlnEulhUNXSys-jBrMSqkfRdNwewgV2OPEyvgfwtBSla4nN1KbOz5XBl3hCsE2kiqPATFQEO9qVp_GaSVo6dGCClPsAWnGbZEeu_DvQQqxAJMV8KnWnQfwmn6-ojToBDTxbclB35zl0SdlG",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJdeB0FI0Z2jERfMMx7jtAfsg",
+            "plus_code": {
+                "compound_code": "8R4J+HF Singapore",
+                "global_code": "6PH58R4J+HF"
+            },
+            "rating": 4.3,
+            "reference": "ChIJdeB0FI0Z2jERfMMx7jtAfsg",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3047
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "48 Mosque St, Singapore 059526",
+            "geometry": {
+                "location": {
+                    "lat": 1.2842504,
+                    "lng": 103.8441722
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285602179892722,
+                        "lng": 103.8454447798927
+                    },
+                    "southwest": {
+                        "lat": 1.282902520107278,
+                        "lng": 103.8427451201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Porcelain Hotel Singapore",
+            "photos": [
+                {
+                    "height": 1090,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105891353757394313385\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEA3DP5JecsBQxVWlE7avmQECcoV-30nJZpLYOOde1h6-aATLv4-5v0PaWZOmDh8R3I2IJCZD50OIMzIgWuRbxBeBJAtNE0EghKU9jruYn8-71nFvSHhv8x3r_5PgtYVeSYuLeOF5nt4oMLbZr2pPXZiuaR58bYa7MwB_9beoi4bnujI",
+                    "width": 815
+                }
+            ],
+            "place_id": "ChIJU9MmV3MZ2jERR9VidbXrRtE",
+            "plus_code": {
+                "compound_code": "7RMV+PM Singapore",
+                "global_code": "6PH57RMV+PM"
+            },
+            "rating": 3.6,
+            "reference": "ChIJU9MmV3MZ2jERR9VidbXrRtE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 911
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "323 Alexandra Rd, Singapore 159972",
+            "geometry": {
+                "location": {
+                    "lat": 1.2875458,
+                    "lng": 103.8054094
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.288813079892722,
+                        "lng": 103.8067674798927
+                    },
+                    "southwest": {
+                        "lat": 1.286113420107278,
+                        "lng": 103.8040678201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Park Hotel Alexandra",
+            "photos": [
+                {
+                    "height": 2400,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118280380684334562708\">Park Hotel Alexandra</a>"
+                    ],
+                    "photo_reference": "Aap_uEDNOkc8pfNFgpj-6XI7aESGYGAu50gJ8wkQkylTiYVTCE51Mc4M_w3CXLxVj7esEYRrkPfRDwfrHbRvJZ0pZnu0xhm21xp95ITXIGpBwIA4yWUjcOA7xwVk69aVYf184unYMM4uXYQe_aXMpWAD1k_o_EJIuzSN6VYOYvb8XmvhqgtS",
+                    "width": 3600
+                }
+            ],
+            "place_id": "ChIJ39rQk8wb2jERAXxgV-X-FOY",
+            "plus_code": {
+                "compound_code": "7RQ4+25 Singapore",
+                "global_code": "6PH57RQ4+25"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ39rQk8wb2jERAXxgV-X-FOY",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2531
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "41 Hongkong St, Singapore 059680",
+            "geometry": {
+                "location": {
+                    "lat": 1.2873637,
+                    "lng": 103.8475361
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.288744129892722,
+                        "lng": 103.8489035798927
+                    },
+                    "southwest": {
+                        "lat": 1.286044470107278,
+                        "lng": 103.8462039201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Hotel NuVe Elements, Clarke Quay",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100320099058431762803\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBU9qI44cStwlIfwL2oH84iG3PJO6eKp0HO8oDY8NWV3p3jxUvpeEKqHlOEz0SXuGaBDiggG78Oqfc83ft3lKvSO0Ys9tVUx1sc9PLrifzI189lbUhU8SeoSBV74Zteoc6Mfen5tD6IjRzi8CpM5nDDZIKFnOlrDGCkYI7pxbJTNf7I",
+                    "width": 6000
+                }
+            ],
+            "place_id": "ChIJby1qk0sZ2jERl1EX_MTwMrA",
+            "plus_code": {
+                "compound_code": "7RPX+W2 Singapore",
+                "global_code": "6PH57RPX+W2"
+            },
+            "rating": 4,
+            "reference": "ChIJby1qk0sZ2jERl1EX_MTwMrA",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 79
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "36 Newton Rd, Singapore 307964",
+            "geometry": {
+                "location": {
+                    "lat": 1.3168137,
+                    "lng": 103.8416014
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318180229892722,
+                        "lng": 103.8428901298927
+                    },
+                    "southwest": {
+                        "lat": 1.315480570107278,
+                        "lng": 103.8401904701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Hotel Royal",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101597484841229205770\">Yeow Jianhao</a>"
+                    ],
+                    "photo_reference": "Aap_uECA3dD6Thb4hfwsXki0OW0EcqaRFHumTy5gsaw71rywBLVkqzbO9l73YkurQurcxDPEXHaxDBV0uUVBXvZAH_kJPibeNAudVIkdzINFecMPIgJlTiQQGNF7osjBTR3BHt27aAYVxRS-BBdcL5nkU6WlwNpIui7Ih08YzEXyZdLC9C6W",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJHR8LfugZ2jERUzNAwBJc5sE",
+            "plus_code": {
+                "compound_code": "8R8R+PJ Singapore",
+                "global_code": "6PH58R8R+PJ"
+            },
+            "rating": 3.7,
+            "reference": "ChIJHR8LfugZ2jERUzNAwBJc5sE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1799
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8 Sentosa Gateway, Singapore 098269",
+            "geometry": {
+                "location": {
+                    "lat": 1.2577913,
+                    "lng": 103.8189046
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.259172229892722,
+                        "lng": 103.8201770798927
+                    },
+                    "southwest": {
+                        "lat": 1.256472570107278,
+                        "lng": 103.8174774201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Hard Rock Hotel Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2848,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115889104413469028809\">rezeki aman</a>"
+                    ],
+                    "photo_reference": "Aap_uEBGFs_7OLEhvk33VVZcsNmROTvrtxhkR-7QcyO_vkRvL6YHaaEhqFCafqty2hZWonK5X2c6PNCgZYX0Gmv7IoI978ZxdVg59fjXjh_OmkaFGGdfVVFp_y_GVGHaqpCUkpPC1M5X4FDGr_l0IG_GQysV71cqGba7INTC-_uXmpqn4ELC",
+                    "width": 4288
+                }
+            ],
+            "place_id": "ChIJy2Y8yP0b2jERRemWlDVeTjQ",
+            "plus_code": {
+                "compound_code": "7R59+4H Singapore",
+                "global_code": "6PH57R59+4H"
+            },
+            "rating": 4.3,
+            "reference": "ChIJy2Y8yP0b2jERRemWlDVeTjQ",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1137
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1A Cuscaden Rd, Singapore 249716",
+            "geometry": {
+                "location": {
+                    "lat": 1.304358,
+                    "lng": 103.82392
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305550929892722,
+                        "lng": 103.8253599798927
+                    },
+                    "southwest": {
+                        "lat": 1.302851270107278,
+                        "lng": 103.8226603201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "JEN Singapore Tanglin by Shangri-La",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3648,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101201263008765551486\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBqR4lT3LtK_aGUx6bxTo4rHS6pDG4UxIBJKeD-pa9wlOXvQmGFLuOpOKs3MejKoYKrfPjwKtxNh4NGagQsCw1KBj8WgQq7VX0BT1hlQK_ttvmYjoo2P06fuFKNaLjT9g59_zWucewLmyxmE1L4vGYS1NjNkYii_DjA8ZBuD1Y6nYk5",
+                    "width": 5472
+                }
+            ],
+            "place_id": "ChIJdY7JN4oZ2jERVg6-qPEGJ3U",
+            "plus_code": {
+                "compound_code": "8R3F+PH Singapore",
+                "global_code": "6PH58R3F+PH"
+            },
+            "rating": 4.3,
+            "reference": "ChIJdY7JN4oZ2jERVg6-qPEGJ3U",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4309
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "176 Tyrwhitt Rd, Singapore 207576",
+            "geometry": {
+                "location": {
+                    "lat": 1.312165,
+                    "lng": 103.8608704
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.313512579892722,
+                        "lng": 103.8621785798927
+                    },
+                    "southwest": {
+                        "lat": 1.310812920107278,
+                        "lng": 103.8594789201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Arton Boutique Hotel",
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103195414388965623915\">Melissa Gave</a>"
+                    ],
+                    "photo_reference": "Aap_uECnNIJiPTePC63ZGWziW3op4MXyiTc2kbsX1-erl7AwkCDTZhQMfbbVPOnryO1bVLquerJ38LcS5R6xeO7gcyWjo6KX_zUGQKq4LIPgHwrTt-miuVi9exA82y6MWHr7OnrhSpmWkWUjns0OPDqtVHAvFnCfkjUvQ_1F2XxowOBEvWUa",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJZTd5SskZ2jER1sfoedaGnmY",
+            "plus_code": {
+                "compound_code": "8V66+V8 Singapore",
+                "global_code": "6PH58V66+V8"
+            },
+            "rating": 3.8,
+            "reference": "ChIJZTd5SskZ2jER1sfoedaGnmY",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 656
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "22 Orange Grove Rd, Singapore 258350",
+            "geometry": {
+                "location": {
+                    "lat": 1.310965,
+                    "lng": 103.8264894
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.312282779892722,
+                        "lng": 103.8278113298927
+                    },
+                    "southwest": {
+                        "lat": 1.309583120107278,
+                        "lng": 103.8251116701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Shangri-La Singapore",
+            "photos": [
+                {
+                    "height": 1328,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112802590717131391084\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECVdTENqmDUEwuwH6DWtE5XJKEjTsvvI39odpBSuRfMzBnY7HxxkMQq3gqTJmwb-ZGzLS4xStpEhNPCYKJxF4RA38jRY-P3FWpnM7ngTzQzD2Gu6CcJ-vygriSazRONhaEu8WWnVJyiTrpPlU-L7_gQT7RNz4yyP35YPzyofUDfJpI4",
+                    "width": 2362
+                }
+            ],
+            "place_id": "ChIJXU9FcvQZ2jERiz8HeaqV70E",
+            "plus_code": {
+                "compound_code": "8R6G+9H Singapore",
+                "global_code": "6PH58R6G+9H"
+            },
+            "rating": 4.6,
+            "reference": "ChIJXU9FcvQZ2jERiz8HeaqV70E",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10923
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "77 Tiong Bahru Rd, Singapore 168727",
+            "geometry": {
+                "location": {
+                    "lat": 1.2851578,
+                    "lng": 103.8334609
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.286533829892722,
+                        "lng": 103.8347886298927
+                    },
+                    "southwest": {
+                        "lat": 1.283834170107278,
+                        "lng": 103.8320889701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Nostalgia Hotel",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1100,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114859451266308853596\">Nostalgia Hotel</a>"
+                    ],
+                    "photo_reference": "Aap_uECM41HNJSoz78DGqbRigA331Qwc8821g4voXFf_dG0viEAfrqflS0olK1xhH5X2hX8q7UcUBPVa3mwdl-ROJMUuzz9CT6kppxe12lu2zj1HAlFR05RqQwJ-D_v2MYVP_ismd0obg94r7gkeLoZC3pYSTAgSvYssmOleRFxkK-Y74ZIM",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJ3XwHWncZ2jERxgr5QCa0gDw",
+            "plus_code": {
+                "compound_code": "7RPM+39 Singapore",
+                "global_code": "6PH57RPM+39"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ3XwHWncZ2jERxgr5QCa0gDw",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 397
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "25 Bencoolen St, Singapore 189619",
+            "geometry": {
+                "location": {
+                    "lat": 1.2986475,
+                    "lng": 103.8496704
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.299836379892722,
+                        "lng": 103.8512195298927
+                    },
+                    "southwest": {
+                        "lat": 1.297136720107278,
+                        "lng": 103.8485198701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Strand Hotel Singapore",
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106473378023729080154\">Victor Quek</a>"
+                    ],
+                    "photo_reference": "Aap_uEBX1zlpZagOZjxefsnM3yyl1AY-Nh7oX1zo33sXJB8VUyMABH60KqRodN7F8aISo2aoahgVyI0hT7T0Ldjm2Sahnkk1K9xcrhGG-EsRrdEpKIgSm3wmVLE0YrXDJBpIRWFQMexbqic4rkCWz94LX7Bc3BRqwkgQqKjN2lGuIziSwFty",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJF-8-srwZ2jERhn9mpTQylp4",
+            "plus_code": {
+                "compound_code": "7RXX+FV Singapore",
+                "global_code": "6PH57RXX+FV"
+            },
+            "rating": 3.9,
+            "reference": "ChIJF-8-srwZ2jERhn9mpTQylp4",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 915
+        }
+    ],
+    "status": "OK"
+}

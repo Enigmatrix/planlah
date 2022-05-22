@@ -1,0 +1,1032 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEC6y2X50EJ2s5v9F9yS7ayml8X_R9_0eHENjqaw02xKp3dYD8Cg0cxEOu9zovv8SKoU25lUmKR9vZ3vN22C9ctl1RAPCu7STsFEBV8KNMgq0Zqvia_fLU4RUX6oPt6uFc68cWWkK72oYpBS8ASu-kOFUCpziv3r7kns2sc83dAq6TDOrpJZIicEbL7l96tbmOj-C0dmw_7tecWBIaozl46VsEjXtqONGBvEBZuwwCfgpp5XTMFtrCygkLLSLw6TGKs3Le0VV06cpHfNteH9W1mOmCACKrSer6Zzphy3nkPDjEykigLe3BoimiA28dbuQrw5YoUByvGEXafFJdF-8SILcEjoxl7xfHLFf2SUkyDJRsjESmWAIxWs3tAI7RRmZrVxYplPwPZIa7C28BQ-hb0T5CcA9JvAs8idm3FzxjuiTAKE6EQJ-X41SmiQPZOonvoEUwCuqWeoFQ",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "160 Paya Lebar Rd, #01-07, Singapore 409022",
+            "geometry": {
+                "location": {
+                    "lat": 1.3293136,
+                    "lng": 103.8901738
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.330689729892722,
+                        "lng": 103.8914658298927
+                    },
+                    "southwest": {
+                        "lat": 1.327990070107278,
+                        "lng": 103.8887661701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Knots Cafe & Living (Paya Lebar)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117009914719497595139\">Kee Onn Chin</a>"
+                    ],
+                    "photo_reference": "Aap_uEBOchJ4ZvMi9hwvTAMqpS6B6zZyfeOXH-xw94IEbb6Wv3yK34cNnZOISW9edb16iVwn56Ifsjqt8DrNJPmqlDo0lQiacYA2_KML-zGq_LCrHGcX1LtTIXZ882ba3CJCUokbNTqV0nh0bqgT_Iqg9IZomnouEp3q7SLtS58QCFgsLf2H",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJKXkHO4sX2jERhWTgW68Gs44",
+            "plus_code": {
+                "compound_code": "8VHR+P3 Singapore",
+                "global_code": "6PH58VHR+P3"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJKXkHO4sX2jERhWTgW68Gs44",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1228
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Paya Lebar Road #B2-33 Paya Lebar Quarter, 409057",
+            "geometry": {
+                "location": {
+                    "lat": 1.3175304,
+                    "lng": 103.8926735
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318822679892722,
+                        "lng": 103.8938005798927
+                    },
+                    "southwest": {
+                        "lat": 1.316123020107278,
+                        "lng": 103.8911009201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Duckland",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5976,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110446636200816703121\">L Y Ong</a>"
+                    ],
+                    "photo_reference": "Aap_uEDrFDcsUFNBz_Eoy10raq2wTwGvEEaUyZmSf5YVPIBB2_bXP8CSwetAHlDmb1thxf-EMZKneZAecZQHJxdw9TE2anmoZ9b4qnLbQdJr_XT3m9g3jeHK8dYKb8smXjqR_T1pStKa4Hh-JqBSjsnnPyMU5LtEPBDx3Kif4FKAWrPkobk",
+                    "width": 8964
+                }
+            ],
+            "place_id": "ChIJyQ6w4XsZ2jER_SGkDpOBA_M",
+            "plus_code": {
+                "compound_code": "8V9V+23 Singapore",
+                "global_code": "6PH58V9V+23"
+            },
+            "rating": 4,
+            "reference": "ChIJyQ6w4XsZ2jER_SGkDpOBA_M",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 209
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Paya Lebar Link, #01-07, Paya Lebar Quarter, PLQ, #2, 408533",
+            "geometry": {
+                "location": {
+                    "lat": 1.3173152,
+                    "lng": 103.8936962
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318570229892722,
+                        "lng": 103.8950659798927
+                    },
+                    "southwest": {
+                        "lat": 1.315870570107278,
+                        "lng": 103.8923663201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "WINE CONNECTION BISTRO (PAYA LEBAR QUARTER)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117961862057293815056\">Steven Leong Siu Weng</a>"
+                    ],
+                    "photo_reference": "Aap_uEAvwJ2rzHaIW-wVWIbP8zbN53RozzDDvuM6v-ioTOYyQ0_fjkjRdUMcOoRCF9FpO-b5E5HacaZgNIG-xO2rpqDNoCGX8UVAvkfO1raomndOrN3SeODW1g7sRQpzB91hQ6sSCi_PP9rKTUko70pz02HbLNsmzAXkL_NSdADQ7BRN1vwr",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJ3cGReNwR2jERw9fwmdfSyhE",
+            "plus_code": {
+                "compound_code": "8V8V+WF Singapore",
+                "global_code": "6PH58V8V+WF"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJ3cGReNwR2jERw9fwmdfSyhE",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 358
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Paya Lebar Rd, #01-77/80 Paya Lebar Square, Singapore 409051",
+            "geometry": {
+                "location": {
+                    "lat": 1.3183466,
+                    "lng": 103.8926286
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.319915279892722,
+                        "lng": 103.8936847798927
+                    },
+                    "southwest": {
+                        "lat": 1.317215620107278,
+                        "lng": 103.8909851201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Delibowl Ricebowl \u58f9\u7897 @ Paya Lebar",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111922026214590063249\">The Red Marker</a>"
+                    ],
+                    "photo_reference": "Aap_uEDaabTO0IvvgK7coE33MnsXEJKxc6HSRfFZQe2DDrICRIr6XcvzzbXZRgcxcTrkozCPGChSyxVSVwOKnv6JQd-E0nA82dyL2Yt5ldoszx0jDwyDB1aw-qmLMW95qkP-gEC0d6Q_g1aih8p-iVo4bzt2FMxCZaVvqaWwU5034X2KZi_G",
+                    "width": 5760
+                }
+            ],
+            "place_id": "ChIJYx3KRRAZ2jERjsDT747i-Is",
+            "plus_code": {
+                "compound_code": "8V9V+83 Singapore",
+                "global_code": "6PH58V9V+83"
+            },
+            "rating": 4,
+            "reference": "ChIJYx3KRRAZ2jERjsDT747i-Is",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 146
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Paya Lebar Rd, #B2-03, Singapore 409057",
+            "geometry": {
+                "location": {
+                    "lat": 1.3175619,
+                    "lng": 103.8926903
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318851179892722,
+                        "lng": 103.8938057298927
+                    },
+                    "southwest": {
+                        "lat": 1.316151520107278,
+                        "lng": 103.8911060701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Tingkat PeraMakan @ Paya Lebar Quarter",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1868,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113760447831244185217\">Bertrand Chin</a>"
+                    ],
+                    "photo_reference": "Aap_uEDHrmjoFCEv_6cRYkpyIxGSOBgbeUEeMJU3v1ICwCmeJXq2Py_sELEXX5oC_kzqg6xjCH9IisMH-2-W2YFIOeXD4ACIpOnpT3lVxdWDeska2Olm3W8JW8IOdxyxoaIzg_8uFy9H-cGhzIL63H2J0r_8YlcUZxy9NTUNF6Vj9a8kuhbI",
+                    "width": 2502
+                }
+            ],
+            "place_id": "ChIJ3wEQm7MZ2jERMUGl5M5wy3M",
+            "plus_code": {
+                "compound_code": "8V9V+23 Singapore",
+                "global_code": "6PH58V9V+23"
+            },
+            "rating": 3.8,
+            "reference": "ChIJ3wEQm7MZ2jERMUGl5M5wy3M",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 159
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Paya Lebar Rd, #01-01/02/03 Park Place Residences at PLQ, Singapore 409053",
+            "geometry": {
+                "location": {
+                    "lat": 1.3164979,
+                    "lng": 103.8927536
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.317823629892722,
+                        "lng": 103.8939448798927
+                    },
+                    "southwest": {
+                        "lat": 1.315123970107278,
+                        "lng": 103.8912452201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Rempapa",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3598,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112184233847856634155\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAe42FJnqCsdWYQExg5hcZ7CFKuP5q1bCKfR2cLiLoxDEA4drye431Zgbm_U3aasnWh9YoA4xJKuuDs0sEHZfBuKac412X-8BKQtJHu5v6XcwsnliK98KUjujHnYG-Yuh70DHmIyDXozyAZevfgFWlKA6Y7tAhRG6uEBU_5_0vHtpQB",
+                    "width": 5397
+                }
+            ],
+            "place_id": "ChIJd30Ooj4Z2jERnRDo8yBJBFs",
+            "plus_code": {
+                "compound_code": "8V8V+H4 Singapore",
+                "global_code": "6PH58V8V+H4"
+            },
+            "rating": 4.3,
+            "reference": "ChIJd30Ooj4Z2jERnRDo8yBJBFs",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 156
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Paya Lebar Link, #01-01 Paya Lebar Quarter 1, Singapore 408533",
+            "geometry": {
+                "location": {
+                    "lat": 1.3175284,
+                    "lng": 103.8928037
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318616279892722,
+                        "lng": 103.8941927298927
+                    },
+                    "southwest": {
+                        "lat": 1.315916620107278,
+                        "lng": 103.8914930701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Providore (PLQ)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2853,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100123134961987124619\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBmw7gNewpgtnNDAwSk6zE08EAuWwgFbomYhPM40TzqZSt9_aHPnIEQyl8CIafgNuXDNxWX0CeaPRAE2WXD-mFaCMj7zBzsNmI_R-bQjcJGdrN-U8XleCOm1BsgELZ3oQZA5YWgIvEWWcFeU-ayBXn-bMz8GAio0h0vzxqaeaSbjXrQ",
+                    "width": 3668
+                }
+            ],
+            "place_id": "ChIJz9-chYwZ2jERTuSMM9gkl1E",
+            "plus_code": {
+                "compound_code": "8V9V+24 Singapore",
+                "global_code": "6PH58V9V+24"
+            },
+            "rating": 3.5,
+            "reference": "ChIJz9-chYwZ2jERTuSMM9gkl1E",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 336
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "#02-18/19/20/K4, Paya Lebar Rd, Paya Lebar Square, 409051",
+            "geometry": {
+                "location": {
+                    "lat": 1.318956,
+                    "lng": 103.8928958
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.320126229892722,
+                        "lng": 103.8944065798927
+                    },
+                    "southwest": {
+                        "lat": 1.317426570107278,
+                        "lng": 103.8917069201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Chicken Run",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109412929480843985400\">Winston Wong</a>"
+                    ],
+                    "photo_reference": "Aap_uEDfLVxW_B8B-X6QWWKOGUeSCXyKEpj6gPgbr4Zaw_7E4rK4RaF7_hfrErMzzdUGZQQ3Y52BVKvwhYd4vGupKZCdJ7y-ZC27CCI5mZ90Bb7HVM3stXj__5WvQ9tuGsn8tWtLnpBKPiV90yQnd32kD1MyaXi0vh_o2XEpbzhRKCXExzW2",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJZdFGZxgY2jERUcLn_QF2BV4",
+            "plus_code": {
+                "compound_code": "8V9V+H5 Singapore",
+                "global_code": "6PH58V9V+H5"
+            },
+            "rating": 4.2,
+            "reference": "ChIJZdFGZxgY2jERUcLn_QF2BV4",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 143
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Paya Lebar Rd, #B1-01 PLQ Mall, Singapore 409057",
+            "geometry": {
+                "location": {
+                    "lat": 1.3175619,
+                    "lng": 103.8926903
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318851179892722,
+                        "lng": 103.8938057298927
+                    },
+                    "southwest": {
+                        "lat": 1.316151520107278,
+                        "lng": 103.8911060701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "COLLIN\u2019S\u00ae @ Paya Lebar Quarter",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109028785748325762825\">Decki Kwok</a>"
+                    ],
+                    "photo_reference": "Aap_uEBGecBtfPx4rxkYBUNwRsMmtbAC6m2kzTLW3x2H4q4r2mbhziKW3IiXb4CRGIXGOI33oR7PQwyayR5BKAtCav2XJYFaNqUjbCCGRaJS1yWb-J2VFiYH2QX5qLbM-Egu9qebfN25lF5Xwy93gwBF1yunHcMRmyiK1o_O1lKPQl-uCBeK",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJ1ec_YBgY2jERDcrHemnoaio",
+            "plus_code": {
+                "compound_code": "8V9V+23 Singapore",
+                "global_code": "6PH58V9V+23"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJ1ec_YBgY2jERDcrHemnoaio",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 744
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Paya Lebar Road #03-09/10 Paya Lebar Quarter, 409057",
+            "geometry": {
+                "location": {
+                    "lat": 1.3176623,
+                    "lng": 103.8930511
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318701829892722,
+                        "lng": 103.8944408798927
+                    },
+                    "southwest": {
+                        "lat": 1.316002170107278,
+                        "lng": 103.8917412201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "TungLok Seafood",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2851,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111922026214590063249\">The Red Marker</a>"
+                    ],
+                    "photo_reference": "Aap_uEDcW-FX4On0IItiCCz6d9cJ9H7y3ym0euWO5qwIMjYN8Tuyt56xFVoQlmoi-jybG2Nsd1uMImd0gwO8wexxug5wjvI3K5d2O80rDCAeWuK0FBEhnWmQGpF6gTPTor1CB4iDwFpfVPy6v0L17Yia-Y8KdnG-akZ_GLMfCKyvljMbJQiY",
+                    "width": 4283
+                }
+            ],
+            "place_id": "ChIJC9toNn0Z2jERYovB7uWkQPU",
+            "plus_code": {
+                "compound_code": "8V9V+36 Singapore",
+                "global_code": "6PH58V9V+36"
+            },
+            "price_level": 3,
+            "rating": 3.9,
+            "reference": "ChIJC9toNn0Z2jERYovB7uWkQPU",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 475
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Paya Lebar Rd, #B2-25, Singapore 409057",
+            "geometry": {
+                "location": {
+                    "lat": 1.3176488,
+                    "lng": 103.8932794
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318864029892722,
+                        "lng": 103.8941081798927
+                    },
+                    "southwest": {
+                        "lat": 1.316164370107278,
+                        "lng": 103.8914085201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "London Fat Duck",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1588,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113563628995879974447\">Kenny Loong</a>"
+                    ],
+                    "photo_reference": "Aap_uEDXHUPBFmQxkVrFHmAZJq1Rs0SVGvecXtmtxR2JIfsrl2R9jTha5_arqTDvfFWPGjYvMLzQQnsZZG6r7ju98gKo_cctU7JXbxhc74Mxf_v_oiT9FsqwG6GguzqyFii-TLoqfNds4hMh_yZVv5OK8FJ8KmNNhY2VzvQlvYRR33JOc1vb",
+                    "width": 2385
+                }
+            ],
+            "place_id": "ChIJZUkjq6MZ2jEROAHSln7zW2g",
+            "plus_code": {
+                "compound_code": "8V9V+38 Singapore",
+                "global_code": "6PH58V9V+38"
+            },
+            "rating": 3.5,
+            "reference": "ChIJZUkjq6MZ2jEROAHSln7zW2g",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 127
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Paya Lebar Rd, #02-13/14/K1, Singapore 409051",
+            "geometry": {
+                "location": {
+                    "lat": 1.3189191,
+                    "lng": 103.8927846
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.320126229892722,
+                        "lng": 103.8943509798927
+                    },
+                    "southwest": {
+                        "lat": 1.317426570107278,
+                        "lng": 103.8916513201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Lotus Thai Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107431589322877158256\">jianhao lee</a>"
+                    ],
+                    "photo_reference": "Aap_uECXlZfFxj_1AtnceMUruuG4OFerOL82MGzapw31cHrkmLDS4OotUlakIj-VfdCXhuVOEN3rjaNJHpn76LfVJ5RQ87PuX865Xtq_fje_tjIAd2ffzvVtz2q-YYeMF1DZ3IhxH0JDBRJMoZc_e6HAAOoYUA4sG1Xz0tkrmtXhnnScTozH",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ__8_YBgY2jEREyD_B6vylqU",
+            "plus_code": {
+                "compound_code": "8V9V+H4 Singapore",
+                "global_code": "6PH58V9V+H4"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ__8_YBgY2jEREyD_B6vylqU",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 298
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Paya Lebar Link, #01-08 Paya Lebar Quarters, Singapore 408533",
+            "geometry": {
+                "location": {
+                    "lat": 1.3175318,
+                    "lng": 103.8936912
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318681229892722,
+                        "lng": 103.8950780298927
+                    },
+                    "southwest": {
+                        "lat": 1.315981570107278,
+                        "lng": 103.8923783701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+            "name": "Tipsy Bird Gastrobar",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 901,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114591439582893574478\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBjdHvzUFB_ZN6fyYuqmCsWaR_V8efwwfBlgwQEssD70i1CdV8JevhPTnZbwOuEmIJhz2dY1igBDJLF2TCImcgJ3e6Xpnb5QLyOmFhNv_UMEwrIHmQeXgdXA_gmV1KMQ4g3SVcDmPyqDwnbOwQq36lcFvpvsktqXj7ndQkTvBA8oAKe",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJGRqmkckZ2jER9pUiWCKHTYk",
+            "plus_code": {
+                "compound_code": "8V9V+2F Singapore",
+                "global_code": "6PH58V9V+2F"
+            },
+            "price_level": 2,
+            "rating": 4.6,
+            "reference": "ChIJGRqmkckZ2jER9pUiWCKHTYk",
+            "types": [
+                "bar",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 785
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "845 Geylang Rd, #04-09, Singapore 400845",
+            "geometry": {
+                "location": {
+                    "lat": 1.3164419,
+                    "lng": 103.8943571
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.317937829892722,
+                        "lng": 103.8959571798927
+                    },
+                    "southwest": {
+                        "lat": 1.315238170107278,
+                        "lng": 103.8932575201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Qian Xi (Paya Lebar) Restaurant",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116185353743055553389\">minhluan nguyen</a>"
+                    ],
+                    "photo_reference": "Aap_uEAF32Z-06RELhb5rtxhkl4LtsvGfhHJyON70UHRL1FBFjM7GISWmmYnC9Ss5sEz7MrrH_Wwce7qs6mZ17lVqASyjRKagFeXuRGbeX9Wr5CkbDw6_HmqRnSN7Zp1scd0Qhlb3aj6QeZwGTKZ-t6Jkb9S-6a-CJWcjhszxRAVPCe2hakx",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJy56weRcY2jERoDcajXKvkdo",
+            "plus_code": {
+                "compound_code": "8V8V+HP Singapore",
+                "global_code": "6PH58V8V+HP"
+            },
+            "rating": 3.9,
+            "reference": "ChIJy56weRcY2jERoDcajXKvkdo",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 225
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Paya Lebar Rd, #01-57 Paya Lebar Square, Singapore 409051",
+            "geometry": {
+                "location": {
+                    "lat": 1.3184358,
+                    "lng": 103.8927403
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.319899229892722,
+                        "lng": 103.8943076298927
+                    },
+                    "southwest": {
+                        "lat": 1.317199570107278,
+                        "lng": 103.8916079701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Monster Planet - Paya Lebar Square",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1065,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104169806909300893892\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECqGN5f4pJXopf_eXq77cbNHUd9Ey9caz8C40ZEzJynIX-YVPuyT14EyteVK6hB5BqTjbl6LNrz718ItNSZtDCBuxdK8ASEpJJfJ_l2ROprhcq76WEw8lCOS0ypU1HrHbo_hiusq8NvSN9dUCLS9NrmYQtHlw49nMUAJr5xCVBVOro8",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJaxkWOzAZ2jERl9bX1T_915A",
+            "plus_code": {
+                "compound_code": "8V9V+93 Singapore",
+                "global_code": "6PH58V9V+93"
+            },
+            "rating": 4.7,
+            "reference": "ChIJaxkWOzAZ2jERl9bX1T_915A",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 698
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60, #01-08 Paya Lebar Rd, Paya Lebar Square, 409051",
+            "geometry": {
+                "location": {
+                    "lat": 1.318712,
+                    "lng": 103.89293
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.319976329892722,
+                        "lng": 103.8938082298927
+                    },
+                    "southwest": {
+                        "lat": 1.317276670107278,
+                        "lng": 103.8911085701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Madura's Restaurant Pte Ltd",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107178224188444151269\">pt sivakumar</a>"
+                    ],
+                    "photo_reference": "Aap_uEDH3lCuQ_WlTkzfLtcf_keC09hEF_ioSBGlJgCi0vBNBP5JeMZVSthrP-eJnksBn862xHgPPZMJHHaP6aNyFO68Iy__1MxKeiJVo8zSjavqUhCb9MaktmUCbkhJy2TDXfWneVP3wE9RkF_7Z3j0cETA0NY7C9Ou2duhjizMssVAgLVF",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJKzu_XBgY2jERkZA-RarKtt8",
+            "plus_code": {
+                "compound_code": "8V9V+F5 Singapore",
+                "global_code": "6PH58V9V+F5"
+            },
+            "rating": 3.8,
+            "reference": "ChIJKzu_XBgY2jERkZA-RarKtt8",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 311
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Paya Lebar Rd, #B1-16 Paya Lebar Square, Singapore 409051",
+            "geometry": {
+                "location": {
+                    "lat": 1.3189781,
+                    "lng": 103.8928912
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.320126229892722,
+                        "lng": 103.8944042798927
+                    },
+                    "southwest": {
+                        "lat": 1.317426570107278,
+                        "lng": 103.8917046201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+            "name": "Charcoal-grill & Salad Bar Keisuke",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3134,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111922026214590063249\">The Red Marker</a>"
+                    ],
+                    "photo_reference": "Aap_uEDvkG1yvojhEcS01DUZeaYD5hxXrOeGr8hynGlz1wEvvIZgLrCTOD1PLbY0pT5F1dlPuAwoDC1X7YhWu41tJjM8zUfTNBhrbPj2umbIgJlBcTe8SSiuNORk3ZXbz49a9MVhz-YqGRFbqCOpmIUYKC8RxgcuE6DoGXlz_YFOXcuXy4cs",
+                    "width": 4709
+                }
+            ],
+            "place_id": "ChIJHWP3GUEZ2jER20H8e-j40Gg",
+            "plus_code": {
+                "compound_code": "8V9V+H5 Singapore",
+                "global_code": "6PH58V9V+H5"
+            },
+            "rating": 4.4,
+            "reference": "ChIJHWP3GUEZ2jER20H8e-j40Gg",
+            "types": [
+                "bar",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 287
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Paya Lebar Rd, #03-13 PLQ Mall, Singapore 409057",
+            "geometry": {
+                "location": {
+                    "lat": 1.3175346,
+                    "lng": 103.8925141
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318846079892722,
+                        "lng": 103.8937154298927
+                    },
+                    "southwest": {
+                        "lat": 1.316146420107278,
+                        "lng": 103.8910157701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "elemen \u5143\u7d20",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 6165,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110446636200816703121\">L Y Ong</a>"
+                    ],
+                    "photo_reference": "Aap_uEBqMZ8ksBmzSz4ZOxD4u0UPQaCHoCZCe0gZcDbB0q8Vr__aQ0k8TjqoNAQ8QY365EzgoG_Eu-zLn9o8YnUJCm75ZAUGMQAWZqbi9gOcgG-VwPQkK419-p8HFrNhkxJE-sBumx1dDbK04BFOEQe3kk3ZAw0hvLml2cgczUB3C7gf8Lc",
+                    "width": 9248
+                }
+            ],
+            "place_id": "ChIJiXAiEoIZ2jERKdEua8eDjQU",
+            "plus_code": {
+                "compound_code": "8V9V+22 Singapore",
+                "global_code": "6PH58V9V+22"
+            },
+            "rating": 4.1,
+            "reference": "ChIJiXAiEoIZ2jERKdEua8eDjQU",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 361
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Paya Lebar Road, PLQ, Park Place, #01-06/07/08, 409053",
+            "geometry": {
+                "location": {
+                    "lat": 1.3163965,
+                    "lng": 103.893153
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318063479892722,
+                        "lng": 103.8944553798927
+                    },
+                    "southwest": {
+                        "lat": 1.315363820107277,
+                        "lng": 103.8917557201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Zing by Xi Yan",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4011,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111922026214590063249\">The Red Marker</a>"
+                    ],
+                    "photo_reference": "Aap_uEB9mwTvJdGwAiepAwIqbYfHilsMsVnLeqqNdu8nOIJtIp4I_bcMnNLsaeC35nq2Ph0ReEeIXLpIppPcGHyP_kSCev6hoZdzkyXOYIksmApfB0RAbX54eZ74Ro6r_bROgWC5uYPOICKmTRC8SD1mPuQHEnjvK23_cJCNVv2Tje_6QgUa",
+                    "width": 6013
+                }
+            ],
+            "place_id": "ChIJ5yAQ4O0Z2jERdJH7GXMOi6E",
+            "plus_code": {
+                "compound_code": "8V8V+H7 Singapore",
+                "global_code": "6PH58V8V+H7"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ5yAQ4O0Z2jERdJH7GXMOi6E",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 42
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10, #01-151 Eunos Rd 8, SingPost Centre, 408600",
+            "geometry": {
+                "location": {
+                    "lat": 1.3186595,
+                    "lng": 103.8935122
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.319999779892722,
+                        "lng": 103.8948046298927
+                    },
+                    "southwest": {
+                        "lat": 1.317300120107278,
+                        "lng": 103.8921049701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "grove \u7d20\u6797",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1984,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111008222569803353090\">Jo ainee</a>"
+                    ],
+                    "photo_reference": "Aap_uEDAZhTiBuFIYUAh0Gm0bG0I0lbx_aKEZAN9oubiKHsFRr1EGb6VBNNSdhXtMsQCGaRO3YhKgufo7T2WzXHEONp5guLex2KkJGkmZnEsvAjVUt1Dt5EGqdJmQvzQUdwbUy13RG_4iBYAiArPGtUkD3GJfSEfTN-oV25hjRdohOifFY6V",
+                    "width": 3968
+                }
+            ],
+            "place_id": "ChIJLcjhBxkY2jERSSEkDXj50hc",
+            "plus_code": {
+                "compound_code": "8V9V+FC Singapore",
+                "global_code": "6PH58V9V+FC"
+            },
+            "rating": 4.1,
+            "reference": "ChIJLcjhBxkY2jERSSEkDXj50hc",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 267
+        }
+    ],
+    "status": "OK"
+}

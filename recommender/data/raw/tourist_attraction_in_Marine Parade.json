@@ -1,0 +1,994 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEBx-aheXX4-29vJcxDX-0aA8T-HfTia9KIapA7xVOfm_lZrXzTUkKCzyeAacF-KpXdD0KvORRl8lVaSWs9_EORgn_RsMjaTO3FKInJjDn88VwnL9jf7BcUYzwdF-wUku7JWq-VGyQLdwXvzXDWMF04lVk6edkp83TBe5fz3APhwld1ZyT9C2cf9OV5Ve5RITaFbif2z_2ATLB82OZbLwt0FYEO5XHdZ6yG7AaNhGAo8m-zbDURIzLwE8_5luzH5qwHJYi8-fGwdbvpOEWuJDcmteGU1BiX93VxOjPPND9BLexKBR17mL-Wx1NZywTkPUmCEOff8QuyagpvyQrQiZB-a2epEZvYsC-GWnPpOB6eE7XoLzyYBG_kfDF29-Ut9p7aThhqZQ727vI1WwwSzm-sPhhUynE3sqnUnhfeltsWJqELCq7BcYaeakElJyZsOhXaa9qDyinTIPogZpNJPp_3oe2WE",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "30 Raffles Ave, Singapore 039803",
+            "geometry": {
+                "location": {
+                    "lat": 1.2892988,
+                    "lng": 103.8631368
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291054829892722,
+                        "lng": 103.8643521798927
+                    },
+                    "southwest": {
+                        "lat": 1.288355170107278,
+                        "lng": 103.8616525201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Singapore Flyer",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115547351276037607529\">Kok Seng Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uEAPefK6CMrVCW8QoCiAjf7fpeg5KNHdq1m1dmr6EjB4LWejoRIMwG1QZkZCNla_5ZuEYQP911tTlCEEC6NBWrO-NC5hzRvg-JtJYPoNleQr7QYNFkRmkxVJveYbbgPuJvVSSQiFW-WdYOPZSSOGLoITEvPEzoQwtQl0DbBqLofkV4xD",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJzVHFNqkZ2jERboLN2YrltH8",
+            "plus_code": {
+                "compound_code": "7VQ7+P7 Singapore",
+                "global_code": "6PH57VQ7+P7"
+            },
+            "rating": 4.6,
+            "reference": "ChIJzVHFNqkZ2jERboLN2YrltH8",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 15480
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Marine Parade Rd",
+            "geometry": {
+                "location": {
+                    "lat": 1.305607,
+                    "lng": 103.9092646
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306789229892722,
+                        "lng": 103.9106939298927
+                    },
+                    "southwest": {
+                        "lat": 1.304089570107278,
+                        "lng": 103.9079942701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Marine Parade Road Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108759979760879735761\">Edward Tan</a>"
+                    ],
+                    "photo_reference": "Aap_uEAX-0ZMbRBgdgV2FffbO11QaTtbb2xYVhFJ4njEL54NatWMkkwLS1Jtvia3ylgwrzQsCRh5oUvfp3V79rbXq3mQzAop-LVvkhzQBnU2p7ZFu4jyrvmZjwExuLbw2DBGZoUzw7uZOd0KlUWl6pgS0FXMM6Ralz1Ap0dWUzwtdfFaBOBj",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJlcZLmnMY2jERcfMtCddM8hk",
+            "plus_code": {
+                "compound_code": "8W45+6P Singapore",
+                "global_code": "6PH58W45+6P"
+            },
+            "rating": 4.3,
+            "reference": "ChIJlcZLmnMY2jERcfMtCddM8hk",
+            "types": [
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1000 ECP, Singapore 449876",
+            "geometry": {
+                "location": {
+                    "lat": 1.3013487,
+                    "lng": 103.9137646
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302698529892722,
+                        "lng": 103.9151144298927
+                    },
+                    "southwest": {
+                        "lat": 1.299998870107278,
+                        "lng": 103.9124147701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Marine Cove Playground",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1915,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100629515701423718340\">L Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uECN19KAjO5VxcMQ3kZqJEf-phSdQWOuOHvsbb-b0G4zt9bQngIK-szSiRyQLOPW6777HAVJnlqTdBE4XNpHYrK84RZ-5bwsgjCpXBQkfowOqOoYqxSZdSr1rpN6uR0wTMOpX7KkCAf18mUTEGhSZ5H0R76VrMjQv7i8lR7MPTi0ffRY",
+                    "width": 3405
+                }
+            ],
+            "place_id": "ChIJ4ShJI3YY2jERzwtLMJ7hQMg",
+            "plus_code": {
+                "compound_code": "8W27+GG Singapore",
+                "global_code": "6PH58W27+GG"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ4ShJI3YY2jERzwtLMJ7hQMg",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 613
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 1.2867892,
+                    "lng": 103.8545014
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287595279892722,
+                        "lng": 103.8554918298927
+                    },
+                    "southwest": {
+                        "lat": 1.284895620107278,
+                        "lng": 103.8527921701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Merlion",
+            "opening_hours": {},
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116002091548389620274\">\u3064\u30fc</a>"
+                    ],
+                    "photo_reference": "Aap_uEApQng1tS_DfLa7R22dxWsQWdr6RDebDu--UGSGWlGB7jDP4tOyVet-6BWC4I0SGB3zYQ1xAYDMSpQk-1FlxD2c1PdEskmDgPL0vRik6y4ySgMVJ0lurtbAVYkC2zg938dUMwWCnPHtNEX14fAhfAzGtgNAswBdcGstl2Ag3s88jgJJ",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ29omWQgZ2jEROEz2yZFzQp8",
+            "plus_code": {
+                "compound_code": "7VP3+PR Singapore",
+                "global_code": "6PH57VP3+PR"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ29omWQgZ2jEROEz2yZFzQp8",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 26982
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8 Sentosa Gateway, 098269",
+            "geometry": {
+                "location": {
+                    "lat": 1.2540421,
+                    "lng": 103.8238084
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2577978,
+                        "lng": 103.82842785
+                    },
+                    "southwest": {
+                        "lat": 1.252041,
+                        "lng": 103.81910445
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Universal Studios Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4613,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116675207955272717700\">Michael</a>"
+                    ],
+                    "photo_reference": "Aap_uEB8Wiwwpr6U6TLBBuyyns5zJfO6dgfBYBobFcHUAMy_14SXILWmHUn4tlgKRqqVAnl4XgWk1vTVCq-nGkH1lSV75C_KXWpcEvMUJm7XfJi4_AT2iP1vf05WWmCq0rfcwUCYNrP0rwToWK2YfrSULGSyQL-Zrb-GipsD_tOQRk15FTwl",
+                    "width": 6782
+                }
+            ],
+            "place_id": "ChIJQ6MVplUZ2jERn1LmNH0DlDA",
+            "plus_code": {
+                "compound_code": "7R3F+JG Singapore",
+                "global_code": "6PH57R3F+JG"
+            },
+            "rating": 4.6,
+            "reference": "ChIJQ6MVplUZ2jERn1LmNH0DlDA",
+            "types": [
+                "tourist_attraction",
+                "amusement_park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 79451
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8 Sentosa Gateway, 098269",
+            "geometry": {
+                "location": {
+                    "lat": 1.256752,
+                    "lng": 103.820331
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.258101829892722,
+                        "lng": 103.8216808298927
+                    },
+                    "southwest": {
+                        "lat": 1.255402170107278,
+                        "lng": 103.8189811701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Marine Life Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106030856213358405511\">Jerusha Chua</a>"
+                    ],
+                    "photo_reference": "Aap_uECWgUF3EAR9IDmyDUpH-PZCY66taS-zJ1rh_CEBFYxf_9Qtetqn73a6h8pMyErWeyO2GYMgf6mX7YsKC8Z0pTFwsfiStMeUG_nd-b0tX4NdKO7A5DX7QdtKcNGD9Bkcsgo8ztwS0gF4ggWI58aPQs9L-ZwIASimUvqPMN9fHb19aC-f",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJkRh7fv4b2jEReRI7dnChCPg",
+            "plus_code": {
+                "compound_code": "7R4C+P4 Singapore",
+                "global_code": "6PH57R4C+P4"
+            },
+            "rating": 4.5,
+            "reference": "ChIJkRh7fv4b2jEReRI7dnChCPg",
+            "types": [
+                "amusement_park",
+                "tourist_attraction",
+                "aquarium",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 520
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "E Coast Park Service Rd",
+            "geometry": {
+                "location": {
+                    "lat": 1.3007842,
+                    "lng": 103.9121866
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.32495915,
+                        "lng": 104.007979
+                    },
+                    "southwest": {
+                        "lat": 1.28346895,
+                        "lng": 103.8220434
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "East Coast Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110473139049616241426\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBjLbBr8taXdioU_mDy5EWB5cOshoyVmPTSszbfuYFtH6wKccpfdrWjchoLaaH1Jp6L-nLPC5A0JlkYIX5fRU0mfz9KHW1FIal-sTgxh_T6c_tyGtTx9MO3WDZ1KqCaIUd2lJuRigkgSZqMkvugFfkYzo_pB1HH0QIlixbDvqaMCaNf",
+                    "width": 6240
+                }
+            ],
+            "place_id": "ChIJ0QX_Brki2jER-pZKNdqk_a8",
+            "plus_code": {
+                "compound_code": "8W26+8V Singapore",
+                "global_code": "6PH58W26+8V"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ0QX_Brki2jER-pZKNdqk_a8",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 24454
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Rd, Singapore 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3013366,
+                    "lng": 103.9052333
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302945129892722,
+                        "lng": 103.9060537798927
+                    },
+                    "southwest": {
+                        "lat": 1.300245470107278,
+                        "lng": 103.9033541201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Parkway Parade",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109532441449540262596\">Bobby Wan</a>"
+                    ],
+                    "photo_reference": "Aap_uEDxK9y5xOhhFqh0DtgsmYBj22BCQS4rN3h1GXj408gChJN9ySgyTMNLdF8r2-cfA_ZR_w4VODjbbhCUoDJNqezW8c5OkdJquoTBYag_IB6y0AE2ly80SZn3toLOQwQUsJJyGkdiOhC890Kg2BB6i2rM21_KSaf4ECkxVFMq6x8-DoZ4",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ2WUXmnEY2jERoGOSkJVgnrY",
+            "plus_code": {
+                "compound_code": "8W24+G3 Singapore",
+                "global_code": "6PH58W24+G3"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ2WUXmnEY2jERoGOSkJVgnrY",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7591
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5000C Marine Parade Rd, Singapore 449284",
+            "geometry": {
+                "location": {
+                    "lat": 1.3090129,
+                    "lng": 103.9311249
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.310314479892722,
+                        "lng": 103.9321726298927
+                    },
+                    "southwest": {
+                        "lat": 1.307614820107278,
+                        "lng": 103.9294729701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Laguna Park",
+            "photos": [
+                {
+                    "height": 1472,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115110595882112175647\">Mukesh Kumar</a>"
+                    ],
+                    "photo_reference": "Aap_uEDaY_lBub5HFVlH0ibTXVy8RzNb4Pt3hry1WD6Y0d7xet9iJ0MAg5hqK-IeRTj7Cr9mTVl0TUkXOe5q-fLu00mGAiNLOuBHCzMkr7UT0LCVZWetU86Fqhs5fBU3F-jhHhxMZhjag4G06FdlAxObBxYBNjLLtUr3k22vrr7pYpv2011T",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJQUX6pb0i2jERZTDNAIAbvkw",
+            "plus_code": {
+                "compound_code": "8W5J+JC Singapore",
+                "global_code": "6PH58W5J+JC"
+            },
+            "rating": 4.2,
+            "reference": "ChIJQUX6pb0i2jERZTDNAIAbvkw",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 142
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "111 Somerset Road, Level 3 TripleOne Somerset, Singapore 238164",
+            "geometry": {
+                "location": {
+                    "lat": 1.3001685,
+                    "lng": 103.8372952
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.301776779892722,
+                        "lng": 103.8387173298927
+                    },
+                    "southwest": {
+                        "lat": 1.299077120107278,
+                        "lng": 103.8360176701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Rediscover Singapore",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 682,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104511073508296649038\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECed8fmH4-bfoUAgwrHUcwFQ1OOIdMmQZm9cxVhZZ4PzCjRpj4UAXDzxqgcP24GZntiW26n8nH81q-W6gcd4lN76BGiE1PwfFMOIT8bb-KWmFnG9pkBlD3BEXOB4BJwjCdfQys3MfgYwFCCPVIJBIp3UYMsOSIrDbZw0cOKuRHgI8G1",
+                    "width": 1024
+                }
+            ],
+            "place_id": "ChIJj2C7rboZ2jERVY7-9TT-E9k",
+            "plus_code": {
+                "compound_code": "8R2P+3W Singapore",
+                "global_code": "6PH58R2P+3W"
+            },
+            "rating": 4.8,
+            "reference": "ChIJj2C7rboZ2jERVY7-9TT-E9k",
+            "types": [
+                "travel_agency",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 9
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "97 Marine Parade Rd, Singapore 449273",
+            "geometry": {
+                "location": {
+                    "lat": 1.3036005,
+                    "lng": 103.9055265
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304953029892722,
+                        "lng": 103.9068784298927
+                    },
+                    "southwest": {
+                        "lat": 1.302253370107278,
+                        "lng": 103.9041787701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Marine View Mansion",
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100529075178081143401\">Micah Lim \u6797\u76ca\u624d Real Estate</a>"
+                    ],
+                    "photo_reference": "Aap_uEDqLAAjrPAqK_YcJAV-Ena-tD5a1zBdAGdUAX8sh0VbxbkIqBB5ETg6DVMuuIBchcgVGUa-KxyrJa2TI_4yx6-yJ7JbQmlPY5FdMQspe_lDBp0DH7Ly3faoxtKZbTGA2yIXtSWO0jZRAnf_fi3u5R-VWNDdFf40JxWe7qfvkAUr7srG",
+                    "width": 1440
+                }
+            ],
+            "place_id": "ChIJqbH8MnIY2jERqy7DHV0ymho",
+            "plus_code": {
+                "compound_code": "8W34+C6 Singapore",
+                "global_code": "6PH58W34+C6"
+            },
+            "rating": 5,
+            "reference": "ChIJqbH8MnIY2jERqy7DHV0ymho",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Blk 83 Marine Parade Central, 01-568, 440083",
+            "geometry": {
+                "location": {
+                    "lat": 1.302676,
+                    "lng": 103.906125
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304053529892722,
+                        "lng": 103.9074496298927
+                    },
+                    "southwest": {
+                        "lat": 1.301353870107278,
+                        "lng": 103.9047499701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Parkway Durian",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4640,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108471757825746683550\">tjoe italiano</a>"
+                    ],
+                    "photo_reference": "Aap_uECWYVFDl51iNwYDnQ55BExPyuShHtIc2GH-wdJaMsn_8DyFJIsF06D22Hq9JsGw-EaBum-MJZEOrxBPlV6VMafd3XSQ0Bt9yR4FAejq6Q3YCj_ZquyUiSHTccbB8JM8kLTnWKsqZQoJDboQrNFM9YfrzuSJBxYoQbmtscZ1JfsUo-XM",
+                    "width": 3480
+                }
+            ],
+            "place_id": "ChIJeeGw1nMY2jERLjgNGsUoHRg",
+            "plus_code": {
+                "compound_code": "8W34+3C Singapore",
+                "global_code": "6PH58W34+3C"
+            },
+            "rating": 3.8,
+            "reference": "ChIJeeGw1nMY2jERLjgNGsUoHRg",
+            "types": [
+                "store",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 58
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Orchard Spring Ln, #01-03 Tourism Court, Singapore 247729",
+            "geometry": {
+                "location": {
+                    "lat": 1.303849,
+                    "lng": 103.8238087
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305052179892722,
+                        "lng": 103.8254467298927
+                    },
+                    "southwest": {
+                        "lat": 1.302352520107278,
+                        "lng": 103.8227470701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/civic_building-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/civic-bldg_pinlet",
+            "name": "Singapore Tourism Board",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107810333428319776700\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB4CPZh6plduJCY7nUMja-NNPAo-930EqbA5eBgX9fSwrrzHiLodFlXEoskQnKNJ612ZZFE3oKt2GVN4id7lzesftZnI86NF1swC8id5QCpKTsi0kLUHkwHokbRlsbNCgmYXRqCkMsZ9yNqBR8SRbkXnDKqjP1_RbJf05pwTWdJ9_a8",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJAdEjLooZ2jERrBdz0q_rvdY",
+            "plus_code": {
+                "compound_code": "8R3F+GG Singapore",
+                "global_code": "6PH58R3F+GG"
+            },
+            "rating": 3.8,
+            "reference": "ChIJAdEjLooZ2jERrBdz0q_rvdY",
+            "types": [
+                "local_government_office",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 50
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Rd, Singapore 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3011082,
+                    "lng": 103.9048428
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302385729892722,
+                        "lng": 103.9060869798927
+                    },
+                    "southwest": {
+                        "lat": 1.299686070107278,
+                        "lng": 103.9033873201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Fun Toast",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1716,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">TB Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uECz3jv7Sp10Xj191vKKZGbdftDeF2-_kTgujqerP0t60U3RlWurazqksoKXj2y0z1mvis348HyahK1yR9if36smpiuM011RdtqSobMsdGtm-iiaxyzoiCNGU3uH_HYXKrdGBTkfoikj2TgUH385Uv7_qZvY1-NzFRlkBEV5mL6x4wLC",
+                    "width": 3621
+                }
+            ],
+            "place_id": "ChIJxfgAYeMZ2jERz-3RO49YnbU",
+            "plus_code": {
+                "compound_code": "8W23+CW Singapore",
+                "global_code": "6PH58W23+CW"
+            },
+            "rating": 3.6,
+            "reference": "ChIJxfgAYeMZ2jERz-3RO49YnbU",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 54
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "91 Marine Parade Rd, Singapore 449314",
+            "geometry": {
+                "location": {
+                    "lat": 1.3035157,
+                    "lng": 103.9052093
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304710079892722,
+                        "lng": 103.9066140298927
+                    },
+                    "southwest": {
+                        "lat": 1.302010420107278,
+                        "lng": 103.9039143701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Marine Blue",
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101403416911780620293\">Sumit Malik</a>"
+                    ],
+                    "photo_reference": "Aap_uEArxLYqW0yRVAnrXaish6oD7v0cqL_-LxxCSuOybUtCFOEVi8gHU9wZzRymAr2uvBIHUcqFt_fCBO82WLW1l1RYKYFSHH3UJTOHIlZBbyj1OfGYiWBkRe0Zm4Ffy92LQIjgMVcvfg70tHb2xnsEhz3Z750ss_DPDIY2l6yExa3U_tbv",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJW8RWK3IY2jERASmrGfS84mo",
+            "plus_code": {
+                "compound_code": "8W34+C3 Singapore",
+                "global_code": "6PH58W34+C3"
+            },
+            "rating": 4.6,
+            "reference": "ChIJW8RWK3IY2jERASmrGfS84mo",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 24
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Road #B1-83A Parkway Parade, 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3013388,
+                    "lng": 103.905226
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302688629892722,
+                        "lng": 103.9065758298927
+                    },
+                    "southwest": {
+                        "lat": 1.299988970107278,
+                        "lng": 103.9038761701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/civic_building-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/civic-bldg_pinlet",
+            "name": "Singapore Post - Marine Parade Branch",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113174850191623589648\">Glorr K</a>"
+                    ],
+                    "photo_reference": "Aap_uED97U3Kl9MU_oPbTMKBwCcWp4dsE7_givtUIZh6uicwW57Ed4AiDwhlkg_vX_sfRnbwVDYNAByUYh28P5pru5mg0xMCzDEH-QBLlwlwN_q_VEFSsHq-ZcR9TTgIfoU1AKWrZRPeoXPh98dqbF-NrHhlhenYNjsHqKq0vjL3pqO6MdTG",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJDacNE3EY2jERFfKf_Y7AGDE",
+            "plus_code": {
+                "compound_code": "8W24+G3 Singapore",
+                "global_code": "6PH58W24+G3"
+            },
+            "rating": 3.3,
+            "reference": "ChIJDacNE3EY2jERFfKf_Y7AGDE",
+            "types": [
+                "post_office",
+                "finance",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 30
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "208 E Coast Rd, Singapore 428907",
+            "geometry": {
+                "location": {
+                    "lat": 1.3072593,
+                    "lng": 103.9070394
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.308618129892722,
+                        "lng": 103.9083828798927
+                    },
+                    "southwest": {
+                        "lat": 1.305918470107278,
+                        "lng": 103.9056832201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Katong Antique House - Located in a two-storey shophouse in Katong, this private museum is a treasure trove of artifacts, costumes, and furniture that gives visitors unique insights into the Peranakan way of life, history, and culture.",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2306,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111799061687427263257\">\u90ed\u6c38\u7d00</a>"
+                    ],
+                    "photo_reference": "Aap_uEAXpNnj6FMmhhSsqtSz5THGD96GK2BN7LDJ0pFmQb3ECAPxPYjABH47Xz7VtX_wfItr4H1mkQ3xPNEGWrRLbjHupG-frCM69Cdu9_AF9MK8AzGjqe2XwHseKchAUNHXKxMg-ndz_P7vbReoFssypX1corL3XkaQcci1xc9WPTR8H_Db",
+                    "width": 3292
+                }
+            ],
+            "place_id": "ChIJtThnSnMY2jER1o1poSw5EtE",
+            "plus_code": {
+                "compound_code": "8W44+WR Singapore",
+                "global_code": "6PH58W44+WR"
+            },
+            "rating": 4.3,
+            "reference": "ChIJtThnSnMY2jER1o1poSw5EtE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 26
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "32 Sea Ave, Singapore 424253",
+            "geometry": {
+                "location": {
+                    "lat": 1.3050898,
+                    "lng": 103.9071296
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306473829892722,
+                        "lng": 103.9085288798927
+                    },
+                    "southwest": {
+                        "lat": 1.303774170107278,
+                        "lng": 103.9058292201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Marine Mansion",
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100529075178081143401\">Micah Lim \u6797\u76ca\u624d Real Estate</a>"
+                    ],
+                    "photo_reference": "Aap_uEALLDLG24LOVOB2L33D2lqwCzY923JHT7hYfacpTWSVmothHCEdyKkkxMGyBBsObgRXwrMTCVoN2nBIODG_6IxzDhCiI-0TIbWTpFKwwRAGHBsGOlmphv2OLeJruYOwXi-51NK0P2ijFPtZ4rxA865SGwD9Ae0xJ5XCaMG_zhVJ1v8K",
+                    "width": 1440
+                }
+            ],
+            "place_id": "ChIJvxPACnMY2jERWMDPD4jrlDU",
+            "plus_code": {
+                "compound_code": "8W44+2V Singapore",
+                "global_code": "6PH58W44+2V"
+            },
+            "rating": 3.3,
+            "reference": "ChIJvxPACnMY2jERWMDPD4jrlDU",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "84 Marine Parade Central, Singapore 440084",
+            "geometry": {
+                "location": {
+                    "lat": 1.3023792,
+                    "lng": 103.906311
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303555079892722,
+                        "lng": 103.9077627298927
+                    },
+                    "southwest": {
+                        "lat": 1.300855420107278,
+                        "lng": 103.9050630701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "84 Marine Parade Central Market and Food Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1833,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106852703375133242070\">joshua khoo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBgmjIIrIcOTqgRcxsfUymRXRbYR6xfQz1dPvHQ14j8_YNO-XjOGF5P_rToIXYGfeR830tFnaMdloLvKyuoI5uYbulbQgzGwadBBF9egFoMliVQCB9QGNzhYFtobsWrOCRTb-1jv1gBvRz0DzFddBnAOJlQ51vtxLgs1tlh4bYU4uDe",
+                    "width": 3162
+                }
+            ],
+            "place_id": "ChIJx6JYenEY2jERgilO3SwweQg",
+            "plus_code": {
+                "compound_code": "8W24+XG Singapore",
+                "global_code": "6PH58W24+XG"
+            },
+            "price_level": 1,
+            "rating": 4,
+            "reference": "ChIJx6JYenEY2jERgilO3SwweQg",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 1295
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "50 Marine Parade Rd, Singapore 449307",
+            "geometry": {
+                "location": {
+                    "lat": 1.3000114,
+                    "lng": 103.9021703
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.301421879892722,
+                        "lng": 103.9034818798927
+                    },
+                    "southwest": {
+                        "lat": 1.298722220107278,
+                        "lng": 103.9007822201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Silversea",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113024726468334716119\">Kelly Tai</a>"
+                    ],
+                    "photo_reference": "Aap_uEDbgZD11VnMuk8QtOhM8Sqqhtv4XEfIJbfWa444y2KKzMK3uFL9vVdiJGGcmQ8NBVlMhDuHULMVRfbKPcXhxdH44DsfCfhQRM5FSsTA4gqoBtQJ8T5SZbiZA54v1Uz7go-IC6lt1PpBEg3n0fqY8AD9L2FitiwRafeVV6zfJlwojGzc",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJHZl9ajYZ2jERwbth1cImoas",
+            "plus_code": {
+                "compound_code": "8W22+2V Singapore",
+                "global_code": "6PH58W22+2V"
+            },
+            "rating": 4,
+            "reference": "ChIJHZl9ajYZ2jERwbth1cImoas",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6
+        }
+    ],
+    "status": "OK"
+}

@@ -1,0 +1,1043 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEC6gcc7KlhY1UqKQqgptq3Z77zXjpiSohrD_S0guoiLNA8XbRlkHlz6Rj_e-c_2Z-NrN1szh8ovW48e7Soxu6SVWeJEvVQaBjJIoq-Kc-syUVTDgVTtW1svla3ngftOwtnGnCsz2nTaB-9Gg9PCOIIjKPYANtZRYrjUTQrDbxByloSVbjXKz0SVvMGLpQFtBnNWEXRaHM1DIASReyEs0ZHQXCodNyMbGHUP0sJiWt7-NYBIIw48rK0sTS1J1_wQLIOOVwy-rzvjUrob0viiAPq6iQ8mCHikC0HPvFnl9EUm4gz0EXLsBRZ-UccUi_levPPgYeuFSRs66R8zK3R6exq5mMikyLv5MrA_FOH35FeuodjdSB7Oc6hyLcnipezMPl0SAT8RFLw-1gVQWBtWkWFF6HoG3zjqzc3OUhdJePTYYl7oFE4abzedplIxpCGGKEhRqUk0-0M8Kg",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Ang Mo Kio Drive ITE, College Central, #01-09 Block A - Campus Centre, 567720",
+            "geometry": {
+                "location": {
+                    "lat": 1.3765878,
+                    "lng": 103.8563501
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.379265599999999,
+                        "lng": 103.8573623298927
+                    },
+                    "southwest": {
+                        "lat": 1.3756952,
+                        "lng": 103.8546626701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "First Culinary Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 945,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100366195493938345450\">First Culinary Restaurant @ AMK</a>"
+                    ],
+                    "photo_reference": "Aap_uEA9_7Bs1vwDsKA_ooUzB2L02U5zDYsVE2UIVgkZjAS4PgoXchu0SzM6upojI85Au-6LvT3IOHqNw4sWjfoTNxF79AD1tcFcSSGbtZUkJZ3msYjOKm-utEHywmd6qBBs8xqeE3U3qHgOIHAsFOzzperO88sal_ywnAvDD8xUWfJsxB0I",
+                    "width": 1417
+                }
+            ],
+            "place_id": "ChIJr2vXDu4W2jERC8RbWLTvCYM",
+            "plus_code": {
+                "compound_code": "9VG4+JG Singapore",
+                "global_code": "6PH59VG4+JG"
+            },
+            "price_level": 3,
+            "rating": 3.9,
+            "reference": "ChIJr2vXDu4W2jERC8RbWLTvCYM",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 485
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "157 Ang Mo Kio Ave 4, #01-546, Singapore 560157",
+            "geometry": {
+                "location": {
+                    "lat": 1.3753037,
+                    "lng": 103.8395115
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.376575929892722,
+                        "lng": 103.8408518298927
+                    },
+                    "southwest": {
+                        "lat": 1.373876270107278,
+                        "lng": 103.8381521701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Gim Tim Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2827,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101597484841229205770\">Flo Yeow</a>"
+                    ],
+                    "photo_reference": "Aap_uEAz_qXyk2St8Jc0Za6o5rnau8182qq9Zodm7WJXb-xJkSGEoXqUSxLrlKsy90-eSPQ0XgeXIbFEaRjc7g2c1Tv9pAlBKsB62qQeXD4lV9PmAcMw_Paf2Wh_OAPiwu9fkfaaLtRGQ7YqHtUQ1SfKgBRsjLc8nCJ_ZDgAcgHkN6wY7zY9",
+                    "width": 3986
+                }
+            ],
+            "place_id": "ChIJyWk5cMMW2jER2GWLiSidNXs",
+            "plus_code": {
+                "compound_code": "9RGQ+4R Singapore",
+                "global_code": "6PH59RGQ+4R"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJyWk5cMMW2jER2GWLiSidNXs",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 371
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "730 Ang Mo Kio Ave 6, #01-4274, Singapore 560730",
+            "geometry": {
+                "location": {
+                    "lat": 1.3737652,
+                    "lng": 103.8456175
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.375078929892722,
+                        "lng": 103.8467441798927
+                    },
+                    "southwest": {
+                        "lat": 1.372379270107278,
+                        "lng": 103.8440445201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Jack's Place",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2304,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103607115546021225928\">Wong C.L.</a>"
+                    ],
+                    "photo_reference": "Aap_uEDRK0dJmjxHxIFKqcxhYUAAMpaM5XzMGan-IgBtIhgxsCq-MirBRy4k1GstawZCeRSPyeP9IakMIO3lGm4vk2vVih2umNmLz_SDBO553AWLOeUnPvlFyZwzjJpqBcQXwEJMutuBMuzvLt0t4geTgnDHlRXsBNEVdOErZB3VefxX6liy",
+                    "width": 4096
+                }
+            ],
+            "place_id": "ChIJHQDtIegW2jERd_nSiPl5U-g",
+            "plus_code": {
+                "compound_code": "9RFW+G6 Singapore",
+                "global_code": "6PH59RFW+G6"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJHQDtIegW2jERd_nSiPl5U-g",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1017
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "53 Ang Mo Kio Ave 3, #02 - 02, Singapore 569933",
+            "geometry": {
+                "location": {
+                    "lat": 1.3691969,
+                    "lng": 103.8490476
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.370420329892722,
+                        "lng": 103.8504008798927
+                    },
+                    "southwest": {
+                        "lat": 1.367720670107278,
+                        "lng": 103.8477012201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Fish & Co.",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117597573277381456027\">Lim Chian Song</a>"
+                    ],
+                    "photo_reference": "Aap_uEBA_IgnZ60hNsBiouV3fkkCZ0G6GR2xS5IU13CKNJ144oC2KPim2sOgVXrdOrfNak0watWDnd5yQQ8zzYDej7Rq4mkqiS8Gnsh49PigAWLeoc29kmTPs96TiA6g4DmCbSiUbGwE1HemOxKDN5adaFfrMQ0zMl6U4rvSgOU84Qt95DA",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJb3WaKecW2jERo5Bt7U-J8qY",
+            "plus_code": {
+                "compound_code": "9R9X+MJ Singapore",
+                "global_code": "6PH59R9X+MJ"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJb3WaKecW2jERo5Bt7U-J8qY",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 608
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "332 Ang Mo Kio Ave 1, #01-1881, Singapore 560332",
+            "geometry": {
+                "location": {
+                    "lat": 1.3616989,
+                    "lng": 103.8519471
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.363228529892722,
+                        "lng": 103.8532018798927
+                    },
+                    "southwest": {
+                        "lat": 1.360528870107278,
+                        "lng": 103.8505022201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Workbench Bistro",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1200,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102719063939328763042\">The Workbench</a>"
+                    ],
+                    "photo_reference": "Aap_uEBmOrnzQf-9XgZW25W7HWouVYO675QWw4I6pD4wGZz_oCgJIaeb2HjMLiiWW6rqIH9TGQ_485UJ_NNb-1k1rcVxXSHCXpvit3hrt1FyXFxu7saufllW_a22F-Kz3EJqa7GOApQ6V6VF0KDafv2QYtveADmxEt5g7xy2XIOBmONhhZBe",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJTV8Fyx0X2jER_hO-7u1Zs-Y",
+            "plus_code": {
+                "compound_code": "9V62+MQ Singapore",
+                "global_code": "6PH59V62+MQ"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJTV8Fyx0X2jER_hO-7u1Zs-Y",
+            "types": [
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 487
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "631 Ang Mo Kio Ave 4, Singapore 560631",
+            "geometry": {
+                "location": {
+                    "lat": 1.3795922,
+                    "lng": 103.8407328
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.381040279892722,
+                        "lng": 103.8420740798927
+                    },
+                    "southwest": {
+                        "lat": 1.378340620107278,
+                        "lng": 103.8393744201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "FuLee Seafood \u5bcc\u4fd0\u6d77\u9c9c",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3761,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116522362531307670303\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAyN7eO3zBDl92OXmapUNAHWj9BfqyiMQWXwQyq5OVp9CyBt4TlkFP6bFygLZ_oLUEJdmR1U_fC1qCS6o-j6bVcb9MSC6_VR-ZJoq36psta7gbZ016vAal-V1d7Ke_a_iy6t8eJddetntzWb7qQvs3Tz0cWsEnURbGz7IjyCe2vEbEV",
+                    "width": 2821
+                }
+            ],
+            "place_id": "ChIJMeSSV6AX2jERpDVFn7E--Pg",
+            "plus_code": {
+                "compound_code": "9RHR+R7 Singapore",
+                "global_code": "6PH59RHR+R7"
+            },
+            "rating": 5,
+            "reference": "ChIJMeSSV6AX2jERpDVFn7E--Pg",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "232 Ang Mo Kio Avenue 3, St 22, #01-1222, 560232",
+            "geometry": {
+                "location": {
+                    "lat": 1.3686044,
+                    "lng": 103.836948
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.369994779892722,
+                        "lng": 103.8382077798927
+                    },
+                    "southwest": {
+                        "lat": 1.367295120107278,
+                        "lng": 103.8355081201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Mellben Seafood",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 960,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110118591680252424536\">Jack Sim</a>"
+                    ],
+                    "photo_reference": "Aap_uEBUPWdp12ny_t2AvI6JueUEiPNelcR2ci_yRUBXriJI6FDCCkeejdNX5ddS0x90eIXTf_yqXBCI5EiZtwVsTXVe1jOZIcOPWduJgcVht7mDTLdZGvVsJsglm0Abi-U1s-Y3QMtANnm5tdre3U-mzsXUmFRmCKOCj4ZOKGAo-tN8MOqI",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJgxGXnNsW2jEReh6IGeC_1yI",
+            "plus_code": {
+                "compound_code": "9R9P+CQ Singapore",
+                "global_code": "6PH59R9P+CQ"
+            },
+            "price_level": 3,
+            "rating": 4.2,
+            "reference": "ChIJgxGXnNsW2jEReh6IGeC_1yI",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1734
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Bishan-Ang Mo Kio Park, 1380 Ang Mo Kio Ave 1, 569930",
+            "geometry": {
+                "location": {
+                    "lat": 1.3625158,
+                    "lng": 103.8471797
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.364085479892722,
+                        "lng": 103.8486434298927
+                    },
+                    "southwest": {
+                        "lat": 1.361385820107278,
+                        "lng": 103.8459437701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "ToriYard",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2078,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102582766424036554780\">Jonavan Lee</a>"
+                    ],
+                    "photo_reference": "Aap_uEDid0QZDvykIWm9TUmLMzBNTWdKkPEA3S0x4R8dRIPqLzYJja-TZTCQBRzmmOqvHtAY0_DEokMCmxSFFnj-2KocuOmX3gIQ1kmtsGKUhG3dNV0uA6uM_zNIRtKud0yrbE7k-uHgaknAMjnToRxONUprANyYVJU5RJb7APMx7mXgPkg6",
+                    "width": 4192
+                }
+            ],
+            "place_id": "ChIJEdAdsR8X2jER7Vfu-JC0X7M",
+            "plus_code": {
+                "compound_code": "9R6W+XV Singapore",
+                "global_code": "6PH59R6W+XV"
+            },
+            "price_level": 3,
+            "rating": 4.4,
+            "reference": "ChIJEdAdsR8X2jER7Vfu-JC0X7M",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1921
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "202 Ang Mo Kio Ave 3, Singapore 560202",
+            "geometry": {
+                "location": {
+                    "lat": 1.3685253,
+                    "lng": 103.8440948
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.369779179892722,
+                        "lng": 103.8454117298927
+                    },
+                    "southwest": {
+                        "lat": 1.367079520107278,
+                        "lng": 103.8427120701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Kam Jia Zhuang Seafood",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2604,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113118735950245046749\">Eric Man</a>"
+                    ],
+                    "photo_reference": "Aap_uECaitY4l7FG8RVFXOGwtqbYcTnFL2dmXCzrvMcCmr4LhrvvQKhhFAAbU4k3Am3aKfwxRKf_gmpMmVt4sbM1Qww9BQwECH1NGNN6HPs45eZkfoQuRkU7GcNUNZHXlIV1xh9wv3rd4QNRs2GqQGSafHr0XMle4Ivwbi2B2MmC5d13pTxT",
+                    "width": 4624
+                }
+            ],
+            "place_id": "ChIJwcNOB94W2jERcO_JxkwIz9o",
+            "plus_code": {
+                "compound_code": "9R9V+CJ Singapore",
+                "global_code": "6PH59R9V+CJ"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJwcNOB94W2jERcO_JxkwIz9o",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 388
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Blk, 531 Ang Mo Kio Ave 10, #01-2429 Happy Hawkers, 560531",
+            "geometry": {
+                "location": {
+                    "lat": 1.3733071,
+                    "lng": 103.8540939
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.374771279892722,
+                        "lng": 103.8554567798927
+                    },
+                    "southwest": {
+                        "lat": 1.372071620107278,
+                        "lng": 103.8527571201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Fish & Chicks",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104413197106602456867\">M Hanif</a>"
+                    ],
+                    "photo_reference": "Aap_uEAyjghwY1nkUBvSJAkQJ15DldVpzJBYdQKVYwQk4GLAZ20wjbavziP8DIcpQ4GGvIst-zhH2PloKuG2iqonegO9hY0ThaNDKC2gGeXmDLNIkKTHqKyHdmryuVNaTH4yWwWKf0CoyrPIX16SibUD79QR5bz9VbYqQY5WPWuGp6fbGRE9",
+                    "width": 3984
+                }
+            ],
+            "place_id": "ChIJtzqFfeUW2jERnMM7mzrcaAc",
+            "plus_code": {
+                "compound_code": "9VF3+8J Singapore",
+                "global_code": "6PH59VF3+8J"
+            },
+            "price_level": 2,
+            "rating": 3.5,
+            "reference": "ChIJtzqFfeUW2jERnMM7mzrcaAc",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 677
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "233 Ang Mo Kio Ave 3, #01-1194, Singapore 560233",
+            "geometry": {
+                "location": {
+                    "lat": 1.3674625,
+                    "lng": 103.8370641
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.368780279892722,
+                        "lng": 103.8385450798927
+                    },
+                    "southwest": {
+                        "lat": 1.366080620107278,
+                        "lng": 103.8358454201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Boon Tong Kee @ AMK",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3480,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118196009780910159657\">Michael Chin</a>"
+                    ],
+                    "photo_reference": "Aap_uEBn_F2H6aHtjRE5fCo7O173o0cSJKxXTCL2f2bWJ5WC2B6ilsSYZ2L58GKJwWjggjhvTdkSmmBXUfXtn3yUGc-OyUVCqZV8reO49fc-QJkicQbb8ZZAtcL6jrMQbVrVUaFTkD5aUnuIvitKj6AHxHXzHKwGYR5C6fa6KXxBAdVqZrB8",
+                    "width": 4640
+                }
+            ],
+            "place_id": "ChIJW-F7a9kW2jEROnVdsO3RJVc",
+            "plus_code": {
+                "compound_code": "9R8P+XR Singapore",
+                "global_code": "6PH59R8P+XR"
+            },
+            "rating": 4.1,
+            "reference": "ChIJW-F7a9kW2jEROnVdsO3RJVc",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 833
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "727 Ang Mo Kio Ave 6, #01-4236, Singapore 560727",
+            "geometry": {
+                "location": {
+                    "lat": 1.3726056,
+                    "lng": 103.8461419
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.374293379892722,
+                        "lng": 103.8474864298927
+                    },
+                    "southwest": {
+                        "lat": 1.371593720107278,
+                        "lng": 103.8447867701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Backyard Griller (Ang Mo Kio)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2925,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113077052229326228840\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECjYKcXwh6NqshAhONwhhoCnq48OfREGMAA8aW9SA_q__NChdVeJaM5-HEgJbiZb-Ef0uDqkapKS0bgaOf8WCjoF_iFJw4t1H8d6ZZ9UN-vyFdsXDDBjsI2YquWODK75AC95XwZWNsCZxxcSvaXDsDHOb3v7FrtddHDCj_CUyt6emol",
+                    "width": 3999
+                }
+            ],
+            "place_id": "ChIJgwNj2_kX2jERUB5VTYO8GnI",
+            "plus_code": {
+                "compound_code": "9RFW+2F Singapore",
+                "global_code": "6PH59RFW+2F"
+            },
+            "rating": 3.2,
+            "reference": "ChIJgwNj2_kX2jERUB5VTYO8GnI",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 12
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "53 Ang Mo Kio Avenue 3 #02-26 AMK Hub, 569933",
+            "geometry": {
+                "location": {
+                    "lat": 1.3691183,
+                    "lng": 103.8477271
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.370468129892722,
+                        "lng": 103.8490769298927
+                    },
+                    "southwest": {
+                        "lat": 1.367768470107278,
+                        "lng": 103.8463772701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Xin Wang Hong Kong Cafe @ AMK Hub",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113775188408100673442\">Eric</a>"
+                    ],
+                    "photo_reference": "Aap_uEAAUhysSmeR-DXUVZ99toiHq7-MF2_9QeFhbQxEyFuztPWtOS6-m-RfRSK7OXEzwG4mmk4vO_vcuyAB-fth_MZ6mCwa3VeEfySvyUgb573xbSjNXlecmIn5hBSnQ3achqPYJ7Q2C7-goywXj0cao9X1Eo6cGN-_RgziOwvRJ1i0JmZM",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ_dbH0ucW2jERirLNpHmg3r4",
+            "plus_code": {
+                "compound_code": "9R9X+J3 Singapore",
+                "global_code": "6PH59R9X+J3"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJ_dbH0ucW2jERirLNpHmg3r4",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 895
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "53 Ang Mo Kio Ave 3, #B1 - 25 / 26, Singapore 569933",
+            "geometry": {
+                "location": {
+                    "lat": 1.3692224,
+                    "lng": 103.8480132
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.370467079892722,
+                        "lng": 103.8493511298927
+                    },
+                    "southwest": {
+                        "lat": 1.367767420107278,
+                        "lng": 103.8466514701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Swensen's",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1181,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105354809872587276135\">Swensen&#39;s</a>"
+                    ],
+                    "photo_reference": "Aap_uEDU5J3rShcupCXirQwtItkYOt6omKrEl7SRCrCxNg9pLL8pYOec5XYkKDT4QPXvsjS38WSbhfNOp5QLbwm-y2QKUKTI1OLJKzs1pD9MoN891YJ6a8KI8NOUU2Q0P9vNy0GRhXsDK3gK3xnQ4SKpYOZiOoyNof5bbYw6p47GLfZvdjNI",
+                    "width": 1783
+                }
+            ],
+            "place_id": "ChIJb-ErmBYX2jER5GLUsahpxQA",
+            "plus_code": {
+                "compound_code": "9R9X+M6 Singapore",
+                "global_code": "6PH59R9X+M6"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJb-ErmBYX2jER5GLUsahpxQA",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 747
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1382 Ang Mo Kio Ave 1 Bishan Park 2, 569931",
+            "geometry": {
+                "location": {
+                    "lat": 1.3623858,
+                    "lng": 103.8473431
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.364043679892722,
+                        "lng": 103.8487525798927
+                    },
+                    "southwest": {
+                        "lat": 1.361344020107278,
+                        "lng": 103.8460529201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Canopy Bishan",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 800,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112394324390924714771\">The Canopy @ Aramsa</a>"
+                    ],
+                    "photo_reference": "Aap_uECT37iw6co79Ecb3FRVfTb66MjCQHHHjgD4gL7QpL8DFBsCbKAMnp6BGgw77ZJy-EnQB3zoPrIjqC00-TeabCG70zR3IdKj1yXRvc8VYjC264h4R3HfMwPu7LoOZnAjukdwppjnPrmE7jozc9f1as0on-1x38F6pZ9Ui-0ZA98dulNg",
+                    "width": 1200
+                }
+            ],
+            "place_id": "ChIJNzPuIxsX2jERCubjluZTnUk",
+            "plus_code": {
+                "compound_code": "9R6W+XW Singapore",
+                "global_code": "6PH59R6W+XW"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJNzPuIxsX2jERCubjluZTnUk",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1784
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "51 Ang Mo Kio Ave 3, #01-01C, Singapore 569922",
+            "geometry": {
+                "location": {
+                    "lat": 1.3692472,
+                    "lng": 103.8470568
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.370702529892722,
+                        "lng": 103.8484091298927
+                    },
+                    "southwest": {
+                        "lat": 1.368002870107278,
+                        "lng": 103.8457094701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Takagi Ramen - Ang Mo Kio",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 845,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105890381702933236656\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECigoInSe_3fuMLsbI1O7YpM2Gok_NEMS3cOwT_H2apaQd_OkgSLgMXLaFB5CjCR7g71GjHAkVroCArzbM4QTlGs4SqJbzHUhu12gGFO19bTrWsmcu1YF5L5BJ6SMXbno-7VDl8jwF05kVW2gQxREDt2LI2E1fZ25Y61iw7_YM_271n",
+                    "width": 756
+                }
+            ],
+            "place_id": "ChIJBY28M-YW2jERxosKzeeyDZA",
+            "plus_code": {
+                "compound_code": "9R9W+MR Singapore",
+                "global_code": "6PH59R9W+MR"
+            },
+            "price_level": 1,
+            "rating": 4.5,
+            "reference": "ChIJBY28M-YW2jERxosKzeeyDZA",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3102
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Ang Mo Kio Central 2 Djitsun, Mall, #01-06, 569663",
+            "geometry": {
+                "location": {
+                    "lat": 1.372875,
+                    "lng": 103.8476212
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.374115179892722,
+                        "lng": 103.8489836798927
+                    },
+                    "southwest": {
+                        "lat": 1.371415520107278,
+                        "lng": 103.8462840201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Khao Hom by Rung Mama",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101597484841229205770\">Yeow Jianhao</a>"
+                    ],
+                    "photo_reference": "Aap_uECEBg_6_YkIF-bW-569VOAAc7WY7kXG-q944gaZC4hal4KPfQTrSRubuQqnkvqGY85_JgX-7LgSWdUn5rdRzOn0af5DYqtAGKunv-NqzFZcVpb3zOyptTJCDjReFISdnzvXP-aTWTe4iGp4S0hc7lGK7tWa_AyN6Khiw1kO6UvUpgTP",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJW7Sy2DIX2jERtlerlD1xvIo",
+            "plus_code": {
+                "compound_code": "9RFX+42 Singapore",
+                "global_code": "6PH59RFX+42"
+            },
+            "rating": 4.3,
+            "reference": "ChIJW7Sy2DIX2jERtlerlD1xvIo",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 230
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "628 Ang Mo Kio Ave 4, Singapore 560628",
+            "geometry": {
+                "location": {
+                    "lat": 1.380884,
+                    "lng": 103.8405902
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.382424229892722,
+                        "lng": 103.8421572298927
+                    },
+                    "southwest": {
+                        "lat": 1.379724570107278,
+                        "lng": 103.8394575701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Ang Mo Kio 628 Market",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116318543161460025783\">Joe Sin</a>"
+                    ],
+                    "photo_reference": "Aap_uEAImq6Tg5v2OZamrZL5YDj2lyCGSddXXseWAPzEEW8ZVEAhjfunWdNafiMmVzM8EFO-BFbSJBkj6fuXcwvWxQFoP_O_gB-fRWMbqrlB13lhM9bFi7cdUBwqt5LS0DD7rgbpJmZosXm_085J5sATzmVtMChYjneoOM4iJXorI9s-as1U",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ2ajBHcEW2jER33CSFDvne98",
+            "plus_code": {
+                "compound_code": "9RJR+96 Singapore",
+                "global_code": "6PH59RJR+96"
+            },
+            "price_level": 1,
+            "rating": 4.1,
+            "reference": "ChIJ2ajBHcEW2jER33CSFDvne98",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2866
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "01-42 53 Ang Mo Kio Avenue 3 3 AMK Hub, 569933",
+            "geometry": {
+                "location": {
+                    "lat": 1.3690633,
+                    "lng": 103.8481101
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.370394929892722,
+                        "lng": 103.8494582298927
+                    },
+                    "southwest": {
+                        "lat": 1.367695270107278,
+                        "lng": 103.8467585701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Swee Choon Express AMK Hub",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115456632767311179486\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB506y0x5Ii-sXPsr02GrOfLydQw2PyQkceGcDEtFdvVYPy9QceZmKHVKLEqMl3Z7lKCErHUlyGwUU4vpL8IsAA_HgpGIQ43AZMUqog35WvQ-y150b0z8Mne6UoaJceN-zB1lkAfHxCrxl3EVtXdTJhCMrFcjfCDKDH-T9yp5E1vMoU",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJN4fTqXAX2jERzvGQ_ouOHq4",
+            "plus_code": {
+                "compound_code": "9R9X+J6 Singapore",
+                "global_code": "6PH59R9X+J6"
+            },
+            "rating": 2.7,
+            "reference": "ChIJN4fTqXAX2jERzvGQ_ouOHq4",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 30
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Ang Mo Kio Ave 3, #01-2142 Blk 347, Singapore 560347",
+            "geometry": {
+                "location": {
+                    "lat": 1.3673578,
+                    "lng": 103.8485856
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.368708829892722,
+                        "lng": 103.8500016298927
+                    },
+                    "southwest": {
+                        "lat": 1.366009170107278,
+                        "lng": 103.8473019701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Hualong Fishhead Steamboat",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100883891204569944242\">Christian Hiltl</a>"
+                    ],
+                    "photo_reference": "Aap_uEC2vA3gqbS5-QeL3hhF9Owry57XStVe8rOVzxuxlDXP_8XcyxMRKVMEWsaPLLSSpChKx2r5nQqOFSrtWlR17iOYM843_LNDWVRW6y3dqOqUsbk6ubIYmxZ8bFuYgyaG9K68V8ZaJB1qMFnmpgFXn3jz5Cy8jHEw_tH5v2dbiImkqeo",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ3XkDF-EW2jERnoxsx_i5CcY",
+            "plus_code": {
+                "compound_code": "9R8X+WC Singapore",
+                "global_code": "6PH59R8X+WC"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJ3XkDF-EW2jERnoxsx_i5CcY",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 139
+        }
+    ],
+    "status": "OK"
+}

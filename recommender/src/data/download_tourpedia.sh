@@ -33,3 +33,4 @@ wget http://tour-pedia.org/download/london-attraction.csv -P $output_dir
 wget http://tour-pedia.org/download/paris-attraction.csv -P $output_dir
 wget http://tour-pedia.org/download/rome-attraction.csv -P $output_dir
 wget http://tour-pedia.org/download/tuscany-attraction.csv -P $output_dir
+wget http://tour-pedia.org/download/tourpedia.rdf -P $output_dir
