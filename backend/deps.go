@@ -8,6 +8,7 @@ import (
 	"github.com/google/wire"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
 )
@@ -24,6 +25,8 @@ func NewServer(user routes.UserController, auth routes.AuthController) (*gin.Eng
 
 var depSet = wire.NewSet(
 	services.NewAuthService,
+	data.NewDatabaseConnection,
+	data.NewDatabase,
 	wire.Struct(new(routes.UserController), "*"),
 	wire.Struct(new(routes.AuthController), "*"),
 	NewServer,
