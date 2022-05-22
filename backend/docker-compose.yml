@@ -17,4 +17,4 @@ services:
       - "8081:8080"
 
 volumes:
-  db_volume: {}
+  db_volume: { }
