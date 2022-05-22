@@ -32,9 +32,22 @@ func NewDatabaseConnection() (*gorm.DB, error) {
 		}
 
 		// add tables here
-		err = db.AutoMigrate(&User{})
+		models := []interface{}{&User{}, &Group{}, &GroupMember{}, &Message{}, &Outing{}, &OutingStep{}, &OutingStepVote{}}
+
+		// Neat trick to migrate models with complex relationships, run auto migrations once
+		// with DisableForeignKeyConstraintWhenMigrating=true to create the tables without relationships,
+		// then run auto migrations with DisableForeignKeyConstraintWhenMigrating=false to build up the relationships
+
+		// Sometimes I fear my own madness ...
+		db.DisableForeignKeyConstraintWhenMigrating = true
+		err = db.AutoMigrate(models...)
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("error while migrating db: %v", err))
+			return nil, errors.New(fmt.Sprintf("error while migrating db without fks: %v", err))
+		}
+		db.DisableForeignKeyConstraintWhenMigrating = false
+		err = db.AutoMigrate(models...)
+		if err != nil {
+			return nil, errors.New(fmt.Sprintf("error while migrating db with fks: %v", err))
 		}
 
 		sqlDB, err := db.DB()
