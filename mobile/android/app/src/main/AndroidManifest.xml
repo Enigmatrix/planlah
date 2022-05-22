@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mobile">
+    package="sg.planlah.app">
    <application
         android:label="mobile"
         android:name="${applicationName}"

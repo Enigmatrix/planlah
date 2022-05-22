@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "87066124475",
+    "project_id": "planlah",
+    "storage_bucket": "planlah.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87066124475:android:a716f0900a12b549eb499e",
+        "android_client_info": {
+          "package_name": "sg.planlah.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87066124475-hk8jlonm57rhgctpq22a7ph9u17e4f23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sg.planlah.app",
+            "certificate_hash": "11e4b0278205a6d270b9f4800a4c0c7dd42ea12b"
+          }
+        },
+        {
+          "client_id": "87066124475-p8tdtj08q68nmk1flu6sl4mhtau8cads.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYUz1_9PwKC8XIZqN3Iq2loIa2B2o2fcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87066124475-p8tdtj08q68nmk1flu6sl4mhtau8cads.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
