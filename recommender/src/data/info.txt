@@ -1,1 +1,13 @@
-This folder contains
+From TripAdvisor
+Categories
+We use the categories from TripAdvisor
+
+Attractions | Tours | Day Trips | Outdoor Activities | Concerts & Shows | Food & Drink | Events | Classes & Workshop | Shopping
+
+I am typing this from TeamViewer XD
+
+What I need to do???????
+
+TripAdvisor
+
+Tourpedia dataset is highly unusual, unsure how to use it

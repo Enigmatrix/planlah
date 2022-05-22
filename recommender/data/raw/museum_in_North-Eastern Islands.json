@@ -1,0 +1,1016 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEDXZwLhvE322Kr6CXLuFQ_8WTp42fGUOsH8YpeEXmvgBgNXZZskNdg6jQBsuJRP-DdKnjiLaWCgBfqGGkyqb_QWIpVsxSoFThLjRSv2v20NGik6j-QGHIRt8fdKww2F0YZDkc3LXJezKCtPxDSaRRsVnDInMk8eBk_n8B_strXrNZvT70WeMFLmdywLbGIY3ZQ7yvVsACk-g0ThHq36AaVSMyeax6ZF58lnGrt7JGKewlwZ3ZQUZeqIT1cHFft08eeI63byefifzt86pX_yneOtlSBLC_S7M4mfkcACeYWlW9GndG749YGt8mBP8PjwnD0rqsYvIZjjwIoREgnmr3S-8Bdc8YdXHivDEtb5RbzT5RZocx4_5MHwtltPv0btIrQEVRArUblBdoIwPXnC5FEKQYxSB5k0ZsTKS4pdYerNZqkVit26bvwiYVcdWqBIVsQ2SuETzLSZBC_b0YROOA8",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Conservatory Dr, Singapore 117377",
+            "geometry": {
+                "location": {
+                    "lat": 1.3014107,
+                    "lng": 103.7734981
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302814079892722,
+                        "lng": 103.7747023798927
+                    },
+                    "southwest": {
+                        "lat": 1.300114420107278,
+                        "lng": 103.7720027201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Lee Kong Chian Natural History Museum, Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117880854907367581375\">Su-Young Jeong</a>"
+                    ],
+                    "photo_reference": "Aap_uEBgoKV3ckS4h8W410TNZy6CsBd2FXd_KwKRHq5nYKoqD1VIHh7z9FJ2cNxhV2iuLnpjOFlSR-ucPGovd-VfyA2uA-4N1NtwMp5FGLU3Uon7EXI58GPtQ_XlTeaud4A7pov2c5sZoZkgI3pUClTSyhWENi522BYrI0qvGhMO0QY5cikl",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJlcijSfYa2jERGZ3CD7lpz_E",
+            "plus_code": {
+                "compound_code": "8Q2F+H9 Singapore",
+                "global_code": "6PH58Q2F+H9"
+            },
+            "rating": 4.6,
+            "reference": "ChIJlcijSfYa2jERGZ3CD7lpz_E",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1388
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "93 Stamford Rd, Singapore 178897",
+            "geometry": {
+                "location": {
+                    "lat": 1.296613,
+                    "lng": 103.8485091
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.298156229892722,
+                        "lng": 103.8503791
+                    },
+                    "southwest": {
+                        "lat": 1.295456570107278,
+                        "lng": 103.8473567
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "National Museum of Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114117725418384121358\">Paul Tuddenham</a>"
+                    ],
+                    "photo_reference": "Aap_uECZszC48Z-B7FpEIzZFgD-gagERI_VLCw3PVTB_Hk7NhQJQLAKYalKr90La8M25sKnozmhah5hBuOc3MxvNcllpL4UDYUfchwYKW1d5wzqm1bxMrDm5afwnsb2KerNMaakEWSOmQTeaRmzEiGj51K-sdNH6FMhMpgeEX-iQV1G5Laio",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJD1u-EaMZ2jERaLhNfFkR45I",
+            "plus_code": {
+                "compound_code": "7RWX+JC Singapore",
+                "global_code": "6PH57RWX+JC"
+            },
+            "rating": 4.6,
+            "reference": "ChIJD1u-EaMZ2jERaLhNfFkR45I",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10287
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Empress Pl, Singapore 179555",
+            "geometry": {
+                "location": {
+                    "lat": 1.2874969,
+                    "lng": 103.8513861
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.288826929892722,
+                        "lng": 103.8527659298927
+                    },
+                    "southwest": {
+                        "lat": 1.286127270107278,
+                        "lng": 103.8500662701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Asian Civilisations Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 6936,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109845981260181580873\">Vincent Khoo</a>"
+                    ],
+                    "photo_reference": "Aap_uEB4j4t-lLap9FuSqC1VCnSIX6T50v1d3omRkpwH9KqKktgLqdMOyayVUqpXOnQlr3-j13SXkovaXdq_fJnhwWQ9MG8WdcmCF9jnzY7vJiamprkUcDIuEIvs2GJrkJVT2_gqQSwo7eb3TdX93D986H3-30FeZXgahSIbWSo5OI61vqJo",
+                    "width": 9248
+                }
+            ],
+            "place_id": "ChIJoZOhmQkZ2jERehLfvKlsoCA",
+            "plus_code": {
+                "compound_code": "7VP2+XH Singapore",
+                "global_code": "6PH57VP2+XH"
+            },
+            "rating": 4.5,
+            "reference": "ChIJoZOhmQkZ2jERehLfvKlsoCA",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3975
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Bayfront Ave, Singapore 018974",
+            "geometry": {
+                "location": {
+                    "lat": 1.2862738,
+                    "lng": 103.8592663
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.28894715,
+                        "lng": 103.8607249
+                    },
+                    "southwest": {
+                        "lat": 1.27922815,
+                        "lng": 103.8563141
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "ArtScience Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 9000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113137648950344621918\">Luc De Pauw</a>"
+                    ],
+                    "photo_reference": "Aap_uEDm-RfmxER7OrUC-60BjO_O2_M8d7H8iKavs_asFdls2EdWWEV-diEfwKqA9-bYIkkTicuctkINP8sAS0vTUsYn0e226vnkM9W-1pH2eHpTX1y03ohr7r-uB39wkFLDlzLb8HnEufEtNbQgnbg22sMvVQeHS65GzGQn4U3uw6Q6UUUm",
+                    "width": 12000
+                }
+            ],
+            "place_id": "ChIJnWdQKQQZ2jERScXuKeFHyIE",
+            "plus_code": {
+                "compound_code": "7VP5+GP Singapore",
+                "global_code": "6PH57VP5+GP"
+            },
+            "rating": 4.5,
+            "reference": "ChIJnWdQKQQZ2jERScXuKeFHyIE",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10470
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11 Marina Blvd, Singapore 018940",
+            "geometry": {
+                "location": {
+                    "lat": 1.2801289,
+                    "lng": 103.8562179
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.281256679892722,
+                        "lng": 103.8582001298927
+                    },
+                    "southwest": {
+                        "lat": 1.278557020107278,
+                        "lng": 103.8555004701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Red Dot Design Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106441661176251513000\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECP2X3DnucdS5LmKUJkBM_J2b6Tjz_riSzSUSMEmPTRQ67D56jl0rPX3MquLaSW4p8ZfeMNFTfiuvzXCL1ISZT5I6CCluezPwuKD3q6uYmL0DTvBBtYDJQoTWyJeGMhXqfOMhrQAR5jb0UOV5tIzmJZ9kltK4mQJX6rlZ5MbxsPMiwn",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJq1KHxhIZ2jER7fOxY9pR-vo",
+            "plus_code": {
+                "compound_code": "7VJ4+3F Singapore",
+                "global_code": "6PH57VJ4+3F"
+            },
+            "rating": 4.2,
+            "reference": "ChIJq1KHxhIZ2jER7fOxY9pR-vo",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "cafe",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3342
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 St Andrew's Rd, #01 \u2013 01, Singapore 178957",
+            "geometry": {
+                "location": {
+                    "lat": 1.2902217,
+                    "lng": 103.8515167
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2920437,
+                        "lng": 103.8528691298927
+                    },
+                    "southwest": {
+                        "lat": 1.2885221,
+                        "lng": 103.8501694701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "National Gallery Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1347,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100629515701423718340\">L Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uEBzUctPiLYF3IDRCs-pW_A3uy24VvRGzXb8yyoe_naYBWjkB8rvovMBHSwHTXmwA8T5zGP_oyck-TKnpq2kr6lETXKiuaIgwk41yNtUJWxvyD26fpLW_bfZwO53uvEUak8Dj6VpZ7_Au6KraLfpkjsD-Qkh-7a2t3bSW3h-Bmw_rokG",
+                    "width": 2394
+                }
+            ],
+            "place_id": "ChIJFQzeR6cZ2jERgM6--iWeY-U",
+            "plus_code": {
+                "compound_code": "7VR2+3J Singapore",
+                "global_code": "6PH57VR2+3J"
+            },
+            "rating": 4.6,
+            "reference": "ChIJFQzeR6cZ2jERgM6--iWeY-U",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10941
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "262 Pasir Panjang Rd, Singapore 118628",
+            "geometry": {
+                "location": {
+                    "lat": 1.2837148,
+                    "lng": 103.7817834
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.284922529892722,
+                        "lng": 103.7829396798927
+                    },
+                    "southwest": {
+                        "lat": 1.282222870107278,
+                        "lng": 103.7802400201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Hell's Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2294,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101638862884367098083\">Chia Hsia Teo</a>"
+                    ],
+                    "photo_reference": "Aap_uEDdi5Vsz1O_lZADlEs5hSsCsN0GHSansaA54m4yDKt3-wTrwFXP75tCX1Ga4-MJDCB19ES8BTqUbZBJgyXcPRNXIGD2A2uAsFzGs_x2RX8omehhot3cyydXCExx3J7yaBf4iZ7j-ZRvQr1h9xCP-m5ydBdDLWvEfANFC5o3nBA3R0g-",
+                    "width": 1840
+                }
+            ],
+            "place_id": "ChIJ3xSV5_ob2jERCnZyINDAtN4",
+            "plus_code": {
+                "compound_code": "7QMJ+FP Singapore",
+                "global_code": "6PH57QMJ+FP"
+            },
+            "rating": 5,
+            "reference": "ChIJ3xSV5_ob2jERCnZyINDAtN4",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 353
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "61 Stamford Rd, Singapore 178892",
+            "geometry": {
+                "location": {
+                    "lat": 1.2943555,
+                    "lng": 103.8502032
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.295719979892722,
+                        "lng": 103.8516538298927
+                    },
+                    "southwest": {
+                        "lat": 1.293020320107278,
+                        "lng": 103.8489541701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Friends of the Museums",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1600,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106341923614232447654\">Carmen T.H. Li</a>"
+                    ],
+                    "photo_reference": "Aap_uEDicykm8kARo6Ns9dugbn1ZWdXXqtKZVEFd-ixFtbP0NnM6KCtgEo_v7SDkNlfDZmO5nz6KLvZkadnIyZuzXAYQdhH8VCSU9etp50O94c2T8_n_4TEPwSPeLtXveij9X8bDqPaWg8ws5p2TLaqF-VuqiApQZej2rylVGC-XQiDIxlQV",
+                    "width": 778
+                }
+            ],
+            "place_id": "ChIJpdG78KMZ2jERX_GCFCgEA04",
+            "plus_code": {
+                "compound_code": "7VV2+P3 Singapore",
+                "global_code": "6PH57VV2+P3"
+            },
+            "rating": 4.6,
+            "reference": "ChIJpdG78KMZ2jERX_GCFCgEA04",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "71 Bras Basah Rd, Singapore 189555",
+            "geometry": {
+                "location": {
+                    "lat": 1.2973507,
+                    "lng": 103.8507467
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.298616929892722,
+                        "lng": 103.8521565798927
+                    },
+                    "southwest": {
+                        "lat": 1.295917270107278,
+                        "lng": 103.8494569201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Singapore Art Museum",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108268223712439456690\">Ivan DSouza</a>"
+                    ],
+                    "photo_reference": "Aap_uEAff9xfwF7gSRrShAUoOLEQE4wL500lOPkw0xawBmVcSxKAlfA9-CasFP5KQXdwWgBudEN37_kKun42TTcb-dcng00U6oun155T5HHwTQGWkLYx3Q6iMVlBofKXsn5et9LGC7cQrGaL-0TM51mo0FKR5GErTHLPmMgEQsM_RyWjnECU",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJW8o1nqQZ2jERynZN2M1BODM",
+            "plus_code": {
+                "compound_code": "7VW2+W7 Singapore",
+                "global_code": "6PH57VW2+W7"
+            },
+            "rating": 4.3,
+            "reference": "ChIJW8o1nqQZ2jERynZN2M1BODM",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1230
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "39 Armenian St, Singapore 179941",
+            "geometry": {
+                "location": {
+                    "lat": 1.2942086,
+                    "lng": 103.8489516
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.295533529892722,
+                        "lng": 103.8505335298927
+                    },
+                    "southwest": {
+                        "lat": 1.292833870107278,
+                        "lng": 103.8478338701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Peranakan Museum",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109641485461646377275\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECqNXytTzP6NzIUA71KxqK6mGM5wj3NTxrtMOiMzPezR7OPRmneqDy74RXT_pblPu6-gvn3HZScgr4b31mV0R0YdPpOoVYNZ8_Oh78wupW1IEGgtDIv79GUmF9AtEzusnHCpnwRJet0b5mndX4W-n_GD6YS64gJMdTCTpkSYSM_cDLq",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJWZX956MZ2jERIGdnbs_SgMw",
+            "plus_code": {
+                "compound_code": "7RVX+PJ Singapore",
+                "global_code": "6PH57RVX+PJ"
+            },
+            "rating": 4.3,
+            "reference": "ChIJWZX956MZ2jERIGdnbs_SgMw",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1007
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "400 Airport Rd, Singapore 534234",
+            "geometry": {
+                "location": {
+                    "lat": 1.3465164,
+                    "lng": 103.8994198
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.347870379892722,
+                        "lng": 103.9006720298927
+                    },
+                    "southwest": {
+                        "lat": 1.345170720107278,
+                        "lng": 103.8979723701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "The Air Force Museum",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111008149393940562819\">\ud788\uc9f1</a>"
+                    ],
+                    "photo_reference": "Aap_uEDkd6-3KFllewADrfQ860LvM3kP_Ir6Ssnn432lyFC-DnulzPxGbXNxwy1LtveCvZR36d4zwbudSPNcceqWmryDXXhfmySQKagFXrOul5nMMQ44ADpdxlJMGjExRA7pFo3GA6-Cofcc9D3lCQITbgKrCXy4B_IHHdEj2-wufBgPY1p4",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJUVVVRcIX2jERRnmyNaUIMFE",
+            "plus_code": {
+                "compound_code": "8VWX+PP Singapore",
+                "global_code": "6PH58VWX+PP"
+            },
+            "rating": 4.3,
+            "reference": "ChIJUVVVRcIX2jERRnmyNaUIMFE",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 496
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Bowyer Block Clock Tower Singapore General Hospital, Outram Rd, 169608",
+            "geometry": {
+                "location": {
+                    "lat": 1.2800991,
+                    "lng": 103.8358952
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.281408429892722,
+                        "lng": 103.8373067798927
+                    },
+                    "southwest": {
+                        "lat": 1.278708770107278,
+                        "lng": 103.8346071201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "The SGH Museum",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 6288,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116675207955272717700\">Michael</a>"
+                    ],
+                    "photo_reference": "Aap_uEDLLEOEN8hFdpBBQfwwBSQOSpjs0xJJn3bH_QdMgq39hA7ttK3FkM6qNXj8O5XssraLjWMUx3BThkylUX-zjlL_75nztVjS-WI8O6SQB0kphB6kC17s8xOPSBeTBlrEMvsump2V2WDkiT1H-xrNOi-55PVaKxUgRveHXBcTyyQZTmoO",
+                    "width": 8384
+                }
+            ],
+            "place_id": "ChIJgx6CTHAZ2jERxOWDyHbTI2I",
+            "plus_code": {
+                "compound_code": "7RJP+29 Singapore",
+                "global_code": "6PH57RJP+29"
+            },
+            "rating": 4.5,
+            "reference": "ChIJgx6CTHAZ2jERxOWDyHbTI2I",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 19
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "51 Waterloo St, #02-06, Singapore 187969",
+            "geometry": {
+                "location": {
+                    "lat": 1.2981522,
+                    "lng": 103.8512903
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.299513279892722,
+                        "lng": 103.8527277798927
+                    },
+                    "southwest": {
+                        "lat": 1.296813620107278,
+                        "lng": 103.8500281201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "The Private Museum",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 1071,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104824411585585965747\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAFOalseyIvkJcaidYO2PCeV-BZbioPRaFo6UoGt299eHOt2Fbagl5b4YJHxSs3czqyJVLMJDfwcjFzeY_T1D2LfLNDgnhW5OY1ewr73hCfuPct2_WKQedgg6ttNr7hDRGfdr8R1Wbbwp9UkwnnhBIk0ReZWItM3X7Hk0KuD90ag9gY",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJaczGWKMZ2jERizrM83vLEM0",
+            "plus_code": {
+                "compound_code": "7VX2+7G Singapore",
+                "global_code": "6PH57VX2+7G"
+            },
+            "rating": 4.4,
+            "reference": "ChIJaczGWKMZ2jERizrM83vLEM0",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 28
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "24 Waterloo St, Singapore 187950",
+            "geometry": {
+                "location": {
+                    "lat": 1.2980859,
+                    "lng": 103.8505372
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.299396429892722,
+                        "lng": 103.8518545798927
+                    },
+                    "southwest": {
+                        "lat": 1.296696770107278,
+                        "lng": 103.8491549201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "The Jews of Singapore Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1600,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105947427215109968800\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAY1hUzQd2n8DY-stL8yXLgGpGmQUNCy_WRrXaeYH2gRa81nnJJmkHJ-nAd6TVwOdThftHU9don-4n4IfIzdw3Jne7q6s8nUKCWy0WkIOCzYuiuJ20Ff_uy12-AVD5y8Rm4DWkfNaRwT2s5sxGeaBnfZD2AbiqCkpK_epYbfWR99T2B",
+                    "width": 1200
+                }
+            ],
+            "place_id": "ChIJYbPBzPUZ2jERfvo_y8s7eOs",
+            "plus_code": {
+                "compound_code": "7VX2+66 Singapore",
+                "global_code": "6PH57VX2+66"
+            },
+            "rating": 4.6,
+            "reference": "ChIJYbPBzPUZ2jERfvo_y8s7eOs",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "112 Tanah Merah Coast Rd, Singapore 498794",
+            "geometry": {
+                "location": {
+                    "lat": 1.3165874,
+                    "lng": 104.0171467
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.317939979892722,
+                        "lng": 104.0183855298927
+                    },
+                    "southwest": {
+                        "lat": 1.315240320107278,
+                        "lng": 104.0156858701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Republic of Singapore Navy Museum",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103230411887035405781\">Alan Lin</a>"
+                    ],
+                    "photo_reference": "Aap_uEBjJ4QL3r1sm_fX72JR6Q5FIiVnpHk0YoqXrWVregA07oHRNI8YLtLAq-WQzPe94dZ7tES8sDDEx29vVMkHrdXjtT9BW4v61QzzXygySJSwo_KmLWqDE4XjZwXA-3I09LU5QP-Mk03PGTIta_FHThdEV5ZpaOSeLUfPbiDkUApLQxhf",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ_ci8n68k2jERnoun2bqnXK0",
+            "plus_code": {
+                "compound_code": "8288+JV Singapore",
+                "global_code": "6PH68288+JV"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ_ci8n68k2jERnoun2bqnXK0",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 183
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "39 Keppel Rd, #01-02, Singapore 089065",
+            "geometry": {
+                "location": {
+                    "lat": 1.2719533,
+                    "lng": 103.836752
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.273431079892722,
+                        "lng": 103.8380951298927
+                    },
+                    "southwest": {
+                        "lat": 1.270731420107278,
+                        "lng": 103.8353954701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "SAM at Tanjong Pagar Distripark",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 608,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101157894404303867108\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDAvyIXxpLL4c6AlgGEsGa6Zo9Z0EZaVaUlzkDx2IDJH5X2TvDFod5rhqL8uIjcChaxQqoZPl7mOGXWaxUOmDYVh3nTrTPTCG0HxrTnJpMiN5oDib7R6AbLLzfHJ7DSlhLA8-XYTvT8AcQH0DsLdYMg83EcmT3SbJQRriv3ggTaOYhN",
+                    "width": 1080
+                }
+            ],
+            "place_id": "ChIJPS0vSwsZ2jERulqTcd4CFDA",
+            "plus_code": {
+                "compound_code": "7RCP+QP Singapore",
+                "global_code": "6PH57RCP+QP"
+            },
+            "rating": 3.8,
+            "reference": "ChIJPS0vSwsZ2jERulqTcd4CFDA",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 29
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "359 Upper Paya Lebar Rd, Singapore 534961",
+            "geometry": {
+                "location": {
+                    "lat": 1.347412,
+                    "lng": 103.880132
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.348773879892722,
+                        "lng": 103.8815956298927
+                    },
+                    "southwest": {
+                        "lat": 1.346074220107278,
+                        "lng": 103.8788959701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "The Singapore Ants Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4096,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112598854240446452449\">Daniel Sin</a>"
+                    ],
+                    "photo_reference": "Aap_uECg4QUKGExfhAX3AkCXzg8KXKKxn26FvdQCZZ3M2COakL76SRRwOypwpAkyQtJhbtQibeUxFDrHZtR10D5lR0vLCa-yOp8VeXn95PdsI207TkQRjST_78jCcLMtBGMkXN43Y2Rfu2RGgtcxR_UC7806C2UnoRuDm8svaAbjv6wMjOq8",
+                    "width": 3072
+                }
+            ],
+            "place_id": "ChIJhx7WvycX2jERPkAaQ_hnCno",
+            "plus_code": {
+                "compound_code": "8VWJ+X3 Singapore",
+                "global_code": "6PH58VWJ+X3"
+            },
+            "rating": 4.6,
+            "reference": "ChIJhx7WvycX2jERPkAaQ_hnCno",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 126
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "168 Telok Ayer St, Singapore 068619",
+            "geometry": {
+                "location": {
+                    "lat": 1.2807495,
+                    "lng": 103.847493
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.282073429892722,
+                        "lng": 103.8488970298927
+                    },
+                    "southwest": {
+                        "lat": 1.279373770107278,
+                        "lng": 103.8461973701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Singapore Musical Box Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 772,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109356819511712541391\">Quan Lu Phuc</a>"
+                    ],
+                    "photo_reference": "Aap_uECKddLF_c5JK9hxw2o5xdeqBHPMMXKGk3t7FwruelPL6wOQBxWPHFT3uNLjjbMYCArws8_Euoittx0Uw_3K00EWZho9siExK21YCLnIs8TMtgvjxMb42w19yDiHFbFlhc24eNNq50jSgZUM6QyVEdo3GUXB9iD3jFl49AzhTsLSISWZ",
+                    "width": 1372
+                }
+            ],
+            "place_id": "ChIJg4jcdA0Z2jERe0XPfVA08bU",
+            "plus_code": {
+                "compound_code": "7RJW+7X Singapore",
+                "global_code": "6PH57RJW+7X"
+            },
+            "rating": 4.7,
+            "reference": "ChIJg4jcdA0Z2jERe0XPfVA08bU",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 117
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Stadium Walk, Singapore 397698",
+            "geometry": {
+                "location": {
+                    "lat": 1.3013548,
+                    "lng": 103.8736219
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302663779892722,
+                        "lng": 103.8755326798927
+                    },
+                    "southwest": {
+                        "lat": 1.299964120107278,
+                        "lng": 103.8728330201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Singapore Sports Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117457359674578731574\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAKvIKgD1Kf5mNqTiP4R_hw9YOTIVikx4o0Qpt_vmbK4fe12ZV1LaZO-DDSIFGkAMNlefayxRVr-KlMn75lcziaZ14CfdjiRw9vuVhHb5OPsIbmRXOEJIDwNqUD7XSXdg-sQayrpNTXSkCgOvr0Q179KogQfyXvFAjZw6IlHuHdnuj0",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ6TfRJUwY2jERzZlFMhLB0bA",
+            "plus_code": {
+                "compound_code": "8V2F+GC Singapore",
+                "global_code": "6PH58V2F+GC"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ6TfRJUwY2jERzZlFMhLB0bA",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 146
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "26 Seah St, Singapore 188382",
+            "geometry": {
+                "location": {
+                    "lat": 1.2963208,
+                    "lng": 103.8546329
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.297581879892722,
+                        "lng": 103.8559171798927
+                    },
+                    "southwest": {
+                        "lat": 1.294882220107278,
+                        "lng": 103.8532175201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "MINT Museum of Toys",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 720,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104898400702197783721\">MINT Museum Of Toys (Moment of Imagination and Nostalgia with Toys)</a>"
+                    ],
+                    "photo_reference": "Aap_uEAVT-ez1Q5cdgatO0MzcojjJWQX8bh6NDhdQuVm7J1QpVo8d72tkUWhBMpnYodZZipb-VvMRfTXG5Cq-lv_2crsJoNIw1c5OQiUrML9XdnN4dKmORgUAw_ccTe_ybWzWK0X-mWHMMpFWufA4HSNsZMdcKGmB_ajbHAR3adgh6t0dptG",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJW7B7zRIZ2jERINTI_uV1O-A",
+            "plus_code": {
+                "compound_code": "7VW3+GV Singapore",
+                "global_code": "6PH57VW3+GV"
+            },
+            "rating": 4.3,
+            "reference": "ChIJW7B7zRIZ2jERINTI_uV1O-A",
+            "types": [
+                "art_gallery",
+                "museum",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 772
+        }
+    ],
+    "status": "OK"
+}

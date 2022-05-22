@@ -1,0 +1,995 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEAwjHNG8E4IkSKOz_Q3NppZIq7W53JSHFTTIDz2QsKgcn8Ujo3jZnUFprTddq7pAHZNtowU1keFC0AQAH-DN6pekdli9VLwoPn7QQUT5ZKbFJ3t98dzYzlugmzFAeiW7-_CjFeueuE8Ji6cO41q60HQ8JseI2IfmBkBuEuukrGdO2u9pVDDbqLixjLyGtMgkp0BMXKq711qWWWgirbuhG0qyR-gXPFWSNUxVK33tunHxpmxE41trDeHx51erlKgJ7Yc4NRrF6A4kRwR92GtZJBkiaTilXfZ_CjHlqFUgrgLvueVRCZ4Ce_-S5dMoUFKpmF4n2kxHuf5e5GHlBR_21jUgbiFurjeOiSVlfmBsFNIQYY1gyUOUpO1n5ZTIBhDbCsg1JpG4QiX4VPejBSsQolos_w9ryS1PRc2mul3hWZzkrVR5GVDaQFmGU1g8lVxBkmdl5PeVc-UfUM",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Tampines Central 5, Singapore 529510",
+            "geometry": {
+                "location": {
+                    "lat": 1.3522589,
+                    "lng": 103.9450627
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353866779892722,
+                        "lng": 103.94591165
+                    },
+                    "southwest": {
+                        "lat": 1.351167120107278,
+                        "lng": 103.94251585
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Tampines Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108195945204906510478\">Harry</a>"
+                    ],
+                    "photo_reference": "Aap_uECpvqDUvPZIjPdKv7Jap-0Yj7R4mfRYFykte0f3ihwFjWDVStJdAAmyh5S0BDvECbLCw1-y-3GYRbF5SJf_Q3pHQwGCIstxml078TBhj46AKjCtrEu8dYN2imXg4T5EPIeqHyqSrQweJ5HQDTaDDUWla03TBLPlRRd7g0h7sP3gR1Sp",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ89lf6hE92jERQXt7c5QOFnY",
+            "plus_code": {
+                "compound_code": "9W2W+W2 Singapore",
+                "global_code": "6PH59W2W+W2"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ89lf6hE92jERQXt7c5QOFnY",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 12522
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Tampines Central 1, Singapore 529536",
+            "geometry": {
+                "location": {
+                    "lat": 1.3540351,
+                    "lng": 103.9453692
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.355634179892722,
+                        "lng": 103.9466697298927
+                    },
+                    "southwest": {
+                        "lat": 1.352934520107278,
+                        "lng": 103.9439700701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Tampines 1",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110582183652766962943\">Shin Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uEB2t1ndRMMNmkhf-zZuc-MRh9DId24DYiDXrDdYrd1lm1YsHm9fe1SqNd8cz5wIVY2vUgXlRYo4yf1o8R11Y-zKg-UOjMY2DvMkochzLwVFOgOnrXKDrIFloG3oTvCkz5cpgkWUokC5cnIAxotininDw9V4eNzf4EjkPKBR3B6v8GZS",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJTVVVIA492jER3TWGPpL6gRk",
+            "plus_code": {
+                "compound_code": "9W3W+J4 Singapore",
+                "global_code": "6PH59W3W+J4"
+            },
+            "rating": 4.2,
+            "reference": "ChIJTVVVIA492jER3TWGPpL6gRk",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7898
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Tampines Central 5, Singapore 529509",
+            "geometry": {
+                "location": {
+                    "lat": 1.3525968,
+                    "lng": 103.9436741
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353615629892722,
+                        "lng": 103.9451375798927
+                    },
+                    "southwest": {
+                        "lat": 1.350915970107278,
+                        "lng": 103.9424379201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Century Square",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 653,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111831132699369329784\">Ziyu Tan</a>"
+                    ],
+                    "photo_reference": "Aap_uEAqovsjANMXiLzlZfy6e2cIWmnS1zZ-HLbCqsNAkgOuowe_zhAp3oUWINqy86_yeLKUUKFjpYZt1d4grhnhvwXqleOushAVOeMTofYxkGKjg-H_yVDjUvwOMq2FGftnyL6qh3EsSTP9GI3_kGFj-kPwiqqD_M1FTqkX8ypkphsR82bs",
+                    "width": 1200
+                }
+            ],
+            "place_id": "ChIJCXOkiBE92jERm5iCnMRS4_g",
+            "plus_code": {
+                "compound_code": "9W3V+2F Singapore",
+                "global_code": "6PH59W3V+2F"
+            },
+            "rating": 4.2,
+            "reference": "ChIJCXOkiBE92jERm5iCnMRS4_g",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5206
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "25 Tampines Street 82, Singapore 528988",
+            "geometry": {
+                "location": {
+                    "lat": 1.352771,
+                    "lng": 103.940312
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.354381729892722,
+                        "lng": 103.9422243298927
+                    },
+                    "southwest": {
+                        "lat": 1.351682070107278,
+                        "lng": 103.9395246701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Festive Mall",
+            "place_id": "ChIJywxV9BI92jERZ2e_hofraKw",
+            "plus_code": {
+                "compound_code": "9W3R+44 Singapore",
+                "global_code": "6PH59W3R+44"
+            },
+            "rating": 0,
+            "reference": "ChIJywxV9BI92jERZ2e_hofraKw",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 Simei Street 6, Singapore 528833",
+            "geometry": {
+                "location": {
+                    "lat": 1.3427145,
+                    "lng": 103.9530415
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.344066879892722,
+                        "lng": 103.9542992798927
+                    },
+                    "southwest": {
+                        "lat": 1.341367220107278,
+                        "lng": 103.9515996201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Eastpoint Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2322,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108169573160598522281\">Azwan Sulaiman</a>"
+                    ],
+                    "photo_reference": "Aap_uEBib_xnsU-PjvOBpXSlDdsM4zYDmYh-3PzMQWyqoj7SEOYNCjcs4zxEFmiwCQq3VxTG1bE92STsZWTLPB7jxyMCJuYjLnXDtQn_8bfHS6eZzkOqpLBXeLuEmSkz8OpGJ9Qs1LDO22N7wzPivsFfU77C0CjmLs50v284QOmb0tm_ny0v",
+                    "width": 4128
+                }
+            ],
+            "place_id": "ChIJ7egDUyI92jERegSiojEDekc",
+            "plus_code": {
+                "compound_code": "8XV3+36 Singapore",
+                "global_code": "6PH58XV3+36"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ7egDUyI92jERegSiojEDekc",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6391
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Tampines Street 32, Tampines Mart, Singapore 529287",
+            "geometry": {
+                "location": {
+                    "lat": 1.3539206,
+                    "lng": 103.9598926
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.355263529892722,
+                        "lng": 103.9612500798927
+                    },
+                    "southwest": {
+                        "lat": 1.352563870107278,
+                        "lng": 103.9585504201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Tampines Mart",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111234354421713323752\">Ameer Singh</a>"
+                    ],
+                    "photo_reference": "Aap_uECp8Y5zK6XpQ8uo0tfI0ZhbMsWmWyLO5CrxdEBu0KTujn3UcX9ck7FEnzeDAEyRIcd4HvIasDKmx-jP9l8fDfEzXP9xHGNn6c7oDZrMa2yS7-gcKHbQsSnxQKCW7KZq4x7CI1R3DkhrNA-FAd_FTl1maFT3JkxW9lo0XUvifX6YgUnM",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJY3E5sAI92jER_fY5uKZt2Bc",
+            "plus_code": {
+                "compound_code": "9X35+HX Singapore",
+                "global_code": "6PH59X35+HX"
+            },
+            "rating": 4.1,
+            "reference": "ChIJY3E5sAI92jER_fY5uKZt2Bc",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1265
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Tampines Central 1, #03-07, Singapore 529536",
+            "geometry": {
+                "location": {
+                    "lat": 1.3539111,
+                    "lng": 103.9452139
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.355343779892722,
+                        "lng": 103.9467323298927
+                    },
+                    "southwest": {
+                        "lat": 1.352644120107278,
+                        "lng": 103.9440326701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "MUJI",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103014559899787543749\">FASTBLADER</a>"
+                    ],
+                    "photo_reference": "Aap_uEAGPsQwHx6B7uwwubDS7OP0IYV4ORUvmcZFZUaUmM6k4zT22Rz9xVtgo3LGPf2bznleWxuD19TiPuUBcb5SqAU1fccYx0bKk2whHYM2TIey_bZw-uurXlI4aCFhthyjm57D0sKeUh5Ew9w-uGnNUy5AKrOsDPB3qXK6LXkqvFfeVEuk",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJIRwC3BE92jERJH2vt-eHn3g",
+            "plus_code": {
+                "compound_code": "9W3W+H3 Singapore",
+                "global_code": "6PH59W3W+H3"
+            },
+            "rating": 4.3,
+            "reference": "ChIJIRwC3BE92jERJH2vt-eHn3g",
+            "types": [
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 417
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Tampines Central 5, #04 - 30, Singapore 529510",
+            "geometry": {
+                "location": {
+                    "lat": 1.3526635,
+                    "lng": 103.9450338
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353705029892722,
+                        "lng": 103.9464238798927
+                    },
+                    "southwest": {
+                        "lat": 1.351005370107278,
+                        "lng": 103.9437242201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "So Pho (Tampines Mall)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117446481460862719184\">Julien</a>"
+                    ],
+                    "photo_reference": "Aap_uEDN5GElb6ZMEy94nw0gHG3c4WavpEAfYNsGpHHzSo89Tw-Dlr-7ZxCI7OLVcyuqDNHhvKAwuTu5KSGKwnxuO2vhROddIg7tUW-Xbueml2VWyQtSu_mtDndoHYcAKCHlz95pMfOHBJKeaGeWKqixBMJjr8fT4Q1YPdAX2JMYwh_hI1ui",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJlYu5ohE92jERX5BixIwsR64",
+            "plus_code": {
+                "compound_code": "9W3W+32 Singapore",
+                "global_code": "6PH59W3W+32"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJlYu5ohE92jERX5BixIwsR64",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 322
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Tampines Central 5, #01-25/26 Tampines Mall, Singapore 529510",
+            "geometry": {
+                "location": {
+                    "lat": 1.3523131,
+                    "lng": 103.9446255
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353711779892722,
+                        "lng": 103.9463004798927
+                    },
+                    "southwest": {
+                        "lat": 1.351012120107278,
+                        "lng": 103.9436008201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "SK Gold Tampines Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4908,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109532717265025366146\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAPsmD48YVHi_3BpYMvueciYp2jSjSrL3piao35qtiwoXsDwymzwoqyOQSejssNzch4CBPPe8q7N2TIoEHiPLkSdKop2U2_k7xR-0rg8Y59gvZS3jFBFbreNCdXrUzJbo9vSqSwC8weGhEzcKJVfkPG8Hq6wwoT3a5q3CZnMRJJPgZE",
+                    "width": 7852
+                }
+            ],
+            "place_id": "ChIJrTdtc2g92jERA1BuE1MqvN8",
+            "plus_code": {
+                "compound_code": "9W2V+WV Singapore",
+                "global_code": "6PH59W2V+WV"
+            },
+            "rating": 5,
+            "reference": "ChIJrTdtc2g92jERA1BuE1MqvN8",
+            "types": [
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1617
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "311 New Upper Changi Rd, Singapore 467360",
+            "geometry": {
+                "location": {
+                    "lat": 1.3241182,
+                    "lng": 103.9290329
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3267047,
+                        "lng": 103.9307925
+                    },
+                    "southwest": {
+                        "lat": 1.3229983,
+                        "lng": 103.9280277
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Bedok Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107551009876084272266\">suresh suresh</a>"
+                    ],
+                    "photo_reference": "Aap_uECYq486IafChciwIbHKMZ2zKHzi6XUkHfxNmAWrFGtxfKlOb4nk5ebet6Xris-gj52f1mFJpkHtLzW2VToPdrMuzYikvO_lK7bzxgdsUDgPtSQt2Hc5iNEWduWm2iBCBHQgjiOH6lc-yEvV0FWvGCRuMP0zZXqyoejHVraXerQaoBah",
+                    "width": 3060
+                }
+            ],
+            "place_id": "ChIJR80Wwcoi2jER8yMuAZodQFk",
+            "plus_code": {
+                "compound_code": "8WFH+JJ Singapore",
+                "global_code": "6PH58WFH+JJ"
+            },
+            "rating": 4.2,
+            "reference": "ChIJR80Wwcoi2jER8yMuAZodQFk",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 12457
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Tampines Central 5, #02-18, Singapore 529510",
+            "geometry": {
+                "location": {
+                    "lat": 1.3524573,
+                    "lng": 103.9446726
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353778979892722,
+                        "lng": 103.9462895298927
+                    },
+                    "southwest": {
+                        "lat": 1.351079320107278,
+                        "lng": 103.9435898701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "New Balance",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2400,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117446481460862719184\">Julien</a>"
+                    ],
+                    "photo_reference": "Aap_uEB2UhyozGLO2SkO0eVi9-4bPpILvQrTIcGGoWaY73z_ezaUren2Oertmi3gDdYW5B2AhDs2Qq2bFadUx929CBV-rIGje25G9qnkPu6fWaJzvZVlON79XPZJ5sf6J88i4j8abFwVtaAhcOibZkA6okVdZPuKjGgy1HraPVkGos24peHK",
+                    "width": 3200
+                }
+            ],
+            "place_id": "ChIJN_i8Ig492jERYR8uLoHCSJE",
+            "plus_code": {
+                "compound_code": "9W2V+XV Singapore",
+                "global_code": "6PH59W2V+XV"
+            },
+            "rating": 3.7,
+            "reference": "ChIJN_i8Ig492jERYR8uLoHCSJE",
+            "types": [
+                "shoe_store",
+                "clothing_store",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 15
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Tampines Central 5, #01-27 Tampines Mall, Singapore 529510",
+            "geometry": {
+                "location": {
+                    "lat": 1.3524573,
+                    "lng": 103.9446726
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353727229892722,
+                        "lng": 103.9463240798927
+                    },
+                    "southwest": {
+                        "lat": 1.351027570107278,
+                        "lng": 103.9436244201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Mt.Sapola Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113644202367018103577\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEA0201CJzQ9e6yRnT1ujZEMy4a_InSbqMudK0GQLB3pWY9uc7ZkSCtXdz9pJmCCcY0PSMCA2vaJm2JcNjqmwIxxpvJlfRrkjCIUTfW-6w0t5dBkx63kV7iUWk0Ec_Zxl5wbMSW_A-SlKm6oluvQDWO9fKPGnEQL9PE9HauwVWNF-LR-",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJ-TEd6eQ92jERIM60_C9_JaI",
+            "plus_code": {
+                "compound_code": "9W2V+XV Singapore",
+                "global_code": "6PH59W2V+XV"
+            },
+            "rating": 5,
+            "reference": "ChIJ-TEd6eQ92jERIM60_C9_JaI",
+            "types": [
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 2
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Tampines Central 5, Singapore 529510",
+            "geometry": {
+                "location": {
+                    "lat": 1.3522897,
+                    "lng": 103.9450533
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353707979892722,
+                        "lng": 103.9464881798927
+                    },
+                    "southwest": {
+                        "lat": 1.351008320107278,
+                        "lng": 103.9437885201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Challenger",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103014559899787543749\">FASTBLADER</a>"
+                    ],
+                    "photo_reference": "Aap_uEBGgnMSWIYFrTYZ46-vcqAaH8bpZZxfGz-EeemA0oxHssNU8Vh0dQcNHaxIIiejk7uT0UrMJDLP1NhHBZR8leWQWas8Y5mqLdAg7psPm7x_AENCjGHFueM4GFpxu_yMd6rzftUG-_UHRT83vf-xaS-KKtW76-th-8kK4Tg_tUFztsCR",
+                    "width": 1620
+                }
+            ],
+            "place_id": "ChIJYeVMlBE92jERWm8ihF5pitw",
+            "plus_code": {
+                "compound_code": "9W2W+W2 Singapore",
+                "global_code": "6PH59W2W+W2"
+            },
+            "rating": 4.2,
+            "reference": "ChIJYeVMlBE92jERWm8ihF5pitw",
+            "types": [
+                "electronics_store",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 214
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Tampines Central 1, Singapore 529541",
+            "geometry": {
+                "location": {
+                    "lat": 1.3531704,
+                    "lng": 103.942739
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.354134729892722,
+                        "lng": 103.9441830298927
+                    },
+                    "southwest": {
+                        "lat": 1.351435070107278,
+                        "lng": 103.9414833701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Tampines Plaza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102162218273022521207\">Michael Lee</a>"
+                    ],
+                    "photo_reference": "Aap_uEDvSxsiFdzUIeuS7MXj6gxKzwRF83V47HocItHfD7jzvRb8ZsDm2dxth7s1nSMyHgin6JwRE497nOlUcVe2kNJSO20x5s7WRW2E3REIlS7rE7x645U4YMRCluvfRzR9SzFi1H-1z7ecQr2NeuKvTsxDPKXtnqV8jT9VcMTZwsfJ9fE6",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ60LhGxI92jERrI_W4uylpyY",
+            "plus_code": {
+                "compound_code": "9W3V+73 Singapore",
+                "global_code": "6PH59W3V+73"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ60LhGxI92jERrI_W4uylpyY",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 33
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "865 Mountbatten Rd, Singapore 437844",
+            "geometry": {
+                "location": {
+                    "lat": 1.303903,
+                    "lng": 103.9011732
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.30559335,
+                        "lng": 103.9024320798927
+                    },
+                    "southwest": {
+                        "lat": 1.30259835,
+                        "lng": 103.8997324201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Katong Shopping Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1800,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102589058598808274925\">Ho Wilson</a>"
+                    ],
+                    "photo_reference": "Aap_uEAee5yRzeGjnKRd-_9Zn_eyRx9ac-C20COSwlIDErUh0EWIIiXfxi-PIsF73UYGt4EBsY-OFiwdoqXzTG00PI6tlBrzWgVNbvWJ9-qZ8ksGaHfx0PCo_E8soaIQLsHYcsQTfkFBWKRYXJfFdAsWgmHQC-pWjP2wxfGoAgnIG_AcHzoG",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJuXIJwG0Y2jERSMkMTyIynBQ",
+            "plus_code": {
+                "compound_code": "8W32+HF Singapore",
+                "global_code": "6PH58W32+HF"
+            },
+            "rating": 3.6,
+            "reference": "ChIJuXIJwG0Y2jERSMkMTyIynBQ",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1605
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "33 Sengkang West Ave, Singapore 797653",
+            "geometry": {
+                "location": {
+                    "lat": 1.3915208,
+                    "lng": 103.8760834
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.392739629892722,
+                        "lng": 103.8773990298927
+                    },
+                    "southwest": {
+                        "lat": 1.390039970107278,
+                        "lng": 103.8746993701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "The Seletar Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1960,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114318069588147954461\">Ah Hong</a>"
+                    ],
+                    "photo_reference": "Aap_uEAyRxLNXZiK_ymOMbA2uVk8o6EDWCptiDmUFEw9whzCIcfomFtg53X_GMMtOYrt8V0uUyUf2uKPl-8EExZkETHlnYTRxSbFtU_pGRACFFHdMekkIflb88_zRGT0Sd2t3GsvA1Y0o_1xxERBi-tvp5Jh-e9kWD3LzvuHlmAJQNsBrSiR",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJRwKG2mQW2jER13VL9P5QOws",
+            "plus_code": {
+                "compound_code": "9VRG+JC Singapore",
+                "global_code": "6PH59VRG+JC"
+            },
+            "rating": 4.1,
+            "reference": "ChIJRwKG2mQW2jER13VL9P5QOws",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5736
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Tampines Walk, Singapore 528523",
+            "geometry": {
+                "location": {
+                    "lat": 1.3536067,
+                    "lng": 103.9403839
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3553368,
+                        "lng": 103.9427036
+                    },
+                    "southwest": {
+                        "lat": 1.3505952,
+                        "lng": 103.9376432
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Our Tampines Hub",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102402825495356390967\">Jianyuan Loh</a>"
+                    ],
+                    "photo_reference": "Aap_uEBlH1_HK0t91Uzbp8PYa2Wk0F5Ay9gZdC4byv86kBxbgsYBO8AdP_g4ejGCxQNOXUzhdrMiWhqFxrrOOxqNlofSTmpWstjtiUaU4brvRU1QERfYx0r93S2wENHgb6XQ8tWjH0oxYvHLr5_L5IoE8g4yFfQ3ce6SxX7rWMHcCMINv93A",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJu487hQ092jER1DJRGc0isoE",
+            "plus_code": {
+                "compound_code": "9W3R+C5 Singapore",
+                "global_code": "6PH59W3R+C5"
+            },
+            "rating": 4.5,
+            "reference": "ChIJu487hQ092jER1DJRGc0isoE",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 8073
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "799 New Upper Changi Rd, Singapore 467351",
+            "geometry": {
+                "location": {
+                    "lat": 1.3245669,
+                    "lng": 103.9322919
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.326155979892722,
+                        "lng": 103.9337683298927
+                    },
+                    "southwest": {
+                        "lat": 1.323456320107278,
+                        "lng": 103.9310686701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Bedok Point",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106112076029510410813\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB2bHCPIuyCjITE1GdT0amBt7lbEc8kwz0IbJHKQIfbiDPjL0vx4OT149DW8N_5KYsq7boTXVluA599R1-ioizgI2S1v9L0sJr9OfTqVFWx3fuYHCy4Rb5NbVRjaIFkQCemGeCPSnMq6Q22ywAm3xb2RtwWOb0LyRT2TD2f2kuHzPI",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJgWBomLQi2jERyU-GZEHw_NI",
+            "plus_code": {
+                "compound_code": "8WFJ+RW Singapore",
+                "global_code": "6PH58WFJ+RW"
+            },
+            "rating": 4,
+            "reference": "ChIJgWBomLQi2jERyU-GZEHw_NI",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2516
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Tampines Central 5, Singapore 529508",
+            "geometry": {
+                "location": {
+                    "lat": 1.3530616,
+                    "lng": 103.9434939
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.354267879892722,
+                        "lng": 103.9448438798927
+                    },
+                    "southwest": {
+                        "lat": 1.351568220107278,
+                        "lng": 103.9421442201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "CPF Tampines Building",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111268657170252796763\">joe computers</a>"
+                    ],
+                    "photo_reference": "Aap_uEDL6lUfGU558avxBvruG62UBApPln-bV1Vsp2It1glBKgHgCQKq5K2ztOqcQhX2rMwVUNCp_pMoFqbqNHc_aOTDBDRNTDNh_Hil7VKYxNj6uklKoLNfpWPZpr840h1DabebwIhXBjHjig22yaBzaVMtn9U-KhD73-7vyb4QrWVODago",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJq6pq9BE92jERyCE7zFz0Zrc",
+            "plus_code": {
+                "compound_code": "9W3V+69 Singapore",
+                "global_code": "6PH59W3V+69"
+            },
+            "rating": 4,
+            "reference": "ChIJq6pq9BE92jERyCE7zFz0Zrc",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 159
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Tampines Ln, Singapore 528482",
+            "geometry": {
+                "location": {
+                    "lat": 1.3452485,
+                    "lng": 103.946909
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.346689379892722,
+                        "lng": 103.9481278798927
+                    },
+                    "southwest": {
+                        "lat": 1.343989720107278,
+                        "lng": 103.9454282201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Treasure at Tampines",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1125,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107441514410776153800\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECjRroj4V5e7am7mmX6lZU_P7eEsAvXDL9JbP_Q5kTVUPg8c2_ZBeXdrzXFJ3L0yMAdbO4KXTMvfEgJ-xjAw_SpLbdXkxQyBiIdT0pvOeH_JHucrmW5DeOVJts2Kyywc5_NAeGkoKAFnroOacpVU4MoevX1gTzj5FL1ISJWwGYSv0gd",
+                    "width": 2000
+                }
+            ],
+            "place_id": "ChIJ_09jj7cX2jERUU1pi8NTds4",
+            "plus_code": {
+                "compound_code": "8WWW+3Q Singapore",
+                "global_code": "6PH58WWW+3Q"
+            },
+            "rating": 5,
+            "reference": "ChIJ_09jj7cX2jERUU1pi8NTds4",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2
+        }
+    ],
+    "status": "OK"
+}

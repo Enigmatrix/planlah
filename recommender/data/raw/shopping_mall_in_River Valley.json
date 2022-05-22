@@ -1,0 +1,1009 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEAiz9Rr_iyCrTliJc0tZ8TL1gx9FQERQrye4wLxPoykTZOtAxliOprH110uSJWIR0_bWgdwaawjjPf9SpzjBRCH5NQvSFeEHhogw6CrOx1Zc1429JahTnDUjrudMqEyraY9vGmt53yUdnPnOjVxFBya5Jzxe-FPxwDB6dyJHNzGJkTgQhWDudtRn-XUV3DnUkmzj4MlemV6WFLNvrCoWIYqSO3BauC9J0qQ2AKXm-JB7qKP5AR4MiseQ5hOFznQs0qcpMngy6wWDJryTiAuweadkf0k6Wn2rru57H7EktnAmeDmcoBvKtRzaHkLjKMSKh9EVVhbnTQ0YhkErdyzLp0QXmdJwYz0rbkR4S6UCTlD3uVxwFd1YZky2bCkLEvr25bjgpS5UWRpdKAHFhDt7BevvtD4Jz_j_9bA-cVTFhbxFXACOlgapfobsWTGKKX0oMn_hlAOObqRJe2pj-Fy",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "491 River Valley Rd, Singapore 248371",
+            "geometry": {
+                "location": {
+                    "lat": 1.2933441,
+                    "lng": 103.8271408
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294527879892722,
+                        "lng": 103.8281266798927
+                    },
+                    "southwest": {
+                        "lat": 1.291828220107278,
+                        "lng": 103.8254270201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Valley Point",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103331270735393175501\">AlexP Su</a>"
+                    ],
+                    "photo_reference": "Aap_uECfScZnfPetT0nFoHkZlpJ2PlPRwk3MNwyDLlEIMYZ1d_KT1ILE5MIS9LS9qg6j6OsOMn13ykwsTExjPQQFsdNz9WhFn3rk25m5RwqFsrtBy_gDo0SbA9fzsPpaVXwCFQUHEwr-4zK8sFr1z3zODgWSwqnW5XlEnDI0mc-fmlU3xGbp",
+                    "width": 2160
+                }
+            ],
+            "place_id": "ChIJLZ9oWoEZ2jERwxPWGD_Zpnw",
+            "plus_code": {
+                "compound_code": "7RVG+8V Singapore",
+                "global_code": "6PH57RVG+8V"
+            },
+            "rating": 3.9,
+            "reference": "ChIJLZ9oWoEZ2jERwxPWGD_Zpnw",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1246
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 River Valley Rd, Singapore 179024",
+            "geometry": {
+                "location": {
+                    "lat": 1.2906024,
+                    "lng": 103.8464742
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.292177829892722,
+                        "lng": 103.8477626798927
+                    },
+                    "southwest": {
+                        "lat": 1.289478170107278,
+                        "lng": 103.8450630201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Clarke Quay",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110322417305771163637\">Jonathan Koh</a>"
+                    ],
+                    "photo_reference": "Aap_uEANR7DuP1sNTDu3RvomvpBdjHp0T5mgxk4TnwFSND0zeApx_aY8BK-7RlQR-mR8xkChQ669YQw5WndKGvYi_qiAt5zV-58eFsH12TnzuV8514hiTbCoH7EkrFmNbezD2Vdntj9PzhpdWurOOEIsWB4CnB421y3HyYx9wlPnkwk7bTXJ",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJnXwAOKAZ2jERAs-MHs1aDgI",
+            "plus_code": {
+                "compound_code": "7RRW+6H Singapore",
+                "global_code": "6PH57RRW+6H"
+            },
+            "rating": 4.5,
+            "reference": "ChIJnXwAOKAZ2jERAs-MHs1aDgI",
+            "types": [
+                "shopping_mall",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 35240
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "81 Clemenceau Ave, Singapore 239917",
+            "geometry": {
+                "location": {
+                    "lat": 1.2921679,
+                    "lng": 103.8426697
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293552279892722,
+                        "lng": 103.8442920798927
+                    },
+                    "southwest": {
+                        "lat": 1.290852620107278,
+                        "lng": 103.8415924201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "UE Square",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2184,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">Thiam Beng Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEAuqNxuubNXVEyvK7B8y_Jq4Al-p_ZAyfAWlRUQKF26P83uFZ2vBl5EDESuuWhCHsAVqwGemA2I66Nfw-Bh0WpjZ2y65ZBZR3KHZl8EuwW6qZqA0JqMM2YgkYuR2Vs6WOLAmhgsYllbOIHjLmuU81THHEAse6ROEVB-sRwyoYxaize4",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJ1aJWIZ8Z2jERTCHI96-9fNQ",
+            "plus_code": {
+                "compound_code": "7RRV+V3 Singapore",
+                "global_code": "6PH57RRV+V3"
+            },
+            "rating": 3.9,
+            "reference": "ChIJ1aJWIZ8Z2jERTCHI96-9fNQ",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1289
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "30 Merchant Rd, Singapore 058282",
+            "geometry": {
+                "location": {
+                    "lat": 1.2894373,
+                    "lng": 103.8441063
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.290934229892722,
+                        "lng": 103.8454339298927
+                    },
+                    "southwest": {
+                        "lat": 1.288234570107278,
+                        "lng": 103.8427342701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Riverside Point",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106912664711901329787\">Didik Prasetyo</a>"
+                    ],
+                    "photo_reference": "Aap_uEDOYWgemcsCtAo7MeT8ghednQry-Z5yVLej11AYwcZ7sVdqBo3rO_wl8GcWWANTlvXxU9RMAuOrviou6p_NAtcuT-RCgViHkMC_sHfzIYCinUUsBofiNzhY3M8QQCRIBhHz59qKK5cTsgM0thAuS88zXhdA2pGPTFoP_pXtpCbHrj8a",
+                    "width": 1960
+                }
+            ],
+            "place_id": "ChIJleHRO_wZ2jERDtVEaVmZLxw",
+            "plus_code": {
+                "compound_code": "7RQV+QJ Singapore",
+                "global_code": "6PH57RQV+QJ"
+            },
+            "rating": 4.3,
+            "reference": "ChIJleHRO_wZ2jERDtVEaVmZLxw",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 36
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11 Unity St, Singapore 237995",
+            "geometry": {
+                "location": {
+                    "lat": 1.2920186,
+                    "lng": 103.8414078
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293514579892722,
+                        "lng": 103.8429087298927
+                    },
+                    "southwest": {
+                        "lat": 1.290814920107278,
+                        "lng": 103.8402090701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Robertson Walk",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116495992746370870847\">cse1217</a>"
+                    ],
+                    "photo_reference": "Aap_uEBs5bDDhNWSJJzEQgwR7S6pzc-QSj5Oahunf1wC2tAm1yAjYlJeBcogZQWg_zqr_1L8uxIX40IC519JTpN-zAdPjApqzu0DdUli_lfQ-MsJCWMRT8h19NpWzQjdg5kAlaWCRh6-W7WLqn3yYlVm1TLbmpYU3hvdkD9cdAOy_85FPyGH",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJtarv-54Z2jERdEoeyBoLjTY",
+            "plus_code": {
+                "compound_code": "7RRR+RH Singapore",
+                "global_code": "6PH57RRR+RH"
+            },
+            "rating": 4.3,
+            "reference": "ChIJtarv-54Z2jERdEoeyBoLjTY",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1351
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Magazine Rd, Singapore 059567",
+            "geometry": {
+                "location": {
+                    "lat": 1.2883727,
+                    "lng": 103.8422923
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.289814279892722,
+                        "lng": 103.8434758298927
+                    },
+                    "southwest": {
+                        "lat": 1.287114620107278,
+                        "lng": 103.8407761701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Central Mall",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3888,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112771342115608855894\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECZaq8RYYblvJhH2EW5mMSxg99O17G_jLb5uWkn2xZ-d8b_hKWGMMWhXa1gJxzO961_iFFw2ewSk5yU8Dc8wFQFvRUUaIrdsrl5dAFwB2Tk4EzKyxZ7RX9289Cfc4dz6vGIiTXOFNB9YBKFZ2aTgh6HX1hix6henGzkQg0_mWm2SdvC",
+                    "width": 2592
+                }
+            ],
+            "place_id": "ChIJUT3-h90Z2jERf10Gvlu0dCA",
+            "plus_code": {
+                "compound_code": "7RQR+8W Singapore",
+                "global_code": "6PH57RQR+8W"
+            },
+            "rating": 4.1,
+            "reference": "ChIJUT3-h90Z2jERf10Gvlu0dCA",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 88
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "CLARK QUAY, JETTY, Singapore 058282",
+            "geometry": {
+                "location": {
+                    "lat": 1.2905603,
+                    "lng": 103.8461169
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291910129892722,
+                        "lng": 103.8474667298927
+                    },
+                    "southwest": {
+                        "lat": 1.289210470107278,
+                        "lng": 103.8447670701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Singapore River Cruise",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102475647737628661574\">Dolly Sheth</a>"
+                    ],
+                    "photo_reference": "Aap_uEBneHt-Ptxel-GWZZ5LE3-tKMHt4iCerpiMiuXGkwpjBwGU9E96m3D4UyTGhjpCK1v7k2MP7r0eGd505HjaE_DnzSRZX3PzLF9w-TRv6ViXXDJ-eFZXUxBH1DPHLFM9nyR3gLRYvACGRhY0pwAHz4oMbYPURhaRu3PrLC8Nfq-3qYmc",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJIyHR_58Z2jERGs8ou1UQWKg",
+            "plus_code": {
+                "compound_code": "7RRW+6C Singapore",
+                "global_code": "6PH57RRW+6C"
+            },
+            "rating": 4.4,
+            "reference": "ChIJIyHR_58Z2jERGs8ou1UQWKg",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 645
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Kim Seng Promenade, Singapore 237994",
+            "geometry": {
+                "location": {
+                    "lat": 1.2936417,
+                    "lng": 103.8319293
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294897479892722,
+                        "lng": 103.8330030798927
+                    },
+                    "southwest": {
+                        "lat": 1.292197820107278,
+                        "lng": 103.8303034201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Great World",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3464,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101022829489114975732\">Jon T</a>"
+                    ],
+                    "photo_reference": "Aap_uEBWrnmjmWgoUGalvCFRojWcgeOWKlTgNhXcd1SJKNtf_2PGCs6wKSCQOkTZoRBicJ-Yn1t9fSFMVqW4oU15i2ZXYkNFYXGfJdyP5dC6wHe56itACGo6icR4-CNpbb39H-YCj1fmjXW95SXQP3qBBUVt9aNPuPPj19amZfZ9vDdT_Rc9",
+                    "width": 4618
+                }
+            ],
+            "place_id": "ChIJB14IQoMZ2jERyjiLXouuJe0",
+            "plus_code": {
+                "compound_code": "7RVJ+FQ Singapore",
+                "global_code": "6PH57RVJ+FQ"
+            },
+            "rating": 4.2,
+            "reference": "ChIJB14IQoMZ2jERyjiLXouuJe0",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5787
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 Temasek Blvd, Singapore 038983",
+            "geometry": {
+                "location": {
+                    "lat": 1.29503,
+                    "lng": 103.8583026
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2978256,
+                        "lng": 103.8599335
+                    },
+                    "southwest": {
+                        "lat": 1.2934572,
+                        "lng": 103.8568827
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Suntec City",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108039147759375644629\">redannson</a>"
+                    ],
+                    "photo_reference": "Aap_uEBLM1wXEnF396f7ROzdvnbV1pbQvtNMH_h0yJRhUp4VYibobJ31ZwXFx2fSMHHrmH-_fFS8YLVF_SbogHKdQb9QsA-pQQvkHtry1YTA2oSBSdZXdrzpbryv3DHoHMpuGdiUYu4UlfRLo2zJZtIGBUZyp_lq01L7fdlYoZ5SeymsNIst",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJ20X__K4Z2jERRE8GRs-d8HE",
+            "plus_code": {
+                "compound_code": "7VW5+28 Singapore",
+                "global_code": "6PH57VW5+28"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ20X__K4Z2jERRE8GRs-d8HE",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 22078
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Bayfront Ave, Singapore 018956",
+            "geometry": {
+                "location": {
+                    "lat": 1.2842759,
+                    "lng": 103.8600338
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.28555765,
+                        "lng": 103.8607422298927
+                    },
+                    "southwest": {
+                        "lat": 1.28043065,
+                        "lng": 103.8580425701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "The Shoppes at Marina Bay Sands",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100784562941120894057\">MYO MYO WAI</a>"
+                    ],
+                    "photo_reference": "Aap_uECEdUc1bRz_z_GwSe-rZTS2CuoY4uYt8Wr0tvdbS9jxR57fARQCf0Fo_fFP2atUoKH_7DM26vrz_2oW43RN5Dx-a3-M9HLC85yZNPQQMz-iWc-Hcv7CsJy3-EfyHYjCoFwnQer6vhlX9g4QvBkD5DevbdOFAMgbJK5fSewg-pJTrHKl",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ__EU0QUZ2jERgKqbByZoXqs",
+            "plus_code": {
+                "compound_code": "7VM6+P2 Singapore",
+                "global_code": "6PH57VM6+P2"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ__EU0QUZ2jERgKqbByZoXqs",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 17039
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "100 Orchard Rd, Singapore 238840",
+            "geometry": {
+                "location": {
+                    "lat": 1.3006019,
+                    "lng": 103.8420681
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302168979892722,
+                        "lng": 103.8430492298927
+                    },
+                    "southwest": {
+                        "lat": 1.299469320107278,
+                        "lng": 103.8403495701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Concorde Shopping Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110733443630852763579\">Cuong Nguyen Viet</a>"
+                    ],
+                    "photo_reference": "Aap_uECq9AV5RgL1I8SFbAVaoHpUng1dP1mGVNkgcXAJxV4g-aKcNFTipM0-14P3_SHFHdaNnQFu76UWlgqckXtSHFDZWJ4FBUjxrqUur24pnoq9bS9_SyQX0Gb132CAMBed6rcVrmzKuwrUx68xnFljYpASlUzsyA7jlwKCV-BMiB3SXDc",
+                    "width": 1440
+                }
+            ],
+            "place_id": "ChIJB5uaq5cZ2jERlKfLlpFMZc8",
+            "plus_code": {
+                "compound_code": "8R2R+6R Singapore",
+                "global_code": "6PH58R2R+6R"
+            },
+            "rating": 3.8,
+            "reference": "ChIJB5uaq5cZ2jERlKfLlpFMZc8",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1367
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "River Valley Rd, Singapore 179037",
+            "geometry": {
+                "location": {
+                    "lat": 1.2938682,
+                    "lng": 103.8466283
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.30081835,
+                        "lng": 103.85144365
+                    },
+                    "southwest": {
+                        "lat": 1.28720575,
+                        "lng": 103.84173705
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Fort Canning Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114628395660276629048\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uED6hTeg9gojtHmU8dKUtSNOc77SLl1RiABzSuRJeJUonC1qIUbva1rEM1ZPyH2nCpkr5ksb_qq0l7ZInaUHGYx718c89W1a_IIcuacAcQctYXVu0yraSFFTodqCmNFCiqI4j7B8BbqpXPtneDGHIbz2I3zugQmigkuLjIiwOxzoHb3A",
+                    "width": 6000
+                }
+            ],
+            "place_id": "ChIJVSYjJKIZ2jERpRFinATD52s",
+            "plus_code": {
+                "compound_code": "7RVW+GM Singapore",
+                "global_code": "6PH57RVW+GM"
+            },
+            "rating": 4.5,
+            "reference": "ChIJVSYjJKIZ2jERpRFinATD52s",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6625
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Canning Ln",
+            "geometry": {
+                "location": {
+                    "lat": 1.290022,
+                    "lng": 103.8461716
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291728729892722,
+                        "lng": 103.8475330298927
+                    },
+                    "southwest": {
+                        "lat": 1.289029070107278,
+                        "lng": 103.8448333701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "River Cruise ClarkeQuay stand",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108195945204906510478\">Harry</a>"
+                    ],
+                    "photo_reference": "Aap_uEAp24iLlnbeZaXYjIuDFMSGXb3kX5WMZtsIE56DQWO6lwK9ZbmDxG_r9X1IpMEezq7YJAV46MNCA-0OugOA4LbpcHTaIh3bG2yh3Ld3BgpXhWqVDWxknFqY4P5R9dmdACWqRsKKrZLyhP9XJyWXTeuYhwRYvYT6Bpw934EqrmTDvmoI",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJW2CVFKAZ2jERFVmFDofpR8Q",
+            "plus_code": {
+                "compound_code": "7RRW+2F Singapore",
+                "global_code": "6PH57RRW+2F"
+            },
+            "rating": 4.3,
+            "reference": "ChIJW2CVFKAZ2jERFVmFDofpR8Q",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 70
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "57 Boat Quay, Singapore 049846",
+            "geometry": {
+                "location": {
+                    "lat": 1.2875055,
+                    "lng": 103.8492747
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.288805079892722,
+                        "lng": 103.8505850798927
+                    },
+                    "southwest": {
+                        "lat": 1.286105420107278,
+                        "lng": 103.8478854201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "River Cruise",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3036,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103529352494942670680\">Prateek Aggarwal</a>"
+                    ],
+                    "photo_reference": "Aap_uEDqVwu0TbYmAZA07pCM82PvAGXlqpqBveSdoHGOMuDPKMmI6lP1auA_9FCRY1yl4eto2rnAWG0PnfsSPV8zpy_aDifXl0P4CoYlgf82DqwLyKCnU90Hb99rGDOE9SJ2Vw0aCWtoS5fK6Vc31X02jCB6Y01-9vAMGC3CS1qhFa69u593",
+                    "width": 4048
+                }
+            ],
+            "place_id": "ChIJQc4MiQkZ2jER8fCb2PPSJGg",
+            "plus_code": {
+                "compound_code": "7RQX+2P Singapore",
+                "global_code": "6PH57RQX+2P"
+            },
+            "rating": 4.3,
+            "reference": "ChIJQc4MiQkZ2jER8fCb2PPSJGg",
+            "types": [
+                "travel_agency",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 242
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "491 River Valley Rd, #01-16 Valley Point Shopping Centre, Singapore 248371",
+            "geometry": {
+                "location": {
+                    "lat": 1.2928914,
+                    "lng": 103.8264989
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294305179892722,
+                        "lng": 103.8278150798927
+                    },
+                    "southwest": {
+                        "lat": 1.291605520107278,
+                        "lng": 103.8251154201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Starbucks",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1068,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104119960180472652095\">Starbucks</a>"
+                    ],
+                    "photo_reference": "Aap_uEBg9skQo22RhbX7BfXaQROdpcdx9hLSik1n37iLoUJ2ZWU_OcRqtrJEGAUbi6irS7wzEZoGR7i6Ay1B4JX9aZsf7__pPLRsrJrZCaBGDSzrT22kqpkZB7x6KXtr7xO9Vw2ay1VQEemE6lDqHxtC9p54I-LbUTgg2-dCMm8cQKe58O8E",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJHao5Q4EZ2jERZ2a53B7V0wI",
+            "plus_code": {
+                "compound_code": "7RVG+5H Singapore",
+                "global_code": "6PH57RVG+5H"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJHao5Q4EZ2jERZ2a53B7V0wI",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 171
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "583 Orchard Rd, Singapore 238884",
+            "geometry": {
+                "location": {
+                    "lat": 1.3061667,
+                    "lng": 103.8284991
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.307537879892722,
+                        "lng": 103.8297422298927
+                    },
+                    "southwest": {
+                        "lat": 1.304838220107278,
+                        "lng": 103.8270425701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Forum The Shopping Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100261599938038600892\">Eric Wong</a>"
+                    ],
+                    "photo_reference": "Aap_uEAIVRUf_sMn-V9QXUQGJiY6HWWkgB5kZs4MeMRWqzSvO4-kDpyrAM7w-3jcokXlTtllDoX4w-5dOZ1Ilwef_BVM9kGIR7A7K30R06B6lCzkR0uMa-43KuGfR5LkQ6-iFmiOlzq5z2RfmgAyfFmwxDyYdJz3sn-tQwihZjtRMibYV0O5",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJQe8Ik4wZ2jERM78XCNBVhe0",
+            "plus_code": {
+                "compound_code": "8R4H+F9 Singapore",
+                "global_code": "6PH58R4H+F9"
+            },
+            "rating": 4,
+            "reference": "ChIJQe8Ik4wZ2jERM78XCNBVhe0",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2338
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3A River Valley Rd, #02-04 Block A, Singapore 179020",
+            "geometry": {
+                "location": {
+                    "lat": 1.289583,
+                    "lng": 103.8450571
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291013379892722,
+                        "lng": 103.8464458798927
+                    },
+                    "southwest": {
+                        "lat": 1.288313720107278,
+                        "lng": 103.8437462201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+            "name": "Level Up",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1066,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101973374156116569898\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEA1oRCPWPMz9aamtbBI-jkZti6SHYMa6hLB4zN0IwYeRJeyiVMGwvEURrJ1itqLgrssLDzEsz-ynywY-iPmrVGcaJq0bl5Z1nYu4gjCOP_AwVytCOFil_7k8PKs5GFfk6SARr4dGyzCTPGvpNSA89BpnzEBJczSTU6Tby1BGklVdH9A",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJmQ9nIKAZ2jERNjKLlBcUxKU",
+            "plus_code": {
+                "compound_code": "7RQW+R2 Singapore",
+                "global_code": "6PH57RQW+R2"
+            },
+            "price_level": 3,
+            "rating": 4.1,
+            "reference": "ChIJmQ9nIKAZ2jERNjKLlBcUxKU",
+            "types": [
+                "bar",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 722
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "46 Kim Yam Road (The Herencia Level 2 (Sports Hall, 239351",
+            "geometry": {
+                "location": {
+                    "lat": 1.2929128,
+                    "lng": 103.8388437
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294234229892722,
+                        "lng": 103.8401983798927
+                    },
+                    "southwest": {
+                        "lat": 1.291534570107278,
+                        "lng": 103.8374987201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Amped Trampoline Park - River Valley",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2269,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116176738957680943105\">Amped Trampoline Park (River Valley)</a>"
+                    ],
+                    "photo_reference": "Aap_uECVS8DpA8L-HFRMDyjz8aX1I8Nqp84JtyG7zAH828E0Q2Qxzx6kaL7NImfYrVkCPHaN-R2O7iqPfl8pIma_mef1YFt-7lgxNRAL9h6TTDt95Ci_T6THWmDu5dyS4Ni77PHEeR3Z_sVx0T9PjYnY64wZ6trz0FqaD0Nl2EhGwsrURKA",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJo6dvJ5wZ2jERaYCej4EeY8g",
+            "plus_code": {
+                "compound_code": "7RVQ+5G Singapore",
+                "global_code": "6PH57RVQ+5G"
+            },
+            "rating": 4.4,
+            "reference": "ChIJo6dvJ5wZ2jERaYCej4EeY8g",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 597
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Clarke Quay, Singapore 179884",
+            "geometry": {
+                "location": {
+                    "lat": 1.2919877,
+                    "lng": 103.8447529
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293418629892722,
+                        "lng": 103.8459276798927
+                    },
+                    "southwest": {
+                        "lat": 1.290718970107278,
+                        "lng": 103.8432280201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Canninghill Piers",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 734,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113648577184702818730\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDLGPpo_YI3RHbkp1ICrk7DHhaoPhUnOgcuvi3E_b5XB6jv2pmNP1DfQPy7Qx4fUv868qeayjz6aQuHAZznpAXeDHPsPWdgNXiG2xSvnuaspUPdabU-nAahpBEayP43ip408WWj0DNZ-jBetSx-DL8q3IVmvbwUqloy99p0DMpzKXXB",
+                    "width": 1024
+                }
+            ],
+            "place_id": "ChIJD0bbg2AV2jER2plZ6VnD37c",
+            "plus_code": {
+                "compound_code": "7RRV+QW Singapore",
+                "global_code": "6PH57RRV+QW"
+            },
+            "rating": 5,
+            "reference": "ChIJD0bbg2AV2jER2plZ6VnD37c",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "River Valley Green, Singapore 237993",
+            "geometry": {
+                "location": {
+                    "lat": 1.292847,
+                    "lng": 103.8347589
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294280529892722,
+                        "lng": 103.8361058798927
+                    },
+                    "southwest": {
+                        "lat": 1.291580870107278,
+                        "lng": 103.8334062201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Kim Seng Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105880958444577564393\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDa36OvD3r-4qLtt0ZdpGhS9dF7MkTAF0M1cJFRlbx69vT4AtnZN4SzNXmvJVe624VJSIZDSBlCwDlNYeD0jHgWuXb7WSJKGlvc32Zns2KbxG-8Uz5VTiXpRS6W_xGuLBLpFBS6Y5DrkjjvcHUDdle8MHYymKPE7u8d2STaePmFyTop",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJJR6WlZwZ2jERrqozupYl9tg",
+            "plus_code": {
+                "compound_code": "7RVM+4W Singapore",
+                "global_code": "6PH57RVM+4W"
+            },
+            "rating": 4.4,
+            "reference": "ChIJJR6WlZwZ2jERrqozupYl9tg",
+            "types": [
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 68
+        }
+    ],
+    "status": "OK"
+}

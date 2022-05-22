@@ -1,0 +1,461 @@
+{
+    "html_attributions": [],
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8 Marina Gardens Dr, Singapore 018951",
+            "geometry": {
+                "location": {
+                    "lat": 1.2802738,
+                    "lng": 103.8711395
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.281221429892722,
+                        "lng": 103.8723797798927
+                    },
+                    "southwest": {
+                        "lat": 1.278521770107278,
+                        "lng": 103.8696801201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Sustainable Singapore Gallery",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100687587037959833506\">Krzysztof Koz\u0142owski</a>"
+                    ],
+                    "photo_reference": "Aap_uEBP2lz9RL3Ba5mW6P4PmlkQtjeD-HNexKJynrwdVcr8ooH9eXdKxOEz7Wbj1Q8ae-KEfx3EPhlMUm5i0Vq5t5TAFbAksMHXOJ2739bWVX4W1SoC9rduzTZ5F3CfYsz-Wo-Dp5SjHO1TW24sCDngcvcGsre6j2-qe5HcXX6RHRba31af",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJUaiuK-MY2jERdA3DpNZiblI",
+            "plus_code": {
+                "compound_code": "7VJC+4F Singapore",
+                "global_code": "6PH57VJC+4F"
+            },
+            "rating": 4.7,
+            "reference": "ChIJUaiuK-MY2jERdA3DpNZiblI",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 77
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Bayfront Ave, Singapore 018974",
+            "geometry": {
+                "location": {
+                    "lat": 1.2862738,
+                    "lng": 103.8592663
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.28894715,
+                        "lng": 103.8607249
+                    },
+                    "southwest": {
+                        "lat": 1.27922815,
+                        "lng": 103.8563141
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "ArtScience Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 9000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113137648950344621918\">Luc De Pauw</a>"
+                    ],
+                    "photo_reference": "Aap_uECI_bLzTKBrHpXz8pMIOYN6RGsC6ejDu6_H9HvzIgjL10YfZFafDtsigx-Y0s3T9W9JSbpKHCKuxKCsxnCaRfq8fZamOCyWvKjP2Ilt0CF23fMkNZ6p-kzqQta9rYlIGb7-oYMO1U2o2k8C61Tw16pbHkxgaeA9h7PsUZryvbhTCavu",
+                    "width": 12000
+                }
+            ],
+            "place_id": "ChIJnWdQKQQZ2jERScXuKeFHyIE",
+            "plus_code": {
+                "compound_code": "7VP5+GP Singapore",
+                "global_code": "6PH57VP5+GP"
+            },
+            "rating": 4.5,
+            "reference": "ChIJnWdQKQQZ2jERScXuKeFHyIE",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10470
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "520 Upper Jurong Rd, Singapore 638367",
+            "geometry": {
+                "location": {
+                    "lat": 1.3320247,
+                    "lng": 103.6767846
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3327657,
+                        "lng": 103.6780442298927
+                    },
+                    "southwest": {
+                        "lat": 1.3297665,
+                        "lng": 103.6753445701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Army Museum of Singapore",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 721,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109759152211609496675\">pak soon yi</a>"
+                    ],
+                    "photo_reference": "Aap_uEBQdkrcOnq9Fd_OuwJLVXewxLuqVvezZkvCO6DOp-B-u1WjzPv1fPamvkJXt8S4z7OmosIhBkjI1QzM0O3ipsbiCGi_fwZ3w0HKk35OUL8_iV5nEdQCHUVvvXrkAY6EstzsYPJxmcuz79ign9hRc5_jVDQyue9D6IsanFh4b1BWxjZ9",
+                    "width": 1100
+                }
+            ],
+            "place_id": "ChIJTyHG130P2jERzX_Pmydx-54",
+            "plus_code": {
+                "compound_code": "8MJG+RP Singapore",
+                "global_code": "6PH58MJG+RP"
+            },
+            "rating": 4,
+            "reference": "ChIJTyHG130P2jERzX_Pmydx-54",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 77
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "15 Science Centre Rd, Singapore 609081",
+            "geometry": {
+                "location": {
+                    "lat": 1.3331687,
+                    "lng": 103.7356443
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3358396,
+                        "lng": 103.73844795
+                    },
+                    "southwest": {
+                        "lat": 1.3300336,
+                        "lng": 103.73470975
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Science Centre Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1335,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116215221350559739253\">Science Centre Singapore</a>"
+                    ],
+                    "photo_reference": "Aap_uEDfHBW119wav4Z5AKab2RVi46iokkM5XTY_S02E9Ab7o7BgktkY8UslE7WmaiZjmF0-eA7QGo6VQqfHh8P7H3NIauUA-ajsH-OIqAAktb0QjaR-EREEV9EwzAUjy0VfD0Pa8gq6ISb3YyZKne-6Ooc2aVCnTdq1GsGq9gOFQAg4BbvI",
+                    "width": 2000
+                }
+            ],
+            "place_id": "ChIJY618FAQQ2jERzo1f5IAj4Bg",
+            "plus_code": {
+                "compound_code": "8PMP+77 Singapore",
+                "global_code": "6PH58PMP+77"
+            },
+            "rating": 4.4,
+            "reference": "ChIJY618FAQQ2jERzo1f5IAj4Bg",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6545
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Siloso Road, Southside Interim Market Blk B # 01, #04, 098969",
+            "geometry": {
+                "location": {
+                    "lat": 1.2581182,
+                    "lng": 103.8115399
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.259226079892722,
+                        "lng": 103.8130111798927
+                    },
+                    "southwest": {
+                        "lat": 1.256526420107278,
+                        "lng": 103.8103115201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Trickeye @ Southside",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3888,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112633537063335665338\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECmwb_tblzc_4Zo9iu7qGJOPz-E_HmSzIdOfT7hY_Vcif1w48L61FKSMmVo4H8HjZ6uu0tBvaX0XiwtKZQtwsHQIz6O9NJOM0bI6OoqKriMpO3xlBSt1F5XwV-6DRYN1DAKLibnBawNoZKo6NqUDY4cNH2wK6UjXIZaZpJ0IHlkriNy",
+                    "width": 5184
+                }
+            ],
+            "place_id": "ChIJlRa8x_0b2jERH7T4WjNR_Qk",
+            "plus_code": {
+                "compound_code": "7R56+6J Singapore",
+                "global_code": "6PH57R56+6J"
+            },
+            "rating": 4.2,
+            "reference": "ChIJlRa8x_0b2jERH7T4WjNR_Qk",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2553
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Bayfront Ave, Marina Bay Sands, Singapore 018956",
+            "geometry": {
+                "location": {
+                    "lat": 1.284184,
+                    "lng": 103.858422
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285533829892722,
+                        "lng": 103.8597718298927
+                    },
+                    "southwest": {
+                        "lat": 1.282834170107278,
+                        "lng": 103.8570721701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Spectra (A Light & Water Show)",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1764,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113159247051444518685\">\u062e\u0627\u0644\u062f \u0627\u0644\u062c\u0646\u064a\u062f\u064a</a>"
+                    ],
+                    "photo_reference": "Aap_uECmVzJFeWi-g-z82J65HWvP9lsUmrtKqvb6B7rP9D6UiGSBj-97Gl_CNyq0Yl9EMgm0frniiQ1BUAxwYKJOUfybAANgsIFyv_yREmW7WQHjqu1o1CqAlgnhT9jg_E4cOaBGhNEfhshL3Lfzu-W2VoGHFkC1QYxYhhaoeeG7ohTFBZLS",
+                    "width": 2352
+                }
+            ],
+            "place_id": "ChIJJx8l4dkZ2jER4d43CclDwfs",
+            "plus_code": {
+                "compound_code": "7VM5+M9 Singapore",
+                "global_code": "6PH57VM5+M9"
+            },
+            "rating": 4.8,
+            "reference": "ChIJJx8l4dkZ2jER4d43CclDwfs",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 43
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8 Marina Gardens Dr, Singapore 018951",
+            "geometry": {
+                "location": {
+                    "lat": 1.280681,
+                    "lng": 103.8711213
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2831683,
+                        "lng": 103.87598375
+                    },
+                    "southwest": {
+                        "lat": 1.2798519,
+                        "lng": 103.86685275
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Marina Barrage",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1600,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113381609127125941046\">\u9673\u5fb7\u4ec1</a>"
+                    ],
+                    "photo_reference": "Aap_uEDuth3WM22bfaIAnKYj7QeDvfUqkzUzzoZdai2CfUUkhaabhNDsi4UGEF9lhfoUjkYJ5BgCdqWYdwk35JU2Z1AkcQpxya2hxkNr_us-b6X8cgo-EH182vKG9wOAovt5ial2xam3w4YN1_ZHW9ayblS8kfmJ43wVSJ_mi6XGDjCG7oWn",
+                    "width": 1240
+                }
+            ],
+            "place_id": "ChIJ50uIMa0Z2jER0cTt5fLaZt0",
+            "plus_code": {
+                "compound_code": "7VJC+7C Singapore",
+                "global_code": "6PH57VJC+7C"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ50uIMa0Z2jER0cTt5fLaZt0",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5098
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Bayfront Ave, Singapore 018956",
+            "geometry": {
+                "location": {
+                    "lat": 1.2846547,
+                    "lng": 103.8609937
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.286043429892722,
+                        "lng": 103.8623752798927
+                    },
+                    "southwest": {
+                        "lat": 1.283343770107278,
+                        "lng": 103.8596756201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Marina Bay Sands Singapore",
+            "photos": [
+                {
+                    "height": 790,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109895659147477395527\">Marina Bay Sands Hotel</a>"
+                    ],
+                    "photo_reference": "Aap_uECWjtIJHfwJL5bWCGYNwtj79CzQ7riujCR8Y2IR8syPN8eu0X3symkcNoMo41qgMSFv-Yma4_1CVQlceL91VfT0AyEHSl_pwspARUD0SfmpPhsXQHvOn8QNsSmWBrPHnoNmVnxQNp2WvmA_V7dRaqndlVI8dzTerpVUDODYxQ0vddKD",
+                    "width": 735
+                }
+            ],
+            "place_id": "ChIJA5LATO4Z2jER111V-v6abAI",
+            "plus_code": {
+                "compound_code": "7VM6+V9 Singapore",
+                "global_code": "6PH57VM6+V9"
+            },
+            "rating": 4.6,
+            "reference": "ChIJA5LATO4Z2jER111V-v6abAI",
+            "types": [
+                "tourist_attraction",
+                "lodging",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 9611
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "76 Nanyang Drive, #01-08, NTU Block N2, #1, Singapore 637331",
+            "geometry": {
+                "location": {
+                    "lat": 1.3470369,
+                    "lng": 103.68034
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.348989079892722,
+                        "lng": 103.68165805
+                    },
+                    "southwest": {
+                        "lat": 1.346289420107278,
+                        "lng": 103.67893505
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "McDonald's",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100804699193511996042\">Amin Shah</a>"
+                    ],
+                    "photo_reference": "Aap_uEAAigBQHehU8B3cYDlciaUeHM_fobQwZguW33p005gdrmZbjEaUu_7pWkJiJjyCdGZLdEdhxRIryeYH48Kia_apJOB9hJTf6HUHj654Obom7d5fW8spoV87kb06VpRw9W91VLx7QXCSQ4GkCXEV2GQsp-pHqaaTjs2ZwvTXT_E2j2Tt",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJk2hjGKAP2jERtZYCT0TDDOc",
+            "plus_code": {
+                "compound_code": "8MWJ+R4 Singapore",
+                "global_code": "6PH58MWJ+R4"
+            },
+            "price_level": 1,
+            "rating": 4.2,
+            "reference": "ChIJk2hjGKAP2jERtZYCT0TDDOc",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 274
+        }
+    ],
+    "status": "OK"
+}

@@ -1,0 +1,1028 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEDpqCQud4kRf5ortaS7CVAyyWZpOwtdnOtfAo2orb2w8LRm-ia6H-aLefIbyIKUiWl98jf1W9Iv4VSfmsIEMppw8lMNqmYECi8F9Dfz1QPot5MAwb1B9ueuqlTzh0omQi-coHUmQESKrm1geJNKRuYomGIsu6K21MxH3ZjSIwfwbl0rWd4bj1E3PVqBjp0xhwGYs7jeKZxawv4Fn23UPTiM9P8RWKNBXH-C8DS8HCnQkLeCnQaoFazqGhjcT18XB1S4InkLK430goSPRnGyfFy1BmopXzvUzWhKEKEDgX6cMGReo1XaAaQmfbx_3Gu0ZUilbTquTEQHdgByzEG-pmgjaqOmSBG7f0lkHcV9IA_uW37lr5nPFI_WN5Ok0_Ij9w3TK2QHuw4tHTk7v0_E7ZxgTGNz-gg5M-bnxQab6dnGvU_SMMtBpSFOQCzdssNX3QjLKw",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bukit Batok West Ave 7, Singapore 659003",
+            "geometry": {
+                "location": {
+                    "lat": 1.3658189,
+                    "lng": 103.7503178
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.367150179892722,
+                        "lng": 103.7516667798927
+                    },
+                    "southwest": {
+                        "lat": 1.364450520107278,
+                        "lng": 103.7489671201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "HomeTeamNS Fitness Workz Bukit Batok",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108105127814017692955\">Akira, Tze Wei Toh</a>"
+                    ],
+                    "photo_reference": "Aap_uECy4An0PhaCxLjuJgdgXcLP7KMvALcX7mCkN4AP_RGHZ1l9rbZsxuO1FY7TzPyoAh_tRL0bpod2sJxz5RKV1v85uRoAcwDEu2sp_vLZXuornkZzXTqBENbaos-O2KcvM7HTbJpgCOEBH8cQWym0QydnoP8Oi80fCs9Jnx3lTWPWixI1",
+                    "width": 2880
+                }
+            ],
+            "place_id": "ChIJ5RCN6MoR2jERwY78wVUt-1c",
+            "plus_code": {
+                "compound_code": "9Q82+84 Singapore",
+                "global_code": "6PH59Q82+84"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ5RCN6MoR2jERwY78wVUt-1c",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 80
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "91, 05-01 Bukit Batok West Ave 2, Block C, 659206",
+            "geometry": {
+                "location": {
+                    "lat": 1.3526386,
+                    "lng": 103.749825
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353939929892722,
+                        "lng": 103.7513187798927
+                    },
+                    "southwest": {
+                        "lat": 1.351240270107278,
+                        "lng": 103.7486191201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2904,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103177075198991061846\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAw65iUZ60WCFtru44yp62ueaEN_K2Te3CVW7l_PRja7-T2Vn3K8KFn97CLOcHPvFloaW2vLTydvPsE0frsjf-86JHlY1Lr7VUGjoxvoqfyKy3DbQRlfr-XcSohFjHqeHbdrcoKpGRS7Gtjf2BQKZY1Fo7WuiG4wk3FVGTd5XIG5Yua",
+                    "width": 4670
+                }
+            ],
+            "place_id": "ChIJVVWV-TgQ2jERLX7b4_3Era4",
+            "plus_code": {
+                "compound_code": "9P3X+3W Singapore",
+                "global_code": "6PH59P3X+3W"
+            },
+            "rating": 4.1,
+            "reference": "ChIJVVWV-TgQ2jERLX7b4_3Era4",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 65
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "810 Bukit Batok West Ave. 5, Singapore 659088",
+            "geometry": {
+                "location": {
+                    "lat": 1.3597097,
+                    "lng": 103.7522292
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.361028679892722,
+                        "lng": 103.7532490298927
+                    },
+                    "southwest": {
+                        "lat": 1.358329020107278,
+                        "lng": 103.7505493701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Bukit Gombak ActiveSG Gym",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4608,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117707895113858065793\">mafaz rouf</a>"
+                    ],
+                    "photo_reference": "Aap_uEByv1zVdkd9Py1Lj99ZFL8WRJ2lcjOCY9p6EOkNzmbAsOYsUfne4oVdlyBxH_oj2BSJceCjCOmS4aRI2JZwu1Y6JA5qQYPlkMzwAYBYUtZhVUc-SrhXrHsYrcZhsGKu15lw3xdkYt6Yl1oXwIa16pI4HKx9BFdxHpe6WlJcSvRY-Szb",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJLzOhyEkQ2jERD-0pECpabro",
+            "plus_code": {
+                "compound_code": "9Q52+VV Singapore",
+                "global_code": "6PH59Q52+VV"
+            },
+            "rating": 4.2,
+            "reference": "ChIJLzOhyEkQ2jERD-0pECpabro",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 180
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bukit Batok Street 22, Singapore 659581",
+            "geometry": {
+                "location": {
+                    "lat": 1.34432,
+                    "lng": 103.74835
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.345524729892722,
+                        "lng": 103.7499098798927
+                    },
+                    "southwest": {
+                        "lat": 1.342825070107278,
+                        "lng": 103.7472102201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "BearyFun Gym @ Bukit Batok",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115794511037985319237\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBaunDMdjU2D7AzDeYicD1p2agMEGyxox_iblCYTOU1QPemlq57dt0rfC4AycxCrXZ2KIC9_X1VMVZ-VeOXfR_9pQiYj5JbdvIvZPddMS4UFlA5Mn43-Cgq4SRpHZbcBeQ9zEewHgWOBu7_6KF4WmD5q-pQBIYkYso7xyLw8NUr9DKn",
+                    "width": 5184
+                }
+            ],
+            "place_id": "ChIJscZuuxUQ2jERCxe3HXOPz-8",
+            "plus_code": {
+                "compound_code": "8PVX+P8 Singapore",
+                "global_code": "6PH58PVX+P8"
+            },
+            "rating": 4.6,
+            "reference": "ChIJscZuuxUQ2jERCxe3HXOPz-8",
+            "types": [
+                "gym",
+                "school",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 38
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Hillview Rise, #02-18/19, Singapore 667979",
+            "geometry": {
+                "location": {
+                    "lat": 1.3630203,
+                    "lng": 103.7642127
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.364392179892722,
+                        "lng": 103.7654975298927
+                    },
+                    "southwest": {
+                        "lat": 1.361692520107278,
+                        "lng": 103.7627978701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness hillV2",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 552,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100268128503942935363\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBS2aTP_zMrbJ4m-wp2pVRD4tQUp-k1dnh1Em1jllyOTZWPqI3MAlwvJwWvF2Hal6BusnoJdeDl1QFa6rTfgXzNvNDcK62o9fNCxGSfbFCZwOgipUq_xvycF2HPknJggww9MtbmlV5wjqx5aBE1ro4HXIDyn4Fc2zcMa1sTUmiv93fl",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJH3LLm1IQ2jERgHlnHILVwYQ",
+            "plus_code": {
+                "compound_code": "9Q77+6M Singapore",
+                "global_code": "6PH59Q77+6M"
+            },
+            "rating": 3.9,
+            "reference": "ChIJH3LLm1IQ2jERgHlnHILVwYQ",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 67
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bukit Batok Street 22, Singapore 659581",
+            "geometry": {
+                "location": {
+                    "lat": 1.3447276,
+                    "lng": 103.7484817
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.346111429892722,
+                        "lng": 103.7499199798927
+                    },
+                    "southwest": {
+                        "lat": 1.343411770107278,
+                        "lng": 103.7472203201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Bukit Batok ActiveSG Gym",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 12000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112342055001331661395\">Guo William</a>"
+                    ],
+                    "photo_reference": "Aap_uECiLfZy0uZT79JBtn82_b4RKUX9fJfmAFaGaJeVwmCv6cAzFAkUXaRF6tDKlBSBAUTjzfeI8peXScnKwvQ3Cvm4RVxHiJMK8NA-OGe8JtPWwO56VDyQ7QDjt4f7krapDF7Vh0Ii1ZzKVLFMBZ6zKwKozkzJbcI-Htl5n75nCxuNDt_g",
+                    "width": 9000
+                }
+            ],
+            "place_id": "ChIJW_7O6GER2jERXG6Asu_O2sc",
+            "plus_code": {
+                "compound_code": "8PVX+V9 Singapore",
+                "global_code": "6PH58PVX+V9"
+            },
+            "rating": 3.7,
+            "reference": "ChIJW_7O6GER2jERXG6Asu_O2sc",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 26
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 W Coast Dr, #01-24, Singapore 128020",
+            "geometry": {
+                "location": {
+                    "lat": 1.3164853,
+                    "lng": 103.7573965
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.317729079892722,
+                        "lng": 103.7586053298927
+                    },
+                    "southwest": {
+                        "lat": 1.315029420107277,
+                        "lng": 103.7559056701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Extreme Fitness",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102286937499133010807\">Terng Fu Chen</a>"
+                    ],
+                    "photo_reference": "Aap_uEBuYvx7fGXFmd6Eo0B0yApEbeyh5vv2aZyV_w8GPCGAaLVYkFmzA2z8NO1cPLhmcFQrOGKbt2rQiHU3IfFRkI5tvDsLfuVPmNJdHze3YvMDYOuu-hgA3HdGq_tBFALySSzPL2Qiz0XlyQcXGX5himIxx2p1V2MFYb-PVDIW8aYTunpM",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJkwuCZo0a2jERBjD87h8bak0",
+            "plus_code": {
+                "compound_code": "8Q84+HX Singapore",
+                "global_code": "6PH58Q84+HX"
+            },
+            "rating": 4.6,
+            "reference": "ChIJkwuCZo0a2jERBjD87h8bak0",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 63
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "170 Upper Bukit Timah Rd, Bukit Timah Shopping Centre, Singapore 588179",
+            "geometry": {
+                "location": {
+                    "lat": 1.342946,
+                    "lng": 103.7759933
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.344677829892722,
+                        "lng": 103.7773239298927
+                    },
+                    "southwest": {
+                        "lat": 1.341978170107278,
+                        "lng": 103.7746242701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115935206514265965765\">\u9ad8\u6728\u7d14\u4e00</a>"
+                    ],
+                    "photo_reference": "Aap_uECb1GaUQAp8skxtPBvrZkMIAi83p_Xpg7dzTokdRDBlHltvZ4vz27eWXlYywPHB77QKG081qTsza1U7xSWvSvykesne-ox6lrzfigh5NH4TBDSJGfoXw-YBvWJV87d7yo0zIpQXBviupnRAL8uvVwC75hKS3x1KhJ3BX3fLmjY3qAUB",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJk-uNfYoQ2jER8xHHpU1P2v4",
+            "plus_code": {
+                "compound_code": "8QVG+59 Singapore",
+                "global_code": "6PH58QVG+59"
+            },
+            "rating": 4.2,
+            "reference": "ChIJk-uNfYoQ2jER8xHHpU1P2v4",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 59
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3151 Commonwealth Ave W, #3F, Singapore 129581",
+            "geometry": {
+                "location": {
+                    "lat": 1.3142121,
+                    "lng": 103.7653263
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.315676929892722,
+                        "lng": 103.7666650798927
+                    },
+                    "southwest": {
+                        "lat": 1.312977270107278,
+                        "lng": 103.7639654201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116551259165968947301\">Francesca Danielle Dy Boudewyn</a>"
+                    ],
+                    "photo_reference": "Aap_uECikhaQEz_5ke2g_7pWNv0TDerY0VuvduyjrljrmGOb37vdG1LSTUR3weFiDF3YHO8hDVueDhP-Lv3BxSDCooYC38C9kYHtq6jktxv4LjALcDdtoiIWK1x85iJAIxeNxEX_CFUBwWzMazkOJZ1JD5hBlFmBZRzTL8Fst-4nh4YBBNKv",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJEaSloh8b2jERrZ8ril0BArE",
+            "plus_code": {
+                "compound_code": "8Q78+M4 Singapore",
+                "global_code": "6PH58Q78+M4"
+            },
+            "rating": 4.1,
+            "reference": "ChIJEaSloh8b2jERrZ8ril0BArE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 69
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Seletar Rd, #02-05/06 Greenwich V, Singapore 807011",
+            "geometry": {
+                "location": {
+                    "lat": 1.3875941,
+                    "lng": 103.8695193
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.388810479892722,
+                        "lng": 103.8705519798927
+                    },
+                    "southwest": {
+                        "lat": 1.386110820107278,
+                        "lng": 103.8678523201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness Greenwich V",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2832,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110997613045722609531\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uED9QPjil5nlo404Jyd3zacyq17XyxbOU882snsvgQ3NOaAyWKNvgkA49p2bxcGaTHCg0zZuABdCgJLtKd2KgwX5Vsm8Zsat6Zzcc8nx7B6SHGg-uJXedQImh12JTb2xTCMS1-TFx21Nwm4S9bPhFixAZzuU5ZYf7CaToYqNC_HYqULk",
+                    "width": 4256
+                }
+            ],
+            "place_id": "ChIJyYIV82EW2jER9reIzPzN-As",
+            "plus_code": {
+                "compound_code": "9VQ9+2R Singapore",
+                "global_code": "6PH59VQ9+2R"
+            },
+            "rating": 4.5,
+            "reference": "ChIJyYIV82EW2jER9reIzPzN-As",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 44
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8 Pending Rd, #03-01, Singapore 678295",
+            "geometry": {
+                "location": {
+                    "lat": 1.3763082,
+                    "lng": 103.7707994
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.377781929892722,
+                        "lng": 103.7719147798927
+                    },
+                    "southwest": {
+                        "lat": 1.375082270107278,
+                        "lng": 103.7692151201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness Bukit Panjang",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1200,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107173154758575983579\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBpJJdtKeE8pF0Hh_qb91Gf6UlJsK1YHmQv0DdHikqghafeKs_UqNdT9i8vBwCSMMDZxoloppE3zvxuJAYwnKTWmUV-zI6d_sR9okcPIOG6T3lCWWRlNq07AfFRHjPbpe7igIUiSgn4zK-QcCSQYV4XY_fux1YtqJBfq-MzIxRxnQtU",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJOVKixaIR2jERRlP-Omkol_M",
+            "plus_code": {
+                "compound_code": "9QGC+G8 Singapore",
+                "global_code": "6PH59QGC+G8"
+            },
+            "rating": 4.3,
+            "reference": "ChIJOVKixaIR2jERRlP-Omkol_M",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 90
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Woodlands Rd, #02-01, Singapore 677899",
+            "geometry": {
+                "location": {
+                    "lat": 1.3808842,
+                    "lng": 103.759926
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.382291279892722,
+                        "lng": 103.7612498798927
+                    },
+                    "southwest": {
+                        "lat": 1.379591620107278,
+                        "lng": 103.7585502201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Fitness First",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103434838225218601373\">ajay sharma</a>"
+                    ],
+                    "photo_reference": "Aap_uEAi7B41xTh8CR8BRUYg4Srg6cLtTalQnRbJLt5-F63Qm1cjDvZIXmDeImwIIkA7Uk2-h8cN5uAB79dIlaqNN81XXk-nfQkZhrdUGDazMfGFXSWC362k0sE7WLVu_SsNvuYoaOa-Z226d9Jwl_iSF8I47AS4Ya-PMMeQgSWCze_P9Pq3",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJx6EEULwR2jER8Ps0iB4n4to",
+            "plus_code": {
+                "compound_code": "9QJ5+9X Singapore",
+                "global_code": "6PH59QJ5+9X"
+            },
+            "rating": 4.5,
+            "reference": "ChIJx6EEULwR2jER8Ps0iB4n4to",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 193
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Handy Rd, #04-05 The Cathay, Singapore 229233",
+            "geometry": {
+                "location": {
+                    "lat": 1.299299,
+                    "lng": 103.8472424
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.300631529892722,
+                        "lng": 103.8485855298927
+                    },
+                    "southwest": {
+                        "lat": 1.297931870107278,
+                        "lng": 103.8458858701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Bold Fitness",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111427524638492789676\">Adrian Suharto</a>"
+                    ],
+                    "photo_reference": "Aap_uEDAdEiaNfLI7vvvj4YvaMzjJMr6FAnFe4q9O_X3tSbku7uMMLxTLaOjwV6dzHUrXfZPuOlCJd034A5G0v8SGz7qZmrDP-NX1mQ20Ca4g3h4RAOD6GTW50-gxL6wsrIfsZa1v54fyXwnPnBPx--nBlGr6sWUTQBAhk52XFi0YuXL9Teq",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ-6kWRKQZ2jER6BH7gS53FEc",
+            "plus_code": {
+                "compound_code": "7RXW+PV Singapore",
+                "global_code": "6PH57RXW+PV"
+            },
+            "rating": 5,
+            "reference": "ChIJ-6kWRKQZ2jER6BH7gS53FEc",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 43
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "321 Clementi Avenue 3 6th, #7th floor &, 129905",
+            "geometry": {
+                "location": {
+                    "lat": 1.3120339,
+                    "lng": 103.7648916
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.313441879892722,
+                        "lng": 103.7663675298927
+                    },
+                    "southwest": {
+                        "lat": 1.310742220107278,
+                        "lng": 103.7636678701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Fitness First - Clementi",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104532768828760477771\">Andrew Luke Lim</a>"
+                    ],
+                    "photo_reference": "Aap_uED4ulNimupS8JVweSOoX_kHq_CRimtalodOQQ7l2D6hk3B29eipUlDqBx0GiB0gCXbNHo7Cy0OSheKFEG8vS1EXV6Yz0T-oZULkmDGBRCQd_kiLqZW9LVw3n3g0sGBu9RErLW1SmEeRUwK3K5ZO6OXNHMzLreX6Rg_fNbrHeucbD3KK",
+                    "width": 1000
+                }
+            ],
+            "place_id": "ChIJi1x76o0a2jERl6Zsc41GFZA",
+            "plus_code": {
+                "compound_code": "8Q67+RX Singapore",
+                "global_code": "6PH58Q67+RX"
+            },
+            "rating": 4.2,
+            "reference": "ChIJi1x76o0a2jERl6Zsc41GFZA",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 104
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "17 Lor Kilat, #01-11, Singapore 598139",
+            "geometry": {
+                "location": {
+                    "lat": 1.3408754,
+                    "lng": 103.7742195
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.342297129892722,
+                        "lng": 103.7755046798927
+                    },
+                    "southwest": {
+                        "lat": 1.339597470107278,
+                        "lng": 103.7728050201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "THE GARAGE",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 563,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108375308930202874107\">GarageCircuit</a>"
+                    ],
+                    "photo_reference": "Aap_uECUnN0HIr8Nu4OZSmR5YjachImyScxdmxZCOflkjo_0RQyB-KH8iemEP194Ky-ySOe7S8P8vQylZ8TYfoa6jv-kQlqcY0IgUkeckIZIoLYpwBvlWK3LcTwQMTx7s63oeIGh1QeGDM8MeFnukIRZUaWvoCSb5BzNfH9DE6UZzX_1bkvU",
+                    "width": 1000
+                }
+            ],
+            "place_id": "ChIJNbHFAJAQ2jERIy_IbZJfjm4",
+            "plus_code": {
+                "compound_code": "8QRF+9M Singapore",
+                "global_code": "6PH58QRF+9M"
+            },
+            "rating": 4.8,
+            "reference": "ChIJNbHFAJAQ2jERIy_IbZJfjm4",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 61
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Yung Sheng Rd, #01-02 Taman Jurong Community Club, Singapore 618495",
+            "geometry": {
+                "location": {
+                    "lat": 1.3352415,
+                    "lng": 103.7216118
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.336592829892722,
+                        "lng": 103.7227908798927
+                    },
+                    "southwest": {
+                        "lat": 1.333893170107278,
+                        "lng": 103.7200912201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness Taman Jurong",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101257498414940344374\">anthony albay</a>"
+                    ],
+                    "photo_reference": "Aap_uEAoxp4qQQqG2rVnIvoSTYyHWK6iXnnYEVo5S7vg73LGBPKB273B-yYlbH58q0cosdsmXYkN1031pgBszMS1t2nF7jJNPt-Nvoq7dq9D9Yy4udQb-ic926Fs__CZP7An_8qUI5093CKkgyBiQj4ZUDda-cXN3e7a1-N0awDJNmEwoHg",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJH3pqAusP2jERgTI43GHWDD8",
+            "plus_code": {
+                "compound_code": "8PPC+3J Singapore",
+                "global_code": "6PH58PPC+3J"
+            },
+            "rating": 4.3,
+            "reference": "ChIJH3pqAusP2jERgTI43GHWDD8",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 87
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "190 Lor 6 Toa Payoh, #02-516 Next to Pizza Hut, Singapore 310190",
+            "geometry": {
+                "location": {
+                    "lat": 1.3330533,
+                    "lng": 103.8494162
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.334383179892722,
+                        "lng": 103.8507218298927
+                    },
+                    "southwest": {
+                        "lat": 1.331683520107278,
+                        "lng": 103.8480221701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness Toa Payoh",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 730,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107920502647766329943\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uED5Fx-I5hnpEq8LvVCD5zlzKdDASnuLCbNP-XxIOH6s2fK1VJdME5Y4CcqJJrbKQfV6rCzEOmDnPLXNYnfROu8B9MeYdVVY2gmZzBCDx_bcD535Ct9FPmJfAc_tRzsEboNHK3jft0ziVxeoBuO0diBnajPiylt8XFBokrSGIGc3ItUN",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJl4s9zmYX2jERFtUlClUSEuU",
+            "plus_code": {
+                "compound_code": "8RMX+6Q Singapore",
+                "global_code": "6PH58RMX+6Q"
+            },
+            "rating": 4.2,
+            "reference": "ChIJl4s9zmYX2jERFtUlClUSEuU",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 125
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "53 Serangoon Garden Way, Singapore 555949",
+            "geometry": {
+                "location": {
+                    "lat": 1.3632742,
+                    "lng": 103.8658407
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.364602329892722,
+                        "lng": 103.8672204798927
+                    },
+                    "southwest": {
+                        "lat": 1.361902670107278,
+                        "lng": 103.8645208201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness Serangoon Garden",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 768,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101589605599035928961\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDEqexYTlO76Z17ieElwzWHAEbCy_xSNPGTIc0-3-Rvzxla_Ly1rqksOAtwhOkLWXQ3r4yZfvBwNDlNO9aU_alqbbQ7WsA2bcbK3x-1t9CzTKRv3dSiHO8lwlhu3sXWlnbrT9iqRzIat_ettaG4Ys13MlHnTl6_0RkTYY9ZEhyh0K7L",
+                    "width": 1024
+                }
+            ],
+            "place_id": "ChIJFcfvzeAX2jER9LvW4nn1kbc",
+            "plus_code": {
+                "compound_code": "9V78+88 Singapore",
+                "global_code": "6PH59V78+88"
+            },
+            "rating": 4.3,
+            "reference": "ChIJFcfvzeAX2jER9LvW4nn1kbc",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 44
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11 Tanjong Katong Rd, Singapore 437157",
+            "geometry": {
+                "location": {
+                    "lat": 1.3143724,
+                    "lng": 103.8944394
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.315765029892722,
+                        "lng": 103.8958925798927
+                    },
+                    "southwest": {
+                        "lat": 1.313065370107278,
+                        "lng": 103.8931929201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Anytime Fitness",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114204209595203408369\">gary lim</a>"
+                    ],
+                    "photo_reference": "Aap_uECWlOA0HhrNyO8umRcPXB-uncNumXQ4Vx-C06-qzOHgZDN3anw1dM1E5niH1EePXMF_6Y-uJAW_-6lW_L3oRvzIyXHwSE3syU_X2sCCWGj-50D2o0WNEGcU4tzPtms7W5IXeBqRHv03heLfVp93qw6fuBoIMbcbWg8hlr0Y-vxEzQ1I",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJUa4-4xYY2jERzTkowOfjaQI",
+            "plus_code": {
+                "compound_code": "8V7V+PQ Singapore",
+                "global_code": "6PH58V7V+PQ"
+            },
+            "rating": 3.8,
+            "reference": "ChIJUa4-4xYY2jERzTkowOfjaQI",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 92
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "896 Dunearn Road 05-02 Sime Darby Centre, 589472",
+            "geometry": {
+                "location": {
+                    "lat": 1.3365663,
+                    "lng": 103.7836771
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.337786229892722,
+                        "lng": 103.7849242798927
+                    },
+                    "southwest": {
+                        "lat": 1.335086570107278,
+                        "lng": 103.7822246201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "F45 Training Bukit Timah",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1200,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100748314452935432690\">F45 Training Bukit Timah</a>"
+                    ],
+                    "photo_reference": "Aap_uEBUkCXLQ0wCXTmLRAuLGdZm17ckTUS7OtKZFCC2oMsst6zgfiWYYwKmNFKertWbi8yDu0GmV8YYWAnNiwZ7Fn_YoqBNHn0LTxY2KOyicEgkhUTAYbOUQ1mnZ6lC_I_XkjYk65WwroApHsxDRK8KuV4yAQxALMqk-dhDDTvTWTCAMv4_",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJ-RpieY8Q2jER49fUkG4uqzE",
+            "plus_code": {
+                "compound_code": "8QPM+JF Singapore",
+                "global_code": "6PH58QPM+JF"
+            },
+            "rating": 4.8,
+            "reference": "ChIJ-RpieY8Q2jER49fUkG4uqzE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 21
+        }
+    ],
+    "status": "OK"
+}

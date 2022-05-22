@@ -1,0 +1,1005 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEA3e98o2ZAncosmFZ7JJWrO5IwDbsJ89uEfuD0QRlbD69uY8UZAunY0kwcKcs1Z3h__mzAVZwUqhqy7paiNK0t9V48dSG9PET4PP6JGUV4mbzcYFoCe9IVbxv6UI0ZNlw_STGYywiygytslzzF8pB5e46pubetOTcTcVPQ4OdEUkWtNH06BBh9TcTKqF3fpt8vo3Fne-UL7dnQumqll2oBdrgNZtuoc9i6G7XUZF3btOPekSSDmlYeSUQddCoR8BKxP09tKLD93pMKdg_H-sWkKoKho6sJCURGtrN6F4QiZ8DZD1uIJleOVPOG2Kv6Zmsma_BKm5ZNwe69-jvKnCQXZDHnevOl4CvQPXL89w1VV7zBOZkv3Y9E_ed6vwOIwQUDmBbwZu3pSCjXdHHauDZZyue6TmmGGys7f7kd9eo5wMcc6kjfQfYxITj4g6vhQw67XUfyY-2y_8ayH8w",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "53 Ang Mo Kio Ave 8, #3, Singapore 569933",
+            "geometry": {
+                "location": {
+                    "lat": 1.36953,
+                    "lng": 103.8484398
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.370593379892722,
+                        "lng": 103.8499751798927
+                    },
+                    "southwest": {
+                        "lat": 1.367893720107278,
+                        "lng": 103.8472755201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "AMK Hub",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115596543735752892031\">Eiji Yoshitomi</a>"
+                    ],
+                    "photo_reference": "Aap_uEDNS_WWVfIxyD4nNS0d9aXNqYcqAs99vbnpwVJduIxab07Zg7muQr8MlrPjxtEMA6sAl1KxpAs2uP2EZsFt23HmPhIYq3jOmhCGscgtl80PRaFOAfXtn3mJuGpjptNhY7yeXon5jWE5Mz6vyeHbBpiMqd1E4_SNFD01bAiCCOYX_m3x",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJT80kwuYW2jERhogn4ZW0fG4",
+            "plus_code": {
+                "compound_code": "9R9X+R9 Singapore",
+                "global_code": "6PH59R9X+R9"
+            },
+            "rating": 4.1,
+            "reference": "ChIJT80kwuYW2jERhogn4ZW0fG4",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 12709
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "720 Ang Mo Kio Ave 6, Singapore 560720",
+            "geometry": {
+                "location": {
+                    "lat": 1.3718126,
+                    "lng": 103.8469791
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.373073979892722,
+                        "lng": 103.84773945
+                    },
+                    "southwest": {
+                        "lat": 1.370374320107278,
+                        "lng": 103.84469805
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Ang Mo Kio Town Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3264,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111508052288518804128\">Tan Choon Heong</a>"
+                    ],
+                    "photo_reference": "Aap_uED9dtCGe8mc_ILLVYeMHCn_Z5xIx_bmQMqka5WWyXbPlOPY-ptPMYfcF_iwm88R2I6kTsZVRNdLHlUmNDFQljQvAvyhrOWa5mYIdaQOD8ZMuiD6oWxh9PUZ6y2EN957tl2qZKfRaWIjvcBMixcRp8YGLmW2oCNbvDgMMfaZl2nhpDjo",
+                    "width": 2448
+                }
+            ],
+            "place_id": "ChIJLVJekOcW2jERMPjR_e1nd8w",
+            "plus_code": {
+                "compound_code": "9RCW+PQ Singapore",
+                "global_code": "6PH59RCW+PQ"
+            },
+            "rating": 3,
+            "reference": "ChIJLVJekOcW2jERMPjR_e1nd8w",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Ang Mo Kio Central 2, Singapore 569663",
+            "geometry": {
+                "location": {
+                    "lat": 1.3728776,
+                    "lng": 103.8477199
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.374237279892722,
+                        "lng": 103.8490163298927
+                    },
+                    "southwest": {
+                        "lat": 1.371537620107278,
+                        "lng": 103.8463166701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Djitsun Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116100150198978752227\">takashi kato</a>"
+                    ],
+                    "photo_reference": "Aap_uEDmu6-jiW-EU7GE7jGbHNdIPxMWrM7hgwH5HCYF0udDhkKMuh7zQug3NDwBnY0_b5HWBT7hqadr0cNhfLtc8XiA9TY-hE-tqpEMAW7cq8CB3twD06NOWsgoMdfwGSIsGQhp3_-fq0BLimBg1oMXwHa-9tEnRsn5PESn21V4H1vtqdjz",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ2fIgLeYW2jERNAscVQ4Y-Do",
+            "plus_code": {
+                "compound_code": "9RFX+53 Singapore",
+                "global_code": "6PH59RFX+53"
+            },
+            "rating": 3.6,
+            "reference": "ChIJ2fIgLeYW2jERNAscVQ4Y-Do",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1052
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "61 Ang Mo Kio Ave 8, Singapore 569814",
+            "geometry": {
+                "location": {
+                    "lat": 1.3717025,
+                    "lng": 103.8476215
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.373081229892722,
+                        "lng": 103.8492829798927
+                    },
+                    "southwest": {
+                        "lat": 1.370381570107278,
+                        "lng": 103.8465833201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Jubilee Square",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117597573277381456027\">Lim Chian Song</a>"
+                    ],
+                    "photo_reference": "Aap_uEBeqUtKhURaIuLE81hhSv4O5B1FspUwPryRun_9I2SmNUQ9o10axCK7VjUFLU_N-tMH3Zhnu0MfVyiQ-NJNO31o3JoWlRqAJeej3NrAo8yUPyTkoqTlRFozOnuGCI7-8yN2hWzZ3UkR7XtGvS1E-TlpFtWofUU5Oqge-aKwagekZWs",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ_VQ0s-cW2jERd1Ub9pthffE",
+            "plus_code": {
+                "compound_code": "9RCX+M2 Singapore",
+                "global_code": "6PH59RCX+M2"
+            },
+            "rating": 3.6,
+            "reference": "ChIJ_VQ0s-cW2jERd1Ub9pthffE",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1592
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4190 Ang Mo Kio Ave 6, Singapore 569841",
+            "geometry": {
+                "location": {
+                    "lat": 1.3719487,
+                    "lng": 103.8459981
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.373165929892722,
+                        "lng": 103.8470857298927
+                    },
+                    "southwest": {
+                        "lat": 1.370466270107278,
+                        "lng": 103.8443860701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Broadway Plaza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116100150198978752227\">takashi kato</a>"
+                    ],
+                    "photo_reference": "Aap_uEDbnImgXXdocUgI3i6EnTG1SVqGFqGxvT4_kBJJ_fYHPhoi9B7ZIkXAHapXrRdriC_ETH5onEBAJveMCm-jcfZKoWWDWkT3gH6sM4u4FI370oqeCJrfXtvDs9_wTKd3N45LGMP4K_FPL6K1jl4eTVBxxBmKVJURPddzokxylIz-1pRR",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJLWB1kOcW2jERY7Rq2bBgbuo",
+            "plus_code": {
+                "compound_code": "9RCW+Q9 Singapore",
+                "global_code": "6PH59RCW+Q9"
+            },
+            "rating": 3.7,
+            "reference": "ChIJLWB1kOcW2jERY7Rq2bBgbuo",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 287
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "51 Ang Mo Kio Ave 3, Singapore 569922",
+            "geometry": {
+                "location": {
+                    "lat": 1.3694195,
+                    "lng": 103.8472679
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.370673329892722,
+                        "lng": 103.8487408798927
+                    },
+                    "southwest": {
+                        "lat": 1.367973670107278,
+                        "lng": 103.8460412201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "51@AMK",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118100747000488219426\">Ezekiel Tang</a>"
+                    ],
+                    "photo_reference": "Aap_uEDQLAJCMcIIIKqBl-1ND60EM4MZWLzlC6EkumD9OkKl6kR4I7BwAyXdz-QNZDs9BJixco7mIVWWmVNuRWEPAuYFTAStFL7wU50thbaclA5LDJbNpgS9871Ojy3GzcGkOBQsSKvPWmGeQfaTWPZvFVBlhn9w5vWqTHEA4lKO0XHpw93J",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJ69XKl-QX2jERDas3FaZuIN0",
+            "plus_code": {
+                "compound_code": "9R9W+QW Singapore",
+                "global_code": "6PH59R9W+QW"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ69XKl-QX2jERDas3FaZuIN0",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 17
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "160 Ang Mo Kio Ave 4, Singapore 560158",
+            "geometry": {
+                "location": {
+                    "lat": 1.3750905,
+                    "lng": 103.8386558
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.376489879892722,
+                        "lng": 103.8399709798927
+                    },
+                    "southwest": {
+                        "lat": 1.373790220107278,
+                        "lng": 103.8372713201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Mayflower Shopping & Food Centre",
+            "place_id": "ChIJZVGdnMQW2jERLp2ZSHzRNfA",
+            "plus_code": {
+                "compound_code": "9RGQ+2F Singapore",
+                "global_code": "6PH59RGQ+2F"
+            },
+            "rating": 0,
+            "reference": "ChIJZVGdnMQW2jERLp2ZSHzRNfA",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "756 Upper Serangoon Rd, Singapore 534626",
+            "geometry": {
+                "location": {
+                    "lat": 1.3539782,
+                    "lng": 103.8786504
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.355545079892722,
+                        "lng": 103.8800710298927
+                    },
+                    "southwest": {
+                        "lat": 1.352845420107278,
+                        "lng": 103.8773713701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Upper Serangoon Shopping Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114130896587559764756\">H N Mok</a>"
+                    ],
+                    "photo_reference": "Aap_uEBwl_sbxCDDWYfXjS4EwuNvVHLkO0jrBssW89NCcGMxQtxugx2ydM960Zly1qvtAD6SyE2IEwIIP-l37vMOmOguYL54IWHdCVS3NgH0vRE6nCm4UcZkkozFJyawW7XQjzDgaPma07NdujAUrY2psmAvmgbLr5zK3FX_AJkcspyC5ooH",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJNxcORqUX2jER6BxnP6KuyP4",
+            "plus_code": {
+                "compound_code": "9V3H+HF Singapore",
+                "global_code": "6PH59V3H+HF"
+            },
+            "rating": 3.4,
+            "reference": "ChIJNxcORqUX2jER6BxnP6KuyP4",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 735
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "226D Ang Mo Kio Ave 1, Singapore 564226",
+            "geometry": {
+                "location": {
+                    "lat": 1.3668917,
+                    "lng": 103.8390709
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.367581879892722,
+                        "lng": 103.8401793298927
+                    },
+                    "southwest": {
+                        "lat": 1.364882220107278,
+                        "lng": 103.8374796701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Kebun Baru Mall",
+            "opening_hours": {},
+            "photos": [
+                {
+                    "height": 2736,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103611844950102038456\">Tan Yoke Kok</a>"
+                    ],
+                    "photo_reference": "Aap_uEBWsFbhPf5LvEeERLDfYyA4P0Gxpy7dh42nPCMG2qJ5IxYlON23w9rNLqD8S1tYiKB6Zv2TFUfupiQhPg-5ubIdxe0LpEhsuzVaw36XPASG-BX2wX2-OF2OUkxdJdBZsgUbONAe4rEgBXokguo8WR36VUUS9TnxdLs034AaVq1hI7XS",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJLTIJ094W2jERSu-WQXnN-sA",
+            "plus_code": {
+                "compound_code": "9R8Q+QJ Singapore",
+                "global_code": "6PH59R8Q+QJ"
+            },
+            "price_level": 1,
+            "rating": 4,
+            "reference": "ChIJLTIJ094W2jERSu-WQXnN-sA",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 257
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Ang Mo Kio Ave 6, Blk 730, Singapore 560730",
+            "geometry": {
+                "location": {
+                    "lat": 1.3734716,
+                    "lng": 103.8458098
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.374718179892722,
+                        "lng": 103.8472546798927
+                    },
+                    "southwest": {
+                        "lat": 1.372018520107278,
+                        "lng": 103.8445550201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "COURTS Ang Mo Kio",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 600,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116560031289843267682\">Courts Ang Mo Kio</a>"
+                    ],
+                    "photo_reference": "Aap_uEDMTKnganCgrcWD2qzvRmQMhNf7XZgy-npPJAangoD0bXWAyiuXt4aWo0GEhtGyc8c5hjMt041yYtj-I6HrfpMRdDPUmqmN8UiSqgVk5uXZX2t2cBwCjw7zWCjtw2QmXX5EPykNFpSgev1dAmiz9VoWRvzAif00oLP8-Erg2F--SRQ7",
+                    "width": 800
+                }
+            ],
+            "place_id": "ChIJnwO_FugW2jERxJd7A4HHycs",
+            "plus_code": {
+                "compound_code": "9RFW+98 Singapore",
+                "global_code": "6PH59RFW+98"
+            },
+            "rating": 4.3,
+            "reference": "ChIJnwO_FugW2jERxJd7A4HHycs",
+            "types": [
+                "electronics_store",
+                "furniture_store",
+                "home_goods_store",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2303
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "532 Ang Mo Kio Ave 10, Singapore 560532",
+            "geometry": {
+                "location": {
+                    "lat": 1.3736377,
+                    "lng": 103.8546048
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.374960829892722,
+                        "lng": 103.8559741298927
+                    },
+                    "southwest": {
+                        "lat": 1.372261170107278,
+                        "lng": 103.8532744701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Cheng San Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2250,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100655506633743999872\">Jackie Ong Chao Wen</a>"
+                    ],
+                    "photo_reference": "Aap_uEB3VzBvsNM6mGxEfVvWYr4w05wTsCGQgqniV5acrj32bS-lu7lV2mjlrW8DO4n8EtYtfHlMvDYNeola86otfiPSdWWK0qq_dQg00Rd7pIRzGag0MFDgfmlLsDXdd6VTOwIaoQE9_pN9mUVjXzw_V4Nu6X0ugp6nlMW7Bo75GjBjylku",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJb3zzSu0X2jERac2W73ZFyTY",
+            "plus_code": {
+                "compound_code": "9VF3+FR Singapore",
+                "global_code": "6PH59VF3+FR"
+            },
+            "rating": 4.1,
+            "reference": "ChIJb3zzSu0X2jERac2W73ZFyTY",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 101
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "162 Ang Mo Kio Ave 4, Singapore 560162",
+            "geometry": {
+                "location": {
+                    "lat": 1.3741844,
+                    "lng": 103.8388296
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.375282729892722,
+                        "lng": 103.8402630798927
+                    },
+                    "southwest": {
+                        "lat": 1.372583070107278,
+                        "lng": 103.8375634201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Mayflower Market and Food Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4608,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117120599214428782829\">\u9648\u6cfd\u5e7f</a>"
+                    ],
+                    "photo_reference": "Aap_uEBI52XnIpkHtyIkV8-hHUfxF-2mKSMldlTKKzo_-JezeHj3Zw6P_Ndi9y0nFF4JxDNU5uc1IOuzRXaZ4BYDgrXWnZCnG8k5b2ve952e1zqlT4FVXK8YfzbPU7U_jVsKw-dV8gxn5a6vDHzsnZ1i7sk29z0Cm9mJJh7b2SEsG_yVAv4O",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJZcEgp8QW2jER0JcNwCuHKPI",
+            "plus_code": {
+                "compound_code": "9RFQ+MG Singapore",
+                "global_code": "6PH59RFQ+MG"
+            },
+            "price_level": 1,
+            "rating": 4,
+            "reference": "ChIJZcEgp8QW2jER0JcNwCuHKPI",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1024
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "9 Bishan Pl, Singapore 579837",
+            "geometry": {
+                "location": {
+                    "lat": 1.3506808,
+                    "lng": 103.8487631
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.351730379892722,
+                        "lng": 103.8502522798927
+                    },
+                    "southwest": {
+                        "lat": 1.349030720107278,
+                        "lng": 103.8475526201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Junction 8",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115297210924418451473\">Kwa Hock</a>"
+                    ],
+                    "photo_reference": "Aap_uEByxktS22zOVrsPgRAmcJUJG_tU2y28pFrvb5aTbUN3okXWi-c-22DVmoNGytfppudWaA63j9LBPTVdcTRoxWnlE-FjE6Y03s6MfBwWlb3-33thteUpwmheBOa0w-lFmyuvbsTDQ2hOH4fte7dMTNOBANk5QaJtYnsSje5q16He1Wrh",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJb-ErmBYX2jERBl1gF7cPIj4",
+            "plus_code": {
+                "compound_code": "9R2X+7G Singapore",
+                "global_code": "6PH59R2X+7G"
+            },
+            "rating": 4.2,
+            "reference": "ChIJb-ErmBYX2jERBl1gF7cPIj4",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 11165
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Seletar Rd, Singapore 807011",
+            "geometry": {
+                "location": {
+                    "lat": 1.3874274,
+                    "lng": 103.8690715
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.388995829892722,
+                        "lng": 103.8706928798927
+                    },
+                    "southwest": {
+                        "lat": 1.386296170107278,
+                        "lng": 103.8679932201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Greenwich V",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1878,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">Thiam Beng Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEA9WnzC5zb-LV16M3mqOH0NZDBrIz6-_aRqXrIUK72mYvTexoEx2v7_UilDgoyIG1KbIbY4RH98LhkrEu_pArTwXsIOusyP9pGai3zvGcAT5X3C5vFpwhzGC_Wbc8mVmiBcmfPctsAPgYWizGCXib3TdGys9GskCs4FYqesiMPW9a2d",
+                    "width": 3962
+                }
+            ],
+            "place_id": "ChIJ1-hkimEW2jERyc5cKHfC3Sw",
+            "plus_code": {
+                "compound_code": "9VP9+XJ Singapore",
+                "global_code": "6PH59VP9+XJ"
+            },
+            "rating": 3.8,
+            "reference": "ChIJ1-hkimEW2jERyc5cKHfC3Sw",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1594
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "21 Hougang St 51, Singapore 538719",
+            "geometry": {
+                "location": {
+                    "lat": 1.3795596,
+                    "lng": 103.8880715
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.381097529892722,
+                        "lng": 103.8895385298927
+                    },
+                    "southwest": {
+                        "lat": 1.378397870107278,
+                        "lng": 103.8868388701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Hougang Green Shopping Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1800,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101165387913019482313\">Eric Chan</a>"
+                    ],
+                    "photo_reference": "Aap_uEC5zs9PK8R-xFYa9-Ioor-XF6bdAw2iBwIdKAVaKhVumsG7YPb80OkC82hm0RZku6Xb6MRviO8GvaQuBv5DcHNWymdqnsEJtwrNHlRxZKsUtZ0EYtBwEOP0frnKMeLbY6RzKeyVY_zF9izNbfa5GZq8CA4cuh8QJSm1lVdocbjpCefc",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJv3smaEEW2jERsPGCT2-DWq4",
+            "plus_code": {
+                "compound_code": "9VHQ+R6 Singapore",
+                "global_code": "6PH59VHQ+R6"
+            },
+            "rating": 3.9,
+            "reference": "ChIJv3smaEEW2jERsPGCT2-DWq4",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 770
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "282 Bishan Street 22, Singapore 570282",
+            "geometry": {
+                "location": {
+                    "lat": 1.3582587,
+                    "lng": 103.844478
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.359380229892722,
+                        "lng": 103.8461239298927
+                    },
+                    "southwest": {
+                        "lat": 1.356680570107278,
+                        "lng": 103.8434242701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Bishan North Shopping Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109532441449540262596\">Bobby Wan</a>"
+                    ],
+                    "photo_reference": "Aap_uECOwyTwUT_146nv00UTuS-F8hp25A1hfK9gkpK94AAhJPZ066uFgyh_J2MHm14cc7_xtAbKB6hMzC0mHE582w6Z_cvaHp3n_yJcsjfCJGGHq0eb9Bf0eF-V-9mj-XBo07C4uZ6mRCGUYHspsw_Ans9EUfZOLduNX-szRIk7Io6rpzHv",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJAcrUCiIX2jERugq6oHt9OgQ",
+            "plus_code": {
+                "compound_code": "9R5V+8Q Singapore",
+                "global_code": "6PH59R5V+8Q"
+            },
+            "rating": 4,
+            "reference": "ChIJAcrUCiIX2jERugq6oHt9OgQ",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 534
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "53 Ang Mo Kio Avenue 3 02-53/54 AMK Hub, 569933",
+            "geometry": {
+                "location": {
+                    "lat": 1.3694674,
+                    "lng": 103.8483403
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.370583329892722,
+                        "lng": 103.8497095298927
+                    },
+                    "southwest": {
+                        "lat": 1.367883670107278,
+                        "lng": 103.8470098701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "SKP @ AMK Hub",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104856745652529387522\">Siva Duvvuru</a>"
+                    ],
+                    "photo_reference": "Aap_uEAi0KImX-GlkF007m8XiW8lkoa_4PSWV3g_fU0DkIfDldWHAkd9x-fKLumFsaIclEwVJbf1oMTE7mh2ijMSC2TBkPy_sdo7ItbWAelJFYT6J624xJ3uz8moAGPNbYGKPafCwVxmUfNltJomOswT5xP6v492zI5wM-fLniVRgk6NRBvV",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJk7CL2-YW2jERZfjjpUFzbTA",
+            "plus_code": {
+                "compound_code": "9R9X+Q8 Singapore",
+                "global_code": "6PH59R9X+Q8"
+            },
+            "rating": 4.2,
+            "reference": "ChIJk7CL2-YW2jERZfjjpUFzbTA",
+            "types": [
+                "home_goods_store",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3535 Ang Mo Kio Ave 6, Singapore 569839",
+            "geometry": {
+                "location": {
+                    "lat": 1.3677992,
+                    "lng": 103.8447679
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.368979679892722,
+                        "lng": 103.8462257798927
+                    },
+                    "southwest": {
+                        "lat": 1.366280020107278,
+                        "lng": 103.8435261201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/gas_station-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/gas_pinlet",
+            "name": "Shell",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114263897571763641736\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBRy2gCIflFTHDDh56Zm03dtldHXDcGshsoz9S40kqW49wigXccNn7m9Pk2JQGtIA7-X-GQ8VjFNPyUIBjLJnljRV_R6GPN2ZaNv6vj6K2yxnWw8r7mxmVt1dgG8b3n98o3-_qDBi4dXpmFDqMTSOPytTdSLV9_qLZLlIMNoTvUtrZ5",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJi9rpHd4W2jERaDVX1NhI6S8",
+            "plus_code": {
+                "compound_code": "9R9V+4V Singapore",
+                "global_code": "6PH59R9V+4V"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJi9rpHd4W2jERaDVX1NhI6S8",
+            "types": [
+                "gas_station",
+                "car_wash",
+                "convenience_store",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 80
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "53 Ang Mo Kio Ave 3, #03 - 01 / 27, Singapore 569933",
+            "geometry": {
+                "location": {
+                    "lat": 1.3692426,
+                    "lng": 103.8490796
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.370465529892722,
+                        "lng": 103.8504586798927
+                    },
+                    "southwest": {
+                        "lat": 1.367765870107278,
+                        "lng": 103.8477590201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "London Weight Management - AMK Hub",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116495992746370870847\">cse1217</a>"
+                    ],
+                    "photo_reference": "Aap_uECcfK_HhPwTsxnNuyk7dPnTnSzzcsbHPpPPDfm_d4TVUsI09ryMIK_nrm_uNFw363he8_SLXI-lxVxghaVPb6KREOD964R3f3C4aG8bk73tHELputzGw-zFq5pChx0yAKaC0i3iSVw7kzNtguEvjlE2b_L7gQqNXVnKV13snIvn_vXk",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJ58jVTOYW2jERUz2dGHA2jVI",
+            "plus_code": {
+                "compound_code": "9R9X+MJ Singapore",
+                "global_code": "6PH59R9X+MJ"
+            },
+            "rating": 4.7,
+            "reference": "ChIJ58jVTOYW2jERUz2dGHA2jVI",
+            "types": [
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 37
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "702 Ang Mo Kio Ave 8, #01-2515, Singapore 560702",
+            "geometry": {
+                "location": {
+                    "lat": 1.3697701,
+                    "lng": 103.8475518
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.371118029892722,
+                        "lng": 103.8490014298927
+                    },
+                    "southwest": {
+                        "lat": 1.368418370107278,
+                        "lng": 103.8463017701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Maxi-Cash (Ang Mo Kio Ave 8)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103230411887035405781\">Alan Lin</a>"
+                    ],
+                    "photo_reference": "Aap_uEB4PicVDCgh2AR7FmQ_36fOUkDFbj__zRB8wEOjlqUKKrlJyCYVI3gs2M-VkN-u_i9V61uABTfc4PIB91DyYONrqewVDOnlAyLEAZAb7P2HT-NulRceUlxxSKokZQV5YtV0u7J9GBI0a6bHHh6otd0jEIwWvPcDK0sVVvQa_x6i1dMY",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJExzbHOcW2jERlzHfaW8Okug",
+            "plus_code": {
+                "compound_code": "9R9X+W2 Singapore",
+                "global_code": "6PH59R9X+W2"
+            },
+            "rating": 4.9,
+            "reference": "ChIJExzbHOcW2jERlzHfaW8Okug",
+            "types": [
+                "jewelry_store",
+                "finance",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 17
+        }
+    ],
+    "status": "OK"
+}

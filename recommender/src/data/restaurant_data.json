@@ -1,0 +1,1022 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uECvlD7UhlVBSP70nmZH7Of33Y7rRTzfh9IyC6ycoJ_vspxi6QFPCJC3N-HMDxVVFvzYdbhtgFkEyuG3HiwmduMIB4beMQ10qkWLTojId0Sfqgb3ok7PfiezAPmEoT92AI_S5B8I_ocmBa5Vaj2vdpz_xlkaiNVOHNrnyPyDFZN7Z12ndNbnnYjStuCb_s4Ll2Mn_NOZtcRVxAR3nZJR8UWwsQCSP4hPiFyHPKH3lQKyKiMwWopmEmCUTkuESgdd9i2Zwuke3MRFh1C0VbBpKO4OuMil-p1kdFTqBPIMARcUvbQS3nVjXzDY5x-mfXZ8ERh2Elnu2GVnx-SbL91dx8Rqyr6LWI0bZmlIGX6NHlNzGGVfqqZp5UHxXKhIFfLmaodEMMpqM9Y",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "52 W Coast Ferry Rd, Singapore 126887",
+            "geometry": {
+                "location": {
+                    "lat": 1.2926833,
+                    "lng": 103.7626794
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294021279892722,
+                        "lng": 103.7641619298927
+                    },
+                    "southwest": {
+                        "lat": 1.291321620107278,
+                        "lng": 103.7614622701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "La Pizzeria at Bridge and Beacon Bar",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2592,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101094602040063076860\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uED4HismlvmAXUDdh_SgYHP_q84K8JgCYkFy_bvTThzdrVK4GONlN2a_QJzq1ltKxte5Y53w6TT52jO1pHOYQfbpL3m95nbuHd9YrnqctAoTBgE8TWxSFdCWL4v1ucdLjorHt5901F2RI8NIOx1Ao_KeAPyncC9_LqO_37PXBxqiZzk7",
+                    "width": 3872
+                }
+            ],
+            "place_id": "ChIJ2wEstQkb2jER8wlDjktdxKA",
+            "plus_code": {
+                "compound_code": "7QV7+33 Singapore",
+                "global_code": "6PH57QV7+33"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJ2wEstQkb2jER8wlDjktdxKA",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 211
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Create Way #01-06 NUS University Town, Singapore 138602",
+            "geometry": {
+                "location": {
+                    "lat": 1.3042726,
+                    "lng": 103.7738973
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305622429892722,
+                        "lng": 103.7752471298927
+                    },
+                    "southwest": {
+                        "lat": 1.302922770107278,
+                        "lng": 103.7725474701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Sapore Italian Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107607138847361311220\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAOFiKCtGIcqGbcBG8pY6TIlmlxeDzt5k17_45kvTe2byn30ldaoCpynW5e-75ZlGrG69PQ0qrtnQaB268vg2Hx9r__Suft1H-za3O10JsNTQtmEImxhH4Nk9lV3xInBSHy4TKq2ol4cdpsUYAESJr491ZxY105_cOUEC3ngD0CYFg",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJrccu6fUa2jERtI5L2Txe-_g",
+            "plus_code": {
+                "compound_code": "8Q3F+PH Singapore",
+                "global_code": "6PH58Q3F+PH"
+            },
+            "price_level": 2,
+            "rating": 4.5,
+            "reference": "ChIJrccu6fUa2jERtI5L2Txe-_g",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 318
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "18 Clementi Rd, Singapore 129747",
+            "geometry": {
+                "location": {
+                    "lat": 1.2929144,
+                    "lng": 103.7686345
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294305979892722,
+                        "lng": 103.7699329798927
+                    },
+                    "southwest": {
+                        "lat": 1.291606320107278,
+                        "lng": 103.7672333201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Nana Original Thai Food (Clementi)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101390821580975720987\">Lim Kaizhuo</a>"
+                    ],
+                    "photo_reference": "Aap_uED0IHY72zuaqPPyN8C4u-a-7BMaVSNcZId9iHpxSN-P3ahRApFs5ofHeG_PhMO2CfWjWygj5wwqT-Ou9r4LC7aC4JUfJg10Ji6R9kt5MiGzUr455dqHEQsiTAHkwoOE3OcRxILnTpqGP75ZYH9L9spU5qqL5R5piq90vGR6qT__PaL8",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJpacnPPwa2jERoFkXHFExOI8",
+            "plus_code": {
+                "compound_code": "7QV9+5F Singapore",
+                "global_code": "6PH57QV9+5F"
+            },
+            "price_level": 1,
+            "rating": 4.1,
+            "reference": "ChIJpacnPPwa2jERoFkXHFExOI8",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 429
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Blk, 721 Clementi West Street 2, #01-138/140, Singapore 120721",
+            "geometry": {
+                "location": {
+                    "lat": 1.3023263,
+                    "lng": 103.7642234
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303638879892722,
+                        "lng": 103.7655900298927
+                    },
+                    "southwest": {
+                        "lat": 1.300939220107278,
+                        "lng": 103.7628903701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Rangooli Restaurant",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101439299730286289235\">Pankaj Sharma</a>"
+                    ],
+                    "photo_reference": "Aap_uEAZyxgXSzgOPJe8_mV8ZZ4YT1FxRsVS3BTz2K1uLYYRM1ISx10oo8EvDnjN81KoTK2yEgN-pWxVTJsj0x5dNztUHsVMxKhzAui1-q97Rv9jRUuyl6bwSXIZMtPCkLMD06CvEqgT8U5XEat_JZ58weqGLXgHtM-kZu7HHvD3VH8EoZqe",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJV15mQ6Ub2jERvlB6iB9FrN8",
+            "plus_code": {
+                "compound_code": "8Q27+WM Singapore",
+                "global_code": "6PH58Q27+WM"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJV15mQ6Ub2jERvlB6iB9FrN8",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 412
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "12 Clementi Rd, Singapore 129742",
+            "geometry": {
+                "location": {
+                    "lat": 1.2927526,
+                    "lng": 103.7684987
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294164679892722,
+                        "lng": 103.7698309298927
+                    },
+                    "southwest": {
+                        "lat": 1.291465020107278,
+                        "lng": 103.7671312701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Al Amaan Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115086655103873779488\">Peter Chong</a>"
+                    ],
+                    "photo_reference": "Aap_uEDsecKbVA1z8lW214cnYQMfb1uyy8Q8xIVlSMpfiFKUFe0RwExy4UPgPmTPq0cjC8JTYjpx2clzC8ocfrX1XavrtgF5DWGqlmYE-Gwocro0X8t6Jyd621cLrm0iSlFnuTOVo73kCMwRj0Y_JrlUuUWdVOCTz3v7f2J4GcXgECTf8Tn_",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJpbpdPPwa2jER3qzoPX12xE8",
+            "plus_code": {
+                "compound_code": "7QV9+49 Singapore",
+                "global_code": "6PH57QV9+49"
+            },
+            "price_level": 1,
+            "rating": 4.1,
+            "reference": "ChIJpbpdPPwa2jER3qzoPX12xE8",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 1092
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Clementi Rd, Singapore 129741",
+            "geometry": {
+                "location": {
+                    "lat": 1.2924497,
+                    "lng": 103.7683135
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293847129892722,
+                        "lng": 103.7695973798927
+                    },
+                    "southwest": {
+                        "lat": 1.291147470107278,
+                        "lng": 103.7668977201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Dario Pizza & More",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 5760,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113348377169958786098\">Dario pizza&amp;more</a>"
+                    ],
+                    "photo_reference": "Aap_uEDKcn7-xqgEQvzCFJKelkcf2j_Bx2PLd3mF4lO_wBzc5cMowNA4IIaRHvl93RZKzfyP9NSSznmiKTUKcWVo-JkoM4e4GgPHy_zZG9S8DJQR92GGfxTWphLueMZ5-X0CtDfQOHwcEN7n1Fdcc4f1WE9MXBuF9dJDYeA6XFzfJFmDu9Eg",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJSV6OO_wa2jERdnMz-qR7XXo",
+            "plus_code": {
+                "compound_code": "7QR9+X8 Singapore",
+                "global_code": "6PH57QR9+X8"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJSV6OO_wa2jERdnMz-qR7XXo",
+            "types": [
+                "grocery_or_supermarket",
+                "restaurant",
+                "store",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 365
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "9 Kent Ridge Dr, Singapore 119241",
+            "geometry": {
+                "location": {
+                    "lat": 1.2932745,
+                    "lng": 103.7728953
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294602779892722,
+                        "lng": 103.7743126798927
+                    },
+                    "southwest": {
+                        "lat": 1.291903120107278,
+                        "lng": 103.7716130201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "NUSS-The Scholar",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3408,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114136979141574665107\">Cassidy Chew</a>"
+                    ],
+                    "photo_reference": "Aap_uEAXAbmQmwWPqi2BZfNnB6fdCGiBVhBSM4EofTHOApT4jY5JTbYsyPGqlrNogl77FHv723lrilIJvjRYvwhLitTbMaMgrJz1fdQiu65l62lz3MDKmILJLfzOOad56WTka2oEa0qJw3IGvu33klNzpZy-vEBpMGCpQsLysiYUcD065uVo",
+                    "width": 10656
+                }
+            ],
+            "place_id": "ChIJ3WmSLP8a2jERteymbW753rc",
+            "plus_code": {
+                "compound_code": "7QVF+85 Singapore",
+                "global_code": "6PH57QVF+85"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJ3WmSLP8a2jERteymbW753rc",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 855
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "28 Clementi Rd, Singapore 129754",
+            "geometry": {
+                "location": {
+                    "lat": 1.2930807,
+                    "lng": 103.768724
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294459479892722,
+                        "lng": 103.7700344298927
+                    },
+                    "southwest": {
+                        "lat": 1.291759820107278,
+                        "lng": 103.7673347701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Be Frank Hotdogs & Burgers",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3464,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102429779161382378043\">Garett Lee</a>"
+                    ],
+                    "photo_reference": "Aap_uEDw-QCQ5hDZeC2_jMNZdcogN5wgglLe6O0bPDhGPDTJK5H4U-o75NVcSTu-Wcyx6vANawY_wmHw1kLBrwJwXeUQjpNIVgSD7PXAyBg2jePJcTpcWU23-bZhv14_UTMYwBHS64TdNVIHWHyk2qnDu753IX7WTKHC_zC8kWfdjd9gaCD6",
+                    "width": 4618
+                }
+            ],
+            "place_id": "ChIJ6eSlpYwb2jEREW6qNj-JaKA",
+            "plus_code": {
+                "compound_code": "7QV9+6F Singapore",
+                "global_code": "6PH57QV9+6F"
+            },
+            "rating": 4.7,
+            "reference": "ChIJ6eSlpYwb2jEREW6qNj-JaKA",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 405
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "154 W Coast Rd #02-23 West Coast Plaza, Singapore 127371",
+            "geometry": {
+                "location": {
+                    "lat": 1.3035814,
+                    "lng": 103.7658606
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304806579892722,
+                        "lng": 103.7669816298927
+                    },
+                    "southwest": {
+                        "lat": 1.302106920107278,
+                        "lng": 103.7642819701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "West Co'z Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113787023700238910829\">West Co&#39;z Cafe</a>"
+                    ],
+                    "photo_reference": "Aap_uECP1HuHgbBFF3WRHV7CDdvs5pR2uZjJ8-QcWP9GafptYkAT6_ZH41DLM1U62UjjO43nl2XcMO1f8-c4719UVyzAqRQJU1V_lPW4Zi_tnzTrcTNeM2AkFnD1Uk0fPS9cv2294ARwCaOnbTIkglxODLZYSEkbqo3SHJui8CaF454LHcYd",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJdRS7gPEa2jER5dC1SNA90xA",
+            "plus_code": {
+                "compound_code": "8Q38+C8 Singapore",
+                "global_code": "6PH58Q38+C8"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJdRS7gPEa2jER5dC1SNA90xA",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 531
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "721 Clementi West Street 2, #01-126, Singapore 120721",
+            "geometry": {
+                "location": {
+                    "lat": 1.3025584,
+                    "lng": 103.764474
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304296079892722,
+                        "lng": 103.7657469798927
+                    },
+                    "southwest": {
+                        "lat": 1.301596420107278,
+                        "lng": 103.7630473201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Island Penang Kitchen",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3726,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111842905544516746254\">Taylor tham</a>"
+                    ],
+                    "photo_reference": "Aap_uECk4OtCxchU7fdsW7wMAyDMmLcabOjKxbuJ_eZLrOlCWMr2n1ORmzC_gSP6buKkRre3pEC99sqyAknXS28AVzLi4L3YCpl9infTfzYjZ5yuZEiQ2hEX6weK1iLAATe1UGBecvWv1nqMUjT9tOakWLkVGXe9Hu_ugrxZlBxFWDukqtLc",
+                    "width": 4968
+                }
+            ],
+            "place_id": "ChIJEYbG7_Ea2jERzPiMfCb8yVY",
+            "plus_code": {
+                "compound_code": "8Q37+2Q Singapore",
+                "global_code": "6PH58Q37+2Q"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJEYbG7_Ea2jERzPiMfCb8yVY",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 1038
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "722 Clementi West Street 2, #01-150, Singapore 120722",
+            "geometry": {
+                "location": {
+                    "lat": 1.3027453,
+                    "lng": 103.7635239
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304036979892722,
+                        "lng": 103.7647470298927
+                    },
+                    "southwest": {
+                        "lat": 1.301337320107278,
+                        "lng": 103.7620473701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Hong Kong Street Restaurant - Clementi West st 2",
+            "opening_hours": {
+                "open_now": true
+            },
+            "place_id": "ChIJTxf0-dYb2jER22pj7IhCVYk",
+            "plus_code": {
+                "compound_code": "8Q37+3C Singapore",
+                "global_code": "6PH58Q37+3C"
+            },
+            "rating": 3,
+            "reference": "ChIJTxf0-dYb2jER22pj7IhCVYk",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 2
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2, #01-06 College Ave West, Stephen Riady Centre, Singapore 138607",
+            "geometry": {
+                "location": {
+                    "lat": 1.3047299,
+                    "lng": 103.7725536
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305827329892722,
+                        "lng": 103.7737655298927
+                    },
+                    "southwest": {
+                        "lat": 1.303127670107278,
+                        "lng": 103.7710658701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Waa Cow! NUS U Town",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116757734739662286139\">Linda Nai</a>"
+                    ],
+                    "photo_reference": "Aap_uECXxnNT8MmlfT9NTyTg_sShGjft8rp_-beW_7yxzq2F-Cj1usa7Hn_tu5F6qw8u-a918oflGd5bBRpAWBxoX0yjglUv8aESFWtBdlmSR-dsa7tMtKCSrmGVEpQC9kxDf5STcbjlaPp-1tGT8CjOe7UC2nUHrAmpL5-bYvv51V4tOriX",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJM28sMv8a2jERbCH-kKXUrh0",
+            "plus_code": {
+                "compound_code": "8Q3F+V2 Singapore",
+                "global_code": "6PH58Q3F+V2"
+            },
+            "price_level": 2,
+            "rating": 4.5,
+            "reference": "ChIJM28sMv8a2jERbCH-kKXUrh0",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 367
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "52 W Coast Ferry Rd, RSYC Yacht Club, Singapore 126887",
+            "geometry": {
+                "location": {
+                    "lat": 1.2927481,
+                    "lng": 103.7627338
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294056779892722,
+                        "lng": 103.7641903298927
+                    },
+                    "southwest": {
+                        "lat": 1.291357120107278,
+                        "lng": 103.7614906701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Wharf",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109721407044307404116\">kay toh</a>"
+                    ],
+                    "photo_reference": "Aap_uECzak6JBSgWdStZAWAdwnJNrG8SpjV9ph32xEpVR9lpI9_iudVNnp1t2w5JOnfQCiKERwOv789HxuFn7gqleEVY4_EQuXpo_OfihZsGlipEEW2DmYabJQN-ogZf21ysczUcWjdq8alkrr4Zl-69MxIGgv_Xehv2tF7ZG8YzQf-NeeKX",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJu7MGPOMa2jERiwWry4BnS2E",
+            "plus_code": {
+                "compound_code": "7QV7+33 Singapore",
+                "global_code": "6PH57QV7+33"
+            },
+            "rating": 3.5,
+            "reference": "ChIJu7MGPOMa2jERiwWry4BnS2E",
+            "types": [
+                "restaurant",
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 51
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "20 Clementi Rd, Singapore 129749",
+            "geometry": {
+                "location": {
+                    "lat": 1.2929767,
+                    "lng": 103.7686577
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294346729892722,
+                        "lng": 103.7699782298927
+                    },
+                    "southwest": {
+                        "lat": 1.291647070107278,
+                        "lng": 103.7672785701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Formosa Delights",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113121521961034964626\">The Red Marker SG</a>"
+                    ],
+                    "photo_reference": "Aap_uEBfp1Wa0aXb7KVjaomZyQz5Dp8TA-BDlB6r_92OZvCzm1dto9xY7ef_wcve72y4-IQsfwmoiYifC5B-rPNDLRC4r-wCKTOSaDBE2KSGPsjL1XrwPBsJB_ZiziIuGXtS5luJAhKszQVDPf34EsfQfJ8eO9bp5XC1JA_TAXNt9Iihd6qr",
+                    "width": 5760
+                }
+            ],
+            "place_id": "ChIJB6_SPfwa2jERhWb0-pMgLRo",
+            "plus_code": {
+                "compound_code": "7QV9+5F Singapore",
+                "global_code": "6PH57QV9+5F"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJB6_SPfwa2jERhWb0-pMgLRo",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 377
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "154 West Coast Rd, #01-02, Singapore 127371",
+            "geometry": {
+                "location": {
+                    "lat": 1.3031924,
+                    "lng": 103.7656056
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304662929892722,
+                        "lng": 103.7668466798927
+                    },
+                    "southwest": {
+                        "lat": 1.301963270107278,
+                        "lng": 103.7641470201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Upin Hot Pot West Coast Plaza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2176,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111347679039921831325\">judge saab</a>"
+                    ],
+                    "photo_reference": "Aap_uEBjevaV7CmsNQORQVtzV65WACU3DRJQxJgZ3xE9tbyASmqQPKvBVvYyxAs20Eophpyi4lOCAwykoZ0ar16i1W1KNu7enTW__7amHGKesv4fvDUYav6O7YzKUR81J9miJlh3Uj_fxXB-5YqjmO0e3nJa5_8I8sjiOP3biWJAVrAD-K0I",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJZRDFifEa2jERr6NcNLvBWzE",
+            "plus_code": {
+                "compound_code": "8Q38+76 Singapore",
+                "global_code": "6PH58Q38+76"
+            },
+            "rating": 4.1,
+            "reference": "ChIJZRDFifEa2jERr6NcNLvBWzE",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 139
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Block 725 Clementi West Street 2 #01-190/192, (S)120725, Singapore 120725",
+            "geometry": {
+                "location": {
+                    "lat": 1.303813,
+                    "lng": 103.7636313
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305200379892722,
+                        "lng": 103.7650600298927
+                    },
+                    "southwest": {
+                        "lat": 1.302500720107278,
+                        "lng": 103.7623603701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Rong Liang Restaurant Pte Ltd \u69ae\u4eae\u95a3",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 960,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116798708037871798900\">mickeymouse777777</a>"
+                    ],
+                    "photo_reference": "Aap_uEDWYQs8liFgxBlFyN-Ho7le9tUwI3TZEEZjOrqp0FzmIIXj5xbx4jV5lbM09coTFs4ecXwtvzds-jLRTIyg9rSzLq7xWd1n7wHa9-FwYqgrJsUmfvIfONdxaK-BHeclWhF07S_XmHkwkRjiXGx6QikQ27YtOJUqJLbEarBYOYqvJWw",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJayxA_-0a2jER8qiMOk6X4tY",
+            "plus_code": {
+                "compound_code": "8Q37+GF Singapore",
+                "global_code": "6PH58Q37+GF"
+            },
+            "price_level": 1,
+            "rating": 4.1,
+            "reference": "ChIJayxA_-0a2jER8qiMOk6X4tY",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 714
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1010 Dover Rd, Singapore 139658",
+            "geometry": {
+                "location": {
+                    "lat": 1.3096279,
+                    "lng": 103.7744979
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.310976079892722,
+                        "lng": 103.7757847798927
+                    },
+                    "southwest": {
+                        "lat": 1.308276420107278,
+                        "lng": 103.7730851201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Restaurant",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1200,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103498922894888270765\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECKDdvwRQ8KlKDzmmh9BMGg3njWusJI3_KGOd1Un9cXdrTtkJUJaKOSAP5bp5tW6XT9wnNjSS_YMOmx69S0glpYxDELMm1k1FtEaccLOivzT_FZnwvq11ab9e1BRLn3b5ILV3LB2d6kNWLB2TTZ98HKuQ95u8WhnBfCGrEfXq2k7pnl",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJb0fNgooa2jERRt4iEA6zg-4",
+            "plus_code": {
+                "compound_code": "8Q5F+VQ Singapore",
+                "global_code": "6PH58Q5F+VQ"
+            },
+            "rating": 3.6,
+            "reference": "ChIJb0fNgooa2jERRt4iEA6zg-4",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 22
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "29 Heng Mui Keng Terrace, 06-21 ground floor, Singapore 119620",
+            "geometry": {
+                "location": {
+                    "lat": 1.2917994,
+                    "lng": 103.7776756
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293073179892722,
+                        "lng": 103.7788206298927
+                    },
+                    "southwest": {
+                        "lat": 1.290373520107278,
+                        "lng": 103.7761209701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Chilli Padi Tok Panjang",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106178694855634077700\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECHG5W4jxBdyp2jWPBeFyr1s1_IXf_F2jdq3h2taxBWsX0xUE1Kct2MfbW4oIDsbAuF3w1JD0DMxoryIvPpYOoQapZpBH99pDDGF_pZONbQVEOAhSD3Ti9av-B6_ZHS7_VHsjWV-_kFx3k37Z44AGDYXhnk7EZRDzozwnEDSiGr_l0A",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJ____L1Ua2jERJPYskmd9fe4",
+            "plus_code": {
+                "compound_code": "7QRH+P3 Singapore",
+                "global_code": "6PH57QRH+P3"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJ____L1Ua2jERJPYskmd9fe4",
+            "types": [
+                "restaurant",
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 342
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Arts Link, Singapore 117570",
+            "geometry": {
+                "location": {
+                    "lat": 1.2947191,
+                    "lng": 103.7717081
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.296060279892722,
+                        "lng": 103.7725881298927
+                    },
+                    "southwest": {
+                        "lat": 1.293360620107278,
+                        "lng": 103.7698884701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Chinese Cuisine",
+            "place_id": "ChIJVVVVJfka2jER7GpUL81BvVI",
+            "plus_code": {
+                "compound_code": "7QVC+VM Singapore",
+                "global_code": "6PH57QVC+VM"
+            },
+            "rating": 0,
+            "reference": "ChIJVVVVJfka2jER7GpUL81BvVI",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "154 West Coast Rd, Singapore 127371",
+            "geometry": {
+                "location": {
+                    "lat": 1.3033503,
+                    "lng": 103.7658166
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304721879892722,
+                        "lng": 103.7669521798927
+                    },
+                    "southwest": {
+                        "lat": 1.302022220107278,
+                        "lng": 103.7642525201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Sunny Korean Cuisine",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1673,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">TB Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBBbZZ4A6epe7kXexnJswtqSqUWscHjM8rh598VjKMVZSqaE9JbxsgPgbOCiXTU_3EmpbeATwjycOKcNCYIJtgo7jnHtwwFToKeVPTSN9hLRf4bbR2aCDaW0o7xKN7Y6XQAadcx0K0VlRlOEAUuevmBQRiQ4SNuBrvLcUBuIJnlAcKQ",
+                    "width": 3535
+                }
+            ],
+            "place_id": "ChIJS2KYiPEa2jERKUcOuCuREP4",
+            "plus_code": {
+                "compound_code": "8Q38+88 Singapore",
+                "global_code": "6PH58Q38+88"
+            },
+            "rating": 3.5,
+            "reference": "ChIJS2KYiPEa2jERKUcOuCuREP4",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 90
+        }
+    ],
+    "status": "OK"
+}

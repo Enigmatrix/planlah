@@ -1,0 +1,1055 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEAmM4wMyeugHl1vRSbPwSFyAcn-Xoz1fkBF0lDq7MCodIQOa8BBWqd_UCO1t6gD9lf4ayKOI6eGtqfZd7W9ltuCrBfmRGbt0BIZD-rox1KsLO6FAunTJMiy-O6fSyajRBJ1YqtQ6483mHxMN1xUvz9Kh6iEM6Nj0y99VXnPnwFlImoRkFVYxiJXAU9ozbEoJ2snqYJgf5Eqgk-vQG6uaRWOL2qqxwLTT423DfYMvFPS1U046bWGX2ztLCdDZqKEXNc5tnMSCu1LFcu1l3UvxRs7G6Mo3cO7F6k78S6gLk5AjqHEe-CTrIbVAYN9pIrkNKJdM3LNyatfeemaJhJoHItqcpxbyT9rp1JqlVUZsBkfaq74isgcKBhqVJsv3lyEv1r6OPR3Kyqoth2oqVGQWqN4CiSS5uQWFqxJmBdkOffHDzJaQY6ZZZsPkuL9Xt4I1OrhcIIK",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bayfront Ave, #01 - 85 The Shoppes at Marina Bay Sands, Singapore 018972",
+            "geometry": {
+                "location": {
+                    "lat": 1.2848879,
+                    "lng": 103.8590691
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285893629892722,
+                        "lng": 103.86109785
+                    },
+                    "southwest": {
+                        "lat": 1.283193970107278,
+                        "lng": 103.85838205
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+            "name": "Dallas Cafe & Bar",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107221411471263536971\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uED3kJ8YBoc1OJhWaLDDgh4Ts6swXSaswW4M6TJ4Lv6ToP0R7r11oXAoVnHIPVqIS9bkBGE4NiakDmYDZgAyhV1DKi6fGKa5hXb04nSITNjnk5-RJ-dKW8ybdTxxB2jdjNSIG8ihU1QEqPlwWc2rgVRLCuWLcxDhZEl15JdVTU2snYYr",
+                    "width": 5120
+                }
+            ],
+            "place_id": "ChIJ1XQRfQYZ2jERNUChEjATNpk",
+            "plus_code": {
+                "compound_code": "7VM5+XJ Singapore",
+                "global_code": "6PH57VM5+XJ"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJ1XQRfQYZ2jERNUChEjATNpk",
+            "types": [
+                "bar",
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 491
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "18 Marina Gardens Dr, #01-21 Gardens by the Bay, Singapore 018953",
+            "geometry": {
+                "location": {
+                    "lat": 1.2812773,
+                    "lng": 103.8614721
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.282627129892722,
+                        "lng": 103.8628219298927
+                    },
+                    "southwest": {
+                        "lat": 1.279927470107278,
+                        "lng": 103.8601222701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Cafe Aster",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 573,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103860498817693894992\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEA8tDmbz-o045JR9b7VrfpMvM7wVEg00EloNoHzATnMhCtC0j6lGP0DD9vb3E8gnxCr36DNM8t-rrIt_3SJmGDb-b69dNchuHs4mh4SVAaGzrlQpkVvH4BXOaRjuBCqzYK0-1e_oG1DEDxWm542CqYFCHhOdj7cS7A1MPtXb5bDMZ5e",
+                    "width": 860
+                }
+            ],
+            "place_id": "ChIJbXOhi9cZ2jERq5silSvEI2I",
+            "plus_code": {
+                "compound_code": "7VJ6+GH Singapore",
+                "global_code": "6PH57VJ6+GH"
+            },
+            "rating": 3.5,
+            "reference": "ChIJbXOhi9cZ2jERq5silSvEI2I",
+            "types": [
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 64
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Bayfront Avenue ArtScience Museum, Lobby, 018974",
+            "geometry": {
+                "location": {
+                    "lat": 1.2862737,
+                    "lng": 103.8592661
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287623529892722,
+                        "lng": 103.8606159298927
+                    },
+                    "southwest": {
+                        "lat": 1.284923870107278,
+                        "lng": 103.8579162701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "SweetSpot",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1081,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117243405816013247120\">SweetSpot</a>"
+                    ],
+                    "photo_reference": "Aap_uEBZMzcb3LUQXLUO6NI4H2FATFm56E3mxsI93VL58cntWuBdQ0D4bwVFQ9FH_tGoihHpsw2EweGBhAqnPfBg_bynCQaa4czCUjMgA5Uqo2tm5I_2yHucBva49jtNZ-BViHf9lLNn-brOQ10YBTP6ZBKL0uGNxYf8T6B2ErbMrvqBbAba",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJd3zcpgYZ2jERiz02YxJQbPs",
+            "plus_code": {
+                "compound_code": "7VP5+GP Singapore",
+                "global_code": "6PH57VP5+GP"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJd3zcpgYZ2jERiz02YxJQbPs",
+            "types": [
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 224
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Rhu Cross, #02-01, Singapore 437437",
+            "geometry": {
+                "location": {
+                    "lat": 1.2929743,
+                    "lng": 103.8712796
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294334029892722,
+                        "lng": 103.8726295798927
+                    },
+                    "southwest": {
+                        "lat": 1.291634370107278,
+                        "lng": 103.8699299201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Canopy Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4128,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112554955422233973598\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBirYOYbH27pBlFu0bbD9dipZfVxOE2RhWBmwltQu1r9WkFGNDxhbzMPf4QkA0Ei3PX6bi-lZuiJW6a9rcQ4XVJHnHwey1i1fH3PtR2tD9PbzZz5auoObN7MXrVrng1QXmV3QPxpW0WwROSFq9BT11qXIJ0myQZJuf06S1PNT0LCf9U",
+                    "width": 2322
+                }
+            ],
+            "place_id": "ChIJZzcZelQY2jERXh2P6UonyJw",
+            "plus_code": {
+                "compound_code": "7VVC+5G Singapore",
+                "global_code": "6PH57VVC+5G"
+            },
+            "rating": 4,
+            "reference": "ChIJZzcZelQY2jERXh2P6UonyJw",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 407
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bayfront Avenue B2-56 The Shoppes at Marina Bay Sands, 018972",
+            "geometry": {
+                "location": {
+                    "lat": 1.2857491,
+                    "lng": 103.860054
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.28659335,
+                        "lng": 103.8615906298927
+                    },
+                    "southwest": {
+                        "lat": 1.28341995,
+                        "lng": 103.8588909701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Starbucks Reserve",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114331842318070680564\">alan yeo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBx5jaBFVaazh3qEwB5DwvP0qpSxOSUxSHozwA0AwmgFJ4n1bGs9Bd5RmTIF6WEYw2p10n7zHuCN5R0t5d5tZpYUCAlDC7BLO_YqnNrlQV_uSzan-aHvRh55yTqxvWXA8cJp1NBQ8qFpFzuNJCCvq2Bl3IDWk40-0zCg6bLjcHbBxul",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ2ydQ7gYZ2jER7BNsP1mM3Q0",
+            "plus_code": {
+                "compound_code": "7VP6+72 Singapore",
+                "global_code": "6PH57VP6+72"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJ2ydQ7gYZ2jER7BNsP1mM3Q0",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 552
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bayfront Ave, #B2-20 20A, Singapore 018972",
+            "geometry": {
+                "location": {
+                    "lat": 1.2840276,
+                    "lng": 103.8586157
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285345829892722,
+                        "lng": 103.8599908298927
+                    },
+                    "southwest": {
+                        "lat": 1.282646170107278,
+                        "lng": 103.8572911701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Beanstro",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103014119405306655981\">Chetan Mehra Photography</a>"
+                    ],
+                    "photo_reference": "Aap_uEArvIrFwgu_ob7D_4Li8_WRenMEF4WWkCKZePD_wToGJcUs4BGfhB3omL6TL3C34db7ztbL9Ar3ycwQ-bh4V2TDu3rgGkhVKyPAW-KBDgPXL_34t4dgK7p02QomBc4wt98wpw9xlZ6x4tCHOlqQrkYkih8VJYpb70INcCoXF5txkSbx",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJgzvcVbgZ2jER2Tnb5sQQq_o",
+            "plus_code": {
+                "compound_code": "7VM5+JC Singapore",
+                "global_code": "6PH57VM5+JC"
+            },
+            "rating": 3.9,
+            "reference": "ChIJgzvcVbgZ2jER2Tnb5sQQq_o",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 172
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "18 Marina Gardens Dr, #01-01, Singapore 018953",
+            "geometry": {
+                "location": {
+                    "lat": 1.2854098,
+                    "lng": 103.8618312
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.29080865,
+                        "lng": 103.8756079
+                    },
+                    "southwest": {
+                        "lat": 1.27089525,
+                        "lng": 103.8550407
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Mylo's",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112405079882226287067\">Marn Lee</a>"
+                    ],
+                    "photo_reference": "Aap_uEBGy7dfXbPXJD1mKYQh48ydzlqE6Ao5B96Zekb8OSnNjQSVDOjwAWocta3m2AQZlOISQIqjO5IRcoLEGow5iuNuzeNb3va1a4aVuAc2r7UCoaqOtdyxUCHbrOFGjYwk9wdvK4SM5XmjDmtPOb5WsUvPljm6BTR2rMkNORQIDrDsxljY",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJeSV1eR4Z2jER9oJ65n3id-s",
+            "plus_code": {
+                "compound_code": "7VP6+5P Singapore",
+                "global_code": "6PH57VP6+5P"
+            },
+            "rating": 4.4,
+            "reference": "ChIJeSV1eR4Z2jER9oJ65n3id-s",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 97
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Bayfront Ave, Tower 3 Lobby, Hotel, Singapore 018956",
+            "geometry": {
+                "location": {
+                    "lat": 1.2844201,
+                    "lng": 103.8610889
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285922329892722,
+                        "lng": 103.8624198798927
+                    },
+                    "southwest": {
+                        "lat": 1.283222670107278,
+                        "lng": 103.8597202201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Origin + Bloom",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110341481218937221501\">110341481218937221501</a>"
+                    ],
+                    "photo_reference": "Aap_uEBC7aDbfOhflMk-MI1sJdFJgtfsxJUMuTVyWk5qODmg2m6ftltX2Nunux3oeEOMtUmwR2KJiUkcFyO7zr32fzweOp0HlUWfQ3F1iBjzVzNZyBtLYhHHH11dqOjOf4rgLjJhrUNU-WhakF9gFBFLIxJfWF3oZu8KhY0FF3YaJNyI3GI-",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJPzb3PyAZ2jER6urLOlGdj58",
+            "plus_code": {
+                "compound_code": "7VM6+QC Singapore",
+                "global_code": "6PH57VM6+QC"
+            },
+            "rating": 4.1,
+            "reference": "ChIJPzb3PyAZ2jER6urLOlGdj58",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 114
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bayfront Avenue B2, #120 120A, 018972",
+            "geometry": {
+                "location": {
+                    "lat": 1.2836602,
+                    "lng": 103.8592707
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285304779892722,
+                        "lng": 103.8611989798927
+                    },
+                    "southwest": {
+                        "lat": 1.282605120107278,
+                        "lng": 103.8584993201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Cedele All Day Dining - Marina Bay Sands",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109800724824457558119\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDQbV9ppxRsKMIVGtl2f5fpoLKS0yMs8cswkrqtjhtoEGe2auZxRCpeP1qnVQ0eWmb0gYAYDbe8yPyCyv_dbyIRfDIVm1F2RWnK27UEKfLZ3j25hOqq1ynWvSGAoc2v_wiXRGlzys3CN2pb7Eh5EnxFqIQwW0s9N70CLiTnugqj-TTX",
+                    "width": 5184
+                }
+            ],
+            "place_id": "ChIJQ8phr6UZ2jEROSOiYyFxokw",
+            "plus_code": {
+                "compound_code": "7VM5+FP Singapore",
+                "global_code": "6PH57VM5+FP"
+            },
+            "price_level": 2,
+            "rating": 2.6,
+            "reference": "ChIJQ8phr6UZ2jEROSOiYyFxokw",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 99
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bayfront Ave, # B1 - 01E, Singapore 018956",
+            "geometry": {
+                "location": {
+                    "lat": 1.2824709,
+                    "lng": 103.8578753
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.283849429892722,
+                        "lng": 103.8591954798927
+                    },
+                    "southwest": {
+                        "lat": 1.281149770107278,
+                        "lng": 103.8564958201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Toast Box",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114456075138998633237\">pollito serrano</a>"
+                    ],
+                    "photo_reference": "Aap_uECuBxddAWm2cC6nrBqa-dKTQsYjO4ozKv8zg8B3RjIKHgXOZjNT51gxtsWFjJlTQoHrkB-eXWBTFthGTkHG5hK-0_bK0H1mUiGnNNUtHsAC9_0_zQBtFk196kj3UIoGwVUBMkSrPwc4Xkg70xs5joesbS2xJX7ce5XDt6VZm9wb-13E",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJ3T7AJwQZ2jERzHpCgdtWOXQ",
+            "plus_code": {
+                "compound_code": "7VJ5+X5 Singapore",
+                "global_code": "6PH57VJ5+X5"
+            },
+            "price_level": 1,
+            "rating": 4.1,
+            "reference": "ChIJ3T7AJwQZ2jERzHpCgdtWOXQ",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 642
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Straits View, #01-11 Marina One West Tower, Singapore 018935",
+            "geometry": {
+                "location": {
+                    "lat": 1.2768591,
+                    "lng": 103.8522393
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.278157179892722,
+                        "lng": 103.8535559798927
+                    },
+                    "southwest": {
+                        "lat": 1.275457520107278,
+                        "lng": 103.8508563201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Milligram",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108491213889257416963\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBwYoA1N98EVoe_xX9xHcht7vrdii0g6jK1Las7OPo1Wj1IQEMTbBL3s8E7e-zn0o0oyElgY8T5PK__jn1LtDsiLW5aba94_qMCgpB_V8rDg02mYWIAFZT8Skl1B2GiEdUO_rhb3Do-BIQIFM_rFaIRVnNQl6LTtYquWStyNjIHkB5p",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJKy4nP1kZ2jERO4JMdoMVzKw",
+            "plus_code": {
+                "compound_code": "7VG2+PV Singapore",
+                "global_code": "6PH57VG2+PV"
+            },
+            "rating": 4.1,
+            "reference": "ChIJKy4nP1kZ2jERO4JMdoMVzKw",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 92
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bayfront Ave, #B2 - 86, Singapore 018972",
+            "geometry": {
+                "location": {
+                    "lat": 1.2837365,
+                    "lng": 103.8589801
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285325229892722,
+                        "lng": 103.8611769
+                    },
+                    "southwest": {
+                        "lat": 1.282625570107278,
+                        "lng": 103.8581797
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Bacha Coffee",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117659591298768255463\">Ash Arc</a>"
+                    ],
+                    "photo_reference": "Aap_uEA-fYkEYxd9CkcBWwvubTQVeuZrm8JpP9emF4vEe4MCWQtn7SUQdKm-ZJj9hdWhSJvMLi02qIOa9d7LrMJlv2lbSkoBSj83xGzVcwiexs-wR1nV_NloiG8qus-pC9Hrgx0CmX2ehX-6_oTYWzNx_JmgbSXHgE0eBDghDRiMwLlRJbpH",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJc0xvFxsZ2jER9YScxObbgw4",
+            "plus_code": {
+                "compound_code": "7VM5+FH Singapore",
+                "global_code": "6PH57VM5+FH"
+            },
+            "rating": 4.2,
+            "reference": "ChIJc0xvFxsZ2jER9YScxObbgw4",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 90
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bayfront Ave, #B2 - 89 89A, Singapore 018972",
+            "geometry": {
+                "location": {
+                    "lat": 1.2834644,
+                    "lng": 103.8591559
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285190529892722,
+                        "lng": 103.8611164798927
+                    },
+                    "southwest": {
+                        "lat": 1.282490870107278,
+                        "lng": 103.8584168201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Angelina",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1920,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109259055390542280235\">Giz Mahendrawati</a>"
+                    ],
+                    "photo_reference": "Aap_uEB015sHYqc6OzWfT2ieHm44xuMHqdyR2x8pzJSKvXNmwU5cjHSeRiqKJDuev7P8NzJQVduKYcsXXHFOu32wNawCasmLwyeO7FFAgU4-QNXUFQY9gbVw8u93oMXmMJ9ivv7Wx1Vi2xbvglRm7hZIBmkFIz5qaOlxThx9xFN3ciY26aiC",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJF00CUpgZ2jER8NbMc61ckZ4",
+            "plus_code": {
+                "compound_code": "7VM5+9M Singapore",
+                "global_code": "6PH57VM5+9M"
+            },
+            "rating": 3.9,
+            "reference": "ChIJF00CUpgZ2jER8NbMc61ckZ4",
+            "types": [
+                "bakery",
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 354
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bayfront Avenue #01-87 The Shoppes at Marina Bay Sands, 10 Bayfront Ave, L1 - 87, Singapore 018972",
+            "geometry": {
+                "location": {
+                    "lat": 1.2860466,
+                    "lng": 103.8597482
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287379279892722,
+                        "lng": 103.8615986798927
+                    },
+                    "southwest": {
+                        "lat": 1.284679620107278,
+                        "lng": 103.8588990201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Da Paolo Gastronomia - Marina Bay",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102872667321698106793\">Richard Loat</a>"
+                    ],
+                    "photo_reference": "Aap_uEDdv3S0XecnBGvSbIpbqfS_sJemdZVS_5ULLYGBLEIeHcj4lHZk_CmoKnWHZ9P4LTIm1h_Out9KbF0S_6NyoN4ESgyNePqBHakJ6q_UDMwTEYVZ0ouseLko-DpOW2YczZBVF9029ZiPtfsDtbo2ZMoViEXF5eGBmvwG8z0P5udaXtUu",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ_7yn8AYZ2jER5Pltp5sA8jQ",
+            "plus_code": {
+                "compound_code": "7VP5+CV Singapore",
+                "global_code": "6PH57VP5+CV"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJ_7yn8AYZ2jER5Pltp5sA8jQ",
+            "types": [
+                "cafe",
+                "grocery_or_supermarket",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 305
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "257 Beach Rd, Singapore 199539",
+            "geometry": {
+                "location": {
+                    "lat": 1.3004235,
+                    "lng": 103.8598977
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.301711629892722,
+                        "lng": 103.8612946798927
+                    },
+                    "southwest": {
+                        "lat": 1.299011970107278,
+                        "lng": 103.8585950201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Fika Swedish Cafe and Bistro",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4016,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116247548893861554642\">fika swedish cafe and bistro</a>"
+                    ],
+                    "photo_reference": "Aap_uECyrHx5qhh6HHYm49LlWpiJubzk4uw_Xry91ccNddikWtsnd7tJLqtLDK6oAMToD24jwXYkD6v28dyRbuf-K3gfetddKzWy6-RWWHPDQohSqXY5DxAsEn0h5i1N16LcDQkkmX2HlAA1SP3BY7z6rVWBV82ocEC0NeGdPPInE2J3-Skt",
+                    "width": 6016
+                }
+            ],
+            "place_id": "ChIJJTlGr7EZ2jERgMbe-7T11QQ",
+            "plus_code": {
+                "compound_code": "8V25+5X Singapore",
+                "global_code": "6PH58V25+5X"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJJTlGr7EZ2jERgMbe-7T11QQ",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1179
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Bayfront Ave, Lobby Tower 1 Hotel, Marina Bay Sands, Singapore 018956",
+            "geometry": {
+                "location": {
+                    "lat": 1.2827696,
+                    "lng": 103.8603195
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.283890279892722,
+                        "lng": 103.8615048798927
+                    },
+                    "southwest": {
+                        "lat": 1.281190620107278,
+                        "lng": 103.8588052201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Club at Renku",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109384184693346401131\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB-o_SkEoTR8LM85FEIdDHhYt9xPNuyP6ab6GPoVmEwiOZ0Uq-942z0H9lQSdWUjl879yOEzfkNd90ssLtJ-RtiiWwS7M6Z5q6g7hFHXemqedLRo3yvtVsQz3bRg3zqtq8SabVzsvp1eCw1kCkixOOnxqfowjTvN_WKZISFDAB4kXje",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJgbj7RAQZ2jERpqImPoeOUHc",
+            "plus_code": {
+                "compound_code": "7VM6+44 Singapore",
+                "global_code": "6PH57VM6+44"
+            },
+            "rating": 4.6,
+            "reference": "ChIJgbj7RAQZ2jERpqImPoeOUHc",
+            "types": [
+                "restaurant",
+                "night_club",
+                "bar",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 221
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8A Marina Boulevard B2-07 Marina Bay Link Mall, 018984",
+            "geometry": {
+                "location": {
+                    "lat": 1.2804937,
+                    "lng": 103.8536785
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.281855479892722,
+                        "lng": 103.8550351298927
+                    },
+                    "southwest": {
+                        "lat": 1.279155820107278,
+                        "lng": 103.8523354701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "PAUL",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110751939956060643499\">chonlada pisnuwongrak</a>"
+                    ],
+                    "photo_reference": "Aap_uEAe10DRYbdCEUQt739hV917JV3d5lBorqHhxm_MkJdKEKNaA5z_vqJBIj15_N9u25v3bBNU9o-jO_B4I7bdvBuUkrGHXRCSjf3fGLxVl0CqOsK2sUQMJAaeEU7I-nuU96pzvzC2q3_iF9ShQ0RVEbEmrOBMz7JFec5dRwozv7Huck_t",
+                    "width": 5120
+                }
+            ],
+            "place_id": "ChIJT7uOzA8Z2jERmNSGqd6FAKc",
+            "plus_code": {
+                "compound_code": "7VJ3+5F Singapore",
+                "global_code": "6PH57VJ3+5F"
+            },
+            "rating": 3.4,
+            "reference": "ChIJT7uOzA8Z2jERmNSGqd6FAKc",
+            "types": [
+                "bakery",
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 95
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Bayfront Avenue Marina Bay Sands, Hotel, Tower 3, 018971",
+            "geometry": {
+                "location": {
+                    "lat": 1.2846219,
+                    "lng": 103.860936
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.286024629892722,
+                        "lng": 103.8623241798927
+                    },
+                    "southwest": {
+                        "lat": 1.283324970107278,
+                        "lng": 103.8596245201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "C\u00c9 LA VI Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2896,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105303356015161865775\">Thomas Hoffmann</a>"
+                    ],
+                    "photo_reference": "Aap_uECVn6Qeco6thyya74o722-qs-2hvUvvQFrO4X58zPUCylgiD_twIAHN05OFNvR_DZT1akE56AYWZPNuUUv0qlUCSrEzPFWFPC1LFKj_vb3CaOu9FBGk1GcnBqtNYCo7v-aAapUHDDL57x6SXjsWdUkeKNv_Rk50SjkDLOOAhCEtSsPZ",
+                    "width": 5152
+                }
+            ],
+            "place_id": "ChIJmTXpQAQZ2jERZmXslyMqczQ",
+            "plus_code": {
+                "compound_code": "7VM6+R9 Singapore",
+                "global_code": "6PH57VM6+R9"
+            },
+            "price_level": 4,
+            "rating": 4.2,
+            "reference": "ChIJmTXpQAQZ2jERZmXslyMqczQ",
+            "types": [
+                "restaurant",
+                "night_club",
+                "bar",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4218
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Straits View, #01-26/27 Marina One East Tower, Singapore 018935",
+            "geometry": {
+                "location": {
+                    "lat": 1.2780388,
+                    "lng": 103.8531501
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.279587429892722,
+                        "lng": 103.8545543798927
+                    },
+                    "southwest": {
+                        "lat": 1.276887770107278,
+                        "lng": 103.8518547201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Spot - Singapore",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3492,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111922026214590063249\">Photographer Thailand</a>"
+                    ],
+                    "photo_reference": "Aap_uEAiWDfb9rVOAKMaCpBbuh14ERzFnl4157Hi2HZbV6B8XlnVxL9L0LKF0pWlCxzFlbpXimewUKI5bxbd6oB7hprKvUgPe3P8hirO-sEakSsp2I4T0a7gPSZS7IdCT6VkurxZqZkeopKqsxdV7DFMpVbHfe6rfoar0V2FD6q66H9inntU",
+                    "width": 5238
+                }
+            ],
+            "place_id": "ChIJq6pqohEZ2jERAWzgPlS-rxM",
+            "plus_code": {
+                "compound_code": "7VH3+67 Singapore",
+                "global_code": "6PH57VH3+67"
+            },
+            "rating": 4.5,
+            "reference": "ChIJq6pqohEZ2jERAWzgPlS-rxM",
+            "types": [
+                "restaurant",
+                "bar",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 478
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Bayfront Ave, Tower 1, Level 57, Singapore 018956",
+            "geometry": {
+                "location": {
+                    "lat": 1.2824496,
+                    "lng": 103.8599442
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.283721729892722,
+                        "lng": 103.8613172298927
+                    },
+                    "southwest": {
+                        "lat": 1.281022070107278,
+                        "lng": 103.8586175701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "LAVO Italian Restaurant And Rooftop Bar",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100694644038369625020\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAO5Ehw1jvClk_XYKZCfS8K9iJ7vGaRdlua2azIkq1-dRYgsI1WhlAZALxp3X71gaQNzZAlTIA-iwiGoYzvIjwXbRllUwqfCbQtA3UmRNkNAa5wXKZDm66Jrq0V05GTePQlf3GfGTVpWwZNU97Scg9gftaCLJTJnS8dhAzHjG-ALoap",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJsRrnPwQZ2jERmUK_SYyLwTs",
+            "plus_code": {
+                "compound_code": "7VJ5+XX Singapore",
+                "global_code": "6PH57VJ5+XX"
+            },
+            "price_level": 4,
+            "rating": 4.3,
+            "reference": "ChIJsRrnPwQZ2jERmUK_SYyLwTs",
+            "types": [
+                "bar",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2391
+        }
+    ],
+    "status": "OK"
+}

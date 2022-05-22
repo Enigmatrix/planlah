@@ -1,0 +1,1055 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEBCWoJYSfXz6CW1-NA3uVau8FmwfJq7DJbx0kQmquqolrisyAnEJXVQAfM52pxcAJy_RKUJXgo24uFSnJ1QZmrcbO0VoEhpevAzmFFjQZlPVISKkYgAEjvF15KwYKV5mhVuH0oOC-dn-ehiA1TEU8ajsKk9UKkRqGLsGtIPdBc50rRwHzx27bz6EbVsPrWhb6kgEiDRs-orbbZies9HAuy6u4vCjHcv_8Qdv240mP4ri9nyfuyGprk_DIMltYA9LGT7d3GyG90ng98l5LNisf6nzzDhcyJgreeStj4CLyDF7OljvJ4mBgrslBPGyX7jzEIk6-pyCbLj9X4VpPIyv0tHj1jutFxAqOv7pbSLtL6qeP1Kxcj-2F5jWdiUJpOMxWowfxrD3SCewdY21vBS5Ew-uBUg9oAt7W2jT5l95egQmKLjPLc0DdUAWjlaD2npG5IPmQ",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Changi Business Park Central 1, #01-72/73, Singapore 486038",
+            "geometry": {
+                "location": {
+                    "lat": 1.3335588,
+                    "lng": 103.9633703
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.334971179892722,
+                        "lng": 103.9647615798927
+                    },
+                    "southwest": {
+                        "lat": 1.332271520107278,
+                        "lng": 103.9620619201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "BLVD (Changi)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1960,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117178566463700957094\">Gordon Tan</a>"
+                    ],
+                    "photo_reference": "Aap_uEBmNXvBUuu87-s4Zyq5CgL6fJBT2dzLF93wMx_sx-LyGj7Ran2BnsBLKtIcOTx3yr_zYGssXmHnaP77I5ggPQ8zj5kEoZJ1a79mzynbn3hHE0YuanDfbxo0u7aGkMScOsjvABStAFh_jNTj0HMUd3G5VpW4AG3SJTlu7plZTonBlWHU",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ__9zptc82jERXsCfuVnFVQw",
+            "plus_code": {
+                "compound_code": "8XM7+C8 Singapore",
+                "global_code": "6PH58XM7+C8"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ__9zptc82jERXsCfuVnFVQw",
+            "types": [
+                "cafe",
+                "bar",
+                "restaurant",
+                "food",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 235
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "200 Netheravon Rd, Singapore 508529",
+            "geometry": {
+                "location": {
+                    "lat": 1.3889899,
+                    "lng": 103.9778095
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.390227429892722,
+                        "lng": 103.9791384298927
+                    },
+                    "southwest": {
+                        "lat": 1.387527770107278,
+                        "lng": 103.9764387701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Coastal Settlement",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4608,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100811462828406674416\">sheng qiang teo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBsVCY3hUjSB6o2mRX5r3lhgppsr4IetYzwZhXb8Run3RTTpLtJ5pgo39yHwf86tddjNSIDZlYTTFhXubujs2VfykWbg6NcxlR6wTLgFLsgPvDSIO4aZ9T4iznck5y09mLxR0blVTTBjFXYRYmNQv8d3kF0ujOG2703cnU5Lf0nskex",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJRZsLfzs82jERdIDS29tBjQI",
+            "plus_code": {
+                "compound_code": "9XQH+H4 Singapore",
+                "global_code": "6PH59XQH+H4"
+            },
+            "price_level": 3,
+            "rating": 4.2,
+            "reference": "ChIJRZsLfzs82jERdIDS29tBjQI",
+            "types": [
+                "restaurant",
+                "cafe",
+                "bar",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1766
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Changi Business Park Central 1, #01-70/71, Singapore 486038",
+            "geometry": {
+                "location": {
+                    "lat": 1.3336165,
+                    "lng": 103.9632226
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.335023329892722,
+                        "lng": 103.9646525298927
+                    },
+                    "southwest": {
+                        "lat": 1.332323670107278,
+                        "lng": 103.9619528701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "A Beautiful Day",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1987,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102582766424036554780\">Jonavan Lee</a>"
+                    ],
+                    "photo_reference": "Aap_uEAWc1IqGXKeyermrrjIIzifNOgyXjBxK_CwdeFrHRUZUDtbNJ9U_2tyYnGXEgCkpGn116guHqaGL8GbLyK-ZeYhMMzxksEZio7T-c2uqKGIgL7CJd8RVb3lh8qnM6c76XGz5bE-3H11DvYjmyuoPCbMZekpPmbToPHfUamMYNoAeGgl",
+                    "width": 3125
+                }
+            ],
+            "place_id": "ChIJM9AXO6k92jERGjNBvtcsgCQ",
+            "plus_code": {
+                "compound_code": "8XM7+C7 Singapore",
+                "global_code": "6PH58XM7+C7"
+            },
+            "rating": 4,
+            "reference": "ChIJM9AXO6k92jERGjNBvtcsgCQ",
+            "types": [
+                "cafe",
+                "bar",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 115
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Airport Boulevard #01-T2S-02, Singapore Changi Airport, 819643",
+            "geometry": {
+                "location": {
+                    "lat": 1.3510253,
+                    "lng": 103.9875069
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.352413129892722,
+                        "lng": 103.9887769798927
+                    },
+                    "southwest": {
+                        "lat": 1.349713470107277,
+                        "lng": 103.9860773201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Hub & Spoke Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3472,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114240320617932935405\">Win Tai</a>"
+                    ],
+                    "photo_reference": "Aap_uECNBwrNu-6fcyJn3WYOvxw5yrA0Uo3O3Dm8S1tUHo1zZOz2qF_xbgzxCnqG4PPriuA3uCAUeok1EnxdhKDh06Wx66buJ3AsrMjoOSHyqkhuG9x2Ij_h8s7w57dVWo1Z7bXLsPpNfKsvW2caK8LHwd3BPkWuy-k32lydvuXDC-f1QZgr",
+                    "width": 4640
+                }
+            ],
+            "place_id": "ChIJYcdEEWg92jERUBqf552zQxQ",
+            "plus_code": {
+                "compound_code": "9X2Q+C2 Singapore",
+                "global_code": "6PH59X2Q+C2"
+            },
+            "rating": 4.2,
+            "reference": "ChIJYcdEEWg92jERUBqf552zQxQ",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 575
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Changi City Point, #B1-37, 5 Changi Business Park Central 1, 486038",
+            "geometry": {
+                "location": {
+                    "lat": 1.3343497,
+                    "lng": 103.9626223
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.335808829892722,
+                        "lng": 103.9637823298927
+                    },
+                    "southwest": {
+                        "lat": 1.333109170107278,
+                        "lng": 103.9610826701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Flash Coffee",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2500,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103144108403175708734\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECA62V4qGJ-M54cCpFam782a4xkOXnJy0BhC6vTcS4HOsWc_ZjStrRBKLsbqd_KkT7vypxym1HV1TiRdlSqUZz24qRJuO8FUralVOx7tbJ5DwhtHrVXjepPVJFRMQCq_0MKyptroYM09XXIVM_em1GSiZW2L0kJF1WQJnHhot_ZDt6W",
+                    "width": 2000
+                }
+            ],
+            "place_id": "ChIJu4YRQSo92jER_v-bvXhzb68",
+            "plus_code": {
+                "compound_code": "8XM7+P2 Singapore",
+                "global_code": "6PH58XM7+P2"
+            },
+            "rating": 3.4,
+            "reference": "ChIJu4YRQSo92jER_v-bvXhzb68",
+            "types": [
+                "cafe",
+                "food",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 35
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Airport Blvd., Singapore 819643",
+            "geometry": {
+                "location": {
+                    "lat": 1.3573202,
+                    "lng": 103.9862622
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.358333879892722,
+                        "lng": 103.9884306
+                    },
+                    "southwest": {
+                        "lat": 1.355634220107278,
+                        "lng": 103.9855394
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Pret A Manger (Terminal 3)",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 899,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101973774203536725489\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDkm-lRynLmsktwShRTs1MpIV-v3WXZDBIx5fJl0xlgsnXzrYaMk6LizjD95EZezb-khUMHq_jLXIy6T71Si6GusUYUbo3bcvoi7I1pvoGfBNsLq_hBBqkIAmwE-4Gc0MOxuanJxjKiauBrgPWN91XFkFQQfnWEBLjJ8z0DVf2KZuoW",
+                    "width": 1599
+                }
+            ],
+            "place_id": "ChIJP6gE5Iw82jERYoRkiJM9CMU",
+            "plus_code": {
+                "compound_code": "9X4P+WG Singapore",
+                "global_code": "6PH59X4P+WG"
+            },
+            "rating": 3.5,
+            "reference": "ChIJP6gE5Iw82jERYoRkiJM9CMU",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 51
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Changi Village Rd, #01-2049, Singapore 500005",
+            "geometry": {
+                "location": {
+                    "lat": 1.3893732,
+                    "lng": 103.9867623
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.390674579892722,
+                        "lng": 103.9882456798927
+                    },
+                    "southwest": {
+                        "lat": 1.387974920107278,
+                        "lng": 103.9855460201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Jacob's Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102294420717313316720\">Renton Ho</a>"
+                    ],
+                    "photo_reference": "Aap_uEC9U9uYBIu9zqBJ2YP21XnlWD_p4TrBMQmOtULgM5_1eWNnrQ_FI9Um7tkA4K3AAkJ1BuwUEil5hKM2WKxONyMRfKrVNu4_didvRqH5kS6NLEgoIArbdV3nRAfoMcNFNkxRn0bma6NGUF48CGyAT3vM4A3Y344MMIkz6Gs07qXHOv8W",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ2aQnVRY82jERUyIeg6PS-Z4",
+            "plus_code": {
+                "compound_code": "9XQP+PP Singapore",
+                "global_code": "6PH59XQP+PP"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJ2aQnVRY82jERUyIeg6PS-Z4",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 347
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "65 Airport Boulevard, Singapore Changi Airport Terminal 3 #02-K4 Departure/ Transit Lounge South, Level 2, 819642",
+            "geometry": {
+                "location": {
+                    "lat": 1.3555805,
+                    "lng": 103.9861962
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.356744179892722,
+                        "lng": 103.9879803298927
+                    },
+                    "southwest": {
+                        "lat": 1.354044520107278,
+                        "lng": 103.9852806701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Coffee Bean and Tea Leaf\u2122 - Terminal 3 Transit Lounge South",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114043903762027554959\">Seungeon Jung</a>"
+                    ],
+                    "photo_reference": "Aap_uEAzrTQziRgne6q5Q-QKPL7d9yxS4XOPSFzZPLkJSUOycAX3KLIPkHAgjSaKC0mvAnI3i-_60br_60b8GGaz4NZ3Hp0qWbRDg0bNvbieC664YS2ka7JAggn5YXIrla8BVlqX3iiBBt1o3E6Wr0-DfNQQHy4dFQb277AbxGN7LZrmxCyH",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJizulNYw82jER76zyvpqoIuM",
+            "plus_code": {
+                "compound_code": "9X4P+6F Singapore",
+                "global_code": "6PH59X4P+6F"
+            },
+            "price_level": 2,
+            "rating": 3.4,
+            "reference": "ChIJizulNYw82jER76zyvpqoIuM",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 61
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Changi Village Rd, #01-2090, Singapore 500004",
+            "geometry": {
+                "location": {
+                    "lat": 1.3894362,
+                    "lng": 103.9873666
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.390752529892722,
+                        "lng": 103.9886040298927
+                    },
+                    "southwest": {
+                        "lat": 1.388052870107278,
+                        "lng": 103.9859043701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Chock Full Of Beans",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 613,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100645007010286872807\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB-Rw1mSvs2aKH8701X9Gl9Wr4yUsi7HzwyqsNuE79gs25fRwKcul1JcbpmDH8X9y93cwT9hdTA7CTkdpFWiQucI4lvyo4FWNqmOOyAKDTJisib4lB4dKC2t-Ei7eYLjDtZiCK3VFlWEcEYR8nxtSiraLDc6uBIh7_Kyyx2Xqq5Q-k",
+                    "width": 640
+                }
+            ],
+            "place_id": "ChIJV-m34hY82jERTiaT7147egA",
+            "plus_code": {
+                "compound_code": "9XQP+QW Singapore",
+                "global_code": "6PH59XQP+QW"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJV-m34hY82jERTiaT7147egA",
+            "types": [
+                "cafe",
+                "bakery",
+                "restaurant",
+                "food",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 690
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "65 Airport Boulevard, #01-25, Changi Airport, Terminal 3 Arrival Meeting Hall No, 819663",
+            "geometry": {
+                "location": {
+                    "lat": 1.3555805,
+                    "lng": 103.9861962
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.356744179892722,
+                        "lng": 103.9879803298927
+                    },
+                    "southwest": {
+                        "lat": 1.354044520107278,
+                        "lng": 103.9852806701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Heavenly Wang @ T3 Public",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107856951815080326013\">m</a>"
+                    ],
+                    "photo_reference": "Aap_uEAw4nShKYJkM9nNVrWKu4XJv1e-IiXfdmk132DeKIZl5fe2OprhwIb-i2t4jZzxCJiMbi4yOXVA9FKtGHxKN66YQcGknfvCMWPH-NMu2uX-pq0qDlVOBWGTRNGFUbk7anwL1aHRL58Rs1ozfflmcD6eOj6O7iq5KiPys4SYhp89I9ag",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ_-4P-ow82jERSzmh2muHctY",
+            "plus_code": {
+                "compound_code": "9X4P+6F Singapore",
+                "global_code": "6PH59X4P+6F"
+            },
+            "price_level": 1,
+            "rating": 3.7,
+            "reference": "ChIJ_-4P-ow82jERSzmh2muHctY",
+            "types": [
+                "cafe",
+                "food",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 335
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "60 Airport Boulevard, Singapore Changi Airport Terminal 2 #026-084-07 Departure / Transit Lounge South, Transfer F, Level 2, 819643",
+            "geometry": {
+                "location": {
+                    "lat": 1.3540126,
+                    "lng": 103.9888757
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.354969379892722,
+                        "lng": 103.9903138798927
+                    },
+                    "southwest": {
+                        "lat": 1.352269720107278,
+                        "lng": 103.9876142201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Coffee Bean & Tea Leaf",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108283279102222266133\">Edu Bernabeu</a>"
+                    ],
+                    "photo_reference": "Aap_uEBaN53O6JugIzcYZeqDLnZcpl2ZgU7KVXpQtMJw3fcK7A8QwyOwYyVmbx4xw-9GZ5KOJKWiOdnTag0tWzxHLPMbRChL7jApWP4bBMQttLWgAq2CXzsw1QD9etkaa9w43TA5_dfDuq064dKORO1npK_nmKkjSSytVTv_nmeAknys9tsf",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJD37lnZM82jER76ZXuP2EJ7w",
+            "plus_code": {
+                "compound_code": "9X3Q+JH Singapore",
+                "global_code": "6PH59X3Q+JH"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJD37lnZM82jER76ZXuP2EJ7w",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 120
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1000 Upper Changi Rd N, Singapore 507707",
+            "geometry": {
+                "location": {
+                    "lat": 1.3622362,
+                    "lng": 103.9738262
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.363691979892722,
+                        "lng": 103.9750530798927
+                    },
+                    "southwest": {
+                        "lat": 1.360992320107278,
+                        "lng": 103.9723534201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+            "name": "The Bark Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106356943591860962306\">Thew Guat Hoon</a>"
+                    ],
+                    "photo_reference": "Aap_uECXlTphqd_DuMzF1hseydEKsPriWWHb30Ye66tiUwPOtTNRtdfl9BW26lLW6jgm_91NKSQKeFXkqJEtBAoVxT8HCZjF2KCgZYKYbSqOW8qxioVm2qBXgWtMYNR5fJ65QwAOghkTiWcGZOa7m6KaKph9kQbHyIqwretbTYIr0n7ik8RS",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ_TyD6vc82jERTi4z_YRalVg",
+            "plus_code": {
+                "compound_code": "9X6F+VG Singapore",
+                "global_code": "6PH59X6F+VG"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJ_TyD6vc82jERTi4z_YRalVg",
+            "types": [
+                "bar",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 884
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "65 Airport Boulevard L2, Terminal 3, LF1 819663",
+            "geometry": {
+                "location": {
+                    "lat": 1.3552374,
+                    "lng": 103.9865177
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.356485929892722,
+                        "lng": 103.9881038798927
+                    },
+                    "southwest": {
+                        "lat": 1.353786270107278,
+                        "lng": 103.9854042201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "O'Coffee Club @ T3 Public",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102592109299256908420\">Trung ydan</a>"
+                    ],
+                    "photo_reference": "Aap_uEA8nTPEj6N9wct_8VYXxZHunOJs3epOKefQt0fXSHKthiSjqER87LizNleRpQqxsJMAnoE5_3OTwV4UUjfSHWRLxN7WRVzSLySqkKyPF13GVpqEa7P-XcFtIDa48B8UmyzcQ7r7nfSsOOb4fFAViGVLeBt2CKCZC0BSYvFxDL-mLAEM",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJBV8Wqo082jER8HG-6PSYNck",
+            "plus_code": {
+                "compound_code": "9X4P+3J Singapore",
+                "global_code": "6PH59X4P+3J"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJBV8Wqo082jER8HG-6PSYNck",
+            "types": [
+                "cafe",
+                "food",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 653
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "78 Airport Blvd., #04 - 223 / 4, Singapore 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3604291,
+                    "lng": 103.9900731
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.361397679892722,
+                        "lng": 103.9915927298927
+                    },
+                    "southwest": {
+                        "lat": 1.358698020107278,
+                        "lng": 103.9888930701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "AC.Kafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1646,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">TB Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uECipxSSz18M71CV6Axbr9bcFefA4qTcT2w36YASW9ixwSFJ5woEADlfX5clzGlu5Vuq2g5X2lQQ71iNkzlw4B69157w91c-a7dafpU4V2c2A66iXb9UVEAa3jAWpDyaTiZc07Ku5kPSroCPBjSEhhzc0BLhyT_fvQjVPwtDfjQM8Ow9",
+                    "width": 2469
+                }
+            ],
+            "place_id": "ChIJP7NcfIk82jERUrvvuHTCQ8M",
+            "plus_code": {
+                "compound_code": "9X6R+52 Singapore",
+                "global_code": "6PH59X6R+52"
+            },
+            "rating": 3.8,
+            "reference": "ChIJP7NcfIk82jERUrvvuHTCQ8M",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 62
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "65 Airport Boulevard T3 #B2-LF3, 819663",
+            "geometry": {
+                "location": {
+                    "lat": 1.3565939,
+                    "lng": 103.9866646
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.357751279892722,
+                        "lng": 103.9884339298927
+                    },
+                    "southwest": {
+                        "lat": 1.355051620107278,
+                        "lng": 103.9857342701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Ya Kun Family Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1184,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104566292881153793537\">meikangdongwon</a>"
+                    ],
+                    "photo_reference": "Aap_uEAFsEoNuT8CTeUn_uYm3f7__UNLK3xrM95vi5t33q7V0g6Br0mOayClVJ7dJ1TQsX6gaia8qvLluJTHTBsRI0trLNLf_i5a1O5uj8OiWJRzoEkSf5kA-FMNWaCOpR1ehKOM8ng8JtgOhltjpSKHqWzb0SHLW19HYyYly6xck2JHyRqe",
+                    "width": 1776
+                }
+            ],
+            "place_id": "ChIJ_-4P-ow82jERn1z2d3p_n_M",
+            "plus_code": {
+                "compound_code": "9X4P+JM Singapore",
+                "global_code": "6PH59X4P+JM"
+            },
+            "price_level": 1,
+            "rating": 3.7,
+            "reference": "ChIJ_-4P-ow82jERn1z2d3p_n_M",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 214
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "78 Airport Blvd., #03-216/218, Singapore 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3603768,
+                    "lng": 103.9889846
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.361661229892722,
+                        "lng": 103.9902500798927
+                    },
+                    "southwest": {
+                        "lat": 1.358961570107277,
+                        "lng": 103.9875504201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "O'Coffee Club Jewel Roastery",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1948,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">TB Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBGQxW4Jo0iztPIKKAPKUyKmr18OZ1axN0vFd9Pi-1aAruphmOQWNjfl3K1tpR2sPbz-geOY6orhVKu5e8Xg6PltCjz8zyobEsLYNMCbItckXcKm6K19gDjT3WB2QarE-hxWJggdEDMCSieAs02tz_C--aIdMai9PdbSjCl_lFfJ97o",
+                    "width": 4005
+                }
+            ],
+            "place_id": "ChIJhSizz4s82jERoUS8iwfgeJg",
+            "plus_code": {
+                "compound_code": "9X6Q+5H Singapore",
+                "global_code": "6PH59X6Q+5H"
+            },
+            "price_level": 2,
+            "rating": 3.5,
+            "reference": "ChIJhSizz4s82jERoUS8iwfgeJg",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 113
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "65 Airport Boulevard 02-90 Departure Hall, Level 2 Singapore Changi Airport, 819663",
+            "geometry": {
+                "location": {
+                    "lat": 1.3574787,
+                    "lng": 103.9873759
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.358765429892722,
+                        "lng": 103.9890154798927
+                    },
+                    "southwest": {
+                        "lat": 1.356065770107278,
+                        "lng": 103.9863158201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Starbucks",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2752,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111880472074709949822\">Arnon Techathanawat</a>"
+                    ],
+                    "photo_reference": "Aap_uEDlgWlbLtNtENFM3Yo1XFwN4arzvtGsD4HYcQRZZ2-cVuHJCWBfTdb_8XFjUNIyWr63YnPkXnTcD_p8wFqsjfCb9aZrkqRBQCeimklJlHFVY8oRvduLyVTy3A6qMCymSjcX7bKi1ae9ObAjuE9EAwybCux8M6vXeUbiQov2KeDd3ax-",
+                    "width": 5664
+                }
+            ],
+            "place_id": "ChIJDyz74ow82jERnNuDQg5Ux8c",
+            "plus_code": {
+                "compound_code": "9X4P+XX Singapore",
+                "global_code": "6PH59X4P+XX"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJDyz74ow82jERnNuDQg5Ux8c",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 162
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Airport Blvd., Singapore 819643",
+            "geometry": {
+                "location": {
+                    "lat": 1.3567108,
+                    "lng": 103.9895068
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.358171479892722,
+                        "lng": 103.9905969298927
+                    },
+                    "southwest": {
+                        "lat": 1.355471820107278,
+                        "lng": 103.9878972701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Ya Kun Kaya Toast",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117717042517913604605\">Lin CY</a>"
+                    ],
+                    "photo_reference": "Aap_uECppwYRfEIQACNXkX3b5bAgqu92T4DTH7GQdQhPsSfRdVIzf7779ng6kRxzW2Be_7HVmjfJF0dRh2KcHehCOVA-wjH9OrGjiwUYx2tR9yQWGiHJ8cAG_KJ5e0-ZHaOKNcxtCm3anoqHv3kZwoToDeFfgnT618fRn_GS_cTiO3liGAiM",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJD37lnZM82jERl07gha6SKlc",
+            "plus_code": {
+                "compound_code": "9X4Q+MR Singapore",
+                "global_code": "6PH59X4Q+MR"
+            },
+            "price_level": 1,
+            "rating": 3.7,
+            "reference": "ChIJD37lnZM82jERl07gha6SKlc",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 250
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Changi Business Park Central 1, #01-51/52/53, Singapore 486038",
+            "geometry": {
+                "location": {
+                    "lat": 1.3345177,
+                    "lng": 103.963179
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.335997179892722,
+                        "lng": 103.9646500798927
+                    },
+                    "southwest": {
+                        "lat": 1.333297520107278,
+                        "lng": 103.9619504201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Han's Cafe (Changi City Point)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111247294128726535324\">Kevin</a>"
+                    ],
+                    "photo_reference": "Aap_uEAncNnUHWRlDAFC36-3QbIdZ8GKah43Nqaw57dB3GnWNC9tCz9YLxKz7kovfo33IfjNfyPx5kPyGknor5GFsF6sFgmUsIt3ZN7X15n_WXaloOFMyjZLhyRjqwbp6vBVZ5kjRZIOfK7KiRCbT3N1TntY3GQJ1Dy3ZXcEfwf9H0DczjV7",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJj7012tk82jERQMJoaZ7CNr0",
+            "plus_code": {
+                "compound_code": "8XM7+R7 Singapore",
+                "global_code": "6PH58XM7+R7"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJj7012tk82jERQMJoaZ7CNr0",
+            "types": [
+                "restaurant",
+                "cafe",
+                "bakery",
+                "food",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 310
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Changi N Way, Terminal 3 Departure Hall Row, Singapore 498740",
+            "geometry": {
+                "location": {
+                    "lat": 1.3572403,
+                    "lng": 103.9876112
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.358542679892722,
+                        "lng": 103.9891053298927
+                    },
+                    "southwest": {
+                        "lat": 1.355843020107278,
+                        "lng": 103.9864056701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Old Town White Coffee",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116365555314400038774\">Rathish Mani</a>"
+                    ],
+                    "photo_reference": "Aap_uECHdqHxdE8aG6dZYC3CpCWfhoTMn7Wyfn4W_7uBztbdLGJ2nkL3EM9BELuWQ_BfS8AqoqC8PCuSdSKJw6M16HwyJK8HudRq-EvB-EwZhroencFGgbg_ls4SdVBHdkOvNXX_KJNrWKHT6TxyfLY5mbWKAC7ZV4dzla545oWMw9teCN6b",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJsUtSQ4082jERqKoSSwUTWZ0",
+            "plus_code": {
+                "compound_code": "9X4Q+V2 Singapore",
+                "global_code": "6PH59X4Q+V2"
+            },
+            "rating": 3.1,
+            "reference": "ChIJsUtSQ4082jERqKoSSwUTWZ0",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 150
+        }
+    ],
+    "status": "OK"
+}

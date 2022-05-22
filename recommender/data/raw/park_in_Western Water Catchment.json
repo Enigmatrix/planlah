@@ -1,0 +1,584 @@
+{
+    "html_attributions": [],
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 1.3720142,
+                    "lng": 103.8257891
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.37279975,
+                        "lng": 103.82881985
+                    },
+                    "southwest": {
+                        "lat": 1.36965755,
+                        "lng": 103.82477885
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Lower Peirce Reservoir Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106985947115754016277\">Chin Lip Low</a>"
+                    ],
+                    "photo_reference": "Aap_uECxtaOHU0nL1ETpZN1DUttl6wtzgDLFHXZxZlqCy_VWc7oVgHWn9gT9tS2B-VpkTp7w0XhKKn7AeZVWudYPlFtHY2JJK-17zlwE5WfOOucfRgrsPtkIjHBzOWCq2HUurFjx5uT5m_cKTD7xiPHgwzYI7aq2eRNnLiIHEx-tX45yPOoD",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJQx3YRtIW2jERTHZ7nC044PM",
+            "plus_code": {
+                "compound_code": "9RCG+R8 Singapore",
+                "global_code": "6PH59RCG+R8"
+            },
+            "rating": 4.6,
+            "reference": "ChIJQx3YRtIW2jERTHZ7nC044PM",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1705
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 1.352083,
+                    "lng": 103.819836
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353432829892722,
+                        "lng": 103.8211858298927
+                    },
+                    "southwest": {
+                        "lat": 1.350733170107278,
+                        "lng": 103.8184861701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "MacRitchie Nature Trail",
+            "place_id": "ChIJZWlUwS4R2jERUJ16R_UojAw",
+            "plus_code": {
+                "compound_code": "9R29+RW Singapore",
+                "global_code": "6PH59R29+RW"
+            },
+            "rating": 0,
+            "reference": "ChIJZWlUwS4R2jERUJ16R_UojAw",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Along Old Upper Thomson Road",
+            "geometry": {
+                "location": {
+                    "lat": 1.3746589,
+                    "lng": 103.8112464
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.376473379892722,
+                        "lng": 103.8124588298927
+                    },
+                    "southwest": {
+                        "lat": 1.373773720107278,
+                        "lng": 103.8097591701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Upper Peirce Reservoir Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106413501068372675984\">Nirmal</a>"
+                    ],
+                    "photo_reference": "Aap_uECAr1eEWZKiIccj0wWg0x5SLQYf9LJzFidXHcY9TKd4ShxA296hG1XzBVotjqIcaS7OQThsKVnzp2dO4BKNT7U5vwOcN6fsoDMp8xFnHuvIlBt28i5y2HDspc3bTvUHsdSu1YqVsBYnn3ebru5sLxpUzLW-ibqahl1UfzbeokzPSrp6",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ59JC2zAR2jERBRxd5jtZKL8",
+            "plus_code": {
+                "compound_code": "9RF6+VF Singapore",
+                "global_code": "6PH59RF6+VF"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ59JC2zAR2jERBRxd5jtZKL8",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1261
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Mandai Rd Track 7",
+            "geometry": {
+                "location": {
+                    "lat": 1.400879,
+                    "lng": 103.807041
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.402228829892722,
+                        "lng": 103.8083908298927
+                    },
+                    "southwest": {
+                        "lat": 1.399529170107278,
+                        "lng": 103.8056911701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Upper Seletar Reservoir Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4345,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109698305377101230458\">Chew Kg</a>"
+                    ],
+                    "photo_reference": "Aap_uED92RHDCTTZzjInR9eNfm-SEsKjzUKasHXm8UTZnWde_UQBrPJ8xrn_NQ1odGDVfygXwbLh5-TCI_gDOQ80N3m03qWspB9qv2ZhzEJ_91IwBL9Y7v_QR-VBcdYHvAEzd9bpTw8pUQdQzWvt0kBc30CY7-9ppU9yqlbSjHPoEznX-MdN",
+                    "width": 6518
+                }
+            ],
+            "place_id": "ChIJcRNpHFwR2jERYHKod6yVMM0",
+            "plus_code": {
+                "compound_code": "CR24+9R Singapore",
+                "global_code": "6PH5CR24+9R"
+            },
+            "rating": 4.6,
+            "reference": "ChIJcRNpHFwR2jERYHKod6yVMM0",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 893
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "760 Bedok Reservoir Rd, Singapore 479245",
+            "geometry": {
+                "location": {
+                    "lat": 1.3391413,
+                    "lng": 103.922706
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.339821829892722,
+                        "lng": 103.9242705798927
+                    },
+                    "southwest": {
+                        "lat": 1.337122170107278,
+                        "lng": 103.9215709201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Bedok Reservoir Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114814456131430577295\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAQ2YVy2tGw88jyouFH0AXBdgr5tj_FcLM0l8LRrraGrS2NMF_xnYKrfVrJcdFwtAJ661_tnR1CzAWJCjE3Q2UcqCTY4HJTXjI8uMpi2yGC2bzviRboYJGmEVDRbimi95RwPGUnrbiTsSLJLh54NWFzrJo32GbYtSn1U5fGdDiOOQT-",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJw62n3Vo92jERl8c1cg9hXzE",
+            "plus_code": {
+                "compound_code": "8WQF+M3 Singapore",
+                "global_code": "6PH58WQF+M3"
+            },
+            "rating": 4.5,
+            "reference": "ChIJw62n3Vo92jERl8c1cg9hXzE",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2959
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8 Marina Gardens Dr, Singapore 018951",
+            "geometry": {
+                "location": {
+                    "lat": 1.280681,
+                    "lng": 103.8711213
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2831683,
+                        "lng": 103.87598375
+                    },
+                    "southwest": {
+                        "lat": 1.2798519,
+                        "lng": 103.86685275
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Marina Barrage",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1600,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113381609127125941046\">\u9673\u5fb7\u4ec1</a>"
+                    ],
+                    "photo_reference": "Aap_uEC3N2qk1_gbtOO0BVx9J7LAMHtpXT4MUdpz_8jgG5FjL-1Z5KXKmOkuqpalLubPJdxDnJvOqDAFm2G7r4ioJnZSw22yuLPR2PxmrafUiA8fWTifWBoPCwduiAUCvVCTQEfEljM6KtAhcjZKi1bUX0TMUOXqprnWWjS77qMEwtqf8dgH",
+                    "width": 1240
+                }
+            ],
+            "place_id": "ChIJ50uIMa0Z2jER0cTt5fLaZt0",
+            "plus_code": {
+                "compound_code": "7VJC+7C Singapore",
+                "global_code": "6PH57VJC+7C"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ50uIMa0Z2jER0cTt5fLaZt0",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5098
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "18 Marina Gardens Dr, Singapore 018953",
+            "geometry": {
+                "location": {
+                    "lat": 1.2815683,
+                    "lng": 103.8636132
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.289747,
+                        "lng": 103.87225075
+                    },
+                    "southwest": {
+                        "lat": 1.273417,
+                        "lng": 103.85607655
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Gardens by the Bay",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3264,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112863337087384359524\">Minh Nguyen</a>"
+                    ],
+                    "photo_reference": "Aap_uEC2QEIcA7_1D4rO_X835yjc-Ri5rNWcnDgEpaSq-gpf8x-AK17Noo-tmckUlpZpt-BL-OwghceChwVT3B_VFlX5eRATnlUNf5qN_nPZWwcA2mbaNUnrAzJrg0KbJ6gB-igPv2l8myl57pxFavV33PhJG6DfL4Cn11cRTl1pSg-wzO3w",
+                    "width": 4896
+                }
+            ],
+            "place_id": "ChIJMxZ-kwQZ2jERdsqftXeWCWI",
+            "plus_code": {
+                "compound_code": "7VJ7+JC Singapore",
+                "global_code": "6PH57VJ7+JC"
+            },
+            "rating": 4.7,
+            "reference": "ChIJMxZ-kwQZ2jERdsqftXeWCWI",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 110352
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "84 Toh Guan Rd E, #05-06/07 Singapore Water Exchange S, Singapore 608501",
+            "geometry": {
+                "location": {
+                    "lat": 1.334997,
+                    "lng": 103.7574899
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.336458379892722,
+                        "lng": 103.7589222798927
+                    },
+                    "southwest": {
+                        "lat": 1.333758720107278,
+                        "lng": 103.7562226201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Singapore Water Association",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109936643006219949968\">YWS YWS</a>"
+                    ],
+                    "photo_reference": "Aap_uECb-0ZkjrbbWBsyVpXDn8f8V2xgZpG0IdJmkSf-6_hpw_Bf0SipuefOpOhR45QO4AsRU4pH9kWdyOCcmsvoF5GYU8GOxkRgck8_AqO7TJgq3Er-r164zLXDvA5LL3rbui3JtqfSnuEhwZz8-BPnXSNy4SLZ9IalTlOCvCkVAz-fbhaL",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJXZ6BvS8R2jERNx9oz-Wrh2U",
+            "plus_code": {
+                "compound_code": "8QM4+XX Singapore",
+                "global_code": "6PH58QM4+XX"
+            },
+            "rating": 3.8,
+            "reference": "ChIJXZ6BvS8R2jERNx9oz-Wrh2U",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 37
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "51 Nanyang Dr, Singapore 637456",
+            "geometry": {
+                "location": {
+                    "lat": 1.3441355,
+                    "lng": 103.6749691
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3497089,
+                        "lng": 103.6776289
+                    },
+                    "southwest": {
+                        "lat": 1.3422777,
+                        "lng": 103.6740825
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/civic_building-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/civic-bldg_pinlet",
+            "name": "PUB Choa Chu Kang Waterworks",
+            "opening_hours": {
+                "open_now": true
+            },
+            "place_id": "ChIJPWpeCXMP2jER4n2i-xF1gjM",
+            "plus_code": {
+                "compound_code": "8MVF+MX Singapore",
+                "global_code": "6PH58MVF+MX"
+            },
+            "rating": 4.5,
+            "reference": "ChIJPWpeCXMP2jER4n2i-xF1gjM",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Harbourside 2, 2, #03-04 Boon Leat Terrace, #04-03, #04-04, Singapore 119844",
+            "geometry": {
+                "location": {
+                    "lat": 1.2752087,
+                    "lng": 103.796617
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.276558579892722,
+                        "lng": 103.7979667798927
+                    },
+                    "southwest": {
+                        "lat": 1.273858920107278,
+                        "lng": 103.7952671201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Sunseap",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 623,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102914672515281021348\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDG-xjOhTzF4xtkpCv9k1KI0gup-V4lkWILiNtqCnWqHK3FKlIv1VBP73zVXTMLDEdziXkfc8VxARC6HzgkpS5MAoqyhD7D_ay-ph-IePO5A7i6QHRXXnrlWhhwb85B9V9Q2RKs18fQcfOPODfwxLGUA6j3RgBZ_iDqmAAbbdKnPm3K",
+                    "width": 1109
+                }
+            ],
+            "place_id": "ChIJTelMFXUQ2jER0Og4fmJal1k",
+            "plus_code": {
+                "compound_code": "7QGW+3J Singapore",
+                "global_code": "6PH57QGW+3J"
+            },
+            "rating": 3,
+            "reference": "ChIJTelMFXUQ2jER0Og4fmJal1k",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 23
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Bandar Tenggara, Malaysia",
+            "geometry": {
+                "location": {
+                    "lat": 1.9073701,
+                    "lng": 103.6903552
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.908702579892722,
+                        "lng": 103.6916796798927
+                    },
+                    "southwest": {
+                        "lat": 1.906002920107278,
+                        "lng": 103.6889800201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/civic_building-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/civic-bldg_pinlet",
+            "name": "Linggiu Dam",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100154996109221180090\">just 147</a>"
+                    ],
+                    "photo_reference": "Aap_uEAGs17o42zZxu5HMuGczh0TROWQC5rjWGEVMyk1p9wnlSl9CVls1qBAGWdgz5MO75x14-eUo9fh5HGpjDT3Hnt2nK_z7c-TudoxNLHoHwATiisZo0engKsCv0-U6_pKRSdDJzRl_qpKiRtVPv7Z9bqDV_Aqh_zvG0fv5dvyG350Euw_",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJr8YuWxmF2jERnPT_JHUVGRU",
+            "plus_code": {
+                "compound_code": "WM4R+W4 Bandar Tenggara, Johor, Malaysia",
+                "global_code": "6PH5WM4R+W4"
+            },
+            "rating": 4.2,
+            "reference": "ChIJr8YuWxmF2jERnPT_JHUVGRU",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "76 Nanyang Drive, #01-08, NTU Block N2, #1, Singapore 637331",
+            "geometry": {
+                "location": {
+                    "lat": 1.3470369,
+                    "lng": 103.68034
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.348989079892722,
+                        "lng": 103.68165805
+                    },
+                    "southwest": {
+                        "lat": 1.346289420107278,
+                        "lng": 103.67893505
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "McDonald's",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100804699193511996042\">Amin Shah</a>"
+                    ],
+                    "photo_reference": "Aap_uECP_1DXsY7kQTGzgh6QWZIkWvgE3HyqxwMEjI0XxlHRBnnIH23SFY1mVIlS3T8KGYBF2tN_ZqYoKF3gXEf4fmKIS9IY2lmQeSp6L_5kEF68sGwwUWBbBuU_2sUQDDZf5Xdvpg5nRTCFA5V0ORPQcL8vfN6-cYgRwAC0FNhY40IdA-8T",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJk2hjGKAP2jERtZYCT0TDDOc",
+            "plus_code": {
+                "compound_code": "8MWJ+R4 Singapore",
+                "global_code": "6PH58MWJ+R4"
+            },
+            "price_level": 1,
+            "rating": 4.2,
+            "reference": "ChIJk2hjGKAP2jERtZYCT0TDDOc",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 274
+        }
+    ],
+    "status": "OK"
+}

@@ -1,0 +1,45 @@
+{
+    "html_attributions": [],
+    "results": [
+        {
+            "formatted_address": "Clementi",
+            "geometry": {
+                "location": {
+                    "lat": 1.3161811,
+                    "lng": 103.7649377
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3416838,
+                        "lng": 103.775669
+                    },
+                    "southwest": {
+                        "lat": 1.2915681,
+                        "lng": 103.747239
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/geocode-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Clementi",
+            "photos": [
+                {
+                    "height": 1950,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105418373271006322339\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECO9pMUxfEM1NwftfiyRwOCRiKKGdC3XAvf5KuTuqYI20XpH4KD4-tv1vYL2RBDTenVYFf5jaMFRQ57Cotycurt-nOq74XgGTCZZro0ZPqKSqa-mFOWZQLVa7IbDHOJSDvTN16yBynCXwBz-lCEm3zru-A4qrpggLRxJzumBEmjRq-E",
+                    "width": 2575
+                }
+            ],
+            "place_id": "ChIJV4YgZpAa2jERoKTarqz3AAU",
+            "reference": "ChIJV4YgZpAa2jERoKTarqz3AAU",
+            "types": [
+                "neighborhood",
+                "political"
+            ]
+        }
+    ],
+    "status": "OK"
+}

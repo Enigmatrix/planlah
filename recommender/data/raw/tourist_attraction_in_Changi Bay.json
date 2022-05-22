@@ -1,0 +1,981 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEBU_jIvMaRLSTZmtDMMRXG-eWxNIb5vDclY35DlLgW2dj0pXWJwBjoKT7VcOXdclvz551RTniNiWSGb3RKCatoGFC_NCO_WUVPXc5xKT1JXl04qxy8j4HzTP2uQ00lWIl4fe6LSB9Y9Z_uEcGCMjbjm4M6OR1mbErRWTFbcBaaYjReT7sUkSfj9z3q0CgGTHn_88g9SqiaJ6QnRAFRfTHx3F8u3_g5tByVeX83Esq-gRIa0Q5g-rxDoZ40CEdemKGlcHullyCqwM2MdV9XoRuhEmroKG-nPs6Y1Slu-feLd0bwiorAOhw6i61QVorBL6qTYHG_ukCU1grEFQ2iZZMYttApNQHf_iinQ2yHzBxD83-6Y_rsB61Tvb_iFbcfkTFzR9uJbYKKMJuFsDdYvsyMj5wqXq2nzvMmWL8j5ByGgVhG-TJSbWGEsxhbtmSvdInxnJHXlS9R57x4uw_tu6Z4R",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "70 Airport Blvd., Singapore 819661",
+            "geometry": {
+                "location": {
+                    "lat": 1.3570001,
+                    "lng": 103.9875963
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.358311979892722,
+                        "lng": 103.9890614798927
+                    },
+                    "southwest": {
+                        "lat": 1.355612320107278,
+                        "lng": 103.9863618201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "The Slide @T3",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111751945673588624763\">Nick Cato</a>"
+                    ],
+                    "photo_reference": "Aap_uED3AXruidkU6aLD7u2TAosC8NoTBJspwsp0moZrFx6Sis-dmhD2Se-4A8bLtPRmdH7tAH9rtrLmPSqPCpWR8ave9u-oTQw6fy-iiaMmMfjxnceOxAwJ1QkHx-S5djlRGQToAnXzbVuzWkBwYLZ3AKMPxkmlI-1icy24tX_VjvxCnLza",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJnbVaW4w82jERkiQL0I1466Q",
+            "plus_code": {
+                "compound_code": "9X4Q+R2 Singapore",
+                "global_code": "6PH59X4Q+R2"
+            },
+            "rating": 4.3,
+            "reference": "ChIJnbVaW4w82jERkiQL0I1466Q",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 89
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "7A Gosport Rd, Singapore 509710",
+            "geometry": {
+                "location": {
+                    "lat": 1.3917134,
+                    "lng": 103.9758697
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.392753029892722,
+                        "lng": 103.9770516798927
+                    },
+                    "southwest": {
+                        "lat": 1.390053370107278,
+                        "lng": 103.9743520201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Changi Boardwalk",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1504,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111804583947771021426\">bajis Video</a>"
+                    ],
+                    "photo_reference": "Aap_uEAR1eDwPYS3aXN3KEYqFvkZNQkNotTw-D1nJ6ft4YcFFmRvXxb5xssY9G2VR2_geLjIJz-jIz3BwRaA9GZjhRejXQV-H-4NizHFjFLp-jXqK5sDU3J_zTrOnrfR9BSEMgfir5dtrjLGQhaDYuzrGYuMNoxaTboAiKG7Lc7M89hCDJwM",
+                    "width": 1504
+                }
+            ],
+            "place_id": "ChIJR-MMLDs82jERKC61eV6xfvs",
+            "plus_code": {
+                "compound_code": "9XRG+M8 Singapore",
+                "global_code": "6PH59XRG+M8"
+            },
+            "rating": 4.4,
+            "reference": "ChIJR-MMLDs82jERKC61eV6xfvs",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 774
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "78 Airport Blvd., Singapore 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3602082,
+                    "lng": 103.9897593
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3651169,
+                        "lng": 103.99216435
+                    },
+                    "southwest": {
+                        "lat": 1.3454821,
+                        "lng": 103.98254415
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Jewel Changi Airport",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102467592239988127131\">Teo Chin Heng</a>"
+                    ],
+                    "photo_reference": "Aap_uED7biPNY2qiT0bqkiXAaNTVwl8YXV4z_V-6aOVmtV_oAVAO1jqPtg66_kVa2uNsZL_XujZf-buPnfdW8kl2GCydunmza4yeP0qkbo-Rh7NB6zym0filDoTEhoEryhdoRk1Pl-tLMnovJSbvDE9n9REQEp6T4X6aijKx7lk1gBGHkszw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJw3l-FL4X2jERw2pScvHQCbg",
+            "plus_code": {
+                "compound_code": "9X6Q+3W Singapore",
+                "global_code": "6PH59X6Q+3W"
+            },
+            "rating": 4.7,
+            "reference": "ChIJw3l-FL4X2jERw2pScvHQCbg",
+            "types": [
+                "shopping_mall",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 37527
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "21 Airport Blvd., Level 4, Singapore 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3598544,
+                    "lng": 103.9892339
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.361415879892722,
+                        "lng": 103.9903404798927
+                    },
+                    "southwest": {
+                        "lat": 1.358716220107278,
+                        "lng": 103.9876408201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Changi Experience Studio",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107433449088212182977\">Wesley Wong</a>"
+                    ],
+                    "photo_reference": "Aap_uEB9Wy3G8ekbK5AVL__58dLKW-NNqo5jAs0IB7Ypoy0rvrce3_YhHQIYYJnDQzYvdMcNxJ8S1u7A0OQghQG9AfW38XfsxLOF5bmWIhzpWZrZV52I_0IMeMvgg9Yg02_1GwMwfJL9TAzgUbhyGDzHmnp8dA8iv9W4fvwRU04GwvOZawXT",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJn5ftpj492jERrwnVj-P2bKY",
+            "plus_code": {
+                "compound_code": "9X5Q+WM Singapore",
+                "global_code": "6PH59X5Q+WM"
+            },
+            "rating": 4.6,
+            "reference": "ChIJn5ftpj492jERrwnVj-P2bKY",
+            "types": [
+                "amusement_park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 46
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "70 Airport Blvd., Singapore 819661",
+            "geometry": {
+                "location": {
+                    "lat": 1.3576021,
+                    "lng": 103.986285
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.358690029892722,
+                        "lng": 103.98867405
+                    },
+                    "southwest": {
+                        "lat": 1.355990370107278,
+                        "lng": 103.98548865
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Butterfly Garden Terminal 3",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101860856599082335201\">\u6797\u4fca\u5ef7</a>"
+                    ],
+                    "photo_reference": "Aap_uEAtmwrSRMo2YtYZPuD9ijprg3CzhJs814We2DqCYsWtUC08JO81aRFnylurLsmw9hGTlgDZYE3C7hXsEE6wgWm7HfWraY29wfNoP4AUkjqGaIdJUDj3Qk0IfP-Mh3QcCEiUDi9Y7Sy3sHrmlFRu8IP17xDp0S7tDP5vvKXvl68qnGmj",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJs91Di4w82jERasclvd3Rb18",
+            "plus_code": {
+                "compound_code": "9X5P+2G Singapore",
+                "global_code": "6PH59X5P+2G"
+            },
+            "rating": 4.5,
+            "reference": "ChIJs91Di4w82jERasclvd3Rb18",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6794
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "60 Airport Blvd., Singapore 819643",
+            "geometry": {
+                "location": {
+                    "lat": 1.3559929,
+                    "lng": 103.9899543
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.357589229892722,
+                        "lng": 103.9907305298927
+                    },
+                    "southwest": {
+                        "lat": 1.354889570107278,
+                        "lng": 103.9880308701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Enchanted Garden, T2, Changi Airport",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109849026903893201606\">Jayasimha Nuggehalli</a>"
+                    ],
+                    "photo_reference": "Aap_uEAas-H5pzqowp2_OIQ1Kik1wfEa5xx6875_Wd93PEHLwb7p0chWX-9eJHgJFNwXW3ygJtAwiRtGRoejOl7guIOnbybNyYk7jk2knzqs3lS-vpekix1hq8BxwTq3wRvgHXDmol7-MilBM1cRcJHe51_HA1sHa3ZC-g8sHT5DSbqjyQCb",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJRz7D6I082jERjacVnhhyV2I",
+            "plus_code": {
+                "compound_code": "9X4Q+9X Singapore",
+                "global_code": "6PH59X4Q+9X"
+            },
+            "rating": 4.4,
+            "reference": "ChIJRz7D6I082jERjacVnhhyV2I",
+            "types": [
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 28
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Airport Blvd., Singapore 819642",
+            "geometry": {
+                "location": {
+                    "lat": 1.3628179,
+                    "lng": 103.9895919
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3634947,
+                        "lng": 103.9907456798927
+                    },
+                    "southwest": {
+                        "lat": 1.3607875,
+                        "lng": 103.9880460201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Water Lily Garden",
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115952905494215375641\">harsha lakshmipuram</a>"
+                    ],
+                    "photo_reference": "Aap_uEC8kLT0ggby_QY4EwSw_amboW3GOwhkAi3UKM0VXcC8Ro3TJB1822fDAGsDjYeyAWMy3T5J4Y1kUGe3JqRijFKGTiBjtSG6vKWcqXd_f_kQu90kLFRnGVXF-7dAZoA54lsYcKVDM1EdlzuV3YdScxudeL5UaUTFVZ7OZsHLV-A4g1Mx",
+                    "width": 2268
+                }
+            ],
+            "place_id": "ChIJ6WD1SlU92jERtrCxEBtaB3I",
+            "plus_code": {
+                "compound_code": "9X7Q+4R Singapore",
+                "global_code": "6PH59X7Q+4R"
+            },
+            "rating": 3,
+            "reference": "ChIJ6WD1SlU92jERtrCxEBtaB3I",
+            "types": [
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Nicoll Dr, Singapore 498991",
+            "geometry": {
+                "location": {
+                    "lat": 1.3909433,
+                    "lng": 103.9920554
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3921637,
+                        "lng": 104.00344
+                    },
+                    "southwest": {
+                        "lat": 1.3880821,
+                        "lng": 103.9834688
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Changi Beach Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117366483285440009409\">Carlos Enrique Jaramillo</a>"
+                    ],
+                    "photo_reference": "Aap_uEC9CDB8Rbv2z0BwCvLTLdTt6CdIaZUXaGiM6n68zxWH9slJWm_bXu2LtSFiMucIJOv7gwTG_UzYT-hjlMSSR6apCf6WedVMtrhcANciaIHOgNGsPPI927moZG5LshGFODuxdow2TvhhopAUI9bqZJmJC-H1cL2rdTcm_F0au_HGu4BR",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJUzbaYws82jERXHKMRlUKIug",
+            "plus_code": {
+                "compound_code": "9XRR+9R Singapore",
+                "global_code": "6PH59XRR+9R"
+            },
+            "rating": 4.5,
+            "reference": "ChIJUzbaYws82jERXHKMRlUKIug",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5733
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "65 Airport Blvd., Singapore Changi Airport, Singapore 819663",
+            "geometry": {
+                "location": {
+                    "lat": 1.3616947,
+                    "lng": 103.9897307
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.362853529892722,
+                        "lng": 103.9910011298927
+                    },
+                    "southwest": {
+                        "lat": 1.360153870107278,
+                        "lng": 103.9883014701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Kinetic Rain",
+            "photos": [
+                {
+                    "height": 1703,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106080244447822717714\">Kitja Thangsatit</a>"
+                    ],
+                    "photo_reference": "Aap_uEBFYMo03jtw5J0_Q6IIE-WU44VxXqdWdzsjXwR1DRZ3M9dPtBsc_tWjBoU6uO8uFXpsjWQShajbt3eMaK1joj5xX19DUPPfpWonz-g4-mDau1hOdnPr8X_5-Oh46pD5BRG_wN03XuwT4HmQdx3yAxFun9EiSCLDbIQeHQlPWdI4aIxq",
+                    "width": 1125
+                }
+            ],
+            "place_id": "ChIJaVnJsCo92jERVgHSU9EGP_E",
+            "plus_code": {
+                "compound_code": "9X6Q+MV Singapore",
+                "global_code": "6PH59X6Q+MV"
+            },
+            "rating": 5,
+            "reference": "ChIJaVnJsCo92jERVgHSU9EGP_E",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Airport Blvd.",
+            "geometry": {
+                "location": {
+                    "lat": 1.3348184,
+                    "lng": 103.9835053
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.336168229892722,
+                        "lng": 103.9848551298927
+                    },
+                    "southwest": {
+                        "lat": 1.333468570107278,
+                        "lng": 103.9821554701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Changi Jurassic Mile",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114560089982174705501\">Edward See</a>"
+                    ],
+                    "photo_reference": "Aap_uEDs5Td9mqDSooqNAGNIx-sArEXTeN-0O7wCU-qYA7M31gxuAid8gGhkEr0z9EOzhbbJNk2i8E1OmajQ4D0J7Ctz_HnbuQeTu0hlzKxVeEz5RNXId9L5pwS9cAvK8tfP-HpRcHPhZqcXUL6oqF66h38u63pRG9eK4w74dOfG1ai8hsfe",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ2XkoNao92jERap9Ra-TNbE4",
+            "plus_code": {
+                "compound_code": "8XMM+WC Singapore",
+                "global_code": "6PH58XMM+WC"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ2XkoNao92jERap9Ra-TNbE4",
+            "types": [
+                "amusement_park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1407
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "78 Airport Boulevard, #05-00, Jewel, Singapore Changi Airport, 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3602082,
+                    "lng": 103.9897593
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.361289329892722,
+                        "lng": 103.9914358298927
+                    },
+                    "southwest": {
+                        "lat": 1.358589670107278,
+                        "lng": 103.9887361701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Canopy Bridge",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110012229164046535881\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECC9A67HoS97kPqMh86naFvwCkC1DGGVFXeH2yEKvuifOoyPX-iLz6KcR21vnTY1-6nYT4DxLB3Gy1IUh0EAzk1U2TjSnAHE8-8_sb1KB-aD_EYWeIPqTYMDiQn2VK5F_tYCvs1qG5zkc8QTXMhTqwkQwvOl9X_-mOQBFzF0FPubrqG",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJt6C9UBE92jERLothE1QGbPY",
+            "plus_code": {
+                "compound_code": "9X6Q+3W Singapore",
+                "global_code": "6PH59X6Q+3W"
+            },
+            "rating": 2.6,
+            "reference": "ChIJt6C9UBE92jERLothE1QGbPY",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Airport Blvd., Terminal 1 Singapore Changi Airport, Singapore 819642",
+            "geometry": {
+                "location": {
+                    "lat": 1.363038,
+                    "lng": 103.9891074
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3638247,
+                        "lng": 103.9904874298927
+                    },
+                    "southwest": {
+                        "lat": 1.3606779,
+                        "lng": 103.9877877701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Cactus Garden",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113072076899471931051\">Pramodya Abeysinghe</a>"
+                    ],
+                    "photo_reference": "Aap_uEAGEtw7Q90MQoKrGzy_mmKeWYREdHK8A05-BYDWPWTDFtj-rLsLUQDqlu6AG3VHSldo9zWztAgakgJ2lIGlBuvVPhym450t2DgSsJwnuopbjSIvyOCXzSOzxB8N7q91GCpURaN2VJ7uCAK71quXZCgQ3kGS2UzLaBqkWIfLig_tsU1n",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJSbUzBoo82jERr5xE9U7rrFA",
+            "plus_code": {
+                "compound_code": "9X7Q+6J Singapore",
+                "global_code": "6PH59X7Q+6J"
+            },
+            "rating": 4.4,
+            "reference": "ChIJSbUzBoo82jERr5xE9U7rrFA",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 217
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "Changi, Terminal 4, 819665",
+            "geometry": {
+                "location": {
+                    "lat": 1.3390457,
+                    "lng": 103.9837762
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.340523179892722,
+                        "lng": 103.9848168798927
+                    },
+                    "southwest": {
+                        "lat": 1.337823520107278,
+                        "lng": 103.9821172201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Steel in Bloom",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3728,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109836360106952485658\">Ricky Chung</a>"
+                    ],
+                    "photo_reference": "Aap_uEBwr4qoWIY3L9DVboZx1Ws7iTPxFnrjG57wswpm40jrfxZniR_k--Gt-KV4GetsNJHqVnEW9e8qFqWuEaefNMOJpiuI61rmE3lfk0k1F2IuP8_7u-UzO6uI7COP6rqcBe1CrVDCgUz3g9LKD5KV7RhTAwH2Rx5CTUBnvUSISH03DcDC",
+                    "width": 5440
+                }
+            ],
+            "place_id": "ChIJjzMON7o92jERralyZuNcZWU",
+            "plus_code": {
+                "compound_code": "8XQM+JG Singapore",
+                "global_code": "6PH58XQM+JG"
+            },
+            "rating": 4.4,
+            "reference": "ChIJjzMON7o92jERralyZuNcZWU",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 8
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "Aft Changi Airport PTB2 T2 Transit Level 3",
+            "geometry": {
+                "location": {
+                    "lat": 1.3537481,
+                    "lng": 103.9892721
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.354837129892722,
+                        "lng": 103.9904837298927
+                    },
+                    "southwest": {
+                        "lat": 1.352137470107278,
+                        "lng": 103.9877840701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Sunflower GARDEN",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 1575,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108454632851304165338\">Laily Lanisy</a>"
+                    ],
+                    "photo_reference": "Aap_uEBUCQeYgD6L61zcsDP5SPy6VbMYKmvezDDMe0pejPDeu9u66VKcqv5aE2_ZWIU2MbLTt3G7b7amqR9hpCnZj2YicNVs5szM6nRknZammzwMtBpXH75Iu6uTwYwjh2oVRLgq4wIvnQEPG5DiRr5va7SvuYDch5wBp4y92MNrR9FLy-AQ",
+                    "width": 2100
+                }
+            ],
+            "place_id": "ChIJ4QoG1xo92jERxjw2PeB9P4o",
+            "plus_code": {
+                "compound_code": "9X3Q+FP Singapore",
+                "global_code": "6PH59X3Q+FP"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ4QoG1xo92jERxjw2PeB9P4o",
+            "types": [
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 462
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Airport Blvd., Level 5 78, Singapore 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3600986,
+                    "lng": 103.9895888
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.361431229892722,
+                        "lng": 103.9905179298927
+                    },
+                    "southwest": {
+                        "lat": 1.358731570107278,
+                        "lng": 103.9878182701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Canopy Park - Jewel Changi",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117561490978256667720\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBSy0c1NF0o8adFmiyJKkRQ5oNyamJ8bOJ8anCOq1YO4_GCP6UGs7lWH5DK8VKERkMy61lU1Z5DZEWj_nNgOAFSC0onwtF6UC37e-BrtLlmkeznPfXxZJ8U2rgds1LzF_2_oDQMHHdyRLM3V2YI96CnZnG53Yf-q3xZesCPNxnvQn2v",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJU2IUIgo92jER1AyAECzXyB0",
+            "plus_code": {
+                "compound_code": "9X6Q+2R Singapore",
+                "global_code": "6PH59X6Q+2R"
+            },
+            "rating": 4.5,
+            "reference": "ChIJU2IUIgo92jER1AyAECzXyB0",
+            "types": [
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 573
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Airport Blvd.",
+            "geometry": {
+                "location": {
+                    "lat": 1.3644202,
+                    "lng": 103.9915308
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.37765545,
+                        "lng": 103.99827925
+                    },
+                    "southwest": {
+                        "lat": 1.32471445,
+                        "lng": 103.97128545
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png",
+            "icon_background_color": "#10BDFF",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet",
+            "name": "Singapore Changi Airport",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 533,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109154411427969546919\">\u0e17\u0e48\u0e32\u0e2d\u0e32\u0e01\u0e32\u0e28\u0e22\u0e32\u0e19\u0e19\u0e32\u0e19\u0e32\u0e0a\u0e32\u0e15\u0e34\u0e0a\u0e32\u0e07\u0e07\u0e35</a>"
+                    ],
+                    "photo_reference": "Aap_uECm6r-kAACEgnSBN2jpqKp7be-EdVOWrVBW9Izo4Koece6BAKL7OkdseDA7n5CJhR81C8PrGGSbW5e0LMM9je_emmc2Cf9OFw5eBz2BlZdSN-3S1lrYL-xbAPvjURt51rsNZ1IKi-Qux62CZXdyR2Kkzj3NiLSGujh5I3lYjoWO9Mv7",
+                    "width": 799
+                }
+            ],
+            "place_id": "ChIJ483Qk9YX2jERA0VOQV7d1tY",
+            "plus_code": {
+                "compound_code": "9X7R+QJ Singapore",
+                "global_code": "6PH59X7R+QJ"
+            },
+            "rating": 4.7,
+            "reference": "ChIJ483Qk9YX2jERA0VOQV7d1tY",
+            "types": [
+                "airport",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 24178
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "78 Airport Blvd., Singapore 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3601019,
+                    "lng": 103.9895989
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.361538429892722,
+                        "lng": 103.9905476298927
+                    },
+                    "southwest": {
+                        "lat": 1.358838770107278,
+                        "lng": 103.9878479701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "HSBC Rain Vortex",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 12000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113734929985668101538\">Peter Kim</a>"
+                    ],
+                    "photo_reference": "Aap_uEAin1VG5FPrdiq3ycuHGVrhncf4wcm619doplFM_Oy866MhdPAPqtsNpbrMAiLHUj5V5fQ1BAsdrgnQ2BCAMk9d06HAsblCtUjmdoRGv-8TB0rtkNAKHjpuR5CRc_In8kQ34iWmrdLuq1aMvWAvE__rWWejv6QvvFXIjJgH5z4EtjMo",
+                    "width": 9000
+                }
+            ],
+            "place_id": "ChIJiyPzSU092jERyO9c-c91new",
+            "plus_code": {
+                "compound_code": "9X6Q+2R Singapore",
+                "global_code": "6PH59X6Q+2R"
+            },
+            "rating": 4.6,
+            "reference": "ChIJiyPzSU092jERyO9c-c91new",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 28
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Jewel Canopy Park, L5, 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3605246,
+                    "lng": 103.9888364
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.361868679892722,
+                        "lng": 103.9901997298927
+                    },
+                    "southwest": {
+                        "lat": 1.359169020107278,
+                        "lng": 103.9875000701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Mirror Maze@ Jewel Changi Airport",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1396,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113808564201738043938\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDDp3EECvmiCpdN9VtgGnKOuWoetvCqinPbWQkvr7iAd5rWr5yoVVMulBZxZv6CDG_S08W2Rlz6IPapDL4dCvieiAb0lGaAeae0N3EC8RDJ5AuauijB55SGnx48eF7SNzRWllcgs5WVOAnfBgAoq5slU2bbiPuu4ZiN9VOj4tDWJwL-",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJGxxcvyw92jEReo7BweL2HJk",
+            "plus_code": {
+                "compound_code": "9X6Q+6G Singapore",
+                "global_code": "6PH59X6Q+6G"
+            },
+            "rating": 4.1,
+            "reference": "ChIJGxxcvyw92jEReo7BweL2HJk",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 20
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "Airport Blvd., Changi Airport Singapore, Terminal 4, Singapore 819665",
+            "geometry": {
+                "location": {
+                    "lat": 1.3384742,
+                    "lng": 103.9834851
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.339942029892722,
+                        "lng": 103.9845492798927
+                    },
+                    "southwest": {
+                        "lat": 1.337242370107278,
+                        "lng": 103.9818496201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Peranakan Gallery (Terminal 4 Changi Airport)",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117256500359230363636\">Marvin Alvarez</a>"
+                    ],
+                    "photo_reference": "Aap_uEBgmklACNYiYgGKCbjQMhSDdiQbNwfVPe9qtyZM3E1zqPzzxbxozhhXjDQo0M8ZZQho6XnqkFui21UueC8vJMot26kJlzgA5iKa3bSAWUqeR1ah7ndUx2HSGmfy0FdleXj_lwpyG8bds8-Dyrti8ThskoFgkgNCE14ZOzLYUp5D79Gw",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJDz9wVRs92jERHGPkJi2WhUA",
+            "plus_code": {
+                "compound_code": "8XQM+99 Singapore",
+                "global_code": "6PH58XQM+99"
+            },
+            "rating": 4.4,
+            "reference": "ChIJDz9wVRs92jERHGPkJi2WhUA",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 9
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Airport Blvd., Singapore 819642",
+            "geometry": {
+                "location": {
+                    "lat": 1.361813,
+                    "lng": 103.9902721
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.362826379892722,
+                        "lng": 103.9915005798927
+                    },
+                    "southwest": {
+                        "lat": 1.360126720107278,
+                        "lng": 103.9888009201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Changi Travel Services",
+            "place_id": "ChIJvw1ojIk82jEREk7C72QPU6Q",
+            "rating": 2.5,
+            "reference": "ChIJvw1ojIk82jEREk7C72QPU6Q",
+            "types": [
+                "travel_agency",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6
+        }
+    ],
+    "status": "OK"
+}
