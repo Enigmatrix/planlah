@@ -17,6 +17,8 @@ func NewErrorMessage(msg string) ErrorMessage {
 	return ErrorMessage{Message: msg}
 }
 
+// Body binds the POST body of the request to the DTO, and gives a
+// descriptive error back for debugging purposes
 func Body[T any](ctx *gin.Context, dto *T) error {
 	err := ctx.ShouldBindJSON(&dto)
 	if err == nil {

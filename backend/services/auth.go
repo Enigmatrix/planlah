@@ -74,10 +74,11 @@ func (authSvc *AuthService) GetUser(firebaseToken string) (*data.User, error) {
 	return user, nil
 }
 
-// Verify
+// Verify godoc
 // @Summary Verify the Firebase Authentication Token
 // @Description Verify the Firebase Authentication Token, and return our own App's JWT Token
 // @Param body body TokenDtoRequest true "Firebase Authentication Token"
+// @Tags Authentication
 // @Success 200 {object} TokenDtoResponse
 // @Failure 401 {object} TokenDtoFailed
 // @Router /api/auth/verify [post]

@@ -6,6 +6,8 @@
 ### Docker
 - Paste `.env` file into `/backend`
 - Run `docker-compose up --build` to build the Docker setup (including the database)
+  - Need to run this to get the database running
+  - Visit `localhost:8081` to see an admin interface for the database
 
 ### Firebase
 - Paste `planlah..adminsdk...json` into `/backend`.

@@ -6,6 +6,10 @@ import (
 	_ "planlah.sg/backend/docs" // to get generated swagger docs to be enabled
 )
 
+//@title Planlah Backend API
+//@version 1.0
+//@description This is the API for planlah's backend API
+
 func main() {
 	err := godotenv.Load()
 	if err != nil {

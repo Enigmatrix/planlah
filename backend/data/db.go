@@ -14,6 +14,7 @@ import (
 
 var dbConn lazy.Lazy[gorm.DB]
 
+// NewDatabaseConnection creates a new database connection
 func NewDatabaseConnection() (*gorm.DB, error) {
 	// TODO should this really be a singleton?
 	return dbConn.FallibleValue(func() (*gorm.DB, error) {
@@ -52,10 +53,12 @@ type Database struct {
 	conn *gorm.DB
 }
 
+// NewDatabase create a new database
 func NewDatabase(conn *gorm.DB) *Database {
 	return &Database{conn: conn}
 }
 
+// CreateUser creates a new user and checks if there already exists a user
 func (db *Database) CreateUser(user *User) error {
 	err := db.conn.Create(user).Error
 
@@ -69,6 +72,7 @@ func (db *Database) CreateUser(user *User) error {
 	return nil
 }
 
+// FindUserByFirebaseUid gets a user given a unique firebaseUid
 func (db *Database) FindUserByFirebaseUid(firebaseUid string) *User {
 	var user User
 
