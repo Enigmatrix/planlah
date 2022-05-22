@@ -13,6 +13,10 @@ type ErrorMessage struct {
 	Message string `json:"message" binding:"required"`
 }
 
+func NewErrorMessage(msg string) ErrorMessage {
+	return ErrorMessage{Message: msg}
+}
+
 func Body[T any](ctx *gin.Context, dto *T) error {
 	err := ctx.ShouldBindJSON(&dto)
 	if err == nil {

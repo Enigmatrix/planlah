@@ -8,14 +8,14 @@ import (
 )
 
 type UserController struct {
-	db   data.Database
-	auth services.AuthService
+	Database *data.Database
+	Auth     *services.AuthService
 }
 
 type CreateUserDto struct {
-	Nickname  string `json:"nickname" binding:"required"`
-	Name      string `json:"name" binding:"required"`
-	AuthToken string `json:"authToken" binding:"required"`
+	Nickname      string `json:"nickname" binding:"required"`
+	Name          string `json:"name" binding:"required"`
+	FirebaseToken string `json:"firebaseToken" binding:"required"`
 	// TODO fields representing data collected from user questionnaire
 }
 
@@ -28,9 +28,10 @@ func (controller UserController) Create(ctx *gin.Context) {
 	if err := Body(ctx, &createUserDto); err != nil {
 		return
 	}
-	firebaseUid, err := controller.auth.Verify(createUserDto.AuthToken)
+
+	firebaseUid, err := controller.Auth.GetFirebaseUid(createUserDto.FirebaseToken)
 	if err != nil {
-		ctx.JSON(http.StatusUnauthorized, ErrorMessage{Message: "invalid credentials"})
+		ctx.JSON(http.StatusUnauthorized, NewErrorMessage(err.Error()))
 		return
 	}
 
@@ -40,15 +41,17 @@ func (controller UserController) Create(ctx *gin.Context) {
 		FirebaseUid: *firebaseUid,
 	}
 
-	controller.db.CreateUser(&user)
+	err = controller.Database.CreateUser(&user)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+		return
+	}
 
-	// create gin-jwt
-
-	ctx.JSON(http.StatusOK, TokenDto{Token: user.FirebaseUid})
+	ctx.Status(http.StatusOK)
 }
 
 // Register the routes for this controller
 func (controller UserController) Register(router *gin.RouterGroup) {
-	group := router.Group("users")
-	group.POST("create", controller.Create)
+	// group := router.Group("users")
+	// group.POST("create", controller.Create)
 }
