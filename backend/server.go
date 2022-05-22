@@ -13,6 +13,7 @@ import (
 	"planlah.sg/backend/services"
 )
 
+// NewServer creates a new server and sets up middleware
 func NewServer(user routes.UserController, authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 

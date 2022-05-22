@@ -19,9 +19,14 @@ type CreateUserDto struct {
 	// TODO fields representing data collected from user questionnaire
 }
 
-// Create
+// Create godoc
 // @Summary Create a new User
+// @Description Create a new User given a `CreateUserDto`.
 // @Param body body CreateUserDto true "Details of newly created user"
+// @Tags User
+// @Success 200
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
 // @Router /api/users/create [post]
 func (controller UserController) Create(ctx *gin.Context) {
 	var createUserDto CreateUserDto
