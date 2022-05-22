@@ -1,7 +1,10 @@
 package data
 
 import (
+	"errors"
 	"fmt"
+	"github.com/jackc/pgconn"
+	"github.com/jackc/pgerrcode"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"os"
@@ -24,22 +27,23 @@ func NewDatabaseConnection() (*gorm.DB, error) {
 
 		db, err := gorm.Open(pg, &config)
 		if err != nil {
-			return nil, err
+			return nil, errors.New(fmt.Sprintf("cannot open db: %v", err))
 		}
 
 		// add tables here
 		err = db.AutoMigrate(&User{})
 		if err != nil {
-			return nil, err
+			return nil, errors.New(fmt.Sprintf("error while migrating db: %v", err))
 		}
 
 		sqlDB, err := db.DB()
 		if err != nil {
-			return nil, err
+			return nil, errors.New(fmt.Sprintf("error getting raw db: %v", err))
 		}
 
 		sqlDB.SetMaxOpenConns(16)
 		sqlDB.SetConnMaxLifetime(time.Hour)
+
 		return db, nil
 	})
 }
@@ -48,10 +52,31 @@ type Database struct {
 	conn *gorm.DB
 }
 
-func NewDatabase(conn *gorm.DB) Database {
-	return Database{conn: conn}
+func NewDatabase(conn *gorm.DB) *Database {
+	return &Database{conn: conn}
 }
 
-func (db *Database) CreateUser(user *User) {
-	db.conn.Create(user)
+func (db *Database) CreateUser(user *User) error {
+	err := db.conn.Create(user).Error
+
+	if err != nil {
+		var pgErr *pgconn.PgError
+		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.UniqueViolation {
+			return errors.New("user already exists")
+		}
+	}
+
+	return nil
+}
+
+func (db *Database) FindUserByFirebaseUid(firebaseUid string) *User {
+	var user User
+
+	err := db.conn.Where(&User{FirebaseUid: firebaseUid}).
+		Select("ID").First(&user).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return nil
+	}
+
+	return &user
 }
