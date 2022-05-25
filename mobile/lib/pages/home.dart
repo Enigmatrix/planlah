@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/groups/pages/groups_page.dart';
 import 'package:mobile/services/auth.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,7 +31,12 @@ class _HomePageState extends State<HomePage> {
               onPressed: () async {
                 log((await auth.user.value?.getIdToken()).toString());
               },
-              child: const Text("PRINT TOKEN"))
+              child: const Text("PRINT TOKEN")),
+          ElevatedButton(
+              onPressed: () {
+                Get.to(() => const GroupsPage());
+              },
+              child: const Text("Groups"))
         ]));
   }
 }
