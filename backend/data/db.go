@@ -85,8 +85,8 @@ func (db *Database) CreateUser(user *User) error {
 	return nil
 }
 
-// FindUserByFirebaseUid gets a user given a unique firebaseUid
-func (db *Database) FindUserByFirebaseUid(firebaseUid string) *User {
+// GetUserByFirebaseUid gets a user given a unique firebaseUid
+func (db *Database) GetUserByFirebaseUid(firebaseUid string) *User {
 	var user User
 
 	err := db.conn.Where(&User{FirebaseUid: firebaseUid}).
@@ -96,4 +96,36 @@ func (db *Database) FindUserByFirebaseUid(firebaseUid string) *User {
 	}
 
 	return &user
+}
+
+func (db *Database) GetUser(id uint) *User {
+	var user User
+	err := db.conn.First(&user, id).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return nil
+	}
+	return &user
+}
+
+func (db *Database) GetAllGroups(userId uint) []GroupMember {
+	var groupMembers []GroupMember
+	err := db.conn.Joins("GroupMember", db.conn.Where(&GroupMember{UserID: userId})).
+		Find(&groupMembers).Error
+
+	if err != nil {
+		return nil
+	}
+	return groupMembers
+}
+
+func (db *Database) CreateGroup(group *Group) error {
+	return db.conn.Omit("OwnerID").Create(group).Error
+}
+
+func (db *Database) CreateGroupMember(groupMember *GroupMember) error {
+	return db.conn.Omit("LastSeenMessageID").Create(groupMember).Error
+}
+
+func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {
+	return db.conn.Model(&Group{ID: groupID}).Update("OwnerID", ownerID).Error
 }
