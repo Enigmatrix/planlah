@@ -1,17 +1,16 @@
 class ChatMessage {
-  final String idFrom;
-  final String timestamp;
   final String content;
+  final String timestamp;
+  final int byId;
 
   ChatMessage({
-    required this.idFrom,
-    required this.timestamp,
     required this.content,
+    required this.timestamp,
+    required this.byId,
   });
 
   static ChatMessage fromJson(json) => ChatMessage(
-      idFrom: json["idFrom"],
+      content: json["content"],
       timestamp: json["timestamp"],
-      content: json["content"]);
-
+      byId: int.parse(json["byId"]));
 }
