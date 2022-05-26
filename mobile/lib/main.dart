@@ -28,6 +28,8 @@ class App extends StatelessWidget {
     return GetMaterialApp(
         title: 'planlah',
         theme: AppTheme.light(),
+        darkTheme: AppTheme.dark(),
+        themeMode: ThemeMode.dark,
         // home: auth.user.value == null ? const SignInPage() : const HomePage(),
         home: const HomePage(),
         getPages: [
