@@ -51,7 +51,7 @@ class _GroupsPageState extends State<GroupsPage> {
       itemBuilder: (context, index) {
         final group = groups[index];
         return GestureDetector(
-          onTap: () => Get.to(const ChatPage(), arguments: group),
+          onTap: () => Get.to(() => const ChatPage(), arguments: group),
           child: Card(
               child: ListTile(
                 leading: CircleAvatar(
@@ -60,7 +60,7 @@ class _GroupsPageState extends State<GroupsPage> {
                 ),
                 title: Text(group.groupName),
                 // This should show how many members are online at the moment maybe
-                subtitle: Text("placeholder text"),
+                subtitle: const Text("placeholder text"),
               )
           ),
         );

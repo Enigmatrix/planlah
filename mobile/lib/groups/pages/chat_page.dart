@@ -26,22 +26,22 @@ class _ChatPageState extends State<ChatPage> {
   static List<ChatMessage> getChatMessages() {
     const data = [
       {
-        "idFrom": "John",
+        "byId": "1",
         "content": "Hello, I am John!",
         "timestamp": "2022-05-30*13:23:55"
       },
       {
-        "idFrom": "Joal",
+        "byId": "2",
         "content": "Hi John, how are you?",
         "timestamp": "2022-05-30*13:23:59"
       },
       {
-        "idFrom": "John",
+        "byId": "1",
         "content": "I am learning Flutter right now!",
         "timestamp": "2022-05-30*13:24:05"
       },
       {
-        "idFrom": "Joal",
+        "byId": "2",
         "content": "Wow! Flutter is so cool!",
         "timestamp": "2022-05-30*13:24:14"
       },
@@ -66,7 +66,7 @@ class _ChatPageState extends State<ChatPage> {
     itemBuilder: (context, index) {
       final message = messages[index];
       // Hard code for now
-      bool isUser = message.idFrom == "John";
+      bool isUser = message.byId == 1;
       return Container(
         padding: EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
         child: Align(
