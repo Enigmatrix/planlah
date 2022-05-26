@@ -109,8 +109,7 @@ func (db *Database) GetUser(id uint) *User {
 
 func (db *Database) GetAllGroups(userId uint) []GroupMember {
 	var groupMembers []GroupMember
-	err := db.conn.Joins("GroupMember", db.conn.Where(&GroupMember{UserID: userId})).
-		Find(&groupMembers).Error
+	err := db.conn.Joins("Group").Find(&groupMembers, "group_members.user_id = ?", userId).Error
 
 	if err != nil {
 		return nil
