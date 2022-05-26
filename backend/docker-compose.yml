@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_USER: $DB_USER
+    ports:
+      - "5432:5432" # only for debug
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+
+  adminer: # only for debug
+    image: adminer
+    restart: always
+    environment:
+      ADMINER_DESIGN: 'dracula'
+    ports:
+      - "8081:8080" # only for debug
+
+volumes:
+  db_volume: { }
