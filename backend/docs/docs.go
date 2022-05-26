@@ -50,6 +50,82 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/groups/all": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Get all the Groups belonging to the current user",
+                "tags": [
+                    "Group"
+                ],
+                "summary": "Get all Groups",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/routes.GroupDto"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/groups/create": {
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Create a new Group given a ` + "`" + `CreateGroupDto` + "`" + `.",
+                "tags": [
+                    "Group"
+                ],
+                "summary": "Create a new Group",
+                "parameters": [
+                    {
+                        "description": "Details of newly created group",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/routes.CreateGroupDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/routes.GroupDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
         "/api/users/create": {
             "post": {
                 "description": "Create a new User given a ` + "`" + `CreateUserDto` + "`" + `.",
@@ -89,6 +165,21 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "routes.CreateGroupDto": {
+            "type": "object",
+            "required": [
+                "description",
+                "name"
+            ],
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
         "routes.CreateUserDto": {
             "type": "object",
             "required": [
@@ -115,6 +206,48 @@ const docTemplate = `{
             ],
             "properties": {
                 "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "routes.GroupDto": {
+            "type": "object",
+            "required": [
+                "description",
+                "group_members",
+                "name",
+                "name",
+                "owner"
+            ],
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "group_members": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/routes.UserSummaryDto"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "$ref": "#/definitions/routes.UserSummaryDto"
+                }
+            }
+        },
+        "routes.UserSummaryDto": {
+            "type": "object",
+            "required": [
+                "name",
+                "nickname"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "nickname": {
                     "type": "string"
                 }
             }
@@ -163,6 +296,14 @@ const docTemplate = `{
                     "type": "string"
                 }
             }
+        }
+    },
+    "securityDefinitions": {
+        "JWT": {
+            "description": "Type 'Bearer TOKEN' to correctly set the API Key",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
         }
     }
 }`

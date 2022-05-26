@@ -18,12 +18,10 @@ type CreateGroupDto struct {
 	Description string `json:"description" binding:"required"`
 }
 
-type GroupDto struct {
-	ID           uint             `json:"name" binding:"required"`
-	Name         string           `json:"name" binding:"required"`
-	Description  string           `json:"description" binding:"required"`
-	GroupMembers []UserSummaryDto `json:"group_members" binding:"required"`
-	Owner        *UserSummaryDto  `json:"owner" binding:"required"`
+type GroupSummaryDto struct {
+	ID          uint   `json:"id" binding:"required"`
+	Name        string `json:"name" binding:"required"`
+	Description string `json:"description" binding:"required"`
 }
 
 // Create godoc
@@ -32,7 +30,7 @@ type GroupDto struct {
 // @Param body body CreateGroupDto true "Details of newly created group"
 // @Tags Group
 // @Security JWT
-// @Success 200 {object} GroupDto
+// @Success 200 {object} GroupSummaryDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/create [post]
@@ -78,17 +76,10 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 		return
 	}
 
-	user := controller.Database.GetUser(userId)
-
-	ctx.JSON(http.StatusOK, GroupDto{
-		ID:           group.ID,
-		Name:         group.Name,
-		Description:  group.Description,
-		GroupMembers: []UserSummaryDto{},
-		Owner: &UserSummaryDto{
-			Nickname: user.Nickname,
-			Name:     user.Name,
-		},
+	ctx.JSON(http.StatusOK, GroupSummaryDto{
+		ID:          group.ID,
+		Name:        group.Name,
+		Description: group.Description,
 	})
 }
 
@@ -97,13 +88,21 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 // @Description Get all the Groups belonging to the current user
 // @Security JWT
 // @Tags Group
-// @Success 200 {object} []GroupDto
+// @Success 200 {object} []GroupSummaryDto
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/all [get]
 func (controller GroupsController) GetAll(ctx *gin.Context) {
 	userId := controller.Auth.AuthenticatedUserId(ctx)
-	print(userId)
-	// print(controller.Database.GetAllGroups(userId))
+	groups := controller.Database.GetAllGroups(userId)
+	dtos := make([]GroupSummaryDto, len(groups))
+	for i, groupMember := range groups {
+		dtos[i] = GroupSummaryDto{
+			ID:          groupMember.Group.ID,
+			Name:        groupMember.Group.Name,
+			Description: groupMember.Group.Description,
+		}
+	}
+	ctx.JSON(http.StatusOK, dtos)
 }
 
 // Register the routes for this controller
