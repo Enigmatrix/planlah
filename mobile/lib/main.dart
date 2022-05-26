@@ -6,6 +6,7 @@ import 'package:mobile/pages/sign_in.dart';
 import 'package:mobile/groups/pages/groups_page.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mobile/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,9 +27,7 @@ class App extends StatelessWidget {
 
     return GetMaterialApp(
         title: 'planlah',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: AppTheme.light(),
         // home: auth.user.value == null ? const SignInPage() : const HomePage(),
         home: const HomePage(),
         getPages: [
