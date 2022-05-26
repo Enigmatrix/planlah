@@ -1,39 +1,31 @@
 package main
 
 import (
-	"context"
-	firebase "firebase.google.com/go/v4"
-	"github.com/gin-gonic/gin"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/joho/godotenv"
 	"log"
 	_ "planlah.sg/backend/docs" // to get generated swagger docs to be enabled
-	"planlah.sg/backend/routes"
 )
 
+//@title Planlah Backend API
+//@version 1.0
+//@description This is the API for planlah's backend API
+
 func main() {
-	srv := gin.Default()
-	firebaseApp, err := firebase.NewApp(context.Background(), nil)
+	err := godotenv.Load()
 	if err != nil {
-		log.Fatalf("Firebase app initialization failed: %v", err)
-	}
-	user := routes.UserController{
-		FirebaseApp: firebaseApp,
-	}
-	auth := routes.AuthController{
-		FirebaseApp: firebaseApp,
+		log.Fatalf("Error loading .env file: %v", err)
+		return
 	}
 
-	api := srv.Group("api")
-
-	user.Register(api)
-	auth.Register(api)
-
-	// Swagger documentation
-	srv.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	srv, err := InitializeServer()
+	if err != nil {
+		log.Fatalf("Cannot initialize server: %v", err)
+		return
+	}
 
 	err = srv.Run()
 	if err != nil {
+		log.Fatalf("Error running server: %v", err)
 		return
 	}
 }
