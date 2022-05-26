@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/groups/pages/groups_page.dart';
 import 'package:mobile/pages/profile.dart';
+import 'package:mobile/pages/settings.dart';
 import 'package:mobile/pages/social_feed.dart';
 import 'package:mobile/services/auth.dart';
 
@@ -22,7 +23,8 @@ class _HomePageWidgetState extends State<HomePage> {
   static const List<Widget> _pages = <Widget>[
     SocialFeedPage(),
     GroupsPage(),
-    ProfilePage()
+    ProfilePage(),
+    SettingsPage(),
   ];
 
   var currentIndex = 0;
@@ -60,9 +62,13 @@ class _HomePageWidgetState extends State<HomePage> {
               label: "Groups"
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.person),
               label: "Profile"
           ),
+          // BottomNavigationBarItem(
+          //     icon: Icon(Icons.settings),
+          //     label: "Settings"
+          // ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber,
