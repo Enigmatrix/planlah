@@ -6,7 +6,9 @@ import (
 	firebase "firebase.google.com/go/v4"
 	"firebase.google.com/go/v4/auth"
 	"fmt"
+	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
+	"log"
 	"planlah.sg/backend/data"
 	lazy "planlah.sg/backend/utils"
 	"time"
@@ -16,6 +18,7 @@ type AuthService struct {
 	firebaseApp  *firebase.App
 	firebaseAuth *auth.Client
 	database     *data.Database
+	IdentityKey  string
 }
 
 type TokenDtoRequest struct {
@@ -47,7 +50,7 @@ func NewAuthService(database *data.Database) (*AuthService, error) {
 		if err != nil {
 			return nil, errors.New(fmt.Sprintf("cannot init firebase auth instance: %v", err))
 		}
-		return &AuthService{firebaseApp: firebaseApp, firebaseAuth: firebaseAuth, database: database}, nil
+		return &AuthService{firebaseApp: firebaseApp, firebaseAuth: firebaseAuth, database: database, IdentityKey: "id"}, nil
 	})
 }
 
@@ -67,7 +70,7 @@ func (authSvc *AuthService) GetUser(firebaseToken string) (*data.User, error) {
 		return nil, err
 	}
 
-	user := authSvc.database.FindUserByFirebaseUid(*firebaseUid)
+	user := authSvc.database.GetUserByFirebaseUid(*firebaseUid)
 	if user == nil {
 		return nil, errors.New("user not found")
 	}
@@ -92,4 +95,15 @@ func (authSvc *AuthService) Verify(ctx *gin.Context) (interface{}, error) {
 		return nil, err
 	}
 	return user, nil
+}
+
+func (authSvc *AuthService) AuthenticatedUserId(ctx *gin.Context) uint {
+	claims := jwt.ExtractClaims(ctx)
+	userId := claims[authSvc.IdentityKey]
+	if v, ok := userId.(float64); ok {
+		return uint(v)
+	}
+
+	log.Fatal("should not be called for unauth routes")
+	return 0 // doesnt reach here
 }
