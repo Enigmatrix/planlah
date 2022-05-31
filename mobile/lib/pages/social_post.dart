@@ -13,8 +13,8 @@ class SocialPost extends StatelessWidget {
     String post;
     switch (group.members.length) {
       case 0:
-        // TODO: Add gender
-        // TODO: Make "__ others clickable". Clicking on it should show the people in the group
+      // TODO: Add gender
+      // TODO: Make "__ others clickable"
         post = "by himself";
         break;
       case 1:
@@ -36,9 +36,12 @@ class SocialPost extends StatelessWidget {
               Container(
                 width: 40,
                 height: 40,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.grey,
                   shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: NetworkImage(group.owner.imageUrl)
+                  )
                 ),
               ),
               Column(
