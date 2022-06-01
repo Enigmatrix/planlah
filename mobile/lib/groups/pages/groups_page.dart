@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/groups/pages/chat_page.dart';
+import 'package:mobile/services/group.dart';
 
 import '../model/chat_group.dart';
 
