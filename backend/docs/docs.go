@@ -68,7 +68,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/routes.GroupDto"
+                                "$ref": "#/definitions/routes.GroupSummaryDto"
                             }
                         }
                     },
@@ -108,7 +108,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/routes.GroupDto"
+                            "$ref": "#/definitions/routes.GroupSummaryDto"
                         }
                     },
                     "400": {
@@ -210,44 +210,21 @@ const docTemplate = `{
                 }
             }
         },
-        "routes.GroupDto": {
+        "routes.GroupSummaryDto": {
             "type": "object",
             "required": [
                 "description",
-                "group_members",
-                "name",
-                "name",
-                "owner"
+                "id",
+                "name"
             ],
             "properties": {
                 "description": {
                     "type": "string"
                 },
-                "group_members": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/routes.UserSummaryDto"
-                    }
+                "id": {
+                    "type": "integer"
                 },
                 "name": {
-                    "type": "string"
-                },
-                "owner": {
-                    "$ref": "#/definitions/routes.UserSummaryDto"
-                }
-            }
-        },
-        "routes.UserSummaryDto": {
-            "type": "object",
-            "required": [
-                "name",
-                "nickname"
-            ],
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "nickname": {
                     "type": "string"
                 }
             }

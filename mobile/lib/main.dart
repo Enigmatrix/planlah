@@ -6,12 +6,14 @@ import 'package:mobile/pages/sign_in.dart';
 import 'package:mobile/groups/pages/groups_page.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mobile/services/group.dart';
 import 'package:mobile/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
+  Get.put(GroupService());
   Get.put(AuthService());
 
 
