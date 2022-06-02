@@ -23,7 +23,6 @@ try:
         names = browser.find_elements(by=By.CSS_SELECTOR, value="div.OhCyu a")
         for idx, r in enumerate(names):
             results.append(r.get_attribute("href"))
-        i += 1
 finally:
     browser.close()
     with open("restaurant_review_links.txt", "w") as f:
