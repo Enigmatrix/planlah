@@ -9,3 +9,5 @@
 .idea/workspace.xml
 *.xml
 backend/.idea/workspace.xml
+recommender/src/.DS_Store
+.DS_Store
