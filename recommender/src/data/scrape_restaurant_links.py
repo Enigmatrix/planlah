@@ -48,7 +48,7 @@ try:
             print(r.get_attribute("href"))
             results.append(r.get_attribute("href"))
         # Go next
-        browser.find_element(by=By.CSS_SELECTOR, value="#EATERY_LIST_CONTENTS > div.deckTools.btm > div > a").click()
+        browser.find_element(by=By.CSS_SELECTOR, value="#EATERY_LIST_CONTENTS > div.deckTools.btm > div > a.nav.next.rndBtn.ui_button.primary.taLnk").click()
         time.sleep(SLEEP_INTERVAL)
 finally:
     browser.close()
