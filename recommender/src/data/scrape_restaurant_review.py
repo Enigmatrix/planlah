@@ -1,3 +1,5 @@
+import os
+
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 import pandas as pd
@@ -8,8 +10,9 @@ Script to scrape restaurant url reviews from TripAdvisor.sg
 
 browser = Chrome()
 results = []
-
-with open("restaurant_review_links.txt", "r") as f:
+error_logs = []
+print(os.getcwd())
+with open("src/data/restaurant_review_links.txt", "r") as f:
     for idx, url in enumerate(f.readlines()):
         url = url[:-1]
         print(f"{idx}. {url=}")
@@ -19,16 +22,23 @@ with open("restaurant_review_links.txt", "r") as f:
             # Get name
             result["name"] = browser.find_element(by=By.CSS_SELECTOR, value="h1.fHibz").get_attribute("innerHTML")
             # Find location
-            result["location"] = browser.find_element(by=By.CSS_SELECTOR, value="span.brMTW").get_attribute("innerHTML")
+            try:
+                result["location"] = browser.find_element(by=By.CSS_SELECTOR, value="span.brMTW").get_attribute("innerHTML")
+            except Exception:
+                error_logs.append("Failed to get location for " + result["name"])
+                result["location"] = "nil"
             # Get working hours
             # Click the button first
-            browser.find_element(by=By.CSS_SELECTOR, value="span.dyeJW.bcYVS").click()
-            working_hours_elements = browser.find_elements(by=By.CSS_SELECTOR, value="div.ferBE.f")
-            working_hours = []
-            for working_hours_element in working_hours_elements:
-                working_hours.append(working_hours_element.get_attribute("innerHTML"))
-            result["working_hours"] = ",".join(working_hours)
-            # print(browser.find_element(by=By.CSS_SELECTOR, value=""))
+            try:
+                browser.find_element(by=By.CSS_SELECTOR, value="span.dyeJW.bcYVS").click()
+                working_hours_elements = browser.find_elements(by=By.CSS_SELECTOR, value="div.ferBE.f")
+                working_hours = []
+                for working_hours_element in working_hours_elements:
+                    working_hours.append(working_hours_element.get_attribute("innerHTML"))
+                result["working_hours"] = ",".join(working_hours)
+            except Exception:
+                error_logs.append("Failed to get working hours for " + result["name"])
+                result["working_hours"] = "nil"
             # Get price range
             try:
                 price_range = browser.find_element(by=By.CSS_SELECTOR, value="div.cfvAV").get_attribute("innerHTML")
@@ -41,16 +51,21 @@ with open("restaurant_review_links.txt", "r") as f:
                     result["price_range"] = ""
             except Exception:
                 # Indicates that no price range was specified by TripAdvisor
-                result["price_range"] = ""
+                error_logs.append("Failed to get price range for " + result["name"])
+                result["price_range"] = "nil"
             # Get tags
-            tags_element = browser.find_element(by=By.CSS_SELECTOR, value="span.dyeJW.VRlVV")
-            tags = []
-            for idx, tag in enumerate(tags_element.find_elements(by=By.CSS_SELECTOR, value="a.drUyy")):
-                # Skip the first tag because it is a $$$ sign
-                if idx == 0:
-                    continue
-                tags.append(tag.get_attribute("innerHTML"))
-            result["tags"] = ",".join(tags)
+            try:
+                tags_element = browser.find_element(by=By.CSS_SELECTOR, value="span.dyeJW.VRlVV")
+                tags = []
+                for idx, tag in enumerate(tags_element.find_elements(by=By.CSS_SELECTOR, value="a.drUyy")):
+                    # Skip the first tag because it is a $$$ sign
+                    if idx == 0:
+                        continue
+                    tags.append(tag.get_attribute("innerHTML"))
+                result["tags"] = ",".join(tags)
+            except Exception:
+                error_logs.append("Failed to get tags for " + result["name"])
+                result["tags"] = "nil"
             # Get TripAdvisor ratings
             # It is ordered by Food, Service, Value, Atmosphere
             ratings_elements = browser.find_elements(by=By.CSS_SELECTOR, value="span.cwxUN")
@@ -60,35 +75,51 @@ with open("restaurant_review_links.txt", "r") as f:
                     .get_attribute("innerHTML")\
                     .split("ui_bubble_rating bubble_")[1][:2]
             except Exception:
-                result["foodRating"] = ""
+                error_logs.append("Failed to get food rating for " + result["name"])
+                result["foodRating"] = "nil"
             try:
                 result["serviceRating"] = ratings_elements[1]\
                     .get_attribute("innerHTML")\
                     .split("ui_bubble_rating bubble_")[1][:2]
             except Exception:
-                result["serviceRating"] = ""
+                error_logs.append("Failed to get service rating for " + result["name"])
+                result["serviceRating"] = "nil"
             try:
                 result["valueRating"] = ratings_elements[2]\
                     .get_attribute("innerHTML")\
                     .split("ui_bubble_rating bubble_")[1][:2]
             except Exception:
-                result["valueRating"] = ""
+                error_logs.append("Failed to get value rating for " + result["name"])
+                result["valueRating"] = "nil"
             try:
                 result["atmosphereRating"] = ratings_elements[3]\
                     .get_attribute("innerHTML")\
                     .split("ui_bubble_rating bubble_")[1][:2]
             except Exception:
-                result["atmosphereRating"] = ""
+                error_logs.append("Failed to get atmosphere rating for " + result["name"])
+                result["atmosphereRating"] = "nil"
             # Get overall TripAdvisor rating
-            overall_rating = browser.find_element(by=By.CSS_SELECTOR, value="span.fdsdx")\
+            try:
+                overall_rating = browser.find_element(by=By.CSS_SELECTOR, value="span.fdsdx")\
                 .get_attribute("innerHTML").split("<!-- -->")[0]
-            result["overallRating"] = overall_rating
+                result["overallRating"] = overall_rating
+            except:
+                error_logs.append("Failed to get overall ratings for " + result["name"])
+                result["overallRating"] = "nil"
             # Get number of TripAdvisor ratings
-            result["overallRatingCnt"] = browser.find_element(by=By.CSS_SELECTOR, value="a.dUfZJ")\
-                .get_attribute("innerHTML").split(" reviews")[0]
+            try:
+                result["overallRatingCnt"] = browser.find_element(by=By.CSS_SELECTOR, value="a.dUfZJ")\
+                    .get_attribute("innerHTML").split(" reviews")[0]
+            except:
+                error_logs.append("Failed to get ratings count for " + result["name"])
+                result["overallRatingCnt"] = "nil"
             results.append(result)
         except Exception:
             print(f"Encountered issue loading {url=}")
+
+with open("error_logs_restaurant.txt", "w") as f:
+    for error_log in error_logs:
+        f.write(error_log + "\n")
 
 df = pd.DataFrame(results)
 df.to_csv("RestaurantRawData.csv")
