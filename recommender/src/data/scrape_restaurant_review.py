@@ -8,11 +8,11 @@ import pandas as pd
 Script to scrape restaurant url reviews from TripAdvisor.sg
 """
 
-browser = Chrome()
+browser = Chrome("C:bin/chromedriver.exe")
 results = []
 error_logs = []
 print(os.getcwd())
-with open("src/data/restaurant_review_links.txt", "r") as f:
+with open("restaurant_review_links.txt", "r") as f:
     for idx, url in enumerate(f.readlines()):
         url = url[:-1]
         print(f"{idx}. {url=}")
@@ -117,9 +117,9 @@ with open("src/data/restaurant_review_links.txt", "r") as f:
         except Exception:
             print(f"Encountered issue loading {url=}")
 
-with open("error_logs_restaurant.txt", "w") as f:
-    for error_log in error_logs:
-        f.write(error_log + "\n")
+# with open("error_logs_restaurant.txt", "w") as f:
+#     for error_log in error_logs:
+#         f.write(error_log + "\n")
 
 df = pd.DataFrame(results)
 df.to_csv("RestaurantRawData.csv")
