@@ -1,0 +1,1044 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEAf_4I8Gurm9Fn13EyBY97peB8UxiZuyz51iMWfA_eswAHLlgS3welOOx15X3jhk93Gwav9WqXuGHNQtWUW64TfGtUBHTN_zNjkhW8iKaDI9U2HAp8o0D_rEaydKm8OhBhcFCME5M5yOHQw6gQ8InbEupL4A8bQR0WWxcNx_QJYoZvjHV3fxqz-imfsgn5duAb7ewkjZtded-kDBHmUMp0znFnTQENfB5zjuuIdgkxJAyM-wpaW70V5sTkEakggnjtPIFCLFcR1tJtO4WZwozSsnKu6XyJmgH3K_A6q94QL3ZZN5HnESL6SBQHK3nmnfuBGTAr1aXTV4K6DKEp5RPR62wmHiGNKxG_03MUs5t5DUqMmOjK3Mo871GGZMNi0ho54Z2bTm4HH2hpVGfknDxZmvG-A3AEDXdtCfhxqwD7jZ4WMdjmpV4HbSGgALGKI5-7rnNHZ2Q",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "102E Pasir Panjang Rd, #01-08 Citilink Warehouse Complex, Singapore 118529",
+            "geometry": {
+                "location": {
+                    "lat": 1.2760918,
+                    "lng": 103.7954127
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.277400429892722,
+                        "lng": 103.7968639798927
+                    },
+                    "southwest": {
+                        "lat": 1.274700770107278,
+                        "lng": 103.7941643201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Knots Cafe & Living (Pasir Panjang)",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1126,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101716077418758685413\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBBYxA8gZI9K3ZKGjBjCrwDSKPf5X_Xl6mdwmM2rutrhpT46PjpGBd165jxvjn3ChUn7Mxy6ApiOhxWduk5gSFuGqWJ9DrjAn9OolodaX3oo2M5w6sbdZnqs_Bf9h8a5gOhZMJM9Va8dv9FRFrRV5vAIkJ6PKwDOA3Uz12Q8t2-pzyU",
+                    "width": 2000
+                }
+            ],
+            "place_id": "ChIJ646klsQb2jERLwQKs5vs-HE",
+            "plus_code": {
+                "compound_code": "7QGW+C5 Singapore",
+                "global_code": "6PH57QGW+C5"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ646klsQb2jERLwQKs5vs-HE",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 108
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "392 Upper Bukit Timah Rd, Singapore 678046",
+            "geometry": {
+                "location": {
+                    "lat": 1.3578429,
+                    "lng": 103.7679964
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.359197079892722,
+                        "lng": 103.7693156298927
+                    },
+                    "southwest": {
+                        "lat": 1.356497420107278,
+                        "lng": 103.7666159701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Cat Cafe - Railmall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110916160573820810536\">Shawn</a>"
+                    ],
+                    "photo_reference": "Aap_uED5XLkzldyesHoa3D9K7NjKXSWuU07Kp9dIgog7Tf31SZtVE0vj6X8-vOtiy1c6kiwNcOGY1poRBSnvseQM2w7axjMm05iDErC8pvRd7zhzuwdA7UGGr4Tv8UjLDSLNHxm3J_p0WRXtYZfmer2nVCx_77qUfe37X0rXM3xeyPGfF-7M",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ7biuiWAR2jER5an8MeUF-v0",
+            "plus_code": {
+                "compound_code": "9Q59+45 Singapore",
+                "global_code": "6PH59Q59+45"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ7biuiWAR2jER5an8MeUF-v0",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 140
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "28 Jalan Bukit Merah, Singapore 152028",
+            "geometry": {
+                "location": {
+                    "lat": 1.286409,
+                    "lng": 103.8098653
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287676329892722,
+                        "lng": 103.8112016298927
+                    },
+                    "southwest": {
+                        "lat": 1.284976670107278,
+                        "lng": 103.8085019701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Refuel II",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109681039311520886525\">Jackie Chew</a>"
+                    ],
+                    "photo_reference": "Aap_uEAt7kr0kllae5OVb9KlvT5s5zmywx9a9ibhVufaFTvqHQev-JgKi--6NARPPg7RSTHAo5fSfGeqTO4q22qhlJzSbegu1Dmw6IFYoRqBCs608WEvfwuGfzOogKVguAObjf79eYOdUo6CbXjDI8moX0505XTrObnfagl_wJcbk1tl1QNm",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJ8UaQhs0b2jERL56TTwjLJDM",
+            "plus_code": {
+                "compound_code": "7RP5+HW Singapore",
+                "global_code": "6PH57RP5+HW"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ8UaQhs0b2jERL56TTwjLJDM",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 401
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Telok Blangah Green, Singapore 109178",
+            "geometry": {
+                "location": {
+                    "lat": 1.278877,
+                    "lng": 103.813289
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.280199329892722,
+                        "lng": 103.8147870298927
+                    },
+                    "southwest": {
+                        "lat": 1.277499670107278,
+                        "lng": 103.8120873701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Wildseed Caf\u00e9 at The Alkaff Mansion",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117989037249908294780\">Naoya Moritani</a>"
+                    ],
+                    "photo_reference": "Aap_uEBHgIuMZIqf606jseOkbx80eH8WNwGDhznHdUqz2kMvRslQs_1BPbMl9Sp4rYibMeEDQk8e9a2AlVXI0TAOMMfa5K7Llj42Jdr5gD7aS4VPVm_c78Yk-DBP-4yRCpo2gJI8DYalaCq8Ar9rEtVtJlMa4zVnPXMT7nMnWCkhBbeK4jE",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJX7mN2wwb2jERmHzuEpJh7g8",
+            "plus_code": {
+                "compound_code": "7RH7+H8 Singapore",
+                "global_code": "6PH57RH7+H8"
+            },
+            "rating": 4.4,
+            "reference": "ChIJX7mN2wwb2jERmHzuEpJh7g8",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1266
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "106 Jln Jurong Kechil, Singapore 598604",
+            "geometry": {
+                "location": {
+                    "lat": 1.3408713,
+                    "lng": 103.7724425
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.342137379892722,
+                        "lng": 103.7737133298927
+                    },
+                    "southwest": {
+                        "lat": 1.339437720107278,
+                        "lng": 103.7710136701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "FlagWhite",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3435,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107231593196979070558\">Robert Siau Han Yang</a>"
+                    ],
+                    "photo_reference": "Aap_uEBcRFEAKVooAi7zOFPKFvnFF4_pAXHv4LkiyGQcEyK7XIUFsCG-gnBmCXWhxwJLronuVi9FDb8fBH2TPikZ-YytvMteWlYX4XoUlPb3Gc-YzTL9QEERrCjEy4escn63NtRdqAoMdeIbfP9N_bOKPLDpQre8basaLrhuH28wae_MY5lf",
+                    "width": 2958
+                }
+            ],
+            "place_id": "ChIJCaXKGjAR2jERV2b3bf4hj6Q",
+            "plus_code": {
+                "compound_code": "8QRC+8X Singapore",
+                "global_code": "6PH58QRC+8X"
+            },
+            "price_level": 2,
+            "rating": 4.5,
+            "reference": "ChIJCaXKGjAR2jERV2b3bf4hj6Q",
+            "types": [
+                "cafe",
+                "liquor_store",
+                "store",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 640
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Duke's Rd, Singapore 268886",
+            "geometry": {
+                "location": {
+                    "lat": 1.3228827,
+                    "lng": 103.811981
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.324368229892722,
+                        "lng": 103.8133498798927
+                    },
+                    "southwest": {
+                        "lat": 1.321668570107278,
+                        "lng": 103.8106502201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Atlas Coffeehouse",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113238216247423504244\">Paul Chen</a>"
+                    ],
+                    "photo_reference": "Aap_uEANyDtyJw1JTmmMNqOM7W1alqMaMMKt65FsUa2F0LpG3tADq_iRzVLlxlF1fioCbg9Jt_LT-I7J6GSbIxnt3HCUm1Lsxz-McQ_XPI3cenryl-zLrMmNFSjSNC-pFK3gTMZQrO2V5vlRg_DcssJONUykn_PgOxVVF_KLo06Rhfio5xLK",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJV7Z0bwYa2jER98QDzqfnkgE",
+            "plus_code": {
+                "compound_code": "8RF6+5Q Singapore",
+                "global_code": "6PH58RF6+5Q"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJV7Z0bwYa2jER98QDzqfnkgE",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1280
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Jelebu Rd, #02-17, Singapore 677743",
+            "geometry": {
+                "location": {
+                    "lat": 1.3799623,
+                    "lng": 103.7643089
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.381036429892722,
+                        "lng": 103.7658965298927
+                    },
+                    "southwest": {
+                        "lat": 1.378336770107278,
+                        "lng": 103.7631968701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Streats (Bukit Panjang Plaza)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4248,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100958975977925692266\">SeungJun Kim</a>"
+                    ],
+                    "photo_reference": "Aap_uEAGQCP-l7MjuEixmdPz3CDw3iUXN0K6RVIBknnAFkzyIO1FaBb_-Y8eYVA90xKpOxP53-QJ6uws4wrmE0j9f8cEKSj7NzBnBlBRQGFZ1FMDbRG_vjWQ4HVU5ugE427P2G-LRXA32teDQEDdaNiE-U5E4xnCOzRGeOQuailVf4FrMmQa",
+                    "width": 5664
+                }
+            ],
+            "place_id": "ChIJUXhrN6MR2jERZqrZt0DoYEc",
+            "plus_code": {
+                "compound_code": "9QH7+XP Singapore",
+                "global_code": "6PH59QH7+XP"
+            },
+            "price_level": 2,
+            "rating": 2.9,
+            "reference": "ChIJUXhrN6MR2jERZqrZt0DoYEc",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 54
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "124 Bukit Merah Lane 1, #01-144, Singapore 150124",
+            "geometry": {
+                "location": {
+                    "lat": 1.2860246,
+                    "lng": 103.8034775
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287118779892722,
+                        "lng": 103.8049427798927
+                    },
+                    "southwest": {
+                        "lat": 1.284419120107278,
+                        "lng": 103.8022431201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Rookie's Coffee Shop",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115776232152336822036\">Muhammad Hazmi</a>"
+                    ],
+                    "photo_reference": "Aap_uEA85EvWPQrSa4cAYdahFcB1eAyReSwli29BPO547SKbHOiJpukt73nkARtbiZFJg0x6EfOSoM05_1-OkGQL1hXQ2njInj-qMk4K-heQWeL34UiGNl77A6sYloQ3Vu2WuE_l-wsapXfBY0kCc0iXFCGL9f-1-finC9vtBjvPr4B0AqkD",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJq8udzWwb2jERsfjM_348beE",
+            "plus_code": {
+                "compound_code": "7RP3+C9 Singapore",
+                "global_code": "6PH57RP3+C9"
+            },
+            "rating": 4.8,
+            "reference": "ChIJq8udzWwb2jERsfjM_348beE",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 30
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "51 Fairways Dr., Singapore 286965",
+            "geometry": {
+                "location": {
+                    "lat": 1.3429718,
+                    "lng": 103.7971977
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.344305529892722,
+                        "lng": 103.7985182798927
+                    },
+                    "southwest": {
+                        "lat": 1.341605870107278,
+                        "lng": 103.7958186201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Riders Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2736,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117837491081542085151\">May Lum</a>"
+                    ],
+                    "photo_reference": "Aap_uEAnTI05bAb1Q4jEEGr1_h8PljvG53-HiZibZYrhR2y3qsXSqcCi0CvAHNxIeODwfEPhOypLZYUVTbSnCZWrQNutKxrLCjlltHB6nf_AESyuH1chDVD1aXzRSPS_n1aR0_NbqUNRrgGGQ40Tq3QfxGfPfioCLy-Goyz_-PN3HZdv9DF1",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJ2Zf1oZUQ2jER4l4g9et9jWE",
+            "plus_code": {
+                "compound_code": "8QVW+5V Singapore",
+                "global_code": "6PH58QVW+5V"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJ2Zf1oZUQ2jER4l4g9et9jWE",
+            "types": [
+                "restaurant",
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1048
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Jalan Bukit Merah, #01-5148, Singapore 150002",
+            "geometry": {
+                "location": {
+                    "lat": 1.286622,
+                    "lng": 103.8069906
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287861879892722,
+                        "lng": 103.8083100298927
+                    },
+                    "southwest": {
+                        "lat": 1.285162220107278,
+                        "lng": 103.8056103701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Carrara",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115868615399303055186\">Vijay Rajkumar</a>"
+                    ],
+                    "photo_reference": "Aap_uEDgFw2rAUfTJACxfbz9H_214tcwqYrRbDqPl5il4VrYaWPaqc-I1PmSzaT-1jQNp93694QPnmbZyi_8EtRivaaSt_e0yiN6M1mpec0SYq861kOO4ZGBQcy5RSmoztPBQKtRbWxlaUpC0pqqiLMb6znioEd2Q9R0ayf3zmbmG7XKu5hD",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJR3_D_cwb2jERWM17cHc527o",
+            "plus_code": {
+                "compound_code": "7RP4+JQ Singapore",
+                "global_code": "6PH57RP4+JQ"
+            },
+            "price_level": 2,
+            "rating": 4.6,
+            "reference": "ChIJR3_D_cwb2jERWM17cHc527o",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 497
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "779 Bukit Timah Rd, Singapore 269758",
+            "geometry": {
+                "location": {
+                    "lat": 1.3310546,
+                    "lng": 103.79644
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.332437929892722,
+                        "lng": 103.7977945298927
+                    },
+                    "southwest": {
+                        "lat": 1.329738270107278,
+                        "lng": 103.7950948701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Living Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2736,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116034271141295877352\">Frida Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uECQ3Cxv5W5IYpkzRG6fP08IDhXoknRuhZU2WN16JuLHaBI_UuPWUKU3-xGv9frXs5u8ANbwf9NECQ5XF8zFKExWmEeamqlUIj9GHa1l8xzQ564fGZYlNTRvAtgA7E_KFdz5hkRX3LtuDB0q2D2DxyFjjYr9qSg9fZIuUHW6V-1Kmdbg",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJCVEAMZ8Q2jERADAqDsnXjss",
+            "plus_code": {
+                "compound_code": "8QJW+CH Singapore",
+                "global_code": "6PH58QJW+CH"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJCVEAMZ8Q2jERADAqDsnXjss",
+            "types": [
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 296
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Jalan Anak Bukit #L1-CA1, Bukit Timah Plaza, 588996",
+            "geometry": {
+                "location": {
+                    "lat": 1.3386171,
+                    "lng": 103.7789152
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.339961529892722,
+                        "lng": 103.7802827298927
+                    },
+                    "southwest": {
+                        "lat": 1.337261870107278,
+                        "lng": 103.7775830701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Mosanco Enchanted Cafe The Secret Garden",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 720,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113671457188005165481\">Emiko</a>"
+                    ],
+                    "photo_reference": "Aap_uEDTurpOKh1A-N-lKvRzXml74IuPvd_ogx5IudNZ48loNCJIbjQ1c8m_fcQAliBneIbNnCo22hFUrJN27hhHPTPlAYsum1QfEcImDUx-F-W6flnqmyLwX8TewqQ1-kui95t5jnKo4n1JTMuB-dYOUpG433kJx_HN6wOL_KPk1SJz0iQ",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJZx7vOOcR2jERjGKkSShtzqI",
+            "plus_code": {
+                "compound_code": "8QQH+CH Singapore",
+                "global_code": "6PH58QQH+CH"
+            },
+            "rating": 4,
+            "reference": "ChIJZx7vOOcR2jERjGKkSShtzqI",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 86
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Level 1, 3 Park Lane, Seletar Aerospace Dr, Park, 798387",
+            "geometry": {
+                "location": {
+                    "lat": 1.4079238,
+                    "lng": 103.8684043
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.409304129892722,
+                        "lng": 103.8697864298927
+                    },
+                    "southwest": {
+                        "lat": 1.406604470107278,
+                        "lng": 103.8670867701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Wildseed Cafe & Bar at The Summerhouse",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101543573229849856465\">Audrey SMC</a>"
+                    ],
+                    "photo_reference": "Aap_uECArRbllaKjq_vOpCb0a2sWE3_F4yhsBGkp9xVarbNBe8JdxmmfFbQbibmrUw-YcZa2uV3_kjXOBQUyu_O8w7Y2-_vjpUxeyqPek9i1GaMNcgLPqhK25oMsBsGnQs7n34hbDFvhUZCAcm82uATxd-YWkudMAIoHagvTFS3fH8bUPtoO",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJlXvHK9MV2jERDfpqKEaKw4U",
+            "plus_code": {
+                "compound_code": "CV59+59 Singapore",
+                "global_code": "6PH5CV59+59"
+            },
+            "price_level": 3,
+            "rating": 4,
+            "reference": "ChIJlXvHK9MV2jERDfpqKEaKw4U",
+            "types": [
+                "cafe",
+                "bakery",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1792
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "48 Hillview Ter, #08-00, Singapore 669269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3530326,
+                    "lng": 103.7577905
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.354220529892722,
+                        "lng": 103.7591088798927
+                    },
+                    "southwest": {
+                        "lat": 1.351520870107278,
+                        "lng": 103.7564092201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Coexist Coffee Co.",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102444384910112849399\">Phoebe Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uEDR8Y2B24-pyHUS66UV2HZ5s1D98Gh17QwigttUyNUpKK2R43-_GyYZjt2mInZ1frjwfJq3wVpFHY0S_eX-sXkvjh_StCmZ16mqvYcr3xja1kOJ0jDgOV39kn0Ub-TBF53x3-aGAChT2IiaZDptkDQ0oez-QVmmuy9IJpBeu9URQ60u",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJm1oqAV4R2jERVn_-guxQv74",
+            "plus_code": {
+                "compound_code": "9Q35+64 Singapore",
+                "global_code": "6PH59Q35+64"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJm1oqAV4R2jERVn_-guxQv74",
+            "types": [
+                "cafe",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 250
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "617 Bukit Timah Rd, Singapore 269718",
+            "geometry": {
+                "location": {
+                    "lat": 1.3244329,
+                    "lng": 103.809321
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.325830479892722,
+                        "lng": 103.8107110798927
+                    },
+                    "southwest": {
+                        "lat": 1.323130820107278,
+                        "lng": 103.8080114201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "KARA Cafe and Dessert Bar",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114417859579881743500\">Chengxiang Yuan</a>"
+                    ],
+                    "photo_reference": "Aap_uEA5PYWBUDDHcFtSFYqY4w-xjPcbkz6t_htBX7yuRPkv21D4GVWnVYlFxSQwBmQjNmj7KS7xdYf0h_eXknMzN94e0C2EJED9QmGHUIYcWfYb_xZQDNJx2guIDYAgi4udnJx0VtEonaczMTwmGaVYMc2PxfuQTBCqSoiY2Yjawg9cBGe5",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJQ16sYgga2jERd8szk2LqcGY",
+            "plus_code": {
+                "compound_code": "8RF5+QP Singapore",
+                "global_code": "6PH58RF5+QP"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJQ16sYgga2jERd8szk2LqcGY",
+            "types": [
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 521
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "177 Bukit Batok West Ave. 8, Singapore 650177",
+            "geometry": {
+                "location": {
+                    "lat": 1.346356,
+                    "lng": 103.7416359
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.347856279892722,
+                        "lng": 103.7430245298927
+                    },
+                    "southwest": {
+                        "lat": 1.345156620107278,
+                        "lng": 103.7403248701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Get Together CoffeeShop (Bukit Batok)",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108028225713545630861\">Keng Hua Chong</a>"
+                    ],
+                    "photo_reference": "Aap_uEBl9_sfDtapV2YXaUKZi38MXS5lnZf1WfbsOzIqiz-cwTUE9D5js33GW_9R9-uNFvLm4HM6qwN0avYzqYg_igDyHUjoGiVFrCzRgqLHlSK3n9_8cHoxKDvP1nf_gKNTQzKGPSN515iG-NaWazTZrW2adjcIzVoXbIXPzEELYCPcO7b9",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJu1iUD8MR2jER-UVQi0MAS0E",
+            "plus_code": {
+                "compound_code": "8PWR+GM Singapore",
+                "global_code": "6PH58PWR+GM"
+            },
+            "rating": 3.7,
+            "reference": "ChIJu1iUD8MR2jER-UVQi0MAS0E",
+            "types": [
+                "cafe",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "18, #01-33 Yishun Ave 9, Behind Shi Li Fang hotpot, Junction 9, 768897",
+            "geometry": {
+                "location": {
+                    "lat": 1.433182,
+                    "lng": 103.841643
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.434770079892722,
+                        "lng": 103.8430067298927
+                    },
+                    "southwest": {
+                        "lat": 1.432070420107278,
+                        "lng": 103.8403070701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "My Home Cafe has MOVED TO FOOD REPUBLIC, SOMERSET 313, follow our new brand for opening update @indorica",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115761862688260854938\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECw9Era5zUaOQSNvtf4PsuEhfbbSzh4YtOAp1c91T64sZrXXBXGAc0ToW9UIFFiZSg6sj_qoR4gTzeHy-yVkmYq0EtOgSafqPDGGpehSBYYvZuBm1N8VKzjfX66XG6oRj5czUkvUKXhKj0I77IIv-DZ1rAlilwp9lGCWVJYCGKluTVa",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJV-sUL1UV2jERxJxbiyHooQI",
+            "plus_code": {
+                "compound_code": "CRMR+7M Singapore",
+                "global_code": "6PH5CRMR+7M"
+            },
+            "rating": 4.9,
+            "reference": "ChIJV-sUL1UV2jERxJxbiyHooQI",
+            "types": [
+                "restaurant",
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 630
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "National University of Singapore, Shaw Foundation Alumni House, 11 Kent Ridge Dr, #119244 1st Floor",
+            "geometry": {
+                "location": {
+                    "lat": 1.2928002,
+                    "lng": 103.7735555
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.294103579892722,
+                        "lng": 103.7748610298927
+                    },
+                    "southwest": {
+                        "lat": 1.291403920107278,
+                        "lng": 103.7721613701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Reedz Cafe @ SFAH",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114626621541283044845\">Reedz Cafe\u3011</a>"
+                    ],
+                    "photo_reference": "Aap_uECdZkTIUGaRvdUUfJQad9U7R8pbULgFoJiS4MbIP5qJ1i2F17lgiu5EXc7QQLRT0pTSn2Nsa2Eo4txezLXwKOZIlNS7WxuWz2yKJ7W3L51jpuZ5qBmurhZJu4psGvlzOtMlyy_QanXjrT3pyQ36VaF_s_FJsbTVEATbipCwey5zVWPG",
+                    "width": 768
+                }
+            ],
+            "place_id": "ChIJ8bgrbP8a2jERq776ISMG8ao",
+            "plus_code": {
+                "compound_code": "7QVF+4C Singapore",
+                "global_code": "6PH57QVF+4C"
+            },
+            "rating": 4,
+            "reference": "ChIJ8bgrbP8a2jERq776ISMG8ao",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 35
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "896 Dunearn Rd, #01-11, Singapore 589472",
+            "geometry": {
+                "location": {
+                    "lat": 1.3364766,
+                    "lng": 103.7834169
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.337809979892722,
+                        "lng": 103.7847449298927
+                    },
+                    "southwest": {
+                        "lat": 1.335110320107278,
+                        "lng": 103.7820452701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "KONG CAFE",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103419561798618027861\">Phelia Chin</a>"
+                    ],
+                    "photo_reference": "Aap_uEC7egfsBdlyTjeZiIbGN_A8oHbEAkYKbYbmk63N7TbHUmCW1Ua7MpiV9ia6kCKlN4aZMeOcW4obbL9b-M61fjf8h7wL-V1prsutvWx9Ke_x8U0_Lb3YMGKI4h6OWCwGiOYJqiorN2jTkV7VjtdMuSfe8wfCovpKWKh6D5QA5V0MmVE-",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJ8wm44-UR2jERbhNEJTN-hPs",
+            "plus_code": {
+                "compound_code": "8QPM+H9 Singapore",
+                "global_code": "6PH58QPM+H9"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ8wm44-UR2jERbhNEJTN-hPs",
+            "types": [
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 287
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "54 Blair Rd, #01-01, Singapore 089954",
+            "geometry": {
+                "location": {
+                    "lat": 1.2759299,
+                    "lng": 103.8357315
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.277232629892722,
+                        "lng": 103.8371243798927
+                    },
+                    "southwest": {
+                        "lat": 1.274532970107278,
+                        "lng": 103.8344247201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Little Part 1 Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4608,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118317755259847100130\">Lee Shan Lim</a>"
+                    ],
+                    "photo_reference": "Aap_uEAYzNVzrsqxmKVvzrBBkUoFrWTwJpyunqu9cF-65oS3QPvRIEAemUU64LehW3yZeNgGLhPBP0tfmCxMTURm44BIFwsNMM5yzTOKAuSDDJKAHul-YhCrObvLRFqQh59hF2fADCGY0vBQs7l6DSsvMlaRSmDmOfvaIPd8CsXUVqOl_lTk",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJa4YZJG8Z2jERg4a_sKwmYgI",
+            "plus_code": {
+                "compound_code": "7RGP+97 Singapore",
+                "global_code": "6PH57RGP+97"
+            },
+            "price_level": 2,
+            "rating": 4.7,
+            "reference": "ChIJa4YZJG8Z2jERg4a_sKwmYgI",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 295
+        }
+    ],
+    "status": "OK"
+}

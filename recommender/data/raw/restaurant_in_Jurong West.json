@@ -1,0 +1,1030 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEAlOG77BQhZLq0pUfqrz_ZOqkEoUHzlts7Mr8bRVVGJ42MFhQthhowoM-WB82fgW9BaRwuD8D97I8lPU-80XMu3WLMLMCalSZTN7gAE5ekFNrVQla4SpLucuF7FANmHGWxbmMELeJO09Y9pocRoiTg_72ztlrOUllcPx-SHl5ylDmKLWDkyLPKe1nT-AeUbAjCszUp6trGoOQvatO2iDMO1_m_O9Wo2GvMhUQz2AXO0Ngdh1S-G6LjUsI0bqIkAw5OVABZQ9stj7byqjkRVHaQcyonOoOfkXWhpbG-bqqRtVveGOybusTDsYtzZb583g3IRqS2w5ifbazePbf4bLePEPYyv8fGqNJbwdRzBIzSX4nO2-E5IFvrZ70ZaPRoXHJQv9fmxTJS1YIGli0jZ_rixcNVHXzxp86YLPSODmCuriZZWccSLWZK_b4fK6beXzeywHswnEeCxZh0",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "333 Boon Lay Way #2B-01, 649848",
+            "geometry": {
+                "location": {
+                    "lat": 1.3350927,
+                    "lng": 103.706292
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.336458829892722,
+                        "lng": 103.7074668298927
+                    },
+                    "southwest": {
+                        "lat": 1.333759170107278,
+                        "lng": 103.7047671701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Rasa Istimewa Restaurant @ SAFRA Jurong",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1512,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115963521287434092950\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEATcz76EdZ0v0WKt3BcMGbcvd78oVoYxFWg5m6dV-CsyuF6_NpdukgQ2aolrAitDZnEVoNamWMfnliaGDjN9JtY79cg4SThhxaZ10oKRZoPrHBduMT0fUAfTZFyluHPDm3WwJXgUuQzLbD9TlF-IJlCqbyjcRxfVnMW45dJ5GIkfkD0",
+                    "width": 2016
+                }
+            ],
+            "place_id": "ChIJ6w20tYcP2jERTgGjpchB0Ng",
+            "plus_code": {
+                "compound_code": "8PP4+2G Singapore",
+                "global_code": "6PH58PP4+2G"
+            },
+            "price_level": 2,
+            "rating": 4.5,
+            "reference": "ChIJ6w20tYcP2jERTgGjpchB0Ng",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 256
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "19 Yung Ho Rd, Singapore 618592",
+            "geometry": {
+                "location": {
+                    "lat": 1.3268551,
+                    "lng": 103.7241469
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.328058679892722,
+                        "lng": 103.7254296798927
+                    },
+                    "southwest": {
+                        "lat": 1.325359020107278,
+                        "lng": 103.7227300201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Sum Kee Food",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1153,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103494338341397333265\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEALwie0aiYbVy-cDanPlDLqkvTtREwfkj1YpZwAeHal4o8WlNmr7mHBVDMnu6EcCTTSyZBjiBMYO1kkup4OY5toO13qt5dBBM0Yie8V954q2IjZ7KGMX9lD6ILA4DQ9lKWjTg1p9hHlWTMMjjPvt0MawgwLhhsU5MrfmdmcPJPq8hkp",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJRdFr8VUF2jERSgCTfRHhJvk",
+            "plus_code": {
+                "compound_code": "8PGF+PM Singapore",
+                "global_code": "6PH58PGF+PM"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJRdFr8VUF2jERSgCTfRHhJvk",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 350
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 Yuan Ching Rd, #01-02A, Singapore 618642",
+            "geometry": {
+                "location": {
+                    "lat": 1.3255659,
+                    "lng": 103.7249765
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.327009129892722,
+                        "lng": 103.7263277298927
+                    },
+                    "southwest": {
+                        "lat": 1.324309470107278,
+                        "lng": 103.7236280701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Kotobuki",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3497,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107352797420806194127\">Kotobuki Japanese</a>"
+                    ],
+                    "photo_reference": "Aap_uEBN4GzecOqJ_0EWm-Me8ia4M-j5qfy3iR0HcyH7k0S1SPpM9PdQdvKvV18N8Jh3q41XU6v7fIHevKBF3Iqd6bnrIL3jBZDYveaS2VbjBWZMMefHGSnDLnXeBTqTOVhwv-CzTsxNPsQarJJ2zZAeNprWZLPDcLRp8qdgtkMt1KSsVMJ6",
+                    "width": 5231
+                }
+            ],
+            "place_id": "ChIJaevVlVUF2jERgaorrauImrs",
+            "plus_code": {
+                "compound_code": "8PGF+6X Singapore",
+                "global_code": "6PH58PGF+6X"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJaevVlVUF2jERgaorrauImrs",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 233
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "216 Boon Lay Ave, #01-01, Singapore 640216",
+            "geometry": {
+                "location": {
+                    "lat": 1.349411,
+                    "lng": 103.7113133
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.350705429892722,
+                        "lng": 103.7126939798927
+                    },
+                    "southwest": {
+                        "lat": 1.348005770107278,
+                        "lng": 103.7099943201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Bok's Kitchen by Hidden Chefs - Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1200,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110130651238553050819\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDW3C1nS5vQJAbp0wY8jvk0uJyG957zOZ6Bmg3Ux2VwgRZgP6LQlRB7mHOoZfVKiYlCX7hrp762nbqclMfraP3mbqJHt-9r5GQH6JnYyhNmrp1LB1YR1fBFmZVjtrBSCR-orZtWcK6PcT7fy8l-J5rdl-Z9SmobZAvRHZnwOTX_X7Od",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJVVWhX8EP2jERXqNFsqQa-CI",
+            "plus_code": {
+                "compound_code": "8PX6+QG Singapore",
+                "global_code": "6PH58PX6+QG"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJVVWhX8EP2jERXqNFsqQa-CI",
+            "types": [
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 414
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "406 Jurong West Street 42, Singapore 640406",
+            "geometry": {
+                "location": {
+                    "lat": 1.354291,
+                    "lng": 103.7227623
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.355545629892722,
+                        "lng": 103.7241759798927
+                    },
+                    "southwest": {
+                        "lat": 1.352845970107278,
+                        "lng": 103.7214763201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "81 Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1200,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100178836333366849641\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDqn7epTH0m9Zi7wJqjVGTegVrs-cEQuVZVoq1ADgyAQ04KE6fxP9EonMbImdH9OioGh5QH9nzyL_1ImxH0iYzin2PJp64yCBVa3HIB0LDR9PVvTLeEZVcUjf-eOpTwbmo7UMPohslr0A1mXqR9r7_eKQxw_n8slcui_aCSWkjrCHu5",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJR19GINoP2jERIVvcAXcatpg",
+            "plus_code": {
+                "compound_code": "9P3F+P4 Singapore",
+                "global_code": "6PH59P3F+P4"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJR19GINoP2jERIVvcAXcatpg",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 263
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "511 Upper Jurong Rd, Singapore 638366",
+            "geometry": {
+                "location": {
+                    "lat": 1.3295008,
+                    "lng": 103.683201
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.330930179892722,
+                        "lng": 103.6845461798927
+                    },
+                    "southwest": {
+                        "lat": 1.328230520107278,
+                        "lng": 103.6818465201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "TungLok Seafood",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112381690059213255312\">alvin.khoo@alumni.nus.edu.sg</a>"
+                    ],
+                    "photo_reference": "Aap_uECjonzTDh4C3bEeSGcuo8n22Ybkl9nQliFEv9gVjY3aAF9AacwsZsbwllE7FGfXEaGGEitJ7c3CIA4TI7KhSrfdYNmfqXE-MTlX-nkiLWoJ6IsqU2azhNpnJtDWyXckqNXd0BAeMCK8FsA4fsII_InFXZUmD6RidjCukNAx7ffOcb5U",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJzX8R020Q2jER0zdPF20KjmM",
+            "plus_code": {
+                "compound_code": "8MHM+R7 Singapore",
+                "global_code": "6PH58MHM+R7"
+            },
+            "price_level": 3,
+            "rating": 4,
+            "reference": "ChIJzX8R020Q2jER0zdPF20KjmM",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 834
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "63 Jurong West Central 3, B1 - 62 / 63, Singapore 648331",
+            "geometry": {
+                "location": {
+                    "lat": 1.3388699,
+                    "lng": 103.7054893
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.340009879892722,
+                        "lng": 103.7063590798927
+                    },
+                    "southwest": {
+                        "lat": 1.337310220107278,
+                        "lng": 103.7036594201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Pepper Lunch",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118430873399253327796\">Gladys Lam</a>"
+                    ],
+                    "photo_reference": "Aap_uECnudv_HHi3m0NdwPtoLMxovweZAlsxPiT9hQdCSRXg-RSSwaUJ8oLK5w7pWaWYPH9p3jUo1H1dGdH9UDTBGSzayrp68nGEm1GgFVkGoUjQnmAOtxcdJmLsFY4UGFNPRlPTqwSKWpW6NuBH7EjA-LQ7JnJc75Gk_sAN8syY_6HPtAlh",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJuQ0K1ZIP2jERfgiBcSRWHoM",
+            "plus_code": {
+                "compound_code": "8PQ4+G5 Singapore",
+                "global_code": "6PH58PQ4+G5"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJuQ0K1ZIP2jERfgiBcSRWHoM",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 203
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "990 Jurong West Street 93, #01-01, Singapore 640990",
+            "geometry": {
+                "location": {
+                    "lat": 1.3352158,
+                    "lng": 103.6957415
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.336523179892722,
+                        "lng": 103.6970970798927
+                    },
+                    "southwest": {
+                        "lat": 1.333823520107278,
+                        "lng": 103.6943974201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "KNS Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113008446164349351795\">seancxm</a>"
+                    ],
+                    "photo_reference": "Aap_uEC2T9Hc-qLPp8VN834zmQ90I_98MQwC6XJAIIrLBuVWRE4htaPnyhWNLL6b7V7SULG1Mzt1crU8vyTgVnS6WufIWpbNbO6K96xtdc9dx4LjQjPLLS0a1iliVcQOHahzIyRvNnu90tFj5QyQV20iWFDNjxBYsGmzigjeCG3xP8RF8F5_",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJgbsEHOsP2jERI7yaT9xZU_Y",
+            "plus_code": {
+                "compound_code": "8MPW+37 Singapore",
+                "global_code": "6PH58MPW+37"
+            },
+            "price_level": 2,
+            "rating": 3.7,
+            "reference": "ChIJgbsEHOsP2jERI7yaT9xZU_Y",
+            "types": [
+                "cafe",
+                "food",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 374
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "63 Jurong West Central 3, floor 2, #2 Shopping Center, Jurong Point, Singapore 648331",
+            "geometry": {
+                "location": {
+                    "lat": 1.3399633,
+                    "lng": 103.7059531
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.341581979892722,
+                        "lng": 103.7074349798927
+                    },
+                    "southwest": {
+                        "lat": 1.338882320107278,
+                        "lng": 103.7047353201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Legendary Hong Kong Restaurant \u6e2f\u98f2\u6e2f\u98df\u9910\u5ef3",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101135338517333595967\">Ivan Lee</a>"
+                    ],
+                    "photo_reference": "Aap_uEC1jyiELc_uqAAKssiXLC_Br-gzaoitiH4j0nGhGAI32TZwi002oESrsh4xjL_XLPujaIeLZ791V-qzATz21M9MhMMHICE-H2PKBGVELT0nCPWBKYZqf174tgAq2Xa1s_lunrXcpJ18hZMlivdSnbumzASslR429X3U7t_J-nbHjbvi",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJHcaYLpMP2jERjhDMRZ9A7-k",
+            "plus_code": {
+                "compound_code": "8PQ4+X9 Singapore",
+                "global_code": "6PH58PQ4+X9"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJHcaYLpMP2jERjhDMRZ9A7-k",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1241
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "346 Jurong East Street 31, #01-73 Yuhua Place, Singapore 600346",
+            "geometry": {
+                "location": {
+                    "lat": 1.345477,
+                    "lng": 103.7304073
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.346732379892722,
+                        "lng": 103.7319837798927
+                    },
+                    "southwest": {
+                        "lat": 1.344032720107278,
+                        "lng": 103.7292841201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "KNS Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1368,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104554577922776688628\">nISHA Shaik</a>"
+                    ],
+                    "photo_reference": "Aap_uEA8jH6JvBza7rEyr6up0YzK1JdLtJlXcYjPLzx6YjMicAbNgiBH_bG1pk8BwiqfFUgaoqht4e7R0fS8WZDVOmosFYuUjhVJfVW2P3MT1XYGFRqvL2eWBca7oPf_hvlspZtVap53wRaCVfCM4vYkXS6mnKm0w7OCL5wy8-2qIxevanAo",
+                    "width": 1853
+                }
+            ],
+            "place_id": "ChIJayQQ_q8R2jERLJbAEjVYqk0",
+            "plus_code": {
+                "compound_code": "8PWJ+57 Singapore",
+                "global_code": "6PH58PWJ+57"
+            },
+            "rating": 3,
+            "reference": "ChIJayQQ_q8R2jERLJbAEjVYqk0",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 61
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Venture Dr, #02-47 Vision Exchange, Singapore 608526",
+            "geometry": {
+                "location": {
+                    "lat": 1.3304632,
+                    "lng": 103.7442932
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.331677079892722,
+                        "lng": 103.7454839798927
+                    },
+                    "southwest": {
+                        "lat": 1.328977420107278,
+                        "lng": 103.7427843201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Signature Restaurant & Bar - Best Briyani and Grill chicken",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 768,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107236965985567125386\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEA3ooNEsfhtwx12JxUGm8_X5MjlLEXvNVNBJRwm1O15cSYmfTw4YpM9y17tcnVwMVXP0j1zvF-rxKmofRbf6-CvPz_02orHLQgpyVKtrmNSL5Qk_7Co9j_KRv3ufMpS6wmy36zSGK8S0LZZ2UU0d8TzuYcKw8jPS_nATEJlzQczrA7o",
+                    "width": 1024
+                }
+            ],
+            "place_id": "ChIJKVSNn4sR2jERjznHMmMyMAQ",
+            "plus_code": {
+                "compound_code": "8PJV+5P Singapore",
+                "global_code": "6PH58PJV+5P"
+            },
+            "rating": 4.2,
+            "reference": "ChIJKVSNn4sR2jERjznHMmMyMAQ",
+            "types": [
+                "bar",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 45
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Venture Dr, \uff0301-25/26 Vision Exchange, Singapore 608526",
+            "geometry": {
+                "location": {
+                    "lat": 1.3302031,
+                    "lng": 103.744657
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.331373529892722,
+                        "lng": 103.7458741798927
+                    },
+                    "southwest": {
+                        "lat": 1.328673870107278,
+                        "lng": 103.7431745201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Yan Lai Ju (\u5bb4\u6765\u5c45)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2736,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118032994808924376917\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEA0aXBza0DJTdKbQCm6ufwl1Zq94E-cpZvpeEdU7MaW7A6QRRsJSnriJlOk_QZFBbNTKeVZFASNYZrXLxYSejmaJcleK01OQEjaKiJcmmwS1nP75zeo2u40svZA1PauanFg1b8nJlH7ehLAqpD7qxSChmgDW3ZdTy4eQYvQ4N_2_i4I",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJjW1M7uUR2jER-aP_xmocHUc",
+            "plus_code": {
+                "compound_code": "8PJV+3V Singapore",
+                "global_code": "6PH58PJV+3V"
+            },
+            "rating": 3.8,
+            "reference": "ChIJjW1M7uUR2jER-aP_xmocHUc",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 57
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Venture Dr, #01-44 Vision Exchange, Singapore 608526",
+            "geometry": {
+                "location": {
+                    "lat": 1.3303986,
+                    "lng": 103.7443698
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.331585479892722,
+                        "lng": 103.7456123298927
+                    },
+                    "southwest": {
+                        "lat": 1.328885820107278,
+                        "lng": 103.7429126701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Anjana Kitchen - Best Indian Restaurant Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1440,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117039931714840637183\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBJuuxHHBWOkZqH6Iq-ls0i8R5dzXF0IA-rs78NTV9l91jJDvJiNzCv1adJ-OVO78r8vRhYBw22e81LhWLBISc5L7oZi1lRooLvvduB7fuTgv0sfqoA6_JO8QI3U7yLrs_kqQ5Y7gSW5IYJuuAmFlPcXmRywwRCyKNp_Qw2yWkPryIc",
+                    "width": 1440
+                }
+            ],
+            "place_id": "ChIJK8VtOZQR2jERbQ5O6garqPc",
+            "plus_code": {
+                "compound_code": "8PJV+5P Singapore",
+                "global_code": "6PH58PJV+5P"
+            },
+            "rating": 4.4,
+            "reference": "ChIJK8VtOZQR2jERbQ5O6garqPc",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 667
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "508 Jurong West Street 52, Singapore 640508",
+            "geometry": {
+                "location": {
+                    "lat": 1.3487191,
+                    "lng": 103.7187866
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.349985579892722,
+                        "lng": 103.7201068798927
+                    },
+                    "southwest": {
+                        "lat": 1.347285920107278,
+                        "lng": 103.7174072201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Ayza\u2019s Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2719,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106014810448030874459\">moose</a>"
+                    ],
+                    "photo_reference": "Aap_uEBhH-JXCipzPCgRGEBzwu_3-XvTLx_YMUqAHLcIMjkujEeG3mYBy02j7cBLDxonqu6ynlSaAN9q0OLfRnFV0sKj3_GGf5HgrtVQJTMJMkQ_btUFEkG8CwhsBcccHGszmT0ZDUAVyPtXAGsfh2zfcpC1s8Cvl6Yq5n1OxF5q62PYO2yH",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJIWql3dwP2jER2Vofb-ef4Y8",
+            "plus_code": {
+                "compound_code": "8PX9+FG Singapore",
+                "global_code": "6PH58PX9+FG"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJIWql3dwP2jER2Vofb-ef4Y8",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2089
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Jurong West Central 2, #02-24/K5 Jurong Point, Singapore 648886",
+            "geometry": {
+                "location": {
+                    "lat": 1.3399361,
+                    "lng": 103.7071702
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.341576779892722,
+                        "lng": 103.7080990298927
+                    },
+                    "southwest": {
+                        "lat": 1.338877120107278,
+                        "lng": 103.7053993701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Brio",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115615589102659578379\">Benson Kong</a>"
+                    ],
+                    "photo_reference": "Aap_uEDu7NhmBFohs2mNOAj3s7aCXLExolnOSWJvyhBGdxFIE7E5mbljz8jgK3GBC_8M7pvwjfuRDBEy3dswaVpsHTps4HZ7BI0mcRfh4NFOuBYRP6MFnHj9APb5RgFgWCc95oPU9_VN6YaTKcrudAyVBLxpZ-0j5IrcD2L6JIPxDNuG1SCN",
+                    "width": 5120
+                }
+            ],
+            "place_id": "ChIJxblKLZMP2jERj9R0TfxXNyA",
+            "plus_code": {
+                "compound_code": "8PQ4+XV Singapore",
+                "global_code": "6PH58PQ4+XV"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJxblKLZMP2jERj9R0TfxXNyA",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 454
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "01-113 Jurong East Street 21, Singapore 609606",
+            "geometry": {
+                "location": {
+                    "lat": 1.333841,
+                    "lng": 103.7452086
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.335318029892722,
+                        "lng": 103.7466600798927
+                    },
+                    "southwest": {
+                        "lat": 1.332618370107278,
+                        "lng": 103.7439604201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Ajisen",
+            "permanently_closed": true,
+            "place_id": "ChIJ____iw4Q2jEReH8spQXB8Eo",
+            "rating": 0,
+            "reference": "ChIJ____iw4Q2jEReH8spQXB8Eo",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "KidsSTOP 21, Jurong Town Hall Rd, Omni theatre building, 609433",
+            "geometry": {
+                "location": {
+                    "lat": 1.334501,
+                    "lng": 103.735502
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.335922379892722,
+                        "lng": 103.7369337298927
+                    },
+                    "southwest": {
+                        "lat": 1.333222720107278,
+                        "lng": 103.7342340701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Phoenix Indian Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104810934876640858346\">vuppala gopinath</a>"
+                    ],
+                    "photo_reference": "Aap_uEBUf1_Sh24LFO-90m7eR_yz8iLNPJU9kYVkxmelr0E7ZoxDBw8pLLy5v2h6C7WkX8gz876oBhpXKZGHMpFisgIfAL1jEcPALa89ryUZe3O7NA50JFXYZyD821dvPbLSQaF2tJe-xQNHDFaNZFmZDsEd9iYNFt2mPkZh4q6AeMlTkW9B",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJ-d2VabkR2jERYQ1K_MKnO1M",
+            "plus_code": {
+                "compound_code": "8PMP+R6 Singapore",
+                "global_code": "6PH58PMP+R6"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJ-d2VabkR2jERYQ1K_MKnO1M",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 458
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "102 Yuan Ching Rd, Singapore 618663",
+            "geometry": {
+                "location": {
+                    "lat": 1.3408718,
+                    "lng": 103.7249832
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.342221629892722,
+                        "lng": 103.7263330298927
+                    },
+                    "southwest": {
+                        "lat": 1.339521970107278,
+                        "lng": 103.7236333701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Fusion Spoon",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3072,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107075352841997617568\">Chong Chen Tan</a>"
+                    ],
+                    "photo_reference": "Aap_uEDRDol3nPwuzmjjnIwIful0_Ekl0LmuqY2chEWyIgpY87ZBjSk1YPsFOGmxEoyEYZ1mNupzPxmETUrku3enSiE23cu2rsVig-CMI-ru2We0n_20HawAohpM9Nn8vaEImb7oBNPdTGzTNvkxb4H1-gCHV9Sch7sJnvwvc03F1YR_CHeH",
+                    "width": 4096
+                }
+            ],
+            "place_id": "ChIJZVRiphwP2jER6m_Zma-V8rI",
+            "plus_code": {
+                "compound_code": "8PRF+8X Singapore",
+                "global_code": "6PH58PRF+8X"
+            },
+            "price_level": 2,
+            "rating": 3.5,
+            "reference": "ChIJZVRiphwP2jER6m_Zma-V8rI",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 455
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 Gateway Dr, #01-04, Singapore 608532",
+            "geometry": {
+                "location": {
+                    "lat": 1.3336757,
+                    "lng": 103.7425569
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.335459279892722,
+                        "lng": 103.7436930798927
+                    },
+                    "southwest": {
+                        "lat": 1.332759620107278,
+                        "lng": 103.7409934201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Brotzeit German Beer Bar and Restaurant - WestGate",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5412,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103177552583895612596\">Brotzeit Pte Ltd</a>"
+                    ],
+                    "photo_reference": "Aap_uEBUwmEFYXMUiWQXQHwH9ObpJfrB8nTxT43xyMgo-pt8qIxoq-LsC-DOCDaTt3-XBVZZIOyyuItWVLkNOos-rvI0dsn5JUX3JCPNHkLA7yyt0AfMDMfr8LaynhUO1lQt6J38tZrkZiqcmZf2obvHxs1t8nSzjggVJPa57h1_SKIT0eDC",
+                    "width": 7216
+                }
+            ],
+            "place_id": "ChIJHQALBw8Q2jERTRbxK3smjw0",
+            "plus_code": {
+                "compound_code": "8PMV+F2 Singapore",
+                "global_code": "6PH58PMV+F2"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJHQALBw8Q2jERTRbxK3smjw0",
+            "types": [
+                "bar",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1308
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Science Centre Rd, #01-23, Singapore 609079",
+            "geometry": {
+                "location": {
+                    "lat": 1.3308813,
+                    "lng": 103.7382424
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.332011979892722,
+                        "lng": 103.7395851298927
+                    },
+                    "southwest": {
+                        "lat": 1.329312320107278,
+                        "lng": 103.7368854701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Legacy Seafood \u6a2a\u884c\u516b\u9053\u6d77\u9c9c",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116622695159630610933\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAu6DKQ2DKAyw6Wf1whEDQZbuE7WG_Mwk9wwoV9DqEqGNbGbWjkvy40dPiyPTgmz5OvDIXVVpNC4MaCqzAimVDFFKADK4lQ91P3D_jNJafraXLpDZ0qfwHfOIP-Ha0NMIJS8739wFyOgw3tOaEjMX4XO1YI9CFGd_Gektsua9Rrlw_X",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJz3ZopugR2jERvfyMdix42Dg",
+            "plus_code": {
+                "compound_code": "8PJQ+97 Singapore",
+                "global_code": "6PH58PJQ+97"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJz3ZopugR2jERvfyMdix42Dg",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 219
+        }
+    ],
+    "status": "OK"
+}

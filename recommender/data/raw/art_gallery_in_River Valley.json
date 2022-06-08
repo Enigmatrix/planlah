@@ -1,0 +1,970 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEC_HTARyugAiIMb8t9Ft5CW8d9iRaK26tEmarZ8nkyR3LvpS-0XAzCxCVdz90VI5eUIR5Ha5H9vb9eQYhQpERG52IyDcMWeQkYSDN2VIZQjFmGkADd6QNLqYOCW6y2m4tdLk402hYDJPwEFVR9kDoj4_Viby6nYVqkPJTijdYnFF894C51a6U86xpsi4nnUqtMc8Tpa0RoripxbC5-hDdAdTXshRS_9wA0QyRG8cDc18wEZD5lmm-c1VeKG_vUMomqh7GKWMcFpfRi5_JfIgmO0L9hn5yFTL8eCrw2PHjjNr5XDP3gWYuLcO1EInw60l7x69uHa46ITkDVgqqfMUppGDTTubuCOY4Y3djkXU47VMbRyAOU4Cn12mzj1N5_s40Tms5cvJ4O9p38XuDSEA3hY1fkRmmQiWrHX91L0Vet4swtZVhjCAnieOzVHl5suSy5u2LRk5TWAxyu1Vg",
+    "results": [
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "9 Muthuraman Chetty Rd, Singapore 238931",
+            "geometry": {
+                "location": {
+                    "lat": 1.2924695,
+                    "lng": 103.8376221
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293766679892722,
+                        "lng": 103.8390477298927
+                    },
+                    "southwest": {
+                        "lat": 1.291067020107278,
+                        "lng": 103.8363480701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Miaja Gallery",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103783208133526354353\">Shining Peh</a>"
+                    ],
+                    "photo_reference": "Aap_uEDkLrrJdbMTPUeb84qNhN-6D_qXMtEYJy76ou_mpkMEx4qj5fm1Y6CsgiMooofJnsvnMjbldaimd4LY29KMFCW3Vb0fJF7X0p3uehtBjlLLnGPvBLD_Cvm0vJSxDcrJceLVTZ3-RKsIspmhwM1LevIpLk7VabwCtr-J5AlQyqyq9aEc",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJDTphNUAZ2jERKYEDjyOZNok",
+            "plus_code": {
+                "compound_code": "7RRQ+X2 Singapore",
+                "global_code": "6PH57RRQ+X2"
+            },
+            "rating": 4.7,
+            "reference": "ChIJDTphNUAZ2jERKYEDjyOZNok",
+            "types": [
+                "art_gallery",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 12
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "9 Muthuraman Chetty Rd, Building, Level 4 APS, Singapore 238931",
+            "geometry": {
+                "location": {
+                    "lat": 1.2925426,
+                    "lng": 103.8375941
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.293821979892722,
+                        "lng": 103.8390466298927
+                    },
+                    "southwest": {
+                        "lat": 1.291122320107278,
+                        "lng": 103.8363469701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Miaja Art Collections",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 472,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108255014044049497857\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEC8QIHTzux4BGuuwra-OVNC3NdVNKwdM2ssjU4VWpPUAssvLmumYYoKgKo-87UoakJb5pXTTMo0-GGgQHn2q3vjhPx2L2SgwRkPFJ0-rnS-R-o54l5nGAaW6j00K2CSB9zzPsBOgCr6bVEF-2C-4B2dwvXcAa177OuqIzi3WicNG9Yu",
+                    "width": 630
+                }
+            ],
+            "place_id": "ChIJBdwt1fAZ2jERbU-gH0s2acM",
+            "plus_code": {
+                "compound_code": "7RVQ+22 Singapore",
+                "global_code": "6PH57RVQ+22"
+            },
+            "rating": 0,
+            "reference": "ChIJBdwt1fAZ2jERbU-gH0s2acM",
+            "types": [
+                "art_gallery",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 St Andrew's Rd, #01 \u2013 01, Singapore 178957",
+            "geometry": {
+                "location": {
+                    "lat": 1.2902217,
+                    "lng": 103.8515167
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2920437,
+                        "lng": 103.8528691298927
+                    },
+                    "southwest": {
+                        "lat": 1.2885221,
+                        "lng": 103.8501694701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "National Gallery Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1347,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100629515701423718340\">L Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uECKKWk9qvbULjuozawmSwBrvH1HUTQohsDEkBJNbf2wk1u4UdAReg7D8AsQLh1SqpmbezqC1W3eOMmDBpruoqIOWBYsB5MGpmiObW-AqFM65H5dGkZ7IQ-BkCGtR7Frr8vcxMWOV0QNxqi3sD27GVaVkJwy7xXglblk8lz8bEs-SFno",
+                    "width": 2394
+                }
+            ],
+            "place_id": "ChIJFQzeR6cZ2jERgM6--iWeY-U",
+            "plus_code": {
+                "compound_code": "7VR2+3J Singapore",
+                "global_code": "6PH57VR2+3J"
+            },
+            "rating": 4.6,
+            "reference": "ChIJFQzeR6cZ2jERgM6--iWeY-U",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10941
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "34B N Canal Rd, Singapore 059290",
+            "geometry": {
+                "location": {
+                    "lat": 1.2869755,
+                    "lng": 103.8472961
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.288237629892722,
+                        "lng": 103.8486003298927
+                    },
+                    "southwest": {
+                        "lat": 1.285537970107278,
+                        "lng": 103.8459006701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Eagle's Eye Art Gallery",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113740521769617749347\">Eagle&#39;s Eye Art Gallery</a>"
+                    ],
+                    "photo_reference": "Aap_uEB0U4SNSfUaAoGGNEOn15he7zAP_Om_iD9jCg_9pzGwvmBsmUsyrbb2iCECpENiO8x_gH85Pd8gM9tsVdpbtEj5mvHVBK8z_9sQKnwUARnSrJe2iwLYPLJgDYIqYlH8Qpod3xzaQ5hzvXgZ2K5rjXui7TlfPYhKsWZN9hPkxYHF18nP",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJ60T6A6QZ2jERlsgZRqLIpHM",
+            "plus_code": {
+                "compound_code": "7RPW+QW Singapore",
+                "global_code": "6PH57RPW+QW"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ60T6A6QZ2jERlsgZRqLIpHM",
+            "types": [
+                "art_gallery",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 16
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Boat Quay",
+            "geometry": {
+                "location": {
+                    "lat": 1.2861755,
+                    "lng": 103.852484
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287528579892722,
+                        "lng": 103.8539111298927
+                    },
+                    "southwest": {
+                        "lat": 1.284828920107278,
+                        "lng": 103.8512114701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "The River Merchants",
+            "photos": [
+                {
+                    "height": 1152,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118055786098679796869\">Farano</a>"
+                    ],
+                    "photo_reference": "Aap_uEBg70XZuKv8AoJeB4BCKHch9DXoJYoEnWVnJYuBY3vEFSRyfTsgq8WkdmkhY-r7uf92HkMBmzqm3rTsZWtAxPBPg3Tn64uXlTRfEvUYXJ7puaxTsFlyf9p06ITWkPJ48RfKcgReJE0B9W_sil0xaG3Sa4fGLpZHi5rMrhp2JeY4LgD5",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJG0skUX0Z2jER5LKhrR1cAAM",
+            "plus_code": {
+                "compound_code": "7VP2+FX Singapore",
+                "global_code": "6PH57VP2+FX"
+            },
+            "rating": 4.7,
+            "reference": "ChIJG0skUX0Z2jER5LKhrR1cAAM",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 River Valley Rd, Singapore 179024",
+            "geometry": {
+                "location": {
+                    "lat": 1.2906024,
+                    "lng": 103.8464742
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.292177829892722,
+                        "lng": 103.8477626798927
+                    },
+                    "southwest": {
+                        "lat": 1.289478170107278,
+                        "lng": 103.8450630201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Clarke Quay",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110322417305771163637\">Jonathan Koh</a>"
+                    ],
+                    "photo_reference": "Aap_uEDl16atBfrtjssYQGPekzaOZOYhb0OwU91LX9GsRMSy4EVdlDw7eJHI_HSHLXc0rhPOmkVcmcGVQEWmpULwwQmr4KjQfG9Gp-_FfrrU7HWqP9Octf_HMn1Oky-GMYneWMEuoTsKqALL4vOzO9fraYnNB3PeJzt_SokAXPCOsv43uMiQ",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJnXwAOKAZ2jERAs-MHs1aDgI",
+            "plus_code": {
+                "compound_code": "7RRW+6H Singapore",
+                "global_code": "6PH57RRW+6H"
+            },
+            "rating": 4.5,
+            "reference": "ChIJnXwAOKAZ2jERAs-MHs1aDgI",
+            "types": [
+                "shopping_mall",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 35240
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "76 Bras Basah Rd, #01-01, Singapore 189558",
+            "geometry": {
+                "location": {
+                    "lat": 1.2962455,
+                    "lng": 103.8524862
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.297654679892722,
+                        "lng": 103.8537731798927
+                    },
+                    "southwest": {
+                        "lat": 1.294955020107278,
+                        "lng": 103.8510735201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "artcommune gallery",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4128,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116495992746370870847\">cse1217</a>"
+                    ],
+                    "photo_reference": "Aap_uEBDq_RarJTtTnXVLRBHUiHol3x0pzDI5_2TX0kXyXb5x_BBsIPVoFXbTWNHnS4gGEcGwNfr8xVLsdnLyVavOvS8n4slHWNRfTpDcxpdlj6y6Nyxk08vV4Wn4WPtkhf6AQNolLQoIgRUySyiHRqGMiwMmTxkZ6wIbwIuYM-ApjcXYSME",
+                    "width": 3096
+                }
+            ],
+            "place_id": "ChIJFy2pynQZ2jERfSLhGgEdrRY",
+            "plus_code": {
+                "compound_code": "7VW2+FX Singapore",
+                "global_code": "6PH57VW2+FX"
+            },
+            "rating": 4.3,
+            "reference": "ChIJFy2pynQZ2jERfSLhGgEdrRY",
+            "types": [
+                "art_gallery",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 17
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "252 North Bridge Rd, #01-36E F, Raffles City Shopping Centre, Singapore 179103",
+            "geometry": {
+                "location": {
+                    "lat": 1.293672,
+                    "lng": 103.8537798
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.295284729892722,
+                        "lng": 103.8551677798927
+                    },
+                    "southwest": {
+                        "lat": 1.292585070107278,
+                        "lng": 103.8524681201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Ode To Art",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3379,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116727629686944677154\">Ode To Art</a>"
+                    ],
+                    "photo_reference": "Aap_uEDvYX5XXaq8wBcwrxjryBXRMQ119EhHDAKEO3qO09rOoWWajGVw-Hnfw9WdqJvJFDpAWxoFCyxW1cWJz7CN9AEdqTlMGXNoDvKsqcfNJkgxMaDB9ZwUUI5bGAeTrORcfTO2CoS9fuR4N1ZB9utvVNhJlirapRq1XT0TC_obEwhUBJcL",
+                    "width": 5076
+                }
+            ],
+            "place_id": "ChIJ3c9SiQYZ2jERWpVhrdJGeTc",
+            "plus_code": {
+                "compound_code": "7VV3+FG Singapore",
+                "global_code": "6PH57VV3+FG"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ3c9SiQYZ2jERWpVhrdJGeTc",
+            "types": [
+                "art_gallery",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 130
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "231 Bain St, #03-17, Singapore 180231",
+            "geometry": {
+                "location": {
+                    "lat": 1.2968471,
+                    "lng": 103.8535281
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.298380129892722,
+                        "lng": 103.8550296798927
+                    },
+                    "southwest": {
+                        "lat": 1.295680470107278,
+                        "lng": 103.8523300201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Cape of Good Hope Art Gallery",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2244,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107770561341056531932\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEANvuugnY-xm85sO2k8CX6aHekE1ituywa37QQDdq-KXliykHti_9LtM_KY4tgC7ws3Ihv3Ca9jdpFPN1zlVNSR6po5QDpNVqyQeEoMuzUPsJFhZZ8QeoljCvJAfIPSjl3W73pppM7M9EVdjtbCvWCKxd9pESO05Iimn3u7c0wGnBZr",
+                    "width": 3020
+                }
+            ],
+            "place_id": "ChIJNY7e-qAZ2jER7gZ6KQpZXkc",
+            "plus_code": {
+                "compound_code": "7VW3+PC Singapore",
+                "global_code": "6PH57VW3+PC"
+            },
+            "rating": 5,
+            "reference": "ChIJNY7e-qAZ2jER7gZ6KQpZXkc",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "CLARK QUAY, JETTY, Singapore 058282",
+            "geometry": {
+                "location": {
+                    "lat": 1.2905603,
+                    "lng": 103.8461169
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291910129892722,
+                        "lng": 103.8474667298927
+                    },
+                    "southwest": {
+                        "lat": 1.289210470107278,
+                        "lng": 103.8447670701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Singapore River Cruise",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102475647737628661574\">Dolly Sheth</a>"
+                    ],
+                    "photo_reference": "Aap_uEAWIXTyUU9YQ9_-gGsPHcLxhToceRwU7ZcjSlklc7Or_Mbgqq7Q_MAqXcnhZb_a-VPdNY38y7v9vhNRRylBrdZ1ikS35WLc4kY4gAdoLvQLNmXwPGolxkKvDFCKJd-v250GoT0PjWDbbMOXsw-s4hqoEWLpIAVxjlj1JMK2bAoKClFp",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJIyHR_58Z2jERGs8ou1UQWKg",
+            "plus_code": {
+                "compound_code": "7RRW+6C Singapore",
+                "global_code": "6PH57RRW+6C"
+            },
+            "rating": 4.4,
+            "reference": "ChIJIyHR_58Z2jERGs8ou1UQWKg",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 645
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 Simei Street 6, Singapore 528833",
+            "geometry": {
+                "location": {
+                    "lat": 1.3425777,
+                    "lng": 103.9530522
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.343832779892722,
+                        "lng": 103.9543000298927
+                    },
+                    "southwest": {
+                        "lat": 1.341133120107278,
+                        "lng": 103.9516003701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Singapore River Arts Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "place_id": "ChIJlwUvTCI92jER1tr8LPlMgGA",
+            "plus_code": {
+                "compound_code": "8XV3+26 Singapore",
+                "global_code": "6PH58XV3+26"
+            },
+            "rating": 4,
+            "reference": "ChIJlwUvTCI92jER1tr8LPlMgGA",
+            "types": [
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "58 South Bridge Rd, Singapore 058689",
+            "geometry": {
+                "location": {
+                    "lat": 1.2875917,
+                    "lng": 103.8480629
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.288944879892722,
+                        "lng": 103.8494073298927
+                    },
+                    "southwest": {
+                        "lat": 1.286245220107278,
+                        "lng": 103.8467076701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Hotel Clover The Arts",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2208,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107512259744876276499\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAUrYUn6MlQCvdJRZv86-CpJnXi1xTRqAdslwp1CfDx8t03cnra_12M8pGV7o757eJ2Vgupfl2hLcxM9WCQzOwqhUGk_73UsU86VJbQcUtFve3t_JKnUkzPhxnQJxdIgUafL5ngdA93y1L8gxiTUSnarQUMjJGeeoxZgH-POg3OK_yS",
+                    "width": 3928
+                }
+            ],
+            "place_id": "ChIJpRNRWgoZ2jERBJQ6xOXF8RE",
+            "plus_code": {
+                "compound_code": "7RQX+26 Singapore",
+                "global_code": "6PH57RQX+26"
+            },
+            "rating": 3.8,
+            "reference": "ChIJpRNRWgoZ2jERBJQ6xOXF8RE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 222
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3A River Valley Rd, #02-04 Block A, Singapore 179020",
+            "geometry": {
+                "location": {
+                    "lat": 1.289583,
+                    "lng": 103.8450571
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291013379892722,
+                        "lng": 103.8464458798927
+                    },
+                    "southwest": {
+                        "lat": 1.288313720107278,
+                        "lng": 103.8437462201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+            "name": "Level Up",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1066,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101973374156116569898\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDDUgLG8VKcrtP-DWxb2PfhomslgPOofe5vYN0QU0saB1O1xtPy_cMdOVcV02EnfnC7K7-UDmAoI19NUzI2UHOKpcLRQEjLkwfwWwvjdNRzNMV8c38pya6JlZwpEwYJec-rrB4_Dq-0IHuanVPD7sXajMnsdkX8Y-oaRgOCCGOSa3Uk",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJmQ9nIKAZ2jERNjKLlBcUxKU",
+            "plus_code": {
+                "compound_code": "7RQW+R2 Singapore",
+                "global_code": "6PH57RQW+R2"
+            },
+            "price_level": 3,
+            "rating": 4.1,
+            "reference": "ChIJmQ9nIKAZ2jERNjKLlBcUxKU",
+            "types": [
+                "bar",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 722
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "26, #02-120 Sin Ming Ln, Midview City, 573971",
+            "geometry": {
+                "location": {
+                    "lat": 1.3594512,
+                    "lng": 103.8338662
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.360174979892722,
+                        "lng": 103.8347948798927
+                    },
+                    "southwest": {
+                        "lat": 1.357475320107278,
+                        "lng": 103.8320952201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "ArtBeatz Pte Ltd",
+            "opening_hours": {
+                "open_now": false
+            },
+            "place_id": "ChIJ2dqjByYX2jER0-wbvT8EL1M",
+            "plus_code": {
+                "compound_code": "9R5M+QG Singapore",
+                "global_code": "6PH59R5M+QG"
+            },
+            "rating": 1,
+            "reference": "ChIJ2dqjByYX2jER0-wbvT8EL1M",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3D River Valley Rd, #03-01 Block D, Singapore 179023",
+            "geometry": {
+                "location": {
+                    "lat": 1.2900039,
+                    "lng": 103.8458805
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291829079892722,
+                        "lng": 103.8475475298927
+                    },
+                    "southwest": {
+                        "lat": 1.289129420107278,
+                        "lng": 103.8448478701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "HUONE Singapore | Meeting and Event Venue",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4912,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114913228098567007649\">Huone Events Hotel Singapore</a>"
+                    ],
+                    "photo_reference": "Aap_uECt6jywY8LRkxuFPzpdYBEn8-V9vPDWJOOZqflY9DC9N_HlELELlyAwMmzkezUtvDsLkeiylTUjcwr1PhpiPFFZhseK7Q__zkWSE6l2ip4ewIE77k4TE2Tn5DGgYXOR037_E1XJmnE8rfzYtL69mcW1gNBN1fKrolzq0u3zXAxRsEYV",
+                    "width": 6609
+                }
+            ],
+            "place_id": "ChIJ67OZEKAZ2jERCSc9_zgc4AM",
+            "plus_code": {
+                "compound_code": "7RRW+29 Singapore",
+                "global_code": "6PH57RRW+29"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ67OZEKAZ2jERCSc9_zgc4AM",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 118
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "12 Eu Tong Sen Street, #05-162, The Central, SOHO 2, 059819",
+            "geometry": {
+                "location": {
+                    "lat": 1.2883139,
+                    "lng": 103.8463899
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.289662929892722,
+                        "lng": 103.8477390298927
+                    },
+                    "southwest": {
+                        "lat": 1.286963270107278,
+                        "lng": 103.8450393701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Singapore River One",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109496701820771099935\">Kathir Kathiravan</a>"
+                    ],
+                    "photo_reference": "Aap_uEAcHgysNlc4VtJcVS6Vc-JmH5HHed7MW-m40dGD2HMr8IarGPXGp6oQCuNEtVTXfUvCn2lpgb1HkX312V0_R4TubZYvZsXnI-X6BCWttuGmZfXcn6ZccM4vQTTEdKH-2URqhgMIZnqGUOThreT1w170nqZwvScbnZ4AdoZHKdGnYIx1",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJPXaE0pYQ2jERu7f80VzApy8",
+            "plus_code": {
+                "compound_code": "7RQW+8H Singapore",
+                "global_code": "6PH57RQW+8H"
+            },
+            "rating": 4,
+            "reference": "ChIJPXaE0pYQ2jERu7f80VzApy8",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "57 Boat Quay, Singapore 049846",
+            "geometry": {
+                "location": {
+                    "lat": 1.2875055,
+                    "lng": 103.8492747
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.288805079892722,
+                        "lng": 103.8505850798927
+                    },
+                    "southwest": {
+                        "lat": 1.286105420107278,
+                        "lng": 103.8478854201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "River Cruise",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3036,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103529352494942670680\">Prateek Aggarwal</a>"
+                    ],
+                    "photo_reference": "Aap_uEBRWnPKx-CjCtl1UOhSvqOgiXNbC_pqaivbEEs5ZFXCYn24-Oco3UgW56BC8DwPtEAD9SnDP6JasdMo5PZ2O7O9CspYOHgzngvKff-bX546AbEnfIs5V9GcprtNIcFu7_tYSAy8KB4pF1BrgMCBVlpNmM9Dga-b7YsDM4RhbuA2BzRX",
+                    "width": 4048
+                }
+            ],
+            "place_id": "ChIJQc4MiQkZ2jER8fCb2PPSJGg",
+            "plus_code": {
+                "compound_code": "7RQX+2P Singapore",
+                "global_code": "6PH57RQX+2P"
+            },
+            "rating": 4.3,
+            "reference": "ChIJQc4MiQkZ2jER8fCb2PPSJGg",
+            "types": [
+                "travel_agency",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 242
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Bonham St, Singapore 049782",
+            "geometry": {
+                "location": {
+                    "lat": 1.2859963,
+                    "lng": 103.8501608
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287108929892722,
+                        "lng": 103.8521541798927
+                    },
+                    "southwest": {
+                        "lat": 1.284409270107278,
+                        "lng": 103.8494545201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Boat Quay",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106207827455842842063\">Marcel Hein\u00dfen</a>"
+                    ],
+                    "photo_reference": "Aap_uEDE40k5tn0dPPKXWh43vaXdgRpFb4HGjtKhyonolh5gc5sRTrdV5TqGzHw5rKVzPb0tjGQaCOOdkKAyP-S1OBks-Hw3mqHjCMhW5CC2DtNns7umWiThuFuGLyGZ0Wg0m65N2LvSaw5KLOyKBZbItLPqkV6KnW5ZyTnzHwpDs_GtfYGL",
+                    "width": 5184
+                }
+            ],
+            "place_id": "ChIJc0OGMwoZ2jERDKgZE1sdjrA",
+            "plus_code": {
+                "compound_code": "7VP2+93 Singapore",
+                "global_code": "6PH57VP2+93"
+            },
+            "rating": 4.5,
+            "reference": "ChIJc0OGMwoZ2jERDKgZE1sdjrA",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2607
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Block, 3E River Valley Rd, Unit 04-01, 179024",
+            "geometry": {
+                "location": {
+                    "lat": 1.290668,
+                    "lng": 103.846205
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.292188529892722,
+                        "lng": 103.8476687298927
+                    },
+                    "southwest": {
+                        "lat": 1.289488870107278,
+                        "lng": 103.8449690701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "StarStudios Powered by Unearthed Productions",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 592,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102990518177998578725\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECErI8s7C6TNPHRkczgIlm-zpe0Lqg04S35izCRjUlb1hHQGWH-zj2hHvcwRdu_lL-EfW-COwGGgG74eJHWfBp4P_DGV9y6mswYI77ncVHKUJYWD2R16n7v0mrwuOlDQ9AjdpgZSxJF7-KGDGKKeFEJGFMgbPjHUZ6cZWk3KUpLrAPW",
+                    "width": 1052
+                }
+            ],
+            "place_id": "ChIJr1t3PUEZ2jERc6qsLNE_PbU",
+            "plus_code": {
+                "compound_code": "7RRW+7F Singapore",
+                "global_code": "6PH57RRW+7F"
+            },
+            "rating": 0,
+            "reference": "ChIJr1t3PUEZ2jERc6qsLNE_PbU",
+            "types": [
+                "electronics_store",
+                "home_goods_store",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "22 Marshall Rd, Singapore 424858",
+            "geometry": {
+                "location": {
+                    "lat": 1.3051311,
+                    "lng": 103.9022647
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306490579892722,
+                        "lng": 103.9036279298927
+                    },
+                    "southwest": {
+                        "lat": 1.303790920107278,
+                        "lng": 103.9009282701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Teo Eng Seng",
+            "permanently_closed": true,
+            "place_id": "ChIJfR1feG0Y2jERHU-Q1tfoqKU",
+            "plus_code": {
+                "compound_code": "8W42+3W Singapore",
+                "global_code": "6PH58W42+3W"
+            },
+            "rating": 0,
+            "reference": "ChIJfR1feG0Y2jERHU-Q1tfoqKU",
+            "types": [
+                "art_gallery",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        }
+    ],
+    "status": "OK"
+}

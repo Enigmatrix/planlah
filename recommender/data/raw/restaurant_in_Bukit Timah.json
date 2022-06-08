@@ -1,0 +1,1047 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEDCCK2WMRbU46PaCGhraKASnYdJJOcrw2gvuEQzaaShVikVh9pPQL6Oi7vG5CnOb1nzqdcdfEcxfTnWxd5tdD6yFkSfd5_Ja2K-c1kKrVlHcMpBJeYK1mk96HbvP_SGSkLSQcnqRlXo0RVu4teAuuaPBV-spj23tRdkCWWykXmcvEgZRDS3AV_nyKRXvADFFzDT01HyU_RXECCcAtwPICyOeNmP-kn3xS_BcmKcbm7yw4cSSOaBtdA-kWag7n2xUscSmWXzoTxUfBgQXKmV3sX3c84SvBwqXFkx8riBS9SQtihCVaeLgiuiR2VwsWqbsuj573vo9r5z9iUbdczYCQYbi5sPSyms5tkekpNopxkY2SZHJ-OFEAU3CD5PYYx8ympVsipGAsGG163lVSTpONTFkBumGLUvxErx41J_S_8YzziKjrBVnJeSL79C_UHD2ob8JwpfvStE1dk",
+    "results": [
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "100 Turf Club Rd, #01-01, Singapore 287992",
+            "geometry": {
+                "location": {
+                    "lat": 1.334743,
+                    "lng": 103.7960198
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.336162529892722,
+                        "lng": 103.7973383298927
+                    },
+                    "southwest": {
+                        "lat": 1.333462870107278,
+                        "lng": 103.7946386701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Kebaya Asian By Rubato (Closed For Renovations)",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 4500,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108816472356718678308\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDto2DbPqBtjAV1loc9WXNhIcvtM8ws-tz9-jpoIYETaOtjrxqsgIbWxMD5-eB0DYhW7LL7uQXyk16gW9mn3El608MolazG-RSxfzG6tv1199FFCeqvdRyuQ4zRdC_dxwBo59ASioyE3j_jrr4Kv_SFA2gOqoAKA4dpT2-t0iT6GVYK",
+                    "width": 6000
+                }
+            ],
+            "place_id": "ChIJx4tAnPwR2jERdWppuQEIlzA",
+            "plus_code": {
+                "compound_code": "8QMW+VC Singapore",
+                "global_code": "6PH58QMW+VC"
+            },
+            "rating": 3.9,
+            "reference": "ChIJx4tAnPwR2jERdWppuQEIlzA",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 20
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "170 Upper Bukit Timah Rd, #B1, #05, Singapore 588179",
+            "geometry": {
+                "location": {
+                    "lat": 1.3432081,
+                    "lng": 103.7760353
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.344808879892722,
+                        "lng": 103.7773239298927
+                    },
+                    "southwest": {
+                        "lat": 1.342109220107278,
+                        "lng": 103.7746242701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Buddy Hoagies Steak & Grill",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2736,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108830704726650274559\">Bryce Ang</a>"
+                    ],
+                    "photo_reference": "Aap_uEBVXFDCUQLwrBhd_N_MylvPWgOEw1LT6vpZ1WOSSAjyhD49XCWJlSQD1VO-Sph3jGkSarRqxxNwGD_FtCv9UMplVZDVAlF7gXBHlKbh81W95LzbgCgPufL-JFZZP5KmtP4eSXuA9GzAo8PYIYi7eP1lWG_R11j5PlnAiPIJqGuPMYU8",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJyd5nY4oQ2jERRdOues0DbgE",
+            "plus_code": {
+                "compound_code": "8QVG+7C Singapore",
+                "global_code": "6PH58QVG+7C"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJyd5nY4oQ2jERRdOues0DbgE",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 622
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "51 Fairways Dr., Singapore 286965",
+            "geometry": {
+                "location": {
+                    "lat": 1.3429718,
+                    "lng": 103.7971977
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.344305529892722,
+                        "lng": 103.7985182798927
+                    },
+                    "southwest": {
+                        "lat": 1.341605870107278,
+                        "lng": 103.7958186201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Riders Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 501,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113393632888308680663\">Riders Cafe Pte. Ltd.</a>"
+                    ],
+                    "photo_reference": "Aap_uEAhJ_AeagkHRawWCw8r3z62FyRZ-78zJFsVRObdRfolO9NhTQKmQTKbkcgztS4R9DtNgeoPlLFnlXkBS0pidRwMYxsyFKcTfqW9WyJQOVkGWQHJ1oi1mCWdPAg8QUF1d4lldlBDj8ZpGUh2wpj99MYYNzb6IR95maH95qFZHSLP3dLv",
+                    "width": 755
+                }
+            ],
+            "place_id": "ChIJ2Zf1oZUQ2jER4l4g9et9jWE",
+            "plus_code": {
+                "compound_code": "8QVW+5V Singapore",
+                "global_code": "6PH58QVW+5V"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJ2Zf1oZUQ2jER4l4g9et9jWE",
+            "types": [
+                "restaurant",
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1048
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Fairways Dr., Singapore 286966",
+            "geometry": {
+                "location": {
+                    "lat": 1.3455037,
+                    "lng": 103.7970254
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.346832829892722,
+                        "lng": 103.7983368798927
+                    },
+                    "southwest": {
+                        "lat": 1.344133170107278,
+                        "lng": 103.7956372201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Royal Thai Cuisine (Bukit Timah)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102524780937187981209\">60s Live Seafood</a>"
+                    ],
+                    "photo_reference": "Aap_uEDwGeIBnaBF-eTcheJlpdKQDIrxe2a13KVWmrqnWgUCreIlEeG8V2q4LAXNr4MNxBFjeSsHosJc-AjnoNr6B2RdBcB1IZhVQZuo1wUiorGs8TBaR7TMAOw-d4Dprmx-E6xp4xHFic8DvSNT-xUmXhJYR7M-JbaJFD7Rdde0lf5U1kqM",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJUSqsMpUQ2jER_DoWVcFYneI",
+            "plus_code": {
+                "compound_code": "8QWW+6R Singapore",
+                "global_code": "6PH58QWW+6R"
+            },
+            "rating": 3.9,
+            "reference": "ChIJUSqsMpUQ2jER_DoWVcFYneI",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 202
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "789 Bukit Timah Rd, Singapore 269763",
+            "geometry": {
+                "location": {
+                    "lat": 1.3311451,
+                    "lng": 103.7961638
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.332493329892722,
+                        "lng": 103.7975142798927
+                    },
+                    "southwest": {
+                        "lat": 1.329793670107278,
+                        "lng": 103.7948146201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Little Lazy Lizard",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 739,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115615589102659578379\">Benson Kong</a>"
+                    ],
+                    "photo_reference": "Aap_uEBJ8zzG4b0fBmEklb3hSegjVZzmrsGpqv5UPHRujl4qUydh7NUZiiQgsTyO90hRSkRlbHB0mEc2AN-3U94BXihXv6iqtzDgvIYlwhBgPtL1_lSiI5SAnz0-kBZhKxlYLs4A55oT7bOcrfIqkq4na_8gyiVja1Xtv9imdBwbYrsY8YWW",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJ1VfC29gR2jERW6utEC6wo5E",
+            "plus_code": {
+                "compound_code": "8QJW+CF Singapore",
+                "global_code": "6PH58QJW+CF"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ1VfC29gR2jERW6utEC6wo5E",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 137
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "791 Bukit Timah Rd, #01-01, Singapore 269764",
+            "geometry": {
+                "location": {
+                    "lat": 1.3311661,
+                    "lng": 103.7961268
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.332546179892722,
+                        "lng": 103.7974875798927
+                    },
+                    "southwest": {
+                        "lat": 1.329846520107278,
+                        "lng": 103.7947879201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Caruso",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 784,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106744409288263834830\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEApzJfbRu0RSkAswFRNyrMY-BVpzPVxs8BDvGNBX1bbiNxIU84dOdVCBEyXKXp_jbmH3hzDrM-_GZkPzmXcUqoFEztghgNjWEOAq3u94xeLYm4SvowXNad8LslwVVUEmN0A0uDmtFSST-XCQZS_8d3n0T5d7yUnCuukZFkBGPXrdPOA",
+                    "width": 1393
+                }
+            ],
+            "place_id": "ChIJdbOELZ8Q2jER1jyouKcCxzc",
+            "plus_code": {
+                "compound_code": "8QJW+FF Singapore",
+                "global_code": "6PH58QJW+FF"
+            },
+            "rating": 4.4,
+            "reference": "ChIJdbOELZ8Q2jER1jyouKcCxzc",
+            "types": [
+                "grocery_or_supermarket",
+                "lodging",
+                "restaurant",
+                "food",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 324
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11 Cheong Chin Nam Rd, Singapore 599736",
+            "geometry": {
+                "location": {
+                    "lat": 1.3429208,
+                    "lng": 103.7751758
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.344340129892722,
+                        "lng": 103.7765920298927
+                    },
+                    "southwest": {
+                        "lat": 1.341640470107278,
+                        "lng": 103.7738923701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Al-Azhar Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113121521961034964626\">The Red Marker</a>"
+                    ],
+                    "photo_reference": "Aap_uEA2PmglKq_Fw7qyHNIaLbdeUERUsIYThlLm4gQ048JNMu8Og7FvzwRuF0DvCkt3uEIaVYQwQv-wLALNzB3miBnLZj-_Ck8bKsIQRaSfyx69OpYcbKZ_THfCzy3miYCP_DZIeJ3bLLRJufAWFtfMtrBHV0riAGplI02FdmfPsf9xDYmt",
+                    "width": 5760
+                }
+            ],
+            "place_id": "ChIJFykj1mEQ2jER50T02kGd1OY",
+            "plus_code": {
+                "compound_code": "8QVG+53 Singapore",
+                "global_code": "6PH58QVG+53"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJFykj1mEQ2jER50T02kGd1OY",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4083
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Cheong Chin Nam Rd, Singapore 599729",
+            "geometry": {
+                "location": {
+                    "lat": 1.3424594,
+                    "lng": 103.7753573
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.343810979892722,
+                        "lng": 103.7767079298927
+                    },
+                    "southwest": {
+                        "lat": 1.341111320107278,
+                        "lng": 103.7740082701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Ameen Makan House",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112272124091061187335\">ariff arf</a>"
+                    ],
+                    "photo_reference": "Aap_uEALlhe47fXMNbm5V3wbPYFfwZPp9mwlRx3CHxsnKmpZTGQCNqIpyqtTUA9mPX1PhNtA9XDAIs0LQ39poUbXJTkZpo-De1x3EOlD31O1fcwCOwmTudKP4Mx5WWGZ56vqtsVibLYVirNaugUp4wZ9udP4Z--m9TIBTcSJkqn2etO5Q1SS",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ____z2EQ2jERGNtzWu1W7l4",
+            "plus_code": {
+                "compound_code": "8QRG+X4 Singapore",
+                "global_code": "6PH58QRG+X4"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJ____z2EQ2jERGNtzWu1W7l4",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1126
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "102c Jln Jurong Kechil, Singapore 598602",
+            "geometry": {
+                "location": {
+                    "lat": 1.3408406,
+                    "lng": 103.7725241
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.342037579892722,
+                        "lng": 103.7738610298927
+                    },
+                    "southwest": {
+                        "lat": 1.339337920107278,
+                        "lng": 103.7711613701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Micasa Kitchen & Bar",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3200,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102066689290510507387\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDdgdkz-X2TlDQCzO9CNfuiuQkAUdx0ZEk20RdIh1cc1AVRBd3hpho6bz7HSi3sBzKlm8GxATNl1VyJbGZNmpGPn73zkNXPPb42FufR5SVdKkKB1gWLt_I5FKIW4LbfdERDWZ5pwxTm9qWH7RYGM0w_ChJBhLeneVFUBtgdfO1BcI5-",
+                    "width": 4800
+                }
+            ],
+            "place_id": "ChIJc7g002MQ2jERDRvbJ5CBkaw",
+            "plus_code": {
+                "compound_code": "8QRF+82 Singapore",
+                "global_code": "6PH58QRF+82"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJc7g002MQ2jERDRvbJ5CBkaw",
+            "types": [
+                "restaurant",
+                "bar",
+                "food",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 397
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "200 Turf Club Rd, #01 - 19, Singapore 287994",
+            "geometry": {
+                "location": {
+                    "lat": 1.3368905,
+                    "lng": 103.7940136
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.338167529892722,
+                        "lng": 103.7953849298927
+                    },
+                    "southwest": {
+                        "lat": 1.335467870107278,
+                        "lng": 103.7926852701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Ristorante Da Valentino",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3036,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114592888179182991710\">Ali Chua</a>"
+                    ],
+                    "photo_reference": "Aap_uEDTl91Ca0AVNVeq4iWOUXtlgDoeA84jSuuF-GGe04U6VfF4zpV2LqRNvyy9MjsV6IgxtPPOKY7iCaUpDIkWmYwuB_qCDKV6gewWfhnol0SwsEPvMeNOwg_Iv-CVdq0R3J5UVeDYu6lHjecfi0S_w2W8r9UETKcakqqwu338Djm4QdRV",
+                    "width": 4048
+                }
+            ],
+            "place_id": "ChIJAwPkO5cQ2jERUeZsEDxIikY",
+            "plus_code": {
+                "compound_code": "8QPV+QJ Singapore",
+                "global_code": "6PH58QPV+QJ"
+            },
+            "price_level": 3,
+            "rating": 4.5,
+            "reference": "ChIJAwPkO5cQ2jERUeZsEDxIikY",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 595
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "12 Greenwood Ave, Singapore 289204",
+            "geometry": {
+                "location": {
+                    "lat": 1.3312383,
+                    "lng": 103.8070213
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.332535079892722,
+                        "lng": 103.8084886298927
+                    },
+                    "southwest": {
+                        "lat": 1.329835420107278,
+                        "lng": 103.8057889701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "RUBATO at Greenwood",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111625694854221114456\">G Casey</a>"
+                    ],
+                    "photo_reference": "Aap_uEDIJ9tlZGlSlWVwtUvcyGscmtSV9Uidwq8ZZ25NuRS2YWi_XMNCRdauiYleVXFAQyunwMJzgbptrDFzPFtmXRn77RiALc5L2ieLuqOCzWlsttdpvf6GujvHAYR-lDgZ6Cu2UMRLTzXuw5YA6kppy9fHADdt4L-Ni-3oG3tDN26-1i_o",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJEywT3D0X2jER8BDUFJoXb_M",
+            "plus_code": {
+                "compound_code": "8RJ4+FR Singapore",
+                "global_code": "6PH58RJ4+FR"
+            },
+            "price_level": 3,
+            "rating": 3.9,
+            "reference": "ChIJEywT3D0X2jER8BDUFJoXb_M",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 643
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "200 Turf Club Rd, #01 - 16, Singapore 287994",
+            "geometry": {
+                "location": {
+                    "lat": 1.3371871,
+                    "lng": 103.793968
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.338321129892722,
+                        "lng": 103.7953816798927
+                    },
+                    "southwest": {
+                        "lat": 1.335621470107278,
+                        "lng": 103.7926820201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Foresta Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2736,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115365612293090921590\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEC1jEl_UXrOdSF3Ewkt-y81ubKlzheQhzDBqSeI1zol-ZjHi2iBjmvwl-g8EwmOz4xexguHCCiMuL4AMfA9n1VO7OpyQvQuTTrd6mw27L6DoZUlUeaEvcIBgNwIR--2Fvw-0_DUSfYeLjl_SRKKdod3OkKOure4cwJgpzIGRHJT3Lfb",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJw-4fSzQb2jERgk6YPlyz-WQ",
+            "plus_code": {
+                "compound_code": "8QPV+VH Singapore",
+                "global_code": "6PH58QPV+VH"
+            },
+            "rating": 4.4,
+            "reference": "ChIJw-4fSzQb2jERgk6YPlyz-WQ",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 71
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Jalan Serene, #01-04 Serene Centre, Singapore 258748",
+            "geometry": {
+                "location": {
+                    "lat": 1.3225386,
+                    "lng": 103.8136409
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.323768529892722,
+                        "lng": 103.8150091298927
+                    },
+                    "southwest": {
+                        "lat": 1.321068870107278,
+                        "lng": 103.8123094701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "FBG - Fat Belly",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108054733791350792229\">W.M. LIEW</a>"
+                    ],
+                    "photo_reference": "Aap_uEBJTfK9dcjHFZYvj6LHrNMc3ozNN5lbTdYEOx3fHp8-4ocgGt9ObcmMHeRMO4iqs6jkb5oSaV6dUBtDTOat1QtnGvAeU7hfeNdVIu25GZb50klqIcjMOI0oEHG6Df6IW7yq_y6oV8UfPDn6E2SIqSQhCnckG_d0dnI0cdd6i2evEjA",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJYWYikAYa2jER6ugFpTiBKWA",
+            "plus_code": {
+                "compound_code": "8RF7+2F Singapore",
+                "global_code": "6PH58RF7+2F"
+            },
+            "rating": 4.5,
+            "reference": "ChIJYWYikAYa2jER6ugFpTiBKWA",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 555
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "15 Cheong Chin Nam Rd, Singapore 599739",
+            "geometry": {
+                "location": {
+                    "lat": 1.3431686,
+                    "lng": 103.7751553
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.344531529892722,
+                        "lng": 103.7765603798927
+                    },
+                    "southwest": {
+                        "lat": 1.341831870107278,
+                        "lng": 103.7738607201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Time For Thai SG",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3468,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114485685120032180380\">Chia Yat Yin</a>"
+                    ],
+                    "photo_reference": "Aap_uECeFdtos8N8uxS4TZbjDJkb5_oRtuMZf5-3Sy5odea27NydlN-c_afup12sWoGPHRFyrWGbjyy8GOnAqDm6faipfIMxJmXMy9f-7HO68E7NLPi9cKiTwhhMnbCU585C1hvg65V0RJi01rGFM7OhIHRfZYOtLlH8Dvf0qS-ldXpS7bFL",
+                    "width": 4624
+                }
+            ],
+            "place_id": "ChIJtcvgd4oQ2jERYftwlvgqa68",
+            "plus_code": {
+                "compound_code": "8QVG+73 Singapore",
+                "global_code": "6PH58QVG+73"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJtcvgd4oQ2jERYftwlvgqa68",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 601
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "383 Bukit Timah Rd, #01-02, Singapore 259727",
+            "geometry": {
+                "location": {
+                    "lat": 1.319502,
+                    "lng": 103.8275459
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.320961279892722,
+                        "lng": 103.8289200798927
+                    },
+                    "southwest": {
+                        "lat": 1.318261620107278,
+                        "lng": 103.8262204201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Al Borgo Italian Restaurant",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111615442808341027410\">Kajeeporn Techataveekijkul</a>"
+                    ],
+                    "photo_reference": "Aap_uEChu1vmy3vZizgBryABMsOYOxLLMqiFhk9c1F4y3uXa_g6YaipTW8qYzAazOEgQOR7XZn5eL7ypwelJcv82NGK6ZK8B_9FuPVjz4tFbYgRSd6NnGXm4SS4nCrFQoyb8QE_7PlVbYGRhmu0G_kyeRg17f_LPX-eWEeAlCmbuDg41liba",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJMZS0f_kZ2jERS9Z6l2Jnw9g",
+            "plus_code": {
+                "compound_code": "8R9H+R2 Singapore",
+                "global_code": "6PH58R9H+R2"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJMZS0f_kZ2jERS9Z6l2Jnw9g",
+            "types": [
+                "bar",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 306
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "01-62 Jln Merah Saga, Chip Bee Gardens, Blk 43, Singapore 278115",
+            "geometry": {
+                "location": {
+                    "lat": 1.3112437,
+                    "lng": 103.7965326
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.312585479892722,
+                        "lng": 103.7979439798927
+                    },
+                    "southwest": {
+                        "lat": 1.309885820107278,
+                        "lng": 103.7952443201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Original Sin Restaurant",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 361,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115144223452578046808\">Original Sin</a>"
+                    ],
+                    "photo_reference": "Aap_uEBdZ6e9L5PZgKyoXwEMMsQI3rih5m23uQB4Siz6fuqypDs9G3RgzKVw6YXhNx1Nl2TZUxgG6TiV3zxglPKf3OFTAm8RAS9dxvnVNxQupJTTuBlvlSLgKpv_KW8zimMEDlPx-F3qVQAYWLZSyEax15O5o_i10esj1BAe9TcxHIUtvcNq",
+                    "width": 640
+                }
+            ],
+            "place_id": "ChIJmzY7Gmsa2jERKvr0lq11r7Q",
+            "plus_code": {
+                "compound_code": "8Q6W+FJ Singapore",
+                "global_code": "6PH58Q6W+FJ"
+            },
+            "price_level": 3,
+            "rating": 4.3,
+            "reference": "ChIJmzY7Gmsa2jERKvr0lq11r7Q",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 853
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Greenwood Ave, Singapore 289189",
+            "geometry": {
+                "location": {
+                    "lat": 1.3312772,
+                    "lng": 103.8073803
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.332577529892722,
+                        "lng": 103.8087454298927
+                    },
+                    "southwest": {
+                        "lat": 1.329877870107278,
+                        "lng": 103.8060457701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Roots Mediterranean",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116580320092569842049\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB_rDZ-MJJ0ozxxmHtFQUEgFrhEHZj4SdQHJSRIbjGWkcshz-NHU-o1jMQ48WDtD2aDhli7mX-ddHrnjHbfiIXP24bOVBSbR5f0k_uKYHDB_AJvd69wEPOSliK6_5EnJvkAuZwrq-Jb8EE6jBOKXbmKGarx7rQskzn71SmKr2QUqXlz",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJgyWE5UYR2jERQutAY03xgAw",
+            "plus_code": {
+                "compound_code": "8RJ4+GX Singapore",
+                "global_code": "6PH58RJ4+GX"
+            },
+            "rating": 4.2,
+            "reference": "ChIJgyWE5UYR2jERQutAY03xgAw",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 204
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Fairways Dr., Singapore 286966",
+            "geometry": {
+                "location": {
+                    "lat": 1.3452683,
+                    "lng": 103.796321
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.346626729892722,
+                        "lng": 103.7977186298927
+                    },
+                    "southwest": {
+                        "lat": 1.343927070107278,
+                        "lng": 103.7950189701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Picotin - Fairways",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3522,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102090250406794651249\">Picotin Express Bukit Timah @ Champions Golf</a>"
+                    ],
+                    "photo_reference": "Aap_uECJxVcerQqkq3EYpFJxIs16D3DZJpVOVnTceS4pj5rwarAsZFnuji7hfUCcDfUxh7jwithGSnH1K0gc-Nqt-h_hCWfdFxN1cF85k_c0U19NnTkliKiowhP-qutsXg7nVu2m5MJwi7RHrE6D2ElZ6Ec1zXKh_j8HNpdKwVJyCR1q2BQ",
+                    "width": 5291
+                }
+            ],
+            "place_id": "ChIJX91_zOoQ2jERMlzHv6sD6dM",
+            "plus_code": {
+                "compound_code": "8QWW+4G Singapore",
+                "global_code": "6PH58QWW+4G"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJX91_zOoQ2jERMlzHv6sD6dM",
+            "types": [
+                "cafe",
+                "meal_takeaway",
+                "bar",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 518
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "271 Bukit Timah Rd, #01-04, Singapore 259708",
+            "geometry": {
+                "location": {
+                    "lat": 1.3164269,
+                    "lng": 103.8356151
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.317829879892722,
+                        "lng": 103.8370532298927
+                    },
+                    "southwest": {
+                        "lat": 1.315130220107278,
+                        "lng": 103.8343535701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Thai'D Me Up xMeat You Here",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109116290980114438566\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB8CA3vafglF6rzVmL52SAvbitrSoRNrATqR55q7ZGX-UKTM_GFjl3D4YbB9ez58qTUergmV2-J_EykkRIpUH23coBLcUZbObYqnqW_nhKjoEBU00UxYvpvRPwDB4p0qth6ShOlyKu89za0h5jcq8IwUhl6YxhsBBhASC8w6OVUc7An",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJy9d2mu8Z2jERMTFA_1cfPyQ",
+            "plus_code": {
+                "compound_code": "8R8P+H6 Singapore",
+                "global_code": "6PH58R8P+H6"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJy9d2mu8Z2jERMTFA_1cfPyQ",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 134
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "200 Turf Club Rd, #01 - 27, Singapore 287994",
+            "geometry": {
+                "location": {
+                    "lat": 1.3374951,
+                    "lng": 103.7933368
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.338817329892722,
+                        "lng": 103.7945981298927
+                    },
+                    "southwest": {
+                        "lat": 1.336117670107277,
+                        "lng": 103.7918984701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Ah Mei Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106871435217374880396\">jim brusin</a>"
+                    ],
+                    "photo_reference": "Aap_uEDPViq0bwaq0SE4gYZOscZ8Rpzk89vNhhnQR1EPaRSp1KWpaU39Ra-WIriZlTk0ndhPHrVdlsFvB3qkY0GeRaUy8oGKQbHaMZA--bZ98C5hgOVrmy4VaBNxWACF2Y2kYYyQQtmZR6BxCFbKznWdqrf28f85ot8A9GTygTqisLHmkX4s",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJmzWdSUUR2jERIP3Rz6YRDU4",
+            "plus_code": {
+                "compound_code": "8QPV+X8 Singapore",
+                "global_code": "6PH58QPV+X8"
+            },
+            "rating": 4.6,
+            "reference": "ChIJmzWdSUUR2jERIP3Rz6YRDU4",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14
+        }
+    ],
+    "status": "OK"
+}

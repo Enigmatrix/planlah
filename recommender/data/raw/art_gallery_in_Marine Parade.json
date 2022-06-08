@@ -1,0 +1,918 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEBSo1o31Rwlka0SemDXxRZv5AeN47F9riI2iGMVKrjUgUv9DMURAUjhz6Be809IY-6ocTx8ANjUt-UhCUgf0plKdNNPF6vvoahz1fF484zJzbQMG_HGzrQt0RcV1ShuukVozZorA-SqUNGzja0w2X90lFO9oGsRT6WsdsaMtnA7QUfH6ALf6YMryP1gwyQOj4DMHzhO44EIie57Xk7vVxM4Mriof8_dnMJbM0Qloj1rzj87UzpQRZb8L413gqwaWmocjk_VMQXmbyhkwIzTt3moz0hYV-HMbA_VGEmiyz1ckTD9KwZQGEn7QA9copbJLvNClynecaSeWSTPGIhiThkT5oo1Qna86oI_MMMfVen8gw_C2ONLPDN8X1ElO4UkBo0APXqRXi1dCPPsovRB0EeEr23G2eNvRf3HtLlUjuWJVL8gQR4yNyd5wU6N8pbfmYkveyg2gV9rMhLI8j0",
+    "results": [
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "1 Marine Parade Central, Singapore 449408",
+            "geometry": {
+                "location": {
+                    "lat": 1.3018671,
+                    "lng": 103.9061067
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303145179892722,
+                        "lng": 103.9075095798927
+                    },
+                    "southwest": {
+                        "lat": 1.300445520107278,
+                        "lng": 103.9048099201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Art & City Pte. Ltd.",
+            "permanently_closed": true,
+            "place_id": "ChIJq6r6c3EY2jERVPqjqRtQ3Lg",
+            "plus_code": {
+                "compound_code": "8W24+PC Singapore",
+                "global_code": "6PH58W24+PC"
+            },
+            "rating": 0,
+            "reference": "ChIJq6r6c3EY2jERVPqjqRtQ3Lg",
+            "types": [
+                "art_gallery",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Rd, Singapore 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.30173,
+                    "lng": 103.9049645
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303081129892722,
+                        "lng": 103.9063133298927
+                    },
+                    "southwest": {
+                        "lat": 1.300381470107278,
+                        "lng": 103.9036136701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Imagine Artly",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4608,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118178106894176806547\">Alwyn Tan</a>"
+                    ],
+                    "photo_reference": "Aap_uECZRXKykV-544ydA9YWnln2SC-rb_mbz7eWO3KAoZe-sWgKFp9Kc_TGF1U7zkXyPoG_jYpbk_cl8DlX3voKLm_uPj78V1s5Uq6ei6pk_JdRpHtJwxuGeVt2aTHwXS5IJDRJ3dfO9QvCT_s2H4hgO86khcj7BB4GprDt_nP7F0oUWhSb",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJyaLMsHEY2jERayt_GaQ0aKs",
+            "plus_code": {
+                "compound_code": "8W23+MX Singapore",
+                "global_code": "6PH58W23+MX"
+            },
+            "rating": 4.4,
+            "reference": "ChIJyaLMsHEY2jERayt_GaQ0aKs",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Marine Parade Central, unit 07-02, Singapore 449408",
+            "geometry": {
+                "location": {
+                    "lat": 1.3018671,
+                    "lng": 103.9061067
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303145179892722,
+                        "lng": 103.9075095798927
+                    },
+                    "southwest": {
+                        "lat": 1.300445520107278,
+                        "lng": 103.9048099201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Artgrain parkway",
+            "opening_hours": {
+                "open_now": true
+            },
+            "place_id": "ChIJfenjVhUZ2jEROK6ABk7F68s",
+            "plus_code": {
+                "compound_code": "8W24+PC Singapore",
+                "global_code": "6PH58W24+PC"
+            },
+            "rating": 0,
+            "reference": "ChIJfenjVhUZ2jEROK6ABk7F68s",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Marine Parade Central",
+            "geometry": {
+                "location": {
+                    "lat": 1.3021087,
+                    "lng": 103.9064737
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303420779892722,
+                        "lng": 103.9078456298927
+                    },
+                    "southwest": {
+                        "lat": 1.300721120107278,
+                        "lng": 103.9051459701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "HiArt Marine Parade",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100698571000018920570\">Fei Yu</a>"
+                    ],
+                    "photo_reference": "Aap_uEAA3r8p1Uf2LbA8LUkv0LD81MEfc_dzHMmZlLyJ7pBOI2DnjYYX2Gm4r876BWEn3C1kDyy1uTl4BFb82ZDG44Y_CEChvfiN3BufPJ-mlZwq4attw4Vz_vmekWviWfUk9FFaZhysXwiDjrKH1BttsjAteScsAxznE6cobYRc3Y7P3Iu-",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJKbUddHEY2jERuh8r7pzdgZ4",
+            "plus_code": {
+                "compound_code": "8W24+RH Singapore",
+                "global_code": "6PH58W24+RH"
+            },
+            "rating": 4.8,
+            "reference": "ChIJKbUddHEY2jERuh8r7pzdgZ4",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "31 Marina Coastal Dr, Level 2, Singapore 018988",
+            "geometry": {
+                "location": {
+                    "lat": 1.2710567,
+                    "lng": 103.8632231
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.272466679892722,
+                        "lng": 103.8645319798927
+                    },
+                    "southwest": {
+                        "lat": 1.269767020107278,
+                        "lng": 103.8618323201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Singapore Maritime Gallery",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100443618955409816231\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAgpQCIBkakZ_2vHWVOKjl2qaSgStBQLXO9naDqT5_FuBLO7Qmw5rrKznFdftenKb7FH3jjCZ65htvZRCkpFwJpmxx5BtRx5NwD6bl5e6HzIp6DbpPcBa7L5yno8YR6LXPU7theRatnGfIF6ThFcWKdDljhrrogWsbS3tfGiWLAxkWC",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJyfbjQx8Z2jERBxwJiesLA-k",
+            "plus_code": {
+                "compound_code": "7VC7+C7 Singapore",
+                "global_code": "6PH57VC7+C7"
+            },
+            "rating": 4.4,
+            "reference": "ChIJyfbjQx8Z2jERBxwJiesLA-k",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 222
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Road, #15-03/04 Parkway Parade, 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3014702,
+                    "lng": 103.9051552
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302805279892722,
+                        "lng": 103.9064821798927
+                    },
+                    "southwest": {
+                        "lat": 1.300105620107278,
+                        "lng": 103.9037825201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Abrakadoodle Art Studio @ Marine Parade",
+            "place_id": "ChIJF5G_lwYa2jERdGuh43Xt_P0",
+            "plus_code": {
+                "compound_code": "8W24+H3 Singapore",
+                "global_code": "6PH58W24+H3"
+            },
+            "rating": 0,
+            "reference": "ChIJF5G_lwYa2jERdGuh43Xt_P0",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "E Coast Rd, #02-09 88, Singapore 423371",
+            "geometry": {
+                "location": {
+                    "lat": 1.3047973,
+                    "lng": 103.9046354
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306169229892722,
+                        "lng": 103.9060832798927
+                    },
+                    "southwest": {
+                        "lat": 1.303469570107278,
+                        "lng": 103.9033836201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "TheArtHaus Studio 1",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115155590102025555358\">TheArtHaus Studio 1</a>"
+                    ],
+                    "photo_reference": "Aap_uEBtTZeEeN7WTdNdQxTCR1fLCkViK8a6s25fppSqZ-eljiTS4621X3P5Vw2tcJbGlgdu2F0h6fiLHfzv7BqvdAO7tDT9pzKF5psKVlI_ODbFLMLDku4OrB5XigZZYPKbHqJAY7YQBW60lcRi69F8ORhf4rig13xSu84ZTrjGej42brU8",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJBfW6JHIY2jERLVhO5APBrLs",
+            "plus_code": {
+                "compound_code": "8W33+WV Singapore",
+                "global_code": "6PH58W33+WV"
+            },
+            "rating": 0,
+            "reference": "ChIJBfW6JHIY2jERLVhO5APBrLs",
+            "types": [
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "81 Marine Parade Central, Parkway Centre, Singapore 440081",
+            "geometry": {
+                "location": {
+                    "lat": 1.302933,
+                    "lng": 103.9069906
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304322529892722,
+                        "lng": 103.9084005798927
+                    },
+                    "southwest": {
+                        "lat": 1.301622870107278,
+                        "lng": 103.9057009201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "The Art People Marine Parade",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2048,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111653920640606807746\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB28m6CuPxGJ55s9b_wmqwJB04vDfn79JVaE4xWaQYdQoKrBtXyRHQLDey9YvHH9ydPl7s5o6LOVv2XDdRtuwtd7-qkZ31O35GMuWIbl-J6ZRmWLuhWgGlDNdY71GRRXIVsiifRlfIrXjEguJM8Lis3oHGzBVGyRcyeslj-UotYaDvd",
+                    "width": 1536
+                }
+            ],
+            "place_id": "ChIJO-AOY6AZ2jERCWdVzuQ1PL8",
+            "plus_code": {
+                "compound_code": "8W34+5Q Singapore",
+                "global_code": "6PH58W34+5Q"
+            },
+            "rating": 5,
+            "reference": "ChIJO-AOY6AZ2jERCWdVzuQ1PL8",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Marine Parade Central, Singapore 449408",
+            "geometry": {
+                "location": {
+                    "lat": 1.3018671,
+                    "lng": 103.9061067
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303145179892722,
+                        "lng": 103.9075095798927
+                    },
+                    "southwest": {
+                        "lat": 1.300445520107278,
+                        "lng": 103.9048099201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Art Dreamland Pte. Ltd.",
+            "place_id": "ChIJq6r6c3EY2jERDOShok02OWU",
+            "plus_code": {
+                "compound_code": "8W24+PC Singapore",
+                "global_code": "6PH58W24+PC"
+            },
+            "rating": 0,
+            "reference": "ChIJq6r6c3EY2jERDOShok02OWU",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "90 Goodman Rd, #01-40 BLK J, Singapore 439053",
+            "geometry": {
+                "location": {
+                    "lat": 1.3036295,
+                    "lng": 103.8853019
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304985429892722,
+                        "lng": 103.8867630798927
+                    },
+                    "southwest": {
+                        "lat": 1.302285770107278,
+                        "lng": 103.8840634201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "The Artground - A Curious Place to Be",
+            "opening_hours": {},
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112516660767066022780\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEC1nnTl8fMuugP0c9Ew0LZsX1ciiPiDki8Tf1ON-wrWHmc4igB_dheUa6sIvfvXt1PPLKwdkpUURCQ9HU26veSOzqlBdK0O85tQIXKyEYneayL5e3k4ag-brhZLMq0NSe0Nj6Zn5V9i4s-hBg5Z1n_x5ZOC5YOStqufgPPrMZVm_1pU",
+                    "width": 5760
+                }
+            ],
+            "place_id": "ChIJr-QZyBEZ2jER5LyF-Jz_I-A",
+            "plus_code": {
+                "compound_code": "8V3P+F4 Singapore",
+                "global_code": "6PH58V3P+F4"
+            },
+            "reference": "ChIJr-QZyBEZ2jER5LyF-Jz_I-A",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ]
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Rd, Singapore 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3010896,
+                    "lng": 103.9052479
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302297879892722,
+                        "lng": 103.9063437798927
+                    },
+                    "southwest": {
+                        "lat": 1.299598220107278,
+                        "lng": 103.9036441201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Cheongsam Gallery",
+            "place_id": "ChIJzZ6OlHEY2jERQxjL228_K9c",
+            "plus_code": {
+                "compound_code": "8W24+C3 Singapore",
+                "global_code": "6PH58W24+C3"
+            },
+            "rating": 0,
+            "reference": "ChIJzZ6OlHEY2jERQxjL228_K9c",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "90 Goodman Rd, Singapore 439053",
+            "geometry": {
+                "location": {
+                    "lat": 1.3046158,
+                    "lng": 103.8843765
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305693579892722,
+                        "lng": 103.8862884298927
+                    },
+                    "southwest": {
+                        "lat": 1.302993920107278,
+                        "lng": 103.8835887701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Goodman Arts Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116810975745833770455\">waynih maruda</a>"
+                    ],
+                    "photo_reference": "Aap_uEDPif8v1bJBimlWWduz5WLsr0i7bAf4M5c2C9awXxYLEMe-dqPHW1ZvjpN6imXPDhBqCe9pO3yB9-4SL5oAZopy2BCJSW9cI4WNdXD1JOre4l0DxZwopoXL_63vYHELlElg1OcKKQBK9OJ45yYZTlXoZubrfTksyYPQZ7KRmHFz6QCR",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJJ3nM0UYY2jERXLcI-qydyZ0",
+            "plus_code": {
+                "compound_code": "8V3M+RQ Singapore",
+                "global_code": "6PH58V3M+RQ"
+            },
+            "rating": 4.2,
+            "reference": "ChIJJ3nM0UYY2jERXLcI-qydyZ0",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 140
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1, #01-03 Marine Parade Central, Parkway Building, 449408",
+            "geometry": {
+                "location": {
+                    "lat": 1.3018671,
+                    "lng": 103.9061067
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303145179892722,
+                        "lng": 103.9075095798927
+                    },
+                    "southwest": {
+                        "lat": 1.300445520107278,
+                        "lng": 103.9048099201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "The Infinity Hair Art (Marine Parade)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 600,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114090319710528284351\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEChQYRZszyp-Qq4qbIyekr8lLMG5Bp-pDaQsD6yHZuilSSk8xPUH7vacvRf7Qk2tnc8rAX64HNdfkz7y-5imo_DsvHAtM5i8kFM9xpdUlfRxQIUlkK-aw-wq2i1YH-vxNlXLghIFYQ6mVYyLhMXSUGBcVLFj0gBltdwOY0ZHS8hXA64",
+                    "width": 480
+                }
+            ],
+            "place_id": "ChIJGXiBq3oZ2jERSpy-AZjj4LE",
+            "plus_code": {
+                "compound_code": "8W24+PC Singapore",
+                "global_code": "6PH58W24+PC"
+            },
+            "rating": 3.7,
+            "reference": "ChIJGXiBq3oZ2jERSpy-AZjj4LE",
+            "types": [
+                "hair_care",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 15
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "352 Joo Chiat Rd, Singapore 427599",
+            "geometry": {
+                "location": {
+                    "lat": 1.3085538,
+                    "lng": 103.9028432
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.310026229892722,
+                        "lng": 103.9042115298927
+                    },
+                    "southwest": {
+                        "lat": 1.307326570107278,
+                        "lng": 103.9015118701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "Black Earth Art Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 12000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102589058598808274925\">Ho Wilson</a>"
+                    ],
+                    "photo_reference": "Aap_uEA8FJdWUXpHUWOsfAjuqskgjFtioI7BK6uc_aXDTeAhab4f_1i28ipYDMTa5uIixXYFGjdifx9DRzVlvQ2Plq8ayTOPyz9maXCYPsSQnBSMcdk9OUqrxevdMNSfo2TlkiKwBRlTkM9uYrkMy2jNbCK8LlxePZBz32uiKCO7f2HBcBnb",
+                    "width": 9000
+                }
+            ],
+            "place_id": "ChIJwY7RXw0Y2jERLeM7L_8YXP4",
+            "plus_code": {
+                "compound_code": "8W53+C4 Singapore",
+                "global_code": "6PH58W53+C4"
+            },
+            "rating": 3.6,
+            "reference": "ChIJwY7RXw0Y2jERLeM7L_8YXP4",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 13
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Brooke Rd, #02-26, Singapore 429979",
+            "geometry": {
+                "location": {
+                    "lat": 1.3042198,
+                    "lng": 103.9038411
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305528779892722,
+                        "lng": 103.9051375298927
+                    },
+                    "southwest": {
+                        "lat": 1.302829120107278,
+                        "lng": 103.9024378701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Young at Art Singapore",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1702,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103278461148735200501\">Young at Art</a>"
+                    ],
+                    "photo_reference": "Aap_uEAwb4sghrUH96e9WtIDgJyupg4gFjmWRWIZi3Uw2CcdxA0Jqz9XAksml1xoRs2dWzPe50TcQjI4FXj4S_38BZkEoNzXBl_LarxEY7W-KJVw9-ze6xxVeamB8GzXMgL4iPL73P1NfT08UmrQJT8JEmKldOEGsYh69aayJoZHjkgK2HeH",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJ6di4yqo92jERzaptir_zbbA",
+            "plus_code": {
+                "compound_code": "8W33+MG Singapore",
+                "global_code": "6PH58W33+MG"
+            },
+            "rating": 3.9,
+            "reference": "ChIJ6di4yqo92jERzaptir_zbbA",
+            "types": [
+                "school",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "1 Marine Parade Central, #13-04 Parkway Centre, Singapore 449408",
+            "geometry": {
+                "location": {
+                    "lat": 1.3018755,
+                    "lng": 103.9061071
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303150979892722,
+                        "lng": 103.9075119298927
+                    },
+                    "southwest": {
+                        "lat": 1.300451320107278,
+                        "lng": 103.9048122701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Let Colour Soar",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 2169,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117978615415821139788\">Jeremy Chan</a>"
+                    ],
+                    "photo_reference": "Aap_uEBC3dsXAs6_F-3SVRwVe6OLFroOj74WlBtnLOliDZHN_54K7bTpjMULQKxkQ9ATVweKEGM10EfrfnIjGaElZN_7mOC1UUMPCz0eA0AQNEpqQ0T0Upq9HrmVqLZdFOAWjDj2M5S7KjvywHy9-7nk6Oj3zRPQ-tZ15yh666zYKDktFpeF",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJPX4kouwZ2jERiMnjqZpgQwY",
+            "plus_code": {
+                "compound_code": "8W24+QC Singapore",
+                "global_code": "6PH58W24+QC"
+            },
+            "rating": 0,
+            "reference": "ChIJPX4kouwZ2jERiMnjqZpgQwY",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "85 E Coast Rd, #02-01, Singapore 428787",
+            "geometry": {
+                "location": {
+                    "lat": 1.3055069,
+                    "lng": 103.9039283
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306796029892722,
+                        "lng": 103.9053168798927
+                    },
+                    "southwest": {
+                        "lat": 1.304096370107278,
+                        "lng": 103.9026172201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Ki.Li.O ART",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1563,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113074120603011233007\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uED1uNBisaeF3-ta34HhGZEIi_fcecxli0-VIuZnmOHmDO8kLaU1bhlCYZBO4yA6qV_SZOd7cTRgW2zXgh0mdbCQkQPpjqk4yjiZgWmR2qx8Cv87qsbrz2mfpuayYI8tTVKa3J9lDKMMBZ3INMa3puXGtbKGO8X2ocmi40mAtCeLqcDb",
+                    "width": 1200
+                }
+            ],
+            "place_id": "ChIJ2xEllBIZ2jERXmb2x7pPRHI",
+            "plus_code": {
+                "compound_code": "8W43+6H Singapore",
+                "global_code": "6PH58W43+6H"
+            },
+            "rating": 5,
+            "reference": "ChIJ2xEllBIZ2jERXmb2x7pPRHI",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 33
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "86 Marine Parade Central, Singapore 440086",
+            "geometry": {
+                "location": {
+                    "lat": 1.301734,
+                    "lng": 103.9067794
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302978929892722,
+                        "lng": 103.9082015298927
+                    },
+                    "southwest": {
+                        "lat": 1.300279270107278,
+                        "lng": 103.9055018701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Galerie Cho Lon Pte Ltd",
+            "place_id": "ChIJOQoNE3EY2jERSt5P_8zbcxs",
+            "plus_code": {
+                "compound_code": "8W24+MP Singapore",
+                "global_code": "6PH58W24+MP"
+            },
+            "rating": 0,
+            "reference": "ChIJOQoNE3EY2jERSt5P_8zbcxs",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "205A E Coast Rd, Singapore 428904",
+            "geometry": {
+                "location": {
+                    "lat": 1.3072079,
+                    "lng": 103.9066609
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.308536679892722,
+                        "lng": 103.9080246298927
+                    },
+                    "southwest": {
+                        "lat": 1.305837020107278,
+                        "lng": 103.9053249701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Go Bananas! Art & Craft (Katong)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 810,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107496446215836786293\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECcV7PzYTOl_L89nNMiHiMz4ft8Fr8PiBTNf58cIwZRb8eQV1pT4t2KWddV8rMIDrBC0BBv4XC7VmvkVQC0LVKTfJudmnJ1ttrhhcOQ6O3YfHCMk5OcpYOa-c7g_bS2VSSrJTShIRg2yBZTHleJbYdDgGxPGGnQ3T_vqSwIvkoCllAL",
+                    "width": 1440
+                }
+            ],
+            "place_id": "ChIJu-tpVZ4Z2jERiBKpDWW6CjU",
+            "plus_code": {
+                "compound_code": "8W44+VM Singapore",
+                "global_code": "6PH58W44+VM"
+            },
+            "rating": 5,
+            "reference": "ChIJu-tpVZ4Z2jERiBKpDWW6CjU",
+            "types": [
+                "school",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Road, Parkway Parade, #15-03, 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3015882,
+                    "lng": 103.905005
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302925329892722,
+                        "lng": 103.9063360798927
+                    },
+                    "southwest": {
+                        "lat": 1.300225670107278,
+                        "lng": 103.9036364201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Abrakadoodle Art Studio @ Parkway Parade",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1020,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100934410168468942032\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECr4dyMjjQ98RvzCaRE4xlk_1ZBdBDMwNpL0LYtkBM_R71KAG3uEEWio7VHDWpHHnIyZhWrQgbWlBK6rHSNYZhqfHWYbUQHH7fGpMvDBrMEqbiBkRbNU9UyN8s6WVaQvc7yutoCEbk1mqeXcZp98ALainvOFeYc0nTCURMr3dp9Pr9a",
+                    "width": 1536
+                }
+            ],
+            "place_id": "ChIJX3X4Nbwi2jERPQ7kc5XkyuE",
+            "plus_code": {
+                "compound_code": "8W24+J2 Singapore",
+                "global_code": "6PH58W24+J2"
+            },
+            "rating": 0,
+            "reference": "ChIJX3X4Nbwi2jERPQ7kc5XkyuE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        }
+    ],
+    "status": "OK"
+}

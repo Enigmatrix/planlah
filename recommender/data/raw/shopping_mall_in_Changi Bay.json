@@ -1,0 +1,791 @@
+{
+    "html_attributions": [],
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Changi Business Park Central 1, Singapore 486038",
+            "geometry": {
+                "location": {
+                    "lat": 1.3342732,
+                    "lng": 103.9627387
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.33499565,
+                        "lng": 103.9642367798927
+                    },
+                    "southwest": {
+                        "lat": 1.33210585,
+                        "lng": 103.9615371201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Changi City Point",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 994,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104779892265591351466\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECn9OE5PVoW6UMfpIiysvXMmTfvHv8aPGjSVyb2oY2AQ9EzuDZ2GAyQwODZRx1oBYKRNPsff1cUHxOam8XWl2tbrZjnP5bpha40wzS0nC7rkOUsMv2LtKyLocqLCJZ07RtvF6HXOsEHL--az4SKL0sFTqZ7k-vdCwBmrWtFvs7sqhvi",
+                    "width": 1772
+                }
+            ],
+            "place_id": "ChIJPyKq0o082jERd1bghvwiadU",
+            "plus_code": {
+                "compound_code": "8XM7+P3 Singapore",
+                "global_code": "6PH58XM7+P3"
+            },
+            "rating": 4.3,
+            "reference": "ChIJPyKq0o082jERd1bghvwiadU",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 9586
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "78 Airport Blvd., Singapore 819666",
+            "geometry": {
+                "location": {
+                    "lat": 1.3602082,
+                    "lng": 103.9897593
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3651169,
+                        "lng": 103.99216435
+                    },
+                    "southwest": {
+                        "lat": 1.3454821,
+                        "lng": 103.98254415
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Jewel Changi Airport",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102467592239988127131\">Teo Chin Heng</a>"
+                    ],
+                    "photo_reference": "Aap_uECL9U9JaW5vGdB0s1TEhQwXmeokT6dTs1Jl62lrtDzWhhAkF0-wK8FY0SfOTzhBNdcOy0ZEuCThpe5_keqyooqYyYq_x8rGGqlLGhvg-O3lx1AkJkKHoLHsoTyoo6Te1LmCYwDhNLTulIZw2Hwnsp60-sCJK2HASj1oY7kN7wQ1Rtlq",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJw3l-FL4X2jERw2pScvHQCbg",
+            "plus_code": {
+                "compound_code": "9X6Q+3W Singapore",
+                "global_code": "6PH59X6Q+3W"
+            },
+            "rating": 4.7,
+            "reference": "ChIJw3l-FL4X2jERw2pScvHQCbg",
+            "types": [
+                "shopping_mall",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 37527
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Changi Business Park Central 1, Singapore 486036",
+            "geometry": {
+                "location": {
+                    "lat": 1.3334798,
+                    "lng": 103.9625577
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.334503879892722,
+                        "lng": 103.9642785298927
+                    },
+                    "southwest": {
+                        "lat": 1.331804220107278,
+                        "lng": 103.9615788701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "ONE@Changi City - Space for Rent",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2400,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103424237218258810817\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEA3gyQmnUxd3jceKkTIph5I9UCT2if_daBe5wMrgkrJJEO5AB_pga9kGVzrp9wxMbhGMcwCj-aJI4w6awnV9rYSTyfBXoS_BVXyP4llxRfKkO4jR73o4UJrAcm4r6UK4yhmHGso4gnAmh5daPxK9e9qcFbzLSBgIdvpgDS3GF_0f7mo",
+                    "width": 3600
+                }
+            ],
+            "place_id": "ChIJ3-GOEns92jERvUXHb28uYAE",
+            "plus_code": {
+                "compound_code": "8XM7+92 Singapore",
+                "global_code": "6PH58XM7+92"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ3-GOEns92jERvUXHb28uYAE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 39
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "311 New Upper Changi Rd, Singapore 467360",
+            "geometry": {
+                "location": {
+                    "lat": 1.3241182,
+                    "lng": 103.9290329
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3267047,
+                        "lng": 103.9307925
+                    },
+                    "southwest": {
+                        "lat": 1.3229983,
+                        "lng": 103.9280277
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Bedok Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107551009876084272266\">suresh suresh</a>"
+                    ],
+                    "photo_reference": "Aap_uED61rUbCG7g-r_MzGa2UspMvA4DLUruuDipm6mgvk9cJ6BiKwR-myOkE9IX_nQG3Wn87pYgt3rf8TRxEVMMuAz90RWlQMSyguKbClGq0o41xgrwlV42SbmGiQ76-qqsppAa0wkjVP9UTG1h3qfflF9g8v4b0UeVse6mdOJLMI7TzN-N",
+                    "width": 3060
+                }
+            ],
+            "place_id": "ChIJR80Wwcoi2jER8yMuAZodQFk",
+            "plus_code": {
+                "compound_code": "8WFH+JJ Singapore",
+                "global_code": "6PH58WFH+JJ"
+            },
+            "rating": 4.2,
+            "reference": "ChIJR80Wwcoi2jER8yMuAZodQFk",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 12457
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "799 New Upper Changi Rd, Singapore 467351",
+            "geometry": {
+                "location": {
+                    "lat": 1.3245669,
+                    "lng": 103.9322919
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.326155979892722,
+                        "lng": 103.9337683298927
+                    },
+                    "southwest": {
+                        "lat": 1.323456320107278,
+                        "lng": 103.9310686701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Bedok Point",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106112076029510410813\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEA85T0iPKzSVCEVNrX5Y6cdK0dsFTbRfeOCv2RmqOG-LTnJVDs9NNlDy_MjWT-1boeCCPRMU6R0yTeWbYnijp6AL75621H91F-vSbKGASLcbdci6rNye5ak8R7g3UobP0C-3NysRY7yoNuTpKQFmWo7qUbu0aggcfRcJjJOVXSOoPA",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJgWBomLQi2jERyU-GZEHw_NI",
+            "plus_code": {
+                "compound_code": "8WFJ+RW Singapore",
+                "global_code": "6PH58WFJ+RW"
+            },
+            "rating": 4,
+            "reference": "ChIJgWBomLQi2jERyU-GZEHw_NI",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2516
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Changi Business Park Central 1 #B1-01/02/03, Changi City Point, 486038",
+            "geometry": {
+                "location": {
+                    "lat": 1.3343155,
+                    "lng": 103.9623237
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.335114829892722,
+                        "lng": 103.9645227
+                    },
+                    "southwest": {
+                        "lat": 1.332415170107278,
+                        "lng": 103.9612991
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "DAISO Changi City Point",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117174545870732916526\">Zack Huang</a>"
+                    ],
+                    "photo_reference": "Aap_uEARrfqk5EJvtoEy_DnV-M6L7voQUmWQcZsJyBRINHAa9UvhcNWYjstA7XFIW20BfxgY4IFAkNSRbupEUE-BODX-TJpooEQkFoZrC2X8KuZYoUnDu7vxBOh5aSOkNZRwqw4vg5P09rNM1fJJ_LPs4jLuUmccpRzATNJVfJYyyzROqYSi",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJeaNSidc82jERQY6rChddGIE",
+            "plus_code": {
+                "compound_code": "8XM6+PW Singapore",
+                "global_code": "6PH58XM6+PW"
+            },
+            "rating": 4.4,
+            "reference": "ChIJeaNSidc82jERQY6rChddGIE",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 849
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Airport Blvd.",
+            "geometry": {
+                "location": {
+                    "lat": 1.3644202,
+                    "lng": 103.9915308
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.37765545,
+                        "lng": 103.99827925
+                    },
+                    "southwest": {
+                        "lat": 1.32471445,
+                        "lng": 103.97128545
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png",
+            "icon_background_color": "#10BDFF",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet",
+            "name": "Singapore Changi Airport",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 533,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109154411427969546919\">\u0e17\u0e48\u0e32\u0e2d\u0e32\u0e01\u0e32\u0e28\u0e22\u0e32\u0e19\u0e19\u0e32\u0e19\u0e32\u0e0a\u0e32\u0e15\u0e34\u0e0a\u0e32\u0e07\u0e07\u0e35</a>"
+                    ],
+                    "photo_reference": "Aap_uEDo1VcXvnUInuWWPNqsoCqD3e4msi1ey5j-TKKDCJjua5cQwQWkKReLxNcwXj92LdoxWXtPNlCkr3OWD2c3MNnIL6edbSVusLdVVwVoE51GduUkeLLIDPpgF9bPGNyM_E9Pl0vtwAetGjZNxkIo_BbWcX7LNe5IhBfVNzYGtuxcNqQd",
+                    "width": 799
+                }
+            ],
+            "place_id": "ChIJ483Qk9YX2jERA0VOQV7d1tY",
+            "plus_code": {
+                "compound_code": "9X7R+QJ Singapore",
+                "global_code": "6PH59X7R+QJ"
+            },
+            "rating": 4.7,
+            "reference": "ChIJ483Qk9YX2jERA0VOQV7d1tY",
+            "types": [
+                "airport",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 24178
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "112 E Coast Rd, Singapore 428802",
+            "geometry": {
+                "location": {
+                    "lat": 1.3052934,
+                    "lng": 103.9051599
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306783379892722,
+                        "lng": 103.9063083298927
+                    },
+                    "southwest": {
+                        "lat": 1.304083720107278,
+                        "lng": 103.9036086701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "i12 Katong",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111462461174502870023\">Tucunar\u00e9 pav\u00f3n</a>"
+                    ],
+                    "photo_reference": "Aap_uEA9rJlklX9i-bwHGwjX6Peh3rkfn-IE77GUB_QV2d2ERSaE_I67QPVaPCgnfNXChiPUvE1Jo21_odxK0vuavC6Ql7IWqBbzpsWWivtpd8gO8D5f7B6FcSxys7lcQ09ou-flGPwwmoJy8BkLPm2urFpbGIVnIEQXBjoWGHZ18bn6Zh8",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJjRyU93IY2jERVeVw3ZFo-is",
+            "plus_code": {
+                "compound_code": "8W44+43 Singapore",
+                "global_code": "6PH58W44+43"
+            },
+            "rating": 3.9,
+            "reference": "ChIJjRyU93IY2jERVeVw3ZFo-is",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3719
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "65 Airport Boulevard #B2-47, Terminal 3 Singapore Changi Airport, 819663",
+            "geometry": {
+                "location": {
+                    "lat": 1.3555805,
+                    "lng": 103.9861962
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.356744179892722,
+                        "lng": 103.9879803298927
+                    },
+                    "southwest": {
+                        "lat": 1.354044520107278,
+                        "lng": 103.9852806701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "The Body Shop @ T3 Public",
+            "opening_hours": {
+                "open_now": true
+            },
+            "place_id": "ChIJdfH22Zc82jERJQeo3JPUZf8",
+            "rating": 0,
+            "reference": "ChIJdfH22Zc82jERJQeo3JPUZf8",
+            "types": [
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Changi Rd, Singapore 419715",
+            "geometry": {
+                "location": {
+                    "lat": 1.3165433,
+                    "lng": 103.900554
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.317990229892722,
+                        "lng": 103.9018967798927
+                    },
+                    "southwest": {
+                        "lat": 1.315290570107278,
+                        "lng": 103.8991971201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Centropod@Changi",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111804583947771021426\">Balaji kaliyaperumal</a>"
+                    ],
+                    "photo_reference": "Aap_uEC8igr1dBPXnW8L_2s8myran7EbY4vNt4ZGhhMNYaoD5q6XTNwEkls3i0_pKtwN3zx8ZQaxsxGB9xvH76uR9flBrAhgMUBvwr75l3EJTszWCPtU93MXS4a7h5hFHsOh1kKSz2ZR15XQi3xiSD8IDQCNmIxO5UrB9V_J424USC-qqVWS",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJURob8Z0Z2jERr3P4XH-IGiY",
+            "plus_code": {
+                "compound_code": "8W82+J6 Singapore",
+                "global_code": "6PH58W82+J6"
+            },
+            "rating": 4,
+            "reference": "ChIJURob8Z0Z2jERr3P4XH-IGiY",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Tampines Central 5, Singapore 529510",
+            "geometry": {
+                "location": {
+                    "lat": 1.3522589,
+                    "lng": 103.9450627
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353866779892722,
+                        "lng": 103.94591165
+                    },
+                    "southwest": {
+                        "lat": 1.351167120107278,
+                        "lng": 103.94251585
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Tampines Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108195945204906510478\">Harry</a>"
+                    ],
+                    "photo_reference": "Aap_uEAUaFMacMjFm5vZ7-neiqpl6OhBkwAbvBPxGeMpfzHiR2Yw98SQ9NcA3WvELHK_UGLDSDFEG94onzTzbJWTmWXpubZ98bwfbqXkK_9uzBBx8zLOqyyHyd7BNr3qhQ9k7XyJBwN7zcwfmUQyhrUSfBREXtvmxuFw_j0_M4DZDlNc9BbD",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ89lf6hE92jERQXt7c5QOFnY",
+            "plus_code": {
+                "compound_code": "9W2W+W2 Singapore",
+                "global_code": "6PH59W2W+W2"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ89lf6hE92jERQXt7c5QOFnY",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 12522
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Pasir Ris Central St 3, Singapore 518457",
+            "geometry": {
+                "location": {
+                    "lat": 1.3724166,
+                    "lng": 103.9496584
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.373886629892722,
+                        "lng": 103.9510104798927
+                    },
+                    "southwest": {
+                        "lat": 1.371186970107278,
+                        "lng": 103.9483108201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "White Sands",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114206691430527619450\">114206691430527619450</a>"
+                    ],
+                    "photo_reference": "Aap_uEDTeEN_86dTdJM9-3rZzKcWBIZdjGkBJ9vSXqu0QJ6fe1x5mkcsnzbX40nRnXNLwd3YIfSWi3Cb-QhCWMekbb_71ZaxVjC-KqOyPL5Chj4xR0-gCIvxDBSbUnIS_vs9i21o2Ihl6u6stWVYkclC7_Irf_w6VONLzLa2q0H5dsfnXcLD",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJQyaM-6892jER4DhQn_hqaYE",
+            "plus_code": {
+                "compound_code": "9WCX+XV Singapore",
+                "global_code": "6PH59WCX+XV"
+            },
+            "rating": 4.1,
+            "reference": "ChIJQyaM-6892jER4DhQn_hqaYE",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5666
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "70 Airport Blvd., Singapore 819661",
+            "geometry": {
+                "location": {
+                    "lat": 1.35731,
+                    "lng": 103.98836
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.35824905,
+                        "lng": 103.9895887798927
+                    },
+                    "southwest": {
+                        "lat": 1.35504525,
+                        "lng": 103.9868891201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Changi Airport",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116622660847510840952\">Dwaipayan Das</a>"
+                    ],
+                    "photo_reference": "Aap_uEDWOfY42MAR32xVrrI2HaaKqTy4ShfUxxHPjA-PRIkuYAGIe2m61N5y5csn61CQSpP5THMD5rFIGnSTEkmhcd3WtL2-DZjUIrL8UxQbhE2xFBs8Hix52taCr5MagSoPAtZjS_hxPB0aaW-taXosuTJmixVhMALpCIrxLKjU9M8g4Yk8",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJF7Q9Fow82jERNvbZPNr07Xo",
+            "plus_code": {
+                "compound_code": "9X4Q+W8 Singapore",
+                "global_code": "6PH59X4Q+W8"
+            },
+            "rating": 4.6,
+            "reference": "ChIJF7Q9Fow82jERNvbZPNr07Xo",
+            "types": [
+                "subway_station",
+                "transit_station",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 525
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Jurong East Street 21, Singapore 609601",
+            "geometry": {
+                "location": {
+                    "lat": 1.3348154,
+                    "lng": 103.7468395
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.33673205,
+                        "lng": 103.7481877798927
+                    },
+                    "southwest": {
+                        "lat": 1.33297945,
+                        "lng": 103.7454881201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "IMM",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115297210924418451473\">Kwa Hock</a>"
+                    ],
+                    "photo_reference": "Aap_uECJufucJWMI5mf6fhvLXg6oM6s06X1QBbD7MqwqxJ929evajIIK4pcK45djRKhjyOUzMWvxaJUxjFBypyaOD36jTPtxzvhRuyrdmzS72zaW-li0qISW85OuRos7RIvGloIYozretSqt1yo1tezrz39JbVS8eVzWUcCWXCpptkfJpeld",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJa2nb2g0Q2jERlcUMLtMVyoI",
+            "plus_code": {
+                "compound_code": "8PMW+WP Singapore",
+                "global_code": "6PH58PMW+WP"
+            },
+            "rating": 4.3,
+            "reference": "ChIJa2nb2g0Q2jERlcUMLtMVyoI",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14146
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Stadium Pl, Singapore 397628",
+            "geometry": {
+                "location": {
+                    "lat": 1.3032243,
+                    "lng": 103.8728714
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.30847115,
+                        "lng": 103.87735835
+                    },
+                    "southwest": {
+                        "lat": 1.29923655,
+                        "lng": 103.87037775
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Kallang Wave Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115725392210756907778\">Soo Hin Yeoh</a>"
+                    ],
+                    "photo_reference": "Aap_uEAPIeE-znE9BA7UujTZEIN0MvOa9w8llCDHOVD5SbQXivS1Z-fASxOJnNpZqTz0AUsL9xBEl_-Cnw73WeGmsvHIfZUYjxPRKxtrnQT4ZHUYZpN1sf9X1umJZ39GFqNgHfkbjDdnnEsG9V0WjRmBftnmVoLDLb7wM3lAka9lgB2V6vvw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJjQcl90sY2jER0d9ui1pFp9s",
+            "plus_code": {
+                "compound_code": "8V3F+74 Singapore",
+                "global_code": "6PH58V3F+74"
+            },
+            "rating": 4.2,
+            "reference": "ChIJjQcl90sY2jER0d9ui1pFp9s",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7874
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "101 Thomson Rd, Singapore 307591",
+            "geometry": {
+                "location": {
+                    "lat": 1.3171849,
+                    "lng": 103.8436045
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318504329892722,
+                        "lng": 103.8451681298927
+                    },
+                    "southwest": {
+                        "lat": 1.315804670107278,
+                        "lng": 103.8424684701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "United Square Shopping Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110331636782011701321\">Lin Yaw Lim</a>"
+                    ],
+                    "photo_reference": "Aap_uECFYb1BqOjcNz5kHenvLWJAoKqbDLwWkqBRN6sZ19E9RIgj0jhr3abazkl15WIntE2oFV5qSBV-kyjX6MPBYrjkuMOrh6NSz5Tycl74GDNtQVFE800-GZcSf45Xc0eajQN41LMKoYVsQ0iRyT7ihhLl-Gm5jKi8BFOQN_xt2UzpacB_",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJRX3v4ecZ2jERD0BlqjhXKCc",
+            "plus_code": {
+                "compound_code": "8R8V+VC Singapore",
+                "global_code": "6PH58R8V+VC"
+            },
+            "rating": 4.1,
+            "reference": "ChIJRX3v4ecZ2jERD0BlqjhXKCc",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4353
+        }
+    ],
+    "status": "OK"
+}

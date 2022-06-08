@@ -1,0 +1,1002 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEBe4QLBK70R6Fku-ymPBrzG_zmcBFiujQcAOTg5SeyVzISxdULqb-W0PDm_VpklU8YdlEwlkIrDIi4v7lX6wL6piMwkmu_8-CYcuHf5VZX_cbmxsFgMef7NXjfan-T9cWAOm4T3N6BiyTXdDVv2kQ0Qew9i2iquzStvJeHSWMvGwM6z6j04K3GgKcQdBGuC__BGm3f4dhK4JxYwUR95flwGAfPAzQwmcgSRmWywEJ88-RtyN27VWfsFQE2wYAsRcDub5HmYevvlJeRXtjJXQ0CIQdayyKXeMsB4CojTkRtY2qIcIkhkqNBe3MdTqGnUkFpocyFVbfVoU2TQrbQm7ZIKDwTD-pVGuuwAxceh6zSh9c9UktEHcqeStA5cEH9i1dV0gmepix6DG8galGwNPdz3931Cb1tCjkUx-x30N0hBrxrUoPpy_xvTPNANw-ocqKYbIkcE4ZWUesaQ5w7GBA",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "83 Marine Parade Central, Singapore 440083",
+            "geometry": {
+                "location": {
+                    "lat": 1.3028127,
+                    "lng": 103.9064124
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304379379892722,
+                        "lng": 103.9080252298927
+                    },
+                    "southwest": {
+                        "lat": 1.301679720107278,
+                        "lng": 103.9053255701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Marine Parade Promenade",
+            "photos": [
+                {
+                    "height": 9248,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103013006379048537455\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAHVmEFL5BGZ5qAhCPjNFCEMs6QTBpdwAydq9NEQ1bs_JP-EkLnU84lrWBWglNqhDL-S_-G7ai6GUI0XT9uLSljTaXf0qRmFKI7HKTEk5D6af9nnJO27ux-Quy31Cy8ZXF06cmOsH4Yo7y4Usn32FqxwBs4gjlKHrZbt511BMCYNfCw",
+                    "width": 6936
+                }
+            ],
+            "place_id": "ChIJm8SX0XMY2jERUs3Q7J99hFg",
+            "plus_code": {
+                "compound_code": "8W34+4H Singapore",
+                "global_code": "6PH58W34+4H"
+            },
+            "rating": 4.3,
+            "reference": "ChIJm8SX0XMY2jERUs3Q7J99hFg",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 50
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Rd, Singapore 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3013366,
+                    "lng": 103.9052333
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302945129892722,
+                        "lng": 103.9060537798927
+                    },
+                    "southwest": {
+                        "lat": 1.300245470107278,
+                        "lng": 103.9033541201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Parkway Parade",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109532441449540262596\">Bobby Wan</a>"
+                    ],
+                    "photo_reference": "Aap_uEBvZDW4cA7c5MKhZDaRJKzevmkydNWq0Kl7iSJDrenCXOts_EZL_drQjCYK6Pj7xTmWUknehZXNx2b1Hxgjrnf4eVKmInpCDHFxZUdocF1_PkiR5q7OKhq9xaLXl8uwOJos5K5DGydtGid9dTpf0CCFZL-Zqc5vL0n_nst0Whc6d25-",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ2WUXmnEY2jERoGOSkJVgnrY",
+            "plus_code": {
+                "compound_code": "8W24+G3 Singapore",
+                "global_code": "6PH58W24+G3"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ2WUXmnEY2jERoGOSkJVgnrY",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7591
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "865 Mountbatten Rd, Singapore 437844",
+            "geometry": {
+                "location": {
+                    "lat": 1.303903,
+                    "lng": 103.9011732
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.30559335,
+                        "lng": 103.9024320798927
+                    },
+                    "southwest": {
+                        "lat": 1.30259835,
+                        "lng": 103.8997324201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Katong Shopping Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1800,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102589058598808274925\">Ho Wilson</a>"
+                    ],
+                    "photo_reference": "Aap_uEBVj6kerwHGHF7RaexPlyI5CNIpjHwCh3KJl7uMavBWL04zjBuvgmmft-CkztHXkNN6zHsK4h9An9nV1kWXNdZ0c7eEJD7jl3-IV3KipgfDsZfcZfhlCUO0CXcCgmZAtyn4XI64s2nOrByIXzHsXc6sehwofUzwD9EEvOtia0Wu5gMD",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJuXIJwG0Y2jERSMkMTyIynBQ",
+            "plus_code": {
+                "compound_code": "8W32+HF Singapore",
+                "global_code": "6PH58W32+HF"
+            },
+            "rating": 3.6,
+            "reference": "ChIJuXIJwG0Y2jERSMkMTyIynBQ",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1605
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Marine Parade Central, Singapore 449410",
+            "geometry": {
+                "location": {
+                    "lat": 1.3031972,
+                    "lng": 103.9067055
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304603529892722,
+                        "lng": 103.9081177298927
+                    },
+                    "southwest": {
+                        "lat": 1.301903870107278,
+                        "lng": 103.9054180701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "iMall (u/c)",
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111268657170252796763\">j</a>"
+                    ],
+                    "photo_reference": "Aap_uEAG9JIP4StxZb414koZkffHBe5_QAp3VBX4xart1WH84b5u38D5zV5Foy-GUca_S1CauCJ-xMmz3MHZO39Wd-uyR7_BKG0GzIO6GqlmdPqDCtaUR26G9PNhn1aK6h8kV0zOZxB7UL4H4RI_71DsGPFN4TUWJjhOsdPde5QSV5jC5g1e",
+                    "width": 4208
+                }
+            ],
+            "place_id": "ChIJAQAAuHEY2jER8_4x7lsg0gQ",
+            "plus_code": {
+                "compound_code": "8W34+7M Singapore",
+                "global_code": "6PH58W34+7M"
+            },
+            "rating": 0,
+            "reference": "ChIJAQAAuHEY2jER8_4x7lsg0gQ",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "112 E Coast Rd, Singapore 428802",
+            "geometry": {
+                "location": {
+                    "lat": 1.3052934,
+                    "lng": 103.9051599
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306783379892722,
+                        "lng": 103.9063083298927
+                    },
+                    "southwest": {
+                        "lat": 1.304083720107278,
+                        "lng": 103.9036086701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "i12 Katong",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111462461174502870023\">Tucunar\u00e9 pav\u00f3n</a>"
+                    ],
+                    "photo_reference": "Aap_uEBvgQx9uFozkTRyomX2fDysms0oINtgHWYhyP5YDtZkmd2rfgxPLpBtjpzVS5SLV6-yPNmmnvnottOVy3V7A72rX4zxih_gMGhEn-8N86nXIR_usDwvuzk28Z4d54h4MmoqlGNR8Xl1G3jf6mYcAoXVauJveuzYgV3Tlj8lZW7mmKI",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJjRyU93IY2jERVeVw3ZFo-is",
+            "plus_code": {
+                "compound_code": "8W44+43 Singapore",
+                "global_code": "6PH58W44+43"
+            },
+            "rating": 3.9,
+            "reference": "ChIJjRyU93IY2jERVeVw3ZFo-is",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3719
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "6 Raffles Blvd, Marina Square, Singapore 039594",
+            "geometry": {
+                "location": {
+                    "lat": 1.2911534,
+                    "lng": 103.8576778
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.292906679892722,
+                        "lng": 103.8589905298927
+                    },
+                    "southwest": {
+                        "lat": 1.290207020107278,
+                        "lng": 103.8562908701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Marina Square",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1992,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">Thiam Beng Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBz9bai0tmd3XrnIIgxBFU370EZDiQvDZoeEPo3Tb-QdLlMWodHIieXGPnoKb17f7fhni4dvTY2mPIskgpeqmQH-hGhl0A5xcBkGLEo4KPPvq1-I9aVEz_Szz86qUZaCTeOu-lGHziEXQt-pet5ec9cweu7gruyonkzllnt_rRwFsRO",
+                    "width": 3541
+                }
+            ],
+            "place_id": "ChIJ9UKUtjsZ2jER-VszUURb3LI",
+            "plus_code": {
+                "compound_code": "7VR5+F3 Singapore",
+                "global_code": "6PH57VR5+F3"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ9UKUtjsZ2jER-VszUURb3LI",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14773
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "30 E Coast Rd, Singapore 428751",
+            "geometry": {
+                "location": {
+                    "lat": 1.3036199,
+                    "lng": 103.9029701
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.304995279892722,
+                        "lng": 103.9043627798927
+                    },
+                    "southwest": {
+                        "lat": 1.302295620107278,
+                        "lng": 103.9016631201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Katong V",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2002,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">Thiam Beng Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBu_QwZrUPqgkMQ8QoVU7ZrUQJs7hKddTPKqmrRNN1kir5gUm9BR940lo88JQUvPao_RwMcJLry-Us1v65d1XG13D4ZYm_kxPirKbE4q7oPdkpujxJ4tCkea0ezMEj-PZWzuZmf5nMmSn7hMX_knLHaLbiND0EpakkH0yuevDa4N04v",
+                    "width": 4224
+                }
+            ],
+            "place_id": "ChIJC3pECnIY2jERnT-FiMVHPIk",
+            "plus_code": {
+                "compound_code": "8W33+C5 Singapore",
+                "global_code": "6PH58W33+C5"
+            },
+            "rating": 4,
+            "reference": "ChIJC3pECnIY2jERnT-FiMVHPIk",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1413
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "66 E Coast Rd, Singapore 428778",
+            "geometry": {
+                "location": {
+                    "lat": 1.3047424,
+                    "lng": 103.9040545
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306007429892722,
+                        "lng": 103.9055979298927
+                    },
+                    "southwest": {
+                        "lat": 1.303307770107278,
+                        "lng": 103.9028982701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "The Flow @ East Coast",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105850484382134843009\">david toong</a>"
+                    ],
+                    "photo_reference": "Aap_uEDrY_vSPSHvauMd34NrnRw81fp3AUgwo3ocu-QwbiYg84wq-Q9dAJxRNMM85Zw37jIBoQJttvpVIvs3YuUmTrtPX8xyqpMWtjF-iKDiyu6QwKlPPRc-dk9HhpT2Pu8PxZObmq2Db1_MVmRIL6Q_DAXhmDRTHtO3mcJRcHUQaQzpq0M0",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJ42A__8IZ2jERCHni8tKHMAk",
+            "plus_code": {
+                "compound_code": "8W33+VJ Singapore",
+                "global_code": "6PH58W33+VJ"
+            },
+            "rating": 3.3,
+            "reference": "ChIJ42A__8IZ2jERCHni8tKHMAk",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 45
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "23 Serangoon Central, Singapore 556083",
+            "geometry": {
+                "location": {
+                    "lat": 1.3504646,
+                    "lng": 103.8727453
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.352152529892722,
+                        "lng": 103.8737684798927
+                    },
+                    "southwest": {
+                        "lat": 1.349452870107278,
+                        "lng": 103.8710688201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "NEX",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115217123530634184070\">ben lim</a>"
+                    ],
+                    "photo_reference": "Aap_uEAudp3N9Efv_s0qxqWuMVPscdBDNebzbn9Ey21aKSRRumY2tByLn0m6axx1ZrmtXAj3384XEJ99bh_ELrEvQ9PoSlz13DTtDWr_dz1IaAaEYC6O8HlPpBWBPSiSjlpP4IdgOvmIpzi1MXXFR5cqFJxzUnJMGbiZ1_2RSbj54xFl5bw8",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJeRqAraYX2jERQpyIAXSU1SU",
+            "plus_code": {
+                "compound_code": "9V2F+53 Singapore",
+                "global_code": "6PH59V2F+53"
+            },
+            "rating": 4.3,
+            "reference": "ChIJeRqAraYX2jERQpyIAXSU1SU",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 18626
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "E Coast Rd, #86-88, Singapore 428788",
+            "geometry": {
+                "location": {
+                    "lat": 1.3047255,
+                    "lng": 103.9046894
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.306251379892722,
+                        "lng": 103.9058266298927
+                    },
+                    "southwest": {
+                        "lat": 1.303551720107278,
+                        "lng": 103.9031269701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Katong Square",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101240389824842882822\">Gregory Athanasius</a>"
+                    ],
+                    "photo_reference": "Aap_uECDCjUZSWVHcmSVLOfkuOmKL2Ys1VC1QxVwmWrdhekIuzrmlt_phJJKAs_P54K9XrLSnhinTDvktEHQa1J6B1CRkRPsF_jzXTFsK0G9pHdgqbfEH13aKXnat--dpPq172Pj5j-hS8kpR-PGgmoDLIynNFhvdAk6jezl1NCqrZt8w9YU",
+                    "width": 2268
+                }
+            ],
+            "place_id": "ChIJR9HlRHIY2jER9RAgYi5Pqbs",
+            "plus_code": {
+                "compound_code": "8W33+VV Singapore",
+                "global_code": "6PH58W33+VV"
+            },
+            "rating": 4,
+            "reference": "ChIJR9HlRHIY2jER9RAgYi5Pqbs",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 856
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11 E Coast Rd, Singapore 428722",
+            "geometry": {
+                "location": {
+                    "lat": 1.3046976,
+                    "lng": 103.901881
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305991579892722,
+                        "lng": 103.9034218798927
+                    },
+                    "southwest": {
+                        "lat": 1.303291920107278,
+                        "lng": 103.9007222201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "The Odeon Katong",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4224,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118082395255459356366\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDJ6fkYF-_yS3vmmgGNCzwiobdRdTa079Uju25sg9b32GJUO2f9C1G6uneodKJFRTx4v5vlwE9y9Bj2eh0futgeim2y7q90rOR6K-JLnDET-vWaEXkIzwOk588EwnE50P_eB5PKC5x4ri_QizRoE-e8PPbr3F6NdQVqGko7IXSGWjb6",
+                    "width": 5632
+                }
+            ],
+            "place_id": "ChIJUYILgqQi2jERAvv7GpjL5xY",
+            "plus_code": {
+                "compound_code": "8W32+VQ Singapore",
+                "global_code": "6PH58W32+VQ"
+            },
+            "rating": 3.8,
+            "reference": "ChIJUYILgqQi2jERAvv7GpjL5xY",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 246
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "50 E Coast Rd, Singapore 428769",
+            "geometry": {
+                "location": {
+                    "lat": 1.3039864,
+                    "lng": 103.9043811
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305881429892722,
+                        "lng": 103.9053758298927
+                    },
+                    "southwest": {
+                        "lat": 1.303181770107278,
+                        "lng": 103.9026761701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Roxy Square 1",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102589058598808274925\">Ho Wilson</a>"
+                    ],
+                    "photo_reference": "Aap_uEByyzdNvDH4A-1yfnClk-f4PooQKG5oKkQcw-flemQjfIn3d5mNKwsGZQXlXAovKZWK5UagZjpVX64oUJ6uykxr64xNS1vDOlV0-vxTIVO4EiVrXSxgAQW3HR7G-a3ErOMdznBwyWZIQomRzEWYScf7TCMILZFZzGcwrXOuOEZladUr",
+                    "width": 1800
+                }
+            ],
+            "place_id": "ChIJP-KTKl0Z2jER83xYLXlA-Yo",
+            "plus_code": {
+                "compound_code": "8W33+HQ Singapore",
+                "global_code": "6PH58W33+HQ"
+            },
+            "rating": 3.8,
+            "reference": "ChIJP-KTKl0Z2jER83xYLXlA-Yo",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 540
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Brooke Rd, Singapore 429979",
+            "geometry": {
+                "location": {
+                    "lat": 1.3043247,
+                    "lng": 103.9037455
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305364079892722,
+                        "lng": 103.9052225798927
+                    },
+                    "southwest": {
+                        "lat": 1.302664420107278,
+                        "lng": 103.9025229201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Katong Plaza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103331270735393175501\">AlexP Su</a>"
+                    ],
+                    "photo_reference": "Aap_uEDQGJ72soXlNaiSG5g6ht3CMbBh2HfkWbw2T3xR5d9ZVqXJGHirgYnZTw83PfMstEK0HrKQuWid7pQEAhBYsKOzEMnmJ7mYzjuxmuuWiGQtqm7iv0OAK1-2xzMvHyGOtIYzUFw1-f1od7QJZEN5ZNoZqkSNyMIf67HH46iHf703LWB-",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJiYsAZXIY2jERmsUoK3fIoaA",
+            "plus_code": {
+                "compound_code": "8W33+PF Singapore",
+                "global_code": "6PH58W33+PF"
+            },
+            "rating": 3.5,
+            "reference": "ChIJiYsAZXIY2jERmsUoK3fIoaA",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 241
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "291 Joo Chiat Rd, #01-01, Singapore 427543",
+            "geometry": {
+                "location": {
+                    "lat": 1.3099189,
+                    "lng": 103.9021343
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.311244929892722,
+                        "lng": 103.9034486298927
+                    },
+                    "southwest": {
+                        "lat": 1.308545270107278,
+                        "lng": 103.9007489701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "JK Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1800,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102589058598808274925\">Ho Wilson</a>"
+                    ],
+                    "photo_reference": "Aap_uEAKYZQYfh-ShgFsknzEHcZ0x-8Lc3JQCBwMSSsZxhcbgL-YhyjiBWjK2bGy2-5JG_olMOeQfskAsfqTzA1COz67B-kWZm2htfUt8cKyeNTKuuLQPOLjlSEASpMOPPnShUxYIuPcrXU4Psb1d0KrUi_i-CXz0ytSjm8PmOqjxrPHLe-P",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ__-PfRIY2jERi_OxwYrXYBQ",
+            "plus_code": {
+                "compound_code": "8W52+XV Singapore",
+                "global_code": "6PH58W52+XV"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ__-PfRIY2jERi_OxwYrXYBQ",
+            "types": [
+                "shopping_mall",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Rd, #B1 - 50 / 66, Singapore 449296",
+            "geometry": {
+                "location": {
+                    "lat": 1.3014417,
+                    "lng": 103.9053062
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302820929892722,
+                        "lng": 103.9066780798927
+                    },
+                    "southwest": {
+                        "lat": 1.300121270107278,
+                        "lng": 103.9039784201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "The Body Shop",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2400,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117446481460862719184\">Julien</a>"
+                    ],
+                    "photo_reference": "Aap_uECVBAyjg-IxF4AlDc6w2TSa3gNiuoOfluJq_stc_gLzHIbXv59I83SNacq-5-myI7AKp9vCnpiVw2KugG5gS3-jTYVQM8dTa7iCBvirbvTfc7s9mtya-XLZTAAMbCC10WoMPjk0e9fwPm5ZQVD9vfqMN_m7VWSJ0ii-0SQCf_xdGHS0",
+                    "width": 3200
+                }
+            ],
+            "place_id": "ChIJyaLMsHEY2jERBhXGarbL150",
+            "plus_code": {
+                "compound_code": "8W24+H4 Singapore",
+                "global_code": "6PH58W24+H4"
+            },
+            "rating": 4.3,
+            "reference": "ChIJyaLMsHEY2jERBhXGarbL150",
+            "types": [
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "86 Marine Parade Central, #02-101/102, Singapore 440086",
+            "geometry": {
+                "location": {
+                    "lat": 1.3016341,
+                    "lng": 103.9065698
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303084929892722,
+                        "lng": 103.9078720298927
+                    },
+                    "southwest": {
+                        "lat": 1.300385270107278,
+                        "lng": 103.9051723701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "POPULAR Bookstore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113174850191623589648\">Glor K</a>"
+                    ],
+                    "photo_reference": "Aap_uEChFdWNhmEa89aqz1Hi_y6ON4rEnUbWbAwFbL-nbOfqmVn4dPVqkBo42tPp4B_321T6yivRb9kkYp1NMvF6wmHuVfffizUwfMmnLSaZxnVzFeL2fKsonGN4KkpoiPn7HBB6F9pENP4B1W902O1WF_EHFaGILZ7aglAuPLbJnoKZ1xlI",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJ9bcmFXEY2jERUXL3lFGmapg",
+            "plus_code": {
+                "compound_code": "8W24+MJ Singapore",
+                "global_code": "6PH58W24+MJ"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ9bcmFXEY2jERUXL3lFGmapg",
+            "types": [
+                "book_store",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 786
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Rd, Singapore 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3015535,
+                    "lng": 103.9052213
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302884479892722,
+                        "lng": 103.9065444798927
+                    },
+                    "southwest": {
+                        "lat": 1.300184820107278,
+                        "lng": 103.9038448201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Winter Time",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107815791242776192553\">Hong Eng Hoong</a>"
+                    ],
+                    "photo_reference": "Aap_uEDbtx32SWhImwle5eESDWQeZ4e5rFXGe7zq8HpBQXcJ-XYiSAZOVTKrjRVlQJ2oud39F5Yk4nJ9AEJvKqGzFk0w8d0G5I0D4G7C4ohqNRPszkHvMwFHAO4lDMwbw5msFLDHmOQZAJxpcG8YLBBeq35Ek1uHG9URKHR2KnyPLKFWLmV2",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJyaLMsHEY2jERgF6gjDEs7J0",
+            "plus_code": {
+                "compound_code": "8W24+J3 Singapore",
+                "global_code": "6PH58W24+J3"
+            },
+            "rating": 5,
+            "reference": "ChIJyaLMsHEY2jERgF6gjDEs7J0",
+            "types": [
+                "clothing_store",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "80 Marine Parade Rd, #01 - 20 / 21, Singapore 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3013366,
+                    "lng": 103.9052334
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302665329892722,
+                        "lng": 103.9065981798927
+                    },
+                    "southwest": {
+                        "lat": 1.299965670107278,
+                        "lng": 103.9038985201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "LANEIGE Parkway Parade",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109499295766146670121\">Christopher Seow</a>"
+                    ],
+                    "photo_reference": "Aap_uEBitlQfbo90shue7AgLX6CSH4juElBmKiMyBtvQhYQN-2kATeFCQQ6syEdD9vjQa5r5bV-R0j3ErUVU4M9THdXwenz1b-tnvlx618-RwF-H1cM5qgQ4CWh_SHGFV1WvZdd8iS2myuTnNNgaPsajpk8UCTzimagOuafho5g4Y04CE7H5",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJAQAAuHEY2jER2bcvgR7Ti6g",
+            "plus_code": {
+                "compound_code": "8W24+G3 Singapore",
+                "global_code": "6PH58W24+G3"
+            },
+            "rating": 2.5,
+            "reference": "ChIJAQAAuHEY2jER2bcvgR7Ti6g",
+            "types": [
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Road #03-26B, Parkway Parade, 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3014098,
+                    "lng": 103.9055514
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302759629892722,
+                        "lng": 103.9069012298927
+                    },
+                    "southwest": {
+                        "lat": 1.300059970107278,
+                        "lng": 103.9042015701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "DAISO Parkway Parade",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110394063579029806983\">akabee K</a>"
+                    ],
+                    "photo_reference": "Aap_uECKbtETSQ5Y8U4nbYOEcW-wpRLxMDm1fqgJsFZ0sfeBmfKTZpN51FvudhPmHrU1nmyu251vpDGDpouTmkztrQ1T4wEG1eCNjpuq36d1hlL9XJb3fUGonSZo3d2NpVlCp6o3IML4-QBJBRVdTYuYkkfc7tfc6y5jgWuleUUK5vvN8PCz",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJu8T7oHEY2jER6Tbu7FSmAqY",
+            "plus_code": {
+                "compound_code": "8W24+H6 Singapore",
+                "global_code": "6PH58W24+H6"
+            },
+            "rating": 4.3,
+            "reference": "ChIJu8T7oHEY2jER6Tbu7FSmAqY",
+            "types": [
+                "shopping_mall",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 608
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "80 Marine Parade Rd #04-01 Parkway Parade, 80 Marine Parade Rd, #04-01, 449269",
+            "geometry": {
+                "location": {
+                    "lat": 1.3018582,
+                    "lng": 103.904762
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.303171529892722,
+                        "lng": 103.9061368298927
+                    },
+                    "southwest": {
+                        "lat": 1.300471870107277,
+                        "lng": 103.9034371701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+            "icon_background_color": "#4B96F3",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+            "name": "Challenger",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107815791242776192553\">Hong Eng Hoong</a>"
+                    ],
+                    "photo_reference": "Aap_uECqZOOyLFFh-0sRevul7rnqlGm0tNI4un8LlhkQLMk6wIHm5CthJsRjjuhRzhIAag_WBIpiIVWJeqZtWxqcANFDfx9zRxLfizmgILGRLwYaczIr_VbT4XbERQ8aTr_LIB7oVWExXIPzvC7uPhk_IP22rXaKbC4JbK7mTIFcv5vpKj20",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJI6iUB3EY2jERKOqhrri7iyI",
+            "plus_code": {
+                "compound_code": "8W23+PW Singapore",
+                "global_code": "6PH58W23+PW"
+            },
+            "rating": 4.1,
+            "reference": "ChIJI6iUB3EY2jERKOqhrri7iyI",
+            "types": [
+                "electronics_store",
+                "store",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 101
+        }
+    ],
+    "status": "OK"
+}
