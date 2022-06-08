@@ -1,0 +1,1038 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEBgw8sM4zIZOhpIGCMm5SOvnveSqidKe5ULmlkNnJQHv5aUnR8T6x99nFc68GVFLWy_fpyg8yLkiQwTRKxesePasMqQMnmIBr1-5HQDXTfLnfznbSqxZr53oJ4BWSBgGi4kYJjW_HECOHVxTtG77Gqg1_mtl963pRwjhjc5L_DYjgyDx8OfCVagzPODIbcBlEWWqEChqU7w05F1qJ9KJ5RymuJ_LeAC1kHX5KKRkm16qRmgqwvjAU4RPp0JD4_QlNAcB6-xfGqnPpGP2j5wRqEDrJjqAOBXodRCVLQFNXMPmO2k8Cyy3Xq0FEXZh2giJzQW4Y40Wr5wNSsZWb6ibUdi-f4BauMF5Qe8UcWqYUv2Khpba0wa0EZB62zGcA6_x6WfJBUBOhIiATSCGHesf7EI5XkY8bxiCrlKBPGeChUfSJ6cVGdJ_cEt9yxfPoRcwJdWWg",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "160 Paya Lebar Rd, #01-07, Singapore 409022",
+            "geometry": {
+                "location": {
+                    "lat": 1.3293136,
+                    "lng": 103.8901738
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.330689729892722,
+                        "lng": 103.8914658298927
+                    },
+                    "southwest": {
+                        "lat": 1.327990070107278,
+                        "lng": 103.8887661701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Knots Cafe & Living (Paya Lebar)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115544039273878797633\">Nick Teong</a>"
+                    ],
+                    "photo_reference": "Aap_uEC_epY_mcZ5k8L8HLSvoj2EYUBzguILbhBComJH29vgvXSaQ5dnSlh47OfMkceuSCjCAWAzYYJO-5VNRO8xNq1B8corexZjjXYsjtYqSImBeTZClP-SLo3wxPi4HRzXTaBTdyZabMyYqqMcViYsBEEU2JMF7yN1eSNgQHkxShzNUguK",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJKXkHO4sX2jERhWTgW68Gs44",
+            "plus_code": {
+                "compound_code": "8VHR+P3 Singapore",
+                "global_code": "6PH58VHR+P3"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJKXkHO4sX2jERhWTgW68Gs44",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 1228
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Paya Lebar Link, #01-01 Paya Lebar Quarter 1, Singapore 408533",
+            "geometry": {
+                "location": {
+                    "lat": 1.3175284,
+                    "lng": 103.8928037
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318616279892722,
+                        "lng": 103.8941927298927
+                    },
+                    "southwest": {
+                        "lat": 1.315916620107278,
+                        "lng": 103.8914930701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Providore (PLQ)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2976,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107540487534889507941\">Jessica Fox</a>"
+                    ],
+                    "photo_reference": "Aap_uECI5V6aRZOQAEi-IUifdOw0TtY69diH3Nb-RCL3I4btICXtsX4pGVK5fYidXT73uMKNQd7EYrVWjigbXdqt-0xkUYEJLfCN0PzUa9MeU4codal9HunC7SqlHN2RI0pRVkdtrPqNzgY40fWrl2iE7rNjuD6hSGU6TQHem2D56SjzPd67",
+                    "width": 3968
+                }
+            ],
+            "place_id": "ChIJz9-chYwZ2jERTuSMM9gkl1E",
+            "plus_code": {
+                "compound_code": "8V9V+24 Singapore",
+                "global_code": "6PH58V9V+24"
+            },
+            "rating": 3.5,
+            "reference": "ChIJz9-chYwZ2jERTuSMM9gkl1E",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 336
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Paya Lebar Road, #01-20 PLQ Mall, Paya Lebar Quarter, 409057",
+            "geometry": {
+                "location": {
+                    "lat": 1.3174069,
+                    "lng": 103.8929228
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318562879892722,
+                        "lng": 103.8943016298927
+                    },
+                    "southwest": {
+                        "lat": 1.315863220107278,
+                        "lng": 103.8916019701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "k\u00f3mma Social Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113822134459298973109\">Scott Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uECAo8e-OOzgci6Mto1tLa-R4u5J0z76xe3U-AX3D74AI82HNcj2ntEhO68Py8m-Qs99iU4Z36TWpVa9QZdXaxklfT77x6EzuL0kCb8swGtiVX5NW10x16LuuvJIxyLocALQbsnxGIjaARQFyDxV_hlhqCDeYpCSgm4zwnxtpi5d0D1K",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ5dzJ5H4Z2jER5KOHMBUyfhQ",
+            "plus_code": {
+                "compound_code": "8V8V+X5 Singapore",
+                "global_code": "6PH58V8V+X5"
+            },
+            "rating": 3.7,
+            "reference": "ChIJ5dzJ5H4Z2jER5KOHMBUyfhQ",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 146
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Paya Lebar Rd, #01-78, 79, K2, Singapore 409051",
+            "geometry": {
+                "location": {
+                    "lat": 1.3184747,
+                    "lng": 103.8927282
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.319918679892722,
+                        "lng": 103.8943015798927
+                    },
+                    "southwest": {
+                        "lat": 1.317219020107278,
+                        "lng": 103.8916019201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "J.CO Donuts & Coffee - Paya Lebar Square",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4128,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116495992746370870847\">cse1217</a>"
+                    ],
+                    "photo_reference": "Aap_uEBW7QNhD7LB6ufT6xKX3t_VMnSQJe0Br2os529vPJnC1wRrH51GW9aCp8JGe9UwQzO6eK4BLWBwX2rMS-LhiWOWv2k0s6jK2oSkuH3WUUGLW-7udDs3xcWLsaSCD4M4eky-Q7VmVYE9WamjSuerZqjzy0d_QIWgTuUJj7wra0bzUt3O",
+                    "width": 3096
+                }
+            ],
+            "place_id": "ChIJZdFGZxgY2jERBZh2eYyG8iM",
+            "plus_code": {
+                "compound_code": "8V9V+93 Singapore",
+                "global_code": "6PH58V9V+93"
+            },
+            "rating": 4,
+            "reference": "ChIJZdFGZxgY2jERBZh2eYyG8iM",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 116
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Tanjong Katong Road, PLQ 3, #01-09 Paya Lebar Quarter, located at Chug Chug, 437161",
+            "geometry": {
+                "location": {
+                    "lat": 1.3166053,
+                    "lng": 103.8934568
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.317988679892722,
+                        "lng": 103.8949860798927
+                    },
+                    "southwest": {
+                        "lat": 1.315289020107278,
+                        "lng": 103.8922864201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Productive Paya Lebar Quarter | Work and Study space",
+            "photos": [
+                {
+                    "height": 2269,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105272340207174017950\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAjVp9J3Tn7iuYwqb3ElCboYP0yIbXKm1zESQ73avlgEfjBK6l4cO25keYaBtCYJn_8kRfNcyRprTcDeN3WEBuoclDuW0qRMslNNs-ppyPedvh57QNnLpYg34P2ynP7lV1dnFG3FPEbKROYOSDOXLF-oaSJMecxyV9PSTyBXSOVALBV",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJs5oHcfoZ2jERArzbrv8OBS0",
+            "plus_code": {
+                "compound_code": "8V8V+J9 Singapore",
+                "global_code": "6PH58V8V+J9"
+            },
+            "rating": 4.9,
+            "reference": "ChIJs5oHcfoZ2jERArzbrv8OBS0",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 34
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11 Tanjong Katong Rd, #02-16 Kinex Shopping Mall, Singapore 437157",
+            "geometry": {
+                "location": {
+                    "lat": 1.3151528,
+                    "lng": 103.8943941
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.316495379892722,
+                        "lng": 103.8956296798927
+                    },
+                    "southwest": {
+                        "lat": 1.313795720107278,
+                        "lng": 103.8929300201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Soul Coffee",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114361584047808414153\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBeGlNljnZM5Gw0Uu5XRA5dA3QFpojJG0zJB8b9ja5VTLZ8NBuC4_eQq8xGG8e7CGyKVNgIGkcmtPXDadQWsQUfyOZ1E8xkKyn5jBHMNbtypOcMFrQ5XOf_fkcYcmpvJYkfbRQHfS3zoyU4soRMsig5WBHGVQaYdQVTlcstkIbr4i_a",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJI8ga2ZIZ2jER1fwFFu6weTU",
+            "plus_code": {
+                "compound_code": "8V8V+3Q Singapore",
+                "global_code": "6PH58V8V+3Q"
+            },
+            "rating": 4,
+            "reference": "ChIJI8ga2ZIZ2jER1fwFFu6weTU",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 66
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11, 01-02 Eunos Rd 8, Lifelong Learning Institute, 408601",
+            "geometry": {
+                "location": {
+                    "lat": 1.3196896,
+                    "lng": 103.8924922
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.320908629892722,
+                        "lng": 103.8938633298927
+                    },
+                    "southwest": {
+                        "lat": 1.318208970107278,
+                        "lng": 103.8911636701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Coexist Coffee Co.",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1438,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113711067697320214425\">Foong Yee</a>"
+                    ],
+                    "photo_reference": "Aap_uEDWmf1B-8rbYnXRLVQn5Wt4B04zNd_wkr_rr8HxcDeNhSouV7K87wkWloVLGZyF2tFm7gngzKbiiNfgRetGPvPKak4GArkoz-n80VROw_BQsgg2eRZ0lHpZ2WbqqEJXJ51Y3JDwu_uvQasDPe-BTg-wNkc1ewZDWveIRJrT12RAD9hV",
+                    "width": 2556
+                }
+            ],
+            "place_id": "ChIJ1cK9-zQZ2jERQDuE_VJrQRY",
+            "plus_code": {
+                "compound_code": "8V9R+VX Singapore",
+                "global_code": "6PH58V9R+VX"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ1cK9-zQZ2jERQDuE_VJrQRY",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 116
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Paya Lebar Rd, #01-10 Park Place Residences at PLQ, Singapore 409053",
+            "geometry": {
+                "location": {
+                    "lat": 1.3155782,
+                    "lng": 103.8926374
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.316957779892722,
+                        "lng": 103.8938441798927
+                    },
+                    "southwest": {
+                        "lat": 1.314258120107278,
+                        "lng": 103.8911445201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Jimmy Monkey Cafe PLQ",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110943992829852471476\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB-BnzZbd78HpfBwUXBLfdBux_guHNVEogsbLtbCsmjViI3JuxafB7wmFm8J_PjnBYxFC3zw0PpgJ83AiAM7mZtkMA_Qxz-HBN0y5RdiuiOCFoxKwKTlksD0iHETbOYJgY94rcNHQQB9IYeJlJd_csdAmmQDuMIouTnedwB5DZoTmQL",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJiRHA8REZ2jERYkJW23hR60E",
+            "plus_code": {
+                "compound_code": "8V8V+63 Singapore",
+                "global_code": "6PH58V8V+63"
+            },
+            "rating": 4,
+            "reference": "ChIJiRHA8REZ2jERYkJW23hR60E",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 229
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "511 Guillemard Rd, Singapore 399849",
+            "geometry": {
+                "location": {
+                    "lat": 1.3140614,
+                    "lng": 103.8916542
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.315562929892722,
+                        "lng": 103.8931575798927
+                    },
+                    "southwest": {
+                        "lat": 1.312863270107278,
+                        "lng": 103.8904579201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+            "name": "Merdandy Bar & Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100042936361212102261\">Tan Teng Heng</a>"
+                    ],
+                    "photo_reference": "Aap_uEC3mQZnoFnOuZ4jzDut6UaS003bYGKO0fnllt7_q3P3fdH50Z3Slyc3sByVB9o450uEnanmeN4XNeFm79M1MCoJHCs4Y1RIVf9QwPE3bQ9r0k5TVozrIIpLSVqSHHB4xeJ9-SOoU85yiShn5Lga_HSDuPR44Rc4AInDToh71kfpGYvL",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJVVVV5bAZ2jERPOPGM-FutfY",
+            "plus_code": {
+                "compound_code": "8V7R+JM Singapore",
+                "global_code": "6PH58V7R+JM"
+            },
+            "rating": 3.7,
+            "reference": "ChIJVVVV5bAZ2jERPOPGM-FutfY",
+            "types": [
+                "bar",
+                "cafe",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 82
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Paya Lebar Rd, #02-28 Paya Lebar Quarter, Singapore 409057",
+            "geometry": {
+                "location": {
+                    "lat": 1.317322,
+                    "lng": 103.8924526
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318670829892722,
+                        "lng": 103.8937033798927
+                    },
+                    "southwest": {
+                        "lat": 1.315971170107278,
+                        "lng": 103.8910037201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Attap House",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1906,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">TB Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBje67Rrfk1RzhY7DdN8xShC65VomPg2QXnKUbisWf7tft_Zezf5d_8zic5H9xxogMecIuFI0M1hX4qdThl-L2vChwpfvXGmGSoJtPS03JtwrVNXq3BhdBQWSbxTGFShwYIu09AhMsZEUUnuHdHu69k-O0soidEyjhr4s5obKp3c-Ld",
+                    "width": 3388
+                }
+            ],
+            "place_id": "ChIJiyWu8b0Z2jERS6qSAN0krpQ",
+            "plus_code": {
+                "compound_code": "8V8R+WX Singapore",
+                "global_code": "6PH58V8R+WX"
+            },
+            "rating": 3.3,
+            "reference": "ChIJiyWu8b0Z2jERS6qSAN0krpQ",
+            "types": [
+                "restaurant",
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 81
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10, #01-151 Eunos Rd 8, SingPost Centre, 408600",
+            "geometry": {
+                "location": {
+                    "lat": 1.3186595,
+                    "lng": 103.8935122
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.319999779892722,
+                        "lng": 103.8948046298927
+                    },
+                    "southwest": {
+                        "lat": 1.317300120107278,
+                        "lng": 103.8921049701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "grove \u7d20\u6797",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1984,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111008222569803353090\">Jo ainee</a>"
+                    ],
+                    "photo_reference": "Aap_uECrpHIJ5vSwB7rPfTN7KpYZoOvuHy2yncYA9NbWond7xNdW3a8bhawm-4Hr4vpIDhEqmRK-HT9QS9RkfQwoFJb0osLV0eHjarmwruSsOHPxqJxmiB_qMhoHumBe3aSMCSGyL1bDEbIBVnUlsyZlsyyk_XwPxxX0s5vtVUqLs9eHvNUO",
+                    "width": 3968
+                }
+            ],
+            "place_id": "ChIJLcjhBxkY2jERSSEkDXj50hc",
+            "plus_code": {
+                "compound_code": "8V9V+FC Singapore",
+                "global_code": "6PH58V9V+FC"
+            },
+            "rating": 4.1,
+            "reference": "ChIJLcjhBxkY2jERSSEkDXj50hc",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 267
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "744 Bedok Reservoir Rd, #01-3029, Singapore 470744",
+            "geometry": {
+                "location": {
+                    "lat": 1.3375189,
+                    "lng": 103.9213226
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.338910179892722,
+                        "lng": 103.9225746798927
+                    },
+                    "southwest": {
+                        "lat": 1.336210520107278,
+                        "lng": 103.9198750201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Refuel Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109949342332101873653\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDqJw1LR1H_jQpiO3M6EsOFMymnxcpcsCcUhUJ0Gq_LHYgtlUZx0oetyV5w7IeJ-55txZ1p1UvfAIALy9Uq7rlqHux0QVW_FqivbpSLIeK9uxom-J67Nv4KfaY0gllulv5inbJq2t6mp6-wukUPzm1Ju6vFhn0qEV78vu9nNGJvFZk2",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJcf_SpPk82jERM28p3SYNBnI",
+            "plus_code": {
+                "compound_code": "8WQC+2G Singapore",
+                "global_code": "6PH58WQC+2G"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJcf_SpPk82jERM28p3SYNBnI",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 874
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11 Tanjong Katong Rd, #01-30/31/34 KINEX Shopping Mall, Singapore 437157",
+            "geometry": {
+                "location": {
+                    "lat": 1.3146222,
+                    "lng": 103.8944693
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.315972029892722,
+                        "lng": 103.8958191298927
+                    },
+                    "southwest": {
+                        "lat": 1.313272370107278,
+                        "lng": 103.8931194701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Kith Caf\u00e9 Kinex",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2107,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">TB Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEDKdHU2ISRxsfYA4FAzuEtcvkKBiB9vdxs_ayCDKxYq7pXwyNiuAItnsOqnTEfEX2CZhdGdFv3yTgjZD8wqeQcksExCFQY6v_bRQgalJViiAyNzmjO5NLD6_ltx7DpZfo6bvr63fdTR2cPstwb1eUriE1d9gAv4UlXCmmXd_-3tRTOV",
+                    "width": 4323
+                }
+            ],
+            "place_id": "ChIJq4u5VNEZ2jERDqKCun7L5PA",
+            "plus_code": {
+                "compound_code": "8V7V+RQ Singapore",
+                "global_code": "6PH58V7V+RQ"
+            },
+            "rating": 4.1,
+            "reference": "ChIJq4u5VNEZ2jERDqKCun7L5PA",
+            "types": [
+                "cafe",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 145
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "60 Paya Lebar Rd, #01-50, Singapore 409051",
+            "geometry": {
+                "location": {
+                    "lat": 1.3183999,
+                    "lng": 103.8928833
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.319868529892722,
+                        "lng": 103.8943859298927
+                    },
+                    "southwest": {
+                        "lat": 1.317168870107278,
+                        "lng": 103.8916862701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "iTEA Paya Lebar",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113428268467885703547\">Zheng Whye Hui</a>"
+                    ],
+                    "photo_reference": "Aap_uEBPVBY0EG8QmGZLok_bsJP-oqW4mAKznJQQB7zqssWWNJvgi8EIFEvh4d7qF_LiZN-rlwH7A6aWc0WyZ6f0kP0H-C2-QV7k6NJYvwKKQ6kDQs99unJe1bQpHGOCIvXSnQfimsTkjNAk65Qu3xrp_KcfKlvucSC_gQBB-5euy_cRi0yH",
+                    "width": 2160
+                }
+            ],
+            "place_id": "ChIJ__8_YBgY2jEReZ92QxKVOvI",
+            "plus_code": {
+                "compound_code": "8V9V+95 Singapore",
+                "global_code": "6PH58V9V+95"
+            },
+            "price_level": 1,
+            "rating": 3.5,
+            "reference": "ChIJ__8_YBgY2jEReZ92QxKVOvI",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 25
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "313 Orchard Rd, #B1-37, Singapore 238895",
+            "geometry": {
+                "location": {
+                    "lat": 1.301096,
+                    "lng": 103.8385493
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302142179892722,
+                        "lng": 103.8398314298927
+                    },
+                    "southwest": {
+                        "lat": 1.299442520107278,
+                        "lng": 103.8371317701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Caf\u00e9 de Paris",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110527467723730238109\">Michelle Aboy</a>"
+                    ],
+                    "photo_reference": "Aap_uECRe-aEh_YVNrpdKWclGUgUYrzGy3mZfQDROpU-2wLquNobiPWA5TmH4EDoNQRLCZfk-y4PAPprNtRChYyoQOeOc9Pab6qEbUrOH3LmMv65t6Qswtc5r2LKuDwUSFOEF972sgFyIws75cNqBM9Gb6uLz-euTRvu_rb0H_ztiGywsPAx",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJK_szKZEZ2jERc5FnK9KCwnI",
+            "plus_code": {
+                "compound_code": "8R2Q+CC Singapore",
+                "global_code": "6PH58R2Q+CC"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJK_szKZEZ2jERc5FnK9KCwnI",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 451
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "389 Changi Rd, Singapore 419838",
+            "geometry": {
+                "location": {
+                    "lat": 1.318879,
+                    "lng": 103.910394
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.320130929892722,
+                        "lng": 103.9118592298927
+                    },
+                    "southwest": {
+                        "lat": 1.317431270107278,
+                        "lng": 103.9091595701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Seng Coffee Bar",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111450743483857546860\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECmitjNuDZl3ydV9vGQPYJLzLikA98_fzloxbhKvXnmieLTbvQT1hTRdsElIAwuKQt_WWnEWqdxVA9P-70O_Zm6-oeYDEHbMvrvXOIwyicUY8ljdBLtlSEmcypjbxpu3gKARmFDaieHFwTsylCCA-fjGn2T3n3w3Cs90h3Ah7qpTeRF",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJY22_7N8Z2jERdrkcDjTlPU0",
+            "plus_code": {
+                "compound_code": "8W96+H5 Singapore",
+                "global_code": "6PH58W96+H5"
+            },
+            "rating": 4.3,
+            "reference": "ChIJY22_7N8Z2jERdrkcDjTlPU0",
+            "types": [
+                "cafe",
+                "bar",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 261
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "477 Joo Chiat Rd, Singapore 427683",
+            "geometry": {
+                "location": {
+                    "lat": 1.306343,
+                    "lng": 103.904736
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.307668029892722,
+                        "lng": 103.9060468298927
+                    },
+                    "southwest": {
+                        "lat": 1.304968370107278,
+                        "lng": 103.9033471701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "C Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112773419150211757600\">Asif Iqbal</a>"
+                    ],
+                    "photo_reference": "Aap_uEAAltfe_hMGTIm_GC1SKJYJXK-whePciNiOKl2sFS5LeR-aJINcyrxmQkx1lGeP9pwirq3AUqWtAa63ElKc8psI4LG3WAdDK0JukLOGN40d7coPsexmFwtK7D7UHlUwEOACHKRo2bBCVLNiLe4VvPUOQzZIutatzVgEzxdPBDFKZJhq",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJy_D_jygZ2jER_oMkT5ZGK6U",
+            "plus_code": {
+                "compound_code": "8W43+GV Singapore",
+                "global_code": "6PH58W43+GV"
+            },
+            "price_level": 2,
+            "rating": 4.7,
+            "reference": "ChIJy_D_jygZ2jER_oMkT5ZGK6U",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 359
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Simon Rd, Singapore 545893",
+            "geometry": {
+                "location": {
+                    "lat": 1.3616352,
+                    "lng": 103.8859561
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.362949479892722,
+                        "lng": 103.8872512798927
+                    },
+                    "southwest": {
+                        "lat": 1.360249820107278,
+                        "lng": 103.8845516201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Lola's Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113053820483534564434\">Mdm Koo</a>"
+                    ],
+                    "photo_reference": "Aap_uEC7CIQkQjmzDHEyLKdlZlynQIZJKsSlOFHZB9LnWYDkGGoQLSFOAUJXyuVGArLLRrSg7-hobRYZBOcrBResAIO2Tewp-GYxC592vj9Wrf9jsPAaXKwkImjx4PVhj81ucEPieJ8KcmZiop29LxTGzGzPlmJxbT46haWwuivs8w-RAHQt",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJV1FWhrQX2jERW2niVztAIj8",
+            "plus_code": {
+                "compound_code": "9V6P+M9 Singapore",
+                "global_code": "6PH59V6P+M9"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJV1FWhrQX2jERW2niVztAIj8",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 1640
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Paya Lebar Link, #01-07, Paya Lebar Quarter, PLQ, #2, 408533",
+            "geometry": {
+                "location": {
+                    "lat": 1.3173152,
+                    "lng": 103.8936962
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.318570229892722,
+                        "lng": 103.8950659798927
+                    },
+                    "southwest": {
+                        "lat": 1.315870570107278,
+                        "lng": 103.8923663201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "WINE CONNECTION BISTRO (PAYA LEBAR QUARTER)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 644,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112619179908369936127\">Ordinary Patrons</a>"
+                    ],
+                    "photo_reference": "Aap_uEDxn0jJliB_uA5o1rZdem3wTfPeiK_-hTVb4fFt7VNBvtADoz5Hmd4uDA8pQqD6qiuX0FbG9g7LxHVdYdKDa1pZDNBXX1yvZpNzbJGGJtqqj0yQjXXBXjsAbg2ZGdtc3F59YP_YEH0oAHACEDMkcsK2wgBpcPYG2xEXM3zaLu_B1n04",
+                    "width": 859
+                }
+            ],
+            "place_id": "ChIJ3cGReNwR2jERw9fwmdfSyhE",
+            "plus_code": {
+                "compound_code": "8V8V+WF Singapore",
+                "global_code": "6PH58V8V+WF"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJ3cGReNwR2jERw9fwmdfSyhE",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 358
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "28B Harding Rd, Singapore 249549",
+            "geometry": {
+                "location": {
+                    "lat": 1.3047585,
+                    "lng": 103.8110071
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305786429892722,
+                        "lng": 103.8122918798927
+                    },
+                    "southwest": {
+                        "lat": 1.303086770107278,
+                        "lng": 103.8095922201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "PS.Cafe at Harding",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 9000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116798210519309929727\">\uc7a5\ucc3d\uc778</a>"
+                    ],
+                    "photo_reference": "Aap_uEA3KUyjLVLyOi-Il-qdhSwJWDkKH4Fjr-g3SJcNMjABR2vRV2rBAGLpge-Q_jWd6tj-D8KcjysTrPcKv_2QE9h-psE3zXFEf2XC5s_O8YKHU6wQrh-bimnE93gY-sGtZrxGet4EdQE-xIqPm0BpCGVAp-ob3-B4j1_5g-MoQn78KqFv",
+                    "width": 12000
+                }
+            ],
+            "place_id": "ChIJc4rrRyMa2jERC31T5xHBk0o",
+            "plus_code": {
+                "compound_code": "8R36+WC Singapore",
+                "global_code": "6PH58R36+WC"
+            },
+            "price_level": 3,
+            "rating": 4.3,
+            "reference": "ChIJc4rrRyMa2jERC31T5xHBk0o",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 2831
+        }
+    ],
+    "status": "OK"
+}

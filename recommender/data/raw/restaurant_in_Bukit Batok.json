@@ -1,0 +1,1028 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEC7fIyMLmyJze5abWwZbq7qK2DwUXikc_wxkAxxxJST8g75xXdjYQgpB0bSMgqKSVIabxobd794n_bLdEy7VxiYXc9lEvxU0o5rNDaY1pwOJJaDPcFaOBZNeIgbs0O-gwEIV1xP4I1YLniL3o5U9DjlyNABTynuhFRik7TbByTdMdE8n52WgB7t6qUHuB9x2GCzGRZoVw1o-uGxIM6XFJqLKlYgXHf8QgmHTuM6ShMaz7FcYel0cKsWa-g1DNXbVM8Y_LKMa-56MpHfiin_Od-qmaXC0_HWG0QmKMmrPWKI4AMESdesh8DZY14XHGrUYFd31hTCB3wFYJ4g57k4_0ZS_DtdBw04l9Cc1NK1kwjBOdifC5VD644LkhIc2tL5_mDwqWbihHIW7vAjQsOAvSZ4VL6Ij7iNcdHi6iy0RfYScbR-R5Fkuf6LVpSz1cvKhNlA6_Iu0RKUG9I",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1, 02-04 Bukit Batok Cres, WCEGA Plaza, 658064",
+            "geometry": {
+                "location": {
+                    "lat": 1.338911,
+                    "lng": 103.7590732
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3409248,
+                        "lng": 103.76111575
+                    },
+                    "southwest": {
+                        "lat": 1.3376108,
+                        "lng": 103.75814675
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Chuan Hai Seafood \u5ddd\u6d77\u6d77\u9c9c",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2245,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107776773118783796206\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB42NhsQRRacavatYopJfatqGt25mYDHpbM98Ugs7kumtfMaCSAo_FE8ydNAtFY9UPdArp6Tzoar6V7NPBxlx0faHE32xWEDS7ndJDpIN077NLygxzdLPWPpOVCW6Wjz4EX2lYQoa32WTiLmcGv1YrFWJaD9l9LKAfl9pLlRD-z6FNp",
+                    "width": 1587
+                }
+            ],
+            "place_id": "ChIJ_doCAVgR2jERDtOOnOB1K4Q",
+            "plus_code": {
+                "compound_code": "8QQ5+HJ Singapore",
+                "global_code": "6PH58QQ5+HJ"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ_doCAVgR2jERDtOOnOB1K4Q",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 50
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "21 Bukit Batok Street 22, Shatec, Singapore 659589",
+            "geometry": {
+                "location": {
+                    "lat": 1.3437556,
+                    "lng": 103.7501307
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.345317529892722,
+                        "lng": 103.7515526798927
+                    },
+                    "southwest": {
+                        "lat": 1.342617870107278,
+                        "lng": 103.7488530201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Sapling",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116962286956579685690\">Caf\u00e9 by The Sapling</a>"
+                    ],
+                    "photo_reference": "Aap_uEBOO7vPP9SokyVPvikwiDR7H5Oyc7hfon7OvzSXJ-NJJgEypMuHjmjVw0qlx7o8vD1rEH06sLXBdDxQ7SOquNmQH4aK33eBpnizIoFxEKUQw3dAFM1BrjcTRuTlYxisHsS9GsjRerrl0GCOW3LCOXKxOcKlEE0C0bF9kZLEE0mY4o1w",
+                    "width": 6000
+                }
+            ],
+            "place_id": "ChIJp2Lnyywa2jERsyM7yLKR91Q",
+            "plus_code": {
+                "compound_code": "8QV2+G3 Singapore",
+                "global_code": "6PH58QV2+G3"
+            },
+            "price_level": 1,
+            "rating": 4.1,
+            "reference": "ChIJp2Lnyywa2jERsyM7yLKR91Q",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 128
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "177 Bukit Batok West Ave. 8, Singapore 650177",
+            "geometry": {
+                "location": {
+                    "lat": 1.3463688,
+                    "lng": 103.741561
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.347872079892722,
+                        "lng": 103.7429505798927
+                    },
+                    "southwest": {
+                        "lat": 1.345172420107278,
+                        "lng": 103.7402509201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Fusion Cuisine",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105720386888403752962\">Siti Hanisah</a>"
+                    ],
+                    "photo_reference": "Aap_uECVuWF16-mV40L87k5E6RHvS8Xr7-Kt_CfVYhC34DlJPs4puoyhCk0Bj1mGTVrrqHRMtDF0PN11fPvw_2DFZNHBaXUXQW4CY2fPg6nAt5Tnc5xUUOIG6of7Ew31KRPyCUHFwpf27j8iRt384scaktia5ARHRx58rwu9KhINf3zuXtFg",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJpXqQXD0Q2jERvZIrxxE-Cco",
+            "plus_code": {
+                "compound_code": "8PWR+GJ Singapore",
+                "global_code": "6PH58PWR+GJ"
+            },
+            "rating": 1.8,
+            "reference": "ChIJpXqQXD0Q2jERvZIrxxE-Cco",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 16
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "265 Bukit Batok East Ave 4, #01-405 Block 265, Singapore 650265",
+            "geometry": {
+                "location": {
+                    "lat": 1.3500324,
+                    "lng": 103.7597272
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.351324879892722,
+                        "lng": 103.7609669298927
+                    },
+                    "southwest": {
+                        "lat": 1.348625220107278,
+                        "lng": 103.7582672701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "JWS Grille Factory",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115330006527930212763\">Alan Ng</a>"
+                    ],
+                    "photo_reference": "Aap_uEDClvB47RmcWGIBmBUb_dkvFLewfnaiHrUpVdb8bKZQGDJv0_VUYMkzT4AzvFTOkydIzW1R6E0BUwlNrHesqpVgZ_l6-fBd-RQCABGTT4_2RKaIvmo6WybVAKVj0Lh5Z910nPb-wD4aUPsjL5fl4IguMheLDYpP1u_pnlheSz3xlTyE",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJk_zLyv4R2jERgtkxeheS574",
+            "plus_code": {
+                "compound_code": "9Q25+2V Singapore",
+                "global_code": "6PH59Q25+2V"
+            },
+            "rating": 4,
+            "reference": "ChIJk_zLyv4R2jERgtkxeheS574",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 71
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "347 Bukit Batok Street 34, Singapore 650347",
+            "geometry": {
+                "location": {
+                    "lat": 1.3621922,
+                    "lng": 103.7512281
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.363544079892722,
+                        "lng": 103.7526806298927
+                    },
+                    "southwest": {
+                        "lat": 1.360844420107278,
+                        "lng": 103.7499809701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Waker Chicken (Bukit Batok)",
+            "photos": [
+                {
+                    "height": 4624,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115350203957717619492\">ChiongKee Hoo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBAAKepq4ifbvVwvoAUCt4U8bNdyIoOVRwaihhBdwB_5ByIsR_YkVGpkVOaxzNfzSuZwp1A6ligEAf8vHEuznMYH7yrEM498CEy8833YcQQ_D4PmWtfOiPK0K8Qy_SlX3bmWZKBsZcCZS7ykHvTYo3o5IzEHS__y0NRGdcOLu0vMAFn",
+                    "width": 3472
+                }
+            ],
+            "place_id": "ChIJHeQATLwR2jER9jhOqTucOhk",
+            "plus_code": {
+                "compound_code": "9Q62+VF Singapore",
+                "global_code": "6PH59Q62+VF"
+            },
+            "rating": 3.8,
+            "reference": "ChIJHeQATLwR2jER9jhOqTucOhk",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 32
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "632 Bukit Batok Central, Singapore 650633",
+            "geometry": {
+                "location": {
+                    "lat": 1.3494773,
+                    "lng": 103.7504136
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.350550629892722,
+                        "lng": 103.7522469298927
+                    },
+                    "southwest": {
+                        "lat": 1.347850970107278,
+                        "lng": 103.7495472701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Mufiz Food Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105804776628884173176\">Joe Phantom</a>"
+                    ],
+                    "photo_reference": "Aap_uECr1PCjeDD8yRRt5C78htCE2VtKooTgclsWKyNc9jV4omttHub7a88whq6lVH_MqU6ILuewwbkw-Lvy4pMZdMYKGbkqM_WtjPq7pnPB3t2GQ2gfUIrs2aaiX8d_kyDPPOkFCdrI9Q9axIhh43iMlrzGJklWtNr6Tnr-qEw5OaYjq7q2",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJ9RnbsjgQ2jER9azaNhpX26A",
+            "plus_code": {
+                "compound_code": "8QX2+Q5 Singapore",
+                "global_code": "6PH58QX2+Q5"
+            },
+            "price_level": 2,
+            "rating": 3.7,
+            "reference": "ChIJ9RnbsjgQ2jER9azaNhpX26A",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 207
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "91 Bukit Batok West Ave 2, Singapore 659206",
+            "geometry": {
+                "location": {
+                    "lat": 1.3525875,
+                    "lng": 103.7494101
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353874129892722,
+                        "lng": 103.7507451798927
+                    },
+                    "southwest": {
+                        "lat": 1.351174470107278,
+                        "lng": 103.7480455201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Hilltop Garden Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112381690059213255312\">alvin.khoo@alumni.nus.edu.sg</a>"
+                    ],
+                    "photo_reference": "Aap_uEBMPbmCodSRZ8iUsFrWwcfgiIb3xVpvHvJW9tNdQqoaRH2mZVXbFzIWxv-VwihgIp5KX-MBZ9Gt_FTuHGSHJFwSFtmRBxv4nFi0kP9MTvJrI0zepaDhYZNkCk4vxftJLlJUI79tWrIgUu49kjG8XnC82hSePlGbN-ZgBGYOmqNQQiWL",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJMduSTzgQ2jEROj60t5-zEL8",
+            "plus_code": {
+                "compound_code": "9P3X+2Q Singapore",
+                "global_code": "6PH59P3X+2Q"
+            },
+            "rating": 3.9,
+            "reference": "ChIJMduSTzgQ2jEROj60t5-zEL8",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 106
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "155 Bukit Batok Street 11, #01-01, Singapore 650155",
+            "geometry": {
+                "location": {
+                    "lat": 1.3478939,
+                    "lng": 103.743671
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.349121129892722,
+                        "lng": 103.7449388798927
+                    },
+                    "southwest": {
+                        "lat": 1.346421470107278,
+                        "lng": 103.7422392201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Bukit Batok Street 11 Food",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107243183341843917608\">Caleb Ma</a>"
+                    ],
+                    "photo_reference": "Aap_uECOJYQLwRFj2ylBd8WyO_DgL7SCBve42Tm9nF31NLfYWzt9MhTRre7-ghTg9rfFOhLNRxJSUqlnEE58RVlqoL9PJt47xPtToKznVrR-n3gBj01yG41mgUMFzj4_rN7_cJ5cRRJDLVCwTMN9FGJ2YeieH9zFxVygfbkSp_dW9X6cDHL2",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJkU1Mqj0Q2jER2pmaSiJ0EtA",
+            "plus_code": {
+                "compound_code": "8PXV+5F Singapore",
+                "global_code": "6PH58PXV+5F"
+            },
+            "price_level": 1,
+            "rating": 3.9,
+            "reference": "ChIJkU1Mqj0Q2jER2pmaSiJ0EtA",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 468
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Hillview Rise, #01 - 01, Singapore 667979",
+            "geometry": {
+                "location": {
+                    "lat": 1.3627231,
+                    "lng": 103.7642167
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.363958529892722,
+                        "lng": 103.7655908798927
+                    },
+                    "southwest": {
+                        "lat": 1.361258870107278,
+                        "lng": 103.7628912201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "SPRUCE HillV2",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2240,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107517007861621850886\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBf0oxbgx550AJkfM5IfUHVOVTELsNLPNAjObXNoAkvcf5Gi5Jt0SoGxU3Mmplu-OvFJgy5cvGeJxD4IX-nzyCnIEtvtjLAo6BAhIYEoqUVmIRVWz6rLIjJPaDVBTh_qc2CVgZKTWYRRcWesFySTSsErgP95-wAy1TkEXfex2aJcS_5",
+                    "width": 3376
+                }
+            ],
+            "place_id": "ChIJO5aRa8oR2jER2G6O95ZKPgw",
+            "plus_code": {
+                "compound_code": "9Q77+3M Singapore",
+                "global_code": "6PH59Q77+3M"
+            },
+            "rating": 4.3,
+            "reference": "ChIJO5aRa8oR2jER2G6O95ZKPgw",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 226
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Bukit Batok West Ave 6, #01-300 Block 132, Singapore 650132",
+            "geometry": {
+                "location": {
+                    "lat": 1.3503551,
+                    "lng": 103.7459189
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.351609929892722,
+                        "lng": 103.7472222798927
+                    },
+                    "southwest": {
+                        "lat": 1.348910270107278,
+                        "lng": 103.7445226201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Teochew Cuisine Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1534,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108213196319237559383\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEB4mDh42HjMemKUm5TNiZ5XA2eFYI0OZVFEQve8PcUlQ2B-kmxBOztF7cidzH1lN0RsfXOujCNCspoZk7OQZjBHqTjzO4E9D-qfdcg9Kn0A-mldzFOuI4H51sfHa61UM1dncbi5khaeJexGll3O8Wd8zcBg_A-Pj3WYOE384F1A3U4V",
+                    "width": 2044
+                }
+            ],
+            "place_id": "ChIJEVP4-TsQ2jERgoJNF34c_Hs",
+            "plus_code": {
+                "compound_code": "9P2W+49 Singapore",
+                "global_code": "6PH59P2W+49"
+            },
+            "price_level": 2,
+            "rating": 3.5,
+            "reference": "ChIJEVP4-TsQ2jERgoJNF34c_Hs",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 490
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "25 Bukit Batok Cres, Singapore 658066",
+            "geometry": {
+                "location": {
+                    "lat": 1.3378208,
+                    "lng": 103.7587977
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.339235879892722,
+                        "lng": 103.7600920798927
+                    },
+                    "southwest": {
+                        "lat": 1.336536220107278,
+                        "lng": 103.7573924201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "1345 Mookata",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1972,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112577270120535164518\">Hsiang Yang Loo</a>"
+                    ],
+                    "photo_reference": "Aap_uEA93XhlTbHVc22ZeWN0Ayl1qB7N5q1l72NWVRW8ZmthUkKdU7hbKA2j33ufLsZTzUIXZunBYvJq0dNhW6JNarxRwHk6PSmqC84fc0JnTGpUCr0xejQVs4gTHhn2ybL_lS6SCBTjamFMTsC3J0HEBLJ-_igzoy1UNzVutGw1pjzD4tHJ",
+                    "width": 3432
+                }
+            ],
+            "place_id": "ChIJ210g4m0Q2jERchFyGAKdmO8",
+            "plus_code": {
+                "compound_code": "8QQ5+4G Singapore",
+                "global_code": "6PH58QQ5+4G"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJ210g4m0Q2jERchFyGAKdmO8",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 222
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "233 Bukit Batok East Ave 5, Block 233, Singapore 650233",
+            "geometry": {
+                "location": {
+                    "lat": 1.3488733,
+                    "lng": 103.7550403
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.350301129892722,
+                        "lng": 103.7564349298927
+                    },
+                    "southwest": {
+                        "lat": 1.347601470107278,
+                        "lng": 103.7537352701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Chef's Place",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112257619418213955912\">Brandz Lim Developers Sales Team</a>"
+                    ],
+                    "photo_reference": "Aap_uECRXmuakektuiuYhrNrfJc1klGqhUC_do-oLB9AfgQdDgMNTfQJzrzAuwH3jHQ_7B1e36JfPxYpMmayXv4ygz8RaOrgeYU3L8YiYoYREz1nJc15jMjcgjX1XHfh4fv5o9rnhQLOPoGsGaBxleFI9-v-xNhDIdB2-3axlmnECmEP3Ujh",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJkQ3XYVYR2jERAZ5cby_v8RY",
+            "plus_code": {
+                "compound_code": "8QX4+G2 Singapore",
+                "global_code": "6PH58QX4+G2"
+            },
+            "rating": 4.2,
+            "reference": "ChIJkQ3XYVYR2jERAZ5cby_v8RY",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bukit Batok West Ave 7, #01-07 A B, Singapore 659003",
+            "geometry": {
+                "location": {
+                    "lat": 1.3659908,
+                    "lng": 103.7498491
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.367155779892722,
+                        "lng": 103.7510569298927
+                    },
+                    "southwest": {
+                        "lat": 1.364456120107278,
+                        "lng": 103.7483572701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "\u00c9la",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1816,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110092983515758681758\">Jessen Yeo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBf6k5Os_-OiWnY-IQzNgqnGnL88qujbizea4eqoXKWm_UXLLdJ3EqZJinQS_rQBLkqzk4ZHx6c2FVvoB4tNXIn1y6xo1Wa7HlRfZbKkWxdWBD-Wbu3mxniN6RSh6lM_NK4KXikD-nDwhXayExunVHIOV1XJTiAPBob49S4a0JRYI00",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ-bqjGpsR2jERvAOeCqVOjDo",
+            "plus_code": {
+                "compound_code": "9P8X+9W Singapore",
+                "global_code": "6PH59P8X+9W"
+            },
+            "rating": 4,
+            "reference": "ChIJ-bqjGpsR2jERvAOeCqVOjDo",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 98
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Bukit Batok West Ave 7, Singapore 659003",
+            "geometry": {
+                "location": {
+                    "lat": 1.365784,
+                    "lng": 103.748504
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.367138479892722,
+                        "lng": 103.7499679298927
+                    },
+                    "southwest": {
+                        "lat": 1.364438820107278,
+                        "lng": 103.7472682701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Pinxin Beer Garden",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1440,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117630969445997760934\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEALfKLxHY4J8PXdtRKXUIeczOCeb65Ujjt8JRde8t8tiWoOUkJC9fffdqLGkvfGPRV8TzogRMjWpf3KWlbBE8Z6lGBwjY-K_bdFW_WTTzlItSizcs3v9Mo7h0vUt0jNv7za8M1--4Ff4ZdtjDAcGk9u0QrHWWsRDS0SsLNwqmCxP1NB",
+                    "width": 1080
+                }
+            ],
+            "place_id": "ChIJVc8FGMsR2jERHn-VS9354Xk",
+            "plus_code": {
+                "compound_code": "9P8X+8C Singapore",
+                "global_code": "6PH59P8X+8C"
+            },
+            "rating": 3.5,
+            "reference": "ChIJVc8FGMsR2jERHn-VS9354Xk",
+            "types": [
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 27
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "374 Bukit Batok Street 31, #01-204, Singapore 650374",
+            "geometry": {
+                "location": {
+                    "lat": 1.3576781,
+                    "lng": 103.7506913
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.359289729892722,
+                        "lng": 103.7517542298927
+                    },
+                    "southwest": {
+                        "lat": 1.356590070107278,
+                        "lng": 103.7490545701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Alif Restaurant",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108028225713545630861\">Keng Hua Chong</a>"
+                    ],
+                    "photo_reference": "Aap_uEA09H-VnbdI10GNgK73zuMDeLg3yUrJE6vtqJqUAQ1N6Iry2pMzgukhyQ7_cHnDi-ljou325MKDsk-VpzhvCdRkp_GjfrwbBx28zvULG6S-cD7uN_05x8oGz0mSapL4sFGuZVXcT_QmR2-N9nhJVAqFGEHruSopkFcu-I1WzZ91tMKJ",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJqUBqNTYQ2jERBBDpYC6v9DY",
+            "plus_code": {
+                "compound_code": "9Q52+37 Singapore",
+                "global_code": "6PH59Q52+37"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJqUBqNTYQ2jERBBDpYC6v9DY",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 463
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "91 Bukit Batok West Ave 2, Singapore 659206",
+            "geometry": {
+                "location": {
+                    "lat": 1.3525602,
+                    "lng": 103.7493137
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.353870429892722,
+                        "lng": 103.7506542798927
+                    },
+                    "southwest": {
+                        "lat": 1.351170770107278,
+                        "lng": 103.7479546201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Dad's Corner",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114986102670574642770\">Eileen Neo</a>"
+                    ],
+                    "photo_reference": "Aap_uEDE8NoaXuv-hX49PDFLuV8j_m4qzoFi6wKcu55QRJIJaE4L-Erh40NrIT7LMKw4HxIXFS8s9DNPjOrVmSRTWLNUGv45--DBKB_jbIL1VmritHaBOb2VZes_LSaG34IddTXsMizi2FXKbP3SqWHXt8b7aPnLXka8rfCfN0hqIMnJsGh_",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJreDu_TgQ2jERUGkgwxmT0ts",
+            "plus_code": {
+                "compound_code": "9P3X+2P Singapore",
+                "global_code": "6PH59P3X+2P"
+            },
+            "rating": 3.4,
+            "reference": "ChIJreDu_TgQ2jERUGkgwxmT0ts",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 77
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "274 Bukit Batok East Ave 5",
+            "geometry": {
+                "location": {
+                    "lat": 1.347732,
+                    "lng": 103.7580156
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.349125129892722,
+                        "lng": 103.7593209298927
+                    },
+                    "southwest": {
+                        "lat": 1.346425470107278,
+                        "lng": 103.7566212701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Ariff's Restaurant Authentic indian And Muslim Cuisine",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2304,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114508172732868027127\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECgLlop9w8zJdADMjOZlqlDODWYp9gJkTb2PFENhHdMwsoBqxA-f_XXhaRcE5GmMIdzGO-hykQaa_8gLcWj_DOtsP5rz13o6Lafrie8wKxZibqcF58AM8yGlf0PjKFR2tnFoBajEf1j_WHd4s9MkPppzsW342zxB0bizg2hqydE2zGg",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJCSu9KUIQ2jERmAlWHXSKk9U",
+            "plus_code": {
+                "compound_code": "8QX5+36 Singapore",
+                "global_code": "6PH58QX5+36"
+            },
+            "rating": 3.8,
+            "reference": "ChIJCSu9KUIQ2jERmAlWHXSKk9U",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 291
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "374 Bukit Batok Street 31, HDB, Singapore 650374",
+            "geometry": {
+                "location": {
+                    "lat": 1.357657,
+                    "lng": 103.7506629
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.358851179892722,
+                        "lng": 103.7520484298927
+                    },
+                    "southwest": {
+                        "lat": 1.356151520107278,
+                        "lng": 103.7493487701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Habib Family Restaurant Bukit Batok",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2976,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102761098998810164838\">Mohamed Fadhly Maskor</a>"
+                    ],
+                    "photo_reference": "Aap_uEBoeL_8LVk21Pb_r3ThBmEcu47grNdKVEzObwgmG8V0j6-ym8Cq8c8xp7BJR69EJcFHKY7tguap9iom_OyPWinKuJKXD3ZK3uzS53fC5r2JF5zruzuz4YtBurwS4Xk5tlV-EuoKB8YkJu_UtqtekP_p3azH-DqyLiMfF86zEGjH_2WY",
+                    "width": 3968
+                }
+            ],
+            "place_id": "ChIJ2XAPSDYQ2jEROm78Hw5Pgos",
+            "plus_code": {
+                "compound_code": "9Q52+37 Singapore",
+                "global_code": "6PH59Q52+37"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ2XAPSDYQ2jEROm78Hw5Pgos",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 673
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Blk 278 Bukit Batok East Ave 3, #01-365, Singapore 650278",
+            "geometry": {
+                "location": {
+                    "lat": 1.3478153,
+                    "lng": 103.7578465
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.349148679892722,
+                        "lng": 103.7592132298927
+                    },
+                    "southwest": {
+                        "lat": 1.346449020107278,
+                        "lng": 103.7565135701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Faasos (Bukit Batok)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109970186633258722672\">MBLAQ peacie</a>"
+                    ],
+                    "photo_reference": "Aap_uEDO0OwBVpqLt9fsh_WivXK7RbOuvFWgcydPJIGyj1AeS1brak5AeCaBXZv3tdBAOsCj0dMAEWgKC5LrF2DsTFqghHpR4UCzdsUQk2D-P8aMqShh8aJjbubY6m1JbCyGNOUThvruA5nIaCgj7BmWWNo7GZgkRWU19CAGVQDRdJpz149j",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJO45DCb0R2jERG8S4Dc6fBC8",
+            "plus_code": {
+                "compound_code": "8QX5+44 Singapore",
+                "global_code": "6PH58QX5+44"
+            },
+            "rating": 3.5,
+            "reference": "ChIJO45DCb0R2jERG8S4Dc6fBC8",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 28
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "164 Bukit Batok Street 11, #01-134, Singapore 650164",
+            "geometry": {
+                "location": {
+                    "lat": 1.3480042,
+                    "lng": 103.7432038
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.349314929892722,
+                        "lng": 103.7444762298927
+                    },
+                    "southwest": {
+                        "lat": 1.346615270107278,
+                        "lng": 103.7417765701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Canadian 2 For 1 Pizza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104771883308671564208\">Suyi Png</a>"
+                    ],
+                    "photo_reference": "Aap_uEAgl62RqMN9fpo7TyblK_tc7UjB32UR_SsznV_OipO5D3SyVKIJHVK_nI62GCDeJXboD5kLydkyDbPZve65HJAR4qC3Zv_OTNVmUkLU3PyTkXdPyTYuEB9ktU1e8UiSBSrVpS2zwUGWzK9TOZmf7CobFDZSLLI8kM5GHbsiqyxh53lH",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ4YXYWTwQ2jER722CYans_Ds",
+            "plus_code": {
+                "compound_code": "8PXV+67 Singapore",
+                "global_code": "6PH58PXV+67"
+            },
+            "rating": 3.9,
+            "reference": "ChIJ4YXYWTwQ2jER722CYans_Ds",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 28
+        }
+    ],
+    "status": "OK"
+}

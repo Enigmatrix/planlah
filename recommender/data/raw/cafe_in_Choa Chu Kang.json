@@ -1,0 +1,1033 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEBllw1y8TrwzGwNb4yZz1N37oCDZtXh1YcjhScDeSeFsG2FSZ5WPMG3CntgTCqA3aceQRA_SnlhkGJ-TO890iFgDMTQZYFfHlX5wirmDzAm21QKVcdq-kAIpuH2AbHVgR_pum6n9W9n7MIKXHqDACudNyU3IjPpV4BtMzxFP-IRToA9UWTlH8UPwdnocH6H_KqpBR7kSK-yTeKSJgQSE-CrtezKmzUn3sHcHoeOAVPIPNN_lPbgnLEVKZswMTFor9QBPqufz1myefvVECXwyX1B1z7MN2IQJn7PeCMaa4JXa3-OoeXzVOVJ_M0mnpgg88HKiyr3PBraDkVDIA04YMP-P14CzwcOBGj3MG9izIouEh65c19Gf-JjE4IQfH0PR3KcbIdG4pUHeuCUbiwAEtfKWqtsCU01IjPMEs5AKCnkGiaRTZg_AGueKslWkk9iIv5GA3GH7w",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "475 Choa Chu Kang Ave 3, #01-23, Singapore 680475",
+            "geometry": {
+                "location": {
+                    "lat": 1.3776945,
+                    "lng": 103.7394225
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.379320129892722,
+                        "lng": 103.7407025298927
+                    },
+                    "southwest": {
+                        "lat": 1.376620470107278,
+                        "lng": 103.7380028701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Coffee & Chirashi",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3072,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115086655103873779488\">Peter Chong</a>"
+                    ],
+                    "photo_reference": "Aap_uEB_ZAXsZvemkQeao5Y28blI51SBl6njoHJBEpVe9UHsoOtONISlg3Y_bAyf6TZpXRi9RZNM0NNo4zXjNyUktapdh68Nrzh2BbFObTps-7WwHyRy-81qOpveEoTx9791xhveWgcNfyP2Fg6NIgTGeNcDuL2PKEVRnWqmSbxwYlJb93Fh",
+                    "width": 4080
+                }
+            ],
+            "place_id": "ChIJxwVpRukR2jERYwfwLe4FHS4",
+            "plus_code": {
+                "compound_code": "9PHQ+3Q Singapore",
+                "global_code": "6PH59PHQ+3Q"
+            },
+            "rating": 4.7,
+            "reference": "ChIJxwVpRukR2jERYwfwLe4FHS4",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 20
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "216 Choa Chu Kang Ave 1, Singapore 689477",
+            "geometry": {
+                "location": {
+                    "lat": 1.3766283,
+                    "lng": 103.743867
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.377864079892722,
+                        "lng": 103.7452267298927
+                    },
+                    "southwest": {
+                        "lat": 1.375164420107278,
+                        "lng": 103.7425270701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "216 Coffee Shop",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1868,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102258065092472992485\">Pohboon Yeo</a>"
+                    ],
+                    "photo_reference": "Aap_uEBgcUm7pg-Nu17kUd5XKiPdvlyL1Fb2VlKyqa-rmJ4irilH7gZ1JhLxpD6rH1zGKxNwUGUXimVa-JMz39rvsiSPaDegpWqB1KUzmAQV5I3p2GlE39bU_O52mtLfXkHb2QxhOOwLeHMyiPF3ojNWRG_TqcVo-lRxS-383HtpkERRnQL8",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJba5K7wUR2jER9VPMniqQzcM",
+            "plus_code": {
+                "compound_code": "9PGV+MG Singapore",
+                "global_code": "6PH59PGV+MG"
+            },
+            "rating": 4.3,
+            "reference": "ChIJba5K7wUR2jER9VPMniqQzcM",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 29
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "21 Choa Chu Kang Ave 4, #01 - 01, Singapore 689812",
+            "geometry": {
+                "location": {
+                    "lat": 1.3850787,
+                    "lng": 103.7451371
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.386324329892722,
+                        "lng": 103.7465230798927
+                    },
+                    "southwest": {
+                        "lat": 1.383624670107278,
+                        "lng": 103.7438234201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Coffee Bean & Tea Leaf\u2122 - Lot One",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2182,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">TB Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEDVrSWa0zNi9vOAECAM66abwdw7HxuZiM8FC_5MUkyqYPW3L7dU3Y1FzAf45FSQ5SMsBaUB7FkK-_o8LMnS-eaILek5yyoH_aY4OMCL_SW78K1Z1pkNpwJj0JNqSmkE34h1FvAHabuk78u3ngwsUQhT37lV7hUrj1GM43gOG2-61qRo",
+                    "width": 2728
+                }
+            ],
+            "place_id": "ChIJAQBAmOkR2jER_g-y5mR3ceU",
+            "plus_code": {
+                "compound_code": "9PPW+23 Singapore",
+                "global_code": "6PH59PPW+23"
+            },
+            "price_level": 2,
+            "rating": 3.7,
+            "reference": "ChIJAQBAmOkR2jER_g-y5mR3ceU",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 212
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "21 Choa Chu Kang Ave 4, #03-K14A, Singapore 689814",
+            "geometry": {
+                "location": {
+                    "lat": 1.3853279,
+                    "lng": 103.7449727
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.386680879892722,
+                        "lng": 103.7463214298927
+                    },
+                    "southwest": {
+                        "lat": 1.383981220107278,
+                        "lng": 103.7436217701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "D\u00e9lifrance",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100849387624166405601\">jia min</a>"
+                    ],
+                    "photo_reference": "Aap_uEAwuMIuJ4dhvQVMhuqUoYBBW1oc_neLvJr9fMDLZEcEMkKj6G4JVILcCaYR6K2DIR-fjUnOnOZUOmbFapNND6SL2oNYZ4l3W656PNmv1TBBf-ESnKW8KJ64kMy1sMtfgciQ1n_e4wNezv7OyK9v8cdsSmRIQNvpIRzhnnXzCXjaAXdV",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJC4ANZNwR2jERNkQkVUPX_TQ",
+            "plus_code": {
+                "compound_code": "9PPV+4X Singapore",
+                "global_code": "6PH59PPV+4X"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJC4ANZNwR2jERNkQkVUPX_TQ",
+            "types": [
+                "cafe",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 121
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "668a Choa Chu Kang Cres, Singapore 680668",
+            "geometry": {
+                "location": {
+                    "lat": 1.4016724,
+                    "lng": 103.7502634
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.403034779892722,
+                        "lng": 103.7515678798927
+                    },
+                    "southwest": {
+                        "lat": 1.400335120107278,
+                        "lng": 103.7488682201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Broadway Coffeeshop",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115396383503811447845\">Cheng Heng Joon</a>"
+                    ],
+                    "photo_reference": "Aap_uECKSIfsAqtu92S7eHD4nf0uTcpTJrkWnMHAX_NTmE658CLE-2SDEr3n5JyMpc6a8k6la8FWjm8CLiJRBJtk0tkBSQpmuFh1s5h9-eaPud_kHrA9js9uu5K11sMwPo9DrNMEWdhGeRLA3G_VLaiJtA0_zDu24q1kGYEpOLkHmtfjDLtT",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJZfOKY_UR2jERtWRPo5MLTYw",
+            "plus_code": {
+                "compound_code": "CQ22+J3 Singapore",
+                "global_code": "6PH5CQ22+J3"
+            },
+            "price_level": 1,
+            "rating": 3.8,
+            "reference": "ChIJZfOKY_UR2jERtWRPo5MLTYw",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 203
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "302 Choa Chu Kang Ave 4, #01-719, Singapore 680302",
+            "geometry": {
+                "location": {
+                    "lat": 1.3849192,
+                    "lng": 103.74338
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.386283179892722,
+                        "lng": 103.7447788798927
+                    },
+                    "southwest": {
+                        "lat": 1.383583520107278,
+                        "lng": 103.7420792201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Choa Chu Kang 302 FoodHouse",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111445015174027470368\">woelly william</a>"
+                    ],
+                    "photo_reference": "Aap_uEBGPkBTh1ykaL4bB5ZcUrioFU3RcFlsKyW5eH0oUgoicG_Xoi5_HWmKVhq0sSIL_A9MlNCvCe6w5k1v0OuSSQ5BeDQylivFFjQo0iA265K23ZhjgC1gqKZrQCBoWNKqhej7JnmwFzAMcL7FNluRRRI6GtOAR0VvrmFWCLpXlARV6JTt",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ01ysTOgR2jERkczo461Qv5k",
+            "plus_code": {
+                "compound_code": "9PMV+X9 Singapore",
+                "global_code": "6PH59PMV+X9"
+            },
+            "price_level": 1,
+            "rating": 4.1,
+            "reference": "ChIJ01ysTOgR2jERkczo461Qv5k",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 1760
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "810 Choa Chu Kang Ave 7, Singapore 681810",
+            "geometry": {
+                "location": {
+                    "lat": 1.3738671,
+                    "lng": 103.7468309
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.375303379892722,
+                        "lng": 103.7481963298927
+                    },
+                    "southwest": {
+                        "lat": 1.372603720107278,
+                        "lng": 103.7454966701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Ah Ma Lor Mee",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2654,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101345161135004060754\">Buttercarp Tan</a>"
+                    ],
+                    "photo_reference": "Aap_uEAsbW2XZh41yVJAcfKL09LaH_MxNxnZVZuZFaz80VZF9AD5-vIA0yKsRDhi4ZZI6m9wCr20NOYvwWK_5EpPueBg8nnpRL6aIiyKNosePF8X8pKmFq-Gqb4F66uuTAvNxpyT018NQ2rdq1QKY2U5L6SRUXDQ_8w91qeM_wZ60yylyL6_",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJbUMbxKUR2jERMap9Ipst1eY",
+            "plus_code": {
+                "compound_code": "9PFW+GM Singapore",
+                "global_code": "6PH59PFW+GM"
+            },
+            "rating": 3.7,
+            "reference": "ChIJbUMbxKUR2jERMap9Ipst1eY",
+            "types": [
+                "cafe",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 29
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "429A Choa Chu Kang Ave 4, Singapore 681429",
+            "geometry": {
+                "location": {
+                    "lat": 1.3831089,
+                    "lng": 103.7405553
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.384408129892722,
+                        "lng": 103.7418467798927
+                    },
+                    "southwest": {
+                        "lat": 1.381708470107278,
+                        "lng": 103.7391471201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Kimly Coffee Shop (429A Choa Chu Kang)",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108343942472903720520\">lim seehowe</a>"
+                    ],
+                    "photo_reference": "Aap_uECxrmvjDrM7oWYCFMbRUKUQtncNj5FV5wPir70kRy2c4Ugy0LotoRDABqE_eoxswbRQd3zNs1TqENfrEH-3jddIaYYSQo6FBMa4jXfYF6P7bPjwcPclKJ_V_dNdGbj7IGl3eDoiv9Al8_wH5EVyRVruycaQL-7tos-Pl9YmF0LErTih",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJt_fR_-cR2jERUKJrufLrxBo",
+            "plus_code": {
+                "compound_code": "9PMR+66 Singapore",
+                "global_code": "6PH59PMR+66"
+            },
+            "price_level": 1,
+            "rating": 3.7,
+            "reference": "ChIJt_fR_-cR2jERUKJrufLrxBo",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 396
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "21 Choa Chu Kang North 6, #01-03 YewTee Point, Singapore 689578",
+            "geometry": {
+                "location": {
+                    "lat": 1.3973054,
+                    "lng": 103.7466201
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.398696429892722,
+                        "lng": 103.7481014298927
+                    },
+                    "southwest": {
+                        "lat": 1.395996770107278,
+                        "lng": 103.7454017701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Toast Box",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2096,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111056650126551436933\">chweechuan lim</a>"
+                    ],
+                    "photo_reference": "Aap_uECZUF7pTMkMMy9ovlENyoqigTmjC0botqvJugflnJTarjaWPWCSs2ZjusLFY0DVVZ6gnDmNreZ6zTgg8wvKSTBO2AE6bayG02V8DhKg3LtBavm9ehrV534wBbwgA1RVzJ1R4NQiVsJj8La-4D7k3HR_LOThmG0c2F5o6s-nKpXDIAy4",
+                    "width": 3724
+                }
+            ],
+            "place_id": "ChIJ2xwx_PMR2jERGQXKqOWaa0Q",
+            "plus_code": {
+                "compound_code": "9PWW+WJ Singapore",
+                "global_code": "6PH59PWW+WJ"
+            },
+            "price_level": 1,
+            "rating": 3.9,
+            "reference": "ChIJ2xwx_PMR2jERGQXKqOWaa0Q",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 350
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Woodlands Rd, #01-34 / 35 Junction 10, Singapore 677899",
+            "geometry": {
+                "location": {
+                    "lat": 1.380554,
+                    "lng": 103.7603221
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.381950229892722,
+                        "lng": 103.7617285798927
+                    },
+                    "southwest": {
+                        "lat": 1.379250570107278,
+                        "lng": 103.7590289201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "West Co'z Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 850,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114822669668851326635\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECeyqqEPrFYWpFWC7u_hNqDHdsd-flLQpcZt5oPTRZrvTWkJ-RMvvfl4GJBjYKbnI50QSG1PXFn1VlNSAamFu0rUfhVS1OqS9YP9ILCYBvKIGuC2Cfq85DMhfQ_vikbswvkfNhjSk56T9iPgexjT1QE9A362LQoh8QmdYz4TaN2-hw6",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJxdN0DscR2jERORtSkx5xi8s",
+            "plus_code": {
+                "compound_code": "9QJ6+64 Singapore",
+                "global_code": "6PH59QJ6+64"
+            },
+            "rating": 3.6,
+            "reference": "ChIJxdN0DscR2jERORtSkx5xi8s",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 102
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Choa Chu Kang Ave 4",
+            "geometry": {
+                "location": {
+                    "lat": 1.383113,
+                    "lng": 103.7405491
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.384412879892722,
+                        "lng": 103.7418413798927
+                    },
+                    "southwest": {
+                        "lat": 1.381713220107278,
+                        "lng": 103.7391417201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Chao Yuan Noodles",
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108963590912077573289\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEADbvIdN9Bficu1eiEK_-mGbDEXU-tw9IxV84uPxFY_l3JUOCs4cr7C9P5b6rA9P9mpn5T9kYrzaVhj-QWOTbDBo3wlokvIvdTkkEw2fe-eimzCHlZwoJBVuNkCILinYNkMQO9xCp5TEiux9FaoNfwEbwt1Ce1ou2HdTyYhjTCFEVJC",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJlc3mWEER2jERguxA7CwAMpY",
+            "plus_code": {
+                "compound_code": "9PMR+66 Singapore",
+                "global_code": "6PH59PMR+66"
+            },
+            "rating": 3.7,
+            "reference": "ChIJlc3mWEER2jERguxA7CwAMpY",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 3
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "21 Choa Chu Kang Ave 4, #B1-K30, Singapore 689812",
+            "geometry": {
+                "location": {
+                    "lat": 1.3852086,
+                    "lng": 103.7449371
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.386552729892722,
+                        "lng": 103.7462703798927
+                    },
+                    "southwest": {
+                        "lat": 1.383853070107278,
+                        "lng": 103.7435707201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "LiHO TEA @ Lot One Shoppers' Mall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 480,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112205933526893349117\">Gong Cha</a>"
+                    ],
+                    "photo_reference": "Aap_uECq-nRLVtT0TXZbNLkCXrCuqFcZP17Q-GrkRMQ58KWddaZaLzk02-HICe31zlOZemvxkrZgiLewYAmLRnnrd_NeU5wuvspqmn-ihyY3YGj4ShkhV8_AhfgHIHDAKO_5APlOFSn9gVwL4BfAO4xQS6lhp7wGArTntPk4p101lm4yc_2F",
+                    "width": 640
+                }
+            ],
+            "place_id": "ChIJc3polukR2jER35FQ3fs7uoc",
+            "plus_code": {
+                "compound_code": "9PPV+3X Singapore",
+                "global_code": "6PH59PPV+3X"
+            },
+            "rating": 4.3,
+            "reference": "ChIJc3polukR2jER35FQ3fs7uoc",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 135
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "668A Choa Chu Kang Cres, Singapore 681668",
+            "geometry": {
+                "location": {
+                    "lat": 1.4016724,
+                    "lng": 103.7502634
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.403034779892722,
+                        "lng": 103.7515678798927
+                    },
+                    "southwest": {
+                        "lat": 1.400335120107278,
+                        "lng": 103.7488682201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Wen Chang Kee Hainanese Chicken Rice",
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113966954151240288230\">Jeremy Lam</a>"
+                    ],
+                    "photo_reference": "Aap_uEArOkrNiExeYmiMQlikColpyZeCXvnfqGkdk0BfKqwO8Mp5C6FCkeUfcjmkqImclxAyh5B5xoQNe-oYlDCe-1TprOx57PgKmW15i555DP10y3_nvmZQtHgDaqBaLUOmIIMjR9NpMDkk2HfuppVb4fe4IjCqgX1bWZGUaWTzTsuPCu01",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJddXscwoR2jERQvyEJOvVFhc",
+            "plus_code": {
+                "compound_code": "CQ22+J3 Singapore",
+                "global_code": "6PH5CQ22+J3"
+            },
+            "rating": 2.3,
+            "reference": "ChIJddXscwoR2jERQvyEJOvVFhc",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 3
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "624 Choa Chu Kang Street 62, #02-222 / 224, Singapore 680624",
+            "geometry": {
+                "location": {
+                    "lat": 1.398102,
+                    "lng": 103.7469057
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.399730179892722,
+                        "lng": 103.7485393798927
+                    },
+                    "southwest": {
+                        "lat": 1.397030520107278,
+                        "lng": 103.7458397201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Bowl & Grill",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113981779068309862455\">\u51ef\u4f1f</a>"
+                    ],
+                    "photo_reference": "Aap_uEDDZxm6t7IUSw72xZQYwlturrsnXx-Ec8fijkgezSMjq7XzwITkGH6EljXw4ljhQimlTWFisGcE3qciWs6gISuRWPj7LwabONVAS9o8bDQpQaHtYo_pHEfC8P1rlOpWsUw4MmNssEjVELdYdVfdzOSUKXXbmJbTf7snOnCN1T2N4L4z",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJldAyr4gR2jERUCFYR7uEPpY",
+            "plus_code": {
+                "compound_code": "9PXW+6Q Singapore",
+                "global_code": "6PH59PXW+6Q"
+            },
+            "rating": 1.4,
+            "reference": "ChIJldAyr4gR2jERUCFYR7uEPpY",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 30
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "21 Choa Chu Kang Ave 4, #B1 - 32 / 33, Singapore 689812",
+            "geometry": {
+                "location": {
+                    "lat": 1.385574,
+                    "lng": 103.7450626
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.386459829892722,
+                        "lng": 103.7465355298927
+                    },
+                    "southwest": {
+                        "lat": 1.383760170107278,
+                        "lng": 103.7438358701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Dian Xiao Er",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2103,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105251001975871147904\">Thiam Beng Foo</a>"
+                    ],
+                    "photo_reference": "Aap_uEDmO7jZ0tC8QRgck4edI9zhjMtOFxEMz2f59tv-lHnwPHAlGQ2qJz_rmONEeAeMNcNsMd8OorvRUZBfg0AJoFpcP9bkFybzdgmBLNktQq_WGFcv_VFk2jdFxlhfSm0THkCJz0Dvw8C4-Mvq2o8moPmjLX3dgLeMONLzxLYbslMyLWs6",
+                    "width": 4439
+                }
+            ],
+            "place_id": "ChIJcVbOmekR2jERZCsP5ag2WJY",
+            "plus_code": {
+                "compound_code": "9PPW+62 Singapore",
+                "global_code": "6PH59PPW+62"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJcVbOmekR2jERZCsP5ag2WJY",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 305
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "678A Choa Chu Kang Cres, Singapore 681678",
+            "geometry": {
+                "location": {
+                    "lat": 1.4016388,
+                    "lng": 103.7446508
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.402920829892722,
+                        "lng": 103.7459825298927
+                    },
+                    "southwest": {
+                        "lat": 1.400221170107278,
+                        "lng": 103.7432828701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Fusion Express",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111675696879983645659\">Geoffrey Chan</a>"
+                    ],
+                    "photo_reference": "Aap_uEDteOKeLi7pWcXDVNFJZppqLDiUhJmZz0JIz40jOPQ--erIfvryw5IHtMlGKwhFV55yXd4GCIqaTZBALTqWlEEdk30Q9jPs19bFsLTGAWaHiP18Mtjhp-Mwq8CP4Q97BWtFOsoE0_qNNT96pSXiTTgetv0SPeYiBewPEQLeZPoTXkVK",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJoca2e5MR2jERAZi-hC0rmGY",
+            "plus_code": {
+                "compound_code": "CP2V+MV Singapore",
+                "global_code": "6PH5CP2V+MV"
+            },
+            "rating": 2.4,
+            "reference": "ChIJoca2e5MR2jERAZi-hC0rmGY",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 31
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 1.40107,
+                    "lng": 103.7479402
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.402480579892722,
+                        "lng": 103.7493705298927
+                    },
+                    "southwest": {
+                        "lat": 1.399780920107278,
+                        "lng": 103.7466708701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The Chef's Place",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110892887847155971466\">Mark Leong</a>"
+                    ],
+                    "photo_reference": "Aap_uEBv0tGEC4XEZszJ9-Kbpnb3bkFXo9ohb1OYg5b-62KLC3rKLr86LkLOArVznp11acxwyTDyqPG4An9bOBYtRL47xozQNwR7PNNMkfi8JH4El-ZSc-njbDWMiIJFPnI2yXqBf3W7qgoLBkdyes1VOeesNvCj3u_4Uq9IG95Yo1GVQX3L",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJDcndWgoR2jERU8DXo0bteTM",
+            "plus_code": {
+                "compound_code": "CP2X+C5 Singapore",
+                "global_code": "6PH5CP2X+C5"
+            },
+            "rating": 4.1,
+            "reference": "ChIJDcndWgoR2jERU8DXo0bteTM",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 21
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "803 Keat Hong Cl, Singapore 680817",
+            "geometry": {
+                "location": {
+                    "lat": 1.3742416,
+                    "lng": 103.7426141
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.375690779892722,
+                        "lng": 103.7439941298927
+                    },
+                    "southwest": {
+                        "lat": 1.372991120107278,
+                        "lng": 103.7412944701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Roasted Master",
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104710698009744863304\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECol867lSKxo65GBkZhWVDusMU9ylfbodMvCqvYoeE3VtDVOISDoTpu0vHe60KeU54uP153XWF6IUxVAhtWmiiVz5_iJxuoIbzyRP-CMMGPIzBxmDnAnJVSDfx6WU5bKe22_XJjvbHuhkXZgQ4YYIykUSlgkNS8cFy4tH0Ta5vLL7Tq",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJF6XRXZER2jERLgw4NwFafJI",
+            "plus_code": {
+                "compound_code": "9PFV+M2 Singapore",
+                "global_code": "6PH59PFV+M2"
+            },
+            "rating": 5,
+            "reference": "ChIJF6XRXZER2jERLgw4NwFafJI",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 3
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "302 Choa Chu Kang Ave 4, #01-719, Singapore 680302",
+            "geometry": {
+                "location": {
+                    "lat": 1.3849282,
+                    "lng": 103.7434064
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.386288329892722,
+                        "lng": 103.7447919298927
+                    },
+                    "southwest": {
+                        "lat": 1.383588670107277,
+                        "lng": 103.7420922701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Golden Rooster",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2925,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117609611199743458870\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDnZ4a7ObNEa6OVfmTBKlcxKiJxYpNFeHesTFrQwf2hO3lP0fFMcabkl_zLNiujIkOLUMKk5AdPWo1dBEyaOwDZu6vv0aRlYEqkYwHpWYQJQ5WREOPt68cDld_P0Gj0LIOl4C7TsDBvlFK7QZwBL5hFf9-r3AnFFWiqv3i4g3JN8Aqx",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJHaONWeIR2jERCiwb-rVa_8w",
+            "plus_code": {
+                "compound_code": "9PMV+X9 Singapore",
+                "global_code": "6PH59PMV+X9"
+            },
+            "rating": 2.7,
+            "reference": "ChIJHaONWeIR2jERCiwb-rVa_8w",
+            "types": [
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 11
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "392 Upper Bukit Timah Rd, Singapore 678046",
+            "geometry": {
+                "location": {
+                    "lat": 1.3578429,
+                    "lng": 103.7679964
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.359197079892722,
+                        "lng": 103.7693156298927
+                    },
+                    "southwest": {
+                        "lat": 1.356497420107278,
+                        "lng": 103.7666159701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Cat Cafe - Railmall",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110916160573820810536\">Shawn</a>"
+                    ],
+                    "photo_reference": "Aap_uEDamB_ZSbiB2w9dBsk7Ia16XHA2-8Gzq6mgouzaqp-xMjsbq-GJIFgcxloc8NLgIMfAk-fInpvrpUxckQJJPCvh_yPlQWcTHcblFT2s29XkCW7jWgNxWrXp0w2zGqsiONNgSER3KRsVcG0eS6AVq4USg1r-mH32Wo4czWIW_BzE0jZv",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ7biuiWAR2jER5an8MeUF-v0",
+            "plus_code": {
+                "compound_code": "9Q59+45 Singapore",
+                "global_code": "6PH59Q59+45"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ7biuiWAR2jER5an8MeUF-v0",
+            "types": [
+                "cafe",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 140
+        }
+    ],
+    "status": "OK"
+}

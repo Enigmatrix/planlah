@@ -1,0 +1,34 @@
+{
+    "html_attributions": [],
+    "results": [
+        {
+            "formatted_address": "Sungei Rd",
+            "geometry": {
+                "location": {
+                    "lat": 1.3037355,
+                    "lng": 103.8542416
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.305085329892722,
+                        "lng": 103.8555914298927
+                    },
+                    "southwest": {
+                        "lat": 1.302385670107278,
+                        "lng": 103.8528917701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/geocode-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Sungei Rd",
+            "place_id": "ChIJ5wQForkZ2jERxRReJZ7o9jw",
+            "reference": "ChIJ5wQForkZ2jERxRReJZ7o9jw",
+            "types": [
+                "route"
+            ]
+        }
+    ],
+    "status": "OK"
+}

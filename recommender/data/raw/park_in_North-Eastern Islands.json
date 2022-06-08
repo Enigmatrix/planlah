@@ -1,0 +1,970 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uECdnF-erIRciAlmHFyp6yT9LkHf23op4ZOPHsNTVqogXlJzl-rgllyd1dnK1hRCi0KTEVDOh-Ny9omjlaFY3wfQP6ghIhxSM8p54J74N2lTHczKKoywcH_5saVX4SAoD0TYnBR9B6KAaNGRmBmU3bdX4P_v96yxnXBQRUXpRzq1Bwt4v4s6lKihPunVciDz2E_k9b-8KHMKmcXjWXDrcnmPb_Fbd6VC_uPtH91oPM-p1l-H78Poh7avboCoZyeotMWl9Fy2D5BwFHWJAZ257DexMP0gMLMbSL2YI2V8PTX8kgjmMt-RNn4Ich6byqjjTLcSaU7FuTcwJwfX1tOofDs25wW5JIqcjf-Zp0A5W5fGqgGp0D9ob0G1VX-KUt8n8DPD3yVlmqnHa2Mhmzg_k2Wv8Hsgj1mIA7bkhXZ-w1mV6dduKFXAJGyI-IQf54htJDid7416UNCzGUG4l30V",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Punggol Promenade Nature Walk, 829325",
+            "geometry": {
+                "location": {
+                    "lat": 1.4092951,
+                    "lng": 103.9216496
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.434462399999999,
+                        "lng": 103.94153715
+                    },
+                    "southwest": {
+                        "lat": 1.3818892,
+                        "lng": 103.90037055
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Coney Island",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 533,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115207984269222548561\">Masaaki Moriyama</a>"
+                    ],
+                    "photo_reference": "Aap_uED7Grf0iu_idBy4f_-pamatwTsqXVSRROpG3W731qLvBvms-EGuHGzKpBOWLJ2xHoqXU6HCJ_1NKeggob7EKZnqFz3jXMRRDP8mUGuYxTDnvLwSJkq3C-Z_buDjNoWevYxckOOt1wBCNYbtzf307vO-47bAqrHlV8XqCLpW8E4MAYq_",
+                    "width": 800
+                }
+            ],
+            "place_id": "ChIJq6qq6gQ-2jER9Qvjlelpwho",
+            "plus_code": {
+                "compound_code": "CW5C+PM Singapore",
+                "global_code": "6PH5CW5C+PM"
+            },
+            "rating": 4.4,
+            "reference": "ChIJq6qq6gQ-2jER9Qvjlelpwho",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 762
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Punggol Point Rd",
+            "geometry": {
+                "location": {
+                    "lat": 1.4210326,
+                    "lng": 103.9111425
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.422270179892722,
+                        "lng": 103.9124663798927
+                    },
+                    "southwest": {
+                        "lat": 1.419570520107278,
+                        "lng": 103.9097667201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Punggol Point Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2992,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115505220346182002395\">Kenny Hong</a>"
+                    ],
+                    "photo_reference": "Aap_uEAw4bcX5rJxRQ98I-G7OCiIV0M8x1LD8zTM7L66Lk9Xcr2RQwaUnha-qRAWv1zbthGS2bPpiyhk9xYolotk7Cy8JnACpfKiPOVz7G0lP317F-JjH6e6jD04s6YF3r5N-jr5tysHG2ByDLq6Li-rTySuzIsUhAUEo3UTXAypXh13UbmM",
+                    "width": 2992
+                }
+            ],
+            "place_id": "ChIJPxrZPIsV2jER9v5LjJXKSTM",
+            "plus_code": {
+                "compound_code": "CWC6+CF Singapore",
+                "global_code": "6PH5CWC6+CF"
+            },
+            "rating": 4.4,
+            "reference": "ChIJPxrZPIsV2jER9v5LjJXKSTM",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 382
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Nicoll Dr, Singapore 498991",
+            "geometry": {
+                "location": {
+                    "lat": 1.3909433,
+                    "lng": 103.9920554
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3921637,
+                        "lng": 104.00344
+                    },
+                    "southwest": {
+                        "lat": 1.3880821,
+                        "lng": 103.9834688
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Changi Beach Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117366483285440009409\">Carlos Enrique Jaramillo</a>"
+                    ],
+                    "photo_reference": "Aap_uEDwcYqGj7Pgz8q8z8JAYvcyH3O-OSx6kvWemFlTU16SHlyhHMhIMWsc3_ec9aQaGI4cBHmoFAxEN5gnx9GDhtFQNY3342iqwQhBTIbL8B81tBLqVaXZEdJ-4T-bnpa3IgcwbVRCvyTl7TvhBQ1T0mybsrhxi4iVMCusYD2dPGZ9h9AX",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJUzbaYws82jERXHKMRlUKIug",
+            "plus_code": {
+                "compound_code": "9XRR+9R Singapore",
+                "global_code": "6PH59XRR+9R"
+            },
+            "rating": 4.5,
+            "reference": "ChIJUzbaYws82jERXHKMRlUKIug",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5733
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "Sisters\u2019 Islands",
+            "geometry": {
+                "location": {
+                    "lat": 1.2139132,
+                    "lng": 103.8347519
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.215263029892722,
+                        "lng": 103.8361017298927
+                    },
+                    "southwest": {
+                        "lat": 1.212563370107278,
+                        "lng": 103.8334020701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Sisters\u2019 Islands Marine Park",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109548685175540660370\">Raymond Koh</a>"
+                    ],
+                    "photo_reference": "Aap_uEBXm_X6KcN86zMy8Q3g7asq1hTY42wx7K-KjREy2Kjk9rnKrmDrVL2UwkezdESj1kfYQyjuCSBiVanYGzu_j4u-N4xhIJSCK37Z53Z4EwG5VPoB3ByUWbfJHvlKk-r3U9ov_SczFHT1fj6aLH31Cohtz0r-E3ltbHLUaUV5S7i6Kz-Y",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJq6qqJoge2jERFyOllgktDCg",
+            "plus_code": {
+                "compound_code": "6R7M+HW Singapore",
+                "global_code": "6PH56R7M+HW"
+            },
+            "rating": 4.3,
+            "reference": "ChIJq6qqJoge2jERFyOllgktDCg",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 16
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "New Bridge Rd, Singapore 059299",
+            "geometry": {
+                "location": {
+                    "lat": 1.2865657,
+                    "lng": 103.8465437
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287594579892722,
+                        "lng": 103.84826275
+                    },
+                    "southwest": {
+                        "lat": 1.284894920107278,
+                        "lng": 103.84465455
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Hong Lim Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109171718785728989869\">Rafael Navarro</a>"
+                    ],
+                    "photo_reference": "Aap_uECu7GoWqzvSc6b_Qggy9wZQLZiA1VFjiTbj1n8DBmiNRQllc-x_DXipzjvAqCLLLl-mtk9ijrWEc6J0HogWww1jIZFVw0ftbCMtj4v3JB6UDEAi3qJHj1FElQ3XG-TPkB7nL-QMzbeaPYSbH7Z4KKGYNLvKI7cz1zlvjW4vSq_ZpE0p",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ____GwsZ2jERGJbKgdy3fOo",
+            "plus_code": {
+                "compound_code": "7RPW+JJ Singapore",
+                "global_code": "6PH57RPW+JJ"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ____GwsZ2jERGJbKgdy3fOo",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 698
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8 Sentosa Gateway, 098269",
+            "geometry": {
+                "location": {
+                    "lat": 1.256752,
+                    "lng": 103.820331
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.258101829892722,
+                        "lng": 103.8216808298927
+                    },
+                    "southwest": {
+                        "lat": 1.255402170107278,
+                        "lng": 103.8189811701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Marine Life Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106030856213358405511\">Jerusha Chua</a>"
+                    ],
+                    "photo_reference": "Aap_uECt5KDiD2ClfikehxLctBigL8u2O71wT1nQv-JGzZhpE3rn918W1xVO_5tEkRl7FpwA3BVZHmPyc_8NOGxrjlJhtN_n4RZn7RliaURhtjY1BHoWq4dbdAcJsWJ1ubcVnb5OZdTZbW3PeLza1rKinq12g2bUPRbPJQ4IJ1XUUivDgriI",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJkRh7fv4b2jEReRI7dnChCPg",
+            "plus_code": {
+                "compound_code": "7R4C+P4 Singapore",
+                "global_code": "6PH57R4C+P4"
+            },
+            "rating": 4.5,
+            "reference": "ChIJkRh7fv4b2jEReRI7dnChCPg",
+            "types": [
+                "amusement_park",
+                "tourist_attraction",
+                "aquarium",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 520
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Telok Ayer St",
+            "geometry": {
+                "location": {
+                    "lat": 1.2814153,
+                    "lng": 103.847621
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.282809279892722,
+                        "lng": 103.8489959298927
+                    },
+                    "southwest": {
+                        "lat": 1.280109620107278,
+                        "lng": 103.8462962701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Telok Ayer Green",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102228306872606223235\">Nam Binh Nguyen</a>"
+                    ],
+                    "photo_reference": "Aap_uEDDT2T2ptCX-LDRMZ93rOB8YuQ2AqrHO1Gmz9LiBaAOrOq8EV--j0FgTM-zYfHsXciH6-2cjqXSVdgIoC3Rs5OB53fptaOqADWA8EkZGNLZl54GkSk8rInSI1Z0UhjrfJctsc0Hl5uO4Zn80eJxS_PsdOMRHKtQ3yshDcF4YZvQV4qA",
+                    "width": 6000
+                }
+            ],
+            "place_id": "ChIJdbV67xIZ2jER6LIocOIgio8",
+            "plus_code": {
+                "compound_code": "7RJX+H2 Singapore",
+                "global_code": "6PH57RJX+H2"
+            },
+            "rating": 4.4,
+            "reference": "ChIJdbV67xIZ2jER6LIocOIgio8",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 83
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "The Percy Group QLD 4707, Australia",
+            "geometry": {
+                "location": {
+                    "lat": -21.6664711,
+                    "lng": 150.3353483
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": -21.66512127010727,
+                        "lng": 150.3366981298927
+                    },
+                    "southwest": {
+                        "lat": -21.66782092989272,
+                        "lng": 150.3339984701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "North East Island",
+            "place_id": "ChIJX3WUqB1H3GsRRHgteAqhhjI",
+            "rating": 0,
+            "reference": "ChIJX3WUqB1H3GsRRHgteAqhhjI",
+            "types": [
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Mount Pitt Road Norfolk Island, 2899, Australia",
+            "geometry": {
+                "location": {
+                    "lat": -29.02565999999999,
+                    "lng": 167.941585
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": -29.02443897010728,
+                        "lng": 167.9429110798927
+                    },
+                    "southwest": {
+                        "lat": -29.02713862989273,
+                        "lng": 167.9402114201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Norfolk Island National Park",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2977,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113350666931730932869\">diana waines</a>"
+                    ],
+                    "photo_reference": "Aap_uECdA6QCDqkYQmIqvkaccZQGJM7kbACCB-2-Uh3tuEj5kHW0Yqg_Fc7DLhqoh3S2G-Ok-88lrd7PIr05t9m60_0WSGDb6aYyR6tyYxlg_5wrJEYp1FojpfE_y5IzWkCY-Y5tggwAEJ3Uwc6m78dNOSc339r1SPXhH2-QptNYwjqg7W1S",
+                    "width": 3759
+                }
+            ],
+            "place_id": "ChIJX64MG8XXS2wRum5BPOvFQDE",
+            "plus_code": {
+                "compound_code": "XWFR+PJ Burnt Pine, Norfolk Island",
+                "global_code": "5V29XWFR+PJ"
+            },
+            "rating": 4.5,
+            "reference": "ChIJX64MG8XXS2wRum5BPOvFQDE",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 48
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "45/1-2 Moo 1 Thongsala Ko Phangan, Surat Thani 84280, Thailand",
+            "geometry": {
+                "location": {
+                    "lat": 9.6352349,
+                    "lng": 99.671822
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 9.636584729892723,
+                        "lng": 99.67317182989272
+                    },
+                    "southwest": {
+                        "lat": 9.63388507010728,
+                        "lng": 99.67047217010727
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Mu Ko Ang Thong National Marine Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112639911253201236765\">\u05ea\u05d5\u05de\u05e8</a>"
+                    ],
+                    "photo_reference": "Aap_uEB4Ue4EqJBz440hEZZ__CDIWiP1HUypLBBH93asBNFQwj1Srdz_7-j1P79koLqZjg4mAYXYS8T36OtrmJLg-uv5x2T95STBma9Llnt5tFR2heI7oHWsb30BNSbj7Yq5SC2UPfymmQ66D64veNT8M-procpa653V5qQXk6SGaDFItzao",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ5x4DAX7-VDARkJi8xghaoRg",
+            "plus_code": {
+                "compound_code": "JMPC+3P Ang Thong, Ko Samui District, Surat Thani, Thailand",
+                "global_code": "6MXXJMPC+3P"
+            },
+            "rating": 4.7,
+            "reference": "ChIJ5x4DAX7-VDARkJi8xghaoRg",
+            "types": [
+                "tourist_attraction",
+                "travel_agency",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2007
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Hope Vale QLD 4895, Australia",
+            "geometry": {
+                "location": {
+                    "lat": -15.1115737,
+                    "lng": 145.4201674
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": -15.11022387010728,
+                        "lng": 145.4215172298927
+                    },
+                    "southwest": {
+                        "lat": -15.11292352989273,
+                        "lng": 145.4188175701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Three Islands Group National Park",
+            "place_id": "ChIJEd3BlUb5nWkRl5p6KU1qEVU",
+            "plus_code": {
+                "compound_code": "VCQC+93 Hope Vale, Queensland, Australia",
+                "global_code": "5RP7VCQC+93"
+            },
+            "rating": 0,
+            "reference": "ChIJEd3BlUb5nWkRl5p6KU1qEVU",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Banten, Indonesia",
+            "geometry": {
+                "location": {
+                    "lat": -6.7846944,
+                    "lng": 105.3751088
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": -6.7542895,
+                        "lng": 105.71082125
+                    },
+                    "southwest": {
+                        "lat": -6.8759091,
+                        "lng": 105.26320465
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Ujung Kulon National Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 481,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104970760588818203009\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDQZ3sdzB2QZ9X845ezoKVQV9JRNFcJ94VDs2CrtgDIahj2igxJ2MjtgOJvrD8JH25PhtayMUE17W37cwO-Npt81sa4D6FGbmvJes-RfHOdtBkIsJ1YQhjmfXeawXs_txj9fosFRkLizTy9c-f9-KGhg8j28AkHuLw6xroheSKkQGLS",
+                    "width": 720
+                }
+            ],
+            "place_id": "ChIJoZ6XlTMjQi4Rcsi0Q06j840",
+            "plus_code": {
+                "compound_code": "698G+42 Ujungjaya, Pandeglang Regency, Banten, Indonesia",
+                "global_code": "6P57698G+42"
+            },
+            "rating": 4.4,
+            "reference": "ChIJoZ6XlTMjQi4Rcsi0Q06j840",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3590
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "62FC+M4W, Strait Island, India",
+            "geometry": {
+                "location": {
+                    "lat": 12.2242482,
+                    "lng": 93.0203235
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 12.22559802989272,
+                        "lng": 93.02167332989272
+                    },
+                    "southwest": {
+                        "lat": 12.22289837010728,
+                        "lng": 93.01897367010727
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "South Button National Park",
+            "photos": [
+                {
+                    "height": 1944,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103186046995934180281\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDX8b40d-G1ABaxtDLjbR82gRcSvQ3kNrAtta5USi_iczk1NP23Qbgzvbb-B5GPI1QL0DevOxKKVLWdEpM79zV29UMc1ARnd_B1B4TAJme37gbknPzCjCRx4jLuiu6-rGM2DIii9saQanggqy1x1_dp4rE5Nk8XGoas8E9DDkQJWtsy",
+                    "width": 2592
+                }
+            ],
+            "place_id": "ChIJuZZrVLIojzARZ-jOfkK9qCw",
+            "rating": 4.5,
+            "reference": "ChIJuZZrVLIojzARZ-jOfkK9qCw",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "East Nusa Tenggara, Indonesia",
+            "geometry": {
+                "location": {
+                    "lat": -8.527716,
+                    "lng": 119.4833198
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": -8.506877549999999,
+                        "lng": 119.5105265
+                    },
+                    "southwest": {
+                        "lat": -8.59023135,
+                        "lng": 119.4742509
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Komodo National Park",
+            "photos": [
+                {
+                    "height": 3036,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117627747637453499100\">Alice Lu</a>"
+                    ],
+                    "photo_reference": "Aap_uEDdIUCwdATmd5qoGS2V58tONqe5J0g0Mia6eQrEHJj--imfkakKUm7ERhzNu2zCcyZx0apZwKNkehwMGo2ZC-imTqgUISxvjVLAY1dmf-YXVSQtZJAdQihNU70VkaTOFYu35vOAQ0htAYigEo5_3BdLEAjPM48Oc3ukHT8xdM_qHzbp",
+                    "width": 4048
+                }
+            ],
+            "place_id": "ChIJuZGsKfP4tC0RYtHgcIgHobE",
+            "plus_code": {
+                "compound_code": "FFCM+W8 Komodo, West Manggarai Regency, East Nusa Tenggara, Indonesia",
+                "global_code": "6P3XFFCM+W8"
+            },
+            "rating": 4.7,
+            "reference": "ChIJuZGsKfP4tC0RYtHgcIgHobE",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4995
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "744209, India",
+            "geometry": {
+                "location": {
+                    "lat": 12.2758505,
+                    "lng": 93.0259609
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 12.27720032989272,
+                        "lng": 93.02731072989272
+                    },
+                    "southwest": {
+                        "lat": 12.27450067010728,
+                        "lng": 93.02461107010728
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Middle Button National Park",
+            "photos": [
+                {
+                    "height": 4608,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102802246493757030785\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAlFdnF3ifFWKzmKfMT-jbrIdDajkx2wjBu26vbQydehjXspE3lxwAIO4J1ggOiFFHOH3P5rSDSvC_1u8TUyRorg8OFuT5a0rbpiJoFFFQtds88_xUAF9YIopV_g3N20UjwjlvAT869OmhYqkTdZGqpIrg4YYVngtYMj6PIU3acs4Ik",
+                    "width": 2592
+                }
+            ],
+            "place_id": "ChIJOTzEG3smjzARiMGz95nO1NI",
+            "plus_code": {
+                "compound_code": "72GG+89 Strait Island, Andaman and Nicobar Islands, India",
+                "global_code": "7M4M72GG+89"
+            },
+            "rating": 4.2,
+            "reference": "ChIJOTzEG3smjzARiMGz95nO1NI",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 9
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "PPCM+39G, Hope Town, Port Blair, Andaman and Nicobar Islands 744107, India",
+            "geometry": {
+                "location": {
+                    "lat": 11.7201967,
+                    "lng": 92.7334546
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 11.72153882989272,
+                        "lng": 92.73483507989272
+                    },
+                    "southwest": {
+                        "lat": 11.71883917010728,
+                        "lng": 92.73213542010727
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Mount Harriet National Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1855,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107632858413429990465\">SANAH CP</a>"
+                    ],
+                    "photo_reference": "Aap_uECvdgmOjgIOHkOAeTtxHmap5amV7uIoqUj2UWVf9CsbOaCTHfIM4HeaXo4vCuAUqJ3kyLfXpFq9mbBAnjiYZTI8hFq3sT0HxpdmcGYxfsN3MpWicQ6nRpCDqTUb55p0vco6ZL0fxYzxXdTqKqP4cxbZzmwjsRQl7x-oIvae_yRH4kQ",
+                    "width": 2165
+                }
+            ],
+            "place_id": "ChIJwdts9zW-iDARsKBYmjJlDEk",
+            "rating": 4.5,
+            "reference": "ChIJwdts9zW-iDARsKBYmjJlDEk",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 712
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5C2Q+CRQ, Karimunjawa, Kabupaten Jepara, Jawa Tengah, Indonesia",
+            "geometry": {
+                "location": {
+                    "lat": -5.848912299999999,
+                    "lng": 110.4396206
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": -5.847562470107277,
+                        "lng": 110.4409704298927
+                    },
+                    "southwest": {
+                        "lat": -5.850262129892721,
+                        "lng": 110.4382707701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Karimunjawa National Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115391766626297509584\">Ali Solehudin</a>"
+                    ],
+                    "photo_reference": "Aap_uEDyfsKAGPjVHLy_g-u5c8nwf2bbs9yrx8RlZlM0MZLvPxK-blkqDW8hXzYfBbASd8jMOqk8BtV8n9EmE7xobd7YaEy2-bxoKBn60K0jf_sAszuhIz7-i4R0BFiMXBdf2lwhz78dGA_F2F-sHg4_Yg5EQ86gvCInR46XbJb8eOi020Df",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJ8zAT6x_Ocy4RbtcJWNiOFYU",
+            "rating": 4.7,
+            "reference": "ChIJ8zAT6x_Ocy4RbtcJWNiOFYU",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3961
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "SH8, Andaman and Nicobar Islands, India",
+            "geometry": {
+                "location": {
+                    "lat": 11.58709,
+                    "lng": 92.6155601
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 11.58851417989272,
+                        "lng": 92.61691752989272
+                    },
+                    "southwest": {
+                        "lat": 11.58581452010728,
+                        "lng": 92.61421787010727
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Mahatma Gandhi Marine National Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 540,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107725399309231217105\">Praveen Gola</a>"
+                    ],
+                    "photo_reference": "Aap_uEBggXFn5RXoxVw1Pe8HM9Mlm5M76Vg98Aw8kt41FKBvKw0PZC6CBD9ech5zq_RgulTCSaMzRF4skBHjby1uZWJz2QGVUbe3QxViAWuQwhoJSy2UYIJsHQxTmRkI42jRKtThUQjlf15dMvExPPVdeocU2LyPywJFps9VEWMeEHVu3A2M",
+                    "width": 720
+                }
+            ],
+            "place_id": "ChIJP2ppjQuaiDARO8s89fvd23U",
+            "plus_code": {
+                "compound_code": "HJP8+R6 Wandoor, Andaman and Nicobar Islands, India",
+                "global_code": "7M3JHJP8+R6"
+            },
+            "rating": 4.5,
+            "reference": "ChIJP2ppjQuaiDARO8s89fvd23U",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 558
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "British Columbia, Canada",
+            "geometry": {
+                "location": {
+                    "lat": 48.79193129999999,
+                    "lng": -125.156359
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 49.24320165,
+                        "lng": -124.7464246
+                    },
+                    "southwest": {
+                        "lat": 48.64150784999999,
+                        "lng": -126.2030674
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Pacific Rim National Park Reserve",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107533637732487864555\">lee kelly</a>"
+                    ],
+                    "photo_reference": "Aap_uEAekdTE6RbKvev7JqK7TMxQpmsD1QYTRCEIxLVKC2U8Pux9-4fO1UZUCGLvQmWt7t4ETAsmSHGWPqUHmO7khQZYkd4O0BaStAvdSr9DBy2JI5a1gQyqb9Qnw104mevref8LhPzphPhQDs4zvOHXPR-W5lsBaTi7DU7R8mUFBsdm2tk4",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJhTSXOx4-iVQRwUoXx5Xv8ic",
+            "plus_code": {
+                "compound_code": "QRRV+QF Bamfield, British Columbia, Canada",
+                "global_code": "84WPQRRV+QF"
+            },
+            "rating": 4.9,
+            "reference": "ChIJhTSXOx4-iVQRwUoXx5Xv8ic",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1669
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Greenland",
+            "geometry": {
+                "location": {
+                    "lat": 75.99998440000002,
+                    "lng": -29.9980739
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 76.00133422989273,
+                        "lng": -29.99672407010728
+                    },
+                    "southwest": {
+                        "lat": 75.99863457010728,
+                        "lng": -29.99942372989272
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Northeast Greenland National Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 573,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118267037401299522214\">Cathy Dillman</a>"
+                    ],
+                    "photo_reference": "Aap_uED3j2FgL8JhK07vkiJjdEXmPENGFUsR45L62GsG2x3P7aH3Zmr5vQjg87dCjAGUAWwltBHNFcUmJC9uXbkZZPPKp8E8hqEzhKVjmHpU74IbOrjUQD2HQRBe37oLErbgxOLSOPBwbidw5yx1hlRNPMUrcwvHiWYuZPapo-oPKZkKerKc",
+                    "width": 750
+                }
+            ],
+            "place_id": "ChIJ094ndGHlp08RX20DMXmMiU0",
+            "rating": 3.9,
+            "reference": "ChIJ094ndGHlp08RX20DMXmMiU0",
+            "types": [
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 406
+        }
+    ],
+    "status": "OK"
+}

@@ -1,0 +1,1054 @@
+{
+    "html_attributions": [],
+    "next_page_token": "Aap_uEDZJUiBol2KL8QjuLHiNe04Y7LP_IR5oZ27wigZUjZVN3O0_QiHotQcxMQgpY7zgD4sMnlbBtIRycQ256iDjUYYjWP8KLYxKPjb2AMxBuz6AXCh4_T4pARFpo_W30wxz9a4R4EPdyXwJ9dbNejfwLDsUezaFH2iIqahyB2OXVNBdXCaKljsFJuml5HhUWfA1Vy9j8rO9clCgGCRX1Oe9uacm4ffpvQlZppqavC5Aoxbb_PbshEbUSOVT7D-d5bENp7IrgVXT0vuZsa1vpQg_Gg0gTidW-EyAhn6A6HiNwgqfHpXqXPwshhfz7QZhMNPrJGRUj77pzMDEb3xmd8cFG1DMa93NDjm2OjdYLAPetSkSkQY-FKQwPRzGrCYzmDvknFIXUT4YNoV2QvjaPjhLc0oGyp62LG4G3NxPRPSNjdsdCRYG4eN5Ghs_Hs4-JVMhh-HfSmU",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Equestrian Walk, Singapore Turf Club Riding Centre, Singapore 737863",
+            "geometry": {
+                "location": {
+                    "lat": 1.4281654,
+                    "lng": 103.7674756
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.429500529892722,
+                        "lng": 103.7688417798927
+                    },
+                    "southwest": {
+                        "lat": 1.426800870107278,
+                        "lng": 103.7661421201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "Cheval Cafe/Bar/Bistro",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 434,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117567853851865199274\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAuhVeoXfkZNcFR8Umse_Cg83qC_clVcGbYDd4OZnlKmF04CGjDLbMtc6HhDkagFSwyZKek7Z_0zzFMRPe7_8oNYAhdq0tQDGxS1x6vnvuR0tieV9_FvqcX5I28BZm4a-5uiYpppFmElw6xOGvv9nAt7WNopLPzkYlLk5u5eq05ftOF",
+                    "width": 828
+                }
+            ],
+            "place_id": "ChIJde_Sl0kS2jERbyHYOmhy2u0",
+            "plus_code": {
+                "compound_code": "CQH8+7X Singapore",
+                "global_code": "6PH5CQH8+7X"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJde_Sl0kS2jERbyHYOmhy2u0",
+            "types": [
+                "restaurant",
+                "cafe",
+                "bar",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 562
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "129 Rangoon Rd, Singapore 218407",
+            "geometry": {
+                "location": {
+                    "lat": 1.3153185,
+                    "lng": 103.8534597
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.316695329892722,
+                        "lng": 103.8548812298927
+                    },
+                    "southwest": {
+                        "lat": 1.313995670107278,
+                        "lng": 103.8521815701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Daizu Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111799660325658892309\">tSkythe</a>"
+                    ],
+                    "photo_reference": "Aap_uEBtIXKFVITKo2C1WFZFVIow_PcZhJo-XZ1gjDgikamzD0PeJFX5sJ1Fq0VueKex6UksDpEYKHrx3OiG2VXmCjzNBtJLDScXo11TlT7fsjhV49osg_dYSGU7gpTxW9NfQtQNavQMrOHRIwufyT-eqGMo71gMh25a3IAlRMVAPt6S2Yh3",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJxwHMC7cZ2jERfFtFqCfqcp0",
+            "plus_code": {
+                "compound_code": "8V83+49 Singapore",
+                "global_code": "6PH58V83+49"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJxwHMC7cZ2jERfFtFqCfqcp0",
+            "types": [
+                "cafe",
+                "restaurant",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 340
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "96 Rangoon Rd, Singapore 218381",
+            "geometry": {
+                "location": {
+                    "lat": 1.3146438,
+                    "lng": 103.854015
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.315983129892722,
+                        "lng": 103.8553416298927
+                    },
+                    "southwest": {
+                        "lat": 1.313283470107278,
+                        "lng": 103.8526419701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Brunches Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106545052650844854730\">edwin tan</a>"
+                    ],
+                    "photo_reference": "Aap_uEAQHZXM9VYPH74JDVCgw_nYmN08XHzJSnDvA8olmPNu3ebShuhyIYB4zebrlrw_bYfM04o_WnPzIdBGd3hhWCvRETfHTPonvCHbUYigewiAryszqLrb58y7uDlD__piF0Zg0DsKp_VWQzhOqd94elMBPyZc9O6zAWLmqxcbtDBJc47h",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJp9nArsUZ2jERhPjbbk1t4Mg",
+            "plus_code": {
+                "compound_code": "8V73+VJ Singapore",
+                "global_code": "6PH58V73+VJ"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJp9nArsUZ2jERhPjbbk1t4Mg",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 751
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "88 Rangoon Rd, #01-04, Singapore 218374",
+            "geometry": {
+                "location": {
+                    "lat": 1.3142982,
+                    "lng": 103.8542027
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.315621479892722,
+                        "lng": 103.8554912298927
+                    },
+                    "southwest": {
+                        "lat": 1.312921820107278,
+                        "lng": 103.8527915701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Mosanco Enchanted Cafe The Fairytale Garden",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101811590948255374199\">James Loo</a>"
+                    ],
+                    "photo_reference": "Aap_uEDhQ5U2nZ0UsIQkytvqMEwlGUSWLhE3ocSrmgZQBGZcB6QrD4x6Zi1x2SmNYbTM_D6vrgyc4udhK4MrTXWsHRPKDQhVci4P-ArqxcfiO7L7KJ6mN3BJ5SlrfhXKx_zUrFstGcDUuSkWrWdY9umoMNUX6EqSdQS8bzevPW9FINoHcLuC",
+                    "width": 1080
+                }
+            ],
+            "place_id": "ChIJyY1br8UZ2jERW0OpG40NfcI",
+            "plus_code": {
+                "compound_code": "8V73+PM Singapore",
+                "global_code": "6PH58V73+PM"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJyY1br8UZ2jERW0OpG40NfcI",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 497
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "5 Ang Mo Kio Ave 10, Singapore 569739",
+            "geometry": {
+                "location": {
+                    "lat": 1.359282,
+                    "lng": 103.854654
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.360400379892722,
+                        "lng": 103.8558514798927
+                    },
+                    "southwest": {
+                        "lat": 1.357700720107278,
+                        "lng": 103.8531518201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Professor Brawn Caf\u00e9",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110312977972129331813\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEC39-jep2N3AlRgPPJyi1epgAvNYPjs3caTiKLAi0q5ec_3g1yNiTd9okt6-YbHBv1C2mP5p3GSQ7kydVmqCVUhCNnUGBJsVADLvcNGt3RXPcIsQNwUce4BXKfWlepOoSTG595zZylI5oFJFp6Xct5akvfe-trRj7YcK4jmkYQefDhm",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJnzw-g-cZ2jERUYpxVEF1qeg",
+            "plus_code": {
+                "compound_code": "9V53+PV Singapore",
+                "global_code": "6PH59V53+PV"
+            },
+            "price_level": 2,
+            "rating": 4.6,
+            "reference": "ChIJnzw-g-cZ2jERUYpxVEF1qeg",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 184
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "313 Orchard Rd, #B1-37, Singapore 238895",
+            "geometry": {
+                "location": {
+                    "lat": 1.301096,
+                    "lng": 103.8385493
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.302142179892722,
+                        "lng": 103.8398314298927
+                    },
+                    "southwest": {
+                        "lat": 1.299442520107278,
+                        "lng": 103.8371317701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Caf\u00e9 de Paris",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110527467723730238109\">Michelle Aboy</a>"
+                    ],
+                    "photo_reference": "Aap_uEA_aL8TzIwNn1buMPX6MQpQ-A-uDYcFsXtQ6yWI9ibXrlkixrWZhZHeQ8cjLr3aFIqf5iXg1xv7tbPNphoAgAoUi_Ymb_tfEzQ2Hxp-UYZFj-GUqTmCH_mYU-412O8sC06sqC9iN8WtHagD08jnxChfGaI1Hg7-yxVppOMLHBgmbdim",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJK_szKZEZ2jERc5FnK9KCwnI",
+            "plus_code": {
+                "compound_code": "8R2Q+CC Singapore",
+                "global_code": "6PH58R2Q+CC"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJK_szKZEZ2jERc5FnK9KCwnI",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 451
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Level 1, 3 Park Lane, Seletar Aerospace Dr, Park, 798387",
+            "geometry": {
+                "location": {
+                    "lat": 1.4079238,
+                    "lng": 103.8684043
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.409304129892722,
+                        "lng": 103.8697864298927
+                    },
+                    "southwest": {
+                        "lat": 1.406604470107278,
+                        "lng": 103.8670867701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Wildseed Cafe & Bar at The Summerhouse",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101543573229849856465\">Audrey SMC</a>"
+                    ],
+                    "photo_reference": "Aap_uECCWKottel2JhUsjn5LaH8nLyX3IM_pLas4CqrXHxmPzemJ3imfnGrzNL2ty4GvqCUQZ8s2xnjZs__IFH5KSsgWoEu9FeIT9_Ioif6sPMj9R-xr5bo8jh7uyp8z4xB2GIE-TX0TCwe6RUfQaYxNvxSOEzXl1yMwS2OZwNdalUOMrmfT",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJlXvHK9MV2jERDfpqKEaKw4U",
+            "plus_code": {
+                "compound_code": "CV59+59 Singapore",
+                "global_code": "6PH5CV59+59"
+            },
+            "price_level": 3,
+            "rating": 4,
+            "reference": "ChIJlXvHK9MV2jERDfpqKEaKw4U",
+            "types": [
+                "cafe",
+                "bakery",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1793
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "131 Tyrwhitt Rd, Singapore 207553",
+            "geometry": {
+                "location": {
+                    "lat": 1.3113498,
+                    "lng": 103.8598442
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.312719379892722,
+                        "lng": 103.8611213298927
+                    },
+                    "southwest": {
+                        "lat": 1.310019720107278,
+                        "lng": 103.8584216701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Black Fairy Coffee & Grill",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111922026214590063249\">Photographer Thailand</a>"
+                    ],
+                    "photo_reference": "Aap_uEDgqANySIZwZSzBOM5VAI9OVDQrpGSJCHi5oOm08-6Jm7r6hDvzRiO0tZ3W_H26q2oLV1smczQa1npajZHKeGiwRmVC4XQmMJSsHCsAl0bXKwjD3XySOIumIwAe5xRjenh7i3ArQVRs_xZxpQ-NfhwBqKKDgmSEXAQ_kN3CJ-wm_-PE",
+                    "width": 5760
+                }
+            ],
+            "place_id": "ChIJAbaCGnIZ2jERmYDnifKRevw",
+            "plus_code": {
+                "compound_code": "8V65+GW Singapore",
+                "global_code": "6PH58V65+GW"
+            },
+            "rating": 4.3,
+            "reference": "ChIJAbaCGnIZ2jERmYDnifKRevw",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 424
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "88 Rangoon Rd, #01-03, Singapore 218374",
+            "geometry": {
+                "location": {
+                    "lat": 1.3143733,
+                    "lng": 103.8542
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.315691129892722,
+                        "lng": 103.8554759798927
+                    },
+                    "southwest": {
+                        "lat": 1.312991470107278,
+                        "lng": 103.8527763201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Old Hen Coffee Bar",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107803324787474058738\">Cai Cuiping</a>"
+                    ],
+                    "photo_reference": "Aap_uEDYLZdHn-kcfiAiImkPYvpaRTACysiHRaex8jlmu0t82z-aTo4ax_aGz4DJOKW3dSBxj5tCpNFXMPJsp-JQDajLnRZLv8TptWNnXkFg40jVycCFyqGOMmkRL86PLk8QmfvijgiUROFAIyRqCwgY3lKC_doA9WxpNtzDQq5PTH0esQSW",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ-RBMrsUZ2jER_mDRCpfHAy4",
+            "plus_code": {
+                "compound_code": "8V73+PM Singapore",
+                "global_code": "6PH58V73+PM"
+            },
+            "price_level": 2,
+            "rating": 4.5,
+            "reference": "ChIJ-RBMrsUZ2jER_mDRCpfHAy4",
+            "types": [
+                "cafe",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 534
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "54 Blair Rd, #01-01, Singapore 089954",
+            "geometry": {
+                "location": {
+                    "lat": 1.2759299,
+                    "lng": 103.8357315
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.277232629892722,
+                        "lng": 103.8371243798927
+                    },
+                    "southwest": {
+                        "lat": 1.274532970107278,
+                        "lng": 103.8344247201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Little Part 1 Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4608,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118317755259847100130\">Lee Shan Lim</a>"
+                    ],
+                    "photo_reference": "Aap_uEA4kbL8AFIwSWQHCBKwV8HudZXP-NuMmlRsvi9LkULQA1LO6qx8YBYt4pN4dFuKaAO_6oPuwoirKFfeIeV4luY1L0_dXdAavNNpQisPQ0FbglVn0UohfJsn3QJOBOfEkjN2o97h1hudtif88QllPBd9AHUJtiwYV8AtPYgLf6Ft2SAT",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJa4YZJG8Z2jERg4a_sKwmYgI",
+            "plus_code": {
+                "compound_code": "7RGP+97 Singapore",
+                "global_code": "6PH57RGP+97"
+            },
+            "price_level": 2,
+            "rating": 4.7,
+            "reference": "ChIJa4YZJG8Z2jERg4a_sKwmYgI",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 295
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "20 Martin Rd, #01-02 Seng Kee Building, Singapore 239070",
+            "geometry": {
+                "location": {
+                    "lat": 1.2912086,
+                    "lng": 103.8389542
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.292496929892722,
+                        "lng": 103.8401950298927
+                    },
+                    "southwest": {
+                        "lat": 1.289797270107278,
+                        "lng": 103.8374953701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "The Book Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1908,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101818523521807486491\">Shishir Rawat</a>"
+                    ],
+                    "photo_reference": "Aap_uEA6ae6CxoW_t1tmEPwf9dYdBKfdwbg7fiFZxo1S2Jgtt8axvJ68efqihgQQz536VZHUTFx6GYsdy4dB_IAsAbjIljQzdkswYgw-QLh5_5tFNvEYmbRf0eLY-EGnvfZw2p3NCSQ0TBbvxrL4wRAN08U77z5mG7J8H4rw7OAJqgGT8D62",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJm-22KpwZ2jERHav69tu9J48",
+            "plus_code": {
+                "compound_code": "7RRQ+FH Singapore",
+                "global_code": "6PH57RRQ+FH"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJm-22KpwZ2jERHav69tu9J48",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 920
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "10 Telok Blangah Green, Singapore 109178",
+            "geometry": {
+                "location": {
+                    "lat": 1.278877,
+                    "lng": 103.813289
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.280199329892722,
+                        "lng": 103.8147870298927
+                    },
+                    "southwest": {
+                        "lat": 1.277499670107278,
+                        "lng": 103.8120873701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Wildseed Caf\u00e9 at The Alkaff Mansion",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117989037249908294780\">Naoya Moritani</a>"
+                    ],
+                    "photo_reference": "Aap_uEC1sK9yk19aNMoRFVlIUqjvH1weYnEb-N9ijC8p7TIspzMEtdt6D6BTzxgMR4mGFCcA2Lq3X_tSKvHSSBp0QIlFuT_GNjXzhIqQVEKWZxTiajEhE6n7S9UZ8iPTSG6gFMj9Na5CZp6PtSDpyDpeou073Ge2BaRrVi1fIzR3AcUU-Mw",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJX7mN2wwb2jERmHzuEpJh7g8",
+            "plus_code": {
+                "compound_code": "7RH7+H8 Singapore",
+                "global_code": "6PH57RH7+H8"
+            },
+            "rating": 4.4,
+            "reference": "ChIJX7mN2wwb2jERmHzuEpJh7g8",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1266
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "78 Yong Siak St, Singapore 163078",
+            "geometry": {
+                "location": {
+                    "lat": 1.2828344,
+                    "lng": 103.8304275
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.284134229892722,
+                        "lng": 103.8317155798927
+                    },
+                    "southwest": {
+                        "lat": 1.281434570107278,
+                        "lng": 103.8290159201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Forty Hands",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110645412175387064265\">Clayton Chua</a>"
+                    ],
+                    "photo_reference": "Aap_uEDvpWvpcOJazEHTRJGrZzW1bUWEVvJY7gyOtwby9mg9G7-u5N2MBBXht4PblPtGztlDG8g9M0WeLWgvt5TOwZv2r-dzbvbLksx2mwwOb2Ty-y7dfMbTQlJ4dUU-lcp324IkZci1TBvoYXt8DQXqJYPJ4JHc6yDZoAhx6nDUfH15GtK6",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJAzGOs3sZ2jERTL_2HBinrwA",
+            "plus_code": {
+                "compound_code": "7RMJ+45 Singapore",
+                "global_code": "6PH57RMJ+45"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJAzGOs3sZ2jERTL_2HBinrwA",
+            "types": [
+                "cafe",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1256
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "75 Beach Rd, #01-00A, Singapore 189689",
+            "geometry": {
+                "location": {
+                    "lat": 1.2970813,
+                    "lng": 103.8564312
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.298293429892722,
+                        "lng": 103.8578058298927
+                    },
+                    "southwest": {
+                        "lat": 1.295593770107278,
+                        "lng": 103.8551061701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Fahrenheit Coffee Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117274132710306504255\">\uc120\ud638</a>"
+                    ],
+                    "photo_reference": "Aap_uEB3KdwXW_A09YafR-CRuQakgroabW6NuEHwdrPj881w9lbELE_CEyzLxlGmi3H_iHNTrJ7Psg7Mf8aFbdRBCGUyBwiDwU1aQXEEnz8eZLCzl2lsn_uHrYJhHfJFfJzWlGFJPD7zon_rBH4ocdtHH0teHBjPclPFiMBz8Kj9Web2MHf1",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJrY_KKVoZ2jERCVDpFFvcdEE",
+            "plus_code": {
+                "compound_code": "7VW4+RH Singapore",
+                "global_code": "6PH57VW4+RH"
+            },
+            "rating": 4.9,
+            "reference": "ChIJrY_KKVoZ2jERCVDpFFvcdEE",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 97
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Hotel Miramar Singapore 401 Havelock Road Lobby Level 1, 169631",
+            "geometry": {
+                "location": {
+                    "lat": 1.288174,
+                    "lng": 103.8374764
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.289838029892722,
+                        "lng": 103.8387454298927
+                    },
+                    "southwest": {
+                        "lat": 1.287138370107278,
+                        "lng": 103.8360457701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "The FernTree Caf\u00e9",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105718045706606975227\">Alex Ortega</a>"
+                    ],
+                    "photo_reference": "Aap_uEB6og9P6U3YMIjJJgI-kf7kdFJTFk9CJyQQERGgIDko6MXKqOeT22bez-GKIitB7dKvbmqVSAefCErnfdEYqEIwaAJvbp-_siu4QJ0_E15ahhAZbnPnOUl-wlIN5nEN0XG0qaBGq_W7DCC_s1qQfBmnC-9rTRWm3cDC_lwtoIG_-RV_",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJk2JMPHYZ2jERS2cY70LXric",
+            "plus_code": {
+                "compound_code": "7RQP+7X Singapore",
+                "global_code": "6PH57RQP+7X"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJk2JMPHYZ2jERS2cY70LXric",
+            "types": [
+                "restaurant",
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 107
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "79 Brighton Cres, Singapore 559218",
+            "geometry": {
+                "location": {
+                    "lat": 1.3630099,
+                    "lng": 103.8713168
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.364421579892722,
+                        "lng": 103.8725941798927
+                    },
+                    "southwest": {
+                        "lat": 1.361721920107278,
+                        "lng": 103.8698945201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Sun Ray Cafe",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106005917547386740697\">Tai Kelvin</a>"
+                    ],
+                    "photo_reference": "Aap_uEAUm7IPcUdCwhRMfkrTBSJkea2v52b-GlO1r3YJjTShKMB8l7-Qy5pqVHMZFGwuPZh92LYiUmPxhBhlUObMnyfTvgjTTkEMwZqCvtOoZhXftvVORUSzwKFH5aaUpqkj81sl3uafZycwotCA3ZopXcx4gInjrg0VBqw5jrYFyw4lfxFN",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJe8Ja3KoX2jERKEYSa1KwuYs",
+            "plus_code": {
+                "compound_code": "9V7C+6G Singapore",
+                "global_code": "6PH59V7C+6G"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJe8Ja3KoX2jERKEYSa1KwuYs",
+            "types": [
+                "cafe",
+                "restaurant",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 999
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "4 Jln Kuras, Singapore 577723",
+            "geometry": {
+                "location": {
+                    "lat": 1.372699,
+                    "lng": 103.8295148
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.374048879892722,
+                        "lng": 103.8308607298927
+                    },
+                    "southwest": {
+                        "lat": 1.371349220107277,
+                        "lng": 103.8281610701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Thus Coffee",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102481553631965729687\">MrJayquak</a>"
+                    ],
+                    "photo_reference": "Aap_uECn-Z6INT6S5RY2g7ozfBOs5eHiOGUZg1VVQE_WQ-ReX15XZpPZPc_65qvCl5Gp2tr-C-rd4rSIlrvLkWECO0rJwFDBLVoSrOTQezScyM-jxin1-mx4kuKpTwsDhqtcfGaWJ8RbiiA8bYOHoakm7hi5QvwmbPzUvNLG5qr6KseQa2mA",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJvxf3xdEW2jERsTZEutKUH8k",
+            "plus_code": {
+                "compound_code": "9RFH+3R Singapore",
+                "global_code": "6PH59RFH+3R"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJvxf3xdEW2jERsTZEutKUH8k",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 630
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "18, #01-33 Yishun Ave 9, Behind Shi Li Fang hotpot, Junction 9, 768897",
+            "geometry": {
+                "location": {
+                    "lat": 1.433182,
+                    "lng": 103.841643
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.434770079892722,
+                        "lng": 103.8430067298927
+                    },
+                    "southwest": {
+                        "lat": 1.432070420107278,
+                        "lng": 103.8403070701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "My Home Cafe has MOVED TO FOOD REPUBLIC, SOMERSET 313, follow our new brand for opening update @indorica",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115761862688260854938\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEBBpzXoVuT72iBYATbmo0RrNckNH7gT6hFs1-n71krD8gL9WbPi3SdPmW5jVdRSSFfKiZSpk_k9zrvZOiK9LEX8THv9AHil4xZfhb8-sQVnz2RsUFyTHO6UJgwKH8mWQyNFV69zdev4LB3sbvAM0Rpq1MF-6QbHeo4KQfOyWAPh8Ic1",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJV-sUL1UV2jERxJxbiyHooQI",
+            "plus_code": {
+                "compound_code": "CRMR+7M Singapore",
+                "global_code": "6PH5CRMR+7M"
+            },
+            "rating": 4.9,
+            "reference": "ChIJV-sUL1UV2jERxJxbiyHooQI",
+            "types": [
+                "restaurant",
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 630
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "11 Hamilton Rd, #01-00, Singapore 209182",
+            "geometry": {
+                "location": {
+                    "lat": 1.3114029,
+                    "lng": 103.8608359
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.312707179892722,
+                        "lng": 103.8622174798927
+                    },
+                    "southwest": {
+                        "lat": 1.310007520107278,
+                        "lng": 103.8595178201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "For The People",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104270133295827429096\">Jacelyn Tan</a>"
+                    ],
+                    "photo_reference": "Aap_uEDuI4K1t61MViVCl-eLfsrfKDYZIGHeGXKRoYh0iq9LBQILD6kow2XsMEaWSkhM3k_7IaL-BmsIxA6NwzsWGE-T79SdqC9EfPJIUFHcbtf-jzqWt-gkjxFaeRyW1VzbZ8bE15VNDHPF-SzlvZ0Fh6luZHxMRdEFT2xgyV1gDzkRQXjL",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJv0DOxUQZ2jERBqvPoWuFk08",
+            "plus_code": {
+                "compound_code": "8V66+H8 Singapore",
+                "global_code": "6PH58V66+H8"
+            },
+            "rating": 3.6,
+            "reference": "ChIJv0DOxUQZ2jERBqvPoWuFk08",
+            "types": [
+                "cafe",
+                "restaurant",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 188
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "17 Eng Hoon St, #01-04 Eng Hoon Mansions, Singapore 169767",
+            "geometry": {
+                "location": {
+                    "lat": 1.2835634,
+                    "lng": 103.8344442
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.284964779892722,
+                        "lng": 103.8358118798927
+                    },
+                    "southwest": {
+                        "lat": 1.282265120107278,
+                        "lng": 103.8331122201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "Caffe Pralet",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108247479126053096983\">Food In Singapore</a>"
+                    ],
+                    "photo_reference": "Aap_uECDnPF6gDlpedNnOgK3EmyMCkqkADb4vpellYzEdh5j9WmsELb5v6k3hDbAL8P7Q9sqmXNe42JHJwBgHp90zb93-3Q1UTcT_42ywHAEzRrnAHfeGnjb-Jj00rqSBa58IsLG_W84ATqchi7dxNJS7a96Hdfo1a8QnBm0ogkmmqN5mMJe",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJAQAAyHAZ2jERbPUsm3bg6t0",
+            "plus_code": {
+                "compound_code": "7RMM+CQ Singapore",
+                "global_code": "6PH57RMM+CQ"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJAQAAyHAZ2jERbPUsm3bg6t0",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 190
+        }
+    ],
+    "status": "OK"
+}
