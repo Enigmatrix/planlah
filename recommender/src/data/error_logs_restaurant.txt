@@ -1,0 +1,864 @@
+Failed to get atmosphere rating for Portman's Bar
+Failed to get price range for Bar-Roque Grill
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get atmosphere rating for The Mind Cafe
+Failed to get price range for Jade
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get price range for Josephine - French Cuisine &amp; Wine Bar
+Failed to get atmosphere rating for Josephine - French Cuisine &amp; Wine Bar
+Failed to get price range for Positano Risto
+Failed to get price range for Hua Ting Restaurant
+Failed to get price range for Whitegrass
+Failed to get atmosphere rating for Fat Belly Social Steakhouse
+Failed to get price range for Colony
+Failed to get price range for Merci Marcel Club Street
+Failed to get atmosphere rating for Merci Marcel Club Street
+Failed to get atmosphere rating for Shivam Restaurant
+Failed to get price range for Origin Grill
+Failed to get price range for Summer Pavilion
+Failed to get price range for Dolce Vita
+Failed to get price range for Song Garden
+Failed to get atmosphere rating for Song Garden
+Failed to get atmosphere rating for Rakuya
+Failed to get price range for Oscar's
+Failed to get atmosphere rating for Fu Lin Men Chinese Restaurant (SRC)
+Failed to get atmosphere rating for Fat Belly
+Failed to get price range for Fu Lin Men Cantonese Dining
+Failed to get atmosphere rating for Fu Lin Men Cantonese Dining
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get price range for Ginett Restaurant &amp; Wine Bar
+Failed to get atmosphere rating for Ginett Restaurant &amp; Wine Bar
+Failed to get price range for Melt Café
+Failed to get price range for Cut by Wolfgang Puck
+Failed to get atmosphere rating for Fu Lin Men (NSRCC)
+Failed to get price range for Merci Marcel Orchard
+Failed to get atmosphere rating for Merci Marcel Orchard
+Failed to get price range for Madame Fan
+Failed to get food rating for Bar Square
+Failed to get service rating for Bar Square
+Failed to get value rating for Bar Square
+Failed to get atmosphere rating for Bar Square
+Failed to get price range for Meta Restaurant
+Failed to get price range for Spago Dining Room by Wolfgang Puck
+Failed to get atmosphere rating for Spago Dining Room by Wolfgang Puck
+Failed to get price range for The Lobby Lounge at InterContinental Singapore
+Failed to get price range for Winestone
+Failed to get atmosphere rating for Soi Aroy
+Failed to get atmosphere rating for Rakuya
+Failed to get price range for Asian Market Cafe
+Failed to get price range for Spice Brasserie
+Failed to get price range for il Cielo
+Failed to get price range for Alley on 25
+Failed to get price range for ShuKuu Izakaya &amp; Sake Bar
+Failed to get price range for Mr Stork
+Failed to get atmosphere rating for Mr Stork
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get price range for Leo Cafe &amp; Restaurant
+Failed to get atmosphere rating for Zazz Pizza
+Failed to get price range for Spago Bar &amp; Lounge
+Failed to get atmosphere rating for Spago Bar &amp; Lounge
+Failed to get price range for Escape Steakhouse &amp; Poolside Bar
+Failed to get price range for Man Fu Yuan
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get price range for Merci Marcel Tiong Bahru
+Failed to get atmosphere rating for Merci Marcel Tiong Bahru
+Failed to get price range for Cassia Restaurant
+Failed to get price range for Takeshi Noodle Bar
+Failed to get atmosphere rating for Takeshi Noodle Bar
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get price range for Republic
+Failed to get atmosphere rating for En Sushi
+Failed to get price range for Kinou
+Failed to get price range for The Communal Place
+Failed to get atmosphere rating for The Communal Place
+Failed to get price range for The Orchard Cafe
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for The Line
+Failed to get atmosphere rating for Hummus and Tandoor
+Failed to get price range for Meat N' Chill
+Failed to get price range for My Awesome Cafe
+Failed to get atmosphere rating for Rakuya
+Failed to get atmosphere rating for Rise Restaurant
+Failed to get price range for The Ramen Stall
+Failed to get atmosphere rating for LAVO Italian Restaurant &amp; Rooftop Bar
+Failed to get atmosphere rating for Kafe Utu
+Failed to get price range for Odette
+Failed to get atmosphere rating for Odette
+Failed to get price range for MONTI
+Failed to get price range for Mott 32
+Failed to get atmosphere rating for Mott 32
+Failed to get atmosphere rating for Elixir Boutique Roasters
+Failed to get atmosphere rating for Enjoy Eating House and Bar @ Stevens
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Yardbird Southern Table &amp; Bar
+Failed to get price range for Yan Ting
+Failed to get price range for Peach Blossoms
+Failed to get atmosphere rating for Greenleaf Cafe
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get price range for Grissini
+Failed to get price range for Black Tap - Singapore
+Failed to get atmosphere rating for Black Tap - Singapore
+Failed to get price range for Anti:dote
+Failed to get price range for BAKALAKI Greek Taverna
+Failed to get price range for Manhattan
+Failed to get price range for Rhubarb
+Failed to get atmosphere rating for Rakuya
+Failed to get price range for Fleur De Sel Le Restaurant
+Failed to get price range for Meta Restaurant
+Failed to get atmosphere rating for Vatan Se
+Failed to get price range for Dumplings.ru
+Failed to get atmosphere rating for Dumplings.ru
+Failed to get price range for SKAI
+Failed to get price range for Flutes
+Failed to get price range for Wine &amp; Chef
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for Bread Street Kitchen &amp; Bar
+Failed to get price range for Peppermint
+Failed to get price range for PIPES by HATTENDO
+Failed to get atmosphere rating for PIPES by HATTENDO
+Failed to get price range for Pistachio Middle Eastern &amp; Mediterranean Grill
+Failed to get atmosphere rating for Pistachio Middle Eastern &amp; Mediterranean Grill
+Failed to get atmosphere rating for Kafe Utu
+Failed to get price range for Tolido's Espresso Nook
+Failed to get price range for Wakanui Grill Dining Singapore
+Failed to get price range for The Dim Sum Place
+Failed to get price range for Beirut Grill
+Failed to get atmosphere rating for Le Noir Bar &amp; Lounge
+Failed to get price range for PS.Cafe at Palais Renaissance
+Failed to get price range for Summer Palace
+Failed to get price range for Tea Lounge at Regent Singapore
+Failed to get price range for Kucina Italian Restaurant
+Failed to get atmosphere rating for Kucina Italian Restaurant
+Failed to get price range for Wing Seong Fatty's (Albert) Restaurant
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for Ginger
+Failed to get atmosphere rating for Byblos Grill
+Failed to get price range for Tippling Club
+Failed to get price range for Tablescape Restaurant &amp; Bar
+Failed to get price range for Empress
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Red Sparrow
+Failed to get price range for Etna Italian Restaurant (Duxton)
+Failed to get price range for Mikuni
+Failed to get price range for The RANCH Steakhouse By ASTONS
+Failed to get price range for Meta Restaurant
+Failed to get price range for Opus Bar &amp; Grill
+Failed to get price range for Coriander Leaf @ Chijmes
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Bistecca Tuscan Steakhouse
+Failed to get price range for DB Bistro &amp; Oyster Bar
+Failed to get price range for The English House, By Marco Pierre White, Singapore
+Failed to get atmosphere rating for Rakuya
+Failed to get price range for Tess Bar &amp; Kitchen, Singapore
+Failed to get price range for Old Airport Rd Food Centre
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for Hua Yu Wee Seafood
+Failed to get price range for Zafferano Italian Restaurant &amp; Lounge
+Failed to get price range for Braci
+Failed to get price range for ATLAS Bar
+Failed to get atmosphere rating for ATLAS Bar
+Failed to get price range for Basilico
+Failed to get price range for mezza9
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get price range for Tiong Bahru Food Centre
+Failed to get price range for Neon Pigeon
+Failed to get price range for Po
+Failed to get price range for DON HO - Social Kitchen &amp; Bar
+Failed to get price range for Edge Food Theatre
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get price range for Brasserie Les Saveurs
+Failed to get price range for Sen Of Japan
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Marmaris Restaurant
+Failed to get price range for Hai Tien Lo
+Failed to get price range for La Brasserie
+Failed to get atmosphere rating for Kafe Utu
+Failed to get atmosphere rating for The Gyu Co
+Failed to get price range for Lolla
+Failed to get price range for Sque Rotisserie &amp; Alehouse
+Failed to get price range for Captain K Seafood Tower
+Failed to get price range for Art
+Failed to get price range for LeVeL33
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get atmosphere rating for French Fold Telok Ayer
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Esquina
+Failed to get price range for Tapas Club
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for The Dempsey Cookhouse &amp; Bar
+Failed to get price range for The Landing Point
+Failed to get atmosphere rating for Song Fa Bak Kut Teh 17 New Bridge Road
+Failed to get price range for Butcher Boy
+Failed to get price range for Shabestan Finest Persian Cuisine
+Failed to get atmosphere rating for Shake Farm
+Failed to get price range for iO Italian Osteria Singapore
+Failed to get price range for Fat Prince
+Failed to get price range for 21 on Rajah
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get atmosphere rating for Coucou
+Failed to get price range for Quentin's Eurasian Restaurant
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get price range for Tapas Club
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Lau Pa Sat
+Failed to get price range for One Prawn &amp; Co
+Failed to get atmosphere rating for One Prawn &amp; Co
+Failed to get price range for Wooloomooloo Steakhouse
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for Komala Villas Restaurant
+Failed to get price range for Wine Connection Tapas Bar &amp; Bistro
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get atmosphere rating for Papi's Tacos
+Failed to get price range for Kai Garden
+Failed to get price range for Trattoria Nonna Lina
+Failed to get price range for Common Man Coffee Roasters
+Failed to get atmosphere rating for Flnt
+Failed to get price range for Chinatown Complex
+Failed to get price range for Meta Restaurant
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get price range for Prive Keppel Bay
+Failed to get price range for Candlenut
+Failed to get price range for HolyCrab
+Failed to get atmosphere rating for Kafe Utu
+Failed to get atmosphere rating for IndoChili
+Failed to get price range for Pete's Place
+Failed to get price range for Chui Huay Lim Teochew Cuisine
+Failed to get price range for Din Tai Fung, Suntec City
+Failed to get food rating for Ju95
+Failed to get service rating for Ju95
+Failed to get value rating for Ju95
+Failed to get atmosphere rating for Ju95
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get atmosphere rating for Koon Bak Kut Teh Cafe
+Failed to get price range for Lantern Rooftop Bar
+Failed to get price range for Swee Choon Tim Sum Restaurant
+Failed to get price range for Al Borgo
+Failed to get price range for Prive Chijmes
+Failed to get atmosphere rating for PizzaFace
+Failed to get atmosphere rating for The Floating Donut Company
+Failed to get price range for JUMBO Seafood (ION Orchard)
+Failed to get price range for Crystal Jade Golden Palace
+Failed to get price range for Long Beach Seafood Restaurant
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for Makansutra Gluttons Bay
+Failed to get price range for Rubato Italian Kitchen &amp; Wine Bar
+Failed to get price range for Super Loco Customs House
+Failed to get atmosphere rating for PS.Cafe One Fullerton
+Failed to get price range for Zam Zam
+Failed to get price range for Xiao Ya Tou
+Failed to get price range for Bedrock Bar and Grill
+Failed to get price range for The Dining Room
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Two Chefs Bar Mexican &amp; Italian
+Failed to get atmosphere rating for Two Chefs Bar Mexican &amp; Italian
+Failed to get price range for Gattopardo Ristorante Di Mare
+Failed to get price range for Lucca's Trattoria
+Failed to get atmosphere rating for Lucca's Trattoria
+Failed to get price range for Arbora
+Failed to get price range for The Boiler (Esplanade)
+Failed to get price range for Dancing Crab
+Failed to get atmosphere rating for Kafe Utu
+Failed to get price range for The Coconut Club
+Failed to get atmosphere rating for The Coconut Club
+Failed to get price range for Les Bouchons Robertson Quay
+Failed to get atmosphere rating for Din Tai Fung
+Failed to get atmosphere rating for Rakuya
+Failed to get price range for One Bowl
+Failed to get price range for The Populus Coffee and Food Co
+Failed to get price range for Brazil Churrasco
+Failed to get price range for Mondo Mio
+Failed to get price range for The Winery Gourmet Bar
+Failed to get atmosphere rating for The Winery Gourmet Bar
+Failed to get price range for Guccio Ristorante
+Failed to get atmosphere rating for Kafe Utu
+Failed to get price range for Food Republic @ VivoCity
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Song Fa Bak Kut Teh The Centrepoint
+Failed to get price range for Palm Beach Seafood Restaurant
+Failed to get price range for Meta Restaurant
+Failed to get price range for Lime House Caribbean
+Failed to get price range for Seasonal Tastes
+Failed to get price range for Tekka Centre
+Failed to get price range for OverEasy
+Failed to get price range for Lime Restaurant
+Failed to get price range for Uya Singapore
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get atmosphere rating for Kafe Utu
+Failed to get atmosphere rating for Ramen Nagi
+Failed to get atmosphere rating for Lim Chee Guan
+Failed to get price range for LONG BEACH UDMC
+Failed to get price range for 10 Scotts
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Mitsuba Japanese Restaurant
+Failed to get price range for Dancing Crab
+Failed to get price range for GRUB
+Failed to get price range for Salted and Hung
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get atmosphere rating for Blu Kouzina Siglap
+Failed to get atmosphere rating for P.Osh
+Failed to get price range for Brotzeit Vivocity
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get price range for Luke's Oyster Bar &amp; Chop House
+Failed to get price range for Chir Chir Fusion Chicken Factory
+Failed to get atmosphere rating for Chir Chir Fusion Chicken Factory
+Failed to get food rating for KITEN
+Failed to get service rating for KITEN
+Failed to get value rating for KITEN
+Failed to get atmosphere rating for KITEN
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for Solo Ristorante
+Failed to get atmosphere rating for Sungei Road Laksa
+Failed to get price range for Newton Food Centre
+Failed to get atmosphere rating for Birds of Paradise Gelato Boutique (Katong)
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get price range for Pizza Fabbrica
+Failed to get atmosphere rating for Haidilao Hot Pot
+Failed to get atmosphere rating for A Noodle Story
+Failed to get price range for Gunther's Modern French Cuisine
+Failed to get atmosphere rating for Empress Porridge
+Failed to get price range for Fairytail Bar
+Failed to get food rating for Fairytail Bar
+Failed to get service rating for Fairytail Bar
+Failed to get value rating for Fairytail Bar
+Failed to get atmosphere rating for Fairytail Bar
+Failed to get price range for Botanico at The Garage
+Failed to get atmosphere rating for Botanico at The Garage
+Failed to get atmosphere rating for Song Fa Bak Kut Teh
+Failed to get price range for Mag's Wine Kitchen
+Failed to get price range for The Ramen House
+Failed to get atmosphere rating for The Ramen House
+Failed to get food rating for Club 5
+Failed to get service rating for Club 5
+Failed to get value rating for Club 5
+Failed to get atmosphere rating for Club 5
+Failed to get price range for Fat Cow
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get price range for Bowls &amp; Bites
+Failed to get atmosphere rating for Bowls &amp; Bites
+Failed to get atmosphere rating for Best Satay
+Failed to get price range for Asia Grand
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Muddy Murphy's Irish Pub
+Failed to get price range for Si Chuan Dou Hua Restaurant
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get price range for La Salsa
+Failed to get price range for Wild Rocket @ Mount Emily
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get price range for Hard Rock Cafe
+Failed to get price range for Vatos Urban Tacos
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get price range for Cook &amp; Brew
+Failed to get price range for Bistro Du Vin
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get atmosphere rating for Bar-A-Thym Restaurant
+Failed to get atmosphere rating for Masizzim
+Failed to get price range for Bayswater Kitchen
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get price range for Fu Lin Bar &amp; Kitchen
+Failed to get price range for Open Farm Community
+Failed to get price range for Sun With Moon Japanese Dining &amp; Cafe
+Failed to get price range for Dallas Restaurant &amp; Bar (Boat Quay)
+Failed to get price range for 328 Katong Laksa
+Failed to get atmosphere rating for PX Hainanese Chicken Rice
+Failed to get price range for Element at  Amara Singapore Hotel
+Failed to get atmosphere rating for Two Men Bagel House
+Failed to get price range for Xin Cuisine Chinese restaurant
+Failed to get price range for Ruth's Chris Steak House
+Failed to get atmosphere rating for Rakuya
+Failed to get atmosphere rating for Mazzo Restaurant &amp; Bar
+Failed to get price range for Luka ITALIAN - DINING / PIZZA / BAR
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get price range for Tachinomiya Japanese Izakaya &amp; Bar
+Failed to get atmosphere rating for Tachinomiya Japanese Izakaya &amp; Bar
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get food rating for Bar Intermezzo
+Failed to get service rating for Bar Intermezzo
+Failed to get value rating for Bar Intermezzo
+Failed to get atmosphere rating for Bar Intermezzo
+Failed to get atmosphere rating for Rakuya
+Failed to get atmosphere rating for Man Man Japanese Unagi Restaurant
+Failed to get atmosphere rating for Komyuniti Bar &amp; Restaurant
+Failed to get price range for Spring Court Restaurant
+Failed to get price range for Wildseed Cafe at The Alkaff Mansion
+Failed to get price range for Meta Restaurant
+Failed to get price range for Shisen Hanten
+Failed to get atmosphere rating for Geylang Lor 9 Fresh Frog Leg Porridge
+Failed to get atmosphere rating for Canchita Peruvian Restaurant Sg
+Failed to get price range for Food Capital
+Failed to get atmosphere rating for Fire
+Failed to get atmosphere rating for The Masons Table
+Failed to get working hours for The Bark Cafe<!-- --> - CLOSED
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get price range for The Dragon Chamber
+Failed to get price range for Podi &amp; Poriyal
+Failed to get price range for NUDE Seafood
+Failed to get price range for Satay By The Bay
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get price range for Craft Pizza
+Failed to get atmosphere rating for Craft Pizza
+Failed to get atmosphere rating for Oriental Chinese Restaurant
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get atmosphere rating for JINJJA Chicken
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get price range for Beef Yakiniku Dining Yakiniquest
+Failed to get atmosphere rating for Garrett Pocorn Shops
+Failed to get atmosphere rating for Kafe Utu
+Failed to get food rating for Soi Aroy
+Failed to get service rating for Soi Aroy
+Failed to get value rating for Soi Aroy
+Failed to get atmosphere rating for Soi Aroy
+Failed to get atmosphere rating for Machan's Kitchen
+Failed to get atmosphere rating for Changi Village Market Hawker Centre
+Failed to get atmosphere rating for Punch
+Failed to get atmosphere rating for Katanashi An
+Failed to get price range for Bochinche
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get atmosphere rating for Koon Bak Kut Teh
+Failed to get price range for Majestic Restaurant
+Failed to get atmosphere rating for The Drawing Room
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Food Republic
+Failed to get price range for Red Eye Smokehouse
+Failed to get price range for JUMBO Seafood (East Coast Seafood Centre)
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get price range for Kuriya Dining
+Failed to get price range for Komala Vilas Restaurant
+Failed to get price range for TungLok XiHe Peking Duck
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for Thanying Restaurant (Amara Hotel Lvl 2)
+Failed to get food rating for The Wired Monkey Singapore
+Failed to get service rating for The Wired Monkey Singapore
+Failed to get value rating for The Wired Monkey Singapore
+Failed to get atmosphere rating for The Wired Monkey Singapore
+Failed to get price range for Piedra Negra
+Failed to get price range for Béni
+Failed to get atmosphere rating for Rakuya
+Failed to get price range for Yoshi Restaurant
+Failed to get price range for Meta Restaurant
+Failed to get atmosphere rating for Ginza Itsuki
+Failed to get price range for Extra Virgin Pizza
+Failed to get atmosphere rating for Berthold Delikatessen
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get atmosphere rating for nomVnom
+Failed to get atmosphere rating for 1-V:U
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get atmosphere rating for Kafe Utu
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get price range for Window on the Park
+Failed to get atmosphere rating for Flight Bar &amp; Lounge
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get atmosphere rating for Dusk Restaurant &amp; Bar
+Failed to get price range for Flying Monkey
+Failed to get atmosphere rating for Amaravati
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get price range for The Beast
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get food rating for House Of Seafood Clarke Quay
+Failed to get service rating for House Of Seafood Clarke Quay
+Failed to get value rating for House Of Seafood Clarke Quay
+Failed to get atmosphere rating for House Of Seafood Clarke Quay
+Failed to get atmosphere rating for VUE
+Failed to get price range for Elemen
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get atmosphere rating for Apiary
+Failed to get atmosphere rating for Two Men Bagel House
+Failed to get price range for My Little Tapas Bar
+Failed to get price range for Trattoria da Mimmo
+Failed to get atmosphere rating for Trattoria da Mimmo
+Failed to get atmosphere rating for Rakuya
+Failed to get food rating for Da Shi Jia Big Prawn Mee
+Failed to get service rating for Da Shi Jia Big Prawn Mee
+Failed to get value rating for Da Shi Jia Big Prawn Mee
+Failed to get atmosphere rating for Da Shi Jia Big Prawn Mee
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get price range for BLOSSOM Restaurant
+Failed to get atmosphere rating for BLOSSOM Restaurant
+Failed to get atmosphere rating for Wang Dae Bak Korean Bbq Restaurant
+Failed to get price range for Meta Restaurant
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get atmosphere rating for All The Batter - Avocado &amp; Natural Foods
+Failed to get price range for Luke's Oyster Bar &amp; Chop House
+Failed to get atmosphere rating for Luke's Oyster Bar &amp; Chop House
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get price range for Mr Biryani
+Failed to get atmosphere rating for Mr Biryani
+Failed to get food rating for Kiyoshi Japanese Restaurant
+Failed to get service rating for Kiyoshi Japanese Restaurant
+Failed to get value rating for Kiyoshi Japanese Restaurant
+Failed to get atmosphere rating for Kiyoshi Japanese Restaurant
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get value rating for Dubai Shawarma Oxley Tower
+Failed to get atmosphere rating for Dubai Shawarma Oxley Tower
+Failed to get atmosphere rating for Rakuya
+Failed to get atmosphere rating for Fuego Bar &amp; Kitchen Singapore
+Failed to get price range for B Burger
+Failed to get atmosphere rating for B Burger
+Failed to get price range for Sinpopo . Brand
+Failed to get atmosphere rating for Noodle Man
+Failed to get atmosphere rating for Creamery Boutique Ice Creams
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get atmosphere rating for Haidilao Hot Pot
+Failed to get price range for Bincho at Hua Bee
+Failed to get atmosphere rating for White Label Records &amp; Bar
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get price range for Chin Huat Live Seafood
+Failed to get atmosphere rating for Pita Bakery
+Failed to get price range for Meta Restaurant
+Failed to get price range for Renku Bar &amp; Lounge
+Failed to get atmosphere rating for Renku Bar &amp; Lounge
+Failed to get atmosphere rating for Arunachala Bhavan
+Failed to get atmosphere rating for Plain Vanilla - Tiong Bahru
+Failed to get atmosphere rating for Tonito Latin American Kitchen
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get food rating for French Fold Orchard
+Failed to get service rating for French Fold Orchard
+Failed to get value rating for French Fold Orchard
+Failed to get atmosphere rating for French Fold Orchard
+Failed to get atmosphere rating for Braseiro
+Failed to get atmosphere rating for The White Ombré Café
+Failed to get atmosphere rating for Jigger &amp; Pony
+Failed to get price range for Dallas Cafe &amp; Bar
+Failed to get atmosphere rating for Dallas Cafe &amp; Bar
+Failed to get atmosphere rating for Hero's
+Failed to get price range for District 10 Bar &amp; Restaurant
+Failed to get atmosphere rating for Kafe Utu
+Failed to get price range for Wine Universe Restaurant Tapas Bar
+Failed to get atmosphere rating for Marine Parade Laksa
+Failed to get atmosphere rating for ABC Brickworks Market &amp; Food Centre
+Failed to get atmosphere rating for Toast Box Marina Bay Sands
+Failed to get atmosphere rating for Bedrock Origin
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get price range for Culina at COMO Dempsey
+Failed to get price range for La Dame de Pic, Raffles Singapore
+Failed to get atmosphere rating for La Dame de Pic, Raffles Singapore
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get price range for Meta Restaurant
+Failed to get atmosphere rating for JB Ah Meng Restaurant
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get food rating for Hashida Singapore
+Failed to get service rating for Hashida Singapore
+Failed to get value rating for Hashida Singapore
+Failed to get atmosphere rating for Hashida Singapore
+Failed to get food rating for 18 Hours
+Failed to get service rating for 18 Hours
+Failed to get value rating for 18 Hours
+Failed to get atmosphere rating for 18 Hours
+Failed to get price range for Angus Steak House Singapore
+Failed to get price range for Bistro Gaston
+Failed to get atmosphere rating for Kafe Utu
+Failed to get atmosphere rating for Toast Box Bugis Junction
+Failed to get price range for Tung Lok Seafood
+Failed to get atmosphere rating for Curious Palette
+Failed to get food rating for Yeast Side
+Failed to get service rating for Yeast Side
+Failed to get value rating for Yeast Side
+Failed to get atmosphere rating for Yeast Side
+Failed to get atmosphere rating for Sideways
+Failed to get atmosphere rating for Scaled by Ah Hua Kelong
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get atmosphere rating for Hamburg Steak Keisuke
+Failed to get atmosphere rating for Venue by Sebastian
+Failed to get atmosphere rating for Llaollao Natural Frozen Yoghurt
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get atmosphere rating for Song Fa Bak Kut Teh, UE BizHub East
+Failed to get price range for Awfully Chocolate Bakery &amp; Cafe
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get atmosphere rating for Chico Loco
+Failed to get atmosphere rating for British Hainan
+Failed to get price range for Long Phung Vietnamese Restaurant
+Failed to get atmosphere rating for Mellower Coffee
+Failed to get price range for Meta Restaurant
+Failed to get atmosphere rating for Mehfil Mughlai
+Failed to get atmosphere rating for Ah Heng Curry Chicken Bee Hoon Mee
+Failed to get atmosphere rating for Kafe Utu
+Failed to get price range for Rock Bar Burger &amp; Steakhouse
+Failed to get atmosphere rating for Rock Bar Burger &amp; Steakhouse
+Failed to get atmosphere rating for Going Om
+Failed to get atmosphere rating for Earlybird
+Failed to get food rating for Fine Wines SG Pte Ltd
+Failed to get service rating for Fine Wines SG Pte Ltd
+Failed to get value rating for Fine Wines SG Pte Ltd
+Failed to get atmosphere rating for Fine Wines SG Pte Ltd
+Failed to get atmosphere rating for PS. Cafe
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get atmosphere rating for Kitchen by Food Rebel
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get atmosphere rating for Penang Culture @ NEX
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get atmosphere rating for Ya Kun Kaya Toast-Raffles City
+Failed to get atmosphere rating for Druggists
+Failed to get price range for Penang Place
+Failed to get atmosphere rating for Imam Banana Leaf Restaurant
+Failed to get price range for Chapter 55
+Failed to get price range for Wanderlost Lounge
+Failed to get atmosphere rating for Wanderlost Lounge
+Failed to get atmosphere rating for La Scala Ristorante
+Failed to get atmosphere rating for Brawn &amp; Brains Coffee
+Failed to get atmosphere rating for Haidilao Hot Pot
+Failed to get atmosphere rating for Kafe Utu
+Failed to get price range for Zaffron Kitchen
+Failed to get atmosphere rating for Sunny Hills
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get price range for The Penny Black Victorian London Pub
+Failed to get price range for Operation Dagger
+Failed to get atmosphere rating for Operation Dagger
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for The Buffet
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get price range for Wahiro
+Failed to get atmosphere rating for Beauty in The Pot (The Centrepoint)
+Failed to get atmosphere rating for Mangiamo Pizzeria
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get price range for Golden Mile Food Centre
+Failed to get atmosphere rating for Golden Mile Food Centre
+Failed to get atmosphere rating for Loo's Hainanese Curry Rice
+Failed to get atmosphere rating for Dessert First
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get atmosphere rating for 2it&amp;Drink
+Failed to get price range for Carnivore Brazilian Churrascaria
+Failed to get atmosphere rating for Dolcetto by Basilico
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get atmosphere rating for Jalan Sultan Prawn Mee
+Failed to get price range for Meta Restaurant
+Failed to get atmosphere rating for Pu3 Restaurant
+Failed to get atmosphere rating for Rong Hua Bak Kut Teh
+Failed to get atmosphere rating for Co Nut Ink
+Failed to get atmosphere rating for Isteaks Diner
+Failed to get atmosphere rating for Caffee Cicheti
+Failed to get price range for Sanpoutei Ramen
+Failed to get food rating for 18:HOURS
+Failed to get service rating for 18:HOURS
+Failed to get value rating for 18:HOURS
+Failed to get atmosphere rating for 18:HOURS
+Failed to get atmosphere rating for Andsoforth
+Failed to get price range for Crystal Jade
+Failed to get atmosphere rating for Blue Label Pizza &amp; Wine
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get food rating for Caviar
+Failed to get service rating for Caviar
+Failed to get value rating for Caviar
+Failed to get atmosphere rating for Caviar
+Failed to get atmosphere rating for Canton Paradise (Alexandra Retail Centre)
+Failed to get atmosphere rating for Fresh Fruits Lab
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Fluff Bakery
+Failed to get price range for New Ubin CHIJMES
+Failed to get atmosphere rating for New Ubin CHIJMES
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get atmosphere rating for Dario
+Failed to get atmosphere rating for Tonkotsu King Four Season
+Failed to get atmosphere rating for Adda
+Failed to get atmosphere rating for The Clueless Goat
+Failed to get price range for Ah Hoi's Kitchen
+Failed to get price range for Noosh Halal Noodle Bar and Grill
+Failed to get atmosphere rating for Golden Spoon
+Failed to get price range for Black Angus Steakhouse
+Failed to get atmosphere rating for Al Bismi
+Failed to get atmosphere rating for Paradise Dynasty
+Failed to get price range for Ya Hua Bak Kut Teh
+Failed to get atmosphere rating for Ya Hua Bak Kut Teh
+Failed to get price range for Meta Restaurant
+Failed to get atmosphere rating for Zion Riverside Food Centre
+Failed to get atmosphere rating for Kafe Utu
+Failed to get price range for Thunderbird Bistro
+Failed to get price range for Le Petit Chef - Singapore
+Failed to get atmosphere rating for Le Petit Chef - Singapore
+Failed to get price range for Char
+Failed to get food rating for HENRI
+Failed to get service rating for HENRI
+Failed to get value rating for HENRI
+Failed to get atmosphere rating for HENRI
+Failed to get atmosphere rating for Bebek Goreng Pak Ndut
+Failed to get atmosphere rating for Grain Traders
+Failed to get atmosphere rating for River Wok Singapore
+Failed to get atmosphere rating for Pantler
+Failed to get atmosphere rating for Outram Park Fried Kway Teow Mee
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get atmosphere rating for Traditional Haig Road Putu Piring
+Failed to get atmosphere rating for Noodle Thai Thai Kitchen beach road
+Failed to get price range for Chimichanga
+Failed to get atmosphere rating for Bengawan Solo
+Failed to get atmosphere rating for Soi 47 Thai Food
+Failed to get atmosphere rating for Wine Connection Bistro Capital Square
+Failed to get atmosphere rating for Wolfgang's Steakhouse by Wolfgang Zwiener
+Failed to get atmosphere rating for Guo Fu Steamboat
+Failed to get food rating for L'eclair Patisserie
+Failed to get service rating for L'eclair Patisserie
+Failed to get value rating for L'eclair Patisserie
+Failed to get atmosphere rating for L'eclair Patisserie
+Failed to get atmosphere rating for Dim Sum Haus
+Failed to get atmosphere rating for Blue Potato
+Failed to get atmosphere rating for Mui Kee Congee @ Orchard
+Failed to get atmosphere rating for Thai Goldmine Kitchen
+Failed to get price range for Timbre X S.E.A
+Failed to get price range for Pura Brasa Singapore
+Failed to get food rating for 5 ON 25
+Failed to get service rating for 5 ON 25
+Failed to get value rating for 5 ON 25
+Failed to get atmosphere rating for 5 ON 25
+Failed to get price range for Silk Road Restaurant
+Failed to get price range for JAG Wine
+Failed to get price range for Konjiki Hototogisu
+Failed to get atmosphere rating for Konjiki Hototogisu
+Failed to get atmosphere rating for Katachi Style Sushi
+Failed to get price range for PAZZION Cafe
+Failed to get atmosphere rating for Kim Dae Mun Korean Cuisine
