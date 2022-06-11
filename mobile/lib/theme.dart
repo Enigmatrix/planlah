@@ -51,7 +51,7 @@ abstract class AppTheme {
     visualDensity: visualDensity,
     textTheme: GoogleFonts.mulishTextTheme()
         .apply(bodyColor: AppColors.textLight),
-    backgroundColor: _DarkColors  .background,
+    backgroundColor: _DarkColors.background,
     scaffoldBackgroundColor: _DarkColors.background,
     cardColor: _DarkColors.card,
     primaryTextTheme: const TextTheme(
