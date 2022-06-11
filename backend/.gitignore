@@ -36,3 +36,6 @@ wire_gen.go
 
 # Environment files for docker
 .env
+
+# go build output from MacOS
+backend

@@ -12,6 +12,11 @@ type UserController struct {
 	Auth     *services.AuthService
 }
 
+type UserSummaryDto struct {
+	Nickname string `json:"nickname" binding:"required"`
+	Name     string `json:"name" binding:"required"`
+}
+
 type CreateUserDto struct {
 	Nickname      string `json:"nickname" binding:"required"`
 	Name          string `json:"name" binding:"required"`
