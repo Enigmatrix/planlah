@@ -38,11 +38,11 @@ func InitializeServer() (*gin.Engine, error) {
 		Database: database,
 		Auth:     authService,
 	}
-	chatController := routes.ChatController{
+	messageController := routes.MessageController{
 		Database: database,
 		Auth:     authService,
 	}
-	engine, err := NewServer(userController, groupController, chatController, authService)
+	engine, err := NewServer(userController, groupController, messageController, authService)
 	if err != nil {
 		return nil, err
 	}
@@ -51,4 +51,4 @@ func InitializeServer() (*gin.Engine, error) {
 
 // deps.go:
 
-var depSet = wire.NewSet(services.NewAuthService, data.NewDatabaseConnection, data.NewDatabase, wire.Struct(new(routes.UserController), "*"), wire.Struct(new(routes.GroupController), "*"), wire.Struct(new(routes.ChatController), "*"), NewServer)
+var depSet = wire.NewSet(services.NewAuthService, data.NewDatabaseConnection, data.NewDatabase, wire.Struct(new(routes.UserController), "*"), wire.Struct(new(routes.GroupController), "*"), wire.Struct(new(routes.MessageController), "*"), NewServer)

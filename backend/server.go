@@ -17,7 +17,7 @@ import (
 func NewServer(
 	users routes.UserController,
 	groups routes.GroupController,
-	chats routes.ChatController,
+	chats routes.MessageController,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 

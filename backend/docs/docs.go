@@ -50,107 +50,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/chats/all": {
-            "get": {
-                "security": [
-                    {
-                        "JWT": []
-                    }
-                ],
-                "description": "Get messages bound by a time range",
-                "tags": [
-                    "Chat"
-                ],
-                "summary": "Get messages",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "format": "date-time",
-                        "name": "end",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "type": "integer",
-                        "name": "groupID",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "format": "date-time",
-                        "name": "start",
-                        "in": "query",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/routes.MessageDto"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/routes.ErrorMessage"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "schema": {
-                            "$ref": "#/definitions/routes.ErrorMessage"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/chats/send": {
-            "post": {
-                "security": [
-                    {
-                        "JWT": []
-                    }
-                ],
-                "description": "Send a new message to a ` + "`" + `Group` + "`" + `",
-                "tags": [
-                    "Chat"
-                ],
-                "summary": "Send a message",
-                "parameters": [
-                    {
-                        "description": "Chat message",
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/routes.SendMessageDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/routes.ErrorMessage"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "schema": {
-                            "$ref": "#/definitions/routes.ErrorMessage"
-                        }
-                    }
-                }
-            }
-        },
         "/api/groups/all": {
             "get": {
                 "security": [
@@ -211,6 +110,107 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/routes.GroupSummaryDto"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/messages/all": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Get messages bound by a time range",
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Get messages",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "date-time",
+                        "name": "end",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "name": "groupId",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "date-time",
+                        "name": "start",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/routes.MessageDto"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/messages/send": {
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Send a new message to a ` + "`" + `Group` + "`" + `",
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Send a message",
+                "parameters": [
+                    {
+                        "description": "Message",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/routes.SendMessageDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
                     },
                     "400": {
                         "description": "Bad Request",
@@ -331,7 +331,24 @@ const docTemplate = `{
             }
         },
         "routes.MessageDto": {
-            "type": "object"
+            "type": "object",
+            "required": [
+                "content",
+                "sentAt",
+                "user"
+            ],
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "sentAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "user": {
+                    "$ref": "#/definitions/routes.UserSummaryDto"
+                }
+            }
         },
         "routes.SendMessageDto": {
             "type": "object",
@@ -345,6 +362,21 @@ const docTemplate = `{
                 },
                 "groupId": {
                     "type": "integer"
+                }
+            }
+        },
+        "routes.UserSummaryDto": {
+            "type": "object",
+            "required": [
+                "name",
+                "nickname"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "nickname": {
+                    "type": "string"
                 }
             }
         },
