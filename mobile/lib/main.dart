@@ -7,15 +7,18 @@ import 'package:mobile/groups/pages/groups_page.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile/services/group.dart';
+import 'package:mobile/services/message.dart';
+import 'package:mobile/services/user.dart';
 import 'package:mobile/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  Get.put(GroupService());
   Get.put(AuthService());
-
+  Get.put(GroupService());
+  Get.put(UserService());
+  Get.put(MessageService());
 
   runApp(const App());
 }
@@ -33,6 +36,7 @@ class App extends StatelessWidget {
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.dark,
         // home: auth.user.value == null ? const SignInPage() : const HomePage(),
+        // home: const SignInPage(),
         home: const HomePage(),
         getPages: [
           GetPage(name: '/signIn', page: () => const SignInPage()),
