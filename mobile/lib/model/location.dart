@@ -1,9 +1,9 @@
-class UserInfo {
+class LocationInfo {
+  // TODO: Actually add relevant information
   final String name;
   final String imageUrl;
 
-
-  UserInfo({
+  LocationInfo({
     required this.name,
     required this.imageUrl
   });

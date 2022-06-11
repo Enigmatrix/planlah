@@ -14,7 +14,7 @@ import (
 )
 
 // NewServer creates a new server and sets up middleware
-func NewServer(user routes.UserController, authSvc *services.AuthService) (*gin.Engine, error) {
+func NewServer(users routes.UserController, groups routes.GroupsController, authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
 	var secret [256]byte
@@ -24,7 +24,7 @@ func NewServer(user routes.UserController, authSvc *services.AuthService) (*gin.
 	}
 
 	// https://github.com/appleboy/gin-jwt
-	identityKey := "id"
+	identityKey := authSvc.IdentityKey
 	authMiddleware, err := jwt.New(&jwt.GinJWTMiddleware{
 		Key:         secret[:],
 		IdentityKey: identityKey,
@@ -54,10 +54,11 @@ func NewServer(user routes.UserController, authSvc *services.AuthService) (*gin.
 	api := srv.Group("api")
 	// protect all routes using JWT middleware
 	api.Use(authMiddleware.MiddlewareFunc())
-	user.Register(api)
+	users.Register(api)
+	groups.Register(api)
 
 	// unauthenticated routes
-	srv.POST("/api/users/create", user.Create)
+	srv.POST("/api/users/create", users.Create)
 	srv.POST("/api/auth/verify", authMiddleware.LoginHandler)
 	// Swagger documentation
 	srv.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))

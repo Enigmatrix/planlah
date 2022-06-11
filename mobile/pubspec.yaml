@@ -37,6 +37,9 @@ dependencies:
   firebase_auth: ^3.3.18
   google_sign_in: ^5.3.1
   get: ^4.6.3
+  google_fonts: ^3.0.1
+  intl: ^0.17.0
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:

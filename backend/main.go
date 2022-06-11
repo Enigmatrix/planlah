@@ -10,6 +10,11 @@ import (
 //@version 1.0
 //@description This is the API for planlah's backend API
 
+// @securityDefinitions.apiKey JWT
+// @in header
+// @name Authorization
+// @description Type 'Bearer TOKEN' to correctly set the API Key
+
 func main() {
 	err := godotenv.Load()
 	if err != nil {
