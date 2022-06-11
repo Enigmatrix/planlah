@@ -155,6 +155,36 @@ func (db *Database) CreateGroup(group *Group) error {
 	return db.conn.Omit("OwnerID").Create(group).Error
 }
 
+func (db *Database) GetGroupMember(userId uint, groupId uint) *GroupMember {
+	var grpMember GroupMember
+	err := db.conn.Model(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return nil
+	}
+	return &grpMember
+}
+
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {
 	return db.conn.Model(&Group{ID: groupID}).Update("OwnerID", ownerID).Error
+}
+
+func (db *Database) CreateMessage(msg Message) error {
+	return db.conn.Create(msg).Error
+}
+
+func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) []Message {
+	var messages []Message
+	err := db.conn.
+		Joins("Group").
+		Joins("GroupMember").
+		Find(&messages, `
+			group_member.group_id = group.id = ? and
+			group_member.id = message.by_id and
+			message.sent_at > ? and message.sent_at < ?`,
+			groupId, start, end).Error
+
+	if err != nil {
+		return nil
+	}
+	return messages
 }

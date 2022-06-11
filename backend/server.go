@@ -14,7 +14,12 @@ import (
 )
 
 // NewServer creates a new server and sets up middleware
-func NewServer(users routes.UserController, groups routes.GroupsController, devPanel routes.DevPanelController, authSvc *services.AuthService) (*gin.Engine, error) {
+func NewServer(
+	users routes.UserController,
+	groups routes.GroupController,
+	chats routes.ChatController,
+	devPanel routes.DevPanelController,
+	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
 	var secret [256]byte

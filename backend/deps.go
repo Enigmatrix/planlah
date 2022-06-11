@@ -18,10 +18,10 @@ var depSet = wire.NewSet(
 	data.NewDatabase,
 	wire.Struct(new(routes.BaseController), "*"),
 	wire.Struct(new(routes.UserController), "*"),
-	wire.Struct(new(routes.GroupsController), "*"),
+	wire.Struct(new(routes.GroupController), "*"),
+	wire.Struct(new(routes.ChatController), "*"),
 	wire.Struct(new(routes.DevPanelController), "*"),
 	NewServer,
-	utils.NewConfig,
 )
 
 func InitializeServer() (*gin.Engine, error) {
