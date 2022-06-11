@@ -16,7 +16,8 @@ var depSet = wire.NewSet(
 	data.NewDatabaseConnection,
 	data.NewDatabase,
 	wire.Struct(new(routes.UserController), "*"),
-	wire.Struct(new(routes.GroupsController), "*"),
+	wire.Struct(new(routes.GroupController), "*"),
+	wire.Struct(new(routes.ChatController), "*"),
 	NewServer,
 )
 

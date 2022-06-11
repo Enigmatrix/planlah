@@ -50,6 +50,107 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/chats/all": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Get messages bound by a time range",
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Get messages",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "date-time",
+                        "name": "end",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "name": "groupID",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "date-time",
+                        "name": "start",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/routes.MessageDto"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/chats/send": {
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Send a new message to a ` + "`" + `Group` + "`" + `",
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Send a message",
+                "parameters": [
+                    {
+                        "description": "Chat message",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/routes.SendMessageDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
         "/api/groups/all": {
             "get": {
                 "security": [
@@ -226,6 +327,24 @@ const docTemplate = `{
                 },
                 "name": {
                     "type": "string"
+                }
+            }
+        },
+        "routes.MessageDto": {
+            "type": "object"
+        },
+        "routes.SendMessageDto": {
+            "type": "object",
+            "required": [
+                "content",
+                "groupId"
+            ],
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "groupId": {
+                    "type": "integer"
                 }
             }
         },
