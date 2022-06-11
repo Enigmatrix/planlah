@@ -8,7 +8,7 @@ import (
 	"planlah.sg/backend/services"
 )
 
-type GroupsController struct {
+type GroupController struct {
 	Database *data.Database
 	Auth     *services.AuthService
 }
@@ -34,7 +34,7 @@ type GroupSummaryDto struct {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/create [post]
-func (controller GroupsController) Create(ctx *gin.Context) {
+func (controller GroupController) Create(ctx *gin.Context) {
 	userId := controller.Auth.AuthenticatedUserId(ctx)
 
 	var createGroupDto CreateGroupDto
@@ -91,7 +91,7 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 // @Success 200 {object} []GroupSummaryDto
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/all [get]
-func (controller GroupsController) GetAll(ctx *gin.Context) {
+func (controller GroupController) GetAll(ctx *gin.Context) {
 	userId := controller.Auth.AuthenticatedUserId(ctx)
 	groups := controller.Database.GetAllGroups(userId)
 	dtos := make([]GroupSummaryDto, len(groups))
@@ -106,7 +106,7 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller GroupsController) Register(router *gin.RouterGroup) {
+func (controller GroupController) Register(router *gin.RouterGroup) {
 	group := router.Group("groups")
 	group.POST("create", controller.Create)
 	group.GET("all", controller.GetAll)
