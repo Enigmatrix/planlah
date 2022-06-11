@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-type ChatController struct {
+type MessageController struct {
 	Database *data.Database
 	Auth     *services.AuthService
 }
@@ -20,9 +20,9 @@ type SendMessageDto struct {
 }
 
 type GetMessagesDto struct {
-	Start   time.Time `query:"start" binding:"required" format:"date-time"`
-	End     time.Time `query:"end" binding:"required,gtfield=Start" format:"date-time"`
-	GroupID uint      `query:"groupId" binding:"required"`
+	Start   time.Time `form:"start" json:"start" binding:"required" format:"date-time"`
+	End     time.Time `form:"end" json:"end" binding:"required,gtfield=Start" format:"date-time"`
+	GroupID uint      `form:"groupId" json:"groupId" binding:"required"`
 }
 
 type MessageDto struct {
@@ -34,14 +34,14 @@ type MessageDto struct {
 // Send godoc
 // @Summary Send a message
 // @Description Send a new message to a `Group`
-// @Param body body SendMessageDto true "Chat message"
-// @Tags Chat
+// @Param body body SendMessageDto true "Message"
+// @Tags Message
 // @Security JWT
 // @Success 200
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
-// @Router /api/chats/send [post]
-func (controller ChatController) Send(ctx *gin.Context) {
+// @Router /api/messages/send [post]
+func (controller MessageController) Send(ctx *gin.Context) {
 	userId := controller.Auth.AuthenticatedUserId(ctx)
 
 	var sendMessageDto SendMessageDto
@@ -57,7 +57,7 @@ func (controller ChatController) Send(ctx *gin.Context) {
 		return
 	}
 
-	err := controller.Database.CreateMessage(data.Message{
+	err := controller.Database.CreateMessage(&data.Message{
 		Content: sendMessageDto.Content,
 		ByID:    groupMember.ID,
 		SentAt:  time.Now(),
@@ -76,17 +76,17 @@ func (controller ChatController) Send(ctx *gin.Context) {
 // @Summary Get messages
 // @Description Get messages bound by a time range
 // @Param query query GetMessagesDto true "body"
-// @Tags Chat
+// @Tags Message
 // @Security JWT
 // @Success 200 {object} []MessageDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
-// @Router /api/chats/all [get]
-func (controller ChatController) Get(ctx *gin.Context) {
+// @Router /api/messages/all [get]
+func (controller MessageController) Get(ctx *gin.Context) {
 	userId := controller.Auth.AuthenticatedUserId(ctx)
 
 	var getMessagesDto GetMessagesDto
-	if err := ctx.BindQuery(&getMessagesDto); err != nil {
+	if err := Query(ctx, &getMessagesDto); err != nil {
 		return
 	}
 
@@ -112,8 +112,8 @@ func (controller ChatController) Get(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller ChatController) Register(router *gin.RouterGroup) {
-	group := router.Group("chats")
+func (controller MessageController) Register(router *gin.RouterGroup) {
+	group := router.Group("messages")
 	group.POST("send", controller.Send)
 	group.GET("all", controller.Get)
 }

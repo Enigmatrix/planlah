@@ -17,7 +17,7 @@ import (
 func NewServer(
 	users routes.UserController,
 	groups routes.GroupController,
-	chats routes.ChatController,
+	chats routes.MessageController,
 	devPanel routes.DevPanelController,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
@@ -62,6 +62,7 @@ func NewServer(
 	api.Use(authMiddleware.MiddlewareFunc())
 	users.Register(api)
 	groups.Register(api)
+	chats.Register(api)
 	devPanel.Register(api)
 
 	// unauthenticated routes
