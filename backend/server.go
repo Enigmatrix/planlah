@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"log"
 	"math/rand"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
@@ -18,7 +19,6 @@ func NewServer(
 	users routes.UserController,
 	groups routes.GroupController,
 	chats routes.MessageController,
-	devPanel routes.DevPanelController,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
@@ -63,7 +63,6 @@ func NewServer(
 	users.Register(api)
 	groups.Register(api)
 	chats.Register(api)
-	devPanel.Register(api)
 
 	// unauthenticated routes
 	srv.POST("/api/users/create", users.Create)

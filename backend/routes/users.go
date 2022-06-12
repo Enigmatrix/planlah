@@ -31,7 +31,7 @@ type CreateUserDto struct {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/users/create [post]
-func (controller UserController) Create(ctx *gin.Context) {
+func (controller *UserController) Create(ctx *gin.Context) {
 	var createUserDto CreateUserDto
 	if err := Body(ctx, &createUserDto); err != nil {
 		return
