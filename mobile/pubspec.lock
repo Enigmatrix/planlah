@@ -146,6 +146,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
+<<<<<<< HEAD
   flutter_svg:
     dependency: "direct main"
     description:
@@ -153,6 +154,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+=======
+>>>>>>> fix/backend_frontend_integration
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -282,6 +285,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+<<<<<<< HEAD
   path_drawing:
     dependency: transitive
     description:
@@ -296,6 +300,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+=======
+>>>>>>> fix/backend_frontend_integration
   path_provider:
     dependency: transitive
     description:
@@ -345,6 +351,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+<<<<<<< HEAD
   petitparser:
     dependency: transitive
     description:
@@ -352,6 +359,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
+=======
+>>>>>>> fix/backend_frontend_integration
   platform:
     dependency: transitive
     description:
@@ -455,6 +464,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0+1"
+<<<<<<< HEAD
   xml:
     dependency: transitive
     description:
@@ -462,6 +472,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.0"
+=======
+>>>>>>> fix/backend_frontend_integration
 sdks:
   dart: ">=2.17.0 <3.0.0"
   flutter: ">=3.0.0"

@@ -1,11 +1,11 @@
-class GroupSummaryDTO {
+class GroupSummaryDto {
     String description;
     int id;
     String name;
 
-    GroupSummaryDTO(this.description, this.id, this.name);
+    GroupSummaryDto(this.description, this.id, this.name);
 
-    GroupSummaryDTO.fromJson(Map<String, dynamic> json)
+    GroupSummaryDto.fromJson(Map<String, dynamic> json)
         : description = json['description'],
           id = json['id'],
           name = json["name"];

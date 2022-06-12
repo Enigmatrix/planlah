@@ -26,6 +26,7 @@ func NewServer(users routes.UserController, groups routes.GroupsController, auth
 	// https://github.com/appleboy/gin-jwt
 	identityKey := authSvc.IdentityKey
 	authMiddleware, err := jwt.New(&jwt.GinJWTMiddleware{
+		Realm:       "planlah_realm",
 		Key:         secret[:],
 		IdentityKey: identityKey,
 		// Authenticates the Firebase Token, finds the corresponding User for this token
