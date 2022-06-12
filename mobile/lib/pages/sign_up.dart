@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
@@ -103,10 +101,10 @@ class _SignUpPageState extends State<SignUpPage> {
   // User profile
   List<String?> _attractions = [];
   List<String?> _food = [];
-  // Either 0 or 1
-  var _outOrIndoors = 0;
 
   // Check if all information is filled in
+  var attractionsFilledIn = false;
+  var foodFilledIn = false;
   var isFilledIn = false;
 
   @override
@@ -305,6 +303,12 @@ class _SignUpPageState extends State<SignUpPage> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        const Text(
+          "This helps us give you better recommendations",
+          style: TextStyle(
+            fontSize: 14,
+          ),
+        ),
         Expanded(
             child: ListView(
               children: <Widget>[
@@ -318,6 +322,18 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                       items: attractionTags.map((a) => MultiSelectItem<String?>(a, a)).toList(),
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (values) {
+                        if (values == null || values.isEmpty || values.length < 5) {
+                          attractionsFilledIn = false;
+                          checkStatus();
+                          return "Please choose at least 5 activities";
+                        } else {
+                          attractionsFilledIn = true;
+                          checkStatus();
+                          return "";
+                        }
+                      },
                       onConfirm: (List<String?> values) {
                         _attractions = values;
                       },
@@ -328,56 +344,24 @@ class _SignUpPageState extends State<SignUpPage> {
                         style: TextStyle(fontSize: 18),
                       ),
                       items: foodTags.map((a) => MultiSelectItem<String?>(a, a)).toList(),
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (values) {
+                        if (values == null || values.isEmpty || values.length < 5) {
+                          foodFilledIn = false;
+                          checkStatus();
+                          return "Please choose at least 5 types of food";
+                        } else {
+                          foodFilledIn = true;
+                          checkStatus();
+                          return "";
+                        }
+                      },
                       onConfirm: (List<String?> values) {
                         _food = values;
                       },
                     )
                   ],
                 ),
-                Column(
-                  children: <Widget>[
-                    SizedBox(height: 10),
-                    const Text(
-                      "Do you like going outdoors or staying indoors?",
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ChoiceChip(
-                          label: const Text(
-                            "Outdoors",
-                          ),
-                          selected: _outOrIndoors == 0,
-                          onSelected: (bool selected) {
-                            setState(() {
-                              if (selected) {
-                                _outOrIndoors = 0;
-                              }
-                            });
-                          },
-                          selectedColor: Colors.green,
-                        ),
-                        ChoiceChip(
-                          label: const Text(
-                            "Indoors",
-                          ),
-                          selected: _outOrIndoors == 1,
-                          onSelected: (bool selected) {
-                            setState(() {
-                              if (selected) {
-                                _outOrIndoors = 1;
-                              }
-                            });
-                          },
-                          selectedColor: Colors.blueGrey,
-                        )
-                      ],
-                    )
-                  ],
-                )
               ],
             )
         ),
@@ -445,10 +429,14 @@ class _SignUpPageState extends State<SignUpPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             ElevatedButton(
-                onPressed: () {
-                  setState(() => _formIndex = 2);
-                },
-                child: before
+              onPressed: () {
+                setState(() => _formIndex = 2);
+              },
+              style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(20, 20),
+                  shape: const CircleBorder()
+              ),
+              child: before,
             ),
             buildConfirmationButton(context)
           ],
@@ -545,10 +533,11 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget buildAttractionsChipsDisplay(BuildContext context) {
     if (_attractions.isEmpty) {
       return const Text(
-        "It appears you have no preferences ☹️",
+        "Please choose at least 5 types of attractions.",
         style: TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.bold
+          fontWeight: FontWeight.bold,
+          color: Colors.red,
         ),
       );
     } else {
@@ -597,10 +586,11 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget buildFoodChipsDisplay(BuildContext context) {
     if (_food.isEmpty) {
       return const Text(
-        "It appears you don't like food ☹️",
+        "Please choose at least 5 kinds of food.",
         style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Colors.red,
         ),
       );
     } else {
