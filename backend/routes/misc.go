@@ -1,8 +1,9 @@
 package routes
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 type MiscController struct{}
@@ -61,8 +62,58 @@ func (controller MiscController) Towns(ctx *gin.Context) {
 	})
 }
 
+func (controller MiscController) Gender(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, []string{
+		"Male",
+		"Female",
+		"Other",
+	})
+}
+
+func (controller MiscController) Food(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, []string{
+		"American",
+		"Bakeries",
+		"Barbecue",
+		"Cafe",
+		"Chinese",
+		"Contemporary",
+		"Dessert",
+		"Diner",
+		"European",
+		"Fast food",
+		"French",
+		"Fusion",
+		"Halal",
+		"Healthy",
+		"Indian",
+		"Indonesian",
+		"Italian",
+		"Japanese",
+		"Korean",
+		"Kosher",
+		"Lebanese",
+		"Malaysian",
+		"Middle Eastern",
+		"Philippine",
+		"Pizza",
+		"Pubs",
+		"Quick Bites",
+		"Seafood",
+		"Singaporean",
+		"Soups",
+		"Sri Lankan",
+		"Street Food",
+		"Sushi",
+		"Thai",
+		"Vietnamese",
+	})
+}
+
 // Register the routes for this controller
 func (controller MiscController) Register(router *gin.RouterGroup) {
 	group := router.Group("misc")
 	group.GET("towns", controller.Towns)
+	group.GET("gender", controller.Gender)
+	group.GET("food", controller.Food)
 }

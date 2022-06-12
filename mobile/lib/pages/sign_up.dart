@@ -21,12 +21,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   late var towns = <String>["-"];
 
-  final genders = <String>[
-    "-",
-    "Male",
-    "Female",
-    "Other",
-  ];
+  late var genders = <String>["-"];
 
   final attractionTags = <String>[
     "Airport",
@@ -107,14 +102,28 @@ class _SignUpPageState extends State<SignUpPage> {
   var foodFilledIn = false;
   var isFilledIn = false;
 
+  // The initState method is called exactly once.
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    // Initialize values that are retrieved from the backend here to avoid
+    // calling them again and again.
+    // This is because this widget is a Stateful Widget.
     misc.getTowns().then((value) {
       setState(() {
         towns = value.body!;
       });
     });
 
+    misc.getGenders().then((value) {
+      setState(() {
+        genders = value.body!;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       // Prevent keyboard from messing up layout
@@ -224,7 +233,6 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
         DropdownSearch<String>(
           items: genders,
-          selectedItem: genders[0],
           dropdownDecoratorProps: const DropDownDecoratorProps(
               dropdownSearchDecoration: InputDecoration(
                   labelText: "Gender"
@@ -241,7 +249,6 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
         DropdownSearch<String>(
           items: towns,
-          // selectedItem: towns[0],
           dropdownDecoratorProps: const DropDownDecoratorProps(
               dropdownSearchDecoration: InputDecoration(
                   labelText: "Town"
