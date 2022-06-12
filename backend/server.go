@@ -18,7 +18,8 @@ import (
 func NewServer(
 	users routes.UserController,
 	groups routes.GroupController,
-	chats routes.MessageController,
+	messages routes.MessageController,
+	itineraries routes.ItineraryController,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
@@ -62,7 +63,23 @@ func NewServer(
 	api.Use(authMiddleware.MiddlewareFunc())
 	users.Register(api)
 	groups.Register(api)
-	chats.Register(api)
+	messages.Register(api)
+	itineraries.Register(api)
+
+	// serve websocket in goroutine.
+	go func() {
+		if err := messages.WsServer.Serve(); err != nil {
+			log.Fatalf("message websocket listen error: %v", err)
+		}
+	}()
+
+	// the websocket gets cleaned anyway, so don't bother closing it
+
+	//defer func() {
+	//	if err := messages.WsServer.Close(); err != nil {
+	//		log.Fatalf("message websocket close error: %v", err)
+	//	}
+	//}()
 
 	// unauthenticated routes
 	srv.POST("/api/users/create", users.Create)
