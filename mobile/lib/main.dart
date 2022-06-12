@@ -9,6 +9,7 @@ import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/message.dart';
+import 'package:mobile/services/misc.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/theme.dart';
 
@@ -18,12 +19,9 @@ void main() async {
 
   Get.put(AuthService());
   Get.put(GroupService());
-<<<<<<< HEAD
-
-=======
   Get.put(UserService());
   Get.put(MessageService());
->>>>>>> fix/backend_frontend_integration
+  Get.put(MiscService());
 
   runApp(const App());
 }

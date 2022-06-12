@@ -126,6 +126,38 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/misc/towns": {
+            "get": {
+                "description": "Get towns",
+                "tags": [
+                    "Misc"
+                ],
+                "summary": "Get towns",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
         "/api/users/create": {
             "post": {
                 "description": "Create a new User given a ` + "`" + `CreateUserDto` + "`" + `.",

@@ -3,8 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
+import 'package:get/state_manager.dart';
 import 'package:mobile/pages/sign_up_components/fadeindexedstack.dart';
+import 'package:mobile/services/misc.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
+import 'package:get/get.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -16,50 +19,9 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   int _formIndex = 0;
 
-  final towns = [
-    "-",
-    "Ang Mo Kio",
-    "Bedok",
-    "Bishan",
-    "Boon Lay",
-    "Bukit Batok",
-    "Bukit Merah",
-    "Bukit Panjang",
-    "Changi",
-    "Choa Chu Kang",
-    "Clementi",
-    "Geylang",
-    "Hougang",
-    "Jurong",
-    "Kallang",
-    "Lum Chu Kang",
-    "Mandai",
-    "Marina",
-    "Marine Parade",
-    "Newton",
-    "Novena",
-    "Orchard",
-    "Outram",
-    "Pasir Ris",
-    "Paya Lebar",
-    "Pioneer",
-    "Punggol",
-    "Queenstown",
-    "River Valley",
-    "Rochor",
-    "Seletar",
-    "Sembawang",
-    "Sengkang",
-    "Serangoon",
-    "Sungei Kadut",
-    "Tampines"
-    "Tanglin",
-    "Tengah",
-    "Toa Payoh",
-    "Tuas",
-    "Woodlands",
-    "Yishun"
-  ];
+  final misc = Get.find<MiscService>();
+
+  late var towns = <String>["-"];
 
   final genders = <String>[
     "-",
@@ -149,6 +111,12 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    misc.getTowns().then((value) {
+      setState(() {
+        towns = value.body!;
+      });
+    });
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       // Prevent keyboard from messing up layout
@@ -275,7 +243,7 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
         DropdownSearch<String>(
           items: towns,
-          selectedItem: towns[0],
+          // selectedItem: towns[0],
           dropdownDecoratorProps: const DropDownDecoratorProps(
               dropdownSearchDecoration: InputDecoration(
                   labelText: "Town"
