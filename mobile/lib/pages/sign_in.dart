@@ -47,8 +47,9 @@ class GoogleSignInState extends State<GoogleSignIn> {
                   });
 
                   var user = await auth.signInWithGoogle();
+                  print(user);
                   if (user != null) {
-                    await Get.offAndToNamed('home');
+                    await Get.offAndToNamed('signUp');
                     return;
                   }
 
