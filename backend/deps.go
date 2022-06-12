@@ -15,12 +15,11 @@ var depSet = wire.NewSet(
 	services.NewAuthService,
 	data.NewDatabaseConnection,
 	data.NewDatabase,
-	wire.Struct(new(routes.BaseController), "*"),
 	wire.Struct(new(routes.UserController), "*"),
 	wire.Struct(new(routes.GroupController), "*"),
 	wire.Struct(new(routes.MessageController), "*"),
 	wire.Struct(new(routes.DevPanelController), "*"),
-	wire.Struct(new(routes.ItineraryController), "*"),
+	wire.Struct(new(routes.OutingController), "*"),
 	NewServer,
 )
 
