@@ -33,7 +33,7 @@ type CreateUserDto struct {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/users/create [post]
-func (controller UserController) Create(ctx *gin.Context) {
+func (controller *UserController) Create(ctx *gin.Context) {
 	var createUserDto CreateUserDto
 	if err := Body(ctx, &createUserDto); err != nil {
 		return
@@ -61,7 +61,6 @@ func (controller UserController) Create(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller UserController) Register(router *gin.RouterGroup) {
+func (controller *UserController) Register(router *gin.RouterGroup) {
 	// group := router.Group("users")
-	// group.POST("create", controller.Create)
 }
