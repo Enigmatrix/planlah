@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
@@ -141,8 +139,6 @@ class _SignUpPageState extends State<SignUpPage> {
   // User profile
   List<String?> _attractions = [];
   List<String?> _food = [];
-  // Either 0 or 1
-  var _outOrIndoors = 0;
 
   // Check if all information is filled in
   var attractionsFilledIn = false;
@@ -398,50 +394,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     )
                   ],
                 ),
-                Column(
-                  children: <Widget>[
-                    SizedBox(height: 10),
-                    const Text(
-                      "Do you like going outdoors or staying indoors?",
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ChoiceChip(
-                          label: const Text(
-                            "Outdoors",
-                          ),
-                          selected: _outOrIndoors == 0,
-                          onSelected: (bool selected) {
-                            setState(() {
-                              if (selected) {
-                                _outOrIndoors = 0;
-                              }
-                            });
-                          },
-                          selectedColor: Colors.green,
-                        ),
-                        ChoiceChip(
-                          label: const Text(
-                            "Indoors",
-                          ),
-                          selected: _outOrIndoors == 1,
-                          onSelected: (bool selected) {
-                            setState(() {
-                              if (selected) {
-                                _outOrIndoors = 1;
-                              }
-                            });
-                          },
-                          selectedColor: Colors.blueGrey,
-                        )
-                      ],
-                    )
-                  ],
-                )
               ],
             )
         ),
