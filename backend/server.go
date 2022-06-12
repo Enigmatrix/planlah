@@ -14,7 +14,10 @@ import (
 )
 
 // NewServer creates a new server and sets up middleware
-func NewServer(users routes.UserController, groups routes.GroupsController, authSvc *services.AuthService) (*gin.Engine, error) {
+func NewServer(users routes.UserController,
+	groups routes.GroupsController,
+	misc routes.MiscController,
+	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
 	var secret [256]byte
@@ -51,6 +54,9 @@ func NewServer(users routes.UserController, groups routes.GroupsController, auth
 	if err != nil {
 		return nil, errors.New(fmt.Sprintf("initialize JWT middleware: %v", err))
 	}
+
+	unauthapi := srv.Group("api")
+	misc.Register(unauthapi)
 
 	api := srv.Group("api")
 	// protect all routes using JWT middleware

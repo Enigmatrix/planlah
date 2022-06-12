@@ -24,6 +24,14 @@ class BaseConnect extends GetConnect {
     };
   }
 
+  Decoder<List<String>?> decoderForListString() {
+    return (data) {
+      if (checkAuthenticationError(data)) return null;
+      var list = List.from(data);
+      return list.map((x) => x as String).toList();
+    };
+  }
+
   bool checkAuthenticationError(dynamic data) {
     try {
       var map = Map<String, dynamic>.from(data);
