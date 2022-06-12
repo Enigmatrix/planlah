@@ -23,6 +23,7 @@ func NewServer(
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
+	// TODO this seems seeded, set it to true random later on
 	var secret [256]byte
 	_, err := rand.Read(secret[:])
 	if err != nil {

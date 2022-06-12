@@ -191,3 +191,12 @@ func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) []
 	}
 	return messages
 }
+
+func (db *Database) CreateOuting(outing *Outing) interface{} {
+	return db.conn.Create(outing).Error
+}
+
+func (db *Database) GetAllOutings(groupId uint) []Outing {
+	// TODO
+	return nil
+}
