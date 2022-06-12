@@ -8,6 +8,9 @@ import 'package:mobile/pages/sign_up.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile/services/group.dart';
+import 'package:mobile/services/message.dart';
+import 'package:mobile/services/misc.dart';
+import 'package:mobile/services/user.dart';
 import 'package:mobile/theme.dart';
 
 void main() async {
@@ -16,7 +19,9 @@ void main() async {
 
   Get.put(AuthService());
   Get.put(GroupService());
-
+  Get.put(UserService());
+  Get.put(MessageService());
+  Get.put(MiscService());
 
   runApp(const App());
 }

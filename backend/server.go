@@ -20,10 +20,10 @@ func NewServer(
 	groups routes.GroupController,
 	messages routes.MessageController,
 	outings routes.OutingController,
+	misc routes.MiscController,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
-	// TODO this seems seeded, set it to true random later on
 	var secret [256]byte
 	_, err := rand.Read(secret[:])
 	if err != nil {
@@ -58,6 +58,9 @@ func NewServer(
 	if err != nil {
 		return nil, errors.New(fmt.Sprintf("initialize JWT middleware: %v", err))
 	}
+
+	unauthapi := srv.Group("api")
+	misc.Register(unauthapi)
 
 	api := srv.Group("api")
 	// protect all routes using JWT middleware
