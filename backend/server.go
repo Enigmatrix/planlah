@@ -19,6 +19,7 @@ func NewServer(
 	users routes.UserController,
 	groups routes.GroupController,
 	messages routes.MessageController,
+	itineraries routes.ItineraryController,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
@@ -58,11 +59,13 @@ func NewServer(
 	}
 
 	api := srv.Group("api")
+
 	// protect all routes using JWT middleware
 	api.Use(authMiddleware.MiddlewareFunc())
 	users.Register(api)
 	groups.Register(api)
 	messages.Register(api)
+	itineraries.Register(api)
 
 	// serve websocket in goroutine.
 	go func() {
