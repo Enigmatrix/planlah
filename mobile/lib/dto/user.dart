@@ -19,7 +19,11 @@ class CreateUserDto {
 
   Map<String, dynamic> toJson() => {
     'name': name,
-    'nickname': nickname,
-    'firebaseToken': firebaseToken
+    'username': nickname,
+    'gender': gender,
+    'town': town,
+    'firebaseToken': firebaseToken,
+    'attractions': attractions.map((e) => e!).toList(),
+    'food': food.map((e) => e!).toList(),
   };
 }

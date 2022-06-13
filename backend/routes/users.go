@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/samber/lo"
 	"net/http"
 	"planlah.sg/backend/data"
 )
@@ -16,10 +17,13 @@ type UserSummaryDto struct {
 }
 
 type CreateUserDto struct {
-	Nickname      string `json:"nickname" binding:"required"`
-	Name          string `json:"name" binding:"required"`
-	FirebaseToken string `json:"firebaseToken" binding:"required"`
-	// TODO fields representing data collected from user questionnaire
+	Name          string   `json:"name" binding:"required"`
+	Username      string   `json:"username" binding:"required"`
+	Gender        string   `json:"gender" binding:"required"`
+	Town          string   `json:"town" binding:"required"`
+	FirebaseToken string   `json:"firebaseToken" binding:"required"`
+	Attractions   []string `json:"attractions" binding:"required"`
+	Food          []string `json:"food" binding:"required"`
 }
 
 // Create godoc
@@ -43,9 +47,18 @@ func (controller *UserController) Create(ctx *gin.Context) {
 		return
 	}
 
+	genderValidated := lo.Contains(genders, createUserDto.Gender)
+	if !genderValidated {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage("Gender not recognized"))
+	}
+
+	// TODO: Do feature calculations here
+
 	user := data.User{
-		Nickname:    createUserDto.Nickname,
 		Name:        createUserDto.Name,
+		Username:    createUserDto.Username,
+		Gender:      createUserDto.Gender,
+		Town:        createUserDto.Town,
 		FirebaseUid: *firebaseUid,
 	}
 
