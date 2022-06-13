@@ -5,10 +5,12 @@ import (
 	"net/http"
 )
 
-var genders = []string{
-	"Male",
-	"Female",
-	"Other",
+func GetGenders() []string {
+	return []string{
+		"Male",
+		"Female",
+		"Other",
+	}
 }
 
 type MiscController struct{}
@@ -68,7 +70,7 @@ func (controller MiscController) Towns(ctx *gin.Context) {
 }
 
 func (controller MiscController) Gender(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, genders)
+	ctx.JSON(http.StatusOK, GetGenders())
 }
 
 func (controller MiscController) Food(ctx *gin.Context) {
