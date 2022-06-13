@@ -47,7 +47,7 @@ func (controller *UserController) Create(ctx *gin.Context) {
 		return
 	}
 
-	genderValidated := lo.Contains(genders, createUserDto.Gender)
+	genderValidated := lo.Contains(GetGenders(), createUserDto.Gender)
 	if !genderValidated {
 		ctx.JSON(http.StatusBadRequest, NewErrorMessage("Gender not recognized"))
 	}
