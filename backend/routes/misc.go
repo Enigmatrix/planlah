@@ -1,10 +1,15 @@
 package routes
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
+
+var genders = []string{
+	"Male",
+	"Female",
+	"Other",
+}
 
 type MiscController struct{}
 
@@ -63,11 +68,7 @@ func (controller MiscController) Towns(ctx *gin.Context) {
 }
 
 func (controller MiscController) Gender(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, []string{
-		"Male",
-		"Female",
-		"Other",
-	})
+	ctx.JSON(http.StatusOK, genders)
 }
 
 func (controller MiscController) Food(ctx *gin.Context) {

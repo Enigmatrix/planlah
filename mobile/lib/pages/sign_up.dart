@@ -629,22 +629,12 @@ class _SignUpPageState extends State<SignUpPage> {
     if (response.isOk) {
       Get.toNamed("/home");
     } else {
-      var snackbar = SnackBar(
-        content: const Text("Your username has already been taken :("),
-        action: SnackBarAction(
-          label: "Try again",
-          onPressed: () {
-            setState(() => _formIndex = 1);
-          },
-        ),
-      );
       Get.snackbar(
           "Error encountered:",
           "Your username has already been taken :(",
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.black,
       );
-      // ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }
   }
 
