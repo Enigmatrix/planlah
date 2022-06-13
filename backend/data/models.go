@@ -1,14 +1,19 @@
 package data
 
 import (
+	"github.com/lib/pq"
 	"time"
 )
 
 type User struct {
-	ID             uint   `gorm:"primarykey"`
-	Nickname       string `gorm:"unique;not null"` // Tag of a user e.g. @chocoloco
-	Name           string `gorm:"not null"`        // Real-life (hopefully) name
-	FirebaseUid    string `gorm:"unique;not null"`
+	ID             uint            `gorm:"primarykey"`
+	Username       string          `gorm:"unique;not null"` // Tag of a user e.g. @chocoloco
+	Name           string          `gorm:"not null"`        // Real-life (hopefully) name
+	Gender         string          `gorm:"not null"`
+	Town           string          `gorm:"not null"`
+	FirebaseUid    string          `gorm:"unique;not null"`
+	Attractions    pq.Float64Array `gorm:"type:float8[]"`
+	Food           pq.Float64Array `gorm:"type:float8[]"`
 	GroupMembersAs []GroupMember
 }
 
