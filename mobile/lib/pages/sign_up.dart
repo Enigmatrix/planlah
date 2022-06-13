@@ -2,10 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:get/state_manager.dart';
+import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/sign_up_components/fadeindexedstack.dart';
 import 'package:mobile/services/misc.dart';
+import 'package:mobile/services/user.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:get/get.dart';
+
+import '../services/auth.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -18,6 +22,8 @@ class _SignUpPageState extends State<SignUpPage> {
   int _formIndex = 0;
 
   final misc = Get.find<MiscService>();
+  final user = Get.find<UserService>();
+  final auth = Get.find<AuthService>();
 
   late var towns = <String>["-"];
 
@@ -610,11 +616,43 @@ class _SignUpPageState extends State<SignUpPage> {
     }
   }
 
+  void registerUser(BuildContext context) async {
+    var response = await user.create(CreateUserDto(
+        _name,
+        _username,
+        _gender,
+        _town,
+        await auth.user.value!.getIdToken(),
+        _attractions,
+        _food,
+    ));
+    if (response.isOk) {
+      Get.toNamed("/home");
+    } else {
+      var snackbar = SnackBar(
+        content: const Text("Your username has already been taken :("),
+        action: SnackBarAction(
+          label: "Try again",
+          onPressed: () {
+            setState(() => _formIndex = 1);
+          },
+        ),
+      );
+      Get.snackbar(
+          "Error encountered:",
+          "Your username has already been taken :(",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.black,
+      );
+      // ScaffoldMessenger.of(context).showSnackBar(snackbar);
+    }
+  }
+
   Widget buildConfirmationButton(BuildContext context) {
     if (isFilledIn) {
       return ElevatedButton(
           onPressed: () {
-            // User registration done here
+            registerUser(context);
           },
           child: const Text(
             "This looks good, sign me up!",
