@@ -39,7 +39,8 @@ class App extends StatelessWidget {
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.light,
         // home: auth.user.value == null ? const SignInPage() : const HomePage(),
-        home: const SignUpPage(),
+        // home: const SignUpPage(),
+        home: const HomePage(),
         getPages: [
           GetPage(name: '/signIn', page: () => const SignInPage()),
           GetPage(name: '/signUp', page: () => const SignUpPage()),

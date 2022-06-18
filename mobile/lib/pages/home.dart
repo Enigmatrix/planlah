@@ -83,16 +83,16 @@ class _HomePageWidgetState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("planlah"),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.group_add_outlined),
-            tooltip: "Create new group",
-          )
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: const Text("planlah"),
+      //   actions: <Widget>[
+      //     IconButton(
+      //       onPressed: () {},
+      //       icon: const Icon(Icons.group_add_outlined),
+      //       tooltip: "Create new group",
+      //     )
+      //   ],
+      // ),
       body: Center(
           child: _pages.elementAt(_selectedIndex)
       ),
