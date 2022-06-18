@@ -212,7 +212,8 @@ class _GroupsPageState extends State<GroupsPage> {
     );
   }
 
-  Widget buildGroups(List<ChatGroup> groups) => ListView.builder(
+  Widget buildGroups(List<ChatGroup> groups) {
+    return ListView.builder(
       itemCount: groups.length,
       shrinkWrap: true,
       padding: const EdgeInsets.only(top: 16),
@@ -220,13 +221,9 @@ class _GroupsPageState extends State<GroupsPage> {
       itemBuilder: (context, index) {
         // To add page to redirect to
         return GroupDisplay(
-            name: groups[index].groupName,
-            mostRecentText: groups[index].mostRecentText,
-            imageUrl: groups[index].photoUrl,
-            time: groups[index].time,
-            // TODO: Add this
-            isMessageRead: (index % 2 == 0)
+            chatGroup: groups[index]
         );
       },
-  );
+    );
+  }
 }
