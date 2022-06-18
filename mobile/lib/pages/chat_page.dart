@@ -10,9 +10,12 @@ import 'package:intl/date_symbol_data_local.dart';
 import '../model/chat_message.dart';
 
 class ChatPage extends StatefulWidget {
+  ChatGroup chatGroup;
 
-
-  const ChatPage({Key? key}) : super(key: key);
+  ChatPage({
+    Key? key,
+    required this.chatGroup,
+  }) : super(key: key);
 
   @override
   State<ChatPage> createState() => _ChatPageState();
@@ -20,59 +23,67 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
 
-  // Replace with actual retrieving from database in the future
-  List<ChatMessage> messages = getChatMessages();
-  // Retrieve arguments from Get navigation
-  ChatGroup group = Get.arguments;
-  // Hard code for now
-  static List<ChatMessage> getChatMessages() {
-    const data = [
-      {
-        "byId": "1",
-        "content": "Hello, I am John!",
-        "timestamp": "15 Aug 22:30"
-        // "timestamp": "2022-05-30*13:23:55"
-      },
-      {
-        "byId": "2",
-        "content": "Hi John, how are you?",
-        "timestamp": "15 Aug 22:31"
-        // "timestamp": "2022-05-30*13:23:59"
-      },
-      {
-        "byId": "1",
-        "content": "I am learning Flutter right now!",
-        // "timestamp": "2022-05-30*13:24:05"
-        "timestamp": "15 Aug 22:32"
-      },
-      {
-        "byId": "2",
-        "content": "Wow! Flutter is so cool!",
-        // "timestamp": "2022-05-30*13:24:14"
-        "timestamp": "15 Aug 22:34"
-      },
-    ];
-
-    return data.map<ChatMessage>(ChatMessage.fromJson).toList();
-  }
-
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: Text(group.groupName),
-      centerTitle: true,
+      actions: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(right: 32),
+          child: InkWell(
+            onTap: () {
+              // TODO: Group description
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    widget.chatGroup.photoUrl,
+                  ),
+                  maxRadius: 20,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  widget.chatGroup.groupName,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        IconButton(
+            onPressed: () {
+              // TODO: Itinerary
+            },
+            icon: const Icon(
+                Icons.assignment
+            ),
+        ),
+        IconButton(
+            onPressed: () {
+              // TODO: Group actions
+            },
+            icon: const Icon(
+              Icons.more_vert
+            )
+        )
+      ],
     ),
     body: Stack(
       children: <Widget>[
         Column(
           children: [
-            buildChat(messages),
+            buildChat(widget.chatGroup.messages),
             buildInputWidget(),
           ],
         )
       ],
     )
   );
+
 
   Widget buildChat(List<ChatMessage> messages) {
     final ScrollController scrollController = ScrollController();
