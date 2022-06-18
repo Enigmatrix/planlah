@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/pages/home.dart';
 import 'package:mobile/pages/sign_in.dart';
-import 'package:mobile/groups/pages/groups_page.dart';
+import 'package:mobile/pages/groups_page.dart';
 import 'package:mobile/pages/sign_up.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';

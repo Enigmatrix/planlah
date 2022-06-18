@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile/groups/pages/groups_page.dart';
+import 'package:mobile/pages/groups_page.dart';
 import 'package:mobile/model/group.dart';
 import 'package:mobile/model/location.dart';
 import 'package:mobile/model/user.dart';

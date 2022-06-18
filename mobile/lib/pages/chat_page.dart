@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
-import 'package:mobile/groups/model/chat_group.dart';
+import 'package:mobile/model/chat_group.dart';
 import 'package:mobile/main.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
