@@ -114,14 +114,39 @@ class _ChatPageState extends State<ChatPage> {
                 Icons.assignment
             ),
         ),
-        IconButton(
-            onPressed: () {
-              // TODO: Group actions
-            },
+        PopupMenuButton(
             icon: const Icon(
-              Icons.more_vert
-            )
-        )
+              Icons.more_vert,
+            ),
+            itemBuilder: (BuildContext context) {
+              return <PopupMenuItem>[
+                PopupMenuItem(
+                  onTap: () {
+                    // TODO: Display group description, same thing as above
+                  },
+                  child: const Text("About")
+                ),
+                PopupMenuItem(
+                    onTap: () {
+                      // TODO: Add people
+                    },
+                    child: const Text("Jio")
+                ),
+                PopupMenuItem(
+                    onTap: () {
+                      // TODO: Kick people
+                    },
+                    child: const Text("Kick")
+                ),
+                PopupMenuItem(
+                    onTap: () {
+                      // TODO: Leave group
+                    },
+                    child: const Text("Leave")
+                ),
+              ];
+            }
+        ),
       ],
     ),
     body: Stack(
