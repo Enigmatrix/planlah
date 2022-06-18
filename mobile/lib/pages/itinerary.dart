@@ -102,7 +102,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
   Widget? getStartConnector(int index) {
     if (index == 0) {
       return null;
-    } else if (index < widget.outing.currentOuting) {
+    } else if (index <= widget.outing.currentOuting) {
       return const DashedLineConnector();
     } else {
       return const SolidLineConnector();
@@ -110,7 +110,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
   }
 
   Widget? getEndConnector(int index) {
-    if (index == widget.outing.size()) {
+    if (index >= widget.outing.size() - 1) {
       return null;
     } else if (index < widget.outing.currentOuting) {
       return const DashedLineConnector();
