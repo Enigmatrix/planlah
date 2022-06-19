@@ -5,7 +5,7 @@ class Config {
     return kDebugMode;
   }
 
-  bool isProb() {
+  bool isProd() {
     return kReleaseMode;
   }
 }

@@ -46,3 +46,9 @@ insert into messages(id, content, sent_at, by_id) values (12, 'message 12!', now
 insert into messages(id, content, sent_at, by_id) values (13, 'message 13!', now(), 13) ON CONFLICT DO NOTHING;
 insert into messages(id, content, sent_at, by_id) values (14, 'message 14!', now(), 14) ON CONFLICT DO NOTHING;
 insert into messages(id, content, sent_at, by_id) values (15, 'message 15!', now(), 15) ON CONFLICT DO NOTHING;
+
+-- reset the primary key sequences for the tables
+SELECT setval('users_id_seq', (SELECT MAX(id) FROM users)+1);
+SELECT setval('groups_id_seq', (SELECT MAX(id) FROM groups)+1);
+SELECT setval('group_members_id_seq', (SELECT MAX(id) FROM group_members)+1);
+SELECT setval('messages_id_seq', (SELECT MAX(id) FROM messages)+1);

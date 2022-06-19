@@ -127,12 +127,23 @@ func (db *Database) GetAllGroups(userId uint) []GroupMember {
 	return groupMembers
 }
 
-func (db *Database) CreateGroup(group *Group) error {
-	return db.conn.Omit("OwnerID").Create(group).Error
+func (db *Database) AddUserToGroup(userId uint, grpId uint) (*GroupMember, error) {
+	// TODO set last seen message id?
+	grpMember := GroupMember{GroupID: grpId, UserID: userId}
+	err := db.conn.Omit("LastSeenMessageID").Create(&grpMember).Error
+
+	if err != nil {
+		var pgErr *pgconn.PgError
+		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.UniqueViolation {
+			return nil, errors.New(fmt.Sprintf("user is already in group %d", grpId))
+		}
+	}
+
+	return &grpMember, err
 }
 
-func (db *Database) CreateGroupMember(groupMember *GroupMember) error {
-	return db.conn.Omit("LastSeenMessageID").Create(groupMember).Error
+func (db *Database) CreateGroup(group *Group) error {
+	return db.conn.Omit("OwnerID").Create(group).Error
 }
 
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {
