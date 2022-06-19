@@ -2,9 +2,11 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/status/http_status.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:mobile/services/base_connect.dart';
 import 'package:mobile/services/config.dart';
+import 'package:mobile/services/dev_panel.dart';
 import 'package:mobile/services/user.dart';
 
 List<Widget> devPanelAction() {
@@ -22,12 +24,14 @@ class DevPanelPage extends StatefulWidget {
 class _DevPanelPageState extends State<DevPanelPage> {
   late AuthService auth;
   late UserService user;
+  late DevPanelService devPanel;
 
   @override
   void initState() {
     super.initState();
     auth = Get.find<AuthService>();
     user = Get.find<UserService>();
+    devPanel = Get.find<DevPanelService>();
   }
 
   @override
@@ -81,6 +85,18 @@ class _DevPanelPageState extends State<DevPanelPage> {
                     log(BaseConnect.token!);
                   },
                   child: const Text("PRINT")
+              ),
+            ),
+            ListTile(
+              title: const Text("Add to default Groups"),
+              trailing: ElevatedButton(
+                  onPressed: () async {
+                    final res = await devPanel.addToDefaultGroups();
+                    if (res.hasError) {
+                      Get.snackbar("ERR", res.bodyString ?? "null body");
+                    }
+                  },
+                  child: const Text("ADD")
               ),
             ),
           ]
