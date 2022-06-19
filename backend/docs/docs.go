@@ -162,6 +162,34 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/api/users/me/info": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Gets info about a user (me = current user)",
+                "tags": [
+                    "User"
+                ],
+                "summary": "Gets info about a user",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/routes.UserSummaryDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -225,6 +253,21 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "routes.UserSummaryDto": {
+            "type": "object",
+            "required": [
+                "name",
+                "nickname"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "nickname": {
                     "type": "string"
                 }
             }

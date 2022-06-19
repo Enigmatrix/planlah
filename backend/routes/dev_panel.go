@@ -3,19 +3,19 @@ package routes
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"planlah.sg/backend/data"
-	"planlah.sg/backend/services"
 	"planlah.sg/backend/utils"
 )
 
 type DevPanelController struct {
-	Database *data.Database
-	Auth     *services.AuthService
-	Config   *utils.Config
+	BaseController
 }
 
 func (controller DevPanelController) AddToDefaultGroups(ctx *gin.Context) {
-	userId := controller.Auth.AuthenticatedUserId(ctx)
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
+
 	for i := 1; i <= 3; i++ {
 		_, err := controller.Database.AddUserToGroup(userId, uint(i))
 		if err != nil {

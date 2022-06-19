@@ -5,12 +5,10 @@ import (
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
-	"planlah.sg/backend/services"
 )
 
 type GroupsController struct {
-	Database *data.Database
-	Auth     *services.AuthService
+	BaseController
 }
 
 type CreateGroupDto struct {
@@ -35,7 +33,10 @@ type GroupSummaryDto struct {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/create [post]
 func (controller GroupsController) Create(ctx *gin.Context) {
-	userId := controller.Auth.AuthenticatedUserId(ctx)
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
 
 	var createGroupDto CreateGroupDto
 	if err := Body(ctx, &createGroupDto); err != nil {
@@ -47,7 +48,7 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 		Description: createGroupDto.Description,
 		Owner:       nil,
 	}
-	err := controller.Database.CreateGroup(&group)
+	err = controller.Database.CreateGroup(&group)
 
 	if err != nil {
 		log.Print(err)
@@ -88,7 +89,11 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/all [get]
 func (controller GroupsController) GetAll(ctx *gin.Context) {
-	userId := controller.Auth.AuthenticatedUserId(ctx)
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
+
 	groups := controller.Database.GetAllGroups(userId)
 	dtos := make([]GroupSummaryDto, len(groups))
 	for i, groupMember := range groups {
