@@ -4,12 +4,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"planlah.sg/backend/data"
-	"planlah.sg/backend/services"
 )
 
 type UserController struct {
-	Database *data.Database
-	Auth     *services.AuthService
+	BaseController
 }
 
 type UserSummaryDto struct {
@@ -69,7 +67,11 @@ func (controller UserController) Create(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/users/me/info [get]
 func (controller UserController) GetInfo(ctx *gin.Context) {
-	userId := controller.Auth.AuthenticatedUserId(ctx)
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
+
 	user := controller.Database.GetUser(userId)
 	ctx.JSON(http.StatusOK, &UserSummaryDto{
 		Nickname: user.Nickname,

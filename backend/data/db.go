@@ -142,6 +142,15 @@ func (db *Database) AddUserToGroup(userId uint, grpId uint) (*GroupMember, error
 	return &grpMember, err
 }
 
+func (db *Database) GetGroupMember(userId uint, groupId uint) *GroupMember {
+	var grpMember GroupMember
+	err := db.conn.Model(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return nil
+	}
+	return &grpMember
+}
+
 func (db *Database) CreateGroup(group *Group) error {
 	return db.conn.Omit("OwnerID").Create(group).Error
 }
