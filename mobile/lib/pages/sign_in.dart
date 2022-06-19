@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/pages/dev_panel.dart';
 import 'package:mobile/services/auth.dart';
+
+import '../services/config.dart';
 
 // based off https://petercoding.com/firebase/2021/05/24/using-google-sign-in-with-firebase-in-flutter/
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          title: const Text("planlah"),
+          actions: [
+            ...devPanelAction()
+          ]
+        ),
         body: Center(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

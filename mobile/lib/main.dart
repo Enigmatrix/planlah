@@ -1,11 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/pages/dev_panel.dart';
 import 'package:mobile/pages/home.dart';
 import 'package:mobile/pages/sign_in.dart';
 import 'package:mobile/groups/pages/groups_page.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mobile/services/config.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/message.dart';
 import 'package:mobile/services/user.dart';
@@ -19,6 +21,7 @@ void main() async {
   Get.put(GroupService());
   Get.put(UserService());
   Get.put(MessageService());
+  Get.put(Config());
 
   runApp(const App());
 }
@@ -36,12 +39,13 @@ class App extends StatelessWidget {
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.dark,
         // home: auth.user.value == null ? const SignInPage() : const HomePage(),
-        // home: const SignInPage(),
-        home: const HomePage(),
+        home: const SignInPage(),
+        // home: const HomePage(),
         getPages: [
           GetPage(name: '/signIn', page: () => const SignInPage()),
           GetPage(name: '/home', page: () => const HomePage()),
           GetPage(name: '/groups', page: () => const GroupsPage()),
+          GetPage(name: '/dev_panel', page: () => DevPanelPage()),
         ]
     );
   }
