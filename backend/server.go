@@ -14,7 +14,7 @@ import (
 )
 
 // NewServer creates a new server and sets up middleware
-func NewServer(users routes.UserController, groups routes.GroupsController, authSvc *services.AuthService) (*gin.Engine, error) {
+func NewServer(users routes.UserController, groups routes.GroupsController, devPanel routes.DevPanelController, authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
 	var secret [256]byte
@@ -57,6 +57,7 @@ func NewServer(users routes.UserController, groups routes.GroupsController, auth
 	api.Use(authMiddleware.MiddlewareFunc())
 	users.Register(api)
 	groups.Register(api)
+	devPanel.Register(api)
 
 	// unauthenticated routes
 	srv.POST("/api/users/create", users.Create)

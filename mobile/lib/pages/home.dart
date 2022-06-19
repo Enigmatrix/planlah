@@ -6,6 +6,7 @@ import 'package:mobile/groups/pages/groups_page.dart';
 import 'package:mobile/model/group.dart';
 import 'package:mobile/model/location.dart';
 import 'package:mobile/model/user.dart';
+import 'package:mobile/pages/dev_panel.dart';
 import 'package:mobile/pages/profile.dart';
 import 'package:mobile/pages/settings.dart';
 import 'package:mobile/pages/social_feed.dart';
@@ -86,6 +87,7 @@ class _HomePageWidgetState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("planlah"),
         actions: <Widget>[
+          ...devPanelAction(),
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.group_add_outlined),

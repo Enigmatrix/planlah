@@ -25,9 +25,9 @@ type Group struct {
 // GroupMember TODO: (UserID, GroupID) should be made unique
 type GroupMember struct {
 	ID                uint     `gorm:"primarykey"`
-	UserID            uint     `gorm:"not null"`
+	UserID            uint     `gorm:"not null; uniqueIndex:composite_grp_member_idx"`
 	User              *User    `gorm:"foreignKey:UserID"`
-	GroupID           uint     `gorm:"not null"`
+	GroupID           uint     `gorm:"not null; uniqueIndex:composite_grp_member_idx"`
 	Group             *Group   `gorm:"foreignKey:GroupID"`
 	LastSeenMessageID uint     // this will be nullable when the GroupMember just joins
 	LastSeenMessage   *Message `gorm:"foreignKey:LastSeenMessageID"`

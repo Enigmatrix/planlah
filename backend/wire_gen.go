@@ -12,6 +12,7 @@ import (
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
+	"planlah.sg/backend/utils"
 )
 
 import (
@@ -21,7 +22,11 @@ import (
 // Injectors from deps.go:
 
 func InitializeServer() (*gin.Engine, error) {
-	db, err := data.NewDatabaseConnection()
+	config, err := utils.NewConfig()
+	if err != nil {
+		return nil, err
+	}
+	db, err := data.NewDatabaseConnection(config)
 	if err != nil {
 		return nil, err
 	}
@@ -47,4 +52,4 @@ func InitializeServer() (*gin.Engine, error) {
 
 // deps.go:
 
-var depSet = wire.NewSet(services.NewAuthService, data.NewDatabaseConnection, data.NewDatabase, wire.Struct(new(routes.UserController), "*"), wire.Struct(new(routes.GroupsController), "*"), NewServer)
+var depSet = wire.NewSet(services.NewAuthService, data.NewDatabaseConnection, data.NewDatabase, wire.Struct(new(routes.UserController), "*"), wire.Struct(new(routes.GroupsController), "*"), NewServer, utils.NewConfig)

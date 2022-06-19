@@ -9,6 +9,7 @@ import (
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
+	"planlah.sg/backend/utils"
 )
 
 var depSet = wire.NewSet(
@@ -17,7 +18,9 @@ var depSet = wire.NewSet(
 	data.NewDatabase,
 	wire.Struct(new(routes.UserController), "*"),
 	wire.Struct(new(routes.GroupsController), "*"),
+	wire.Struct(new(routes.DevPanelController), "*"),
 	NewServer,
+	utils.NewConfig,
 )
 
 func InitializeServer() (*gin.Engine, error) {
