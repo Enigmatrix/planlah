@@ -55,11 +55,7 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 		return
 	}
 
-	groupMember := data.GroupMember{
-		UserID:  userId,
-		GroupID: group.ID,
-	}
-	err = controller.Database.CreateGroupMember(&groupMember)
+	groupMember, err := controller.Database.AddUserToGroup(userId, group.ID)
 
 	if err != nil {
 		log.Print(err)

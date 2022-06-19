@@ -8,25 +8,25 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"os"
-	lazy "planlah.sg/backend/utils"
+	"planlah.sg/backend/utils"
 	"time"
 )
 
-var dbConn lazy.Lazy[gorm.DB]
+var dbConn utils.Lazy[gorm.DB]
 
 // NewDatabaseConnection creates a new database connection
-func NewDatabaseConnection() (*gorm.DB, error) {
+func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
 	// TODO should this really be a singleton?
 	return dbConn.FallibleValue(func() (*gorm.DB, error) {
 		dsn := fmt.Sprintf("host=%s user=%s password=%s",
-			os.Getenv("DB_HOST"),
-			os.Getenv("DB_USER"),
-			os.Getenv("DB_PASSWORD"),
+			config.DatabaseHost,
+			config.DatabaseUser,
+			config.DatabasePassword,
 		)
 		pg := postgres.Open(dsn)
-		config := gorm.Config{}
+		dbconfig := gorm.Config{}
 
-		db, err := gorm.Open(pg, &config)
+		db, err := gorm.Open(pg, &dbconfig)
 		if err != nil {
 			return nil, errors.New(fmt.Sprintf("cannot open db: %v", err))
 		}
@@ -55,7 +55,17 @@ func NewDatabaseConnection() (*gorm.DB, error) {
 			return nil, errors.New(fmt.Sprintf("error getting raw db: %v", err))
 		}
 
-		sqlDB.SetMaxOpenConns(16)
+		if config.AppMode == utils.Dev || config.AppMode == utils.Orbital {
+			sql, err := os.ReadFile("./data/dev.sql")
+			if err != nil {
+				return nil, errors.New(fmt.Sprintf("err while reading dev.sql: %v", err))
+			}
+			err = db.Exec(string(sql)).Error
+			if err != nil {
+				return nil, errors.New(fmt.Sprintf("err while running dev.sql migration: %v", err))
+			}
+		}
+
 		sqlDB.SetConnMaxLifetime(time.Hour)
 
 		return db, nil
@@ -117,12 +127,23 @@ func (db *Database) GetAllGroups(userId uint) []GroupMember {
 	return groupMembers
 }
 
-func (db *Database) CreateGroup(group *Group) error {
-	return db.conn.Omit("OwnerID").Create(group).Error
+func (db *Database) AddUserToGroup(userId uint, grpId uint) (*GroupMember, error) {
+	// TODO set last seen message id?
+	grpMember := GroupMember{GroupID: grpId, UserID: userId}
+	err := db.conn.Omit("LastSeenMessageID").Create(&grpMember).Error
+
+	if err != nil {
+		var pgErr *pgconn.PgError
+		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.UniqueViolation {
+			return nil, errors.New(fmt.Sprintf("user is already in group %d", grpId))
+		}
+	}
+
+	return &grpMember, err
 }
 
-func (db *Database) CreateGroupMember(groupMember *GroupMember) error {
-	return db.conn.Omit("LastSeenMessageID").Create(groupMember).Error
+func (db *Database) CreateGroup(group *Group) error {
+	return db.conn.Omit("OwnerID").Create(group).Error
 }
 
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {

@@ -60,8 +60,25 @@ func (controller UserController) Create(ctx *gin.Context) {
 	ctx.Status(http.StatusOK)
 }
 
+// GetInfo godoc
+// @Summary Gets info about a user
+// @Description Gets info about a user (me = current user)
+// @Security JWT
+// @Tags User
+// @Success 200 {object} UserSummaryDto
+// @Failure 401 {object} ErrorMessage
+// @Router /api/users/me/info [get]
+func (controller UserController) GetInfo(ctx *gin.Context) {
+	userId := controller.Auth.AuthenticatedUserId(ctx)
+	user := controller.Database.GetUser(userId)
+	ctx.JSON(http.StatusOK, &UserSummaryDto{
+		Nickname: user.Nickname,
+		Name:     user.Name,
+	})
+}
+
 // Register the routes for this controller
 func (controller UserController) Register(router *gin.RouterGroup) {
-	// group := router.Group("users")
-	// group.POST("create", controller.Create)
+	users := router.Group("users")
+	users.GET("me/info", controller.GetInfo)
 }

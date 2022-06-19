@@ -43,7 +43,7 @@ class AuthService extends GetxService {
     }
   }
 
-  Future<void> signOutFromGoogle() async {
+  Future<void> logout() async {
     await _googleSignIn.signOut();
     await _auth.signOut();
   }
