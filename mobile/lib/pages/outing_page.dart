@@ -7,19 +7,21 @@ import 'package:timelines/timelines.dart';
 import '../model/outing_list.dart';
 import '../model/outing_steps.dart';
 
-class ItineraryPage extends StatefulWidget {
-  OutingList outing;
+/// Displays the current outing
 
-  ItineraryPage({
+class OutingPage extends StatefulWidget {
+  Outing outing;
+
+  OutingPage({
     Key? key,
     required this.outing
   }) : super(key: key);
 
   @override
-  State<ItineraryPage> createState() => _ItineraryPageState();
+  State<OutingPage> createState() => _OutingPageState();
 }
 
-class _ItineraryPageState extends State<ItineraryPage> {
+class _OutingPageState extends State<OutingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +84,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                   : Border.all(color: Colors.blueAccent.shade100)
           ),
           child: Text(
-              formatTime(widget.outing.get(index))
+              formatTime(widget.outing.getOutingStep(index))
           ),
         ),
         startConnector: getStartConnector(index),
@@ -90,7 +92,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
       ),
       nodeAlign: TimelineNodeAlign.start,
       contents: ItineraryCard(
-        outingStep: widget.outing.get(index),
+        outingStep: widget.outing.getOutingStep(index),
       ),
       oppositeContents: const Padding(
         padding: EdgeInsets.all(8.0),
