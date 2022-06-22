@@ -21,4 +21,10 @@ class GroupInfo {
       required this.owner,
       required this.members,
       required this.currentLocation});
+
+  bool isInOuting() {
+    // To do this legitly in the future
+    return false;
+  }
+
 }
