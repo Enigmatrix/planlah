@@ -44,18 +44,14 @@ type MessageDto struct {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/send [post]
 func (controller *MessageController) Send(ctx *gin.Context) {
-	userId := controller.Auth.AuthenticatedUserId(ctx)
-
 	var sendMessageDto SendMessageDto
 
 	if err := Body(ctx, &sendMessageDto); err != nil {
 		return
 	}
 
-	groupMember := controller.Database.GetGroupMember(userId, sendMessageDto.GroupID)
-
-	if groupMember == nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("user is not a member of this group"))
+	groupMember, err := controller.AuthGroupMember(ctx, sendMessageDto.GroupID)
+	if err != nil {
 		return
 	}
 
@@ -65,7 +61,7 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 		SentAt:  time.Now(),
 	}
 
-	err := controller.Database.CreateMessage(&msg)
+	err = controller.Database.CreateMessage(&msg)
 
 	if err != nil {
 		log.Print(err)
@@ -73,7 +69,7 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 		return
 	}
 
-	user := controller.Database.GetUser(userId)
+	user := controller.Database.GetUser(groupMember.UserID)
 
 	controller.WsServer.BroadcastToRoom("/", strconv.Itoa(int(sendMessageDto.GroupID)), "message", MessageDto{
 		SentAt:  msg.SentAt,
@@ -98,15 +94,13 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/all [get]
 func (controller *MessageController) Get(ctx *gin.Context) {
-	userId := controller.Auth.AuthenticatedUserId(ctx)
-
 	var getMessagesDto GetMessagesDto
 	if err := Query(ctx, &getMessagesDto); err != nil {
 		return
 	}
 
-	if controller.Database.GetGroupMember(userId, getMessagesDto.GroupID) == nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("user is not a member of this group"))
+	_, err := controller.AuthGroupMember(ctx, getMessagesDto.GroupID)
+	if err != nil {
 		return
 	}
 
