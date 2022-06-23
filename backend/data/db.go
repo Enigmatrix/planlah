@@ -144,7 +144,7 @@ func (db *Database) AddUserToGroup(userId uint, grpId uint) (*GroupMember, error
 
 func (db *Database) GetGroupMember(userId uint, groupId uint) *GroupMember {
 	var grpMember GroupMember
-	err := db.conn.Model(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
+	err := db.conn.Where(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return nil
 	}
@@ -153,15 +153,6 @@ func (db *Database) GetGroupMember(userId uint, groupId uint) *GroupMember {
 
 func (db *Database) CreateGroup(group *Group) error {
 	return db.conn.Omit("OwnerID").Create(group).Error
-}
-
-func (db *Database) GetGroupMember(userId uint, groupId uint) *GroupMember {
-	var grpMember GroupMember
-	err := db.conn.Model(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
-	if errors.Is(err, gorm.ErrRecordNotFound) {
-		return nil
-	}
-	return &grpMember
 }
 
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {
@@ -182,9 +173,13 @@ func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) []
 	// However, once a better join solution (that loads the foreign table properties) exists, we should
 	// use that
 	err := db.conn.
-		Preload("By", "group_id = ?", groupId).
+		Table("messages").
+		Preload("By").
 		Preload("By.User").
-		Find(&messages, "? > messages.sent_at and messages.sent_at >= ?", end, start).Error
+		Joins("right join group_members on group_members.id = messages.by_id and group_members.group_id = ?", groupId).
+		Where("? > messages.sent_at and messages.sent_at >= ?", end, start).
+		Find(&messages).
+		Error
 
 	if err != nil {
 		return nil
