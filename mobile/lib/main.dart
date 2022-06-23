@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,6 +34,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = Get.find<AuthService>();
+    auth.user.value?.getIdToken().then((value) => {
+      log(value)
+    });
 
     return GetMaterialApp(
         title: 'planlah',

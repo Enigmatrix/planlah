@@ -7,14 +7,12 @@ import (
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
-	"planlah.sg/backend/services"
 	"strconv"
 	"time"
 )
 
 type MessageController struct {
-	Database *data.Database
-	Auth     *services.AuthService
+	BaseController
 	WsServer *socketio.Server `wire:"-"` // we will be initializing this ourselves
 }
 

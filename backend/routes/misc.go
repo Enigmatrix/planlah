@@ -13,7 +13,9 @@ func GetGenders() []string {
 	}
 }
 
-type MiscController struct{}
+type MiscController struct {
+	BaseController
+}
 
 // Towns godoc
 // @Summary Get towns
@@ -23,7 +25,7 @@ type MiscController struct{}
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/misc/towns [get]
-func (controller MiscController) Towns(ctx *gin.Context) {
+func (controller *MiscController) Towns(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, []string{
 		"Ang Mo Kio",
 		"Bedok",
@@ -69,11 +71,11 @@ func (controller MiscController) Towns(ctx *gin.Context) {
 	})
 }
 
-func (controller MiscController) Gender(ctx *gin.Context) {
+func (controller *MiscController) Gender(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetGenders())
 }
 
-func (controller MiscController) Food(ctx *gin.Context) {
+func (controller *MiscController) Food(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, []string{
 		"American",
 		"Bakeries",
@@ -114,7 +116,7 @@ func (controller MiscController) Food(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller MiscController) Register(router *gin.RouterGroup) {
+func (controller *MiscController) Register(router *gin.RouterGroup) {
 	group := router.Group("misc")
 	group.GET("towns", controller.Towns)
 	group.GET("gender", controller.Gender)

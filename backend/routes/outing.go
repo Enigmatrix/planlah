@@ -5,13 +5,11 @@ import (
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
-	"planlah.sg/backend/services"
 	"time"
 )
 
 type OutingController struct {
-	Database *data.Database
-	Auth     *services.AuthService
+	BaseController
 }
 
 type GetOutingsDto struct {

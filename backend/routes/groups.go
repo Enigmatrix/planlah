@@ -32,7 +32,7 @@ type GroupSummaryDto struct {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/create [post]
-func (controller GroupController) Create(ctx *gin.Context) {
+func (controller *GroupController) Create(ctx *gin.Context) {
 	userId, err := controller.AuthUserId(ctx)
 	if err != nil {
 		return
@@ -88,7 +88,7 @@ func (controller GroupController) Create(ctx *gin.Context) {
 // @Success 200 {object} []GroupSummaryDto
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/all [get]
-func (controller GroupController) GetAll(ctx *gin.Context) {
+func (controller *GroupController) GetAll(ctx *gin.Context) {
 	userId, err := controller.AuthUserId(ctx)
 	if err != nil {
 		return
@@ -107,7 +107,7 @@ func (controller GroupController) GetAll(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller GroupController) Register(router *gin.RouterGroup) {
+func (controller *GroupController) Register(router *gin.RouterGroup) {
 	group := router.Group("groups")
 	group.POST("create", controller.Create)
 	group.GET("all", controller.GetAll)
