@@ -5,6 +5,66 @@ import (
 	"net/http"
 )
 
+func GetAttractions() []string {
+	return []string{
+		"Airport",
+		"Art & History",
+		"Food",
+		"Games",
+		"Movies",
+		"Nature & Wildlife",
+		"Nightlife",
+		"Religion",
+		"Shopping",
+		"Spas",
+		"Sports",
+		"Studying",
+		"Tourism",
+		"Transport",
+		"Water Activities",
+	}
+}
+
+func GetFood() []string {
+	return []string{
+		"American",
+		"Bakeries",
+		"Barbecue",
+		"Cafe",
+		"Chinese",
+		"Contemporary",
+		"Dessert",
+		"Diner",
+		"European",
+		"Fast food",
+		"French",
+		"Fusion",
+		"Halal",
+		"Healthy",
+		"Indian",
+		"Indonesian",
+		"Italian",
+		"Japanese",
+		"Korean",
+		"Kosher",
+		"Lebanese",
+		"Malaysian",
+		"Middle Eastern",
+		"Philippine",
+		"Pizza",
+		"Pubs",
+		"Quick Bites",
+		"Seafood",
+		"Singaporean",
+		"Soups",
+		"Sri Lankan",
+		"Street Food",
+		"Sushi",
+		"Thai",
+		"Vietnamese",
+	}
+}
+
 func GetGenders() []string {
 	return []string{
 		"Male",
@@ -13,18 +73,8 @@ func GetGenders() []string {
 	}
 }
 
-type MiscController struct{}
-
-// Towns godoc
-// @Summary Get towns
-// @Description Get towns
-// @Tags Misc
-// @Success 200 {object} []string
-// @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
-// @Router /api/misc/towns [get]
-func (controller MiscController) Towns(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, []string{
+func GetTowns() []string {
+	return []string{
 		"Ang Mo Kio",
 		"Bedok",
 		"Bishan",
@@ -66,51 +116,33 @@ func (controller MiscController) Towns(ctx *gin.Context) {
 		"Tuas",
 		"Woodlands",
 		"Yishun",
-	})
+	}
+}
+
+type MiscController struct{}
+
+// Towns godoc
+// @Summary Get towns
+// @Description Get towns
+// @Tags Misc
+// @Success 200 {object} []string
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/misc/towns [get]
+func (controller MiscController) Towns(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, GetTowns())
 }
 
 func (controller MiscController) Gender(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetGenders())
 }
 
+func (controller MiscController) Attractions(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, GetAttractions())
+}
+
 func (controller MiscController) Food(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, []string{
-		"American",
-		"Bakeries",
-		"Barbecue",
-		"Cafe",
-		"Chinese",
-		"Contemporary",
-		"Dessert",
-		"Diner",
-		"European",
-		"Fast food",
-		"French",
-		"Fusion",
-		"Halal",
-		"Healthy",
-		"Indian",
-		"Indonesian",
-		"Italian",
-		"Japanese",
-		"Korean",
-		"Kosher",
-		"Lebanese",
-		"Malaysian",
-		"Middle Eastern",
-		"Philippine",
-		"Pizza",
-		"Pubs",
-		"Quick Bites",
-		"Seafood",
-		"Singaporean",
-		"Soups",
-		"Sri Lankan",
-		"Street Food",
-		"Sushi",
-		"Thai",
-		"Vietnamese",
-	})
+	ctx.JSON(http.StatusOK, GetFood())
 }
 
 // Register the routes for this controller
@@ -119,4 +151,5 @@ func (controller MiscController) Register(router *gin.RouterGroup) {
 	group.GET("towns", controller.Towns)
 	group.GET("gender", controller.Gender)
 	group.GET("food", controller.Food)
+	group.GET("attractions", controller.Attractions)
 }
