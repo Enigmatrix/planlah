@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile/groups/pages/groups_page.dart';
+import 'package:mobile/pages/groups_page.dart';
 import 'package:mobile/model/group.dart';
 import 'package:mobile/model/location.dart';
 import 'package:mobile/model/user.dart';
@@ -83,16 +83,16 @@ class _HomePageWidgetState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("planlah"),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.group_add_outlined),
-            tooltip: "Create new group",
-          )
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: const Text("planlah"),
+      //   actions: <Widget>[
+      //     IconButton(
+      //       onPressed: () {},
+      //       icon: const Icon(Icons.group_add_outlined),
+      //       tooltip: "Create new group",
+      //     )
+      //   ],
+      // ),
       body: Center(
           child: _pages.elementAt(_selectedIndex)
       ),

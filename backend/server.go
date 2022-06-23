@@ -20,6 +20,7 @@ func NewServer(
 	groups routes.GroupController,
 	messages routes.MessageController,
 	outings routes.OutingController,
+	misc routes.MiscController,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
@@ -58,6 +59,9 @@ func NewServer(
 	if err != nil {
 		return nil, errors.New(fmt.Sprintf("initialize JWT middleware: %v", err))
 	}
+
+	unauthapi := srv.Group("api")
+	misc.Register(unauthapi)
 
 	api := srv.Group("api")
 
