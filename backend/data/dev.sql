@@ -1,11 +1,11 @@
 -- the irony of putting power-keg political features in one place and doing nothing on conflict ;)
-insert into users (id, nickname, name, firebase_uid) values (1, 'maga', 'Donald Trump', 'firebaseUid1') ON CONFLICT DO NOTHING;
-insert into users (id, nickname, name, firebase_uid) values (2, 'dukenukem', 'Kim Jong-un', 'firebaseUid2') ON CONFLICT DO NOTHING;
-insert into users (id, nickname, name, firebase_uid) values (3, 'winnie', 'Xi Jinping', 'firebaseUid3') ON CONFLICT DO NOTHING;
-insert into users (id, nickname, name, firebase_uid) values (4, 'merkel', 'Angela Merkel', 'firebaseUid4') ON CONFLICT DO NOTHING;
-insert into users (id, nickname, name, firebase_uid) values (5, 'moneybags', 'Mohammed bin Rashid Al Maktoum', 'firebaseUid5') ON CONFLICT DO NOTHING;
-insert into users (id, nickname, name, firebase_uid) values (6, 'modi', 'Narendra Modi', 'firebaseUid6') ON CONFLICT DO NOTHING;
-insert into users (id, nickname, name, firebase_uid) values (7, 'daddy_vlady', 'Vladimir Putin', 'firebaseUid7') ON CONFLICT DO NOTHING;
+insert into users (id, username, name, firebase_uid, gender, town, attractions, food) values (1, 'maga', 'Donald Trump', 'firebaseUid1', 'Male', 'Bukit Batok', '{0.0}', '{0.0}') ON CONFLICT DO NOTHING;
+insert into users (id, username, name, firebase_uid, gender, town, attractions, food) values (2, 'dukenukem', 'Kim Jong-un', 'firebaseUid2', 'Male', 'Choa Chu Kang', '{0.0}', '{0.0}') ON CONFLICT DO NOTHING;
+insert into users (id, username, name, firebase_uid, gender, town, attractions, food) values (3, 'winnie', 'Xi Jinping', 'firebaseUid3', 'Male', 'Clementi', '{0.0}', '{0.0}') ON CONFLICT DO NOTHING;
+insert into users (id, username, name, firebase_uid, gender, town, attractions, food) values (4, 'merkel', 'Angela Merkel', 'firebaseUid4', 'Female', 'Geylang', '{0.0}', '{0.0}') ON CONFLICT DO NOTHING;
+insert into users (id, username, name, firebase_uid, gender, town, attractions, food) values (5, 'moneybags', 'Mohammed bin Rashid Al Maktoum', 'firebaseUid5', 'Male', 'Kallang', '{0.0}', '{0.0}') ON CONFLICT DO NOTHING;
+insert into users (id, username, name, firebase_uid, gender, town, attractions, food) values (6, 'modi', 'Narendra Modi', 'firebaseUid6', 'Male', 'Bedok', '{0.0}', '{0.0}') ON CONFLICT DO NOTHING;
+insert into users (id, username, name, firebase_uid, gender, town, attractions, food) values (7, 'daddy_vlady', 'Vladimir Putin', 'firebaseUid7', 'Male', 'Outram', '{0.0}', '{0.0}') ON CONFLICT DO NOTHING;
 
 insert into groups (id, name, description, owner_id) values (1, 'food wars', '''make food not war'' said no one ever.', NULL) ON CONFLICT DO NOTHING;
 insert into groups (id, name, description, owner_id) values (2, 'meet to eat meet', 'MEAT ONLY NO VEGGIES MUMMY CAN''T CATCH ME', NULL) ON CONFLICT DO NOTHING;

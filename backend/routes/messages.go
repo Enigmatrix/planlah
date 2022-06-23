@@ -82,7 +82,7 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 		Content: msg.Content,
 		User: UserSummaryDto{
 			Name:     user.Name,
-			Nickname: user.Nickname,
+			Nickname: user.Username,
 		},
 	})
 
@@ -121,7 +121,7 @@ func (controller *MessageController) Get(ctx *gin.Context) {
 			Content: msg.Content,
 			User: UserSummaryDto{
 				Name:     msg.By.User.Name,
-				Nickname: msg.By.User.Nickname,
+				Nickname: msg.By.User.Username,
 			},
 		}
 	}

@@ -5,12 +5,10 @@ import (
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
-	"planlah.sg/backend/services"
 )
 
 type GroupController struct {
-	Database *data.Database
-	Auth     *services.AuthService
+	BaseController
 }
 
 type CreateGroupDto struct {
@@ -34,8 +32,11 @@ type GroupSummaryDto struct {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/create [post]
-func (controller *GroupController) Create(ctx *gin.Context) {
-	userId := controller.Auth.AuthenticatedUserId(ctx)
+func (controller GroupController) Create(ctx *gin.Context) {
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
 
 	var createGroupDto CreateGroupDto
 	if err := Body(ctx, &createGroupDto); err != nil {
@@ -47,7 +48,7 @@ func (controller *GroupController) Create(ctx *gin.Context) {
 		Description: createGroupDto.Description,
 		Owner:       nil,
 	}
-	err := controller.Database.CreateGroup(&group)
+	err = controller.Database.CreateGroup(&group)
 
 	if err != nil {
 		log.Print(err)
@@ -55,11 +56,7 @@ func (controller *GroupController) Create(ctx *gin.Context) {
 		return
 	}
 
-	groupMember := data.GroupMember{
-		UserID:  userId,
-		GroupID: group.ID,
-	}
-	err = controller.Database.CreateGroupMember(&groupMember)
+	groupMember, err := controller.Database.AddUserToGroup(userId, group.ID)
 
 	if err != nil {
 		log.Print(err)
@@ -91,8 +88,12 @@ func (controller *GroupController) Create(ctx *gin.Context) {
 // @Success 200 {object} []GroupSummaryDto
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/all [get]
-func (controller *GroupController) GetAll(ctx *gin.Context) {
-	userId := controller.Auth.AuthenticatedUserId(ctx)
+func (controller GroupController) GetAll(ctx *gin.Context) {
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
+
 	groups := controller.Database.GetAllGroups(userId)
 	dtos := make([]GroupSummaryDto, len(groups))
 	for i, groupMember := range groups {
@@ -106,7 +107,7 @@ func (controller *GroupController) GetAll(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller *GroupController) Register(router *gin.RouterGroup) {
+func (controller GroupController) Register(router *gin.RouterGroup) {
 	group := router.Group("groups")
 	group.POST("create", controller.Create)
 	group.GET("all", controller.GetAll)
