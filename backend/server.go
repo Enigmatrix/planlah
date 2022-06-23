@@ -3,18 +3,23 @@ package main
 import (
 	"errors"
 	"fmt"
+	"math/rand"
+
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"math/rand"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
 )
 
 // NewServer creates a new server and sets up middleware
-func NewServer(users routes.UserController, groups routes.GroupsController, devPanel routes.DevPanelController, authSvc *services.AuthService) (*gin.Engine, error) {
+func NewServer(users routes.UserController,
+	groups routes.GroupsController,
+	misc routes.MiscController,
+	devPanel routes.DevPanelController,
+	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
 	var secret [256]byte
@@ -51,6 +56,9 @@ func NewServer(users routes.UserController, groups routes.GroupsController, devP
 	if err != nil {
 		return nil, errors.New(fmt.Sprintf("initialize JWT middleware: %v", err))
 	}
+
+	unauthapi := srv.Group("api")
+	misc.Register(unauthapi)
 
 	api := srv.Group("api")
 	// protect all routes using JWT middleware
