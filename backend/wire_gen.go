@@ -35,15 +35,25 @@ func InitializeServer() (*gin.Engine, error) {
 	if err != nil {
 		return nil, err
 	}
-	userController := routes.UserController{
+	baseController := routes.BaseController{
 		Database: database,
 		Auth:     authService,
+		Config:   config,
+	}
+	userController := routes.UserController{
+		BaseController: baseController,
 	}
 	groupsController := routes.GroupsController{
+		BaseController: baseController,
+	}
+	devPanelController := routes.DevPanelController{
+		BaseController: baseController,
+	}
+	messageController := routes.MessageController{
 		Database: database,
 		Auth:     authService,
 	}
-	engine, err := NewServer(userController, groupsController, authService)
+	engine, err := NewServer(userController, groupsController, devPanelController, messageController, authService)
 	if err != nil {
 		return nil, err
 	}
@@ -52,4 +62,4 @@ func InitializeServer() (*gin.Engine, error) {
 
 // deps.go:
 
-var depSet = wire.NewSet(services.NewAuthService, data.NewDatabaseConnection, data.NewDatabase, wire.Struct(new(routes.UserController), "*"), wire.Struct(new(routes.GroupsController), "*"), NewServer, utils.NewConfig)
+var depSet = wire.NewSet(services.NewAuthService, data.NewDatabaseConnection, data.NewDatabase, wire.Struct(new(routes.BaseController), "*"), wire.Struct(new(routes.UserController), "*"), wire.Struct(new(routes.GroupsController), "*"), wire.Struct(new(routes.DevPanelController), "*"), wire.Struct(new(routes.MessageController), "*"), NewServer, utils.NewConfig)

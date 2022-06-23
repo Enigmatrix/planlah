@@ -126,6 +126,107 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/messages/all": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Get messages bound by a time range",
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Get messages",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "date-time",
+                        "name": "end",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "name": "groupId",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "date-time",
+                        "name": "start",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/routes.MessageDto"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/messages/send": {
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Send a new message to a ` + "`" + `Group` + "`" + `",
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Send a message",
+                "parameters": [
+                    {
+                        "description": "Message",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/routes.SendMessageDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
         "/api/users/create": {
             "post": {
                 "description": "Create a new User given a ` + "`" + `CreateUserDto` + "`" + `.",
@@ -254,6 +355,41 @@ const docTemplate = `{
                 },
                 "name": {
                     "type": "string"
+                }
+            }
+        },
+        "routes.MessageDto": {
+            "type": "object",
+            "required": [
+                "content",
+                "sentAt",
+                "user"
+            ],
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "sentAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "user": {
+                    "$ref": "#/definitions/routes.UserSummaryDto"
+                }
+            }
+        },
+        "routes.SendMessageDto": {
+            "type": "object",
+            "required": [
+                "content",
+                "groupId"
+            ],
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "groupId": {
+                    "type": "integer"
                 }
             }
         },

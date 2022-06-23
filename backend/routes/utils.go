@@ -25,6 +25,20 @@ func Body[T any](ctx *gin.Context, dto *T) error {
 		return nil
 	}
 
+	return processValidationError[T](ctx, err)
+}
+
+// Query binds the query parameters of the request to the DTO, and gives a
+// descriptive error back for debugging purposes
+func Query[T any](ctx *gin.Context, dto *T) error {
+	err := ctx.ShouldBindQuery(&dto)
+	if err == nil {
+		return nil
+	}
+	return processValidationError[T](ctx, err)
+}
+
+func processValidationError[T any](ctx *gin.Context, err error) error {
 	// TODO make this only run in debug
 	var validationErrors validator.ValidationErrors
 
@@ -35,10 +49,12 @@ func Body[T any](ctx *gin.Context, dto *T) error {
 		}
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": "validation", "validation": validationMessage})
 	} else if err == io.EOF {
-		message := fmt.Sprintf("Body of type %T expected", dto)
+		var d T
+		message := fmt.Sprintf("Body of type %T expected", d)
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": "missingBody", "message": message})
 	} else {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": "unknown", "message": err.Error()})
 	}
 	return err
+
 }
