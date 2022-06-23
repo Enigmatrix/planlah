@@ -87,7 +87,7 @@ func (controller UserController) GetInfo(ctx *gin.Context) {
 
 	user := controller.Database.GetUser(userId)
 	ctx.JSON(http.StatusOK, &UserSummaryDto{
-		Nickname: user.Nickname,
+		Nickname: user.Username,
 		Name:     user.Name,
 	})
 }

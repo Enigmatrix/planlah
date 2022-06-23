@@ -8,9 +8,12 @@ require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-playground/validator/v10 v10.11.0
 	github.com/google/wire v0.5.0
+	github.com/googollee/go-socket.io v1.6.2
 	github.com/jackc/pgconn v1.12.1
 	github.com/jackc/pgerrcode v0.0.0-20220416144525-469b46aa5efa
 	github.com/joho/godotenv v1.4.0
+	github.com/lib/pq v1.10.6
+	github.com/samber/lo v1.21.0
 	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2
 	github.com/swaggo/gin-swagger v1.4.3
 	github.com/swaggo/swag v1.8.2
@@ -41,7 +44,6 @@ require (
 	github.com/gomodule/redigo v1.8.8 // indirect
 	github.com/google/go-cmp v0.5.7 // indirect
 	github.com/googleapis/gax-go/v2 v2.1.1 // indirect
-	github.com/googollee/go-socket.io v1.6.2 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgio v1.0.0 // indirect
@@ -55,13 +57,11 @@ require (
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
-	github.com/lib/pq v1.10.6 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
-	github.com/samber/lo v1.21.0 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	github.com/urfave/cli/v2 v2.8.1 // indirect

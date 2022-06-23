@@ -9,12 +9,15 @@ import (
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
+	"planlah.sg/backend/utils"
 )
 
 var depSet = wire.NewSet(
 	services.NewAuthService,
 	data.NewDatabaseConnection,
 	data.NewDatabase,
+	utils.NewConfig,
+	wire.Struct(new(routes.BaseController), "*"),
 	wire.Struct(new(routes.UserController), "*"),
 	wire.Struct(new(routes.GroupController), "*"),
 	wire.Struct(new(routes.MessageController), "*"),
