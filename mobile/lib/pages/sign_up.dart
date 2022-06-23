@@ -584,7 +584,7 @@ class _SignUpPageState extends State<SignUpPage> {
         _food,
     ));
     if (response.isOk) {
-      Get.toNamed("/home");
+      Get.offAndToNamed("/home");
     } else {
       Get.snackbar(
           "Error encountered:",
