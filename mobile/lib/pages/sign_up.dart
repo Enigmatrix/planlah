@@ -110,7 +110,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void checkStatus() {
-    if (_name == "" || _username == "" || _gender == "-" || _town == "-") {
+    if (_name == "" || _username == "" || _gender == "-" || _town == "-" || _attractions.length < 5 || _food.length < 5) {
       isFilledIn = false;
     } else {
       isFilledIn = true;

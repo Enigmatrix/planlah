@@ -243,18 +243,40 @@ const docTemplate = `{
         "routes.CreateUserDto": {
             "type": "object",
             "required": [
+                "attractions",
                 "firebaseToken",
+                "food",
+                "gender",
                 "name",
-                "nickname"
+                "town",
+                "username"
             ],
             "properties": {
+                "attractions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "firebaseToken": {
+                    "type": "string"
+                },
+                "food": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "gender": {
                     "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
-                "nickname": {
+                "town": {
+                    "type": "string"
+                },
+                "username": {
                     "type": "string"
                 }
             }

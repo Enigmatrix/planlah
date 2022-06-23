@@ -44,7 +44,7 @@ class App extends StatelessWidget {
         // home: auth.user.value == null ? const SignInPage() : const HomePage(),
         home: const SignInPage(),
         // home: const HomePage(),
-        home: const SignUpPage(),
+        // home: const SignUpPage(),
         getPages: [
           GetPage(name: '/signIn', page: () => const SignInPage()),
           GetPage(name: '/signUp', page: () => const SignUpPage()),
