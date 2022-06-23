@@ -1,13 +1,17 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
+import 'package:mobile/dto/chat.dart';
 import 'package:mobile/dto/group.dart';
 import 'package:mobile/model/chat_group.dart';
 import 'package:mobile/main.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:mobile/pages/outing_page.dart';
+import 'package:mobile/services/message.dart';
 
 import '../model/chat_message.dart';
 import '../model/outing_list.dart';
@@ -28,6 +32,31 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
 
+  final messageService = Get.find<MessageService>();
+
+  late var messages = <MessageDto>[];
+
+  @override
+  void initState() {
+    super.initState();
+    messageService.getMessages(widget.chatGroup.id)
+      .then((value) {
+      setState(() {
+        messages = value.body!;
+      });
+    });
+    // messageService.getMessages(widget.chatGroup.id)
+    //   .catchError((error) {
+    //   print(error);
+    //   return <MessageDto>[];
+    // }).then((value) {
+    //   setState(() {
+    //     messages = value.body!;
+    //     print("Messages "+ messages.toString());
+    //   });
+    // });
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
@@ -43,7 +72,7 @@ class _ChatPageState extends State<ChatPage> {
               children: <Widget>[
                 CircleAvatar(
                   backgroundImage: NetworkImage(
-                    "https://www.popsugar.com/Taylor-Swift",
+                    "https://media1.popsugar-assets.com/files/thumbor/0ebv7kCHr0T-_O3RfQuBoYmUg1k/475x60:1974x1559/fit-in/500x500/filters:format_auto-!!-:strip_icc-!!-/2019/09/09/023/n/1922398/9f849ffa5d76e13d154137.01128738_/i/Taylor-Swift.jpg",
                     // TODO: widget.chatGroup.photoUrl,
                   ),
                   maxRadius: 20,
@@ -114,7 +143,7 @@ class _ChatPageState extends State<ChatPage> {
       children: <Widget>[
         Column(
           children: [
-            // buildChat(widget.chatGroup.getMessages()),
+            buildChat(messages),
             buildInputWidget(),
           ],
         )
@@ -123,7 +152,7 @@ class _ChatPageState extends State<ChatPage> {
   );
 
 
-  Widget buildChat(List<ChatMessage> messages) {
+  Widget buildChat(List<MessageDto> messages) {
     final ScrollController scrollController = ScrollController();
     return Flexible(
         child: ListView.builder(
@@ -136,9 +165,9 @@ class _ChatPageState extends State<ChatPage> {
   }
 
 
-  Widget buildMessage(ChatMessage message) {
+  Widget buildMessage(MessageDto message) {
     // Hard code for now
-    bool isUser = message.byId == 1;
+    bool isUser = Random().nextDouble() <= 0.5;
     return Column(
         children: <Widget>[
           Row(
@@ -173,7 +202,7 @@ class _ChatPageState extends State<ChatPage> {
               Container(
                 margin: const EdgeInsets.only(left: 5.0, top: 5.0, bottom: 5.0),
                 child: Text(
-                  message.timestamp,
+                  message.sentAt,
                   style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 12.0,
@@ -219,14 +248,14 @@ class _ChatPageState extends State<ChatPage> {
               child: Container(
                 child: TextField(
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 15.0,
                   ),
                   controller: textEditingController,
                   decoration: const InputDecoration.collapsed(
                     hintText: "Type here",
                     hintStyle: TextStyle(
-                        color: Colors.grey
+                        color: Colors.black
                     )
                   ),
                 )
