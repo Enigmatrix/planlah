@@ -12,7 +12,7 @@ type UserController struct {
 }
 
 type UserSummaryDto struct {
-	Nickname string `json:"nickname" binding:"required"`
+	Username string `json:"username" binding:"required"`
 	Name     string `json:"name" binding:"required"`
 }
 
@@ -87,7 +87,7 @@ func (controller *UserController) GetInfo(ctx *gin.Context) {
 
 	user := controller.Database.GetUser(userId)
 	ctx.JSON(http.StatusOK, &UserSummaryDto{
-		Nickname: user.Username,
+		Username: user.Username,
 		Name:     user.Name,
 	})
 }

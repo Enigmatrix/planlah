@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/dto/group.dart';
 import 'package:mobile/pages/chat_page.dart';
 
 import '../model/chat_group.dart';
 
 
 class GroupDisplay extends StatefulWidget {
-  ChatGroup chatGroup;
+  GroupSummaryDto chatGroup;
+  // ChatGroup chatGroup;
 
   GroupDisplay({
     Key? key,
@@ -37,7 +39,8 @@ class _GroupDisplayState extends State<GroupDisplay> {
                 child: Row(
                   children: <Widget>[
                     CircleAvatar(
-                      backgroundImage: NetworkImage(widget.chatGroup.photoUrl),
+                      // TODO: Figure out images
+                      backgroundImage: NetworkImage("https://www.popsugar.com/Taylor-Swift"),
                       maxRadius: 30,
                     ),
                     const SizedBox(width: 16),
@@ -48,16 +51,17 @@ class _GroupDisplayState extends State<GroupDisplay> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                widget.chatGroup.groupName,
+                                widget.chatGroup.name,
                                 style: const TextStyle(fontSize: 16),
                               ),
                               const SizedBox(height: 6),
                               Text(
-                                widget.chatGroup.mostRecentText,
+                                widget.chatGroup.description,
                                 style: TextStyle(
                                   fontSize: 13,
                                   color: Colors.grey.shade600,
-                                  fontWeight: widget.chatGroup.isMessageRead ? FontWeight.normal : FontWeight.bold
+                                  fontWeight: FontWeight.normal
+                                  // TODO: widget.chatGroup.isMessageRead ? FontWeight.normal : FontWeight.bold
                                 ),
                               )
                             ],
@@ -65,10 +69,12 @@ class _GroupDisplayState extends State<GroupDisplay> {
                         )
                     ),
                     Text(
-                      widget.chatGroup.time,
+                      "23.59",
+                      // TODO: widget.chatGroup.time,
                       style: TextStyle(
                         fontSize: 12,
-                        fontWeight: widget.chatGroup.isMessageRead ? FontWeight.normal : FontWeight.bold
+                        fontWeight: FontWeight.normal
+                        //TODO: widget.chatGroup.isMessageRead ? FontWeight.normal : FontWeight.bold
                       ),
                     )
                   ]

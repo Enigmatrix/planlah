@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
+import 'package:mobile/dto/group.dart';
 import 'package:mobile/model/chat_group.dart';
 import 'package:mobile/main.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -14,7 +15,7 @@ import '../model/outing_steps.dart';
 import 'CreateOutingPage.dart';
 
 class ChatPage extends StatefulWidget {
-  ChatGroup chatGroup;
+  GroupSummaryDto chatGroup;
 
   ChatPage({
     Key? key,
@@ -42,13 +43,14 @@ class _ChatPageState extends State<ChatPage> {
               children: <Widget>[
                 CircleAvatar(
                   backgroundImage: NetworkImage(
-                    widget.chatGroup.photoUrl,
+                    "https://www.popsugar.com/Taylor-Swift",
+                    // TODO: widget.chatGroup.photoUrl,
                   ),
                   maxRadius: 20,
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  widget.chatGroup.groupName,
+                  widget.chatGroup.name,
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
@@ -61,12 +63,13 @@ class _ChatPageState extends State<ChatPage> {
         IconButton(
             onPressed: () {
               // TODO: Itinerary
-              if (widget.chatGroup.getGroupInfo().isInOuting()) {
-                // Display currently itinerary
-                Get.to(() => OutingPage(outing: Outing.getOuting()));
-              } else {
-                Get.to(() => CreateOutingPage());
-              }
+              Get.to(() => CreateOutingPage());
+              // if (widget.chatGroup.getGroupInfo().isInOuting()) {
+              //   // Display currently itinerary
+              //   Get.to(() => OutingPage(outing: Outing.getOuting()));
+              // } else {
+              //   Get.to(() => CreateOutingPage());
+              // }
             },
             icon: const Icon(
                 Icons.assignment
@@ -111,7 +114,7 @@ class _ChatPageState extends State<ChatPage> {
       children: <Widget>[
         Column(
           children: [
-            buildChat(widget.chatGroup.messages),
+            // buildChat(widget.chatGroup.getMessages()),
             buildInputWidget(),
           ],
         )

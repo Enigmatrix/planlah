@@ -27,3 +27,10 @@ class CreateUserDto {
     'food': food.map((e) => e!).toList(),
   };
 }
+
+class UserSummaryDto {
+  String username;
+  String name;
+
+  UserSummaryDto(this.username, this.name);
+}

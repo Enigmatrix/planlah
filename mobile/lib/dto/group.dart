@@ -1,7 +1,7 @@
 class GroupSummaryDto {
-    String description;
     int id;
     String name;
+    String description;
 
     GroupSummaryDto(this.description, this.id, this.name);
 

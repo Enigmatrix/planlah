@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/dto/group.dart';
 import 'package:mobile/pages/chat_page.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/widgets/group_display_widget.dart';
@@ -16,16 +17,29 @@ class GroupsPage extends StatefulWidget {
 
 class _GroupsPageState extends State<GroupsPage> {
 
+
+  final groupService = Get.find<GroupService>();
+
   // Replace with actual retrieving from database in the future
   // The list of all groups by which we filter on
-  final List<ChatGroup> allGroups = getChatGroups();
+  late List<GroupSummaryDto> allGroupDtos = [];
+  late List<GroupSummaryDto> currentGroupDtos = [];
+  late List<ChatGroup> allGroups = [];
   // What's actually displayed
-  late List<ChatGroup> groups;
+  late List<ChatGroup> groups = [];
 
   @override
   initState() {
-    groups = allGroups;
     super.initState();
+
+    groupService.getGroup().then((value) {
+      setState(() {
+        print(value.body!);
+        allGroupDtos = value.body!;
+        currentGroupDtos = allGroupDtos;
+      });
+    });
+    // groups = allGroups;
   }
 
   // Hard code for now
@@ -69,7 +83,7 @@ class _GroupsPageState extends State<GroupsPage> {
         children: <Widget>[
           buildHeader(),
           buildSearchBar(),
-          buildGroups(groups)
+          buildGroups(currentGroupDtos)
         ],
       ),
     ),
@@ -126,15 +140,15 @@ class _GroupsPageState extends State<GroupsPage> {
   }
 
   void _runFilter(String filter) {
-    List<ChatGroup> results = [];
+    List<GroupSummaryDto> results = [];
     if (filter.isEmpty) {
-      results = allGroups;
+      results = allGroupDtos;
     } else {
-      results = allGroups.where((group) => group.groupName.toLowerCase().contains(filter.toLowerCase())).toList();
+      results = allGroupDtos.where((group) => group.name.toLowerCase().contains(filter.toLowerCase())).toList();
     }
 
     setState(() {
-      groups = results;
+      currentGroupDtos = results;
     });
   }
 
@@ -173,7 +187,7 @@ class _GroupsPageState extends State<GroupsPage> {
     );
   }
 
-  Widget buildGroups(List<ChatGroup> groups) {
+  Widget buildGroups(List<GroupSummaryDto> groups) {
     return ListView.builder(
       itemCount: groups.length,
       shrinkWrap: true,
@@ -182,7 +196,7 @@ class _GroupsPageState extends State<GroupsPage> {
       itemBuilder: (context, index) {
         // To add page to redirect to
         return GroupDisplay(
-            chatGroup: groups[index]
+            chatGroup: groups[index],
         );
       },
     );
