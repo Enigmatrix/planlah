@@ -155,6 +155,39 @@ func (db *Database) CreateGroup(group *Group) error {
 	return db.conn.Omit("OwnerID").Create(group).Error
 }
 
+func (db *Database) GetGroupMember(userId uint, groupId uint) *GroupMember {
+	var grpMember GroupMember
+	err := db.conn.Model(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return nil
+	}
+	return &grpMember
+}
+
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {
 	return db.conn.Model(&Group{ID: groupID}).Update("OwnerID", ownerID).Error
+}
+
+func (db *Database) CreateMessage(msg *Message) error {
+	return db.conn.Create(msg).Error
+}
+
+func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) []Message {
+	var messages []Message
+
+	// Use preload instead of join since the numbers of users/group_members loaded will be small
+	// and the extra 2 sql statements executed will be cheap (ignoring latency)
+
+	// This is an acceptable but lazy solution, of course, sourced from the horrible documentation of gorm.
+	// However, once a better join solution (that loads the foreign table properties) exists, we should
+	// use that
+	err := db.conn.
+		Preload("By", "group_id = ?", groupId).
+		Preload("By.User").
+		Find(&messages, "? > messages.sent_at and messages.sent_at >= ?", end, start).Error
+
+	if err != nil {
+		return nil
+	}
+	return messages
 }

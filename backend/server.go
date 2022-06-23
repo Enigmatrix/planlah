@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"log"
 	"math/rand"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
@@ -14,7 +15,12 @@ import (
 )
 
 // NewServer creates a new server and sets up middleware
-func NewServer(users routes.UserController, groups routes.GroupsController, devPanel routes.DevPanelController, authSvc *services.AuthService) (*gin.Engine, error) {
+func NewServer(
+	users routes.UserController,
+	groups routes.GroupsController,
+	devPanel routes.DevPanelController,
+	messages routes.MessageController,
+	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
 	var secret [256]byte
@@ -57,7 +63,22 @@ func NewServer(users routes.UserController, groups routes.GroupsController, devP
 	api.Use(authMiddleware.MiddlewareFunc())
 	users.Register(api)
 	groups.Register(api)
-	devPanel.Register(api)
+	messages.Register(api)
+
+	// serve websocket in goroutine.
+	go func() {
+		if err := messages.WsServer.Serve(); err != nil {
+			log.Fatalf("message websocket listen error: %v", err)
+		}
+	}()
+
+	// the websocket gets cleaned anyway, so don't bother closing it
+
+	//defer func() {
+	//	if err := messages.WsServer.Close(); err != nil {
+	//		log.Fatalf("message websocket close error: %v", err)
+	//	}
+	//}()
 
 	// unauthenticated routes
 	srv.POST("/api/users/create", users.Create)
