@@ -258,3 +258,65 @@ func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) []
 	}
 	return messages
 }
+
+type LastMessage struct {
+	Message
+	GroupID uint
+}
+
+type UnreadMessagesCountByGroup struct {
+	UnreadMessagesCount uint
+	GroupID             uint
+}
+
+func (db *Database) GetUnreadMessagesCountForGroups(userId uint, groupIds []uint) map[uint]uint {
+	var counts []UnreadMessagesCountByGroup
+
+	// this can be made better definitely
+	err := db.conn.Table("messages m").
+		Select("COUNT(m.id) AS unread_messages_count, bygm.group_id AS group_id").
+		Joins("INNER JOIN group_members bygm ON bygm.id = m.by_id").
+		Joins(`INNER JOIN group_members gm ON gm.group_id = bygm.group_id AND gm.user_id = ? AND 
+			(gm.last_seen_message_id IS NULL OR m.sent_at > (select lm.sent_at from messages lm where lm.id = gm.last_seen_message_id))`, userId).
+		Group("bygm.group_id").
+		Having("bygm.group_id IN ?", groupIds).
+		Find(&counts).
+		Error
+
+	if err != nil {
+		log.Fatalf("error in GetUnreadMessagesCountForGroups: %v", err)
+		return nil
+	}
+
+	countMap := make(map[uint]uint)
+	for _, c := range counts {
+		countMap[c.GroupID] = c.UnreadMessagesCount
+	}
+
+	return countMap
+}
+
+func (db *Database) GetLastMessagesForGroups(groupIds []uint) map[uint]Message {
+	var messages []LastMessage
+
+	err := db.conn.Table("messages").
+		Preload("By").
+		Preload("By.User").
+		Select("distinct on (group_id) messages.*, group_members.group_id").
+		Joins("inner join group_members ON group_members.id = by_id").
+		Where("group_id in ?", groupIds).
+		Order("group_id, sent_at desc").
+		Find(&messages).
+		Error
+	if err != nil {
+		log.Fatalf("error in GetLastMessagesForGroups: %v", err)
+		return nil
+	}
+
+	lastMessages := make(map[uint]Message)
+	for _, last := range messages {
+		lastMessages[last.GroupID] = last.Message
+	}
+
+	return lastMessages
+}
