@@ -7,8 +7,10 @@ import (
 	"github.com/jackc/pgerrcode"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"log"
 	"os"
 	"planlah.sg/backend/utils"
+	"sort"
 	"time"
 )
 
@@ -163,6 +165,76 @@ func (db *Database) CreateMessage(msg *Message) error {
 	return db.conn.Create(msg).Error
 }
 
+func (db *Database) SetLastSeenMessageIDIfNewer(userId uint, messageId uint) {
+	// this does nothing if the message is not the same group as the group_member as well :)
+	err := db.conn.Exec(
+		`UPDATE group_members AS gm SET last_seen_message_id = @messageId WHERE gm.user_id = @userId and gm.group_id =
+				(select by.group_id from group_members by where by.id = 
+					(select m.by_id from messages m where m.id = @messageId and
+						((m.sent_at > (select l.sent_at from messages l where l.id = gm.last_seen_message_id)) OR (gm.last_seen_message_id IS NULL))
+					)
+				)`,
+		map[string]interface{}{
+			"messageId": messageId,
+			"userId":    userId,
+		}).
+		Error
+	if err != nil {
+		log.Fatalf("error in updating last_seen_message_id: %v", err)
+	}
+}
+
+func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint, before bool) ([]Message, error) {
+	var msg Message
+	var messages []Message
+
+	var comparison string
+	var orderby string
+
+	if before {
+		comparison = "<="
+		orderby = "desc"
+	} else {
+		comparison = ">="
+		orderby = "asc"
+	}
+
+	err := db.conn.Model(&Message{}).
+		Where(`id = ? and by_id in (select id from group_members where group_id in 
+			(select group_id from group_members where user_id = ?))`, messageId, userId).
+		First(&msg).Error
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, errors.New("message is not in any of the user's groups")
+		}
+		log.Fatalf("get message before (get message) failed: %v", err)
+		return nil, nil
+	}
+	// TODO goddamn Gorm doesn't let you orderby, limit, then orderby again
+	// so instead we have no manually sort the messages ourselves
+	err = db.conn.Model(&Message{}).
+		Preload("By").
+		Preload("By.User").
+		Where(fmt.Sprintf(`sent_at %s ? and by_id in (select id from group_members where group_id = 
+			(select group_id from group_members where id = ?))`, comparison), msg.SentAt, msg.ByID).
+		Order("sent_at " + orderby).
+		Limit(int(count)).
+		// Order("sent_at asc").
+		Find(&messages).
+		Error
+
+	if err != nil {
+		log.Fatalf("get message before (query) failed: %v", err)
+		return nil, nil
+	}
+
+	sort.Slice(messages, func(i, j int) bool {
+		return messages[i].SentAt.Before(messages[j].SentAt)
+	})
+
+	return messages, nil
+}
+
 func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) []Message {
 	var messages []Message
 
@@ -187,11 +259,64 @@ func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) []
 	return messages
 }
 
-func (db *Database) CreateOuting(outing *Outing) interface{} {
-	return db.conn.Create(outing).Error
+type LastMessage struct {
+	Message
+	GroupID uint
 }
 
-func (db *Database) GetAllOutings(groupId uint) []Outing {
-	// TODO
-	return nil
+type UnreadMessagesCountByGroup struct {
+	UnreadMessagesCount uint
+	GroupID             uint
+}
+
+func (db *Database) GetUnreadMessagesCountForGroups(userId uint, groupIds []uint) map[uint]uint {
+	var counts []UnreadMessagesCountByGroup
+
+	// this can be made better definitely
+	err := db.conn.Table("messages m").
+		Select("COUNT(m.id) AS unread_messages_count, bygm.group_id AS group_id").
+		Joins("INNER JOIN group_members bygm ON bygm.id = m.by_id").
+		Joins(`INNER JOIN group_members gm ON gm.group_id = bygm.group_id AND gm.user_id = ? AND 
+			(gm.last_seen_message_id IS NULL OR m.sent_at > (select lm.sent_at from messages lm where lm.id = gm.last_seen_message_id))`, userId).
+		Group("bygm.group_id").
+		Having("bygm.group_id IN ?", groupIds).
+		Find(&counts).
+		Error
+
+	if err != nil {
+		log.Fatalf("error in GetUnreadMessagesCountForGroups: %v", err)
+		return nil
+	}
+
+	countMap := make(map[uint]uint)
+	for _, c := range counts {
+		countMap[c.GroupID] = c.UnreadMessagesCount
+	}
+
+	return countMap
+}
+
+func (db *Database) GetLastMessagesForGroups(groupIds []uint) map[uint]Message {
+	var messages []LastMessage
+
+	err := db.conn.Table("messages").
+		Preload("By").
+		Preload("By.User").
+		Select("distinct on (group_id) messages.*, group_members.group_id").
+		Joins("inner join group_members ON group_members.id = by_id").
+		Where("group_id in ?", groupIds).
+		Order("group_id, sent_at desc").
+		Find(&messages).
+		Error
+	if err != nil {
+		log.Fatalf("error in GetLastMessagesForGroups: %v", err)
+		return nil
+	}
+
+	lastMessages := make(map[uint]Message)
+	for _, last := range messages {
+		lastMessages[last.GroupID] = last.Message
+	}
+
+	return lastMessages
 }

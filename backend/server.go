@@ -17,14 +17,13 @@ import (
 // NewServer creates a new server and sets up middleware
 func NewServer(
 	users routes.UserController,
-	groups routes.GroupController,
+	groups routes.GroupsController,
+	devPanel routes.DevPanelController,
 	messages routes.MessageController,
-	outings routes.OutingController,
 	misc routes.MiscController,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
 
-	// TODO this seems seeded, set it to true random later on
 	var secret [256]byte
 	_, err := rand.Read(secret[:])
 	if err != nil {
@@ -64,13 +63,12 @@ func NewServer(
 	misc.Register(unauthapi)
 
 	api := srv.Group("api")
-
 	// protect all routes using JWT middleware
 	api.Use(authMiddleware.MiddlewareFunc())
 	users.Register(api)
 	groups.Register(api)
+	devPanel.Register(api)
 	messages.Register(api)
-	outings.Register(api)
 
 	// serve websocket in goroutine.
 	go func() {

@@ -26,64 +26,9 @@ class _SignUpPageState extends State<SignUpPage> {
   final auth = Get.find<AuthService>();
 
   late var towns = <String>["-"];
-
   late var genders = <String>["-"];
-
-  final attractionTags = <String>[
-    "Airport",
-    "Sports",
-    "Art & History",
-    "Movies",
-    "Nature & Wildlife",
-    "Water Activities",
-    "Nightlife",
-    "Spas",
-    "Religion",
-    "Food",
-    "Shopping",
-    "Studying",
-    "Transport",
-    "Games",
-    "Tourism"
-  ];
-
-  final foodTags = <String>[
-    "American",
-    "Chinese",
-    "European",
-    "Pubs",
-    "Italian",
-    "Diner",
-    "Healthy",
-    "Japanese",
-    "Malaysian",
-    "Middle Eastern",
-    "Vietnamese",
-    "Barbecue",
-    "French",
-    "Indian",
-    "Indonesian",
-    "Korean",
-    "Lebanese",
-    "Philippine",
-    "Singaporean",
-    "Sri Lankan",
-    "Thai",
-    "Bakeries",
-    "Cafe",
-    "Contemporary",
-    "Dessert",
-    "Fast food",
-    "Fusion",
-    "Halal",
-    "Kosher",
-    "Pizza",
-    "Quick Bites",
-    "Seafood",
-    "Soups",
-    "Street Food",
-    "Sushi"
-  ];
+  late var attractionTags = <String>["-"];
+  late var foodTags = <String>["-"];
 
   final before = const Icon(
     Icons.navigate_before_rounded
@@ -126,6 +71,18 @@ class _SignUpPageState extends State<SignUpPage> {
         genders = value.body!;
       });
     });
+
+    misc.getFood().then((value) {
+      setState(() {
+        foodTags = value.body!;
+      });
+    });
+
+    misc.getAttractions().then((value) {
+      setState(() {
+        attractionTags = value.body!;
+      });
+    });
   }
 
   @override
@@ -153,7 +110,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void checkStatus() {
-    if (_name == "" || _username == "" || _gender == "-" || _town == "-") {
+    if (_name == "" || _username == "" || _gender == "-" || _town == "-" || _attractions.length < 5 || _food.length < 5) {
       isFilledIn = false;
     } else {
       isFilledIn = true;
@@ -627,7 +584,7 @@ class _SignUpPageState extends State<SignUpPage> {
         _food,
     ));
     if (response.isOk) {
-      Get.toNamed("/home");
+      Get.offAndToNamed("/home");
     } else {
       Get.snackbar(
           "Error encountered:",

@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	socketio "github.com/googollee/go-socket.io"
 	"github.com/googollee/go-socket.io/engineio"
+	"github.com/samber/lo"
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
@@ -21,6 +22,15 @@ type SendMessageDto struct {
 	GroupID uint   `json:"groupId" binding:"required"`
 }
 
+type MarkReadDto struct {
+	MessageID uint `json:"messageId" binding:"required"`
+}
+
+type GetRelativeMessagesDto struct {
+	MessageID uint `form:"messageId" json:"messageId" binding:"required"`
+	Count     uint `form:"count" json:"count" binding:"required"`
+}
+
 type GetMessagesDto struct {
 	Start   time.Time `form:"start" json:"start" binding:"required" format:"date-time"`
 	End     time.Time `form:"end" json:"end" binding:"required,gtfield=Start" format:"date-time"`
@@ -28,6 +38,7 @@ type GetMessagesDto struct {
 }
 
 type MessageDto struct {
+	ID      uint           `json:"id" binding:"required"`
 	SentAt  time.Time      `json:"sentAt" binding:"required" format:"date-time"`
 	Content string         `json:"content" binding:"required"`
 	User    UserSummaryDto `json:"user" binding:"required"`
@@ -72,15 +83,121 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 	user := controller.Database.GetUser(groupMember.UserID)
 
 	controller.WsServer.BroadcastToRoom("/", strconv.Itoa(int(sendMessageDto.GroupID)), "message", MessageDto{
+		ID:      msg.ID,
 		SentAt:  msg.SentAt,
 		Content: msg.Content,
 		User: UserSummaryDto{
 			Name:     user.Name,
-			Username: user.Username,
+			Nickname: user.Username,
 		},
 	})
 
 	ctx.Status(http.StatusOK)
+}
+
+// MarkRead godoc
+// @Summary Mark a message as read
+// @Description Marks a message as read and sets the last seen message of the user to this message if it's newer
+// @Param body body MarkReadDto true "MarkRead"
+// @Tags Message
+// @Security JWT
+// @Success 200
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/messages/mark_read [put]
+func (controller *MessageController) MarkRead(ctx *gin.Context) {
+	var markReadDto MarkReadDto
+
+	if err := Body(ctx, &markReadDto); err != nil {
+		return
+	}
+
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
+
+	controller.Database.SetLastSeenMessageIDIfNewer(userId, markReadDto.MessageID)
+
+	ctx.Status(http.StatusOK)
+}
+
+func ToMessageDto(msg data.Message) MessageDto {
+	return MessageDto{
+		ID:      msg.ID,
+		SentAt:  msg.SentAt,
+		Content: msg.Content,
+		User: UserSummaryDto{
+			Name:     msg.By.User.Name,
+			Nickname: msg.By.User.Username,
+		},
+	}
+}
+
+func ToMessageDtos(messages []data.Message) []MessageDto {
+	return lo.Map(messages, func(msg data.Message, _ int) MessageDto {
+		return ToMessageDto(msg)
+	})
+}
+
+// MessagesBefore godoc
+// @Summary Get messages before this message
+// @Description Get {count} number of messages before the message specified by the {messageId}
+// @Param query query GetRelativeMessagesDto true "body"
+// @Tags Message
+// @Security JWT
+// @Success 200 {object} []MessageDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/messages/before [get]
+func (controller *MessageController) MessagesBefore(ctx *gin.Context) {
+	var getRelativeMessagesDtos GetRelativeMessagesDto
+	if err := Query(ctx, &getRelativeMessagesDtos); err != nil {
+		return
+	}
+
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
+
+	messages, err := controller.Database.GetMessagesRelative(userId, getRelativeMessagesDtos.MessageID, getRelativeMessagesDtos.Count, true)
+
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+		return
+	}
+	ctx.JSON(http.StatusOK, ToMessageDtos(messages))
+}
+
+// MessagesAfter godoc
+// @Summary Get messages after this message
+// @Description Get {count} number of messages after the message specified by the {messageId}
+// @Param query query GetRelativeMessagesDto true "body"
+// @Tags Message
+// @Security JWT
+// @Success 200 {object} []MessageDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/messages/before [get]
+func (controller *MessageController) MessagesAfter(ctx *gin.Context) {
+	var getRelativeMessagesDtos GetRelativeMessagesDto
+	if err := Query(ctx, &getRelativeMessagesDtos); err != nil {
+		return
+	}
+
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
+
+	messages, err := controller.Database.GetMessagesRelative(userId, getRelativeMessagesDtos.MessageID, getRelativeMessagesDtos.Count, false)
+
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+		return
+	}
+	ctx.JSON(http.StatusOK, ToMessageDtos(messages))
 }
 
 // Get godoc
@@ -106,18 +223,7 @@ func (controller *MessageController) Get(ctx *gin.Context) {
 
 	messages := controller.Database.GetMessages(getMessagesDto.GroupID, getMessagesDto.Start, getMessagesDto.End)
 
-	dtos := make([]MessageDto, len(messages))
-	for i, msg := range messages {
-		dtos[i] = MessageDto{
-			SentAt:  msg.SentAt,
-			Content: msg.Content,
-			User: UserSummaryDto{
-				Name:     msg.By.User.Name,
-				Username: msg.By.User.Username,
-			},
-		}
-	}
-	ctx.JSON(http.StatusOK, dtos)
+	ctx.JSON(http.StatusOK, ToMessageDtos(messages))
 }
 
 func (controller *MessageController) OnSocketError(conn socketio.Conn, err error) {
@@ -152,6 +258,9 @@ func (controller *MessageController) Register(router *gin.RouterGroup) {
 	group := router.Group("messages")
 	group.POST("send", controller.Send)
 	group.GET("all", controller.Get)
+	group.GET("before", controller.MessagesBefore)
+	group.GET("after", controller.MessagesAfter)
+	group.PUT("mark_read", controller.MarkRead)
 
 	group.Any("socket/*any", func(c *gin.Context) {
 
