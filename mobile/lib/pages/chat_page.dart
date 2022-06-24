@@ -92,7 +92,7 @@ class _ChatPageState extends State<ChatPage> {
         IconButton(
             onPressed: () {
               // TODO: Itinerary
-              Get.to(() => CreateOutingPage());
+              Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
               // if (widget.chatGroup.getGroupInfo().isInOuting()) {
               //   // Display currently itinerary
               //   Get.to(() => OutingPage(outing: Outing.getOuting()));

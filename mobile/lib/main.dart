@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +12,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/message.dart';
 import 'package:mobile/services/misc.dart';
+import 'package:mobile/services/outing.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/theme.dart';
 
@@ -22,6 +25,7 @@ void main() async {
   Get.put(UserService());
   Get.put(MessageService());
   Get.put(MiscService());
+  Get.put(OutingService());
 
   runApp(const App());
 }

@@ -20,6 +20,7 @@ func NewServer(
 	groups routes.GroupsController,
 	devPanel routes.DevPanelController,
 	messages routes.MessageController,
+	outings routes.OutingController,
 	misc routes.MiscController,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 	srv := gin.Default()
@@ -69,6 +70,7 @@ func NewServer(
 	groups.Register(api)
 	devPanel.Register(api)
 	messages.Register(api)
+	outings.Register(api)
 
 	// serve websocket in goroutine.
 	go func() {

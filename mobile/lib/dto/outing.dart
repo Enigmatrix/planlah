@@ -1,10 +1,28 @@
 import 'package:mobile/dto/user.dart';
 
+class CreateOutingDto {
+  String name;
+  String description;
+  int groupId;
+
+  CreateOutingDto(this.name, this.description, this.groupId);
+
+  Map<String, dynamic> toJson() => {
+    'name': name,
+    'description': description,
+    'groupId': groupId
+  };
+}
+
 class OutingTimingDto {
   String start;
   String end;
 
   OutingTimingDto(this.start, this.end);
+
+  OutingTimingDto.fromJson(Map<String, dynamic> json):
+      start = json["start"],
+      end = json["end"];
 }
 
 class OutingStepVoteDto {
@@ -15,7 +33,15 @@ class OutingStepVoteDto {
 
   OutingStepVoteDto.fromJson(Map<String, dynamic> json):
       vote = json["vote"],
-      userSummaryDto = json["user"];
+      userSummaryDto = UserSummaryDto.fromJson(json["user"]);
+
+  static List<OutingStepVoteDto> fromJsonToList(List<Map<String, dynamic>> json) {
+    List<OutingStepVoteDto> result = [];
+    for (int i = 0; i < json.length; i++) {
+      result.add(OutingStepVoteDto.fromJson(json[i]));
+    }
+    return result;
+  }
 }
 
 class OutingStepDto {
@@ -38,8 +64,16 @@ class OutingStepDto {
       whereName = json["whereName"],
       wherePoint = json["wherePoint"],
       when = json["when"],
-      outingStepVoteDtos = json["votes"],
+      outingStepVoteDtos = OutingStepVoteDto.fromJsonToList(json["votes"]),
       voteDeadline = json["voteDeadline"];
+
+  static List<OutingStepDto> fromJsonToList(List<Map<String, dynamic>> json) {
+    List<OutingStepDto> result = [];
+    for(int i = 0; i < json.length; i++) {
+      result.add(OutingStepDto.fromJson(json[i]));
+    }
+    return result;
+  }
 }
 
 class OutingDto {
@@ -59,6 +93,6 @@ class OutingDto {
          name = json["name"],
          description = json['description'],
          groupId = json["groupId"],
-         outingStepDto = json["steps"],
-         outingTimingDto = json["timing"];
+         outingStepDto = OutingStepDto.fromJsonToList(json["steps"]),
+         outingTimingDto = OutingTimingDto.fromJson(json["timing"]);
 }

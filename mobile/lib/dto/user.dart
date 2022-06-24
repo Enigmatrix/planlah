@@ -33,4 +33,8 @@ class UserSummaryDto {
   String name;
 
   UserSummaryDto(this.username, this.name);
+
+  UserSummaryDto.fromJson(Map<String, dynamic> json):
+      username = json["nickname"],
+      name = json["name"];
 }
