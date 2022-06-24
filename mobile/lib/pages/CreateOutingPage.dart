@@ -115,6 +115,8 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
               }
           );
         },
+        keyboardType: TextInputType.multiline,
+        maxLines: null,
       ),
     );
   }
@@ -141,7 +143,10 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
               }
           );
         },
+        keyboardType: TextInputType.multiline,
+        maxLines: null,
       ),
+
     );
   }
 
