@@ -11,6 +11,7 @@ import (
 	"os"
 	"planlah.sg/backend/utils"
 	"sort"
+	"strconv"
 	"time"
 )
 
@@ -326,6 +327,26 @@ func (db *Database) CreateOuting(outing *Outing) interface{} {
 }
 
 func (db *Database) GetAllOutings(groupId uint) []Outing {
-	// TODO
-	return nil
+	//	SELECT
+	//		o.*
+	//	FROM
+	//		outings AS o
+	//	INNER JOIN
+	//		groups AS g
+	//	ON
+	//		o.group_id = g.owner_id
+	var outings []Outing
+
+	err := db.conn.Table("outings o").
+		Select("o.*").
+		Joins("INNER JOIN groups g ON o.group_id = g.owner_id").
+		Where("o.group_id = " + strconv.Itoa(int(groupId))).
+		Find(&outings).
+		Error
+
+	if err != nil {
+		return nil
+	}
+	print(outings)
+	return outings
 }

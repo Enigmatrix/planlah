@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/samber/lo"
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
@@ -65,6 +66,47 @@ type CreateOutingStepDto struct {
 type VoteOutingStepDto struct {
 	Vote         bool `json:"vote" binding:"required"`
 	OutingStepID uint `json:"outingStepId" binding:"required"`
+}
+
+func ToOutingDto(outing data.Outing) OutingDto {
+	// TODO: Do the steps and timing
+	return OutingDto{
+		ID:          outing.ID,
+		Name:        outing.Name,
+		Description: outing.Description,
+		GroupID:     outing.GroupID,
+		// TODO: Hardcode this for now
+		Steps: []OutingStepDto{
+			{
+				ID:          123,
+				Name:        "Jotham",
+				Description: "Dasdasd",
+				WhereName:   "Dasda",
+				WherePoint:  "Dasdasd",
+				When:        time.Now(),
+				Votes: []OutingStepVoteDto{
+					{
+						Vote: true,
+						User: UserSummaryDto{
+							Nickname: "What the duck am i doing with my life",
+							Name:     "Steve",
+						},
+					},
+				},
+				VoteDeadline: time.Now(),
+			},
+		},
+		Timing: &OutingTiming{
+			Start: time.Now(),
+			End:   time.Now(),
+		},
+	}
+}
+
+func ToOutingDtos(outings []data.Outing) []OutingDto {
+	return lo.Map(outings, func(outing data.Outing, _ int) OutingDto {
+		return ToOutingDto(outing)
+	})
 }
 
 // Create godoc
@@ -161,8 +203,9 @@ func (controller *OutingController) Get(ctx *gin.Context) {
 		return
 	}
 
-	controller.Database.GetAllOutings(getOutingsDto.GroupID)
+	outings := controller.Database.GetAllOutings(getOutingsDto.GroupID)
 
+	ctx.JSON(http.StatusOK, ToOutingDtos(outings))
 }
 
 // Vote godoc

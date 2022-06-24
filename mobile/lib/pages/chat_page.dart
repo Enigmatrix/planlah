@@ -7,11 +7,14 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 import 'package:mobile/dto/chat.dart';
 import 'package:mobile/dto/group.dart';
+import 'package:mobile/dto/outing.dart';
 import 'package:mobile/model/chat_group.dart';
 import 'package:mobile/main.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:mobile/pages/outing_page.dart';
+import 'package:mobile/pages/view_all_outings.dart';
 import 'package:mobile/services/message.dart';
+import 'package:mobile/services/outing.dart';
 
 import '../model/chat_message.dart';
 import '../model/outing_list.dart';
@@ -33,8 +36,10 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
 
   final messageService = Get.find<MessageService>();
+  final outingService = Get.find<OutingService>();
 
   late var messages = <MessageDto>[];
+  late var outings = <OutingDto>[];
 
   @override
   void initState() {
@@ -117,6 +122,13 @@ class _ChatPageState extends State<ChatPage> {
                   child: const Text("About")
                 ),
                 PopupMenuItem(
+                  onTap: () {
+                    // TODO: Add past outings page
+                    viewPastOutings();
+                  },
+                  child: const Text("See past outings")
+                ),
+                PopupMenuItem(
                     onTap: () {
                       // TODO: Add people
                     },
@@ -150,6 +162,27 @@ class _ChatPageState extends State<ChatPage> {
       ],
     )
   );
+
+  void viewPastOutings() {
+    print(widget.chatGroup.id);
+    outingService
+      .getAllOutings(widget.chatGroup.id)
+      .then((value) {
+          setState(() {
+            if (value.body == null || value.body!.isEmpty) {
+              Get.snackbar(
+                "Operation not possible: ",
+                "Your group has not had any outings yet :(",
+                snackPosition: SnackPosition.BOTTOM,
+                backgroundColor: Colors.black
+              );
+            } else {
+              outings = value.body!;
+              Get.to(() => ViewAllOutingsPage(pastOutings: outings));
+            }
+          });
+      });
+  }
 
 
   Widget buildChat(List<MessageDto> messages) {

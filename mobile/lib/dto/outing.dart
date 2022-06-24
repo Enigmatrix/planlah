@@ -35,7 +35,7 @@ class OutingStepVoteDto {
       vote = json["vote"],
       userSummaryDto = UserSummaryDto.fromJson(json["user"]);
 
-  static List<OutingStepVoteDto> fromJsonToList(List<Map<String, dynamic>> json) {
+  static List<OutingStepVoteDto> fromJsonToList(List<dynamic> json) {
     List<OutingStepVoteDto> result = [];
     for (int i = 0; i < json.length; i++) {
       result.add(OutingStepVoteDto.fromJson(json[i]));
@@ -67,7 +67,7 @@ class OutingStepDto {
       outingStepVoteDtos = OutingStepVoteDto.fromJsonToList(json["votes"]),
       voteDeadline = json["voteDeadline"];
 
-  static List<OutingStepDto> fromJsonToList(List<Map<String, dynamic>> json) {
+  static List<OutingStepDto> fromJsonToList(List<dynamic> json) {
     List<OutingStepDto> result = [];
     for(int i = 0; i < json.length; i++) {
       result.add(OutingStepDto.fromJson(json[i]));

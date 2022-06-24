@@ -11,5 +11,5 @@ class MessageDto {
   MessageDto.fromJson(Map<String, dynamic> json):
     content = json["content"],
     sentAt = json["sentAt"],
-    user = UserSummaryDto(json["user"]["username"], json["user"]["name"]);
+    user = UserSummaryDto.fromJson(json["user"]);
 }
