@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/samber/lo"
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
@@ -17,9 +18,11 @@ type CreateGroupDto struct {
 }
 
 type GroupSummaryDto struct {
-	ID          uint   `json:"id" binding:"required"`
-	Name        string `json:"name" binding:"required"`
-	Description string `json:"description" binding:"required"`
+	ID                  uint        `json:"id" binding:"required"`
+	Name                string      `json:"name" binding:"required"`
+	Description         string      `json:"description" binding:"required"`
+	LastSeenMessage     *MessageDto `json:"lastSeenMessage"`
+	UnreadMessagesCount uint        `json:"unreadMessagesCount" binding:"required"`
 }
 
 // Create godoc
@@ -74,9 +77,11 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, GroupSummaryDto{
-		ID:          group.ID,
-		Name:        group.Name,
-		Description: group.Description,
+		ID:                  group.ID,
+		Name:                group.Name,
+		Description:         group.Description,
+		UnreadMessagesCount: 0,
+		LastSeenMessage:     nil,
 	})
 }
 
@@ -95,12 +100,23 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 	}
 
 	groups := controller.Database.GetAllGroups(userId)
+	groupIds := lo.Map(groups,
+		func(grp data.GroupMember, i int) uint { return grp.GroupID })
+	lastMessages := controller.Database.GetLastMessagesForGroups(groupIds)
+	lastMessagesDtos := lo.MapValues(lastMessages, func(val data.Message, key uint) *MessageDto {
+		dto := ToMessageDto(val)
+		return &dto
+	})
+	unreadMessagesCount := controller.Database.GetUnreadMessagesCountForGroups(userId, groupIds)
+
 	dtos := make([]GroupSummaryDto, len(groups))
 	for i, groupMember := range groups {
 		dtos[i] = GroupSummaryDto{
-			ID:          groupMember.Group.ID,
-			Name:        groupMember.Group.Name,
-			Description: groupMember.Group.Description,
+			ID:                  groupMember.Group.ID,
+			Name:                groupMember.Group.Name,
+			Description:         groupMember.Group.Description,
+			LastSeenMessage:     lastMessagesDtos[groupMember.GroupID],
+			UnreadMessagesCount: unreadMessagesCount[groupMember.GroupID],
 		}
 	}
 	ctx.JSON(http.StatusOK, dtos)
