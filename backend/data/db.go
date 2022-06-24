@@ -320,3 +320,12 @@ func (db *Database) GetLastMessagesForGroups(groupIds []uint) map[uint]Message {
 
 	return lastMessages
 }
+
+func (db *Database) CreateOuting(outing *Outing) interface{} {
+	return db.conn.Create(outing).Error
+}
+
+func (db *Database) GetAllOutings(groupId uint) []Outing {
+	// TODO
+	return nil
+}
