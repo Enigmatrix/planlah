@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	socketio "github.com/googollee/go-socket.io"
 	"github.com/googollee/go-socket.io/engineio"
+	"github.com/samber/lo"
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
@@ -121,20 +122,22 @@ func (controller *MessageController) MarkRead(ctx *gin.Context) {
 	ctx.Status(http.StatusOK)
 }
 
-func toMessageDto(messages []data.Message) []MessageDto {
-	dtos := make([]MessageDto, len(messages))
-	for i, msg := range messages {
-		dtos[i] = MessageDto{
-			ID:      msg.ID,
-			SentAt:  msg.SentAt,
-			Content: msg.Content,
-			User: UserSummaryDto{
-				Name:     msg.By.User.Name,
-				Nickname: msg.By.User.Username,
-			},
-		}
+func ToMessageDto(msg data.Message) MessageDto {
+	return MessageDto{
+		ID:      msg.ID,
+		SentAt:  msg.SentAt,
+		Content: msg.Content,
+		User: UserSummaryDto{
+			Name:     msg.By.User.Name,
+			Nickname: msg.By.User.Username,
+		},
 	}
-	return dtos
+}
+
+func ToMessageDtos(messages []data.Message) []MessageDto {
+	return lo.Map(messages, func(msg data.Message, _ int) MessageDto {
+		return ToMessageDto(msg)
+	})
 }
 
 // MessagesBefore godoc
@@ -164,7 +167,7 @@ func (controller *MessageController) MessagesBefore(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
 		return
 	}
-	ctx.JSON(http.StatusOK, toMessageDto(messages))
+	ctx.JSON(http.StatusOK, ToMessageDtos(messages))
 }
 
 // MessagesAfter godoc
@@ -194,7 +197,7 @@ func (controller *MessageController) MessagesAfter(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
 		return
 	}
-	ctx.JSON(http.StatusOK, toMessageDto(messages))
+	ctx.JSON(http.StatusOK, ToMessageDtos(messages))
 }
 
 // Get godoc
@@ -220,7 +223,7 @@ func (controller *MessageController) Get(ctx *gin.Context) {
 
 	messages := controller.Database.GetMessages(getMessagesDto.GroupID, getMessagesDto.Start, getMessagesDto.End)
 
-	ctx.JSON(http.StatusOK, toMessageDto(messages))
+	ctx.JSON(http.StatusOK, ToMessageDtos(messages))
 }
 
 func (controller *MessageController) OnSocketError(conn socketio.Conn, err error) {
