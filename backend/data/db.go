@@ -3,6 +3,7 @@ package data
 import (
 	"errors"
 	"fmt"
+	"github.com/google/uuid"
 	"github.com/jackc/pgconn"
 	"github.com/jackc/pgerrcode"
 	"gorm.io/driver/postgres"
@@ -34,7 +35,7 @@ func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
 		}
 
 		// add tables here
-		models := []interface{}{&User{}, &Group{}, &GroupMember{}, &Message{}, &Outing{}, &OutingStep{}, &OutingStepVote{}}
+		models := []interface{}{&User{}, &Group{}, &GroupInvite{}, &GroupMember{}, &Message{}, &Outing{}, &OutingStep{}, &OutingStepVote{}}
 
 		// Neat trick to migrate models with complex relationships, run auto migrations once
 		// with DisableForeignKeyConstraintWhenMigrating=true to create the tables without relationships,
@@ -319,4 +320,43 @@ func (db *Database) GetLastMessagesForGroups(groupIds []uint) map[uint]Message {
 	}
 
 	return lastMessages
+}
+
+func (db *Database) CreateGroupInvite(inv *GroupInvite) error {
+	return db.conn.Create(inv).Error
+}
+
+func (db *Database) GetGroupInvites(groupId uint) []GroupInvite {
+	var invites []GroupInvite
+
+	err := db.conn.Model(&GroupInvite{GroupID: groupId, Active: true}).
+		Where("expiry IS NULL OR expiry > now()").
+		Find(&invites).Error
+
+	if err != nil {
+		log.Fatalf("error in GetGroupInvites: %v", err)
+		return nil
+	}
+
+	return invites
+}
+
+func (db *Database) InvalidateInvite(userId uint, inviteId uuid.UUID) error {
+	return db.conn.Exec(`UPDATE group_invites SET active = FALSE WHERE id = ? AND 
+		group_id IN (SELECT group_id FROM group_members WHERE user_id = ?)`, inviteId, userId).Error
+}
+
+func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) error {
+	var invite GroupInvite
+	err := db.conn.Model(&GroupInvite{ID: inviteId, Active: true}).
+		Where("expiry IS NULL OR expiry > now()").
+		First(&invite).Error
+
+	if err != nil {
+		log.Fatalf("error in JoinByInvite: %v", err)
+		return nil
+	}
+
+	_, err = db.AddUserToGroup(userId, invite.GroupID)
+	return err
 }
