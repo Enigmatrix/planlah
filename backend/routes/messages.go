@@ -179,7 +179,7 @@ func (controller *MessageController) MessagesBefore(ctx *gin.Context) {
 // @Success 200 {object} []MessageDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
-// @Router /api/messages/before [get]
+// @Router /api/messages/after [get]
 func (controller *MessageController) MessagesAfter(ctx *gin.Context) {
 	var getRelativeMessagesDtos GetRelativeMessagesDto
 	if err := Query(ctx, &getRelativeMessagesDtos); err != nil {
