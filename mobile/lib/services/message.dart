@@ -45,13 +45,10 @@ class MessageService extends BaseConnect {
     );
   }
 
-  Future<Response<void>> sendMessage(String message, int groupId) async {
+  Future<Response<void>> sendMessage(SendMessageDto dto) async {
     return await post<void>(
         "/messages/send",
-        {
-          "content": message,
-          "groupId": groupId.toString(),
-        }
+        dto.toJson()
     );
   }
 

@@ -291,7 +291,10 @@ class _GroupChatPageState extends State<GroupChatPage> {
               color: Colors.white,
               child: IconButton(
                 icon: const Icon(Icons.send),
-                onPressed: () {},
+                onPressed: () {
+                  sendMessage(textEditingController.value.text);
+                  textEditingController.clear();
+                },
                 color: Colors.blue,
               ),
             ),
@@ -299,6 +302,10 @@ class _GroupChatPageState extends State<GroupChatPage> {
         ],
       ),
     );
+  }
+
+  void sendMessage(String message) async {
+    await messageService.sendMessage(SendMessageDto(message, widget.chatGroup.id));
   }
 
 
