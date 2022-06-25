@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:get/get.dart';
 import 'package:mobile/services/auth.dart';
 
 
 class BaseConnect extends GetConnect {
   late AuthService auth;
+  late GetHttpClient unauthClient;
 
   // this will be initialized upon first authenticated route
   static String? token;
@@ -46,6 +49,7 @@ class BaseConnect extends GetConnect {
   @override
   void onInit() {
     auth = Get.find<AuthService>();
+    unauthClient = GetHttpClient();
 
     // TODO make this configurable
     httpClient.baseUrl = "http://localhost:8080/api";
@@ -62,7 +66,7 @@ class BaseConnect extends GetConnect {
       final firebaseToken = await auth.user.value?.getIdToken();
       if (firebaseToken == null) return request;
 
-      final response = await post('/auth/verify', { "token": firebaseToken });
+      final response = await unauthClient.post('${httpClient.baseUrl}/auth/verify', body: { "token": firebaseToken });
       if (response.body["code"] != 200) return request;
 
       token = response.body['token'];
