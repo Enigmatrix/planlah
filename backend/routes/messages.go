@@ -86,10 +86,7 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 		ID:      msg.ID,
 		SentAt:  msg.SentAt,
 		Content: msg.Content,
-		User: UserSummaryDto{
-			Name:     user.Name,
-			Nickname: user.Username,
-		},
+		User:    ToUserSummaryDto(user),
 	})
 
 	ctx.Status(http.StatusOK)
@@ -127,10 +124,7 @@ func ToMessageDto(msg data.Message) MessageDto {
 		ID:      msg.ID,
 		SentAt:  msg.SentAt,
 		Content: msg.Content,
-		User: UserSummaryDto{
-			Name:     msg.By.User.Name,
-			Nickname: msg.By.User.Username,
-		},
+		User:    ToUserSummaryDto(msg.By.User),
 	}
 }
 
