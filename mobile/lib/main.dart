@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/model/user.dart';
 import 'package:mobile/pages/dev_panel.dart';
 import 'package:mobile/pages/home.dart';
 import 'package:mobile/pages/sign_in.dart';
@@ -31,27 +31,74 @@ void main() async {
   runApp(const App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
 
   @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  late AuthService auth;
+  late UserService userSvc;
+
+  @override
+  void initState() {
+    super.initState();
+    auth = Get.find();
+    userSvc = Get.find();
+  }
+
+  Widget waitWidget() {
+    return Center(
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            SizedBox(
+              width: 60,
+              height: 60,
+              child: CircularProgressIndicator(),
+            ),
+          ]),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
+    Widget homeWidget;
+
+    if (auth.user.value == null) {
+      homeWidget = const SignInPage();
+    } else {
+      homeWidget = FutureBuilder(
+          future: userSvc.getInfo(),
+          builder: (BuildContext context,
+              AsyncSnapshot<Response<UserInfo?>> snapshot) {
+            if (snapshot.hasData) {
+              if (snapshot.data!.hasError) {
+                return const SignUpPage();
+              } else {
+                return const HomePage();
+              }
+            } else {
+              return waitWidget();
+            }
+          });
+    }
+
     return GetMaterialApp(
         title: 'planlah',
         theme: AppTheme.light(),
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.light,
-        // home: auth.user.value == null ? const SignInPage() : const HomePage(),
-        home: const SignInPage(),
-        // home: const HomePage(),
-        // home: const SignUpPage(),
+        home: homeWidget,
+        // home: const SignInPage(),
         getPages: [
           GetPage(name: '/signIn', page: () => const SignInPage()),
           GetPage(name: '/signUp', page: () => const SignUpPage()),
           GetPage(name: '/home', page: () => const HomePage()),
           GetPage(name: '/groups', page: () => const GroupsPage()),
           GetPage(name: '/dev_panel', page: () => DevPanelPage()),
-        ]
-    );
+        ]);
   }
 }
