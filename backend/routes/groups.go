@@ -295,7 +295,7 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 // @Success 200
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
-// @Router /join/{inviteId} [get]
+// @Router /api/groups/join/{inviteId} [get]
 func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
 	userId, err := controller.AuthUserId(ctx)
 	if err != nil {
@@ -326,4 +326,5 @@ func (controller GroupsController) Register(router *gin.RouterGroup) {
 	group.GET("invites", controller.GetInvites)
 	group.PUT("invites/invalidate", controller.InvalidateInvite)
 	group.POST("invites/create", controller.CreateInvite)
+	group.GET("join/:inviteId", controller.JoinByInvite)
 }
