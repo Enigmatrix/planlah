@@ -21,19 +21,19 @@ import '../model/outing_list.dart';
 import '../model/outing_steps.dart';
 import 'CreateOutingPage.dart';
 
-class ChatPage extends StatefulWidget {
+class GroupChatPage extends StatefulWidget {
   GroupSummaryDto chatGroup;
 
-  ChatPage({
+  GroupChatPage({
     Key? key,
     required this.chatGroup,
   }) : super(key: key);
 
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  State<GroupChatPage> createState() => _GroupChatPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _GroupChatPageState extends State<GroupChatPage> {
 
   final messageService = Get.find<MessageService>();
   final outingService = Get.find<OutingService>();
@@ -50,16 +50,6 @@ class _ChatPageState extends State<ChatPage> {
         messages = value.body!;
       });
     });
-    // messageService.getMessages(widget.chatGroup.id)
-    //   .catchError((error) {
-    //   print(error);
-    //   return <MessageDto>[];
-    // }).then((value) {
-    //   setState(() {
-    //     messages = value.body!;
-    //     print("Messages "+ messages.toString());
-    //   });
-    // });
   }
 
   @override
@@ -75,7 +65,7 @@ class _ChatPageState extends State<ChatPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundImage: NetworkImage(
                     "https://media1.popsugar-assets.com/files/thumbor/0ebv7kCHr0T-_O3RfQuBoYmUg1k/475x60:1974x1559/fit-in/500x500/filters:format_auto-!!-:strip_icc-!!-/2019/09/09/023/n/1922398/9f849ffa5d76e13d154137.01128738_/i/Taylor-Swift.jpg",
                     // TODO: widget.chatGroup.photoUrl,

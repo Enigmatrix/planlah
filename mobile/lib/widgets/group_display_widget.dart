@@ -24,7 +24,7 @@ class _GroupDisplayState extends State<GroupDisplay> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(() => ChatPage(chatGroup: widget.chatGroup));
+        Get.to(() => GroupChatPage(chatGroup: widget.chatGroup));
       },
       child: Container(
         padding: const EdgeInsets.only(
