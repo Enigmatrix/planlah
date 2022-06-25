@@ -13,6 +13,7 @@ type User struct {
 	Gender         string          `gorm:"not null"`
 	Town           string          `gorm:"not null"`
 	FirebaseUid    string          `gorm:"unique;not null"`
+	ImageLink      string          `gorm:"not null"`
 	Attractions    pq.Float64Array `gorm:"type:float8[]"`
 	Food           pq.Float64Array `gorm:"type:float8[]"`
 	GroupMembersAs []GroupMember
