@@ -36,16 +36,11 @@ type TokenDtoFailed struct {
 	Code    int    `json:"code" binding:"required"`
 }
 
-var instance = lazy.New[AuthService]()
+var authServiceInstance = lazy.New[AuthService]()
 
 // NewAuthService creates a new AuthService
-func NewAuthService(database *data.Database) (*AuthService, error) {
-	return instance.FallibleValue(func() (*AuthService, error) {
-		ctx := context.Background()
-		firebaseApp, err := firebase.NewApp(ctx, nil)
-		if err != nil {
-			return nil, errors.New(fmt.Sprintf("cannot init firebase app: %v", err))
-		}
+func NewAuthService(database *data.Database, firebaseApp *firebase.App) (*AuthService, error) {
+	return authServiceInstance.FallibleValue(func() (*AuthService, error) {
 		firebaseAuth, err := firebaseApp.Auth(context.Background())
 		if err != nil {
 			return nil, errors.New(fmt.Sprintf("cannot init firebase auth instance: %v", err))
