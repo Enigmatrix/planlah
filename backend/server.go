@@ -72,8 +72,6 @@ func NewServer(
 	devPanel.Register(api)
 	messages.Register(api)
 
-	srv.GET("/join/:inviteId", authMiddlewareFunc, groups.JoinByInvite)
-
 	// serve websocket in goroutine.
 	go func() {
 		if err := messages.WsServer.Serve(); err != nil {
