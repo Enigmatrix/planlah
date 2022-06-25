@@ -19,6 +19,7 @@ import 'package:mobile/services/outing.dart';
 import '../model/chat_message.dart';
 import '../model/outing_list.dart';
 import '../model/outing_steps.dart';
+import '../utils/time.dart';
 import 'CreateOutingPage.dart';
 
 class GroupChatPage extends StatefulWidget {
@@ -229,7 +230,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
               Container(
                 margin: const EdgeInsets.only(left: 5.0, top: 5.0, bottom: 5.0),
                 child: Text(
-                  message.sentAt,
+                  TimeUtil.formatForChatGroup(message.sentAt),
                   style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 12.0,
