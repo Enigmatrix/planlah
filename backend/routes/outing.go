@@ -68,6 +68,38 @@ type VoteOutingStepDto struct {
 	OutingStepID uint `json:"outingStepId" binding:"required"`
 }
 
+func ToOutingStepVoteDto(outingStepVote data.OutingStepVote) OutingStepVoteDto {
+	return OutingStepVoteDto{
+		Vote: outingStepVote.Vote,
+		// User: ToUserSummaryDto(outingStepVote.GroupMember.User),
+	}
+}
+
+func ToOutingStepVoteDtos(outingStepVotes []data.OutingStepVote) []OutingStepVoteDto {
+	return lo.Map(outingStepVotes, func(outingStepVote data.OutingStepVote, _ int) OutingStepVoteDto {
+		return ToOutingStepVoteDto(outingStepVote)
+	})
+}
+
+func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {
+	return OutingStepDto{
+		ID:           outingStep.ID,
+		Name:         outingStep.Name,
+		Description:  outingStep.Description,
+		WhereName:    outingStep.WhereName,
+		WherePoint:   outingStep.WherePoint,
+		When:         outingStep.When,
+		Votes:        ToOutingStepVoteDtos(outingStep.Votes),
+		VoteDeadline: outingStep.VoteDeadline,
+	}
+}
+
+func ToOutingStepDtos(outingSteps []data.OutingStep) []OutingStepDto {
+	return lo.Map(outingSteps, func(outingStep data.OutingStep, _ int) OutingStepDto {
+		return ToOutingStepDto(outingStep)
+	})
+}
+
 func ToOutingDto(outing data.Outing) OutingDto {
 	// TODO: Do the steps and timing
 	return OutingDto{
@@ -75,27 +107,7 @@ func ToOutingDto(outing data.Outing) OutingDto {
 		Name:        outing.Name,
 		Description: outing.Description,
 		GroupID:     outing.GroupID,
-		// TODO: Hardcode this for now
-		Steps: []OutingStepDto{
-			{
-				ID:          123,
-				Name:        "Jotham",
-				Description: "Dasdasd",
-				WhereName:   "Dasda",
-				WherePoint:  "Dasdasd",
-				When:        time.Now(),
-				Votes: []OutingStepVoteDto{
-					{
-						Vote: true,
-						User: UserSummaryDto{
-							Nickname: "What the duck am i doing with my life",
-							Name:     "Steve",
-						},
-					},
-				},
-				VoteDeadline: time.Now(),
-			},
-		},
+		Steps:       ToOutingStepDtos(outing.Steps),
 		Timing: &OutingTiming{
 			Start: time.Now(),
 			End:   time.Now(),

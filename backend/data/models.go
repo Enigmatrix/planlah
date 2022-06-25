@@ -61,6 +61,7 @@ type Outing struct {
 	Group       *Group `gorm:"foreignKey:GroupID"`
 	Name        string `gorm:"not null"`
 	Description string `gorm:"not null"`
+	Steps       []OutingStep
 }
 
 type OutingStep struct {
@@ -72,8 +73,8 @@ type OutingStep struct {
 	WhereName    string    `gorm:"not null"`
 	WherePoint   string    `gorm:"not null"` // TODO find a better type, supposed to be `point`
 	When         time.Time `gorm:"not null"`
-	Votes        []OutingStepVote
 	VoteDeadline time.Time `gorm:"not null"`
+	Votes        []OutingStepVote
 }
 
 type OutingStepVote struct {
