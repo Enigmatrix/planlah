@@ -13,7 +13,10 @@ import (
 )
 
 var depSet = wire.NewSet(
+	services.NewFirebaseApp,
 	services.NewAuthService,
+	services.NewFirebaseStorageImageService,
+	wire.Bind(new(services.ImageService), new(*services.FirebaseStorageImageService)),
 	data.NewDatabaseConnection,
 	data.NewDatabase,
 	wire.Struct(new(routes.BaseController), "*"),

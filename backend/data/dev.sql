@@ -7,9 +7,9 @@ insert into users (id, username, name, firebase_uid, gender, town, attractions, 
 insert into users (id, username, name, firebase_uid, gender, town, attractions, food) values (6, 'modi', 'Narendra Modi', 'firebaseUid6', 'Male', 'Bedok', '{0.0}', '{0.0}') ON CONFLICT DO NOTHING;
 insert into users (id, username, name, firebase_uid, gender, town, attractions, food) values (7, 'daddy_vlady', 'Vladimir Putin', 'firebaseUid7', 'Male', 'Outram', '{0.0}', '{0.0}') ON CONFLICT DO NOTHING;
 
-insert into groups (id, name, description, owner_id) values (1, 'food wars', '''make food not war'' said no one ever.', NULL) ON CONFLICT DO NOTHING;
-insert into groups (id, name, description, owner_id) values (2, 'meet to eat meet', 'MEAT ONLY NO VEGGIES MUMMY CAN''T CATCH ME', NULL) ON CONFLICT DO NOTHING;
-insert into groups (id, name, description, owner_id) values (3, 'adventurers!', 'exploring the world, united!', NULL) ON CONFLICT DO NOTHING;
+insert into groups (id, name, description, owner_id, image_link) values (1, 'food wars', '''make food not war'' said no one ever.', NULL, 'https://www.kindpng.com/picc/m/411-4117993_food-wars-shokugeki-no-soma-logo-hd-png.png') ON CONFLICT DO NOTHING;
+insert into groups (id, name, description, owner_id, image_link) values (2, 'meet to eat meet', 'MEAT ONLY NO VEGGIES MUMMY CAN''T CATCH ME', NULL, 'https://image.cnbcfm.com/api/v1/image/105914693-1557930882448olivewagyu2.jpeg?v=1558105293&w=740&h=416&ffmt=webp') ON CONFLICT DO NOTHING;
+insert into groups (id, name, description, owner_id, image_link) values (3, 'adventurers!', 'exploring the world, united!', NULL, 'https://www.looper.com/img/gallery/25-shows-like-adventure-time-you-should-watch-next/l-intro-1644627512.jpg') ON CONFLICT DO NOTHING;
 
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (1, 1, 1, NULL) ON CONFLICT DO NOTHING;
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (2, 2, 1, NULL) ON CONFLICT DO NOTHING;

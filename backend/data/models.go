@@ -22,6 +22,7 @@ type Group struct {
 	ID           uint         `gorm:"primarykey"`
 	Name         string       `gorm:"not null"`
 	Description  string       `gorm:"not null"`
+	ImageLink    string       `gorm:"not null"`
 	OwnerID      uint         // this will be null when the Group is created, then updated instantly
 	Owner        *GroupMember `gorm:"foreignKey:OwnerID"`
 	GroupMembers []GroupMember
