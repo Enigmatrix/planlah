@@ -40,7 +40,7 @@ class _GroupDisplayState extends State<GroupDisplay> {
                   children: <Widget>[
                     CircleAvatar(
                       // TODO: Figure out images
-                      backgroundImage: NetworkImage("https://media1.popsugar-assets.com/files/thumbor/0ebv7kCHr0T-_O3RfQuBoYmUg1k/475x60:1974x1559/fit-in/500x500/filters:format_auto-!!-:strip_icc-!!-/2019/09/09/023/n/1922398/9f849ffa5d76e13d154137.01128738_/i/Taylor-Swift.jpg"),
+                      backgroundImage: NetworkImage(widget.chatGroup.imageLink),
                       maxRadius: 30,
                     ),
                     const SizedBox(width: 16),

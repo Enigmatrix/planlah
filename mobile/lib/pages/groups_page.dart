@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/group.dart';
 import 'package:mobile/pages/chat_page.dart';
+import 'package:mobile/pages/create_group.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/widgets/group_display_widget.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -18,7 +19,6 @@ class GroupsPage extends StatefulWidget {
 
 class _GroupsPageState extends State<GroupsPage> {
 
-
   final groupService = Get.find<GroupService>();
 
   // Replace with actual retrieving from database in the future
@@ -29,19 +29,11 @@ class _GroupsPageState extends State<GroupsPage> {
   // What's actually displayed
   late List<ChatGroup> groups = [];
 
-  // For creating a new group
-  String createGroupName = "";
-  String createGroupDescription = "";
-  final _groupNameKey = GlobalKey<FormFieldState>();
-  final _groupDescKey = GlobalKey<FormFieldState>();
-
   @override
   initState() {
     super.initState();
-
     groupService.getGroup().then((value) {
       setState(() {
-        print(value.body!);
         allGroupDtos = value.body!;
         currentGroupDtos = allGroupDtos;
       });
@@ -121,7 +113,6 @@ class _GroupsPageState extends State<GroupsPage> {
     } else {
       results = allGroupDtos.where((group) => group.name.toLowerCase().contains(filter.toLowerCase())).toList();
     }
-
     setState(() {
       currentGroupDtos = results;
     });
@@ -131,7 +122,7 @@ class _GroupsPageState extends State<GroupsPage> {
     return InkWell(
       onTap: () {
         // Add new group here
-        buildCreateGroupDialog(context).show();
+        Get.to(() => CreateGroupPage());
       },
       child: Container(
         padding: const EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
@@ -159,99 +150,6 @@ class _GroupsPageState extends State<GroupsPage> {
             )
           ],
         ),
-      ),
-    );
-  }
-
-  AwesomeDialog buildCreateGroupDialog(BuildContext context) {
-    return AwesomeDialog(
-      context: context,
-      dialogType: DialogType.INFO,
-      borderSide: const BorderSide(
-        color: Colors.yellow,
-        width: 2
-      ),
-      width: 280,
-      buttonsBorderRadius: const BorderRadius.all(
-          Radius.circular(2.0)
-      ),
-      dismissOnTouchOutside: true,
-      dismissOnBackKeyPress: true,
-      body: Column(
-        children: <Widget>[
-          const Text(
-            "Create a new group",
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          buildCreateGroupNameTextBox(),
-          buildCreateGroupDescTextBox(),
-        ],
-      )
-    );
-  }
-
-  final textPadding = const EdgeInsets.only(
-    left: 20.0,
-    right: 20.0,
-    top: 5.0,
-    bottom: 5.0,
-  );
-
-  Widget buildCreateGroupNameTextBox() {
-    return Padding(
-      padding: textPadding,
-      child: TextFormField(
-        key: _groupNameKey,
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(),
-          labelText: "Group Name",
-        ),
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return "Please enter a description for your outing";
-          }
-          return null;
-        },
-        onChanged: (value) {
-          setState(
-                  () {
-                createGroupName = value;
-              }
-          );
-        },
-        keyboardType: TextInputType.multiline,
-        maxLines: null,
-      ),
-    );
-  }
-
-  Widget buildCreateGroupDescTextBox() {
-    return Padding(
-      padding: textPadding,
-      child: TextFormField(
-        key: _groupDescKey,
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(),
-          labelText: "Group Description",
-        ),
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return "Please enter a description for your outing";
-          }
-          return null;
-        },
-        onChanged: (value) {
-          setState(
-                  () {
-                createGroupDescription = value;
-              }
-          );
-        },
-        keyboardType: TextInputType.multiline,
-        maxLines: null,
       ),
     );
   }

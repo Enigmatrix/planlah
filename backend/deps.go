@@ -25,6 +25,7 @@ var depSet = wire.NewSet(
 	wire.Struct(new(routes.DevPanelController), "*"),
 	wire.Struct(new(routes.MessageController), "*"),
 	wire.Struct(new(routes.MiscController), "*"),
+	wire.Struct(new(routes.OutingController), "*"),
 	NewServer,
 	utils.NewConfig,
 )

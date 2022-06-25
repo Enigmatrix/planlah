@@ -88,7 +88,7 @@ func ToOutingDto(outing data.Outing) OutingDto {
 					{
 						Vote: true,
 						User: UserSummaryDto{
-							Nickname: "What the duck am i doing with my life",
+							Username: "What the duck am i doing with my life",
 							Name:     "Steve",
 						},
 					},
