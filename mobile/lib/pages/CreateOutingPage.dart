@@ -32,6 +32,8 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
   final _nameKey = GlobalKey<FormFieldState>();
   final _descKey = GlobalKey<FormFieldState>();
 
+  late OutingDto outing;
+
   final textPadding = const EdgeInsets.only(
     left: 20.0,
     right: 20.0,
@@ -151,12 +153,14 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
   }
 
   void createOuting() async {
+
     await outingService.create(CreateOutingDto(
       _outing_name,
       _outing_desc,
       widget.groupId
     ));
     // TODO: Retrieve the outing
-    Get.off(OutingPage(outing: Outing.getOuting()));
+    outing = Outing.getOuting();
+    Get.off(OutingPage(outing: outing));
   }
 }

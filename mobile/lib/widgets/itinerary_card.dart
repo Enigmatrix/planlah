@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:mobile/model/outing_steps.dart';
 
+import '../dto/outing.dart';
+
 class ItineraryCard extends StatefulWidget {
-  OutingStep outingStep;
+  OutingStepDto outingStep;
 
   ItineraryCard({
     Key? key,
@@ -31,7 +33,8 @@ class _ItineraryCardState extends State<ItineraryCard> {
                 child: Column(
                   children: <Widget>[
                     Text(widget.outingStep.name),
-                    Image.network(widget.outingStep.imageUrl)
+                    // TODO: Temporary
+                    Image.network("https://cdn.britannica.com/86/182086-050-5FB81069/singer-Taylor-swift-2013.jpg")
                   ],
                 ),
               )
@@ -45,8 +48,9 @@ class _ItineraryCardState extends State<ItineraryCard> {
                 const Icon(
                     Icons.near_me
                 ),
-                Text(
-                    "${widget.outingStep.estimatedTime} from previous"
+                // TODO: Temporary
+                const Text(
+                    "5 morbins from previous"
                 )
               ],
             ),

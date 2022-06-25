@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/dto/outing.dart';
 import 'package:mobile/main.dart';
 import 'package:mobile/model/chat_group.dart';
 import 'package:mobile/widgets/itinerary_card.dart';
@@ -10,7 +11,7 @@ import '../model/outing_steps.dart';
 /// Displays the current outing
 
 class OutingPage extends StatefulWidget {
-  Outing outing;
+  OutingDto outing;
 
   OutingPage({
     Key? key,
@@ -34,9 +35,9 @@ class _OutingPageState extends State<OutingPage> {
         ),
       ),
       body: Timeline.builder(
-        itemCount: widget.outing.size() + 1,
+        itemCount: widget.outing.getSize() + 1,
         itemBuilder: (BuildContext context, int index) {
-          if (index == widget.outing.size()) {
+          if (index == widget.outing.getSize()) {
             return buildVotingCard();
           } else {
             return buildTimelineTile(index);
@@ -79,7 +80,7 @@ class _OutingPageState extends State<OutingPage> {
       node: TimelineNode(
         indicator: Container(
           decoration: BoxDecoration(
-              border: (index == widget.outing.currentOuting)
+              border: (index == widget.outing.getCurrentOuting())
                   ? Border.all(color: Colors.redAccent.shade700)
                   : Border.all(color: Colors.blueAccent.shade100)
           ),
@@ -104,7 +105,7 @@ class _OutingPageState extends State<OutingPage> {
   Widget? getStartConnector(int index) {
     if (index == 0) {
       return null;
-    } else if (index <= widget.outing.currentOuting) {
+    } else if (index <= widget.outing.getCurrentOuting()) {
       return const DashedLineConnector();
     } else {
       return const SolidLineConnector();
@@ -112,16 +113,16 @@ class _OutingPageState extends State<OutingPage> {
   }
 
   Widget? getEndConnector(int index) {
-    if (index >= widget.outing.size() - 1) {
+    if (index >= widget.outing.getCurrentOuting()) {
       return null;
-    } else if (index < widget.outing.currentOuting) {
+    } else if (index < widget.outing.getCurrentOuting()) {
       return const DashedLineConnector();
     } else {
       return const SolidLineConnector();
     }
   }
   
-  String formatTime(OutingStep outingStep) {
-    return "${outingStep.whenTimeStart} - ${outingStep.whenTimeEnd}";
+  String formatTime(OutingStepDto outingStep) {
+    return "${outingStep.when} - ${outingStep.voteDeadline}";
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/pages/outing_page.dart';
 
 import '../dto/outing.dart';
+import 'package:get/get.dart';
 
 class ViewAllOutingsPage extends StatefulWidget {
 
@@ -19,9 +21,26 @@ class _ViewAllOutingsPageState extends State<ViewAllOutingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-          itemCount: widget.pastOutings.length,
-          itemBuilder: buildOutingCard
+      body: Column(
+        children: <Widget>[
+          Image.asset("assets/undraw_moments_0y20.png"),
+          const Text(
+            "View your past outings!",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30.0,
+            ),
+          ),
+          const Text(
+            "Click on any card to relieve your memories"
+          ),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: widget.pastOutings.length,
+                  itemBuilder: buildOutingCard
+              ),
+          ),
+        ],
       ),
     );
   }
@@ -29,8 +48,13 @@ class _ViewAllOutingsPageState extends State<ViewAllOutingsPage> {
   Widget buildOutingCard(BuildContext context, int id) {
     OutingDto outingDto = widget.pastOutings[id];
     // TODO: Only a temporary way to display the different outings
-    return Card(
-      child: Text(outingDto.name),
+    return InkWell(
+      onTap: () {
+        Get.to(() => OutingPage(outing: outingDto));
+      },
+      child: Card(
+        child: Text(outingDto.name),
+      ),
     );
   }
 }

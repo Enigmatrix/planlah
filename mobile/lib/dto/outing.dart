@@ -95,4 +95,18 @@ class OutingDto {
          groupId = json["groupId"],
          outingStepDto = OutingStepDto.fromJsonToList(json["steps"]),
          outingTimingDto = OutingTimingDto.fromJson(json["timing"]);
+
+  int getSize() {
+    return outingStepDto.length;
+  }
+
+  int getCurrentOuting() {
+    return getSize() - 1;
+  }
+
+  OutingStepDto getOutingStep(int index) {
+    return outingStepDto[index];
+  }
+
+
 }
