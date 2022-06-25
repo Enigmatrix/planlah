@@ -36,6 +36,7 @@ class _GroupsPageState extends State<GroupsPage> {
       setState(() {
         allGroupDtos = value.body!;
         currentGroupDtos = allGroupDtos;
+        _runFilter("");
       });
     });
     // groups = allGroups;
@@ -114,6 +115,21 @@ class _GroupsPageState extends State<GroupsPage> {
       results = allGroupDtos.where((group) => group.name.toLowerCase().contains(filter.toLowerCase())).toList();
     }
     setState(() {
+      results.sort((g1, g2) {
+        // Handle null ties by name
+        if (g1.lastSeenMessage == null && g2.lastSeenMessage == null) {
+          return g1.name.compareTo(g2.name);
+        }
+        // Any group that is null is automatically after
+        if (g1.lastSeenMessage == null) {
+          return 1;
+        }
+        if (g2.lastSeenMessage == null) {
+          return -1;
+        }
+        // Else handle by datetime
+        return DateTime.parse(g1.lastSeenMessage!.sentAt).difference(DateTime.parse(g2.lastSeenMessage!.sentAt)).inSeconds;
+      });
       currentGroupDtos = results;
     });
   }
