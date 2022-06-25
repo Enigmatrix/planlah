@@ -128,7 +128,7 @@ class _GroupsPageState extends State<GroupsPage> {
           return -1;
         }
         // Else handle by datetime
-        return DateTime.parse(g1.lastSeenMessage!.sentAt).difference(DateTime.parse(g2.lastSeenMessage!.sentAt)).inSeconds;
+        return DateTime.parse(g2.lastSeenMessage!.sentAt).difference(DateTime.parse(g1.lastSeenMessage!.sentAt)).inSeconds;
       });
       currentGroupDtos = results;
     });
