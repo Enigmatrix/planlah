@@ -197,8 +197,8 @@ func (controller GroupsController) GetInvites(ctx *gin.Context) {
 // @Description Create a new Group given a `CreateGroupDto`.
 // @Param form formData CreateGroupDto true "Details of newly created group"
 // @Param        image  formData  file  true  "Group Image"
-// @Tags Group
 // @Accept       multipart/form-data
+// @Tags Group
 // @Security JWT
 // @Success 200 {object} GroupSummaryDto
 // @Failure 400 {object} ErrorMessage
@@ -218,12 +218,12 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 	// maybe only allow upto a certain file size in meta (_ in below line)
 	file, _, err := ctx.Request.FormFile("image")
 
-	imageUrl := controller.ImageService.UploadGroupImage(file)
-
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, NewErrorMessage("image file field missing"))
 		return
 	}
+
+	imageUrl := controller.ImageService.UploadGroupImage(file)
 
 	group := data.Group{
 		Name:        createGroupDto.Name,
