@@ -1,11 +1,15 @@
 package routes
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	"github.com/samber/lo"
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/utils"
+	"time"
 )
 
 type GroupsController struct {
@@ -23,6 +27,166 @@ type GroupSummaryDto struct {
 	Description         string      `json:"description" binding:"required"`
 	LastSeenMessage     *MessageDto `json:"lastSeenMessage"`
 	UnreadMessagesCount uint        `json:"unreadMessagesCount" binding:"required"`
+}
+
+type GroupInviteDto struct {
+	ID      string     `json:"id" binding:"required,uuid"`
+	GroupID uint       `json:"groupId" binding:"required"`
+	Url     string     `json:"url" binding:"required"`
+	Expiry  *time.Time `json:"expiry"` // TODO add comment about null expiry
+}
+
+type GetGroupInvitesDto struct {
+	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
+}
+
+type CreateGroupInviteDto struct {
+	ExpiryOption string `json:"expiryOption" binding:"required"` // TODO make this an enum
+	GroupID      uint   `form:"groupId" json:"groupId" binding:"required"`
+}
+
+type InvalidateGroupInviteDto struct {
+	InviteID string `json:"inviteId" binding:"required,uuid"`
+}
+
+type JoinGroupInviteDto struct {
+	InviteID string `uri:"inviteId" json:"inviteId" binding:"required,uuid"`
+}
+
+type ExpiryOption string
+
+const (
+	OneHour ExpiryOption = "oneHour"
+	OneDay               = "oneDay"
+	Never                = "never"
+)
+
+func ToGroupInviteDto(invite data.GroupInvite, config *utils.Config) GroupInviteDto {
+	return GroupInviteDto{
+		ID:      invite.ID.String(),
+		GroupID: invite.GroupID,
+		Url:     fmt.Sprintf("%s/join/%s", config.BaseUrl, invite.ID.String()),
+		Expiry:  invite.Expiry,
+	}
+}
+
+// CreateInvite godoc
+// @Summary Create an invitation link for a Group
+// @Description Create an invitation link for a Group that expires after a certain period
+// @Param body body CreateGroupInviteDto true "Details of expiring invitation link"
+// @Tags Group
+// @Security JWT
+// @Success 200 {object} GroupInviteDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/groups/invites/create [post]
+func (controller GroupsController) CreateInvite(ctx *gin.Context) {
+	var createGroupInviteDto CreateGroupInviteDto
+	if err := Body(ctx, &createGroupInviteDto); err != nil {
+		return
+	}
+
+	_, err := controller.AuthGroupMember(ctx, createGroupInviteDto.GroupID)
+	if err != nil {
+		return
+	}
+
+	var expiry *time.Time
+
+	switch ExpiryOption(createGroupInviteDto.ExpiryOption) {
+	case OneHour:
+		t := time.Now().Add(time.Hour)
+		expiry = &t
+	case OneDay:
+		t := time.Now().Add(time.Hour * 24)
+		expiry = &t
+	case Never:
+		expiry = nil
+	default:
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage("invalid expiryOption"))
+		return
+	}
+
+	invite := data.GroupInvite{
+		Expiry:  expiry,
+		GroupID: createGroupInviteDto.GroupID,
+		Active:  true,
+	}
+
+	err = controller.Database.CreateGroupInvite(&invite)
+
+	if err != nil {
+		log.Print(err)
+		ctx.Status(http.StatusBadRequest)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, ToGroupInviteDto(invite, controller.Config))
+}
+
+// InvalidateInvite godoc
+// @Summary Invalidates an invitation
+// @Description Invalidates an invitation so that no one else can join
+// @Param body body InvalidateGroupInviteDto true "Details of invite to invalidate"
+// @Tags Group
+// @Security JWT
+// @Success 200
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/groups/invites/invalidate [put]
+func (controller GroupsController) InvalidateInvite(ctx *gin.Context) {
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
+
+	var invalidateGroupInviteDto InvalidateGroupInviteDto
+	if err := Body(ctx, &invalidateGroupInviteDto); err != nil {
+		return
+	}
+
+	// This will definitely pass, since we have a validator checking
+	// the UUID format
+	inviteId := uuid.MustParse(invalidateGroupInviteDto.InviteID)
+
+	err = controller.Database.InvalidateInvite(userId, inviteId)
+	if err != nil {
+		log.Print(err)
+		ctx.Status(http.StatusBadRequest)
+		return
+	}
+
+	ctx.Status(http.StatusOK)
+}
+
+// GetInvites godoc
+// @Summary Gets all active invites
+// @Description Gets all invites that are not expired
+// @Param query query GetGroupInvitesDto true "body"
+// @Tags Group
+// @Security JWT
+// @Success 200 {object} []GroupInviteDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/groups/invites [get]
+func (controller GroupsController) GetInvites(ctx *gin.Context) {
+	var getGroupInvitesDto GetGroupInvitesDto
+	if err := Query(ctx, &getGroupInvitesDto); err != nil {
+		return
+	}
+
+	_, err := controller.AuthGroupMember(ctx, getGroupInvitesDto.GroupID)
+	if err != nil {
+		return
+	}
+
+	invites := controller.Database.GetGroupInvites(getGroupInvitesDto.GroupID)
+
+	inviteDtos := lo.Map(invites, func(invite data.GroupInvite, i int) GroupInviteDto {
+		return ToGroupInviteDto(invite, controller.Config)
+	})
+
+	ctx.JSON(http.StatusOK, inviteDtos)
 }
 
 // Create godoc
@@ -122,9 +286,45 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, dtos)
 }
 
+// JoinByInvite godoc
+// @Summary Join a group
+// @Description Join a group using this invite link
+// @Param        inviteId   path      string  true  "InviteID (UUID)"
+// @Tags Group
+// @Security JWT
+// @Success 200
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/groups/join/{inviteId} [get]
+func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
+	userId, err := controller.AuthUserId(ctx)
+	if err != nil {
+		return
+	}
+	var joinGroupInviteDto JoinGroupInviteDto
+	if err := Uri(ctx, &joinGroupInviteDto); err != nil {
+		return
+	}
+
+	// This will definitely pass, since we have a validator checking
+	// the UUID format
+	inviteId := uuid.MustParse(joinGroupInviteDto.InviteID)
+
+	err = controller.Database.JoinByInvite(userId, inviteId)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+		return
+	}
+	ctx.Status(http.StatusOK)
+}
+
 // Register the routes for this controller
 func (controller GroupsController) Register(router *gin.RouterGroup) {
 	group := router.Group("groups")
 	group.POST("create", controller.Create)
 	group.GET("all", controller.GetAll)
+	group.GET("invites", controller.GetInvites)
+	group.PUT("invites/invalidate", controller.InvalidateInvite)
+	group.POST("invites/create", controller.CreateInvite)
+	group.GET("join/:inviteId", controller.JoinByInvite)
 }

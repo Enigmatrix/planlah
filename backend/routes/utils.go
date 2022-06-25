@@ -28,6 +28,17 @@ func Body[T any](ctx *gin.Context, dto *T) error {
 	return processValidationError[T](ctx, err)
 }
 
+// Uri binds the uri of the request to the DTO, and gives a
+// descriptive error back for debugging purposes
+func Uri[T any](ctx *gin.Context, dto *T) error {
+	err := ctx.ShouldBindUri(&dto)
+	if err == nil {
+		return nil
+	}
+
+	return processValidationError[T](ctx, err)
+}
+
 // Query binds the query parameters of the request to the DTO, and gives a
 // descriptive error back for debugging purposes
 func Query[T any](ctx *gin.Context, dto *T) error {

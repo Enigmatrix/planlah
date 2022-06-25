@@ -60,12 +60,14 @@ func NewServer(
 		return nil, errors.New(fmt.Sprintf("initialize JWT middleware: %v", err))
 	}
 
+	authMiddlewareFunc := authMiddleware.MiddlewareFunc()
+
 	unauthapi := srv.Group("api")
 	misc.Register(unauthapi)
 
 	api := srv.Group("api")
 	// protect all routes using JWT middleware
-	api.Use(authMiddleware.MiddlewareFunc())
+	api.Use(authMiddlewareFunc)
 	users.Register(api)
 	groups.Register(api)
 	devPanel.Register(api)

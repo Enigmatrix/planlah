@@ -10,6 +10,7 @@ type Config struct {
 	DatabaseUser     string
 	DatabaseHost     string
 	DatabasePassword string
+	BaseUrl          string
 }
 
 type AppMode string
@@ -38,6 +39,7 @@ func NewConfig() (*Config, error) {
 			DatabaseUser:     getConfigOrThrow("DB_USER", "Please set DB_USER environment var."),
 			DatabaseHost:     getConfigOrThrow("DB_HOST", "Please set DB_HOST environment var."),
 			DatabasePassword: getConfigOrThrow("DB_PASSWORD", "Please set DB_PASSWORD environment var."),
+			BaseUrl:          getConfigOrThrow("BASE_URL", "Please set BASE_URL environment var."),
 		}, nil
 	})
 }

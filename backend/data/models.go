@@ -1,6 +1,7 @@
 package data
 
 import (
+	"github.com/google/uuid"
 	"github.com/lib/pq"
 	"time"
 )
@@ -25,6 +26,14 @@ type Group struct {
 	Owner        *GroupMember `gorm:"foreignKey:OwnerID"`
 	GroupMembers []GroupMember
 	Outings      []Outing
+}
+
+type GroupInvite struct {
+	ID      uuid.UUID `gorm:"type:uuid; primary_key; default:gen_random_uuid()"`
+	Expiry  *time.Time
+	Active  bool   `gorm:"not null"`
+	GroupID uint   `gorm:"not null"`
+	Group   *Group `gorm:"foreignKey:GroupID"`
 }
 
 // GroupMember TODO: (UserID, GroupID) should be made unique
