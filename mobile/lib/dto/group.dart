@@ -16,3 +16,15 @@ class GroupSummaryDto {
         'name': name
     };
 }
+
+class CreateGroupDto {
+    String name;
+    String description;
+
+    CreateGroupDto(this.name, this.description);
+
+    Map<String, dynamic> toJson() => {
+        "name": name,
+        "description": description
+    };
+}
