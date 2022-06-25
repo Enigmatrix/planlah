@@ -116,7 +116,7 @@ func (controller *UserController) Create(ctx *gin.Context) {
 // @Success 200 {object} UserSummaryDto
 // @Failure 401 {object} ErrorMessage
 // @Router /api/users/me/info [get]
-func (controller UserController) GetInfo(ctx *gin.Context) {
+func (controller *UserController) GetInfo(ctx *gin.Context) {
 	userId, err := controller.AuthUserId(ctx)
 	if err != nil {
 		return
@@ -173,7 +173,7 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 }
 
 // Register the routes for this controller
-func (controller UserController) Register(router *gin.RouterGroup) {
+func (controller *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	users.GET("me/info", controller.GetInfo)
 }
