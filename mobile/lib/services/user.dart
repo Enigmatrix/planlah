@@ -7,5 +7,8 @@ class UserService extends BaseConnect {
   Future<Response<UserInfo?>> getInfo() async => await get<UserInfo?>('/users/me/info', decoder: decoderFor<UserInfo>((m) {
     return UserInfo(name: m["name"] ?? "empty name", imageUrl: m["imageUrl"] ?? "empty url");
   }));
-  Future<Response<void>> create(CreateUserDto dto) async => await post<void>('/users/create', dto.toJson());
+  Future<Response<void>> create(CreateUserDto dto) async {
+    final formData = FormData(dto.toJson());
+    return await post<void>('/users/create', formData);
+  }
 }

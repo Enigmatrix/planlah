@@ -3,6 +3,7 @@ package routes
 import (
 	"errors"
 	"net/http"
+	"planlah.sg/backend/services"
 
 	"github.com/gin-gonic/gin"
 	"github.com/lib/pq"
@@ -12,27 +13,39 @@ import (
 
 type UserController struct {
 	BaseController
+	ImageService services.ImageService
 }
 
 type UserSummaryDto struct {
-	Nickname string `json:"nickname" binding:"required"`
-	Name     string `json:"name" binding:"required"`
+	Username  string `json:"username" binding:"required"`
+	Name      string `json:"name" binding:"required"`
+	ImageLink string `json:"imageLink" binding:"required"`
 }
 
 type CreateUserDto struct {
-	Name          string   `json:"name" binding:"required"`
-	Username      string   `json:"username" binding:"required"`
-	Gender        string   `json:"gender" binding:"required"`
-	Town          string   `json:"town" binding:"required"`
-	FirebaseToken string   `json:"firebaseToken" binding:"required"`
-	Attractions   []string `json:"attractions" binding:"required"`
-	Food          []string `json:"food" binding:"required"`
+	Name          string   `form:"name" binding:"required"`
+	Username      string   `form:"username" binding:"required"`
+	Gender        string   `form:"gender" binding:"required"`
+	Town          string   `form:"town" binding:"required"`
+	FirebaseToken string   `form:"firebaseToken" binding:"required"`
+	Attractions   []string `form:"attractions" binding:"required"`
+	Food          []string `form:"food" binding:"required"`
+}
+
+func ToUserSummaryDto(user *data.User) UserSummaryDto {
+	return UserSummaryDto{
+		Username:  user.Username,
+		Name:      user.Name,
+		ImageLink: user.ImageLink,
+	}
 }
 
 // Create godoc
 // @Summary Create a new User
 // @Description Create a new User given a `CreateUserDto`.
-// @Param body body CreateUserDto true "Details of newly created user"
+// @Param form formData CreateUserDto true "Details of newly created user"
+// @Param        image  formData  file  true  "User Image"
+// @Accept       multipart/form-data
 // @Tags User
 // @Success 200
 // @Failure 400 {object} ErrorMessage
@@ -40,9 +53,19 @@ type CreateUserDto struct {
 // @Router /api/users/create [post]
 func (controller *UserController) Create(ctx *gin.Context) {
 	var createUserDto CreateUserDto
-	if err := Body(ctx, &createUserDto); err != nil {
+	if err := Form(ctx, &createUserDto); err != nil {
 		return
 	}
+
+	// maybe only allow upto a certain file size in meta (_ in below line)
+	file, _, err := ctx.Request.FormFile("image")
+
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage("image file field missing"))
+		return
+	}
+
+	imageUrl := controller.ImageService.UploadUserImage(file)
 
 	firebaseUid, err := controller.Auth.GetFirebaseUid(createUserDto.FirebaseToken)
 	if err != nil {
@@ -71,6 +94,7 @@ func (controller *UserController) Create(ctx *gin.Context) {
 		Gender:      createUserDto.Gender,
 		Town:        createUserDto.Town,
 		FirebaseUid: *firebaseUid,
+		ImageLink:   imageUrl,
 		Attractions: attractionVector,
 		Food:        foodVector,
 	}
@@ -92,17 +116,14 @@ func (controller *UserController) Create(ctx *gin.Context) {
 // @Success 200 {object} UserSummaryDto
 // @Failure 401 {object} ErrorMessage
 // @Router /api/users/me/info [get]
-func (controller UserController) GetInfo(ctx *gin.Context) {
+func (controller *UserController) GetInfo(ctx *gin.Context) {
 	userId, err := controller.AuthUserId(ctx)
 	if err != nil {
 		return
 	}
 
 	user := controller.Database.GetUser(userId)
-	ctx.JSON(http.StatusOK, &UserSummaryDto{
-		Nickname: user.Username,
-		Name:     user.Name,
-	})
+	ctx.JSON(http.StatusOK, ToUserSummaryDto(user))
 }
 
 // TODO: To think of better ways to do this. For now its very simple 1/n standardization
@@ -152,7 +173,7 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 }
 
 // Register the routes for this controller
-func (controller UserController) Register(router *gin.RouterGroup) {
+func (controller *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	users.GET("me/info", controller.GetInfo)
 }
