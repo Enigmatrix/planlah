@@ -44,11 +44,16 @@ class _GroupChatPageState extends State<GroupChatPage> {
   @override
   void initState() {
     super.initState();
-    messageService.getMessages(widget.chatGroup.id)
+    updateMessages();
+  }
+
+  void updateMessages() async {
+    Response<List<MessageDto>?> temp;
+    await messageService.getMessages(widget.chatGroup.id)
       .then((value) {
-      setState(() {
-        messages = value.body!;
-      });
+        setState(() {
+          messages = value.body!;
+        });
     });
   }
 
@@ -306,6 +311,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   void sendMessage(String message) async {
     await messageService.sendMessage(SendMessageDto(message, widget.chatGroup.id));
+    updateMessages();
   }
 
 
