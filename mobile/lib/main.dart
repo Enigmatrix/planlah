@@ -14,6 +14,7 @@ import 'package:mobile/pages/sign_up.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile/services/config.dart';
+import 'package:mobile/services/dev_panel.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/message.dart';
 import 'package:mobile/services/misc.dart';

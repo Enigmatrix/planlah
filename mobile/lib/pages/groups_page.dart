@@ -1,14 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/group.dart';
+import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/chat_page.dart';
 import 'package:mobile/pages/create_group.dart';
 import 'package:mobile/services/group.dart';
+import 'package:mobile/services/user.dart';
 import 'package:mobile/widgets/group_display_widget.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
 import '../model/chat_group.dart';
+import '../model/user.dart';
 
 class GroupsPage extends StatefulWidget {
   const GroupsPage({Key? key}) : super(key: key);
@@ -20,6 +25,7 @@ class GroupsPage extends StatefulWidget {
 class _GroupsPageState extends State<GroupsPage> {
 
   final groupService = Get.find<GroupService>();
+  final userService = Get.find<UserService>();
 
   // Replace with actual retrieving from database in the future
   // The list of all groups by which we filter on
@@ -28,18 +34,34 @@ class _GroupsPageState extends State<GroupsPage> {
   late List<ChatGroup> allGroups = [];
   // What's actually displayed
   late List<ChatGroup> groups = [];
+  // Used to pass into the chat groups
+  late UserInfo userInfo;
+
+  // Update the groups
+  late Timer timer;
 
   @override
   initState() {
     super.initState();
+    updateGroups();
+    userService.getInfo().then((value) {
+      setState(() {
+        userInfo = value.body!;
+      });
+    });
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      updateGroups();
+    });
+    // groups = allGroups;
+  }
+
+  void updateGroups() {
     groupService.getGroup().then((value) {
       setState(() {
         allGroupDtos = value.body!;
         currentGroupDtos = allGroupDtos;
-        _runFilter("");
       });
     });
-    // groups = allGroups;
   }
 
   @override
@@ -138,7 +160,7 @@ class _GroupsPageState extends State<GroupsPage> {
     return InkWell(
       onTap: () {
         // Add new group here
-        Get.to(() => CreateGroupPage());
+        Get.to(() => const CreateGroupPage());
       },
       child: Container(
         padding: const EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
@@ -179,7 +201,8 @@ class _GroupsPageState extends State<GroupsPage> {
       itemBuilder: (context, index) {
         // To add page to redirect to
         return GroupDisplay(
-            chatGroup: groups[index],
+          chatGroup: groups[index],
+          userInfo: userInfo,
         );
       },
     );

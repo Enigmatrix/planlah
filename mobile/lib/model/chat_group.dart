@@ -27,26 +27,6 @@ class ChatGroup {
       required this.messages,
   });
 
-  GroupInfo getGroupInfo() {
-    // This should be legit.
-    return GroupInfo(
-        owner: UserInfo(
-            name: "Bruno Mars",
-            imageUrl: "https://www.biography.com/.image/c_fill%2Ccs_srgb%2Cfl_progressive%2Ch_400%2Cq_auto:good%2Cw_620/MTg4NTc2ODg1MjEzNTA1MTQw/gettyimages-134315104.jpg"
-        ),
-        members: <UserInfo>[
-          UserInfo(
-              name: "Sasha Obama",
-              imageUrl: "https://media.allure.com/photos/5aeb12dfbf1d634fcf6f718e/1:1/w_3455,h_3455,c_limit/SWNS_SASHA_OBAMA_14.jpg"
-          )
-        ],
-        currentLocation: LocationInfo(
-            name: "Pyongyang City",
-            imageUrl: "https://cms.qz.com/wp-content/uploads/2018/05/north-korea-leader-kim-jong-un-in-pyongyang-e1527666918109.jpg?quality=75&strip=all&w=1600&h=900&crop=1"
-        )
-    );
-  }
-
   static ChatGroup fromJson(json) => ChatGroup(
       groupId: json["groupId"],
       groupName: json["groupName"],

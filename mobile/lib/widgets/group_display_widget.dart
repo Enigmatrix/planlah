@@ -6,15 +6,18 @@ import 'package:mobile/pages/chat_page.dart';
 import 'package:mobile/utils/time.dart';
 
 import '../model/chat_group.dart';
+import '../model/user.dart';
 
 
 class GroupDisplay extends StatefulWidget {
   GroupSummaryDto chatGroup;
+  UserInfo userInfo;
   // ChatGroup chatGroup;
 
   GroupDisplay({
     Key? key,
     required this.chatGroup,
+    required this.userInfo,
   }) : super(key: key);
 
   @override
@@ -26,7 +29,10 @@ class _GroupDisplayState extends State<GroupDisplay> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(() => GroupChatPage(chatGroup: widget.chatGroup));
+        Get.to(() => GroupChatPage(
+          chatGroup: widget.chatGroup,
+          userInfo: widget.userInfo,
+        ));
       },
       child: Container(
         padding: const EdgeInsets.only(

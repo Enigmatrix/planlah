@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:mobile/dto/group.dart';
+import 'package:mobile/pages/groups_page.dart';
 
 import 'package:mobile/services/group.dart';
 
@@ -32,17 +33,21 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Create a new group",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Image.asset(
-              "assets/undraw_Lives_matter_38lv.png"
-            ),
-            const Text(
-              "Create a new group",
-              style: TextStyle(
-                fontWeight: FontWeight.bold
-              ),
+              "assets/create_group.png"
+              // "assets/undraw_Lives_matter_38lv.png"
             ),
             buildCreateGroupNameTextBox(),
             buildCreateGroupDescTextBox(),
@@ -57,12 +62,6 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
   void createGroup() async {
     var response = await groupService.createGroup(CreateGroupDto(createGroupName, createGroupDescription, _imageBytes));
     if (response.isOk) {
-      await Get.snackbar(
-          "Group successfully created",
-          "",
-          backgroundColor: Colors.black,
-          snackPosition: SnackPosition.BOTTOM
-      ).show();
       Get.back(closeOverlays: true);
     } else {
       Get.snackbar(

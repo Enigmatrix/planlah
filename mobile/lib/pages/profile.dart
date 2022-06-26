@@ -37,6 +37,7 @@ class ProfilePage extends StatelessWidget {
               ReviewInfo(
                 user: UserInfo(
                     name: "Maya Hawke",
+                    username: "Maya Hawke",
                     imageUrl: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTnmEUzQenIPa5WMSBlVKq2e3R7bEpP656X9XmE6hxfl7DBdZQ0"
                 ),
                 content: "Nice ambience, well presented food and friendly service. Service staff makes good food recommendations and every dish was tasty! This restaurant is unique, not the typical Cantonese restaurant. Highly recommended.",
