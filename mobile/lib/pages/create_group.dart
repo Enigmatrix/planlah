@@ -17,7 +17,7 @@ import '../model/user.dart';
 class CreateGroupPage extends StatefulWidget {
   UserInfo userInfo;
 
-  const CreateGroupPage({
+  CreateGroupPage({
     Key? key,
     required this.userInfo
   }) : super(key: key);
