@@ -7,6 +7,7 @@ import (
 	firebase "firebase.google.com/go/v4"
 	"firebase.google.com/go/v4/storage"
 	"fmt"
+	"github.com/codedius/imagekit-go"
 	"github.com/google/uuid"
 	"io"
 	"log"
@@ -76,4 +77,50 @@ func (svc *FirebaseStorageImageService) UploadGroupImage(imgReader io.Reader) st
 
 func (svc *FirebaseStorageImageService) UploadUserImage(imgReader io.Reader) string {
 	return svc.uploadImage(imgReader, fmt.Sprintf("users/%s", uuid.New().String()))
+}
+
+func NewImageKitImageService(config *lazy.Config) (*ImageKitImageService, error) {
+	opts := imagekit.Options{
+		PublicKey:  config.ImageKitPublicKey,
+		PrivateKey: config.ImageKitPrivateKey,
+	}
+	ik, err := imagekit.NewClient(&opts)
+	if err != nil {
+		return nil, fmt.Errorf("cannot init image kit service: %v", err)
+	}
+	return &ImageKitImageService{ImageKit: ik}, nil
+}
+
+type ImageKitImageService struct {
+	ImageKit *imagekit.Client
+}
+
+func (svc *ImageKitImageService) uploadImage(reader io.Reader, folder string) string {
+	bytes, err := io.ReadAll(reader)
+	if err != nil {
+		log.Fatalf("error reading image bytes: %v", err)
+	}
+	req := imagekit.UploadRequest{
+		File:              bytes,
+		FileName:          uuid.New().String(),
+		UseUniqueFileName: true,
+		Folder:            folder,
+		IsPrivateFile:     false,
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
+	defer cancel()
+
+	upr, err := svc.ImageKit.Upload.ServerUpload(ctx, &req)
+	if err != nil {
+		log.Fatalf("error uploading image (%s): %v", folder, err)
+	}
+	return upr.URL
+}
+
+func (svc *ImageKitImageService) UploadGroupImage(imgReader io.Reader) string {
+	return svc.uploadImage(imgReader, "groups")
+}
+
+func (svc *ImageKitImageService) UploadUserImage(imgReader io.Reader) string {
+	return svc.uploadImage(imgReader, "users")
 }
