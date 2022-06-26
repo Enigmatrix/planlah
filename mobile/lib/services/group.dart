@@ -18,6 +18,4 @@ class GroupService extends BaseConnect {
   }
 
   Future<Response<GroupSummaryDto?>> joinByInvite(String inviteId) async => await get('/groups/join/$inviteId', decoder: decoderFor(GroupSummaryDto.fromJson));
-
-
 }

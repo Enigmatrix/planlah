@@ -8,6 +8,19 @@ class TimeUtil {
     return "${DateFormat("yyyy-MM-ddTHH:mm:ss").format(now)}Z";
   }
 
+  /// Formats a DateTime.now() string into the format required for go
+  static String formatForDto(String timeString) {
+    // Format: 2022-06-26T16:14:17.325Z
+    List<String> times = timeString.split(" ");
+    if (times.isNotEmpty && times.length == 2) {
+      String date = times.elementAt(0);
+      String time = times.elementAt(1);
+      return "${date}T${time}Z";
+    } else {
+      throw ArgumentError.value("TimeString is not correct format");
+    }
+  }
+
   // These functions assumes the string is sent from a DTO that has properly
   // formatted it
 

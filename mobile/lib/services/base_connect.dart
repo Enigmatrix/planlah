@@ -14,8 +14,13 @@ class BaseConnect extends GetConnect {
   Decoder<T?> decoderFor<T>(T Function(Map<String, dynamic>) from) {
     return (data) {
       if (checkAuthenticationError(data)) return null;
-      var map = Map<String, dynamic>.from(data);
-      return from(map);
+
+      if (data == null) {
+        return null;
+      } else {
+        var map = Map<String, dynamic>.from(data);
+        return from(map);
+      }
     };
   }
 

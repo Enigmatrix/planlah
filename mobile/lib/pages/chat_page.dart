@@ -36,10 +36,15 @@ class GroupChatPage extends StatefulWidget {
 
 class _GroupChatPageState extends State<GroupChatPage> {
 
+  // Services
   final messageService = Get.find<MessageService>();
   final outingService = Get.find<OutingService>();
 
+  // Messages sent in the group
   late var messages = <MessageDto>[];
+  // Check if group is currently in an outing
+  OutingDto? activeOuting;
+  // List of previous outings that the group has been in
   late var outings = <OutingDto>[];
 
   @override
@@ -90,15 +95,18 @@ class _GroupChatPageState extends State<GroupChatPage> {
           ),
         ),
         IconButton(
-            onPressed: () {
-              // TODO: Itinerary
-              Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
-              // if (widget.chatGroup.getGroupInfo().isInOuting()) {
-              //   // Display currently itinerary
-              //   Get.to(() => OutingPage(outing: Outing.getOuting()));
-              // } else {
-              //   Get.to(() => CreateOutingPage());
-              // }
+            onPressed: () async {
+              var response = await outingService.getActiveOuting(GetActiveOutingDto(widget.chatGroup.id));
+              if (response.isOk) {
+                activeOuting = response.body;
+              } else {
+
+              }
+              if (activeOuting == null) {
+                Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
+              } else {
+                Get.to(() => OutingPage(outing: activeOuting!, isActive: true));
+              }
             },
             icon: const Icon(
                 Icons.assignment

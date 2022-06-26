@@ -33,13 +33,16 @@ class Outing {
         "Placeholder name",
         "Placeholder description",
         1,
+        "1600",
+        "1800",
         [
           OutingStepDto(
               1,
               "Placeholder name",
               "Placeholder description",
               "Placeholder whereName",
-              "Placeholder whenPoint",
+              "Placeholder wherePoint",
+              "2356",
               "2359",
               [
                 OutingStepVoteDto(true, UserSummaryDto(
@@ -50,11 +53,7 @@ class Outing {
               ],
               "2359.59.59"
           )
-        ],
-        OutingTimingDto(
-          "0000",
-          "2359"
-        )
-    );
+        ]
+      );
   }
 }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/group.dart';
 import 'package:mobile/dto/user.dart';
+import 'package:mobile/dto/outing.dart';
 import 'package:mobile/pages/chat_page.dart';
 import 'package:mobile/pages/create_group.dart';
 import 'package:mobile/services/group.dart';

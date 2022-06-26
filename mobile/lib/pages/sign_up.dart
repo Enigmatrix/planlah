@@ -498,7 +498,7 @@ class _SignUpPageState extends State<SignUpPage> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                setState(() => _formIndex = 2);
+                setState(() => _formIndex = 3);
               },
               style: ElevatedButton.styleFrom(
                   fixedSize: const Size(20, 20),

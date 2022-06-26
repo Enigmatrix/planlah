@@ -4,13 +4,19 @@ class CreateOutingDto {
   String name;
   String description;
   int groupId;
+  String start;
+  String end;
 
-  CreateOutingDto(this.name, this.description, this.groupId);
+
+  CreateOutingDto(
+      this.name, this.description, this.groupId, this.start, this.end);
 
   Map<String, dynamic> toJson() => {
     'name': name,
     'description': description,
-    'groupId': groupId
+    'groupId': groupId,
+    "start": start,
+    "end": end
   };
 }
 
@@ -50,12 +56,22 @@ class OutingStepDto {
   String description;
   String whereName;
   String wherePoint;
-  String when;
+  String start;
+  String end;
   List<OutingStepVoteDto> outingStepVoteDtos;
   String voteDeadline;
 
-  OutingStepDto(this.id, this.name, this.description, this.whereName,
-      this.wherePoint, this.when, this.outingStepVoteDtos, this.voteDeadline);
+
+  OutingStepDto(
+      this.id,
+      this.name,
+      this.description,
+      this.whereName,
+      this.wherePoint,
+      this.start,
+      this.end,
+      this.outingStepVoteDtos,
+      this.voteDeadline);
 
   OutingStepDto.fromJson(Map<String, dynamic> json):
       id = json["id"],
@@ -63,7 +79,8 @@ class OutingStepDto {
       description = json["description"],
       whereName = json["whereName"],
       wherePoint = json["wherePoint"],
-      when = json["when"],
+      start = json["start"],
+      end = json["end"],
       outingStepVoteDtos = OutingStepVoteDto.fromJsonToList(json["votes"]),
       voteDeadline = json["voteDeadline"];
 
@@ -81,20 +98,22 @@ class OutingDto {
   String name;
   String description;
   int groupId;
+  String start;
+  String end;
   List<OutingStepDto> outingStepDto;
-  OutingTimingDto outingTimingDto;
 
 
-  OutingDto(this.id, this.name, this.description, this.groupId,
-      this.outingStepDto, this.outingTimingDto);
+  OutingDto(this.id, this.name, this.description, this.groupId, this.start,
+      this.end, this.outingStepDto);
 
   OutingDto.fromJson(Map<String, dynamic> json)
       :  id = json['id'],
          name = json["name"],
          description = json['description'],
          groupId = json["groupId"],
-         outingStepDto = OutingStepDto.fromJsonToList(json["steps"]),
-         outingTimingDto = OutingTimingDto.fromJson(json["timing"]);
+         start = json["start"],
+         end = json["end"],
+         outingStepDto = OutingStepDto.fromJsonToList(json["steps"]);
 
   int getSize() {
     return outingStepDto.length;
@@ -107,6 +126,16 @@ class OutingDto {
   OutingStepDto getOutingStep(int index) {
     return outingStepDto[index];
   }
+}
 
+class GetActiveOutingDto {
+  int groupId;
 
+  GetActiveOutingDto(this.groupId);
+
+  Map<String, dynamic> toJson() {
+    return {
+      "groupId": groupId.toString()
+    };
+  }
 }

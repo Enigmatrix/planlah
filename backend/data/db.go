@@ -3,10 +3,10 @@ package data
 import (
 	"errors"
 	"fmt"
+	"gorm.io/gorm/clause"
 	"log"
 	"os"
 	"sort"
-	"strconv"
 	"time"
 
 	"github.com/google/uuid"
@@ -337,33 +337,114 @@ func (db *Database) GetLastMessagesForGroups(groupIds []uint) map[uint]Message {
 	return lastMessages
 }
 
-func (db *Database) CreateOuting(outing *Outing) interface{} {
+func (db *Database) CreateOuting(outing *Outing) error {
 	return db.conn.Create(outing).Error
 }
 
+func (db *Database) CreateOutingStep(outingStep *OutingStep) error {
+	return db.conn.Create(outingStep).Error
+}
+
+func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
+	err := db.conn.Clauses(clause.OnConflict{
+		UpdateAll: true,
+	}).Create(outingStep).Error
+
+	if err != nil {
+		var pgErr *pgconn.PgError
+		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.ForeignKeyViolation && pgErr.ConstraintName == "fk_outing_steps_votes" {
+			return fmt.Errorf("outing steps does not exist")
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (db *Database) GetOuting(outingId uint) *Outing {
+	var outing Outing
+	err := db.conn.Model(&Outing{ID: outingId}).
+		First(&outing).
+		Error
+
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil
+		}
+		log.Fatalf("error in GetOuting: %v", err)
+	}
+
+	return &outing
+}
+
+type OutingAndGroupID struct {
+	GroupID  uint
+	OutingID uint
+}
+
+func (db *Database) GetOutingAndGroupForOutingStep(outingStepId uint) (OutingAndGroupID, error) {
+	var res OutingAndGroupID
+	err := db.conn.Table("outing_steps os").
+		Where("os.id = ?", outingStepId).
+		Select("o.group_id AS group_id, o.id AS outing_id").
+		Joins("inner join outings o ON o.id = os.outing_id").
+		Limit(1).
+		Find(&res).
+		Error
+
+	if err != nil {
+		log.Fatalf("error in GetOutingAndGroupForOutingStep: %v", err)
+	}
+
+	// not possible to have 0 as ids: means that we didn't find the rows
+	if res.OutingID == 0 && res.GroupID == 0 {
+		return OutingAndGroupID{}, fmt.Errorf("outing step not found")
+	}
+
+	return res, nil
+}
+
 func (db *Database) GetAllOutings(groupId uint) []Outing {
-	//	SELECT
-	//		o.*
-	//	FROM
-	//		outings AS o
-	//	INNER JOIN
-	//		groups AS g
-	//	ON
-	//		o.group_id = g.owner_id
 	var outings []Outing
 
-	err := db.conn.Table("outings o").
-		Select("o.*").
-		Joins("INNER JOIN groups g ON o.group_id = g.owner_id").
-		Where("o.group_id = " + strconv.Itoa(int(groupId))).
+	// preloading is not efficient
+	err := db.conn.Model(&Outing{}).
+		Where("group_id = ?", groupId).
+		Preload("Steps").
+		Preload("Steps.Votes").
 		Find(&outings).
 		Error
 
 	if err != nil {
-		return nil
+		log.Fatalf("error in GetAllOutings: %v", err)
 	}
-	print(outings)
+
 	return outings
+}
+
+func (db *Database) GetActiveOuting(groupId uint) *Outing {
+	var outing Outing
+	err := db.conn.Model(&Outing{}).
+		Where("id = (select active_outing_id from groups where id = ?)", groupId).
+		Preload("Steps").
+		Preload("Steps.Votes").
+		First(&outing).
+		Error
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil
+		}
+		log.Fatalf("error in GetActiveOuting: %v", err)
+	}
+	return &outing
+}
+
+func (db *Database) UpdateActiveOuting(groupId uint, outingId uint) error {
+	err := db.conn.Model(&Group{}).
+		Where("id = ?", groupId).
+		Update("active_outing_id", outingId).
+		Error
+	return err
 }
 
 func (db *Database) CreateGroupInvite(inv *GroupInvite) error {

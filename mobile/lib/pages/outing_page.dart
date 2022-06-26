@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/main.dart';
 import 'package:mobile/model/chat_group.dart';
+import 'package:mobile/pages/voting.dart';
 import 'package:mobile/widgets/itinerary_card.dart';
 import 'package:timelines/timelines.dart';
+import 'package:get/get.dart';
 
 import '../model/outing_list.dart';
 import '../model/outing_steps.dart';
@@ -12,10 +14,12 @@ import '../model/outing_steps.dart';
 
 class OutingPage extends StatefulWidget {
   OutingDto outing;
+  bool isActive;
 
   OutingPage({
     Key? key,
-    required this.outing
+    required this.outing,
+    required this.isActive
   }) : super(key: key);
 
   @override
@@ -38,7 +42,11 @@ class _OutingPageState extends State<OutingPage> {
         itemCount: widget.outing.getSize() + 1,
         itemBuilder: (BuildContext context, int index) {
           if (index == widget.outing.getSize()) {
-            return buildVotingCard();
+            if (widget.isActive) {
+              return buildVotingCard();
+            } else {
+              return const Text("End of your outing");
+            }
           } else {
             return buildTimelineTile(index);
           }
@@ -61,6 +69,7 @@ class _OutingPageState extends State<OutingPage> {
             TextButton(
                 onPressed: () {
                   // TODO: Voting interface
+                  Get.to(() => VotingPage());
                 },
                 child: Text(
                   "Vote",
@@ -123,6 +132,6 @@ class _OutingPageState extends State<OutingPage> {
   }
   
   String formatTime(OutingStepDto outingStep) {
-    return "${outingStep.when} - ${outingStep.voteDeadline}";
+    return "${outingStep.start} - ${outingStep.end}";
   }
 }

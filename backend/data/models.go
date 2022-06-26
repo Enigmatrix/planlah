@@ -20,14 +20,16 @@ type User struct {
 }
 
 type Group struct {
-	ID           uint         `gorm:"primarykey"`
-	Name         string       `gorm:"not null"`
-	Description  string       `gorm:"not null"`
-	ImageLink    string       `gorm:"not null"`
-	OwnerID      uint         // this will be null when the Group is created, then updated instantly
-	Owner        *GroupMember `gorm:"foreignKey:OwnerID"`
-	GroupMembers []GroupMember
-	Outings      []Outing
+	ID             uint         `gorm:"primarykey"`
+	Name           string       `gorm:"not null"`
+	Description    string       `gorm:"not null"`
+	ImageLink      string       `gorm:"not null"`
+	OwnerID        uint         // this will be null when the Group is created, then updated instantly
+	Owner          *GroupMember `gorm:"foreignKey:OwnerID"`
+	ActiveOutingID uint         // this will be null when there is no active outing
+	ActiveOuting   *Outing      `gorm:"foreignKey:ActiveOutingID"`
+	GroupMembers   []GroupMember
+	Outings        []Outing
 }
 
 type GroupInvite struct {
@@ -38,7 +40,6 @@ type GroupInvite struct {
 	Group   *Group `gorm:"foreignKey:GroupID"`
 }
 
-// GroupMember TODO: (UserID, GroupID) should be made unique
 type GroupMember struct {
 	ID                uint     `gorm:"primarykey"`
 	UserID            uint     `gorm:"not null; uniqueIndex:composite_grp_member_idx"`
@@ -58,11 +59,14 @@ type Message struct {
 }
 
 type Outing struct {
-	ID          uint   `gorm:"primarykey"`
-	GroupID     uint   `gorm:"not null"`
-	Group       *Group `gorm:"foreignKey:GroupID"`
-	Name        string `gorm:"not null"`
-	Description string `gorm:"not null"`
+	ID          uint      `gorm:"primarykey"`
+	GroupID     uint      `gorm:"not null"`
+	Group       *Group    `gorm:"foreignKey:GroupID"`
+	Name        string    `gorm:"not null"`
+	Description string    `gorm:"not null"`
+	Start       time.Time `gorm:"not null"`
+	End         time.Time `gorm:"not null"`
+	Steps       []OutingStep
 }
 
 type OutingStep struct {
@@ -73,9 +77,10 @@ type OutingStep struct {
 	Description  string    `gorm:"not null"`
 	WhereName    string    `gorm:"not null"`
 	WherePoint   string    `gorm:"not null"` // TODO find a better type, supposed to be `point`
-	When         time.Time `gorm:"not null"`
-	Votes        []OutingStepVote
+	Start        time.Time `gorm:"not null"`
+	End          time.Time `gorm:"not null"`
 	VoteDeadline time.Time `gorm:"not null"`
+	Votes        []OutingStepVote
 }
 
 type OutingStepVote struct {

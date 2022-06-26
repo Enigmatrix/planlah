@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'chat.dart';
 
 
+import 'package:get/get_connect/http/src/multipart/multipart_file.dart';
+
 class GroupSummaryDto {
     int id;
     String name;
