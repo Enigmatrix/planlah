@@ -13,22 +13,14 @@ type OutingController struct {
 	BaseController
 }
 
-type GetOutingsDto struct {
-	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
-}
-
 type OutingDto struct {
 	ID          uint            `json:"id" binding:"required"`
 	Name        string          `json:"name" binding:"required"`
 	Description string          `json:"description" binding:"required"`
 	GroupID     uint            `json:"groupId" binding:"required"`
+	Start       time.Time       `json:"start" binding:"required"`
+	End         time.Time       `json:"end" binding:"required"`
 	Steps       []OutingStepDto `json:"steps" binding:"required"`
-	Timing      *OutingTiming   `json:"timing" binding:"required"`
-}
-
-type OutingTiming struct {
-	Start time.Time `json:"start" binding:"required"`
-	End   time.Time `json:"end" binding:"required"`
 }
 
 type OutingStepDto struct {
@@ -37,7 +29,8 @@ type OutingStepDto struct {
 	Description  string              `json:"description" binding:"required"`
 	WhereName    string              `json:"whereName" binding:"required"`
 	WherePoint   string              `json:"wherePoint" binding:"required"`
-	When         time.Time           `json:"when" binding:"required"`
+	Start        time.Time           `json:"start" binding:"required"`
+	End          time.Time           `json:"end" binding:"required"`
 	Votes        []OutingStepVoteDto `json:"votes" binding:"required"`
 	VoteDeadline time.Time           `json:"voteDeadline" binding:"required"`
 }
@@ -48,9 +41,11 @@ type OutingStepVoteDto struct {
 }
 
 type CreateOutingDto struct {
-	Name        string `json:"name" binding:"required"`
-	Description string `json:"description" binding:"required"`
-	GroupID     uint   `json:"groupId" binding:"required"`
+	Name        string    `json:"name" binding:"required"`
+	Description string    `json:"description" binding:"required"`
+	GroupID     uint      `json:"groupId" binding:"required"`
+	Start       time.Time `json:"start" binding:"required"`
+	End         time.Time `json:"end" binding:"required"`
 }
 
 type CreateOutingStepDto struct {
@@ -59,8 +54,17 @@ type CreateOutingStepDto struct {
 	Description  string    `json:"description" binding:"required"`
 	WhereName    string    `json:"whereName" binding:"required"`
 	WherePoint   string    `json:"wherePoint" binding:"required"`
-	When         time.Time `json:"when" binding:"required"`
+	Start        time.Time `json:"start" binding:"required"`
+	End          time.Time `json:"end" binding:"required"`
 	VoteDeadline time.Time `json:"voteDeadline" binding:"required"`
+}
+
+type GetOutingsDto struct {
+	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
+}
+
+type GetActiveOutingDto struct {
+	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
 }
 
 type VoteOutingStepDto struct {
@@ -71,7 +75,7 @@ type VoteOutingStepDto struct {
 func ToOutingStepVoteDto(outingStepVote data.OutingStepVote) OutingStepVoteDto {
 	return OutingStepVoteDto{
 		Vote: outingStepVote.Vote,
-		// User: ToUserSummaryDto(outingStepVote.GroupMember.User),
+		User: ToUserSummaryDto(outingStepVote.GroupMember.User),
 	}
 }
 
@@ -88,7 +92,8 @@ func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {
 		Description:  outingStep.Description,
 		WhereName:    outingStep.WhereName,
 		WherePoint:   outingStep.WherePoint,
-		When:         outingStep.When,
+		Start:        outingStep.Start,
+		End:          outingStep.End,
 		Votes:        ToOutingStepVoteDtos(outingStep.Votes),
 		VoteDeadline: outingStep.VoteDeadline,
 	}
@@ -107,11 +112,9 @@ func ToOutingDto(outing data.Outing) OutingDto {
 		Name:        outing.Name,
 		Description: outing.Description,
 		GroupID:     outing.GroupID,
+		Start:       outing.Start,
+		End:         outing.End,
 		Steps:       ToOutingStepDtos(outing.Steps),
-		Timing: &OutingTiming{
-			Start: time.Now(),
-			End:   time.Now(),
-		},
 	}
 }
 
@@ -126,31 +129,39 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Description Create a new Outing plan
 // @Param body body CreateOutingDto true "Initial details of Outing"
 // @Tags Outing
-// @Success 200
+// @Success 200 {object} OutingDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/outing/create [post]
 func (controller *OutingController) Create(ctx *gin.Context) {
 	var createOutingDto CreateOutingDto
 
-	userId := controller.Auth.AuthenticatedUserId(ctx)
-
 	if err := Body(ctx, &createOutingDto); err != nil {
 		return
 	}
 
-	if controller.Database.GetGroupMember(userId, createOutingDto.GroupID) == nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("user is not a member of this group"))
+	_, err := controller.AuthGroupMember(ctx, createOutingDto.GroupID)
+	if err != nil {
 		return
 	}
+
+	// round down start time to nearest day
+	startTime := createOutingDto.Start
+	startDate := time.Date(startTime.Year(), startTime.Month(), startTime.Day(), 0, 0, 0, 0, startTime.Location())
+
+	// round up end time to nearest day
+	endTime := createOutingDto.End
+	endDate := time.Date(endTime.Year(), endTime.Month(), endTime.Day()+1, 0, 0, 0, 0, endTime.Location())
 
 	outing := data.Outing{
 		GroupID:     createOutingDto.GroupID,
 		Name:        createOutingDto.Name,
 		Description: createOutingDto.Description,
+		Start:       startDate,
+		End:         endDate,
 	}
 
-	err := controller.Database.CreateOuting(&outing)
+	err = controller.Database.CreateOuting(&outing)
 
 	if err != nil {
 		log.Print(err)
@@ -158,13 +169,7 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, OutingDto{
-		ID:          outing.ID,
-		Name:        outing.Name,
-		Description: outing.Description,
-		GroupID:     outing.GroupID,
-		Steps:       []OutingStepDto{},
-	})
+	ctx.JSON(http.StatusOK, ToOutingDto(outing))
 }
 
 // CreateStep godoc
@@ -172,24 +177,44 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 // @Description Create an Outing Step
 // @Param body body CreateOutingStepDto true "Details for Outing Step"
 // @Tags Outing
-// @Success 200
+// @Success 200 {object} OutingStepDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/outing/create_step [post]
 func (controller *OutingController) CreateStep(ctx *gin.Context) {
-	var getOutingsDto GetOutingsDto
+	var createOutingStepDto CreateOutingStepDto
 
-	userId := controller.Auth.AuthenticatedUserId(ctx)
-
-	if err := Query(ctx, &getOutingsDto); err != nil {
+	if err := Body(ctx, &createOutingStepDto); err != nil {
 		return
 	}
 
-	if controller.Database.GetGroupMember(userId, getOutingsDto.GroupID) == nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("user is not a member of this group"))
+	outingId := createOutingStepDto.OutingID
+	outing := controller.Database.GetOuting(outingId)
+
+	_, err := controller.AuthGroupMember(ctx, outing.GroupID)
+	if err != nil {
 		return
 	}
 
+	outingStep := data.OutingStep{
+		OutingID:     outingId,
+		Name:         createOutingStepDto.Name,
+		Description:  createOutingStepDto.Description,
+		WhereName:    createOutingStepDto.WhereName,
+		WherePoint:   createOutingStepDto.WherePoint,
+		Start:        createOutingStepDto.Start,
+		End:          createOutingStepDto.End,
+		VoteDeadline: createOutingStepDto.VoteDeadline,
+	}
+
+	err = controller.Database.CreateOutingStep(&outingStep)
+	if err != nil {
+		log.Print(err)
+		ctx.Status(http.StatusBadRequest)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, ToOutingStepDto(outingStep))
 }
 
 // Get godoc
@@ -204,20 +229,50 @@ func (controller *OutingController) CreateStep(ctx *gin.Context) {
 func (controller *OutingController) Get(ctx *gin.Context) {
 	var getOutingsDto GetOutingsDto
 
-	userId := controller.Auth.AuthenticatedUserId(ctx)
-
 	if err := Query(ctx, &getOutingsDto); err != nil {
 		return
 	}
 
-	if controller.Database.GetGroupMember(userId, getOutingsDto.GroupID) == nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("user is not a member of this group"))
+	groupId := getOutingsDto.GroupID
+	_, err := controller.AuthGroupMember(ctx, groupId)
+	if err != nil {
 		return
 	}
 
-	outings := controller.Database.GetAllOutings(getOutingsDto.GroupID)
+	outings := controller.Database.GetAllOutings(groupId)
 
 	ctx.JSON(http.StatusOK, ToOutingDtos(outings))
+}
+
+// GetActive godoc
+// @Summary Gets the active Outing for a Group
+// @Description Gets the active Outing for a Group
+// @Param body body GetActiveOutingDto true "Outing retrieval options"
+// @Tags Outing
+// @Success 200 {object} *OutingDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/outing/active [get]
+func (controller *OutingController) GetActive(ctx *gin.Context) {
+	var getActiveOutingDto GetActiveOutingDto
+	if err := Query(ctx, &getActiveOutingDto); err != nil {
+		return
+	}
+
+	groupId := getActiveOutingDto.GroupID
+	_, err := controller.AuthGroupMember(ctx, groupId)
+	if err != nil {
+		return
+	}
+
+	outing := controller.Database.GetActiveOuting(groupId)
+
+	if outing == nil {
+		ctx.JSON(http.StatusOK, nil)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, ToOutingDto(*outing))
 }
 
 // Vote godoc
@@ -230,19 +285,37 @@ func (controller *OutingController) Get(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/outing/vote [put]
 func (controller *OutingController) Vote(ctx *gin.Context) {
-	var getOutingsDto GetOutingsDto
+	var outingStepVoteDto VoteOutingStepDto
 
-	userId := controller.Auth.AuthenticatedUserId(ctx)
-
-	if err := Query(ctx, &getOutingsDto); err != nil {
+	if err := Body(ctx, &outingStepVoteDto); err != nil {
 		return
 	}
 
-	if controller.Database.GetGroupMember(userId, getOutingsDto.GroupID) == nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("user is not a member of this group"))
+	o, err := controller.Database.GetOutingAndGroupForOutingStep(outingStepVoteDto.OutingStepID)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
 		return
 	}
 
+	_, err = controller.AuthGroupMember(ctx, o.GroupID)
+	if err != nil {
+		return
+	}
+
+	outingStepVote := data.OutingStepVote{
+		GroupMemberID: o.GroupID,
+		OutingStepID:  o.OutingID,
+		Vote:          outingStepVoteDto.Vote,
+		VotedAt:       time.Now(),
+	}
+
+	err = controller.Database.UpsertOutingStepVote(&outingStepVote)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+		return
+	}
+
+	ctx.Status(http.StatusOK)
 }
 
 // Register the routes for this controller
@@ -251,5 +324,6 @@ func (controller *OutingController) Register(router *gin.RouterGroup) {
 	group.POST("create", controller.Create)
 	group.POST("create_step", controller.CreateStep)
 	group.GET("all", controller.Get)
+	group.GET("active", controller.GetActive)
 	group.PUT("vote", controller.Vote)
 }
