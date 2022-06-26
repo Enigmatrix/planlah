@@ -132,6 +132,19 @@ func (db *Database) GetAllGroups(userId uint) []GroupMember {
 	return groupMembers
 }
 
+func (db *Database) GetGroup(groupId uint) *Group {
+	var group Group
+	err := db.conn.Model(&Group{}).Where("id = ?", groupId).First(&group).Error
+
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil
+		}
+		log.Fatalf("err in GetGroup: %v", err)
+	}
+	return &group
+}
+
 func (db *Database) AddUserToGroup(userId uint, grpId uint) (*GroupMember, error) {
 	// TODO set last seen message id?
 	grpMember := GroupMember{GroupID: grpId, UserID: userId}
@@ -458,17 +471,18 @@ func (db *Database) InvalidateInvite(userId uint, inviteId uuid.UUID) error {
 		group_id IN (SELECT group_id FROM group_members WHERE user_id = ?)`, inviteId, userId).Error
 }
 
-func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) error {
+func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (*GroupInvite, error) {
 	var invite GroupInvite
-	err := db.conn.Model(&GroupInvite{ID: inviteId, Active: true}).
-		Where("expiry IS NULL OR expiry > now()").
+	err := db.conn.Table("group_invites gi").
+		Where("gi.id = ? AND gi.active = TRUE", inviteId).
+		Where("gi.expiry IS NULL OR gi.expiry > now()").
 		First(&invite).Error
 
 	if err != nil {
 		log.Fatalf("error in JoinByInvite: %v", err)
-		return nil
+		return nil, err
 	}
 
 	_, err = db.AddUserToGroup(userId, invite.GroupID)
-	return err
+	return &invite, err
 }

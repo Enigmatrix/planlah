@@ -10,6 +10,9 @@ insert into users (id, username, name, firebase_uid, gender, town, attractions, 
 insert into groups (id, name, description, owner_id, image_link) values (1, 'food wars', '''make food not war'' said no one ever.', NULL, 'https://www.kindpng.com/picc/m/411-4117993_food-wars-shokugeki-no-soma-logo-hd-png.png') ON CONFLICT DO NOTHING;
 insert into groups (id, name, description, owner_id, image_link) values (2, 'meet to eat meet', 'MEAT ONLY NO VEGGIES MUMMY CAN''T CATCH ME', NULL, 'https://image.cnbcfm.com/api/v1/image/105914693-1557930882448olivewagyu2.jpeg?v=1558105293&w=740&h=416&ffmt=webp') ON CONFLICT DO NOTHING;
 insert into groups (id, name, description, owner_id, image_link) values (3, 'adventurers!', 'exploring the world, united!', NULL, 'https://www.looper.com/img/gallery/25-shows-like-adventure-time-you-should-watch-next/l-intro-1644627512.jpg') ON CONFLICT DO NOTHING;
+insert into groups (id, name, description, owner_id, image_link) values (4, 'Taylor Swift Elitism', 'I want to marry you', NULL, 'https://assets.teenvogue.com/photos/626abe370979f2c5ace0ab29/16:9/w_2560%2Cc_limit/GettyImages-1352932505.jpg') ON CONFLICT DO NOTHING;
+insert into groups (id, name, description, owner_id, image_link) values (5, 'Ben Leong Fan Club', 'I graduated from MIT baby', NULL, 'https://www.comp.nus.edu.sg/stfphotos/bleong.jpg') ON CONFLICT DO NOTHING;
+
 
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (1, 1, 1, NULL) ON CONFLICT DO NOTHING;
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (2, 2, 1, NULL) ON CONFLICT DO NOTHING;
@@ -30,6 +33,8 @@ insert into group_members (id, user_id, group_id, last_seen_message_id) values (
 update groups set owner_id = 1 where id = 1;
 update groups set owner_id = 5 where id = 2;
 update groups set owner_id = 4 where id = 3;
+update groups set owner_id = 4 where id = 4;
+update groups set owner_id = 4 where id = 5;
 
 insert into messages(id, content, sent_at, by_id) values (1, 'i wanna go mexico and build a wall!', now(), 1) ON CONFLICT DO NOTHING;
 insert into messages(id, content, sent_at, by_id) values (2, 'message 2!', now(), 2) ON CONFLICT DO NOTHING;

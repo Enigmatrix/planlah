@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/model/user.dart' as user;
+import 'package:mobile/links.dart';
 import 'package:mobile/pages/dev_panel.dart';
 import 'package:mobile/pages/home.dart';
 import 'package:mobile/pages/sign_in.dart';
@@ -31,6 +32,7 @@ void main() async {
   Get.put(MiscService());
   Get.put(OutingService());
 
+  await initUniLinks();
   runApp(const App());
 }
 
