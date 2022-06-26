@@ -15,8 +15,13 @@ import (
 var depSet = wire.NewSet(
 	services.NewFirebaseApp,
 	services.NewAuthService,
-	services.NewFirebaseStorageImageService,
-	wire.Bind(new(services.ImageService), new(*services.FirebaseStorageImageService)),
+
+	// wire.Bind(new(services.ImageService), new(*services.FirebaseStorageImageService)),
+	// services.NewFirebaseStorageImageService,
+	// use ImageKit instead of sad firebase
+	services.NewImageKitImageService,
+	wire.Bind(new(services.ImageService), new(*services.ImageKitImageService)),
+
 	data.NewDatabaseConnection,
 	data.NewDatabase,
 	wire.Struct(new(routes.BaseController), "*"),
