@@ -69,6 +69,8 @@ func NewServer(
 	api.Use(authMiddlewareFunc)
 	users.Register(api)
 	groups.Register(api)
+	srv.GET("/join/:inviteId", groups.JoinByInviteUserLink)
+
 	devPanel.Register(api)
 	messages.Register(api)
 
