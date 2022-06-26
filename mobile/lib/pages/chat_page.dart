@@ -110,7 +110,7 @@ class _ChatPageState extends State<ChatPage> {
               if (activeOuting == null) {
                 Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
               } else {
-                Get.to(() => OutingPage(outing: activeOuting!));
+                Get.to(() => OutingPage(outing: activeOuting!, isActive: true));
               }
             },
             icon: const Icon(

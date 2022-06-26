@@ -50,7 +50,7 @@ class _ViewAllOutingsPageState extends State<ViewAllOutingsPage> {
     // TODO: Only a temporary way to display the different outings
     return InkWell(
       onTap: () {
-        Get.to(() => OutingPage(outing: outingDto));
+        Get.to(() => OutingPage(outing: outingDto, isActive: false));
       },
       child: Card(
         child: Text(outingDto.name),

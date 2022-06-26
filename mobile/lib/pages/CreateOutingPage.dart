@@ -235,15 +235,23 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
     print(chosen);
 
 
-    await outingService.create(CreateOutingDto(
+    var response = await outingService.create(CreateOutingDto(
       outingName,
       outingDesc,
       widget.groupId,
       TimeUtil.formatForDto(outingStart),
       TimeUtil.formatForDto(chosen)
     ));
-    // TODO: Retrieve the outing
-    outing = Outing.getOuting();
-    Get.off(OutingPage(outing: outing));
+    var activeOuting;
+    if (response.isOk) {
+      Get.off(OutingPage(outing: outing, isActive: true));
+    } else {
+      Get.snackbar(
+        "Error",
+        "We encountered an error creating your outing",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red
+      ).show();
+    }
   }
 }

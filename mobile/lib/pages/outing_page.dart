@@ -12,10 +12,12 @@ import '../model/outing_steps.dart';
 
 class OutingPage extends StatefulWidget {
   OutingDto outing;
+  bool isActive;
 
   OutingPage({
     Key? key,
-    required this.outing
+    required this.outing,
+    required this.isActive
   }) : super(key: key);
 
   @override
@@ -38,7 +40,11 @@ class _OutingPageState extends State<OutingPage> {
         itemCount: widget.outing.getSize() + 1,
         itemBuilder: (BuildContext context, int index) {
           if (index == widget.outing.getSize()) {
-            return buildVotingCard();
+            if (widget.isActive) {
+              return buildVotingCard();
+            } else {
+              return const Text("End of your outing");
+            }
           } else {
             return buildTimelineTile(index);
           }
