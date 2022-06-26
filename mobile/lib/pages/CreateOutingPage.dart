@@ -7,6 +7,7 @@ import 'package:mobile/pages/sign_up_components/fadeindexedstack.dart';
 import 'package:time_picker_widget/time_picker_widget.dart';
 
 import '../services/outing.dart';
+import '../utils/time.dart';
 
 class CreateOutingPage extends StatefulWidget {
 
@@ -225,12 +226,21 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
     print(outingStart);
     print(outingEnd);
 
+    String chosen = DateTime.now().toLocal().toString();
+    print(chosen);
+    // Change hour
+    chosen = chosen.replaceRange(11, 13, outingEnd.substring(0, 2));
+    // Change minute
+    chosen = chosen.replaceRange(14, 16, outingEnd.substring(3, 5));
+    print(chosen);
+
+
     await outingService.create(CreateOutingDto(
       outingName,
       outingDesc,
       widget.groupId,
-      outingStart,
-      outingEnd
+      TimeUtil.formatForDto(outingStart),
+      TimeUtil.formatForDto(chosen)
     ));
     // TODO: Retrieve the outing
     outing = Outing.getOuting();

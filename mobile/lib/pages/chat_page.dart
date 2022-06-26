@@ -42,7 +42,7 @@ class _ChatPageState extends State<ChatPage> {
   // Messages sent in the group
   late var messages = <MessageDto>[];
   // Check if group is currently in an outing
-  late OutingDto? activeOuting;
+  OutingDto? activeOuting;
   // List of previous outings that the group has been in
   late var outings = <OutingDto>[];
 
@@ -54,14 +54,6 @@ class _ChatPageState extends State<ChatPage> {
       setState(() {
         messages = value.body!;
       });
-    });
-    outingService.getActiveOuting(GetActiveOutingDto(widget.chatGroup.id))
-      .then((value) {
-        if (value.isOk) {
-          activeOuting = value.body;
-        } else {
-          // Should not happen
-        }
     });
     // messageService.getMessages(widget.chatGroup.id)
     //   .catchError((error) {
@@ -108,7 +100,13 @@ class _ChatPageState extends State<ChatPage> {
           ),
         ),
         IconButton(
-            onPressed: () {
+            onPressed: () async {
+              var response = await outingService.getActiveOuting(GetActiveOutingDto(widget.chatGroup.id));
+              if (response.isOk) {
+                activeOuting = response.body;
+              } else {
+
+              }
               if (activeOuting == null) {
                 Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
               } else {
