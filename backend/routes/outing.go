@@ -36,7 +36,7 @@ type OutingStepDto struct {
 }
 
 type OutingStepVoteDto struct {
-	Vote bool           `json:"vote" binding:"required"`
+	Vote *bool          `json:"vote" binding:"required"`
 	User UserSummaryDto `json:"user" binding:"required"`
 }
 
@@ -68,13 +68,13 @@ type GetActiveOutingDto struct {
 }
 
 type VoteOutingStepDto struct {
-	Vote         bool `json:"vote" binding:"required"`
-	OutingStepID uint `json:"outingStepId" binding:"required"`
+	Vote         *bool `json:"vote" binding:"required"`
+	OutingStepID uint  `json:"outingStepId" binding:"required"`
 }
 
 func ToOutingStepVoteDto(outingStepVote data.OutingStepVote) OutingStepVoteDto {
 	return OutingStepVoteDto{
-		Vote: outingStepVote.Vote,
+		Vote: &outingStepVote.Vote,
 		User: ToUserSummaryDto(outingStepVote.GroupMember.User),
 	}
 }
@@ -129,6 +129,7 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Description Create a new Outing plan
 // @Param body body CreateOutingDto true "Initial details of Outing"
 // @Tags Outing
+// @Security JWT
 // @Success 200 {object} OutingDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
@@ -142,6 +143,12 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 
 	_, err := controller.AuthGroupMember(ctx, createOutingDto.GroupID)
 	if err != nil {
+		return
+	}
+
+	activeOuting := controller.Database.GetActiveOuting(createOutingDto.GroupID)
+	if activeOuting != nil && time.Now().Before(activeOuting.End) {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage("group already has an active outing"))
 		return
 	}
 
@@ -169,6 +176,13 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 		return
 	}
 
+	err = controller.Database.UpdateActiveOuting(createOutingDto.GroupID, outing.ID)
+	if err != nil {
+		log.Print(err)
+		ctx.Status(http.StatusBadRequest)
+		return
+	}
+
 	ctx.JSON(http.StatusOK, ToOutingDto(outing))
 }
 
@@ -177,6 +191,7 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 // @Description Create an Outing Step
 // @Param body body CreateOutingStepDto true "Details for Outing Step"
 // @Tags Outing
+// @Security JWT
 // @Success 200 {object} OutingStepDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
@@ -220,8 +235,9 @@ func (controller *OutingController) CreateStep(ctx *gin.Context) {
 // Get godoc
 // @Summary Get all Outings for a Group
 // @Description Get all Outings for a Group
-// @Param body body GetOutingsDto true "Outing retrieval options"
+// @Param query query GetOutingsDto true "Outing retrieval options"
 // @Tags Outing
+// @Security JWT
 // @Success 200 {object} []OutingDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
@@ -247,9 +263,11 @@ func (controller *OutingController) Get(ctx *gin.Context) {
 // GetActive godoc
 // @Summary Gets the active Outing for a Group
 // @Description Gets the active Outing for a Group
-// @Param body body GetActiveOutingDto true "Outing retrieval options"
+// @Param query query GetActiveOutingDto true "Outing retrieval options"
 // @Tags Outing
-// @Success 200 {object} *OutingDto
+// @Security JWT
+// @Success 200
+// @Success 200 {object} OutingDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/outing/active [get]
@@ -280,6 +298,7 @@ func (controller *OutingController) GetActive(ctx *gin.Context) {
 // @Description Vote for an Outing Step
 // @Param body body VoteOutingStepDto true "Vote for Outing Step"
 // @Tags Outing
+// @Security JWT
 // @Success 200
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
@@ -297,15 +316,15 @@ func (controller *OutingController) Vote(ctx *gin.Context) {
 		return
 	}
 
-	_, err = controller.AuthGroupMember(ctx, o.GroupID)
+	gm, err := controller.AuthGroupMember(ctx, o.GroupID)
 	if err != nil {
 		return
 	}
 
 	outingStepVote := data.OutingStepVote{
-		GroupMemberID: o.GroupID,
-		OutingStepID:  o.OutingID,
-		Vote:          outingStepVoteDto.Vote,
+		GroupMemberID: gm.ID,
+		OutingStepID:  outingStepVoteDto.OutingStepID,
+		Vote:          *outingStepVoteDto.Vote,
 		VotedAt:       time.Now(),
 	}
 

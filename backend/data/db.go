@@ -338,6 +338,10 @@ func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 	}).Create(outingStep).Error
 
 	if err != nil {
+		var pgErr *pgconn.PgError
+		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.ForeignKeyViolation && pgErr.ConstraintName == "fk_outing_steps_votes" {
+			return fmt.Errorf("outing steps does not exist")
+		}
 		return err
 	}
 
@@ -367,17 +371,21 @@ type OutingAndGroupID struct {
 
 func (db *Database) GetOutingAndGroupForOutingStep(outingStepId uint) (OutingAndGroupID, error) {
 	var res OutingAndGroupID
-	err := db.conn.Model(&OutingStep{ID: outingStepId}).
+	err := db.conn.Table("outing_steps os").
+		Where("os.id = ?", outingStepId).
 		Select("o.group_id AS group_id, o.id AS outing_id").
-		Joins("inner join outings o ON o.id = outing_id").
-		First(&res).
+		Joins("inner join outings o ON o.id = os.outing_id").
+		Limit(1).
+		Find(&res).
 		Error
 
 	if err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return OutingAndGroupID{}, fmt.Errorf("outing step not found")
-		}
 		log.Fatalf("error in GetOutingAndGroupForOutingStep: %v", err)
+	}
+
+	// not possible to have 0 as ids: means that we didn't find the rows
+	if res.OutingID == 0 && res.GroupID == 0 {
+		return OutingAndGroupID{}, fmt.Errorf("outing step not found")
 	}
 
 	return res, nil
@@ -387,7 +395,8 @@ func (db *Database) GetAllOutings(groupId uint) []Outing {
 	var outings []Outing
 
 	// preloading is not efficient
-	err := db.conn.Model(&Outing{GroupID: groupId}).
+	err := db.conn.Model(&Outing{}).
+		Where("group_id = ?", groupId).
 		Preload("Steps").
 		Preload("Steps.Votes").
 		Find(&outings).
@@ -402,7 +411,7 @@ func (db *Database) GetAllOutings(groupId uint) []Outing {
 
 func (db *Database) GetActiveOuting(groupId uint) *Outing {
 	var outing Outing
-	err := db.conn.Model(&Outing{GroupID: groupId}).
+	err := db.conn.Model(&Outing{}).
 		Where("id = (select active_outing_id from groups where id = ?)", groupId).
 		Preload("Steps").
 		Preload("Steps.Votes").
@@ -415,6 +424,14 @@ func (db *Database) GetActiveOuting(groupId uint) *Outing {
 		log.Fatalf("error in GetActiveOuting: %v", err)
 	}
 	return &outing
+}
+
+func (db *Database) UpdateActiveOuting(groupId uint, outingId uint) error {
+	err := db.conn.Model(&Group{}).
+		Where("id = ?", groupId).
+		Update("active_outing_id", outingId).
+		Error
+	return err
 }
 
 func (db *Database) CreateGroupInvite(inv *GroupInvite) error {
