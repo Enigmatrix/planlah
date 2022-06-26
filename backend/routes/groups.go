@@ -292,7 +292,7 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 // @Param        inviteId   path      string  true  "InviteID (UUID)"
 // @Tags Group
 // @Security JWT
-// @Success 200
+// @Success 200 {object} GroupSummaryDto
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/join/{inviteId} [get]
@@ -310,12 +310,38 @@ func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
 	// the UUID format
 	inviteId := uuid.MustParse(joinGroupInviteDto.InviteID)
 
-	err = controller.Database.JoinByInvite(userId, inviteId)
+	invite, err := controller.Database.JoinByInvite(userId, inviteId)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
 		return
 	}
-	ctx.Status(http.StatusOK)
+
+	group := controller.Database.GetGroup(invite.GroupID)
+	lastMessages := controller.Database.GetLastMessagesForGroups([]uint{group.ID})
+	lastMessagesDtos := lo.MapValues(lastMessages, func(val data.Message, key uint) *MessageDto {
+		dto := ToMessageDto(val)
+		return &dto
+	})
+	unreadMessagesCount := controller.Database.GetUnreadMessagesCountForGroups(userId, []uint{group.ID})
+
+	dto := GroupSummaryDto{
+		ID:                  group.ID,
+		Name:                group.Name,
+		Description:         group.Description,
+		LastSeenMessage:     lastMessagesDtos[group.ID],
+		UnreadMessagesCount: unreadMessagesCount[group.ID],
+	}
+
+	ctx.JSON(http.StatusOK, dto)
+}
+
+func (controller GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
+	var joinGroupInviteDto JoinGroupInviteDto
+	if err := Uri(ctx, &joinGroupInviteDto); err != nil {
+		return
+	}
+
+	ctx.Redirect(http.StatusTemporaryRedirect, "planlah://join/"+joinGroupInviteDto.InviteID)
 }
 
 // Register the routes for this controller
