@@ -4,6 +4,7 @@ import 'package:mobile/dto/outing.dart';
 import 'package:mobile/model/outing_list.dart';
 import 'package:mobile/pages/outing_page.dart';
 import 'package:mobile/pages/sign_up_components/fadeindexedstack.dart';
+import 'package:time_picker_widget/time_picker_widget.dart';
 
 import '../services/outing.dart';
 
@@ -24,8 +25,10 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
 
   int _formIndex = 1;
 
-  var _outing_name = "";
-  var _outing_desc = "";
+  String outingName = "";
+  String outingDesc = "";
+  String outingStart = DateTime.now().toLocal().toString();
+  String outingEnd = "";
 
   final outingService = Get.find<OutingService>();
 
@@ -78,19 +81,8 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
         ),
         buildOutingNameTextBox(),
         buildOutingDescriptionTextBox(),
-        ElevatedButton(
-            onPressed: () {
-              if (_nameKey.currentState!.validate() && _descKey.currentState!.validate()) {
-                createOuting();
-              }
-            },
-            child: const Text(
-              "Let's go",
-              style: TextStyle(
-                fontWeight: FontWeight.bold
-              ),
-            )
-        )
+        buildEndingTimeButton(context),
+        buildCreateOutingButton()
       ],
     );
   }
@@ -113,7 +105,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
         onChanged: (value) {
           setState(
                   () {
-                _outing_name = value;
+                outingName = value;
               }
           );
         },
@@ -141,7 +133,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
         onChanged: (value) {
           setState(
                   () {
-                _outing_desc = value;
+                outingDesc = value;
               }
           );
         },
@@ -152,12 +144,93 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
     );
   }
 
+  Widget buildEndingTimeButton(BuildContext context) {
+    if (outingEnd == "") {
+      return buildTimeButton(context, "When will your outing end?");
+    } else {
+      return Column(
+        children: <Widget>[
+          Text(
+            "Your current outing will end at $outingEnd"
+          ),
+          buildTimeButton(context, "Change when your outing ends")
+        ],
+      );
+    }
+  }
+
+  Widget buildTimeButton(BuildContext context, String label) {
+    return ElevatedButton.icon(
+        onPressed: () {
+          getEndTime(context);
+        },
+        icon: const Icon(Icons.lock_clock_outlined),
+        label: Text(
+            label
+        )
+    );
+  }
+
+  void getEndTime(BuildContext context) async {
+    TimeOfDay now = TimeOfDay.now();
+    showCustomTimePicker(
+        context: context,
+        initialTime: TimeOfDay.now(),
+        selectableTimePredicate: (time) =>
+          time!.hour >= now.hour &&
+          time.minute >= now.minute,
+        onFailValidation: (context) => Get.snackbar(
+          "Invalid time",
+          "",
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.red
+        ).show()
+    ).then((time) {
+      setState(() {
+        outingEnd = time!.toString();
+        outingEnd = outingEnd.substring(10, 15);
+      });
+    });
+  }
+
+  Widget buildCreateOutingButton() {
+    return ElevatedButton(
+        onPressed: () {
+          if (_nameKey.currentState!.validate() &&
+              _descKey.currentState!.validate() &&
+              outingEnd != "") {
+            createOuting();
+          } else if (outingEnd == "") {
+              // Seems hard to do the validation on the customTimePicker side
+              // so do it here
+              Get.snackbar(
+                  "Invalid selection",
+                  "Please input when your outing ends",
+                  snackPosition: SnackPosition.BOTTOM,
+                  backgroundColor: Colors.red
+              ).show();
+            }
+        },
+        child: const Text(
+          "Let's go",
+          style: TextStyle(
+              fontWeight: FontWeight.bold
+          ),
+        )
+    );
+  }
+
   void createOuting() async {
 
+    print(outingStart);
+    print(outingEnd);
+
     await outingService.create(CreateOutingDto(
-      _outing_name,
-      _outing_desc,
-      widget.groupId
+      outingName,
+      outingDesc,
+      widget.groupId,
+      outingStart,
+      outingEnd
     ));
     // TODO: Retrieve the outing
     outing = Outing.getOuting();

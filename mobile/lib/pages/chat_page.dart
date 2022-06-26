@@ -35,10 +35,15 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
 
+  // Services
   final messageService = Get.find<MessageService>();
   final outingService = Get.find<OutingService>();
 
+  // Messages sent in the group
   late var messages = <MessageDto>[];
+  // Check if group is currently in an outing
+  late OutingDto? activeOuting;
+  // List of previous outings that the group has been in
   late var outings = <OutingDto>[];
 
   @override
@@ -49,6 +54,14 @@ class _ChatPageState extends State<ChatPage> {
       setState(() {
         messages = value.body!;
       });
+    });
+    outingService.getActiveOuting(GetActiveOutingDto(widget.chatGroup.id))
+      .then((value) {
+        if (value.isOk) {
+          activeOuting = value.body;
+        } else {
+          // Should not happen
+        }
     });
     // messageService.getMessages(widget.chatGroup.id)
     //   .catchError((error) {
@@ -96,14 +109,11 @@ class _ChatPageState extends State<ChatPage> {
         ),
         IconButton(
             onPressed: () {
-              // TODO: Itinerary
-              Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
-              // if (widget.chatGroup.getGroupInfo().isInOuting()) {
-              //   // Display currently itinerary
-              //   Get.to(() => OutingPage(outing: Outing.getOuting()));
-              // } else {
-              //   Get.to(() => CreateOutingPage());
-              // }
+              if (activeOuting == null) {
+                Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
+              } else {
+                Get.to(() => OutingPage(outing: activeOuting!));
+              }
             },
             icon: const Icon(
                 Icons.assignment

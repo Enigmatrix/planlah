@@ -123,6 +123,6 @@ class _OutingPageState extends State<OutingPage> {
   }
   
   String formatTime(OutingStepDto outingStep) {
-    return "${outingStep.when} - ${outingStep.voteDeadline}";
+    return "${outingStep.start} - ${outingStep.end}";
   }
 }
