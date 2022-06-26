@@ -8,22 +8,25 @@ import (
 	"log"
 	"net/http"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/services"
 	"planlah.sg/backend/utils"
 	"time"
 )
 
 type GroupsController struct {
 	BaseController
+	ImageService services.ImageService
 }
 
 type CreateGroupDto struct {
-	Name        string `json:"name" binding:"required"`
-	Description string `json:"description" binding:"required"`
+	Name        string `form:"name" binding:"required"`
+	Description string `form:"description" binding:"required"`
 }
 
 type GroupSummaryDto struct {
 	ID                  uint        `json:"id" binding:"required"`
 	Name                string      `json:"name" binding:"required"`
+	ImageLink           string      `json:"imageLink" binding:"required"`
 	Description         string      `json:"description" binding:"required"`
 	LastSeenMessage     *MessageDto `json:"lastSeenMessage"`
 	UnreadMessagesCount uint        `json:"unreadMessagesCount" binding:"required"`
@@ -192,7 +195,9 @@ func (controller GroupsController) GetInvites(ctx *gin.Context) {
 // Create godoc
 // @Summary Create a new Group
 // @Description Create a new Group given a `CreateGroupDto`.
-// @Param body body CreateGroupDto true "Details of newly created group"
+// @Param form formData CreateGroupDto true "Details of newly created group"
+// @Param        image  formData  file  true  "Group Image"
+// @Accept       multipart/form-data
 // @Tags Group
 // @Security JWT
 // @Success 200 {object} GroupSummaryDto
@@ -206,14 +211,25 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 	}
 
 	var createGroupDto CreateGroupDto
-	if err := Body(ctx, &createGroupDto); err != nil {
+	if err := Form(ctx, &createGroupDto); err != nil {
 		return
 	}
+
+	// maybe only allow upto a certain file size in meta (_ in below line)
+	file, _, err := ctx.Request.FormFile("image")
+
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, NewErrorMessage("image file field missing"))
+		return
+	}
+
+	imageUrl := controller.ImageService.UploadGroupImage(file)
 
 	group := data.Group{
 		Name:        createGroupDto.Name,
 		Description: createGroupDto.Description,
 		Owner:       nil,
+		ImageLink:   imageUrl,
 	}
 	err = controller.Database.CreateGroup(&group)
 
@@ -246,6 +262,7 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 		Description:         group.Description,
 		UnreadMessagesCount: 0,
 		LastSeenMessage:     nil,
+		ImageLink:           group.ImageLink,
 	})
 }
 
@@ -279,6 +296,7 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 			ID:                  groupMember.Group.ID,
 			Name:                groupMember.Group.Name,
 			Description:         groupMember.Group.Description,
+			ImageLink:           groupMember.Group.ImageLink,
 			LastSeenMessage:     lastMessagesDtos[groupMember.GroupID],
 			UnreadMessagesCount: unreadMessagesCount[groupMember.GroupID],
 		}

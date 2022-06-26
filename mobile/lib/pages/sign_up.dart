@@ -1,6 +1,11 @@
+import 'dart:io';
+import 'dart:typed_data';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
+import 'package:flutter/services.dart';
 import 'package:get/state_manager.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/sign_up_components/fadeindexedstack.dart';
@@ -43,6 +48,7 @@ class _SignUpPageState extends State<SignUpPage> {
   var _username = "";
   var _gender = "-";
   var _town = "-";
+  Uint8List _imageBytes = Uint8List(0);
 
   // User profile
   List<String?> _attractions = [];
@@ -83,6 +89,19 @@ class _SignUpPageState extends State<SignUpPage> {
         attractionTags = value.body!;
       });
     });
+    final user = auth.user.value!;
+    // If photoURL is null we should provide an MemoryImage...
+    // But since we sticking with Google sign in Firebase will
+    // take care of this for us
+    final imageUrl = user.photoURL!;
+    NetworkAssetBundle(Uri.parse(imageUrl))
+        .load(imageUrl).then((img) {
+          setState(() {
+            _imageBytes = img.buffer.asUint8List();
+          });
+        });
+
+    _name = user.displayName ?? "";
   }
 
   @override
@@ -101,6 +120,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   buildWelcomePage(context),
                   buildAccountDetails(context),
                   buildUserProfile(context),
+                  buildUserImagePickerPage(context),
                   buildConfirmationPage(context),
                 ],
               ),
@@ -364,6 +384,84 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
+  Widget buildUserImagePickerPage(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    return Column(
+      children: <Widget>[
+        Expanded(
+            child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Padding(
+                      padding:  EdgeInsets.symmetric(vertical: 16.0),
+                      child: Text(
+                        "Choose an image!",
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [BoxShadow(blurRadius: 6, color: Colors.black, spreadRadius: 1)],
+                        ),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.grey,
+                          backgroundImage: MemoryImage(_imageBytes),
+                          radius: size.width * 0.4,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton.icon(onPressed: () async {
+                      final result = await FilePicker.platform.pickFiles(type: FileType.image);
+
+                      if (result == null) return;
+
+                      final file = File(result.files.single.path!);
+                      setState(() {
+                        _imageBytes = file.readAsBytesSync();
+                      });
+                    }, icon: const Icon(Icons.file_upload), label: const Text("CHOOSE ANOTHER"))
+                  ],
+                ),
+            )
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                setState(() => _formIndex = 2);
+              },
+              style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(20, 20),
+                  shape: const CircleBorder()
+              ),
+              child: before,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() => _formIndex = 4);
+              },
+              style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(20, 20),
+                  shape: const CircleBorder()
+              ),
+              child: next,
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
   Widget buildConfirmationPage(BuildContext context) {
     return Column(
       children: <Widget>[
@@ -582,6 +680,7 @@ class _SignUpPageState extends State<SignUpPage> {
         await auth.user.value!.getIdToken(),
         _attractions,
         _food,
+        _imageBytes
     ));
     if (response.isOk) {
       Get.offAndToNamed("/home");

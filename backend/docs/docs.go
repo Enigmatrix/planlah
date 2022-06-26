@@ -89,19 +89,32 @@ const docTemplate = `{
                     }
                 ],
                 "description": "Create a new Group given a ` + "`" + `CreateGroupDto` + "`" + `.",
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "tags": [
                     "Group"
                 ],
                 "summary": "Create a new Group",
                 "parameters": [
                     {
-                        "description": "Details of newly created group",
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/routes.CreateGroupDto"
-                        }
+                        "type": "string",
+                        "name": "description",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "name",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "file",
+                        "description": "Group Image",
+                        "name": "image",
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -109,6 +122,229 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/routes.GroupSummaryDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/groups/invites": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Gets all invites that are not expired",
+                "tags": [
+                    "Group"
+                ],
+                "summary": "Gets all active invites",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "groupId",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/routes.GroupInviteDto"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/groups/invites/create": {
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Create an invitation link for a Group that expires after a certain period",
+                "tags": [
+                    "Group"
+                ],
+                "summary": "Create an invitation link for a Group",
+                "parameters": [
+                    {
+                        "description": "Details of expiring invitation link",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/routes.CreateGroupInviteDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/routes.GroupInviteDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/groups/invites/invalidate": {
+            "put": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Invalidates an invitation so that no one else can join",
+                "tags": [
+                    "Group"
+                ],
+                "summary": "Invalidates an invitation",
+                "parameters": [
+                    {
+                        "description": "Details of invite to invalidate",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/routes.InvalidateGroupInviteDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/groups/join/{inviteId}": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Join a group using this invite link",
+                "tags": [
+                    "Group"
+                ],
+                "summary": "Join a group",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "InviteID (UUID)",
+                        "name": "inviteId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/messages/after": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Get {count} number of messages after the message specified by the {messageId}",
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Get messages after this message",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "count",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/routes.MessageDto"
+                            }
                         }
                     },
                     "400": {
@@ -185,6 +421,99 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/messages/before": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Get {count} number of messages before the message specified by the {messageId}",
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Get messages before this message",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "count",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/routes.MessageDto"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/messages/mark_read": {
+            "put": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "description": "Marks a message as read and sets the last seen message of the user to this message if it's newer",
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Mark a message as read",
+                "parameters": [
+                    {
+                        "description": "MarkRead",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/routes.MarkReadDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
         "/api/messages/send": {
             "post": {
                 "security": [
@@ -227,22 +556,103 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/misc/towns": {
+            "get": {
+                "description": "Get towns",
+                "tags": [
+                    "Misc"
+                ],
+                "summary": "Get towns",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/routes.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
         "/api/users/create": {
             "post": {
                 "description": "Create a new User given a ` + "`" + `CreateUserDto` + "`" + `.",
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "tags": [
                     "User"
                 ],
                 "summary": "Create a new User",
                 "parameters": [
                     {
-                        "description": "Details of newly created user",
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/routes.CreateUserDto"
-                        }
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "attractions",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "firebaseToken",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "food",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "gender",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "name",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "town",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "username",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "file",
+                        "description": "User Image",
+                        "name": "image",
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -294,37 +704,19 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "routes.CreateGroupDto": {
+        "routes.CreateGroupInviteDto": {
             "type": "object",
             "required": [
-                "description",
-                "name"
+                "expiryOption",
+                "groupId"
             ],
             "properties": {
-                "description": {
+                "expiryOption": {
+                    "description": "TODO make this an enum",
                     "type": "string"
                 },
-                "name": {
-                    "type": "string"
-                }
-            }
-        },
-        "routes.CreateUserDto": {
-            "type": "object",
-            "required": [
-                "firebaseToken",
-                "name",
-                "nickname"
-            ],
-            "properties": {
-                "firebaseToken": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "nickname": {
-                    "type": "string"
+                "groupId": {
+                    "type": "integer"
                 }
             }
         },
@@ -339,12 +731,37 @@ const docTemplate = `{
                 }
             }
         },
+        "routes.GroupInviteDto": {
+            "type": "object",
+            "required": [
+                "groupId",
+                "id",
+                "url"
+            ],
+            "properties": {
+                "expiry": {
+                    "description": "TODO add comment about null expiry",
+                    "type": "string"
+                },
+                "groupId": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
         "routes.GroupSummaryDto": {
             "type": "object",
             "required": [
                 "description",
                 "id",
-                "name"
+                "imageLink",
+                "name",
+                "unreadMessagesCount"
             ],
             "properties": {
                 "description": {
@@ -353,8 +770,39 @@ const docTemplate = `{
                 "id": {
                     "type": "integer"
                 },
+                "imageLink": {
+                    "type": "string"
+                },
+                "lastSeenMessage": {
+                    "$ref": "#/definitions/routes.MessageDto"
+                },
                 "name": {
                     "type": "string"
+                },
+                "unreadMessagesCount": {
+                    "type": "integer"
+                }
+            }
+        },
+        "routes.InvalidateGroupInviteDto": {
+            "type": "object",
+            "required": [
+                "inviteId"
+            ],
+            "properties": {
+                "inviteId": {
+                    "type": "string"
+                }
+            }
+        },
+        "routes.MarkReadDto": {
+            "type": "object",
+            "required": [
+                "messageId"
+            ],
+            "properties": {
+                "messageId": {
+                    "type": "integer"
                 }
             }
         },
@@ -362,12 +810,16 @@ const docTemplate = `{
             "type": "object",
             "required": [
                 "content",
+                "id",
                 "sentAt",
                 "user"
             ],
             "properties": {
                 "content": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "sentAt": {
                     "type": "string",
@@ -396,14 +848,18 @@ const docTemplate = `{
         "routes.UserSummaryDto": {
             "type": "object",
             "required": [
+                "imageLink",
                 "name",
-                "nickname"
+                "username"
             ],
             "properties": {
+                "imageLink": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 },
-                "nickname": {
+                "username": {
                     "type": "string"
                 }
             }

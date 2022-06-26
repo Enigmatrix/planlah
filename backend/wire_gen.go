@@ -31,7 +31,11 @@ func InitializeServer() (*gin.Engine, error) {
 		return nil, err
 	}
 	database := data.NewDatabase(db)
-	authService, err := services.NewAuthService(database)
+	app, err := services.NewFirebaseApp()
+	if err != nil {
+		return nil, err
+	}
+	authService, err := services.NewAuthService(database, app)
 	if err != nil {
 		return nil, err
 	}
@@ -40,11 +44,17 @@ func InitializeServer() (*gin.Engine, error) {
 		Auth:     authService,
 		Config:   config,
 	}
+	firebaseStorageImageService, err := services.NewFirebaseStorageImageService(app)
+	if err != nil {
+		return nil, err
+	}
 	userController := routes.UserController{
 		BaseController: baseController,
+		ImageService:   firebaseStorageImageService,
 	}
 	groupsController := routes.GroupsController{
 		BaseController: baseController,
+		ImageService:   firebaseStorageImageService,
 	}
 	devPanelController := routes.DevPanelController{
 		BaseController: baseController,
@@ -62,4 +72,5 @@ func InitializeServer() (*gin.Engine, error) {
 
 // deps.go:
 
-var depSet = wire.NewSet(services.NewAuthService, data.NewDatabaseConnection, data.NewDatabase, wire.Struct(new(routes.BaseController), "*"), wire.Struct(new(routes.UserController), "*"), wire.Struct(new(routes.GroupsController), "*"), wire.Struct(new(routes.DevPanelController), "*"), wire.Struct(new(routes.MessageController), "*"), wire.Struct(new(routes.MiscController), "*"), NewServer, utils.NewConfig)
+var depSet = wire.NewSet(services.NewFirebaseApp, services.NewAuthService, services.NewFirebaseStorageImageService, wire.Bind(new(services.ImageService), new(*services.FirebaseStorageImageService)), data.NewDatabaseConnection, data.NewDatabase, wire.Struct(new(routes.BaseController), "*"), wire.Struct(new(routes.UserController), "*"), wire.Struct(new(routes.GroupsController), "*"), wire.Struct(new(routes.DevPanelController), "*"), wire.Struct(new(routes.MessageController), "*"), wire.Struct(new(routes.MiscController), "*"), NewServer, utils.NewConfig)
+
