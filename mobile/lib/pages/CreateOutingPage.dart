@@ -241,9 +241,8 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
       TimeUtil.formatForDto(outingStart),
       TimeUtil.formatForDto(chosen)
     ));
-    var activeOuting;
-    if (response.isOk) {
-      Get.off(OutingPage(outing: outing, isActive: true));
+    if (response.isOk && response.body != null) {
+      Get.off(OutingPage(outing: response.body!, isActive: true));
     } else {
       Get.snackbar(
         "Error",

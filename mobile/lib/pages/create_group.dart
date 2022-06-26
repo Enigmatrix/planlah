@@ -1,16 +1,26 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:mobile/dto/group.dart';
+import 'package:mobile/model/chat_group.dart';
+import 'package:mobile/pages/chat_page.dart';
 import 'package:mobile/pages/groups_page.dart';
 
 import 'package:mobile/services/group.dart';
 
+import '../model/user.dart';
+
 class CreateGroupPage extends StatefulWidget {
-  const CreateGroupPage({Key? key}) : super(key: key);
+  UserInfo userInfo;
+
+  const CreateGroupPage({
+    Key? key,
+    required this.userInfo
+  }) : super(key: key);
 
   @override
   State<CreateGroupPage> createState() => _CreateGroupPageState();
@@ -62,7 +72,8 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
   void createGroup() async {
     var response = await groupService.createGroup(CreateGroupDto(createGroupName, createGroupDescription, _imageBytes));
     if (response.isOk) {
-      Get.back(closeOverlays: true);
+      GroupSummaryDto group = response.body!;
+      Get.off(() => GroupChatPage(chatGroup: group, userInfo: widget.userInfo));
     } else {
       Get.snackbar(
           "Failure",

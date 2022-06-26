@@ -161,7 +161,7 @@ class _GroupsPageState extends State<GroupsPage> {
     return InkWell(
       onTap: () {
         // Add new group here
-        Get.to(() => const CreateGroupPage());
+        Get.to(() => CreateGroupPage(userInfo: userInfo));
       },
       child: Container(
         padding: const EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
