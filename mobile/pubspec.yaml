@@ -47,6 +47,7 @@ dependencies:
   timeline_tile: ^2.0.0
   awesome_dialog: ^2.2.1
   file_picker: ^4.6.1
+  cached_network_image: ^3.2.1
 
 dev_dependencies:
   flutter_test:

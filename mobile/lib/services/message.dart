@@ -38,8 +38,8 @@ class MessageService extends BaseConnect {
           "groupId": groupId.toString(),
           "start": "2022-06-01T17:23:02.019Z",
           // TODO: Fix timezone locale bug (??????)
-          "end": "2022-06-30T17:23:02.019Z"
-          // "end": TimeUtil.now(),
+          // "end": "2022-06-30T17:23:02.019Z"
+          "end": TimeUtil.now(),
         },
         decoder: decoderForList(MessageDto.fromJson)
     );

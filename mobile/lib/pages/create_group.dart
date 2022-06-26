@@ -57,12 +57,12 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
   void createGroup() async {
     var response = await groupService.createGroup(CreateGroupDto(createGroupName, createGroupDescription, _imageBytes));
     if (response.isOk) {
-      Get.snackbar(
+      await Get.snackbar(
           "Group successfully created",
           "",
           backgroundColor: Colors.black,
           snackPosition: SnackPosition.BOTTOM
-      );
+      ).show();
       Get.back(closeOverlays: true);
     } else {
       Get.snackbar(
