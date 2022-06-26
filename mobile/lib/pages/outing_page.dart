@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/main.dart';
 import 'package:mobile/model/chat_group.dart';
+import 'package:mobile/pages/voting.dart';
 import 'package:mobile/widgets/itinerary_card.dart';
 import 'package:timelines/timelines.dart';
+import 'package:get/get.dart';
 
 import '../model/outing_list.dart';
 import '../model/outing_steps.dart';
@@ -67,6 +69,7 @@ class _OutingPageState extends State<OutingPage> {
             TextButton(
                 onPressed: () {
                   // TODO: Voting interface
+                  Get.to(() => VotingPage());
                 },
                 child: Text(
                   "Vote",
