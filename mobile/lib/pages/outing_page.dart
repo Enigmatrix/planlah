@@ -31,9 +31,9 @@ class _OutingPageState extends State<OutingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Itinerary",
-          style: TextStyle(
+        title: Text(
+          widget.outing.name,
+          style: const TextStyle(
             fontWeight: FontWeight.bold
           ),
         ),

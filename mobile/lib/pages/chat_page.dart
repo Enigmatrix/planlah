@@ -126,7 +126,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
                 ),
                 PopupMenuItem(
                   onTap: () {
-                    // TODO: Add past outings page
                     viewPastOutings();
                   },
                   child: const Text("See past outings")
