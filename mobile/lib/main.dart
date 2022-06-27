@@ -50,6 +50,8 @@ class _AppState extends State<App> {
   late AuthService auth;
   late UserService userSvc;
 
+  late user.UserInfo userInfo;
+
   @override
   void initState() {
     super.initState();
@@ -90,7 +92,8 @@ class _AppState extends State<App> {
               if (snapshot.data!.hasError) {
                 return const SignUpPage();
               } else {
-                return const HomePage();
+                userInfo = snapshot.data!.body!;
+                return HomePage(userInfo: userInfo);
               }
             } else {
               return waitWidget();
@@ -108,7 +111,7 @@ class _AppState extends State<App> {
         getPages: [
           GetPage(name: '/signIn', page: () => const SignInPage()),
           GetPage(name: '/signUp', page: () => const SignUpPage()),
-          GetPage(name: '/home', page: () => const HomePage()),
+          GetPage(name: '/home', page: () => HomePage(userInfo: userInfo)),
           GetPage(name: '/groups', page: () => const GroupsPage()),
           GetPage(name: '/dev_panel', page: () => DevPanelPage()),
         ]);

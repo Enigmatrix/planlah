@@ -1,15 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:mobile/model/review_info.dart';
 import 'package:mobile/model/user.dart';
+import 'package:mobile/services/user.dart';
 import 'package:mobile/widgets/review_widget.dart';
 
 import '../model/location.dart';
 import '../widgets/profile_stats_widget.dart';
 import '../widgets/profile_widget.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  UserInfo userInfo;
+  ProfilePage({
+    Key? key,
+    required this.userInfo
+  }) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,20 +40,16 @@ class ProfilePage extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         children: [
           ProfileWidget(
-            imagePath: user["imagePath"],
-            onClicked: () {}
+              imagePath: widget.userInfo.imageUrl,
+              onClicked: () {}
           ),
           // To add padding
           const SizedBox(height: 24),
-          buildName(user),
+          buildName(),
           ProfileStatsWidget(user: user),
           buildReview(
               ReviewInfo(
-                user: UserInfo(
-                    name: "Maya Hawke",
-                    username: "Maya Hawke",
-                    imageUrl: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTnmEUzQenIPa5WMSBlVKq2e3R7bEpP656X9XmE6hxfl7DBdZQ0"
-                ),
+                user: widget.userInfo,
                 content: "Nice ambience, well presented food and friendly service. Service staff makes good food recommendations and every dish was tasty! This restaurant is unique, not the typical Cantonese restaurant. Highly recommended.",
                 location: LocationInfo(
                     imageUrl: "https://images.squarespace-cdn.com/content/v1/5c3eefdb31d4dfcaa782d593/1547793235504-3W9IWWVFND06BOVFW0WS/DSD_8606.JPG?format=1500w",
@@ -52,21 +62,21 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget buildName(Map user) => Column(
+  Widget buildName() => Column(
     children: [
       Text(
-        user["name"],
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 16
-        )
+          widget.userInfo.name,
+          style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16
+          )
       ),
       const SizedBox(height: 4),
       Text(
-        user["email"],
-        style: const TextStyle(
-          color: Colors.grey
-        )
+          widget.userInfo.username,
+          style: const TextStyle(
+              color: Colors.grey
+          )
       )
     ],
   );

@@ -13,7 +13,12 @@ import 'package:mobile/pages/social_post.dart';
 import 'package:mobile/services/auth.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+
+  UserInfo userInfo;
+  HomePage({
+    Key? key,
+    required this.userInfo,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageWidgetState();
@@ -68,15 +73,6 @@ class _HomePageWidgetState extends State<HomePage> {
       )
   );
 
-
-  static final List<Widget> _pages = <Widget>[
-    SocialFeedPage(groups: [groupInfo1, groupInfo2]),
-    // SocialFeedPage(),
-    GroupsPage(),
-    ProfilePage(),
-    SettingsPage(),
-  ];
-
   var currentIndex = 0;
 
   void _onItemTapped(int index) {
@@ -84,22 +80,25 @@ class _HomePageWidgetState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
+  
+  Widget getPage(int index) {
+    switch (index) {
+      case 0:
+        return SocialFeedPage(groups: [groupInfo1, groupInfo2]);
+      case 1:
+        return GroupsPage();
+      case 2:
+        return ProfilePage(userInfo: widget.userInfo);
+      default:
+        return SettingsPage();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text("planlah"),
-      //   actions: <Widget>[
-      //     IconButton(
-      //       onPressed: () {},
-      //       icon: const Icon(Icons.group_add_outlined),
-      //       tooltip: "Create new group",
-      //     )
-      //   ],
-      // ),
       body: Center(
-          child: _pages.elementAt(_selectedIndex)
+          child: getPage(_selectedIndex)
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

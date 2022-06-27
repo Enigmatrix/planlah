@@ -14,6 +14,6 @@ class UserInfo {
   UserInfo.fromJson(Map<String, dynamic> json):
     name = json["name"],
     username = json["username"],
-    imageUrl = json["imageUrl"];
+    imageUrl = json["imageLink"];
 
 }
