@@ -233,7 +233,6 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
     chosen = chosen.replaceRange(14, 16, outingEnd.substring(3, 5));
     print(chosen);
 
-
     var response = await outingService.create(CreateOutingDto(
       outingName,
       outingDesc,

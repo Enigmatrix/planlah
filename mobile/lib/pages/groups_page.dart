@@ -57,9 +57,9 @@ class _GroupsPageState extends State<GroupsPage> {
   }
 
   @override
-  dispose() {
-    super.dispose();
+  void dispose() {
     timer.cancel();
+    super.dispose();
   }
 
   void updateGroups() {

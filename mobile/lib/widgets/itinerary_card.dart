@@ -34,7 +34,7 @@ class _ItineraryCardState extends State<ItineraryCard> {
                   children: <Widget>[
                     Text(widget.outingStep.name),
                     // TODO: Temporary
-                    Image.network("https://cdn.britannica.com/86/182086-050-5FB81069/singer-Taylor-swift-2013.jpg")
+                    Image.network(widget.outingStep.wherePoint)
                   ],
                 ),
               )

@@ -42,6 +42,7 @@ class TimeUtil {
 
   static String formatForChatGroup(String string) {
     DateTime dt = DateTime.parse(string);
+    print("dt = ${dt.toString()}");
     return "${dt.day}/${dt.month} ${dt.hour}:${dt.minute}";
   }
 }

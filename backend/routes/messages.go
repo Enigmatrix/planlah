@@ -66,6 +66,8 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 		return
 	}
 
+	log.Print(time.Now().In(time.UTC))
+
 	msg := data.Message{
 		Content: sendMessageDto.Content,
 		ByID:    groupMember.ID,

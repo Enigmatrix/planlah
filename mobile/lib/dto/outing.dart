@@ -91,6 +91,76 @@ class OutingStepDto {
     }
     return result;
   }
+
+  static List<OutingStepDto> getOutingStepDtos() {
+    return [
+      OutingStepDto(
+          1,
+          "Arbys",
+          "Excellent junk food",
+          "Clementi",
+          "https://www.hospitalitynewsmag.com/wp-content/uploads/2022/01/Arbys_Sandwich_Lineup-scaled.jpg",
+          "1500",
+          "1800",
+          [
+
+          ],
+          "1455"
+      ),
+      OutingStepDto(
+          1,
+          "Wendys",
+          "Cheap junk food",
+          "Clementi",
+          "https://www.asiaone.com/sites/default/files/soshiok/article/images/featured/20150504_wendys_st.jpg",
+          "1500",
+          "1800",
+          [
+
+          ],
+          "1455"
+      ),
+      OutingStepDto(
+          1,
+          "Harvard",
+          "Best school ever",
+          "Cambridge,_Massachusetts",
+          "https://imageio.forbes.com/specials-images/imageserve/1209892117/0x0.jpg?format=jpg&width=1200",
+          "1500",
+          "1800",
+          [
+
+          ],
+          "1455"
+      ),
+      OutingStepDto(
+          1,
+          "Princeton",
+          "2nd Best school ever",
+          "Princeton, New Jersey",
+          "https://www.princeton.edu/sites/default/files/styles/half_2x/public/images/2020/06/20170816_CL_DJA_152%281%29.jpg?itok=gk_-O3D3",
+          "1500",
+          "1800",
+          [
+
+          ],
+          "1455"
+      ),
+      OutingStepDto(
+          1,
+          "Yale",
+          "3rd Best school ever",
+          "New Haven",
+          "https://img2.storyblok.com/fit-in/1200x630/f/64062/1200x676/0121c6cae0/how-to-get-into-yale.jpg",
+          "1500",
+          "1800",
+          [
+
+          ],
+          "1455"
+      ),
+    ];
+  }
 }
 
 class OutingDto {
