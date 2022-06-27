@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../model/user.dart';
+
 class ProfileStatsWidget extends StatelessWidget {
-  final Map user;
+  final UserInfo user;
 
   const ProfileStatsWidget({
     Key? key,
@@ -13,11 +15,12 @@ class ProfileStatsWidget extends StatelessWidget {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        buildButton(context, user["reviews"], "Reviews"),
+        // TODO: Hard code for now...
+        buildButton(context, "420", "Reviews"),
           buildDivider(),
-          buildButton(context, user["following"], "Following"),
+          buildButton(context, "784", "Following"),
           buildDivider(),
-          buildButton(context, user["followers"], "Followers"),
+          buildButton(context, "3.7m", "Followers"),
       ],
     )
   );

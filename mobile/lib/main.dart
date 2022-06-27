@@ -90,7 +90,7 @@ class _AppState extends State<App> {
               if (snapshot.data!.hasError) {
                 return const SignUpPage();
               } else {
-                return const HomePage();
+                return HomePage();
               }
             } else {
               return waitWidget();

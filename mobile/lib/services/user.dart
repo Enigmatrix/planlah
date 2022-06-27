@@ -8,7 +8,7 @@ class UserService extends BaseConnect {
     return UserInfo(
       name: m["name"] ?? "empty name",
       username: m["username"] ?? "empty username",
-      imageUrl: m["imageUrl"] ?? "empty url",
+      imageUrl: m["imageLink"] ?? "empty link",
     );
   }));
 
