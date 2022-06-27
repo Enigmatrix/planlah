@@ -22,8 +22,6 @@ class HomePage extends StatefulWidget {
 
   @override
   State<HomePage> createState() => _HomePageWidgetState();
-
-
 }
 
 class _HomePageWidgetState extends State<HomePage> {
@@ -88,6 +86,7 @@ class _HomePageWidgetState extends State<HomePage> {
       case 1:
         return GroupsPage();
       case 2:
+        print("Is widget null? " + (widget == null).toString());
         return ProfilePage(userInfo: widget.userInfo);
       default:
         return SettingsPage();

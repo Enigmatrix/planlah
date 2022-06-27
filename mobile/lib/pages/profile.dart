@@ -27,25 +27,21 @@ class _ProfilePageState extends State<ProfilePage> {
 
   final userService = Get.find<UserService>();
 
-  UserInfo? userInfo;
-
   @override
   initState() {
     super.initState();
-    setUserInfo();
   }
 
-  void setUserInfo() {
-    userService.getInfo().then((value) {
-      setState(() {
-        userInfo = value.body!;
-      });
-    });
-  }
+  // void setUserInfo() {
+  //   userService.getInfo().then((value) {
+  //     setState(() {
+  //       userInfo = value.body!;
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
-    print(userInfo);
     // TODO: Obtain user information properly. For now hard code.
     var user = Map();
     user["reviews"] = "420";
@@ -62,10 +58,10 @@ class _ProfilePageState extends State<ProfilePage> {
           // To add padding
           const SizedBox(height: 24),
           buildName(),
-          ProfileStatsWidget(user: userInfo!),
+          ProfileStatsWidget(user: widget.userInfo),
           buildReview(
               ReviewInfo(
-                user: userInfo!,
+                user: widget.userInfo,
                 content: "Nice ambience, well presented food and friendly service. Service staff makes good food recommendations and every dish was tasty! This restaurant is unique, not the typical Cantonese restaurant. Highly recommended.",
                 location: LocationInfo(
                     imageUrl: "https://images.squarespace-cdn.com/content/v1/5c3eefdb31d4dfcaa782d593/1547793235504-3W9IWWVFND06BOVFW0WS/DSD_8606.JPG?format=1500w",
