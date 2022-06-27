@@ -56,6 +56,12 @@ class _GroupsPageState extends State<GroupsPage> {
     // groups = allGroups;
   }
 
+  @override
+  dispose() {
+    super.dispose();
+    timer.cancel();
+  }
+
   void updateGroups() {
     groupService.getGroup().then((value) {
       setState(() {
