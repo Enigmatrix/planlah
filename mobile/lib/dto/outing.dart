@@ -92,7 +92,8 @@ class OutingStepDto {
     return result;
   }
 
-  static List<OutingStepDto> getOutingStepDtos() {
+  // TODO: Temporary
+  static List<OutingStepDto> getHistoricalOutingStepDtos() {
     return [
       OutingStepDto(
           1,
@@ -100,8 +101,8 @@ class OutingStepDto {
           "Excellent junk food",
           "Clementi",
           "https://www.hospitalitynewsmag.com/wp-content/uploads/2022/01/Arbys_Sandwich_Lineup-scaled.jpg",
-          "1500",
-          "1800",
+          "1100",
+          "1200",
           [
 
           ],
@@ -113,8 +114,8 @@ class OutingStepDto {
           "Cheap junk food",
           "Clementi",
           "https://www.asiaone.com/sites/default/files/soshiok/article/images/featured/20150504_wendys_st.jpg",
-          "1500",
-          "1800",
+          "1200",
+          "1400",
           [
 
           ],
@@ -126,13 +127,18 @@ class OutingStepDto {
           "Best school ever",
           "Cambridge,_Massachusetts",
           "https://imageio.forbes.com/specials-images/imageserve/1209892117/0x0.jpg?format=jpg&width=1200",
+          "1400",
           "1500",
-          "1800",
           [
 
           ],
           "1455"
       ),
+    ];
+  }
+
+  static List<OutingStepDto> getVotingStepDtos() {
+    return [
       OutingStepDto(
           1,
           "Princeton",

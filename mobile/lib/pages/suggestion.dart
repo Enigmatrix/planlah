@@ -13,7 +13,7 @@ class SuggestionPage extends StatefulWidget {
 
 class _SuggestionPageState extends State<SuggestionPage> {
 
-  List<OutingStepDto> steps = OutingStepDto.getOutingStepDtos();
+  List<OutingStepDto> steps = OutingStepDto.getHistoricalOutingStepDtos();
 
   @override
   Widget build(BuildContext context) {
