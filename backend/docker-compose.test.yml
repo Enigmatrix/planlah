@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_USER: $DB_USER
+    ports:
+      - "5432:5432" # only for debug
+    volumes:
+      - test_db_volume:/var/lib/postgresql/data
+
+volumes:
+  test_db_volume: { }

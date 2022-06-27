@@ -8,6 +8,8 @@ import (
 	"gorm.io/gorm/clause"
 	"moul.io/zapgorm2"
 	"os"
+	"path"
+	"runtime"
 	"sort"
 	"time"
 
@@ -75,7 +77,8 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 		}
 
 		if config.AppMode == utils.Dev || config.AppMode == utils.Orbital {
-			sql, err := os.ReadFile("./data/dev.sql")
+			_, filename, _, _ := runtime.Caller(0)
+			sql, err := os.ReadFile(path.Join(path.Dir(filename), "dev.sql"))
 			if err != nil {
 				return nil, errors.Annotate(err, "reading dev.sql")
 			}
