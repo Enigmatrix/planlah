@@ -5,11 +5,12 @@ import (
 	"errors"
 	firebase "firebase.google.com/go/v4"
 	"firebase.google.com/go/v4/auth"
-	"fmt"
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
-	"log"
+	errors2 "github.com/juju/errors"
+	"go.uber.org/zap"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/routes"
 	lazy "planlah.sg/backend/utils"
 	"time"
 )
@@ -43,7 +44,7 @@ func NewAuthService(database *data.Database, firebaseApp *firebase.App) (*AuthSe
 	return authServiceInstance.FallibleValue(func() (*AuthService, error) {
 		firebaseAuth, err := firebaseApp.Auth(context.Background())
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("cannot init firebase auth instance: %v", err))
+			return nil, errors2.Annotate(err, "cannot init firebase auth instance")
 		}
 		return &AuthService{firebaseApp: firebaseApp, firebaseAuth: firebaseAuth, database: database, IdentityKey: "id"}, nil
 	})
@@ -53,23 +54,19 @@ func NewAuthService(database *data.Database, firebaseApp *firebase.App) (*AuthSe
 func (authSvc *AuthService) GetFirebaseUid(firebaseToken string) (*string, error) {
 	verifiedToken, err := authSvc.firebaseAuth.VerifyIDToken(context.Background(), firebaseToken)
 	if err != nil {
-		return nil, errors.New("invalid firebase token")
+		return nil, errors2.Annotate(err, "invalid firebase token")
 	}
 	return &verifiedToken.UID, nil
 }
 
 // GetUser uses the Firebase Token and retrieves the corresponding User
-func (authSvc *AuthService) GetUser(firebaseToken string) (*data.User, error) {
+func (authSvc *AuthService) GetUser(firebaseToken string) (data.User, error) {
 	firebaseUid, err := authSvc.GetFirebaseUid(firebaseToken)
 	if err != nil {
-		return nil, err
+		return data.User{}, errors2.Trace(err)
 	}
-
-	user := authSvc.database.GetUserByFirebaseUid(*firebaseUid)
-	if user == nil {
-		return nil, errors.New("user not found")
-	}
-	return user, nil
+	user, err := authSvc.database.GetUserByFirebaseUid(*firebaseUid)
+	return user, errors2.Trace(err)
 }
 
 // Verify godoc
@@ -82,23 +79,26 @@ func (authSvc *AuthService) GetUser(firebaseToken string) (*data.User, error) {
 // @Router /api/auth/verify [post]
 func (authSvc *AuthService) Verify(ctx *gin.Context) (interface{}, error) {
 	var dto TokenDtoRequest
-	if err := ctx.ShouldBindJSON(&dto); err != nil {
-		return nil, errors.New("invalid body")
+	if err := routes.Body(ctx, &dto); err != nil {
+		return nil, errors2.Annotate(err, "token dto parsing")
 	}
 	user, err := authSvc.GetUser(dto.Token)
-	if err != nil {
-		return nil, err
+
+	if !errors.Is(err, data.EntityNotFound{}) {
+		zap.L().Fatal(err.Error())
 	}
-	return user, nil
+
+	return user, err
 }
 
 func (authSvc *AuthService) AuthenticatedUserId(ctx *gin.Context) uint {
 	claims := jwt.ExtractClaims(ctx)
 	userId := claims[authSvc.IdentityKey]
+
 	if v, ok := userId.(float64); ok {
 		return uint(v)
 	}
 
-	log.Fatal("should not be called for unauth routes")
+	zap.L().Fatal("should not be called for unauthenticated routes")
 	return 0 // doesnt reach here
 }

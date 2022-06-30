@@ -3,6 +3,7 @@ package data
 import (
 	"errors"
 	"fmt"
+	errors2 "github.com/juju/errors"
 	"gorm.io/gorm/clause"
 	"os"
 	"sort"
@@ -60,7 +61,7 @@ func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
 
 		db, err := gorm.Open(pg, &dbconfig)
 		if err != nil {
-			return nil, fmt.Errorf("cannot open db: %v", err)
+			return nil, errors2.Annotate(err, "opening db")
 		}
 
 		// add tables here
@@ -74,27 +75,27 @@ func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
 		db.DisableForeignKeyConstraintWhenMigrating = true
 		err = db.AutoMigrate(models...)
 		if err != nil {
-			return nil, fmt.Errorf("error while migrating db without fks: %v", err)
+			return nil, errors2.Annotate(err, "migrating db without fks")
 		}
 		db.DisableForeignKeyConstraintWhenMigrating = false
 		err = db.AutoMigrate(models...)
 		if err != nil {
-			return nil, fmt.Errorf("error while migrating db with fks: %v", err)
+			return nil, errors2.Annotate(err, "migrating db with fks")
 		}
 
 		sqlDB, err := db.DB()
 		if err != nil {
-			return nil, fmt.Errorf("error getting raw db: %v", err)
+			return nil, errors2.Annotate(err, "getting raw db")
 		}
 
 		if config.AppMode == utils.Dev || config.AppMode == utils.Orbital {
 			sql, err := os.ReadFile("./data/dev.sql")
 			if err != nil {
-				return nil, fmt.Errorf("err while reading dev.sql: %v", err)
+				return nil, errors2.Annotate(err, "reading dev.sql")
 			}
 			err = db.Exec(string(sql)).Error
 			if err != nil {
-				return nil, fmt.Errorf("err while running dev.sql migration: %v", err)
+				return nil, errors2.Annotate(err, "migrate using dev.sql script")
 			}
 		}
 
@@ -122,7 +123,7 @@ func (db *Database) CreateUser(user *User) error {
 		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.UniqueViolation {
 			return userAlreadyExists
 		}
-		return err
+		return errors2.Trace(err)
 	}
 
 	return nil
@@ -137,6 +138,8 @@ func (db *Database) GetUserByFirebaseUid(firebaseUid string) (User, error) {
 
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return User{}, entityNotFound("User")
+	} else if err != nil {
+		return User{}, errors2.Trace(err)
 	}
 	return user, nil
 }
@@ -146,6 +149,8 @@ func (db *Database) GetUser(id uint) (User, error) {
 	err := db.conn.First(&user, id).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return User{}, entityNotFound("User")
+	} else if err != nil {
+		return User{}, errors2.Trace(err)
 	}
 	return user, nil
 }
@@ -155,7 +160,7 @@ func (db *Database) GetAllGroups(userId uint) ([]GroupMember, error) {
 	err := db.conn.Joins("Group").Find(&groupMembers, "group_members.user_id = ?", userId).Error
 
 	if err != nil {
-		return nil, err
+		return nil, errors2.Trace(err)
 	}
 
 	return groupMembers, nil
@@ -169,7 +174,7 @@ func (db *Database) GetGroup(groupId uint) (Group, error) {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return Group{}, entityNotFound("Group")
 		}
-		return Group{}, err
+		return Group{}, errors2.Trace(err)
 	}
 	return group, nil
 }
@@ -184,7 +189,7 @@ func (db *Database) AddUserToGroup(userId uint, grpId uint) (*GroupMember, error
 		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.UniqueViolation {
 			return nil, alreadyInGroup(grpId)
 		}
-		return nil, err
+		return nil, errors2.Trace(err)
 	}
 
 	return &grpMember, err
@@ -195,25 +200,27 @@ func (db *Database) GetGroupMember(userId uint, groupId uint) (GroupMember, erro
 	err := db.conn.Where(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return GroupMember{}, entityNotFound("GroupMember")
+	} else if err != nil {
+		return GroupMember{}, errors2.Trace(err)
 	}
 	return grpMember, nil
 }
 
 func (db *Database) CreateGroup(group *Group) error {
-	return db.conn.Omit("OwnerID", "ActiveOutingID").Create(group).Error
+	return errors2.Trace(db.conn.Omit("OwnerID", "ActiveOutingID").Create(group).Error)
 }
 
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {
-	return db.conn.Model(&Group{ID: groupID}).Update("OwnerID", ownerID).Error
+	return errors2.Trace(db.conn.Model(&Group{ID: groupID}).Update("OwnerID", ownerID).Error)
 }
 
 func (db *Database) CreateMessage(msg *Message) error {
-	return db.conn.Create(msg).Error
+	return errors2.Trace(db.conn.Create(msg).Error)
 }
 
 func (db *Database) SetLastSeenMessageIDIfNewer(userId uint, messageId uint) error {
 	// this does nothing if the message is not the same group as the group_member as well :)
-	return db.conn.Exec(
+	err := db.conn.Exec(
 		`UPDATE group_members AS gm SET last_seen_message_id = @messageId WHERE gm.user_id = @userId and gm.group_id =
 				(select by.group_id from group_members by where by.id = 
 					(select m.by_id from messages m where m.id = @messageId and
@@ -225,6 +232,7 @@ func (db *Database) SetLastSeenMessageIDIfNewer(userId uint, messageId uint) err
 			"userId":    userId,
 		}).
 		Error
+	return errors2.Trace(err)
 }
 
 func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint, before bool) ([]Message, error) {
@@ -251,7 +259,7 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, notInUserGroups
 		}
-		return nil, err
+		return nil, errors2.Trace(err)
 	}
 
 	// Goddamn Gorm doesn't let you orderby, limit, then orderby again
@@ -268,7 +276,7 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 		Error
 
 	if err != nil {
-		return nil, err
+		return nil, errors2.Trace(err)
 	}
 
 	sort.Slice(messages, func(i, j int) bool {
@@ -291,7 +299,7 @@ func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) ([
 		Error
 
 	if err != nil {
-		return nil, err
+		return nil, errors2.Trace(err)
 	}
 
 	return messages, nil
@@ -322,7 +330,7 @@ func (db *Database) GetUnreadMessagesCountForGroups(userId uint, groupIds []uint
 		Error
 
 	if err != nil {
-		return nil, err
+		return nil, errors2.Trace(err)
 	}
 
 	countMap := make(map[uint]uint)
@@ -347,7 +355,7 @@ func (db *Database) GetLastMessagesForGroups(groupIds []uint) (map[uint]Message,
 		Error
 
 	if err != nil {
-		return nil, err
+		return nil, errors2.Trace(err)
 	}
 
 	lastMessages := make(map[uint]Message)
@@ -359,11 +367,11 @@ func (db *Database) GetLastMessagesForGroups(groupIds []uint) (map[uint]Message,
 }
 
 func (db *Database) CreateOuting(outing *Outing) error {
-	return db.conn.Create(outing).Error
+	return errors2.Trace(db.conn.Create(outing).Error)
 }
 
 func (db *Database) CreateOutingStep(outingStep *OutingStep) error {
-	return db.conn.Create(outingStep).Error
+	return errors2.Trace(db.conn.Create(outingStep).Error)
 }
 
 func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
@@ -376,7 +384,7 @@ func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.ForeignKeyViolation && pgErr.ConstraintName == "fk_outing_steps_votes" {
 			return entityNotFound("OutingStep")
 		}
-		return err
+		return errors2.Trace(err)
 	}
 
 	return nil
@@ -392,7 +400,7 @@ func (db *Database) GetOuting(outingId uint) (Outing, error) {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return Outing{}, entityNotFound("Outing")
 		}
-		return Outing{}, err
+		return Outing{}, errors2.Trace(err)
 	}
 
 	return outing, nil
@@ -414,7 +422,7 @@ func (db *Database) GetOutingAndGroupForOutingStep(outingStepId uint) (OutingAnd
 		Error
 
 	if err != nil {
-		return OutingAndGroupID{}, err
+		return OutingAndGroupID{}, errors2.Trace(err)
 	}
 
 	// not possible to have 0 as ids: means that we didn't find the rows
@@ -436,7 +444,7 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 		Error
 
 	if err != nil {
-		return nil, err
+		return nil, errors2.Trace(err)
 	}
 
 	return outings, nil
@@ -455,20 +463,20 @@ func (db *Database) GetActiveOuting(groupId uint) (Outing, error) {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return Outing{}, entityNotFound("ActiveOuting")
 		}
-		return Outing{}, err
+		return Outing{}, errors2.Trace(err)
 	}
 	return outing, nil
 }
 
 func (db *Database) UpdateActiveOuting(groupId uint, outingId uint) error {
-	return db.conn.Model(&Group{}).
+	return errors2.Trace(db.conn.Model(&Group{}).
 		Where("id = ?", groupId).
 		Update("active_outing_id", outingId).
-		Error
+		Error)
 }
 
 func (db *Database) CreateGroupInvite(inv *GroupInvite) error {
-	return db.conn.Create(inv).Error
+	return errors2.Trace(db.conn.Create(inv).Error)
 }
 
 func (db *Database) GetGroupInvites(groupId uint) ([]GroupInvite, error) {
@@ -479,15 +487,15 @@ func (db *Database) GetGroupInvites(groupId uint) ([]GroupInvite, error) {
 		Find(&invites).Error
 
 	if err != nil {
-		return nil, err
+		return nil, errors2.Trace(err)
 	}
 
 	return invites, nil
 }
 
 func (db *Database) InvalidateInvite(userId uint, inviteId uuid.UUID) error {
-	return db.conn.Exec(`UPDATE group_invites SET active = FALSE WHERE id = ? AND 
-		group_id IN (SELECT group_id FROM group_members WHERE user_id = ?)`, inviteId, userId).Error
+	return errors2.Trace(db.conn.Exec(`UPDATE group_invites SET active = FALSE WHERE id = ? AND 
+		group_id IN (SELECT group_id FROM group_members WHERE user_id = ?)`, inviteId, userId).Error)
 }
 
 func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, error) {
@@ -498,9 +506,9 @@ func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, 
 		First(&invite).Error
 
 	if err != nil {
-		return GroupInvite{}, err
+		return GroupInvite{}, errors2.Trace(err)
 	}
 
 	_, err = db.AddUserToGroup(userId, invite.GroupID)
-	return invite, err
+	return invite, errors2.Trace(err)
 }
