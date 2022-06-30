@@ -2,12 +2,15 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/services.dart';
 import 'package:get/state_manager.dart';
 import 'package:mobile/dto/user.dart';
+import 'package:mobile/model/user.dart' as u;
+import 'package:mobile/pages/home.dart';
 import 'package:mobile/pages/sign_up_components/fadeindexedstack.dart';
 import 'package:mobile/services/misc.dart';
 import 'package:mobile/services/user.dart';
@@ -683,7 +686,11 @@ class _SignUpPageState extends State<SignUpPage> {
         _imageBytes
     ));
     if (response.isOk) {
-      Get.offAndToNamed("/home");
+      u.UserInfo userInfo;
+      await user.getInfo().then((value) {
+        userInfo = value.body!;
+        Get.off(() => HomePage(userInfo: userInfo));
+      });
     } else {
       Get.snackbar(
           "Error encountered:",
