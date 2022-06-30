@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"gorm.io/gorm/clause"
-	"log"
 	"os"
 	"sort"
 	"time"
@@ -18,6 +17,34 @@ import (
 )
 
 var dbConn utils.Lazy[gorm.DB]
+
+type AlreadyInGroup struct {
+	grpId uint
+}
+
+func (er AlreadyInGroup) Error() string {
+	return fmt.Sprintf("user is already in group %d", er.grpId)
+}
+
+func alreadyInGroup(grpId uint) error {
+	return AlreadyInGroup{grpId: grpId}
+}
+
+var userAlreadyExists = errors.New("user already exists")
+
+var notInUserGroups = errors.New("message is not in any of the user's groups")
+
+type EntityNotFound struct {
+	entity string
+}
+
+func entityNotFound(entity string) EntityNotFound {
+	return EntityNotFound{entity: entity}
+}
+
+func (enf EntityNotFound) Error() string {
+	return fmt.Sprintf("`%s` not found", enf.entity)
+}
 
 // NewDatabaseConnection creates a new database connection
 func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
@@ -33,7 +60,7 @@ func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
 
 		db, err := gorm.Open(pg, &dbconfig)
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("cannot open db: %v", err))
+			return nil, fmt.Errorf("cannot open db: %v", err)
 		}
 
 		// add tables here
@@ -47,27 +74,27 @@ func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
 		db.DisableForeignKeyConstraintWhenMigrating = true
 		err = db.AutoMigrate(models...)
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("error while migrating db without fks: %v", err))
+			return nil, fmt.Errorf("error while migrating db without fks: %v", err)
 		}
 		db.DisableForeignKeyConstraintWhenMigrating = false
 		err = db.AutoMigrate(models...)
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("error while migrating db with fks: %v", err))
+			return nil, fmt.Errorf("error while migrating db with fks: %v", err)
 		}
 
 		sqlDB, err := db.DB()
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("error getting raw db: %v", err))
+			return nil, fmt.Errorf("error getting raw db: %v", err)
 		}
 
 		if config.AppMode == utils.Dev || config.AppMode == utils.Orbital {
 			sql, err := os.ReadFile("./data/dev.sql")
 			if err != nil {
-				return nil, errors.New(fmt.Sprintf("err while reading dev.sql: %v", err))
+				return nil, fmt.Errorf("err while reading dev.sql: %v", err)
 			}
 			err = db.Exec(string(sql)).Error
 			if err != nil {
-				return nil, errors.New(fmt.Sprintf("err while running dev.sql migration: %v", err))
+				return nil, fmt.Errorf("err while running dev.sql migration: %v", err)
 			}
 		}
 
@@ -93,56 +120,58 @@ func (db *Database) CreateUser(user *User) error {
 	if err != nil {
 		var pgErr *pgconn.PgError
 		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.UniqueViolation {
-			return errors.New("user already exists")
+			return userAlreadyExists
 		}
+		return err
 	}
 
 	return nil
 }
 
 // GetUserByFirebaseUid gets a user given a unique firebaseUid
-func (db *Database) GetUserByFirebaseUid(firebaseUid string) *User {
+func (db *Database) GetUserByFirebaseUid(firebaseUid string) (User, error) {
 	var user User
 
 	err := db.conn.Where(&User{FirebaseUid: firebaseUid}).
 		Select("ID").First(&user).Error
-	if errors.Is(err, gorm.ErrRecordNotFound) {
-		return nil
-	}
 
-	return &user
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return User{}, entityNotFound("User")
+	}
+	return user, nil
 }
 
-func (db *Database) GetUser(id uint) *User {
+func (db *Database) GetUser(id uint) (User, error) {
 	var user User
 	err := db.conn.First(&user, id).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
-		return nil
+		return User{}, entityNotFound("User")
 	}
-	return &user
+	return user, nil
 }
 
-func (db *Database) GetAllGroups(userId uint) []GroupMember {
+func (db *Database) GetAllGroups(userId uint) ([]GroupMember, error) {
 	var groupMembers []GroupMember
 	err := db.conn.Joins("Group").Find(&groupMembers, "group_members.user_id = ?", userId).Error
 
 	if err != nil {
-		return nil
+		return nil, err
 	}
-	return groupMembers
+
+	return groupMembers, nil
 }
 
-func (db *Database) GetGroup(groupId uint) *Group {
+func (db *Database) GetGroup(groupId uint) (Group, error) {
 	var group Group
 	err := db.conn.Model(&Group{}).Where("id = ?", groupId).First(&group).Error
 
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil
+			return Group{}, entityNotFound("Group")
 		}
-		log.Fatalf("err in GetGroup: %v", err)
+		return Group{}, err
 	}
-	return &group
+	return group, nil
 }
 
 func (db *Database) AddUserToGroup(userId uint, grpId uint) (*GroupMember, error) {
@@ -153,20 +182,21 @@ func (db *Database) AddUserToGroup(userId uint, grpId uint) (*GroupMember, error
 	if err != nil {
 		var pgErr *pgconn.PgError
 		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.UniqueViolation {
-			return nil, errors.New(fmt.Sprintf("user is already in group %d", grpId))
+			return nil, alreadyInGroup(grpId)
 		}
+		return nil, err
 	}
 
 	return &grpMember, err
 }
 
-func (db *Database) GetGroupMember(userId uint, groupId uint) *GroupMember {
+func (db *Database) GetGroupMember(userId uint, groupId uint) (GroupMember, error) {
 	var grpMember GroupMember
 	err := db.conn.Where(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
-		return nil
+		return GroupMember{}, entityNotFound("GroupMember")
 	}
-	return &grpMember
+	return grpMember, nil
 }
 
 func (db *Database) CreateGroup(group *Group) error {
@@ -181,9 +211,9 @@ func (db *Database) CreateMessage(msg *Message) error {
 	return db.conn.Create(msg).Error
 }
 
-func (db *Database) SetLastSeenMessageIDIfNewer(userId uint, messageId uint) {
+func (db *Database) SetLastSeenMessageIDIfNewer(userId uint, messageId uint) error {
 	// this does nothing if the message is not the same group as the group_member as well :)
-	err := db.conn.Exec(
+	return db.conn.Exec(
 		`UPDATE group_members AS gm SET last_seen_message_id = @messageId WHERE gm.user_id = @userId and gm.group_id =
 				(select by.group_id from group_members by where by.id = 
 					(select m.by_id from messages m where m.id = @messageId and
@@ -195,9 +225,6 @@ func (db *Database) SetLastSeenMessageIDIfNewer(userId uint, messageId uint) {
 			"userId":    userId,
 		}).
 		Error
-	if err != nil {
-		log.Fatalf("error in updating last_seen_message_id: %v", err)
-	}
 }
 
 func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint, before bool) ([]Message, error) {
@@ -219,14 +246,15 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 		Where(`id = ? and by_id in (select id from group_members where group_id in 
 			(select group_id from group_members where user_id = ?))`, messageId, userId).
 		First(&msg).Error
+
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, errors.New("message is not in any of the user's groups")
+			return nil, notInUserGroups
 		}
-		log.Fatalf("get message before (get message) failed: %v", err)
-		return nil, nil
+		return nil, err
 	}
-	// TODO goddamn Gorm doesn't let you orderby, limit, then orderby again
+
+	// Goddamn Gorm doesn't let you orderby, limit, then orderby again
 	// so instead we have no manually sort the messages ourselves
 	err = db.conn.Model(&Message{}).
 		Preload("By").
@@ -240,8 +268,7 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 		Error
 
 	if err != nil {
-		log.Fatalf("get message before (query) failed: %v", err)
-		return nil, nil
+		return nil, err
 	}
 
 	sort.Slice(messages, func(i, j int) bool {
@@ -251,15 +278,9 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 	return messages, nil
 }
 
-func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) []Message {
+func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) ([]Message, error) {
 	var messages []Message
 
-	// Use preload instead of join since the numbers of users/group_members loaded will be small
-	// and the extra 2 sql statements executed will be cheap (ignoring latency)
-
-	// This is an acceptable but lazy solution, of course, sourced from the horrible documentation of gorm.
-	// However, once a better join solution (that loads the foreign table properties) exists, we should
-	// use that
 	err := db.conn.
 		Table("messages").
 		Preload("By").
@@ -270,9 +291,10 @@ func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) []
 		Error
 
 	if err != nil {
-		return nil
+		return nil, err
 	}
-	return messages
+
+	return messages, nil
 }
 
 type LastMessage struct {
@@ -285,7 +307,7 @@ type UnreadMessagesCountByGroup struct {
 	GroupID             uint
 }
 
-func (db *Database) GetUnreadMessagesCountForGroups(userId uint, groupIds []uint) map[uint]uint {
+func (db *Database) GetUnreadMessagesCountForGroups(userId uint, groupIds []uint) (map[uint]uint, error) {
 	var counts []UnreadMessagesCountByGroup
 
 	// this can be made better definitely
@@ -300,8 +322,7 @@ func (db *Database) GetUnreadMessagesCountForGroups(userId uint, groupIds []uint
 		Error
 
 	if err != nil {
-		log.Fatalf("error in GetUnreadMessagesCountForGroups: %v", err)
-		return nil
+		return nil, err
 	}
 
 	countMap := make(map[uint]uint)
@@ -309,10 +330,10 @@ func (db *Database) GetUnreadMessagesCountForGroups(userId uint, groupIds []uint
 		countMap[c.GroupID] = c.UnreadMessagesCount
 	}
 
-	return countMap
+	return countMap, nil
 }
 
-func (db *Database) GetLastMessagesForGroups(groupIds []uint) map[uint]Message {
+func (db *Database) GetLastMessagesForGroups(groupIds []uint) (map[uint]Message, error) {
 	var messages []LastMessage
 
 	err := db.conn.Table("messages").
@@ -324,9 +345,9 @@ func (db *Database) GetLastMessagesForGroups(groupIds []uint) map[uint]Message {
 		Order("group_id, sent_at desc").
 		Find(&messages).
 		Error
+
 	if err != nil {
-		log.Fatalf("error in GetLastMessagesForGroups: %v", err)
-		return nil
+		return nil, err
 	}
 
 	lastMessages := make(map[uint]Message)
@@ -334,7 +355,7 @@ func (db *Database) GetLastMessagesForGroups(groupIds []uint) map[uint]Message {
 		lastMessages[last.GroupID] = last.Message
 	}
 
-	return lastMessages
+	return lastMessages, nil
 }
 
 func (db *Database) CreateOuting(outing *Outing) error {
@@ -353,7 +374,7 @@ func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 	if err != nil {
 		var pgErr *pgconn.PgError
 		if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.ForeignKeyViolation && pgErr.ConstraintName == "fk_outing_steps_votes" {
-			return fmt.Errorf("outing steps does not exist")
+			return entityNotFound("OutingStep")
 		}
 		return err
 	}
@@ -361,7 +382,7 @@ func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 	return nil
 }
 
-func (db *Database) GetOuting(outingId uint) *Outing {
+func (db *Database) GetOuting(outingId uint) (Outing, error) {
 	var outing Outing
 	err := db.conn.Model(&Outing{ID: outingId}).
 		First(&outing).
@@ -369,12 +390,12 @@ func (db *Database) GetOuting(outingId uint) *Outing {
 
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil
+			return Outing{}, entityNotFound("Outing")
 		}
-		log.Fatalf("error in GetOuting: %v", err)
+		return Outing{}, err
 	}
 
-	return &outing
+	return outing, nil
 }
 
 type OutingAndGroupID struct {
@@ -393,21 +414,20 @@ func (db *Database) GetOutingAndGroupForOutingStep(outingStepId uint) (OutingAnd
 		Error
 
 	if err != nil {
-		log.Fatalf("error in GetOutingAndGroupForOutingStep: %v", err)
+		return OutingAndGroupID{}, err
 	}
 
 	// not possible to have 0 as ids: means that we didn't find the rows
 	if res.OutingID == 0 && res.GroupID == 0 {
-		return OutingAndGroupID{}, fmt.Errorf("outing step not found")
+		return OutingAndGroupID{}, entityNotFound("OutingStep")
 	}
 
 	return res, nil
 }
 
-func (db *Database) GetAllOutings(groupId uint) []Outing {
+func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	var outings []Outing
 
-	// preloading is not efficient
 	err := db.conn.Model(&Outing{}).
 		Where("group_id = ?", groupId).
 		Preload("Steps").
@@ -416,13 +436,13 @@ func (db *Database) GetAllOutings(groupId uint) []Outing {
 		Error
 
 	if err != nil {
-		log.Fatalf("error in GetAllOutings: %v", err)
+		return nil, err
 	}
 
-	return outings
+	return outings, nil
 }
 
-func (db *Database) GetActiveOuting(groupId uint) *Outing {
+func (db *Database) GetActiveOuting(groupId uint) (Outing, error) {
 	var outing Outing
 	err := db.conn.Model(&Outing{}).
 		Where("id = (select active_outing_id from groups where id = ?)", groupId).
@@ -430,28 +450,28 @@ func (db *Database) GetActiveOuting(groupId uint) *Outing {
 		Preload("Steps.Votes").
 		First(&outing).
 		Error
+
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil
+			return Outing{}, entityNotFound("ActiveOuting")
 		}
-		log.Fatalf("error in GetActiveOuting: %v", err)
+		return Outing{}, err
 	}
-	return &outing
+	return outing, nil
 }
 
 func (db *Database) UpdateActiveOuting(groupId uint, outingId uint) error {
-	err := db.conn.Model(&Group{}).
+	return db.conn.Model(&Group{}).
 		Where("id = ?", groupId).
 		Update("active_outing_id", outingId).
 		Error
-	return err
 }
 
 func (db *Database) CreateGroupInvite(inv *GroupInvite) error {
 	return db.conn.Create(inv).Error
 }
 
-func (db *Database) GetGroupInvites(groupId uint) []GroupInvite {
+func (db *Database) GetGroupInvites(groupId uint) ([]GroupInvite, error) {
 	var invites []GroupInvite
 
 	err := db.conn.Model(&GroupInvite{GroupID: groupId, Active: true}).
@@ -459,11 +479,10 @@ func (db *Database) GetGroupInvites(groupId uint) []GroupInvite {
 		Find(&invites).Error
 
 	if err != nil {
-		log.Fatalf("error in GetGroupInvites: %v", err)
-		return nil
+		return nil, err
 	}
 
-	return invites
+	return invites, nil
 }
 
 func (db *Database) InvalidateInvite(userId uint, inviteId uuid.UUID) error {
@@ -471,7 +490,7 @@ func (db *Database) InvalidateInvite(userId uint, inviteId uuid.UUID) error {
 		group_id IN (SELECT group_id FROM group_members WHERE user_id = ?)`, inviteId, userId).Error
 }
 
-func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (*GroupInvite, error) {
+func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, error) {
 	var invite GroupInvite
 	err := db.conn.Table("group_invites gi").
 		Where("gi.id = ? AND gi.active = TRUE", inviteId).
@@ -479,10 +498,9 @@ func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (*GroupInvite,
 		First(&invite).Error
 
 	if err != nil {
-		log.Fatalf("error in JoinByInvite: %v", err)
-		return nil, err
+		return GroupInvite{}, err
 	}
 
 	_, err = db.AddUserToGroup(userId, invite.GroupID)
-	return &invite, err
+	return invite, err
 }
