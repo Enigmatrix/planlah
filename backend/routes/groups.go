@@ -98,10 +98,10 @@ func (controller GroupsController) CreateInvite(ctx *gin.Context) {
 
 	switch ExpiryOption(createGroupInviteDto.ExpiryOption) {
 	case OneHour:
-		t := time.Now().Add(time.Hour)
+		t := time.Now().In(time.UTC).Add(time.Hour)
 		expiry = &t
 	case OneDay:
-		t := time.Now().Add(time.Hour * 24)
+		t := time.Now().In(time.UTC).Add(time.Hour * 24)
 		expiry = &t
 	case Never:
 		expiry = nil

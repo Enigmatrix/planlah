@@ -170,7 +170,7 @@ func (db *Database) GetGroupMember(userId uint, groupId uint) *GroupMember {
 }
 
 func (db *Database) CreateGroup(group *Group) error {
-	return db.conn.Omit("OwnerID").Create(group).Error
+	return db.conn.Omit("OwnerID", "ActiveOutingID").Create(group).Error
 }
 
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {

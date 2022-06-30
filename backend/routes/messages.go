@@ -71,7 +71,7 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 	msg := data.Message{
 		Content: sendMessageDto.Content,
 		ByID:    groupMember.ID,
-		SentAt:  time.Now(),
+		SentAt:  time.Now().In(time.UTC),
 	}
 
 	err = controller.Database.CreateMessage(&msg)

@@ -148,7 +148,7 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 	}
 
 	activeOuting := controller.Database.GetActiveOuting(createOutingDto.GroupID)
-	if activeOuting != nil && time.Now().Before(activeOuting.End) {
+	if activeOuting != nil && time.Now().In(time.UTC).Before(activeOuting.End) {
 		ctx.JSON(http.StatusBadRequest, NewErrorMessage("group already has an active outing"))
 		return
 	}
@@ -326,7 +326,7 @@ func (controller *OutingController) Vote(ctx *gin.Context) {
 		GroupMemberID: gm.ID,
 		OutingStepID:  outingStepVoteDto.OutingStepID,
 		Vote:          *outingStepVoteDto.Vote,
-		VotedAt:       time.Now(),
+		VotedAt:       time.Now().In(time.UTC),
 	}
 
 	err = controller.Database.UpsertOutingStepVote(&outingStepVote)
