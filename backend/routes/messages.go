@@ -68,7 +68,7 @@ func ToMessageDtos(messages []data.Message) []MessageDto {
 // @Security JWT
 // @Success 200
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/messages/send [post]
 func (ctr *MessageController) Send(ctx *gin.Context) {
 	var dto SendMessageDto
@@ -118,7 +118,7 @@ func (ctr *MessageController) Send(ctx *gin.Context) {
 // @Security JWT
 // @Success 200
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/messages/mark_read [put]
 func (ctr *MessageController) MarkRead(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
@@ -145,7 +145,7 @@ func (ctr *MessageController) MarkRead(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} []MessageDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/messages/before [get]
 func (ctr *MessageController) MessagesBefore(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
@@ -176,7 +176,7 @@ func (ctr *MessageController) MessagesBefore(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} []MessageDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/messages/after [get]
 func (ctr *MessageController) MessagesAfter(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
@@ -207,7 +207,7 @@ func (ctr *MessageController) MessagesAfter(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} []MessageDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/messages/all [get]
 func (ctr *MessageController) Get(ctx *gin.Context) {
 	var dto GetMessagesDto

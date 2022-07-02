@@ -129,7 +129,7 @@ type MiscController struct {
 // @Tags Misc
 // @Success 200 {object} []string
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/misc/towns [get]
 func (ctr *MiscController) Towns(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetTowns())
@@ -141,7 +141,7 @@ func (ctr *MiscController) Towns(ctx *gin.Context) {
 // @Tags Misc
 // @Success 200 {object} []string
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/misc/gender [get]
 func (ctr *MiscController) Gender(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetGenders())
@@ -153,7 +153,7 @@ func (ctr *MiscController) Gender(ctx *gin.Context) {
 // @Tags Misc
 // @Success 200 {object} []string
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/misc/attractions [get]
 func (ctr *MiscController) Attractions(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetAttractions())
@@ -165,7 +165,7 @@ func (ctr *MiscController) Attractions(ctx *gin.Context) {
 // @Tags Misc
 // @Success 200 {object} []string
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/misc/food [get]
 func (ctr *MiscController) Food(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetFood())

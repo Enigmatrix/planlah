@@ -98,7 +98,7 @@ func ToGroupSummaryDto(grp data.GroupInfo) GroupSummaryDto {
 // @Security JWT
 // @Success 200 {object} GroupInviteDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/groups/invites/create [post]
 func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 	var dto CreateGroupInviteDto
@@ -150,7 +150,7 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 // @Security JWT
 // @Success 200
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/groups/invites/invalidate [put]
 func (ctr *GroupsController) InvalidateInvite(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
@@ -181,7 +181,7 @@ func (ctr *GroupsController) InvalidateInvite(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} []GroupInviteDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/groups/invites [get]
 func (ctr *GroupsController) GetInvites(ctx *gin.Context) {
 	var dto GetGroupInvitesDto
@@ -216,7 +216,7 @@ func (ctr *GroupsController) GetInvites(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} GroupSummaryDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/groups/create [post]
 func (ctr *GroupsController) Create(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
@@ -278,7 +278,7 @@ func (ctr *GroupsController) Create(ctx *gin.Context) {
 // @Security JWT
 // @Tags Group
 // @Success 200 {object} []GroupSummaryDto
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/groups/all [get]
 func (ctr *GroupsController) GetAll(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
@@ -304,7 +304,7 @@ func (ctr *GroupsController) GetAll(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} GroupSummaryDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/groups/join/{inviteId} [get]
 func (ctr *GroupsController) JoinByInvite(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
@@ -345,7 +345,7 @@ func (ctr *GroupsController) JoinByInvite(ctx *gin.Context) {
 // @Security JWT
 // @Success 307
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /join/{inviteId} [get]
 func (ctr *GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
 	var dto JoinGroupInviteDto

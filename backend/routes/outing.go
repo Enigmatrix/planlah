@@ -132,7 +132,7 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Security JWT
 // @Success 200 {object} OutingDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/create [post]
 func (ctr *OutingController) Create(ctx *gin.Context) {
 	var dto CreateOutingDto
@@ -192,7 +192,7 @@ func (ctr *OutingController) Create(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} OutingStepDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/create_step [post]
 func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 	var dto CreateOutingStepDto
@@ -242,7 +242,7 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} []OutingDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/all [get]
 func (ctr *OutingController) Get(ctx *gin.Context) {
 	var dto GetOutingsDto
@@ -274,7 +274,7 @@ func (ctr *OutingController) Get(ctx *gin.Context) {
 // @Success 200
 // @Success 200 {object} OutingDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/active [get]
 func (ctr *OutingController) GetActive(ctx *gin.Context) {
 	var dto GetActiveOutingDto
@@ -308,7 +308,7 @@ func (ctr *OutingController) GetActive(ctx *gin.Context) {
 // @Security JWT
 // @Success 200
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/vote [put]
 func (ctr *OutingController) Vote(ctx *gin.Context) {
 	var dto VoteOutingStepDto

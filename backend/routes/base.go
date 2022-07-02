@@ -15,12 +15,15 @@ type BaseController struct {
 	Logger   *zap.Logger
 }
 
+// AuthUserId Gets the authenticated User ID
 func (ctr *BaseController) AuthUserId(ctx *gin.Context) uint {
 	// this will always succeed, as the rejection will come from go-jwt
 	// even before we get here.
 	return ctr.Auth.AuthenticatedUserId(ctx)
 }
 
+// AuthGroupMember Gets the authenticated User's GroupMember for the given Group, or nil
+// if the User is not a member of this Group
 func (ctr *BaseController) AuthGroupMember(ctx *gin.Context, grpID uint) *data.GroupMember {
 	userId := ctr.AuthUserId(ctx)
 	grpMember, err := ctr.Database.GetGroupMember(userId, grpID)

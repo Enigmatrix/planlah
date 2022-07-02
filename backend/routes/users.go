@@ -49,7 +49,7 @@ func ToUserSummaryDto(user data.User) UserSummaryDto {
 // @Tags User
 // @Success 200
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/users/create [post]
 func (ctr *UserController) Create(ctx *gin.Context) {
 	var dto CreateUserDto
@@ -131,7 +131,7 @@ func (ctr *UserController) Create(ctx *gin.Context) {
 // @Security JWT
 // @Tags User
 // @Success 200 {object} UserSummaryDto
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/users/me/info [get]
 func (ctr *UserController) GetInfo(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)

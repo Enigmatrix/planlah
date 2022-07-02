@@ -36,6 +36,11 @@ type TokenDtoFailed struct {
 	Code    int    `json:"code" binding:"required"`
 }
 
+type AuthError struct {
+	Message string `json:"message" binding:"required"`
+	Code    int    `json:"code" binding:"required"`
+}
+
 var authServiceInstance = lazy.New[AuthService]()
 
 // NewAuthService creates a new AuthService
