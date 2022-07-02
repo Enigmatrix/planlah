@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/model/user.dart' as user;
@@ -20,6 +19,7 @@ import 'package:mobile/services/misc.dart';
 import 'package:mobile/services/outing.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/theme.dart';
+import 'package:mobile/widgets/wait_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,20 +57,6 @@ class _AppState extends State<App> {
     super.initState();
     auth = Get.find();
     userSvc = Get.find();
-  }
-
-  Widget waitWidget() {
-    return Center(
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            SizedBox(
-              width: 60,
-              height: 60,
-              child: CircularProgressIndicator(),
-            ),
-          ]),
-    );
   }
 
   @override

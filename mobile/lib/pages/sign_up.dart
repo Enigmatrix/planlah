@@ -1,9 +1,9 @@
 import 'dart:io';
+import "dart:async";
 import 'dart:typed_data';
 
+import 'package:async/async.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +14,7 @@ import 'package:mobile/pages/home.dart';
 import 'package:mobile/pages/sign_up_components/fadeindexedstack.dart';
 import 'package:mobile/services/misc.dart';
 import 'package:mobile/services/user.dart';
+import 'package:mobile/widgets/wait_widget.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:get/get.dart';
 
@@ -61,6 +62,11 @@ class _SignUpPageState extends State<SignUpPage> {
   var attractionsFilledIn = false;
   var foodFilledIn = false;
   var isFilledIn = false;
+  late FutureGroup<Response<List<String>?>> futureGroup;
+  late Future<Response<List<String>?>> townList;
+  late Future<Response<List<String>?>> genderList;
+  late Future<Response<List<String>?>> foodList;
+  late Future<Response<List<String>?>> attractionList;
 
   // The initState method is called exactly once.
   @override
@@ -68,30 +74,17 @@ class _SignUpPageState extends State<SignUpPage> {
     super.initState();
     // Initialize values that are retrieved from the backend here to avoid
     // calling them again and again.
-    // This is because this widget is a Stateful Widget.
-    misc.getTowns().then((value) {
-      setState(() {
-        towns = value.body!;
-      });
-    });
+    futureGroup = FutureGroup();
+    townList = misc.getTowns();
+    genderList = misc.getGenders();
+    foodList = misc.getFood();
+    attractionList = misc.getAttractions();
+    futureGroup.add(townList);
+    futureGroup.add(genderList);
+    futureGroup.add(foodList);
+    futureGroup.add(attractionList);
+    futureGroup.close();
 
-    misc.getGenders().then((value) {
-      setState(() {
-        genders = value.body!;
-      });
-    });
-
-    misc.getFood().then((value) {
-      setState(() {
-        foodTags = value.body!;
-      });
-    });
-
-    misc.getAttractions().then((value) {
-      setState(() {
-        attractionTags = value.body!;
-      });
-    });
     final user = auth.user.value!;
     // If photoURL is null we should provide an MemoryImage...
     // But since we sticking with Google sign in Firebase will
@@ -119,7 +112,7 @@ class _SignUpPageState extends State<SignUpPage> {
             child:  FadeIndexedStack(
                 index: _formIndex,
                 children: <Widget>[
-                  buildWelcomePage(context),
+                  futureBuilderWelcomePage(context),
                   buildAccountDetails(context),
                   buildUserProfile(context),
                   buildUserImagePickerPage(context),
@@ -137,6 +130,34 @@ class _SignUpPageState extends State<SignUpPage> {
     } else {
       isFilledIn = true;
     }
+  }
+
+  void initializeLateVariables() {
+    futureGroup.future.then((responseList) {
+      towns = responseList[0].body!;
+      genders = responseList[1].body!;
+      foodTags = responseList[2].body!;
+      attractionTags = responseList[3].body!;
+    });
+  }
+
+  Widget futureBuilderWelcomePage(BuildContext context) {
+    return FutureBuilder(
+        future: futureGroup.future,
+        builder: (BuildContext context, AsyncSnapshot<List<Response<List<String>?>>> snapshot) {
+            if (snapshot.hasData) {
+                if (snapshot.data!.every((r) => !r.hasError)) {
+                  initializeLateVariables();
+                  return buildWelcomePage(context);
+                } else {
+                  initState();
+                  return waitWidget();
+                }
+            } else {
+              return waitWidget();
+            }
+        }
+    );
   }
 
   Widget buildWelcomePage(BuildContext context) {
