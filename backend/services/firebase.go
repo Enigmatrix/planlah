@@ -7,10 +7,10 @@ import (
 	lazy "planlah.sg/backend/utils"
 )
 
-var firebaseAppInstance = lazy.New[firebase.App]()
+var firebaseAppInstance = lazy.NewLazy[firebase.App]()
 
 func NewFirebaseApp() (*firebase.App, error) {
-	return firebaseAppInstance.FallibleValue(func() (*firebase.App, error) {
+	return firebaseAppInstance.LazyFallibleValue(func() (*firebase.App, error) {
 		ctx := context.Background()
 		firebaseApp, err := firebase.NewApp(ctx, &firebase.Config{
 			StorageBucket: "planlah.appspot.com",

@@ -30,7 +30,7 @@ var (
 // NewDatabaseConnection Creates a new database connection
 func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
 	// TODO should this really be a singleton?
-	return dbConn.FallibleValue(func() (*gorm.DB, error) {
+	return dbConn.LazyFallibleValue(func() (*gorm.DB, error) {
 		dsn := fmt.Sprintf("host=%s user=%s password=%s",
 			config.DatabaseHost,
 			config.DatabaseUser,

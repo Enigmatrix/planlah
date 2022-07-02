@@ -19,10 +19,10 @@ type ImageService interface {
 	UploadUserImage(imgReader io.Reader) (string, error)
 }
 
-var firebaseStorageImageServiceInstance = lazy.New[FirebaseStorageImageService]()
+var firebaseStorageImageServiceInstance = lazy.NewLazy[FirebaseStorageImageService]()
 
 func NewFirebaseStorageImageService(firebaseApp *firebase.App) (*FirebaseStorageImageService, error) {
-	return firebaseStorageImageServiceInstance.FallibleValue(func() (*FirebaseStorageImageService, error) {
+	return firebaseStorageImageServiceInstance.LazyFallibleValue(func() (*FirebaseStorageImageService, error) {
 		firebaseStorage, err := firebaseApp.Storage(context.Background())
 		if err != nil {
 			return nil, errors.Annotate(err, "cannot init firebase storage instance")

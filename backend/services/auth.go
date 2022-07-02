@@ -41,11 +41,11 @@ type AuthError struct {
 	Code    int    `json:"code" binding:"required"`
 }
 
-var authServiceInstance = lazy.New[AuthService]()
+var authServiceInstance = lazy.NewLazy[AuthService]()
 
 // NewAuthService creates a new AuthService
 func NewAuthService(database *data.Database, firebaseApp *firebase.App, logger *zap.Logger) (*AuthService, error) {
-	return authServiceInstance.FallibleValue(func() (*AuthService, error) {
+	return authServiceInstance.LazyFallibleValue(func() (*AuthService, error) {
 		firebaseAuth, err := firebaseApp.Auth(context.Background())
 		if err != nil {
 			return nil, errors.Annotate(err, "cannot init firebase auth instance")

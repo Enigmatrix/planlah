@@ -11,14 +11,14 @@ type Lazy[T any] struct {
 	lock        sync.Mutex
 }
 
-func New[T any]() Lazy[T] {
+func NewLazy[T any]() Lazy[T] {
 	return Lazy[T]{
 		initialized: 0,
 		lock:        sync.Mutex{},
 	}
 }
 
-func Of[T any](value T) Lazy[T] {
+func LazyOf[T any](value T) Lazy[T] {
 	return Lazy[T]{
 		value:       value,
 		initialized: 1,
@@ -26,7 +26,7 @@ func Of[T any](value T) Lazy[T] {
 	}
 }
 
-func (lazy Lazy[T]) Value(generate func() T) T {
+func (lazy Lazy[T]) LazyValue(generate func() T) T {
 	if atomic.LoadUint32(&lazy.initialized) == 0 {
 		lazy.lock.Lock()
 		defer lazy.lock.Unlock()
@@ -37,7 +37,7 @@ func (lazy Lazy[T]) Value(generate func() T) T {
 	return lazy.value
 }
 
-func (lazy Lazy[T]) FallibleValue(generate func() (*T, error)) (*T, error) {
+func (lazy Lazy[T]) LazyFallibleValue(generate func() (*T, error)) (*T, error) {
 	if atomic.LoadUint32(&lazy.initialized) == 0 {
 		lazy.lock.Lock()
 		defer lazy.lock.Unlock()
