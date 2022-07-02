@@ -345,7 +345,7 @@ func (db *Database) CreateGroup(group *Group) error {
 //
 // Does not check if the new owner is a GroupMember of this Group.
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {
-	return errors.Trace(db.conn.Where(&Group{ID: groupID}).Update("OwnerID", ownerID).Error)
+	return errors.Trace(db.conn.Where(&Group{ID: groupID}).Updates(&Group{OwnerID: ownerID}).Error)
 }
 
 // CreateMessage Creates a Message
