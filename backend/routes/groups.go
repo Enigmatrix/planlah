@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	"github.com/juju/errors"
 	"github.com/samber/lo"
 	"net/http"
 	"planlah.sg/backend/data"
@@ -253,7 +254,7 @@ func (ctr *GroupsController) Create(ctx *gin.Context) {
 	groupMember, err := ctr.Database.AddUserToGroup(userId, group.ID)
 
 	if err != nil {
-		if err == data.UserAlreadyInGroup {
+		if errors.Is(err, data.UserAlreadyInGroup) {
 			ctr.Logger.Fatal("IMPOSSIBLE: user is already member of just-created group")
 			return
 		}
@@ -319,7 +320,7 @@ func (ctr *GroupsController) JoinByInvite(ctx *gin.Context) {
 
 	invite, err := ctr.Database.JoinByInvite(userId, inviteId)
 	if err != nil {
-		if err == data.UserAlreadyInGroup {
+		if errors.Is(err, data.UserAlreadyInGroup) {
 			FailWithMessage(ctx, "user is already in group")
 			return
 		}

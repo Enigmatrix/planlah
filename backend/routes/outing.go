@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"github.com/juju/errors"
 	"net/http"
 	"time"
 
@@ -201,7 +202,7 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 
 	outingId := dto.OutingID
 	outing, err := ctr.Database.GetOuting(outingId)
-	if err == data.EntityNotFound {
+	if errors.Is(err, data.EntityNotFound) {
 		FailWithMessage(ctx, "outing not found")
 		return
 	} else if err != nil {
@@ -317,7 +318,7 @@ func (ctr *OutingController) Vote(ctx *gin.Context) {
 	}
 
 	o, err := ctr.Database.GetOutingAndGroupForOutingStep(dto.OutingStepID)
-	if err == data.EntityNotFound {
+	if errors.Is(err, data.EntityNotFound) {
 		FailWithMessage(ctx, "outing step not found")
 		return
 	} else if err != nil {

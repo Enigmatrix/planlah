@@ -8,7 +8,6 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"go.uber.org/zap"
 	"math/rand"
-	"net/http"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
@@ -60,10 +59,8 @@ func errorHandler(logger *zap.Logger) gin.HandlerFunc {
 		ctx.Next()
 
 		for _, err := range ctx.Errors {
-			logger.Sugar().Fatal("handler err", zap.String("handlerName", ctx.HandlerName()), zap.Error(err))
+			logger.Sugar().Error("middleware", zap.String("handlerName", ctx.HandlerName()), zap.Error(err))
 		}
-
-		ctx.Status(http.StatusInternalServerError)
 	}
 }
 

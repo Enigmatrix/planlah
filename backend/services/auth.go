@@ -83,8 +83,8 @@ func (authSvc *AuthService) Verify(ctx *gin.Context) (interface{}, error) {
 	}
 	user, err := authSvc.GetUser(dto.Token)
 
-	if err == data.EntityNotFound {
-		return nil, err
+	if errors.Is(err, data.EntityNotFound) {
+		return nil, errors.New("user does not exist")
 	}
 
 	return user, err

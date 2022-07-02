@@ -111,11 +111,10 @@ func (ctr *UserController) Create(ctx *gin.Context) {
 
 	err = ctr.Database.CreateUser(&user)
 	if err != nil {
-		// TODO handle user failure stuff
-		if err == data.UsernameExists {
+		if errors.Is(err, data.UsernameExists) {
 			FailWithMessage(ctx, "username exists")
 			return
-		} else if err == data.FirebaseUidExists {
+		} else if errors.Is(err, data.FirebaseUidExists) {
 			FailWithMessage(ctx, "account already exists for this user")
 			return
 		}

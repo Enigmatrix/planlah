@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/juju/errors"
 	"net/http"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/utils"
@@ -17,7 +18,7 @@ func (ctr *DevPanelController) AddToDefaultGroups(ctx *gin.Context) {
 	for i := 1; i <= 3; i++ {
 		_, err := ctr.Database.AddUserToGroup(userId, uint(i))
 		if err != nil {
-			if err == data.UserAlreadyInGroup {
+			if errors.Is(err, data.UserAlreadyInGroup) {
 				continue
 			} else {
 				handleDbError(ctx, err)

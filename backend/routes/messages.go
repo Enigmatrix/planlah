@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	socketio "github.com/googollee/go-socket.io"
 	"github.com/googollee/go-socket.io/engineio"
+	"github.com/juju/errors"
 	"github.com/samber/lo"
 	"go.uber.org/zap"
 	"net/http"
@@ -156,7 +157,7 @@ func (ctr *MessageController) MessagesBefore(ctx *gin.Context) {
 
 	messages, err := ctr.Database.GetMessagesRelative(userId, dto.MessageID, dto.Count, true)
 	if err != nil {
-		if err == data.EntityNotFound {
+		if errors.Is(err, data.EntityNotFound) {
 			FailWithMessage(ctx, "message is not in any of user's groups")
 			return
 		}
@@ -187,7 +188,7 @@ func (ctr *MessageController) MessagesAfter(ctx *gin.Context) {
 
 	messages, err := ctr.Database.GetMessagesRelative(userId, dto.MessageID, dto.Count, false)
 	if err != nil {
-		if err == data.EntityNotFound {
+		if errors.Is(err, data.EntityNotFound) {
 			FailWithMessage(ctx, "message is not in any of user's groups")
 			return
 		}
