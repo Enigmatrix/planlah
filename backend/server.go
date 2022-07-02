@@ -30,7 +30,7 @@ func authMiddleware(authSvc *services.AuthService) (*jwt.GinJWTMiddleware, gin.H
 		Authenticator: authSvc.Verify,
 		// Transform the User into data that can be encoded (in plaintext) in each JWT Token
 		PayloadFunc: func(payload interface{}) jwt.MapClaims {
-			if user, ok := payload.(*data.User); ok {
+			if user, ok := payload.(data.User); ok {
 				return jwt.MapClaims{
 					identityKey: user.ID,
 				}

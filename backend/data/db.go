@@ -261,8 +261,9 @@ func (db *Database) toGroupInfos(userId uint, groups []Group) ([]GroupInfo, erro
 // GetAllGroups Gets all Group of a User
 func (db *Database) GetAllGroups(userId uint) ([]GroupInfo, error) {
 	var groups []Group
-	err := db.conn.Where(&GroupMember{UserID: userId}).
-		Joins("inner join groups g").
+	err := db.conn.Model(&GroupMember{}).
+		Where(&GroupMember{UserID: userId}).
+		Joins("inner join groups g ON g.id = group_id").
 		Select("g.*").
 		Find(&groups).Error
 
