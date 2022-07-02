@@ -77,7 +77,7 @@ func (s *DataIntegrationTestSuite) Test_InitMigrate() {
 		s.Equal(uint(i), grp.ID)
 		s.Nil(err)
 	}
-	_, err = s.db.GetGroup(0, uint(5)) // fail a test on purpose
+	_, err = s.db.GetGroup(0, uint(6))
 	s.ErrorIs(err, data.EntityNotFound)
 }
 
