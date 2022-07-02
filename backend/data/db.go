@@ -20,10 +20,10 @@ import (
 var dbConn utils.Lazy[gorm.DB]
 
 var (
-	entityNotFound     = errors.New("entity not found")
-	usernameExists     = errors.New("username taken")
-	firebaseUidExists  = errors.New("firebase uid taken")
-	userAlreadyInGroup = errors.New("user is already in group")
+	EntityNotFound     = errors.New("entity not found")
+	UsernameExists     = errors.New("username taken")
+	FirebaseUidExists  = errors.New("firebase uid taken")
+	UserAlreadyInGroup = errors.New("user is already in group")
 )
 
 // NewDatabaseConnection creates a new database connection
@@ -117,9 +117,9 @@ func (db *Database) CreateUser(user *User) error {
 
 	if err != nil {
 		if isUniqueViolation(err, "users_username_key") {
-			return usernameExists
+			return UsernameExists
 		} else if isUniqueViolation(err, "users_firebase_uid_key") {
-			return firebaseUidExists
+			return FirebaseUidExists
 		}
 		return db.handleDbError(err)
 	}
@@ -136,7 +136,7 @@ func (db *Database) GetUserByFirebaseUid(firebaseUid string) (User, error) {
 
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return User{}, entityNotFound
+			return User{}, EntityNotFound
 		}
 		return User{}, db.handleDbError(err)
 	}
@@ -148,7 +148,7 @@ func (db *Database) GetUser(id uint) (User, error) {
 	err := db.conn.First(&user, id).Error
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return User{}, entityNotFound
+			return User{}, EntityNotFound
 		}
 		return User{}, db.handleDbError(err)
 	}
@@ -174,7 +174,7 @@ func (db *Database) GetGroup(groupId uint) (Group, error) {
 
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return Group{}, entityNotFound
+			return Group{}, EntityNotFound
 		}
 		return Group{}, db.handleDbError(err)
 	}
@@ -188,7 +188,7 @@ func (db *Database) AddUserToGroup(userId uint, grpId uint) (GroupMember, error)
 
 	if err != nil {
 		if isUniqueViolation(err, "composite_grp_member_idx") {
-			return GroupMember{}, userAlreadyInGroup
+			return GroupMember{}, UserAlreadyInGroup
 		}
 		return GroupMember{}, db.handleDbError(err)
 	}
@@ -201,7 +201,7 @@ func (db *Database) GetGroupMember(userId uint, groupId uint) (GroupMember, erro
 	err := db.conn.Where(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return GroupMember{}, entityNotFound
+			return GroupMember{}, EntityNotFound
 		}
 		return GroupMember{}, db.handleDbError(err)
 	}
@@ -261,7 +261,7 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return nil, entityNotFound
+			return nil, EntityNotFound
 		}
 		return nil, db.handleDbError(err)
 	}
@@ -386,7 +386,7 @@ func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 
 	if err != nil {
 		if isUniqueViolation(err, "fk_outing_steps_votes") {
-			return entityNotFound
+			return EntityNotFound
 		}
 		return db.handleDbError(err)
 	}
@@ -402,7 +402,7 @@ func (db *Database) GetOuting(outingId uint) (Outing, error) {
 
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return Outing{}, entityNotFound
+			return Outing{}, EntityNotFound
 		}
 		return Outing{}, db.handleDbError(err)
 	}
@@ -431,7 +431,7 @@ func (db *Database) GetOutingAndGroupForOutingStep(outingStepId uint) (OutingAnd
 
 	// not possible to have 0 as ids: means that we didn't find the rows
 	if res.OutingID == 0 && res.GroupID == 0 {
-		return OutingAndGroupID{}, entityNotFound
+		return OutingAndGroupID{}, EntityNotFound
 	}
 
 	return res, nil
@@ -465,7 +465,7 @@ func (db *Database) GetActiveOuting(groupId uint) (Outing, error) {
 
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return Outing{}, entityNotFound
+			return Outing{}, EntityNotFound
 		}
 		return Outing{}, db.handleDbError(err)
 	}
@@ -497,6 +497,8 @@ func (db *Database) GetGroupInvites(groupId uint) ([]GroupInvite, error) {
 	return invites, nil
 }
 
+// InvalidateInvite Sets the invite to inactive if the User belongs to this GroupInvite's Group
+// No error is thrown
 func (db *Database) InvalidateInvite(userId uint, inviteId uuid.UUID) error {
 	return db.handleDbError(db.conn.Exec(`UPDATE group_invites SET active = FALSE WHERE id = ? AND 
 		group_id IN (SELECT group_id FROM group_members WHERE user_id = ?)`, inviteId, userId).Error)

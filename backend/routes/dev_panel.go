@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"planlah.sg/backend/data"
 	"planlah.sg/backend/utils"
 )
 
@@ -19,8 +20,11 @@ func (controller *DevPanelController) AddToDefaultGroups(ctx *gin.Context) {
 	for i := 1; i <= 3; i++ {
 		_, err := controller.Database.AddUserToGroup(userId, uint(i))
 		if err != nil {
-			ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
-			return
+			if err == data.UserAlreadyInGroup {
+				continue
+			} else {
+				return
+			}
 		}
 	}
 	ctx.Status(http.StatusOK)

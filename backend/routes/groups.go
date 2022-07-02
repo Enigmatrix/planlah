@@ -5,7 +5,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/samber/lo"
-	"log"
 	"net/http"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/services"
@@ -84,19 +83,19 @@ func ToGroupInviteDto(invite data.GroupInvite, config *utils.Config) GroupInvite
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/invites/create [post]
 func (controller GroupsController) CreateInvite(ctx *gin.Context) {
-	var createGroupInviteDto CreateGroupInviteDto
-	if err := Body(ctx, &createGroupInviteDto); err != nil {
+	var dto CreateGroupInviteDto
+	if Body(ctx, &dto) {
 		return
 	}
 
-	_, err := controller.AuthGroupMember(ctx, createGroupInviteDto.GroupID)
+	_, err := controller.AuthGroupMember(ctx, dto.GroupID)
 	if err != nil {
 		return
 	}
 
 	var expiry *time.Time
 
-	switch ExpiryOption(createGroupInviteDto.ExpiryOption) {
+	switch ExpiryOption(dto.ExpiryOption) {
 	case OneHour:
 		t := time.Now().In(time.UTC).Add(time.Hour)
 		expiry = &t
@@ -106,21 +105,20 @@ func (controller GroupsController) CreateInvite(ctx *gin.Context) {
 	case Never:
 		expiry = nil
 	default:
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("invalid expiryOption"))
+		// TODO maybe use validation error?
+		FailWithMessage(ctx, "invalid `expiryOption`")
 		return
 	}
 
 	invite := data.GroupInvite{
 		Expiry:  expiry,
-		GroupID: createGroupInviteDto.GroupID,
+		GroupID: dto.GroupID,
 		Active:  true,
 	}
 
 	err = controller.Database.CreateGroupInvite(&invite)
 
 	if err != nil {
-		log.Print(err)
-		ctx.Status(http.StatusBadRequest)
 		return
 	}
 
@@ -143,19 +141,17 @@ func (controller GroupsController) InvalidateInvite(ctx *gin.Context) {
 		return
 	}
 
-	var invalidateGroupInviteDto InvalidateGroupInviteDto
-	if err := Body(ctx, &invalidateGroupInviteDto); err != nil {
+	var dto InvalidateGroupInviteDto
+	if Body(ctx, &dto) {
 		return
 	}
 
 	// This will definitely pass, since we have a validator checking
 	// the UUID format
-	inviteId := uuid.MustParse(invalidateGroupInviteDto.InviteID)
+	inviteId := uuid.MustParse(dto.InviteID)
 
 	err = controller.Database.InvalidateInvite(userId, inviteId)
 	if err != nil {
-		log.Print(err)
-		ctx.Status(http.StatusBadRequest)
 		return
 	}
 
@@ -173,17 +169,20 @@ func (controller GroupsController) InvalidateInvite(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/invites [get]
 func (controller GroupsController) GetInvites(ctx *gin.Context) {
-	var getGroupInvitesDto GetGroupInvitesDto
-	if err := Query(ctx, &getGroupInvitesDto); err != nil {
+	var dto GetGroupInvitesDto
+	if Query(ctx, &dto) {
 		return
 	}
 
-	_, err := controller.AuthGroupMember(ctx, getGroupInvitesDto.GroupID)
+	_, err := controller.AuthGroupMember(ctx, dto.GroupID)
 	if err != nil {
 		return
 	}
 
-	invites := controller.Database.GetGroupInvites(getGroupInvitesDto.GroupID)
+	invites, err := controller.Database.GetGroupInvites(dto.GroupID)
+	if err != nil {
+		return
+	}
 
 	inviteDtos := lo.Map(invites, func(invite data.GroupInvite, i int) GroupInviteDto {
 		return ToGroupInviteDto(invite, controller.Config)
@@ -210,8 +209,8 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 		return
 	}
 
-	var createGroupDto CreateGroupDto
-	if err := Form(ctx, &createGroupDto); err != nil {
+	var dto CreateGroupDto
+	if Form(ctx, &dto) {
 		return
 	}
 
@@ -219,31 +218,32 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 	file, _, err := ctx.Request.FormFile("image")
 
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("image file field missing"))
+		// TODO validation message
+		FailWithMessage(ctx, "image file field missing")
 		return
 	}
 
-	imageUrl := controller.ImageService.UploadGroupImage(file)
+	imageUrl, err := controller.ImageService.UploadGroupImage(file)
+	if err != nil {
+		// TODO how to handle this?
+		return
+	}
 
 	group := data.Group{
-		Name:        createGroupDto.Name,
-		Description: createGroupDto.Description,
-		Owner:       nil,
+		Name:        dto.Name,
+		Description: dto.Description,
+		Owner:       nil, // TODO can I auto create Owner when this Group is added?
 		ImageLink:   imageUrl,
 	}
 	err = controller.Database.CreateGroup(&group)
 
 	if err != nil {
-		log.Print(err)
-		ctx.Status(http.StatusBadRequest)
 		return
 	}
 
 	groupMember, err := controller.Database.AddUserToGroup(userId, group.ID)
 
 	if err != nil {
-		log.Print(err)
-		ctx.Status(http.StatusBadRequest)
 		return
 	}
 
@@ -251,8 +251,6 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 	err = controller.Database.UpdateGroupOwner(group.ID, group.OwnerID)
 
 	if err != nil {
-		log.Print(err)
-		ctx.Status(http.StatusBadRequest)
 		return
 	}
 
@@ -280,15 +278,16 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 		return
 	}
 
-	groups := controller.Database.GetAllGroups(userId)
+	// TODO clean this up
+	groups, err := controller.Database.GetAllGroups(userId)
 	groupIds := lo.Map(groups,
 		func(grp data.GroupMember, i int) uint { return grp.GroupID })
-	lastMessages := controller.Database.GetLastMessagesForGroups(groupIds)
+	lastMessages, err := controller.Database.GetLastMessagesForGroups(groupIds)
 	lastMessagesDtos := lo.MapValues(lastMessages, func(val data.Message, key uint) *MessageDto {
 		dto := ToMessageDto(val)
 		return &dto
 	})
-	unreadMessagesCount := controller.Database.GetUnreadMessagesCountForGroups(userId, groupIds)
+	unreadMessagesCount, err := controller.Database.GetUnreadMessagesCountForGroups(userId, groupIds)
 
 	dtos := make([]GroupSummaryDto, len(groups))
 	for i, groupMember := range groups {
@@ -306,7 +305,7 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 
 // JoinByInvite godoc
 // @Summary Join a group
-// @Description Join a group using this invite link
+// @Description Join a group using invite id
 // @Param        inviteId   path      string  true  "InviteID (UUID)"
 // @Tags Group
 // @Security JWT
@@ -319,30 +318,34 @@ func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
 	if err != nil {
 		return
 	}
-	var joinGroupInviteDto JoinGroupInviteDto
-	if err := Uri(ctx, &joinGroupInviteDto); err != nil {
+
+	var dto JoinGroupInviteDto
+	if Uri(ctx, &dto) {
 		return
 	}
 
 	// This will definitely pass, since we have a validator checking
 	// the UUID format
-	inviteId := uuid.MustParse(joinGroupInviteDto.InviteID)
+	inviteId := uuid.MustParse(dto.InviteID)
 
 	invite, err := controller.Database.JoinByInvite(userId, inviteId)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+		if err == data.UserAlreadyInGroup {
+			// TODO handle
+		}
 		return
 	}
 
-	group := controller.Database.GetGroup(invite.GroupID)
-	lastMessages := controller.Database.GetLastMessagesForGroups([]uint{group.ID})
+	// TODO cleanup
+	group, err := controller.Database.GetGroup(invite.GroupID)
+	lastMessages, err := controller.Database.GetLastMessagesForGroups([]uint{group.ID})
 	lastMessagesDtos := lo.MapValues(lastMessages, func(val data.Message, key uint) *MessageDto {
 		dto := ToMessageDto(val)
 		return &dto
 	})
-	unreadMessagesCount := controller.Database.GetUnreadMessagesCountForGroups(userId, []uint{group.ID})
+	unreadMessagesCount, err := controller.Database.GetUnreadMessagesCountForGroups(userId, []uint{group.ID})
 
-	dto := GroupSummaryDto{
+	groupDto := GroupSummaryDto{
 		ID:                  group.ID,
 		Name:                group.Name,
 		Description:         group.Description,
@@ -350,12 +353,22 @@ func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
 		UnreadMessagesCount: unreadMessagesCount[group.ID],
 	}
 
-	ctx.JSON(http.StatusOK, dto)
+	ctx.JSON(http.StatusOK, groupDto)
 }
 
+// JoinByInviteUserLink godoc
+// @Summary Join a group, the User version
+// @Description Join a group using this invite link
+// @Param        inviteId   path      string  true  "InviteID (UUID)"
+// @Tags Group
+// @Security JWT
+// @Success 307
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router join/{inviteId} [get]
 func (controller GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
 	var joinGroupInviteDto JoinGroupInviteDto
-	if err := Uri(ctx, &joinGroupInviteDto); err != nil {
+	if Uri(ctx, &joinGroupInviteDto) {
 		return
 	}
 

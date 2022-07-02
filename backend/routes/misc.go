@@ -133,14 +133,38 @@ func (controller MiscController) Towns(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetTowns())
 }
 
+// Gender godoc
+// @Summary Get genders
+// @Description Get genders
+// @Tags Misc
+// @Success 200 {object} []string
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/misc/gender [get]
 func (controller MiscController) Gender(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetGenders())
 }
 
+// Attractions godoc
+// @Summary Get attraction types
+// @Description Get attraction types
+// @Tags Misc
+// @Success 200 {object} []string
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/misc/attractions [get]
 func (controller MiscController) Attractions(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetAttractions())
 }
 
+// Food godoc
+// @Summary Get food types
+// @Description Get food types
+// @Tags Misc
+// @Success 200 {object} []string
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} ErrorMessage
+// @Router /api/misc/food [get]
 func (controller MiscController) Food(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, GetFood())
 }

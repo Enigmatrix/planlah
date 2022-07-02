@@ -2,15 +2,13 @@ package services
 
 import (
 	"context"
-	"errors"
 	firebase "firebase.google.com/go/v4"
 	"firebase.google.com/go/v4/auth"
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
-	errors2 "github.com/juju/errors"
+	"github.com/juju/errors"
 	"go.uber.org/zap"
 	"planlah.sg/backend/data"
-	"planlah.sg/backend/routes"
 	lazy "planlah.sg/backend/utils"
 	"time"
 )
@@ -19,6 +17,7 @@ type AuthService struct {
 	firebaseApp  *firebase.App
 	firebaseAuth *auth.Client
 	database     *data.Database
+	logger       *zap.Logger
 	IdentityKey  string
 }
 
@@ -40,13 +39,13 @@ type TokenDtoFailed struct {
 var authServiceInstance = lazy.New[AuthService]()
 
 // NewAuthService creates a new AuthService
-func NewAuthService(database *data.Database, firebaseApp *firebase.App) (*AuthService, error) {
+func NewAuthService(database *data.Database, firebaseApp *firebase.App, logger *zap.Logger) (*AuthService, error) {
 	return authServiceInstance.FallibleValue(func() (*AuthService, error) {
 		firebaseAuth, err := firebaseApp.Auth(context.Background())
 		if err != nil {
-			return nil, errors2.Annotate(err, "cannot init firebase auth instance")
+			return nil, errors.Annotate(err, "cannot init firebase auth instance")
 		}
-		return &AuthService{firebaseApp: firebaseApp, firebaseAuth: firebaseAuth, database: database, IdentityKey: "id"}, nil
+		return &AuthService{firebaseApp: firebaseApp, firebaseAuth: firebaseAuth, database: database, logger: logger, IdentityKey: "id"}, nil
 	})
 }
 
@@ -54,7 +53,7 @@ func NewAuthService(database *data.Database, firebaseApp *firebase.App) (*AuthSe
 func (authSvc *AuthService) GetFirebaseUid(firebaseToken string) (*string, error) {
 	verifiedToken, err := authSvc.firebaseAuth.VerifyIDToken(context.Background(), firebaseToken)
 	if err != nil {
-		return nil, errors2.Annotate(err, "invalid firebase token")
+		return nil, errors.Annotate(err, "invalid firebase token")
 	}
 	return &verifiedToken.UID, nil
 }
@@ -63,10 +62,10 @@ func (authSvc *AuthService) GetFirebaseUid(firebaseToken string) (*string, error
 func (authSvc *AuthService) GetUser(firebaseToken string) (data.User, error) {
 	firebaseUid, err := authSvc.GetFirebaseUid(firebaseToken)
 	if err != nil {
-		return data.User{}, errors2.Trace(err)
+		return data.User{}, errors.Trace(err)
 	}
 	user, err := authSvc.database.GetUserByFirebaseUid(*firebaseUid)
-	return user, errors2.Trace(err)
+	return user, errors.Trace(err)
 }
 
 // Verify godoc
@@ -79,13 +78,13 @@ func (authSvc *AuthService) GetUser(firebaseToken string) (data.User, error) {
 // @Router /api/auth/verify [post]
 func (authSvc *AuthService) Verify(ctx *gin.Context) (interface{}, error) {
 	var dto TokenDtoRequest
-	if err := routes.Body(ctx, &dto); err != nil {
-		return nil, errors2.Annotate(err, "token dto parsing")
+	if err := ctx.BindJSON(&dto); err != nil {
+		return nil, errors.Annotate(err, "token dto parsing")
 	}
 	user, err := authSvc.GetUser(dto.Token)
 
-	if !errors.Is(err, data.EntityNotFound{}) {
-		zap.L().Fatal(err.Error())
+	if err == data.EntityNotFound {
+		return nil, err
 	}
 
 	return user, err
@@ -99,6 +98,6 @@ func (authSvc *AuthService) AuthenticatedUserId(ctx *gin.Context) uint {
 		return uint(v)
 	}
 
-	zap.L().Fatal("should not be called for unauthenticated routes")
+	authSvc.logger.Fatal("should not be called for unauthenticated routes")
 	return 0 // doesnt reach here
 }

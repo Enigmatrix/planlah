@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"github.com/codedius/imagekit-go"
 	"github.com/google/uuid"
-	errors2 "github.com/juju/errors"
+	"github.com/juju/errors"
 	"io"
 	lazy "planlah.sg/backend/utils"
 	"time"
@@ -25,7 +25,7 @@ func NewFirebaseStorageImageService(firebaseApp *firebase.App) (*FirebaseStorage
 	return firebaseStorageImageServiceInstance.FallibleValue(func() (*FirebaseStorageImageService, error) {
 		firebaseStorage, err := firebaseApp.Storage(context.Background())
 		if err != nil {
-			return nil, errors2.Annotate(err, "cannot init firebase storage instance")
+			return nil, errors.Annotate(err, "cannot init firebase storage instance")
 		}
 		return &FirebaseStorageImageService{firebaseStorage: firebaseStorage}, nil
 	})
@@ -38,7 +38,7 @@ type FirebaseStorageImageService struct {
 func (svc *FirebaseStorageImageService) uploadImage(imgReader io.Reader, path string) (string, error) {
 	bucket, err := svc.firebaseStorage.DefaultBucket()
 	if err != nil {
-		return "", errors2.Annotate(err, "cannot get default bucket")
+		return "", errors.Annotate(err, "cannot get default bucket")
 	}
 
 	// 60 second timeout
@@ -50,21 +50,21 @@ func (svc *FirebaseStorageImageService) uploadImage(imgReader io.Reader, path st
 	objectWriter := object.NewWriter(ctx)
 
 	if _, err = io.Copy(objectWriter, imgReader); err != nil {
-		return "", errors2.Annotate(err, "copying objectWriter")
+		return "", errors.Annotate(err, "copying objectWriter")
 	}
 	if err := objectWriter.Close(); err != nil {
-		return "", errors2.Annotate(err, "closing objectWriter")
+		return "", errors.Annotate(err, "closing objectWriter")
 	}
 
 	meta, err := object.Attrs(ctx)
 
 	if err != nil {
-		return "", errors2.Annotate(err, "object attrs")
+		return "", errors.Annotate(err, "object attrs")
 	}
 
 	// allow users to read the images
 	if err := object.ACL().Set(ctx, storage2.AllUsers, storage2.RoleReader); err != nil {
-		return "", errors2.Annotate(err, "object ACL.Set")
+		return "", errors.Annotate(err, "object ACL.Set")
 	}
 
 	return meta.MediaLink, nil
@@ -85,7 +85,7 @@ func NewImageKitImageService(config *lazy.Config) (*ImageKitImageService, error)
 	}
 	ik, err := imagekit.NewClient(&opts)
 	if err != nil {
-		return nil, errors2.Annotate(err, "cannot init ImageKit service")
+		return nil, errors.Annotate(err, "cannot init ImageKit service")
 	}
 	return &ImageKitImageService{ImageKit: ik}, nil
 }
@@ -97,7 +97,7 @@ type ImageKitImageService struct {
 func (svc *ImageKitImageService) uploadImage(reader io.Reader, folder string) (string, error) {
 	bytes, err := io.ReadAll(reader)
 	if err != nil {
-		return "", errors2.Annotate(err, "reading image bytes")
+		return "", errors.Annotate(err, "reading image bytes")
 	}
 	req := imagekit.UploadRequest{
 		File:              bytes,
@@ -111,7 +111,7 @@ func (svc *ImageKitImageService) uploadImage(reader io.Reader, folder string) (s
 
 	upr, err := svc.ImageKit.Upload.ServerUpload(ctx, &req)
 	if err != nil {
-		return "", errors2.Annotate(err, "uploading image to ImageKit")
+		return "", errors.Annotate(err, "uploading image to ImageKit")
 	}
 	return upr.URL, nil
 }

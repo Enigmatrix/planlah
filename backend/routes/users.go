@@ -1,19 +1,20 @@
 package routes
 
 import (
-	"errors"
-	"net/http"
-	"planlah.sg/backend/services"
-
 	"github.com/gin-gonic/gin"
+	"github.com/juju/errors"
 	"github.com/lib/pq"
 	"github.com/samber/lo"
+	"go.uber.org/zap"
+	"net/http"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/services"
 )
 
 type UserController struct {
 	BaseController
 	ImageService services.ImageService
+	logger       *zap.Logger
 }
 
 type UserSummaryDto struct {
@@ -32,7 +33,7 @@ type CreateUserDto struct {
 	Food          []string `form:"food" binding:"required"`
 }
 
-func ToUserSummaryDto(user *data.User) UserSummaryDto {
+func ToUserSummaryDto(user data.User) UserSummaryDto {
 	return UserSummaryDto{
 		Username:  user.Username,
 		Name:      user.Name,
@@ -53,7 +54,7 @@ func ToUserSummaryDto(user *data.User) UserSummaryDto {
 // @Router /api/users/create [post]
 func (controller *UserController) Create(ctx *gin.Context) {
 	var createUserDto CreateUserDto
-	if err := Form(ctx, &createUserDto); err != nil {
+	if Form(ctx, &createUserDto) {
 		return
 	}
 
@@ -61,31 +62,36 @@ func (controller *UserController) Create(ctx *gin.Context) {
 	file, _, err := ctx.Request.FormFile("image")
 
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("image file field missing"))
 		return
 	}
 
-	imageUrl := controller.ImageService.UploadUserImage(file)
+	imageUrl, err := controller.ImageService.UploadUserImage(file)
 
 	firebaseUid, err := controller.Auth.GetFirebaseUid(createUserDto.FirebaseToken)
 	if err != nil {
-		ctx.JSON(http.StatusUnauthorized, NewErrorMessage(err.Error()))
+		controller.logger.Warn("firebase error", zap.Error(err))
+		ctx.JSON(http.StatusUnauthorized, gin.H{"message": "invalid firebase token"})
 		return
 	}
 
+	// TODO all these FailWithMessages should be validation messages
+
 	genderValidated := lo.Contains(GetGenders(), createUserDto.Gender)
 	if !genderValidated {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("Gender not recognized"))
+		FailWithMessage(ctx, "gender not recognized")
+		return
 	}
 
 	attractionVector, err := calculateAttractionVector(createUserDto.Attractions)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("Not enough attractions chosen"))
+		FailWithMessage(ctx, "not enough attractions chosen")
+		return
 	}
 
 	foodVector, err := calculateFoodVector(createUserDto.Food)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("Not enough food chosen"))
+		FailWithMessage(ctx, "not enough food chosen")
+		return
 	}
 
 	user := data.User{
@@ -101,7 +107,7 @@ func (controller *UserController) Create(ctx *gin.Context) {
 
 	err = controller.Database.CreateUser(&user)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+		// TODO handle user failure stuff
 		return
 	}
 
@@ -122,7 +128,10 @@ func (controller *UserController) GetInfo(ctx *gin.Context) {
 		return
 	}
 
-	user := controller.Database.GetUser(userId)
+	user, err := controller.Database.GetUser(userId)
+	if err != nil { // this User is always found
+		return
+	}
 	ctx.JSON(http.StatusOK, ToUserSummaryDto(user))
 }
 
