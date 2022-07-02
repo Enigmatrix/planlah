@@ -1,8 +1,6 @@
 package integrationtests
 
 import (
-	"os"
-	"syscall"
 	"testing"
 
 	"go.uber.org/zap"
@@ -35,8 +33,10 @@ func (s *DataIntegrationTestSuite) SetupSuite() {
 }
 
 func (s *DataIntegrationTestSuite) TearDownSuite() {
-	p, _ := os.FindProcess(syscall.Getpid())
-	_ = p.Signal(syscall.SIGINT) // ignored on Windows
+	sqlDB, _ := s.conn.DB()
+	_ = sqlDB.Close()
+	// p, _ := os.FindProcess(syscall.Getpid())
+	// _ = p.Signal(syscall.SIGINT) // ignored on Windows
 }
 
 func (s *DataIntegrationTestSuite) SetupTest() {
