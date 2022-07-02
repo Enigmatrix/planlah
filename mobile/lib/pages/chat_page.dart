@@ -1,16 +1,9 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:intl/intl.dart';
 import 'package:mobile/dto/chat.dart';
 import 'package:mobile/dto/group.dart';
 import 'package:mobile/dto/outing.dart';
-import 'package:mobile/model/chat_group.dart';
-import 'package:mobile/main.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:mobile/pages/outing_page.dart';
 import 'package:mobile/pages/view_all_outings.dart';
 import 'package:mobile/services/message.dart';
@@ -47,6 +40,8 @@ class _GroupChatPageState extends State<GroupChatPage> {
   // List of previous outings that the group has been in
   late var outings = <OutingDto>[];
 
+  ScrollController scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
@@ -54,7 +49,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
   }
 
   void updateMessages() async {
-    Response<List<MessageDto>?> temp;
     await messageService.getMessages(widget.chatGroup.id)
       .then((value) {
         setState(() {
@@ -65,7 +59,21 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
+    appBar: buildAppBar(),
+    body: Stack(
+      children: <Widget>[
+        Column(
+          children: [
+            buildMessageList(messages),
+            buildInputWidget()
+          ],
+        )
+      ],
+    ),
+  );
+
+  AppBar buildAppBar() {
+    return AppBar(
       actions: <Widget>[
         Container(
           padding: const EdgeInsets.only(right: 32),
@@ -95,22 +103,22 @@ class _GroupChatPageState extends State<GroupChatPage> {
           ),
         ),
         IconButton(
-            onPressed: () async {
-              var response = await outingService.getActiveOuting(GetActiveOutingDto(widget.chatGroup.id));
-              if (response.isOk) {
-                activeOuting = response.body;
-              } else {
+          onPressed: () async {
+            var response = await outingService.getActiveOuting(GetActiveOutingDto(widget.chatGroup.id));
+            if (response.isOk) {
+              activeOuting = response.body;
+            } else {
 
-              }
-              if (activeOuting == null) {
-                Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
-              } else {
-                Get.to(() => OutingPage(outing: activeOuting!, isActive: true));
-              }
-            },
-            icon: const Icon(
-                Icons.assignment
-            ),
+            }
+            if (activeOuting == null) {
+              Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
+            } else {
+              Get.to(() => OutingPage(outing: activeOuting!, isActive: true));
+            }
+          },
+          icon: const Icon(
+              Icons.assignment
+          ),
         ),
         PopupMenuButton(
             icon: const Icon(
@@ -119,16 +127,16 @@ class _GroupChatPageState extends State<GroupChatPage> {
             itemBuilder: (BuildContext context) {
               return <PopupMenuItem>[
                 PopupMenuItem(
-                  onTap: () {
-                    // TODO: Display group description, same thing as above
-                  },
-                  child: const Text("About")
+                    onTap: () {
+                      // TODO: Display group description, same thing as above
+                    },
+                    child: const Text("About")
                 ),
                 PopupMenuItem(
-                  onTap: () {
-                    viewPastOutings();
-                  },
-                  child: const Text("See past outings")
+                    onTap: () {
+                      viewPastOutings();
+                    },
+                    child: const Text("See past outings")
                 ),
                 PopupMenuItem(
                     onTap: () {
@@ -152,18 +160,8 @@ class _GroupChatPageState extends State<GroupChatPage> {
             }
         ),
       ],
-    ),
-    body: Stack(
-      children: <Widget>[
-        Column(
-          children: [
-            buildChat(messages),
-            buildInputWidget(),
-          ],
-        )
-      ],
-    )
-  );
+    );
+  }
 
   void viewPastOutings() {
     print(widget.chatGroup.id);
@@ -187,12 +185,12 @@ class _GroupChatPageState extends State<GroupChatPage> {
   }
 
 
-  Widget buildChat(List<MessageDto> messages) {
-    final ScrollController scrollController = ScrollController();
-    return Flexible(
+  Widget buildMessageList(List<MessageDto> messages) {
+    return Expanded(
         child: ListView.builder(
+          reverse: true,
           padding: const EdgeInsets.all(10.0),
-          itemBuilder: (context, index) => buildMessage(messages[index]),
+          itemBuilder: (context, index) => buildMessage(messages[messages.length - 1 - index]),
           itemCount: messages.length,
           controller: scrollController,
         )
