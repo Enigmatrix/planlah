@@ -14,7 +14,6 @@ import (
 type UserController struct {
 	BaseController
 	ImageService services.ImageService
-	logger       *zap.Logger
 }
 
 type UserSummaryDto struct {
@@ -73,7 +72,7 @@ func (ctr *UserController) Create(ctx *gin.Context) {
 
 	firebaseUid, err := ctr.Auth.GetFirebaseUid(dto.FirebaseToken)
 	if err != nil {
-		ctr.logger.Warn("firebase error", zap.Error(err))
+		ctr.Logger.Warn("firebase error", zap.Error(err))
 		// TODO make this prettier
 		ctx.JSON(http.StatusUnauthorized, gin.H{"message": "invalid firebase token"})
 		return

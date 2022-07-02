@@ -14,7 +14,6 @@ import (
 
 type MessageController struct {
 	BaseController
-	logger   *zap.Logger
 	WsServer *socketio.Server `wire:"-"` // we will be initializing this ourselves
 }
 
@@ -229,7 +228,7 @@ func (ctr *MessageController) Get(ctx *gin.Context) {
 }
 
 func (ctr *MessageController) OnSocketError(conn socketio.Conn, err error) {
-	ctr.logger.Warn("websocket", zap.Error(err))
+	ctr.Logger.Warn("websocket", zap.Error(err))
 }
 
 func (ctr *MessageController) OnSocketConnect(conn socketio.Conn) error {
@@ -252,7 +251,7 @@ func (ctr *MessageController) OnSocketConnect(conn socketio.Conn) error {
 func (ctr *MessageController) Register(router *gin.RouterGroup) {
 	ctr.WsServer = socketio.NewServer(&engineio.Options{})
 	if ctr.WsServer == nil {
-		ctr.logger.Fatal("websocket init")
+		ctr.Logger.Fatal("websocket init")
 	}
 	ctr.WsServer.OnConnect("/", ctr.OnSocketConnect)
 	ctr.WsServer.OnError("/", ctr.OnSocketError)
