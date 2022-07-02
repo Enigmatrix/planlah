@@ -2,6 +2,7 @@ package main
 
 import (
 	jwt "github.com/appleboy/gin-jwt/v2"
+	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
 	errors2 "github.com/juju/errors"
 	swaggerFiles "github.com/swaggo/files"
@@ -11,6 +12,7 @@ import (
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
+	"time"
 )
 
 func authMiddleware(authSvc *services.AuthService) (*jwt.GinJWTMiddleware, gin.HandlerFunc, error) {
@@ -75,7 +77,10 @@ func NewServer(
 	logger *zap.Logger,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 
-	srv := gin.Default()
+	srv := gin.New()
+
+	srv.Use(ginzap.Ginzap(logger, time.RFC3339, true))
+	srv.Use(ginzap.RecoveryWithZap(logger, true))
 
 	authMiddleware, authProtect, err := authMiddleware(authSvc)
 	if err != nil {
