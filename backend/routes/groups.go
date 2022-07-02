@@ -72,6 +72,23 @@ func ToGroupInviteDto(invite data.GroupInvite, config *utils.Config) GroupInvite
 	}
 }
 
+func ToGroupSummaryDto(grp data.GroupInfo) GroupSummaryDto {
+	var lastMsgDtoRef *MessageDto
+	if grp.LastMessage != nil {
+		lastMsgDto := ToMessageDto(*grp.LastMessage)
+		lastMsgDtoRef = &lastMsgDto
+	}
+
+	return GroupSummaryDto{
+		ID:                  grp.ID,
+		Name:                grp.Name,
+		Description:         grp.Description,
+		ImageLink:           grp.ImageLink,
+		LastSeenMessage:     lastMsgDtoRef,
+		UnreadMessagesCount: grp.UnreadMessageCount,
+	}
+}
+
 // CreateInvite godoc
 // @Summary Create an invitation link for a Group
 // @Description Create an invitation link for a Group that expires after a certain period
@@ -88,8 +105,7 @@ func (controller GroupsController) CreateInvite(ctx *gin.Context) {
 		return
 	}
 
-	_, err := controller.AuthGroupMember(ctx, dto.GroupID)
-	if err != nil {
+	if controller.AuthGroupMember(ctx, dto.GroupID) == nil {
 		return
 	}
 
@@ -105,7 +121,6 @@ func (controller GroupsController) CreateInvite(ctx *gin.Context) {
 	case Never:
 		expiry = nil
 	default:
-		// TODO maybe use validation error?
 		FailWithMessage(ctx, "invalid `expiryOption`")
 		return
 	}
@@ -116,9 +131,10 @@ func (controller GroupsController) CreateInvite(ctx *gin.Context) {
 		Active:  true,
 	}
 
-	err = controller.Database.CreateGroupInvite(&invite)
+	err := controller.Database.CreateGroupInvite(&invite)
 
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -136,10 +152,7 @@ func (controller GroupsController) CreateInvite(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/invites/invalidate [put]
 func (controller GroupsController) InvalidateInvite(ctx *gin.Context) {
-	userId, err := controller.AuthUserId(ctx)
-	if err != nil {
-		return
-	}
+	userId := controller.AuthUserId(ctx)
 
 	var dto InvalidateGroupInviteDto
 	if Body(ctx, &dto) {
@@ -150,8 +163,9 @@ func (controller GroupsController) InvalidateInvite(ctx *gin.Context) {
 	// the UUID format
 	inviteId := uuid.MustParse(dto.InviteID)
 
-	err = controller.Database.InvalidateInvite(userId, inviteId)
+	err := controller.Database.InvalidateInvite(userId, inviteId)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -174,13 +188,13 @@ func (controller GroupsController) GetInvites(ctx *gin.Context) {
 		return
 	}
 
-	_, err := controller.AuthGroupMember(ctx, dto.GroupID)
-	if err != nil {
+	if controller.AuthGroupMember(ctx, dto.GroupID) == nil {
 		return
 	}
 
 	invites, err := controller.Database.GetGroupInvites(dto.GroupID)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -204,10 +218,7 @@ func (controller GroupsController) GetInvites(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/create [post]
 func (controller GroupsController) Create(ctx *gin.Context) {
-	userId, err := controller.AuthUserId(ctx)
-	if err != nil {
-		return
-	}
+	userId := controller.AuthUserId(ctx)
 
 	var dto CreateGroupDto
 	if Form(ctx, &dto) {
@@ -216,9 +227,7 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 
 	// maybe only allow upto a certain file size in meta (_ in below line)
 	file, _, err := ctx.Request.FormFile("image")
-
 	if err != nil {
-		// TODO validation message
 		FailWithMessage(ctx, "image file field missing")
 		return
 	}
@@ -236,32 +245,30 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 		ImageLink:   imageUrl,
 	}
 	err = controller.Database.CreateGroup(&group)
-
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
 	groupMember, err := controller.Database.AddUserToGroup(userId, group.ID)
 
 	if err != nil {
+		if err == data.UserAlreadyInGroup {
+			controller.Logger.Fatal("IMPOSSIBLE: user is already member of just-created group")
+			return
+		}
+		handleDbError(ctx, err)
 		return
 	}
 
 	group.OwnerID = groupMember.ID
 	err = controller.Database.UpdateGroupOwner(group.ID, group.OwnerID)
-
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
-	ctx.JSON(http.StatusOK, GroupSummaryDto{
-		ID:                  group.ID,
-		Name:                group.Name,
-		Description:         group.Description,
-		UnreadMessagesCount: 0,
-		LastSeenMessage:     nil,
-		ImageLink:           group.ImageLink,
-	})
+	ctx.JSON(http.StatusOK, ToGroupSummaryDto(data.GroupInfo{Group: group}))
 }
 
 // GetAll godoc
@@ -273,33 +280,18 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/all [get]
 func (controller GroupsController) GetAll(ctx *gin.Context) {
-	userId, err := controller.AuthUserId(ctx)
+	userId := controller.AuthUserId(ctx)
+
+	groups, err := controller.Database.GetAllGroups(userId)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
-	// TODO clean this up
-	groups, err := controller.Database.GetAllGroups(userId)
-	groupIds := lo.Map(groups,
-		func(grp data.GroupMember, i int) uint { return grp.GroupID })
-	lastMessages, err := controller.Database.GetLastMessagesForGroups(groupIds)
-	lastMessagesDtos := lo.MapValues(lastMessages, func(val data.Message, key uint) *MessageDto {
-		dto := ToMessageDto(val)
-		return &dto
+	dtos := lo.Map(groups, func(grp data.GroupInfo, _ int) GroupSummaryDto {
+		return ToGroupSummaryDto(grp)
 	})
-	unreadMessagesCount, err := controller.Database.GetUnreadMessagesCountForGroups(userId, groupIds)
 
-	dtos := make([]GroupSummaryDto, len(groups))
-	for i, groupMember := range groups {
-		dtos[i] = GroupSummaryDto{
-			ID:                  groupMember.Group.ID,
-			Name:                groupMember.Group.Name,
-			Description:         groupMember.Group.Description,
-			ImageLink:           groupMember.Group.ImageLink,
-			LastSeenMessage:     lastMessagesDtos[groupMember.GroupID],
-			UnreadMessagesCount: unreadMessagesCount[groupMember.GroupID],
-		}
-	}
 	ctx.JSON(http.StatusOK, dtos)
 }
 
@@ -314,10 +306,7 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/join/{inviteId} [get]
 func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
-	userId, err := controller.AuthUserId(ctx)
-	if err != nil {
-		return
-	}
+	userId := controller.AuthUserId(ctx)
 
 	var dto JoinGroupInviteDto
 	if Uri(ctx, &dto) {
@@ -331,29 +320,20 @@ func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
 	invite, err := controller.Database.JoinByInvite(userId, inviteId)
 	if err != nil {
 		if err == data.UserAlreadyInGroup {
-			// TODO handle
+			FailWithMessage(ctx, "user is already in group")
+			return
 		}
+		handleDbError(ctx, err)
 		return
 	}
 
-	// TODO cleanup
-	group, err := controller.Database.GetGroup(invite.GroupID)
-	lastMessages, err := controller.Database.GetLastMessagesForGroups([]uint{group.ID})
-	lastMessagesDtos := lo.MapValues(lastMessages, func(val data.Message, key uint) *MessageDto {
-		dto := ToMessageDto(val)
-		return &dto
-	})
-	unreadMessagesCount, err := controller.Database.GetUnreadMessagesCountForGroups(userId, []uint{group.ID})
-
-	groupDto := GroupSummaryDto{
-		ID:                  group.ID,
-		Name:                group.Name,
-		Description:         group.Description,
-		LastSeenMessage:     lastMessagesDtos[group.ID],
-		UnreadMessagesCount: unreadMessagesCount[group.ID],
+	group, err := controller.Database.GetGroup(userId, invite.GroupID)
+	if err != nil { // this group is always found
+		handleDbError(ctx, err)
+		return
 	}
 
-	ctx.JSON(http.StatusOK, groupDto)
+	ctx.JSON(http.StatusOK, ToGroupSummaryDto(group))
 }
 
 // JoinByInviteUserLink godoc
@@ -367,12 +347,12 @@ func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router join/{inviteId} [get]
 func (controller GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
-	var joinGroupInviteDto JoinGroupInviteDto
-	if Uri(ctx, &joinGroupInviteDto) {
+	var dto JoinGroupInviteDto
+	if Uri(ctx, &dto) {
 		return
 	}
 
-	ctx.Redirect(http.StatusTemporaryRedirect, "planlah://join/"+joinGroupInviteDto.InviteID)
+	ctx.Redirect(http.StatusTemporaryRedirect, "planlah://join/"+dto.InviteID)
 }
 
 // Register the routes for this controller

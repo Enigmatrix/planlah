@@ -53,52 +53,57 @@ func ToUserSummaryDto(user data.User) UserSummaryDto {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/users/create [post]
 func (controller *UserController) Create(ctx *gin.Context) {
-	var createUserDto CreateUserDto
-	if Form(ctx, &createUserDto) {
+	var dto CreateUserDto
+	if Form(ctx, &dto) {
 		return
 	}
 
 	// maybe only allow upto a certain file size in meta (_ in below line)
 	file, _, err := ctx.Request.FormFile("image")
-
 	if err != nil {
+		FailWithMessage(ctx, "image file field missing")
 		return
 	}
 
 	imageUrl, err := controller.ImageService.UploadUserImage(file)
+	if err != nil {
+		// TODO handle this
+		return
+	}
 
-	firebaseUid, err := controller.Auth.GetFirebaseUid(createUserDto.FirebaseToken)
+	firebaseUid, err := controller.Auth.GetFirebaseUid(dto.FirebaseToken)
 	if err != nil {
 		controller.logger.Warn("firebase error", zap.Error(err))
+		// TODO make this prettier
 		ctx.JSON(http.StatusUnauthorized, gin.H{"message": "invalid firebase token"})
 		return
 	}
 
 	// TODO all these FailWithMessages should be validation messages
 
-	genderValidated := lo.Contains(GetGenders(), createUserDto.Gender)
+	genderValidated := lo.Contains(GetGenders(), dto.Gender)
 	if !genderValidated {
 		FailWithMessage(ctx, "gender not recognized")
 		return
 	}
 
-	attractionVector, err := calculateAttractionVector(createUserDto.Attractions)
+	attractionVector, err := calculateAttractionVector(dto.Attractions)
 	if err != nil {
 		FailWithMessage(ctx, "not enough attractions chosen")
 		return
 	}
 
-	foodVector, err := calculateFoodVector(createUserDto.Food)
+	foodVector, err := calculateFoodVector(dto.Food)
 	if err != nil {
 		FailWithMessage(ctx, "not enough food chosen")
 		return
 	}
 
 	user := data.User{
-		Name:        createUserDto.Name,
-		Username:    createUserDto.Username,
-		Gender:      createUserDto.Gender,
-		Town:        createUserDto.Town,
+		Name:        dto.Name,
+		Username:    dto.Username,
+		Gender:      dto.Gender,
+		Town:        dto.Town,
 		FirebaseUid: *firebaseUid,
 		ImageLink:   imageUrl,
 		Attractions: attractionVector,
@@ -108,6 +113,14 @@ func (controller *UserController) Create(ctx *gin.Context) {
 	err = controller.Database.CreateUser(&user)
 	if err != nil {
 		// TODO handle user failure stuff
+		if err == data.UsernameExists {
+			FailWithMessage(ctx, "username exists")
+			return
+		} else if err == data.FirebaseUidExists {
+			FailWithMessage(ctx, "account already exists for this user")
+			return
+		}
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -123,15 +136,14 @@ func (controller *UserController) Create(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/users/me/info [get]
 func (controller *UserController) GetInfo(ctx *gin.Context) {
-	userId, err := controller.AuthUserId(ctx)
-	if err != nil {
-		return
-	}
+	userId := controller.AuthUserId(ctx)
 
 	user, err := controller.Database.GetUser(userId)
 	if err != nil { // this User is always found
+		handleDbError(ctx, err)
 		return
 	}
+
 	ctx.JSON(http.StatusOK, ToUserSummaryDto(user))
 }
 

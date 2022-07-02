@@ -2,7 +2,6 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/juju/errors"
 	"go.uber.org/zap"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/services"
@@ -16,18 +15,25 @@ type BaseController struct {
 	Logger   *zap.Logger
 }
 
-func (ctr *BaseController) AuthUserId(ctx *gin.Context) (uint, error) {
+func (ctr *BaseController) AuthUserId(ctx *gin.Context) uint {
 	// this will always succeed, as the rejection will come from go-jwt
-	// even before we get here. However, we still check for error in case
-	// the spec changes in the future.
-	return ctr.Auth.AuthenticatedUserId(ctx), nil
+	// even before we get here.
+	return ctr.Auth.AuthenticatedUserId(ctx)
 }
 
-func (ctr *BaseController) AuthGroupMember(ctx *gin.Context, grpID uint) (data.GroupMember, error) {
-	userId, err := ctr.AuthUserId(ctx)
+func (ctr *BaseController) AuthGroupMember(ctx *gin.Context, grpID uint) *data.GroupMember {
+	userId := ctr.AuthUserId(ctx)
+	grpMember, err := ctr.Database.GetGroupMember(userId, grpID)
+
 	if err != nil {
-		return data.GroupMember{}, errors.Trace(err)
+		handleDbError(ctx, err)
+		return grpMember
 	}
 
-	return ctr.Database.GetGroupMember(userId, grpID)
+	if grpMember == nil {
+		FailWithMessage(ctx, "user is not a member of this group")
+		return nil
+	}
+
+	return grpMember
 }

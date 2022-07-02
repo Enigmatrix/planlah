@@ -106,7 +106,6 @@ func processValidationError[T any](ctx *gin.Context, err error) {
 	}
 }
 
-// TODO use this
 func handleDbError(ctx *gin.Context, err error) bool {
 	if err == nil {
 		return false

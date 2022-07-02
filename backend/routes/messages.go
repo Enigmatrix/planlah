@@ -45,6 +45,21 @@ type MessageDto struct {
 	User    UserSummaryDto `json:"user" binding:"required"`
 }
 
+func ToMessageDto(msg data.Message) MessageDto {
+	return MessageDto{
+		ID:      msg.ID,
+		SentAt:  msg.SentAt,
+		Content: msg.Content,
+		User:    ToUserSummaryDto(*msg.By.User),
+	}
+}
+
+func ToMessageDtos(messages []data.Message) []MessageDto {
+	return lo.Map(messages, func(msg data.Message, _ int) MessageDto {
+		return ToMessageDto(msg)
+	})
+}
+
 // Send godoc
 // @Summary Send a message
 // @Description Send a new message to a `Group`
@@ -62,8 +77,8 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 		return
 	}
 
-	groupMember, err := controller.AuthGroupMember(ctx, dto.GroupID)
-	if err != nil {
+	groupMember := controller.AuthGroupMember(ctx, dto.GroupID)
+	if groupMember == nil {
 		return
 	}
 
@@ -73,14 +88,15 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 		SentAt:  time.Now().In(time.UTC),
 	}
 
-	err = controller.Database.CreateMessage(&msg)
-
+	err := controller.Database.CreateMessage(&msg)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
 	user, err := controller.Database.GetUser(groupMember.UserID)
-	if err != nil { // this User is always found
+	if err != nil { // the user is always found
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -105,38 +121,20 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/mark_read [put]
 func (controller *MessageController) MarkRead(ctx *gin.Context) {
-	var dto MarkReadDto
+	userId := controller.AuthUserId(ctx)
 
+	var dto MarkReadDto
 	if Body(ctx, &dto) {
 		return
 	}
 
-	userId, err := controller.AuthUserId(ctx)
+	err := controller.Database.SetLastSeenMessageIDIfNewer(userId, dto.MessageID)
 	if err != nil {
-		return
-	}
-
-	err = controller.Database.SetLastSeenMessageIDIfNewer(userId, dto.MessageID)
-	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
 	ctx.Status(http.StatusOK)
-}
-
-func ToMessageDto(msg data.Message) MessageDto {
-	return MessageDto{
-		ID:      msg.ID,
-		SentAt:  msg.SentAt,
-		Content: msg.Content,
-		User:    ToUserSummaryDto(*msg.By.User),
-	}
-}
-
-func ToMessageDtos(messages []data.Message) []MessageDto {
-	return lo.Map(messages, func(msg data.Message, _ int) MessageDto {
-		return ToMessageDto(msg)
-	})
 }
 
 // MessagesBefore godoc
@@ -150,21 +148,20 @@ func ToMessageDtos(messages []data.Message) []MessageDto {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/before [get]
 func (controller *MessageController) MessagesBefore(ctx *gin.Context) {
-	var getRelativeMessagesDtos GetRelativeMessagesDto
-	if Query(ctx, &getRelativeMessagesDtos) {
+	userId := controller.AuthUserId(ctx)
+
+	var dto GetRelativeMessagesDto
+	if Query(ctx, &dto) {
 		return
 	}
 
-	userId, err := controller.AuthUserId(ctx)
-	if err != nil {
-		return
-	}
-
-	messages, err := controller.Database.GetMessagesRelative(userId, getRelativeMessagesDtos.MessageID, getRelativeMessagesDtos.Count, true)
+	messages, err := controller.Database.GetMessagesRelative(userId, dto.MessageID, dto.Count, true)
 	if err != nil {
 		if err == data.EntityNotFound {
-			// TODO message not found which means that it doesn't exist or message not in user groups
+			FailWithMessage(ctx, "message is not in any of user's groups")
+			return
 		}
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -182,21 +179,20 @@ func (controller *MessageController) MessagesBefore(ctx *gin.Context) {
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/after [get]
 func (controller *MessageController) MessagesAfter(ctx *gin.Context) {
+	userId := controller.AuthUserId(ctx)
+
 	var dto GetRelativeMessagesDto
 	if Query(ctx, &dto) {
-		return
-	}
-
-	userId, err := controller.AuthUserId(ctx)
-	if err != nil {
 		return
 	}
 
 	messages, err := controller.Database.GetMessagesRelative(userId, dto.MessageID, dto.Count, false)
 	if err != nil {
 		if err == data.EntityNotFound {
-			// TODO message not found which means that it doesn't exist or message not in user groups
+			FailWithMessage(ctx, "message is not in any of user's groups")
+			return
 		}
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -219,13 +215,13 @@ func (controller *MessageController) Get(ctx *gin.Context) {
 		return
 	}
 
-	_, err := controller.AuthGroupMember(ctx, dto.GroupID)
-	if err != nil {
+	if controller.AuthGroupMember(ctx, dto.GroupID) == nil {
 		return
 	}
 
 	messages, err := controller.Database.GetMessages(dto.GroupID, dto.Start, dto.End)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -281,8 +277,12 @@ func (controller *MessageController) Register(router *gin.RouterGroup) {
 
 		groupMember, err := controller.Database.GetGroupMember(userId, uint(groupId))
 
-		if err == data.EntityNotFound {
+		if groupMember == nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "user is not a member of this group"})
+			return
+		}
+		if err != nil {
+			handleDbError(c, err)
 			return
 		}
 

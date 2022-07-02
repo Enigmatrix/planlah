@@ -106,7 +106,6 @@ func ToOutingStepDtos(outingSteps []data.OutingStep) []OutingStepDto {
 }
 
 func ToOutingDto(outing data.Outing) OutingDto {
-	// TODO: Do the steps and timing
 	return OutingDto{
 		ID:          outing.ID,
 		Name:        outing.Name,
@@ -136,19 +135,20 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Router /api/outing/create [post]
 func (controller *OutingController) Create(ctx *gin.Context) {
 	var dto CreateOutingDto
-
 	if Body(ctx, &dto) {
 		return
 	}
 
-	_, err := controller.AuthGroupMember(ctx, dto.GroupID)
-	if err != nil {
+	if controller.AuthGroupMember(ctx, dto.GroupID) == nil {
 		return
 	}
 
 	activeOuting, err := controller.Database.GetActiveOuting(dto.GroupID)
 	if err == nil && time.Now().In(time.UTC).Before(activeOuting.End) {
 		FailWithMessage(ctx, "group already has an active outing")
+		return
+	} else if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -169,13 +169,14 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 	}
 
 	err = controller.Database.CreateOuting(&outing)
-
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
 	err = controller.Database.UpdateActiveOuting(dto.GroupID, outing.ID)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -194,23 +195,21 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 // @Router /api/outing/create_step [post]
 func (controller *OutingController) CreateStep(ctx *gin.Context) {
 	var dto CreateOutingStepDto
-
 	if Body(ctx, &dto) {
 		return
 	}
 
 	outingId := dto.OutingID
 	outing, err := controller.Database.GetOuting(outingId)
-
 	if err == data.EntityNotFound {
 		FailWithMessage(ctx, "outing not found")
 		return
 	} else if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
-	_, err = controller.AuthGroupMember(ctx, outing.GroupID)
-	if err != nil {
+	if controller.AuthGroupMember(ctx, outing.GroupID) == nil {
 		return
 	}
 
@@ -227,6 +226,7 @@ func (controller *OutingController) CreateStep(ctx *gin.Context) {
 
 	err = controller.Database.CreateOutingStep(&outingStep)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -251,13 +251,13 @@ func (controller *OutingController) Get(ctx *gin.Context) {
 	}
 
 	groupId := dto.GroupID
-	_, err := controller.AuthGroupMember(ctx, groupId)
-	if err != nil {
+	if controller.AuthGroupMember(ctx, groupId) == nil {
 		return
 	}
 
 	outings, err := controller.Database.GetAllOutings(groupId)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -282,20 +282,21 @@ func (controller *OutingController) GetActive(ctx *gin.Context) {
 	}
 
 	groupId := dto.GroupID
-	_, err := controller.AuthGroupMember(ctx, groupId)
-	if err != nil {
+	if controller.AuthGroupMember(ctx, groupId) == nil {
 		return
 	}
 
 	outing, err := controller.Database.GetActiveOuting(groupId)
-	if err == data.EntityNotFound {
-		ctx.JSON(http.StatusOK, nil)
-		return
-	} else if err != nil {
+	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
-	ctx.JSON(http.StatusOK, ToOutingDto(*outing))
+	if outing == nil {
+		ctx.JSON(http.StatusOK, nil)
+	} else {
+		ctx.JSON(http.StatusOK, ToOutingDto(*outing))
+	}
 }
 
 // Vote godoc
@@ -316,17 +317,21 @@ func (controller *OutingController) Vote(ctx *gin.Context) {
 	}
 
 	o, err := controller.Database.GetOutingAndGroupForOutingStep(dto.OutingStepID)
-	if err != nil {
+	if err == data.EntityNotFound {
+		FailWithMessage(ctx, "outing step not found")
+		return
+	} else if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
-	gm, err := controller.AuthGroupMember(ctx, o.GroupID)
-	if err != nil {
+	grpMember := controller.AuthGroupMember(ctx, o.GroupID)
+	if grpMember == nil {
 		return
 	}
 
 	outingStepVote := data.OutingStepVote{
-		GroupMemberID: gm.ID,
+		GroupMemberID: grpMember.ID,
 		OutingStepID:  dto.OutingStepID,
 		Vote:          *dto.Vote,
 		VotedAt:       time.Now().In(time.UTC),
@@ -334,6 +339,7 @@ func (controller *OutingController) Vote(ctx *gin.Context) {
 
 	err = controller.Database.UpsertOutingStepVote(&outingStepVote)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 

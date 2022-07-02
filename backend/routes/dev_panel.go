@@ -12,10 +12,7 @@ type DevPanelController struct {
 }
 
 func (controller *DevPanelController) AddToDefaultGroups(ctx *gin.Context) {
-	userId, err := controller.AuthUserId(ctx)
-	if err != nil {
-		return
-	}
+	userId := controller.AuthUserId(ctx)
 
 	for i := 1; i <= 3; i++ {
 		_, err := controller.Database.AddUserToGroup(userId, uint(i))
@@ -23,6 +20,7 @@ func (controller *DevPanelController) AddToDefaultGroups(ctx *gin.Context) {
 			if err == data.UserAlreadyInGroup {
 				continue
 			} else {
+				handleDbError(ctx, err)
 				return
 			}
 		}

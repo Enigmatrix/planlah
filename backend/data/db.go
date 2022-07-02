@@ -221,7 +221,7 @@ func (db *Database) getLastMessagesForGroups(groupIds []uint) (map[uint]Message,
 }
 
 type GroupInfo struct {
-	Group              Group
+	Group
 	UnreadMessageCount uint
 	LastMessage        *Message
 }
@@ -424,7 +424,7 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 	return messages, nil
 }
 
-// GetMessages Gets Messages within a time range
+// GetMessages Gets Message within a time range
 func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) ([]Message, error) {
 	var messages []Message
 
