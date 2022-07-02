@@ -338,7 +338,7 @@ func (db *Database) CreateGroup(group *Group) error {
 //
 // Does not check if the new owner is a GroupMember of this Group.
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {
-	return errors.Trace(db.conn.Model(&Group{ID: groupID}).Update("OwnerID", ownerID).Error)
+	return errors.Trace(db.conn.Where(&Group{ID: groupID}).Update("OwnerID", ownerID).Error)
 }
 
 // CreateMessage Creates a Message
@@ -477,7 +477,7 @@ func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 // Throws EntityNotFound if the Outing is not found.
 func (db *Database) GetOuting(outingId uint) (Outing, error) {
 	var outing Outing
-	err := db.conn.Model(&Outing{ID: outingId}).
+	err := db.conn.Where(&Outing{ID: outingId}).
 		First(&outing).
 		Error
 
@@ -583,7 +583,7 @@ func (db *Database) CreateGroupInvite(inv *GroupInvite) error {
 func (db *Database) GetGroupInvites(groupId uint) ([]GroupInvite, error) {
 	var invites []GroupInvite
 
-	err := db.conn.Model(&GroupInvite{GroupID: groupId, Active: true}).
+	err := db.conn.Where(&GroupInvite{GroupID: groupId, Active: true}).
 		Where("expiry IS NULL OR expiry > now()").
 		Find(&invites).Error
 
