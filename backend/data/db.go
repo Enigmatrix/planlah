@@ -3,6 +3,7 @@ package data
 import (
 	"fmt"
 	"github.com/juju/errors"
+	"github.com/samber/lo"
 	"go.uber.org/zap"
 	"gorm.io/gorm/clause"
 	"os"
@@ -158,16 +159,119 @@ func (db *Database) GetUser(id uint) (User, error) {
 	return user, nil
 }
 
-// GetAllGroups Gets all Group (via GroupMember) of a User
-func (db *Database) GetAllGroups(userId uint) ([]GroupMember, error) {
-	var groupMembers []GroupMember
-	err := db.conn.Joins("Group").Find(&groupMembers, "group_members.user_id = ?", userId).Error
+func (db *Database) getUnreadMessagesCountForGroups(userId uint, groupIds []uint) (map[uint]uint, error) {
+	type unreadMessagesCountByGroup struct {
+		UnreadMessagesCount uint
+		GroupID             uint
+	}
+
+	var counts []unreadMessagesCountByGroup
+
+	// this can be made better definitely
+	err := db.conn.Table("messages m").
+		Select("COUNT(m.id) AS unread_messages_count, bygm.group_id AS group_id").
+		Joins("INNER JOIN group_members bygm ON bygm.id = m.by_id").
+		Joins(`INNER JOIN group_members gm ON gm.group_id = bygm.group_id AND gm.user_id = ? AND 
+			(gm.last_seen_message_id IS NULL OR m.sent_at > (select lm.sent_at from messages lm where lm.id = gm.last_seen_message_id))`, userId).
+		Group("bygm.group_id").
+		Having("bygm.group_id IN ?", groupIds).
+		Find(&counts).
+		Error
 
 	if err != nil {
 		return nil, errors.Trace(err)
 	}
 
-	return groupMembers, nil
+	countMap := make(map[uint]uint)
+	for _, c := range counts {
+		countMap[c.GroupID] = c.UnreadMessagesCount
+	}
+
+	return countMap, nil
+}
+
+func (db *Database) getLastMessagesForGroups(groupIds []uint) (map[uint]Message, error) {
+	type lastMessage struct {
+		Message
+		GroupID uint
+	}
+
+	var messages []lastMessage
+
+	err := db.conn.Table("messages").
+		Preload("By").
+		Preload("By.User").
+		Select("distinct on (group_id) messages.*, group_members.group_id").
+		Joins("inner join group_members ON group_members.id = by_id").
+		Where("group_id in ?", groupIds).
+		Order("group_id, sent_at desc").
+		Find(&messages).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+
+	lastMessages := make(map[uint]Message)
+	for _, last := range messages {
+		lastMessages[last.GroupID] = last.Message
+	}
+
+	return lastMessages, nil
+}
+
+type GroupInfo struct {
+	Group              Group
+	UnreadMessageCount uint
+	LastMessage        *Message
+}
+
+func (db *Database) toGroupInfos(userId uint, groups []Group) ([]GroupInfo, error) {
+	groupIds := lo.Map(groups, func(g Group, _ int) uint {
+		return g.ID
+	})
+
+	unreads, err := db.getUnreadMessagesCountForGroups(userId, groupIds)
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+
+	lastMsgs, err := db.getLastMessagesForGroups(groupIds)
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+
+	groupInfos := lo.Map(groups, func(g Group, _ int) GroupInfo {
+		var lastMsg *Message
+		if msg, ok := lastMsgs[g.ID]; ok {
+			lastMsg = &msg
+		} else {
+			lastMsg = nil
+		}
+		return GroupInfo{
+			Group:              g,
+			UnreadMessageCount: unreads[g.ID],
+			LastMessage:        lastMsg,
+		}
+	})
+
+	return groupInfos, nil
+}
+
+// GetAllGroups Gets all Group of a User
+func (db *Database) GetAllGroups(userId uint) ([]GroupInfo, error) {
+	var groups []Group
+	err := db.conn.Where(&GroupMember{UserID: userId}).
+		Joins("inner join groups g").
+		Select("g.*").
+		Find(&groups).Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+
+	groupInfos, err := db.toGroupInfos(userId, groups)
+	return groupInfos, errors.Trace(err)
 }
 
 // GetGroup Gets the Group by ID.
@@ -176,17 +280,22 @@ func (db *Database) GetAllGroups(userId uint) ([]GroupMember, error) {
 // even those the User is not joined into.
 //
 // Throws EntityNotFound when Group is not found.
-func (db *Database) GetGroup(groupId uint) (Group, error) {
+func (db *Database) GetGroup(userId uint, groupId uint) (GroupInfo, error) {
 	var group Group
 	err := db.conn.Model(&Group{}).Where("id = ?", groupId).First(&group).Error
 
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return Group{}, EntityNotFound
+			return GroupInfo{}, EntityNotFound
 		}
-		return Group{}, errors.Trace(err)
+		return GroupInfo{}, errors.Trace(err)
 	}
-	return group, nil
+
+	groupInfos, err := db.toGroupInfos(userId, []Group{group})
+	if err != nil {
+		return GroupInfo{}, errors.Trace(err)
+	}
+	return groupInfos[0], nil
 }
 
 // AddUserToGroup Adds a User to a Group and returns the GroupMember relationship
@@ -208,18 +317,16 @@ func (db *Database) AddUserToGroup(userId uint, grpId uint) (GroupMember, error)
 }
 
 // GetGroupMember Gets the GroupMember of the User and Group.
-//
-// Throws EntityNotFound when GroupMember is not found.
-func (db *Database) GetGroupMember(userId uint, groupId uint) (GroupMember, error) {
+func (db *Database) GetGroupMember(userId uint, groupId uint) (*GroupMember, error) {
 	var grpMember GroupMember
 	err := db.conn.Where(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return GroupMember{}, EntityNotFound
+			return nil, nil
 		}
-		return GroupMember{}, errors.Trace(err)
+		return nil, errors.Trace(err)
 	}
-	return grpMember, nil
+	return &grpMember, nil
 }
 
 // CreateGroup Creates a Group
@@ -335,67 +442,6 @@ func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) ([
 	}
 
 	return messages, nil
-}
-
-type LastMessage struct {
-	Message
-	GroupID uint
-}
-
-type UnreadMessagesCountByGroup struct {
-	UnreadMessagesCount uint
-	GroupID             uint
-}
-
-func (db *Database) GetUnreadMessagesCountForGroups(userId uint, groupIds []uint) (map[uint]uint, error) {
-	var counts []UnreadMessagesCountByGroup
-
-	// this can be made better definitely
-	err := db.conn.Table("messages m").
-		Select("COUNT(m.id) AS unread_messages_count, bygm.group_id AS group_id").
-		Joins("INNER JOIN group_members bygm ON bygm.id = m.by_id").
-		Joins(`INNER JOIN group_members gm ON gm.group_id = bygm.group_id AND gm.user_id = ? AND 
-			(gm.last_seen_message_id IS NULL OR m.sent_at > (select lm.sent_at from messages lm where lm.id = gm.last_seen_message_id))`, userId).
-		Group("bygm.group_id").
-		Having("bygm.group_id IN ?", groupIds).
-		Find(&counts).
-		Error
-
-	if err != nil {
-		return nil, errors.Trace(err)
-	}
-
-	countMap := make(map[uint]uint)
-	for _, c := range counts {
-		countMap[c.GroupID] = c.UnreadMessagesCount
-	}
-
-	return countMap, nil
-}
-
-func (db *Database) GetLastMessagesForGroups(groupIds []uint) (map[uint]Message, error) {
-	var messages []LastMessage
-
-	err := db.conn.Table("messages").
-		Preload("By").
-		Preload("By.User").
-		Select("distinct on (group_id) messages.*, group_members.group_id").
-		Joins("inner join group_members ON group_members.id = by_id").
-		Where("group_id in ?", groupIds).
-		Order("group_id, sent_at desc").
-		Find(&messages).
-		Error
-
-	if err != nil {
-		return nil, errors.Trace(err)
-	}
-
-	lastMessages := make(map[uint]Message)
-	for _, last := range messages {
-		lastMessages[last.GroupID] = last.Message
-	}
-
-	return lastMessages, nil
 }
 
 // CreateOuting Creates an Outing
