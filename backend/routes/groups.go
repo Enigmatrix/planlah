@@ -345,7 +345,7 @@ func (ctr *GroupsController) JoinByInvite(ctx *gin.Context) {
 // @Success 307
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
-// @Router join/{inviteId} [get]
+// @Router /join/{inviteId} [get]
 func (ctr *GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
 	var dto JoinGroupInviteDto
 	if Uri(ctx, &dto) {
