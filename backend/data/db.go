@@ -6,6 +6,7 @@ import (
 	"github.com/samber/lo"
 	"go.uber.org/zap"
 	"gorm.io/gorm/clause"
+	"moul.io/zapgorm2"
 	"os"
 	"sort"
 	"time"
@@ -28,7 +29,7 @@ var (
 )
 
 // NewDatabaseConnection Creates a new database connection
-func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
+func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, error) {
 	// TODO should this really be a singleton?
 	return dbConn.LazyFallibleValue(func() (*gorm.DB, error) {
 		dsn := fmt.Sprintf("host=%s user=%s password=%s",
@@ -37,7 +38,12 @@ func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
 			config.DatabasePassword,
 		)
 		pg := postgres.Open(dsn)
-		dbconfig := gorm.Config{}
+
+		dblogger := zapgorm2.New(logger)
+		dblogger.SetAsDefault() // use zap logger for callbacks
+		dbconfig := gorm.Config{
+			Logger: dblogger,
+		}
 
 		db, err := gorm.Open(pg, &dbconfig)
 		if err != nil {
