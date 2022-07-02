@@ -3,12 +3,20 @@ services:
   db:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: $DB_PASSWORD
-      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: postgres
     ports:
-      - "5432:5432" # only for debug
+      - "5432:5432"
     volumes:
       - test_db_volume:/var/lib/postgresql/data
+
+  adminer: # only for debug
+    image: adminer
+    restart: always
+    environment:
+      ADMINER_DESIGN: 'dracula'
+    ports:
+      - "8081:8080"
 
 volumes:
   test_db_volume: { }
