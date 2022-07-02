@@ -52,7 +52,7 @@ func ToUserSummaryDto(user data.User) UserSummaryDto {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/users/create [post]
-func (controller *UserController) Create(ctx *gin.Context) {
+func (ctr *UserController) Create(ctx *gin.Context) {
 	var dto CreateUserDto
 	if Form(ctx, &dto) {
 		return
@@ -65,15 +65,15 @@ func (controller *UserController) Create(ctx *gin.Context) {
 		return
 	}
 
-	imageUrl, err := controller.ImageService.UploadUserImage(file)
+	imageUrl, err := ctr.ImageService.UploadUserImage(file)
 	if err != nil {
 		// TODO handle this
 		return
 	}
 
-	firebaseUid, err := controller.Auth.GetFirebaseUid(dto.FirebaseToken)
+	firebaseUid, err := ctr.Auth.GetFirebaseUid(dto.FirebaseToken)
 	if err != nil {
-		controller.logger.Warn("firebase error", zap.Error(err))
+		ctr.logger.Warn("firebase error", zap.Error(err))
 		// TODO make this prettier
 		ctx.JSON(http.StatusUnauthorized, gin.H{"message": "invalid firebase token"})
 		return
@@ -110,7 +110,7 @@ func (controller *UserController) Create(ctx *gin.Context) {
 		Food:        foodVector,
 	}
 
-	err = controller.Database.CreateUser(&user)
+	err = ctr.Database.CreateUser(&user)
 	if err != nil {
 		// TODO handle user failure stuff
 		if err == data.UsernameExists {
@@ -135,10 +135,10 @@ func (controller *UserController) Create(ctx *gin.Context) {
 // @Success 200 {object} UserSummaryDto
 // @Failure 401 {object} ErrorMessage
 // @Router /api/users/me/info [get]
-func (controller *UserController) GetInfo(ctx *gin.Context) {
-	userId := controller.AuthUserId(ctx)
+func (ctr *UserController) GetInfo(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
 
-	user, err := controller.Database.GetUser(userId)
+	user, err := ctr.Database.GetUser(userId)
 	if err != nil { // this User is always found
 		handleDbError(ctx, err)
 		return
@@ -194,7 +194,7 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 }
 
 // Register the routes for this controller
-func (controller *UserController) Register(router *gin.RouterGroup) {
+func (ctr *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
-	users.GET("me/info", controller.GetInfo)
+	users.GET("me/info", ctr.GetInfo)
 }

@@ -70,14 +70,14 @@ func ToMessageDtos(messages []data.Message) []MessageDto {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/send [post]
-func (controller *MessageController) Send(ctx *gin.Context) {
+func (ctr *MessageController) Send(ctx *gin.Context) {
 	var dto SendMessageDto
 
 	if Body(ctx, &dto) {
 		return
 	}
 
-	groupMember := controller.AuthGroupMember(ctx, dto.GroupID)
+	groupMember := ctr.AuthGroupMember(ctx, dto.GroupID)
 	if groupMember == nil {
 		return
 	}
@@ -88,19 +88,19 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 		SentAt:  time.Now().In(time.UTC),
 	}
 
-	err := controller.Database.CreateMessage(&msg)
+	err := ctr.Database.CreateMessage(&msg)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
 	}
 
-	user, err := controller.Database.GetUser(groupMember.UserID)
+	user, err := ctr.Database.GetUser(groupMember.UserID)
 	if err != nil { // the user is always found
 		handleDbError(ctx, err)
 		return
 	}
 
-	controller.WsServer.BroadcastToRoom("/", strconv.Itoa(int(dto.GroupID)), "message", MessageDto{
+	ctr.WsServer.BroadcastToRoom("/", strconv.Itoa(int(dto.GroupID)), "message", MessageDto{
 		ID:      msg.ID,
 		SentAt:  msg.SentAt,
 		Content: msg.Content,
@@ -120,15 +120,15 @@ func (controller *MessageController) Send(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/mark_read [put]
-func (controller *MessageController) MarkRead(ctx *gin.Context) {
-	userId := controller.AuthUserId(ctx)
+func (ctr *MessageController) MarkRead(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
 
 	var dto MarkReadDto
 	if Body(ctx, &dto) {
 		return
 	}
 
-	err := controller.Database.SetLastSeenMessageIDIfNewer(userId, dto.MessageID)
+	err := ctr.Database.SetLastSeenMessageIDIfNewer(userId, dto.MessageID)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -147,15 +147,15 @@ func (controller *MessageController) MarkRead(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/before [get]
-func (controller *MessageController) MessagesBefore(ctx *gin.Context) {
-	userId := controller.AuthUserId(ctx)
+func (ctr *MessageController) MessagesBefore(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
 
 	var dto GetRelativeMessagesDto
 	if Query(ctx, &dto) {
 		return
 	}
 
-	messages, err := controller.Database.GetMessagesRelative(userId, dto.MessageID, dto.Count, true)
+	messages, err := ctr.Database.GetMessagesRelative(userId, dto.MessageID, dto.Count, true)
 	if err != nil {
 		if err == data.EntityNotFound {
 			FailWithMessage(ctx, "message is not in any of user's groups")
@@ -178,15 +178,15 @@ func (controller *MessageController) MessagesBefore(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/after [get]
-func (controller *MessageController) MessagesAfter(ctx *gin.Context) {
-	userId := controller.AuthUserId(ctx)
+func (ctr *MessageController) MessagesAfter(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
 
 	var dto GetRelativeMessagesDto
 	if Query(ctx, &dto) {
 		return
 	}
 
-	messages, err := controller.Database.GetMessagesRelative(userId, dto.MessageID, dto.Count, false)
+	messages, err := ctr.Database.GetMessagesRelative(userId, dto.MessageID, dto.Count, false)
 	if err != nil {
 		if err == data.EntityNotFound {
 			FailWithMessage(ctx, "message is not in any of user's groups")
@@ -209,17 +209,17 @@ func (controller *MessageController) MessagesAfter(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/messages/all [get]
-func (controller *MessageController) Get(ctx *gin.Context) {
+func (ctr *MessageController) Get(ctx *gin.Context) {
 	var dto GetMessagesDto
 	if Query(ctx, &dto) {
 		return
 	}
 
-	if controller.AuthGroupMember(ctx, dto.GroupID) == nil {
+	if ctr.AuthGroupMember(ctx, dto.GroupID) == nil {
 		return
 	}
 
-	messages, err := controller.Database.GetMessages(dto.GroupID, dto.Start, dto.End)
+	messages, err := ctr.Database.GetMessages(dto.GroupID, dto.Start, dto.End)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -228,11 +228,11 @@ func (controller *MessageController) Get(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, ToMessageDtos(messages))
 }
 
-func (controller *MessageController) OnSocketError(conn socketio.Conn, err error) {
-	controller.logger.Warn("websocket", zap.Error(err))
+func (ctr *MessageController) OnSocketError(conn socketio.Conn, err error) {
+	ctr.logger.Warn("websocket", zap.Error(err))
 }
 
-func (controller *MessageController) OnSocketConnect(conn socketio.Conn) error {
+func (ctr *MessageController) OnSocketConnect(conn socketio.Conn) error {
 	header := conn.RemoteHeader()
 
 	// there will not be an error as we are the ones setting it
@@ -249,33 +249,33 @@ func (controller *MessageController) OnSocketConnect(conn socketio.Conn) error {
 }
 
 // Register the routes for this controller
-func (controller *MessageController) Register(router *gin.RouterGroup) {
-	controller.WsServer = socketio.NewServer(&engineio.Options{})
-	if controller.WsServer == nil {
-		controller.logger.Fatal("websocket init")
+func (ctr *MessageController) Register(router *gin.RouterGroup) {
+	ctr.WsServer = socketio.NewServer(&engineio.Options{})
+	if ctr.WsServer == nil {
+		ctr.logger.Fatal("websocket init")
 	}
-	controller.WsServer.OnConnect("/", controller.OnSocketConnect)
-	controller.WsServer.OnError("/", controller.OnSocketError)
+	ctr.WsServer.OnConnect("/", ctr.OnSocketConnect)
+	ctr.WsServer.OnError("/", ctr.OnSocketError)
 
 	group := router.Group("messages")
-	group.POST("send", controller.Send)
-	group.GET("all", controller.Get)
-	group.GET("before", controller.MessagesBefore)
-	group.GET("after", controller.MessagesAfter)
-	group.PUT("mark_read", controller.MarkRead)
+	group.POST("send", ctr.Send)
+	group.GET("all", ctr.Get)
+	group.GET("before", ctr.MessagesBefore)
+	group.GET("after", ctr.MessagesAfter)
+	group.PUT("mark_read", ctr.MarkRead)
 
 	group.Any("socket/*any", func(c *gin.Context) {
 
 		var groupId int
 		var err error
-		userId := controller.Auth.AuthenticatedUserId(c)
+		userId := ctr.Auth.AuthenticatedUserId(c)
 
 		if groupId, err = strconv.Atoi(c.Query("groupId")); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid groupId"})
 			return
 		}
 
-		groupMember, err := controller.Database.GetGroupMember(userId, uint(groupId))
+		groupMember, err := ctr.Database.GetGroupMember(userId, uint(groupId))
 
 		if groupMember == nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "user is not a member of this group"})
@@ -294,6 +294,6 @@ func (controller *MessageController) Register(router *gin.RouterGroup) {
 		c.Request.Header.Set("Group-Id", strconv.Itoa(groupId))
 		c.Request.Header.Set("Group-Member-Id", strconv.Itoa(int(groupMember.ID)))
 
-		controller.WsServer.ServeHTTP(c.Writer, c.Request)
+		ctr.WsServer.ServeHTTP(c.Writer, c.Request)
 	})
 }

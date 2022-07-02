@@ -11,11 +11,11 @@ type DevPanelController struct {
 	BaseController
 }
 
-func (controller *DevPanelController) AddToDefaultGroups(ctx *gin.Context) {
-	userId := controller.AuthUserId(ctx)
+func (ctr *DevPanelController) AddToDefaultGroups(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
 
 	for i := 1; i <= 3; i++ {
-		_, err := controller.Database.AddUserToGroup(userId, uint(i))
+		_, err := ctr.Database.AddUserToGroup(userId, uint(i))
 		if err != nil {
 			if err == data.UserAlreadyInGroup {
 				continue
@@ -29,9 +29,9 @@ func (controller *DevPanelController) AddToDefaultGroups(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller *DevPanelController) Register(router *gin.RouterGroup) {
-	if controller.Config.AppMode == utils.Dev || controller.Config.AppMode == utils.Orbital {
+func (ctr *DevPanelController) Register(router *gin.RouterGroup) {
+	if ctr.Config.AppMode == utils.Dev || ctr.Config.AppMode == utils.Orbital {
 		users := router.Group("dev_panel")
-		users.POST("add_to_default_groups", controller.AddToDefaultGroups)
+		users.POST("add_to_default_groups", ctr.AddToDefaultGroups)
 	}
 }

@@ -133,17 +133,17 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/outing/create [post]
-func (controller *OutingController) Create(ctx *gin.Context) {
+func (ctr *OutingController) Create(ctx *gin.Context) {
 	var dto CreateOutingDto
 	if Body(ctx, &dto) {
 		return
 	}
 
-	if controller.AuthGroupMember(ctx, dto.GroupID) == nil {
+	if ctr.AuthGroupMember(ctx, dto.GroupID) == nil {
 		return
 	}
 
-	activeOuting, err := controller.Database.GetActiveOuting(dto.GroupID)
+	activeOuting, err := ctr.Database.GetActiveOuting(dto.GroupID)
 	if err == nil && time.Now().In(time.UTC).Before(activeOuting.End) {
 		FailWithMessage(ctx, "group already has an active outing")
 		return
@@ -168,13 +168,13 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 		End:         endDate,
 	}
 
-	err = controller.Database.CreateOuting(&outing)
+	err = ctr.Database.CreateOuting(&outing)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
 	}
 
-	err = controller.Database.UpdateActiveOuting(dto.GroupID, outing.ID)
+	err = ctr.Database.UpdateActiveOuting(dto.GroupID, outing.ID)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -193,14 +193,14 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/outing/create_step [post]
-func (controller *OutingController) CreateStep(ctx *gin.Context) {
+func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 	var dto CreateOutingStepDto
 	if Body(ctx, &dto) {
 		return
 	}
 
 	outingId := dto.OutingID
-	outing, err := controller.Database.GetOuting(outingId)
+	outing, err := ctr.Database.GetOuting(outingId)
 	if err == data.EntityNotFound {
 		FailWithMessage(ctx, "outing not found")
 		return
@@ -209,7 +209,7 @@ func (controller *OutingController) CreateStep(ctx *gin.Context) {
 		return
 	}
 
-	if controller.AuthGroupMember(ctx, outing.GroupID) == nil {
+	if ctr.AuthGroupMember(ctx, outing.GroupID) == nil {
 		return
 	}
 
@@ -224,7 +224,7 @@ func (controller *OutingController) CreateStep(ctx *gin.Context) {
 		VoteDeadline: dto.VoteDeadline,
 	}
 
-	err = controller.Database.CreateOutingStep(&outingStep)
+	err = ctr.Database.CreateOutingStep(&outingStep)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -243,7 +243,7 @@ func (controller *OutingController) CreateStep(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/outing/all [get]
-func (controller *OutingController) Get(ctx *gin.Context) {
+func (ctr *OutingController) Get(ctx *gin.Context) {
 	var dto GetOutingsDto
 
 	if Query(ctx, &dto) {
@@ -251,11 +251,11 @@ func (controller *OutingController) Get(ctx *gin.Context) {
 	}
 
 	groupId := dto.GroupID
-	if controller.AuthGroupMember(ctx, groupId) == nil {
+	if ctr.AuthGroupMember(ctx, groupId) == nil {
 		return
 	}
 
-	outings, err := controller.Database.GetAllOutings(groupId)
+	outings, err := ctr.Database.GetAllOutings(groupId)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -275,18 +275,18 @@ func (controller *OutingController) Get(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/outing/active [get]
-func (controller *OutingController) GetActive(ctx *gin.Context) {
+func (ctr *OutingController) GetActive(ctx *gin.Context) {
 	var dto GetActiveOutingDto
 	if Query(ctx, &dto) {
 		return
 	}
 
 	groupId := dto.GroupID
-	if controller.AuthGroupMember(ctx, groupId) == nil {
+	if ctr.AuthGroupMember(ctx, groupId) == nil {
 		return
 	}
 
-	outing, err := controller.Database.GetActiveOuting(groupId)
+	outing, err := ctr.Database.GetActiveOuting(groupId)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -309,14 +309,14 @@ func (controller *OutingController) GetActive(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/outing/vote [put]
-func (controller *OutingController) Vote(ctx *gin.Context) {
+func (ctr *OutingController) Vote(ctx *gin.Context) {
 	var dto VoteOutingStepDto
 
 	if Body(ctx, &dto) {
 		return
 	}
 
-	o, err := controller.Database.GetOutingAndGroupForOutingStep(dto.OutingStepID)
+	o, err := ctr.Database.GetOutingAndGroupForOutingStep(dto.OutingStepID)
 	if err == data.EntityNotFound {
 		FailWithMessage(ctx, "outing step not found")
 		return
@@ -325,7 +325,7 @@ func (controller *OutingController) Vote(ctx *gin.Context) {
 		return
 	}
 
-	grpMember := controller.AuthGroupMember(ctx, o.GroupID)
+	grpMember := ctr.AuthGroupMember(ctx, o.GroupID)
 	if grpMember == nil {
 		return
 	}
@@ -337,7 +337,7 @@ func (controller *OutingController) Vote(ctx *gin.Context) {
 		VotedAt:       time.Now().In(time.UTC),
 	}
 
-	err = controller.Database.UpsertOutingStepVote(&outingStepVote)
+	err = ctr.Database.UpsertOutingStepVote(&outingStepVote)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -347,11 +347,11 @@ func (controller *OutingController) Vote(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller *OutingController) Register(router *gin.RouterGroup) {
+func (ctr *OutingController) Register(router *gin.RouterGroup) {
 	group := router.Group("outing")
-	group.POST("create", controller.Create)
-	group.POST("create_step", controller.CreateStep)
-	group.GET("all", controller.Get)
-	group.GET("active", controller.GetActive)
-	group.PUT("vote", controller.Vote)
+	group.POST("create", ctr.Create)
+	group.POST("create_step", ctr.CreateStep)
+	group.GET("all", ctr.Get)
+	group.GET("active", ctr.GetActive)
+	group.PUT("vote", ctr.Vote)
 }

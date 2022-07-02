@@ -99,13 +99,13 @@ func ToGroupSummaryDto(grp data.GroupInfo) GroupSummaryDto {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/invites/create [post]
-func (controller GroupsController) CreateInvite(ctx *gin.Context) {
+func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 	var dto CreateGroupInviteDto
 	if Body(ctx, &dto) {
 		return
 	}
 
-	if controller.AuthGroupMember(ctx, dto.GroupID) == nil {
+	if ctr.AuthGroupMember(ctx, dto.GroupID) == nil {
 		return
 	}
 
@@ -131,14 +131,14 @@ func (controller GroupsController) CreateInvite(ctx *gin.Context) {
 		Active:  true,
 	}
 
-	err := controller.Database.CreateGroupInvite(&invite)
+	err := ctr.Database.CreateGroupInvite(&invite)
 
 	if err != nil {
 		handleDbError(ctx, err)
 		return
 	}
 
-	ctx.JSON(http.StatusOK, ToGroupInviteDto(invite, controller.Config))
+	ctx.JSON(http.StatusOK, ToGroupInviteDto(invite, ctr.Config))
 }
 
 // InvalidateInvite godoc
@@ -151,8 +151,8 @@ func (controller GroupsController) CreateInvite(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/invites/invalidate [put]
-func (controller GroupsController) InvalidateInvite(ctx *gin.Context) {
-	userId := controller.AuthUserId(ctx)
+func (ctr *GroupsController) InvalidateInvite(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
 
 	var dto InvalidateGroupInviteDto
 	if Body(ctx, &dto) {
@@ -163,7 +163,7 @@ func (controller GroupsController) InvalidateInvite(ctx *gin.Context) {
 	// the UUID format
 	inviteId := uuid.MustParse(dto.InviteID)
 
-	err := controller.Database.InvalidateInvite(userId, inviteId)
+	err := ctr.Database.InvalidateInvite(userId, inviteId)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -182,24 +182,24 @@ func (controller GroupsController) InvalidateInvite(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/invites [get]
-func (controller GroupsController) GetInvites(ctx *gin.Context) {
+func (ctr *GroupsController) GetInvites(ctx *gin.Context) {
 	var dto GetGroupInvitesDto
 	if Query(ctx, &dto) {
 		return
 	}
 
-	if controller.AuthGroupMember(ctx, dto.GroupID) == nil {
+	if ctr.AuthGroupMember(ctx, dto.GroupID) == nil {
 		return
 	}
 
-	invites, err := controller.Database.GetGroupInvites(dto.GroupID)
+	invites, err := ctr.Database.GetGroupInvites(dto.GroupID)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
 	}
 
 	inviteDtos := lo.Map(invites, func(invite data.GroupInvite, i int) GroupInviteDto {
-		return ToGroupInviteDto(invite, controller.Config)
+		return ToGroupInviteDto(invite, ctr.Config)
 	})
 
 	ctx.JSON(http.StatusOK, inviteDtos)
@@ -217,8 +217,8 @@ func (controller GroupsController) GetInvites(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/create [post]
-func (controller GroupsController) Create(ctx *gin.Context) {
-	userId := controller.AuthUserId(ctx)
+func (ctr *GroupsController) Create(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
 
 	var dto CreateGroupDto
 	if Form(ctx, &dto) {
@@ -232,7 +232,7 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 		return
 	}
 
-	imageUrl, err := controller.ImageService.UploadGroupImage(file)
+	imageUrl, err := ctr.ImageService.UploadGroupImage(file)
 	if err != nil {
 		// TODO how to handle this?
 		return
@@ -244,17 +244,17 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 		Owner:       nil, // TODO can I auto create Owner when this Group is added?
 		ImageLink:   imageUrl,
 	}
-	err = controller.Database.CreateGroup(&group)
+	err = ctr.Database.CreateGroup(&group)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
 	}
 
-	groupMember, err := controller.Database.AddUserToGroup(userId, group.ID)
+	groupMember, err := ctr.Database.AddUserToGroup(userId, group.ID)
 
 	if err != nil {
 		if err == data.UserAlreadyInGroup {
-			controller.Logger.Fatal("IMPOSSIBLE: user is already member of just-created group")
+			ctr.Logger.Fatal("IMPOSSIBLE: user is already member of just-created group")
 			return
 		}
 		handleDbError(ctx, err)
@@ -262,7 +262,7 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 	}
 
 	group.OwnerID = groupMember.ID
-	err = controller.Database.UpdateGroupOwner(group.ID, group.OwnerID)
+	err = ctr.Database.UpdateGroupOwner(group.ID, group.OwnerID)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -279,10 +279,10 @@ func (controller GroupsController) Create(ctx *gin.Context) {
 // @Success 200 {object} []GroupSummaryDto
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/all [get]
-func (controller GroupsController) GetAll(ctx *gin.Context) {
-	userId := controller.AuthUserId(ctx)
+func (ctr *GroupsController) GetAll(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
 
-	groups, err := controller.Database.GetAllGroups(userId)
+	groups, err := ctr.Database.GetAllGroups(userId)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -305,8 +305,8 @@ func (controller GroupsController) GetAll(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router /api/groups/join/{inviteId} [get]
-func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
-	userId := controller.AuthUserId(ctx)
+func (ctr *GroupsController) JoinByInvite(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
 
 	var dto JoinGroupInviteDto
 	if Uri(ctx, &dto) {
@@ -317,7 +317,7 @@ func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
 	// the UUID format
 	inviteId := uuid.MustParse(dto.InviteID)
 
-	invite, err := controller.Database.JoinByInvite(userId, inviteId)
+	invite, err := ctr.Database.JoinByInvite(userId, inviteId)
 	if err != nil {
 		if err == data.UserAlreadyInGroup {
 			FailWithMessage(ctx, "user is already in group")
@@ -327,7 +327,7 @@ func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
 		return
 	}
 
-	group, err := controller.Database.GetGroup(userId, invite.GroupID)
+	group, err := ctr.Database.GetGroup(userId, invite.GroupID)
 	if err != nil { // this group is always found
 		handleDbError(ctx, err)
 		return
@@ -346,7 +346,7 @@ func (controller GroupsController) JoinByInvite(ctx *gin.Context) {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} ErrorMessage
 // @Router join/{inviteId} [get]
-func (controller GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
+func (ctr *GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
 	var dto JoinGroupInviteDto
 	if Uri(ctx, &dto) {
 		return
@@ -356,12 +356,12 @@ func (controller GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller GroupsController) Register(router *gin.RouterGroup) {
+func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group := router.Group("groups")
-	group.POST("create", controller.Create)
-	group.GET("all", controller.GetAll)
-	group.GET("invites", controller.GetInvites)
-	group.PUT("invites/invalidate", controller.InvalidateInvite)
-	group.POST("invites/create", controller.CreateInvite)
-	group.GET("join/:inviteId", controller.JoinByInvite)
+	group.POST("create", ctr.Create)
+	group.GET("all", ctr.GetAll)
+	group.GET("invites", ctr.GetInvites)
+	group.PUT("invites/invalidate", ctr.InvalidateInvite)
+	group.POST("invites/create", ctr.CreateInvite)
+	group.GET("join/:inviteId", ctr.JoinByInvite)
 }
