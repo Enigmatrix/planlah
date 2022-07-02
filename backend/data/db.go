@@ -287,7 +287,8 @@ func (db *Database) GetAllGroups(userId uint) ([]GroupInfo, error) {
 // GetGroup Gets the Group by ID.
 //
 // This method is intended to get information about _any_ arbitrary Group,
-// even those the User is not joined into.
+// even those the User is not joined into. If such groups exist, then their
+// LastMessage and UnreadMessagesCount are not initialized
 //
 // Throws EntityNotFound when Group is not found.
 func (db *Database) GetGroup(userId uint, groupId uint) (GroupInfo, error) {
