@@ -26,7 +26,7 @@ var (
 	UserAlreadyInGroup = errors.New("user is already in group")
 )
 
-// NewDatabaseConnection creates a new database connection
+// NewDatabaseConnection Creates a new database connection
 func NewDatabaseConnection(config *utils.Config) (*gorm.DB, error) {
 	// TODO should this really be a singleton?
 	return dbConn.FallibleValue(func() (*gorm.DB, error) {
@@ -89,7 +89,7 @@ type Database struct {
 	logger *zap.Logger
 }
 
-// NewDatabase create a new database
+// NewDatabase Create a new database
 func NewDatabase(conn *gorm.DB) *Database {
 	return &Database{conn: conn}
 }
@@ -106,12 +106,10 @@ func isNotFoundInDb(err error) bool {
 	return errors.Is(err, gorm.ErrRecordNotFound)
 }
 
-func (db *Database) handleDbError(err error) error {
-	db.logger.Fatal("db", zap.Error(err))
-	return err
-}
-
-// CreateUser creates a new user and checks if there already exists a user
+// CreateUser Creates a new User if they do not already exist.
+//
+// Throws UsernameExists when a User with that username already exists.
+// Throws FirebaseUidExists when a User with the same Firebase UID exists.
 func (db *Database) CreateUser(user *User) error {
 	err := db.conn.Create(user).Error
 
@@ -121,13 +119,15 @@ func (db *Database) CreateUser(user *User) error {
 		} else if isUniqueViolation(err, "users_firebase_uid_key") {
 			return FirebaseUidExists
 		}
-		return db.handleDbError(err)
+		return errors.Trace(err)
 	}
 
 	return nil
 }
 
-// GetUserByFirebaseUid gets a user given a unique firebaseUid
+// GetUserByFirebaseUid Gets a User given a unique Firebase UID
+//
+// Throws EntityNotFound when User is not found
 func (db *Database) GetUserByFirebaseUid(firebaseUid string) (User, error) {
 	var user User
 
@@ -138,11 +138,14 @@ func (db *Database) GetUserByFirebaseUid(firebaseUid string) (User, error) {
 		if isNotFoundInDb(err) {
 			return User{}, EntityNotFound
 		}
-		return User{}, db.handleDbError(err)
+		return User{}, errors.Trace(err)
 	}
 	return user, nil
 }
 
+// GetUser Gets a User by their ID
+//
+// Throws EntityNotFound when User is not found
 func (db *Database) GetUser(id uint) (User, error) {
 	var user User
 	err := db.conn.First(&user, id).Error
@@ -150,24 +153,29 @@ func (db *Database) GetUser(id uint) (User, error) {
 		if isNotFoundInDb(err) {
 			return User{}, EntityNotFound
 		}
-		return User{}, db.handleDbError(err)
+		return User{}, errors.Trace(err)
 	}
 	return user, nil
 }
 
+// GetAllGroups Gets all Group (via GroupMember) of a User
 func (db *Database) GetAllGroups(userId uint) ([]GroupMember, error) {
 	var groupMembers []GroupMember
 	err := db.conn.Joins("Group").Find(&groupMembers, "group_members.user_id = ?", userId).Error
 
 	if err != nil {
-		return nil, db.handleDbError(err)
+		return nil, errors.Trace(err)
 	}
 
 	return groupMembers, nil
 }
 
-// GetGroup This method is intended to get information about _any_ arbitrary group,
-// even those the user is not joined into
+// GetGroup Gets the Group by ID.
+//
+// This method is intended to get information about _any_ arbitrary Group,
+// even those the User is not joined into.
+//
+// Throws EntityNotFound when Group is not found.
 func (db *Database) GetGroup(groupId uint) (Group, error) {
 	var group Group
 	err := db.conn.Model(&Group{}).Where("id = ?", groupId).First(&group).Error
@@ -176,11 +184,14 @@ func (db *Database) GetGroup(groupId uint) (Group, error) {
 		if isNotFoundInDb(err) {
 			return Group{}, EntityNotFound
 		}
-		return Group{}, db.handleDbError(err)
+		return Group{}, errors.Trace(err)
 	}
 	return group, nil
 }
 
+// AddUserToGroup Adds a User to a Group and returns the GroupMember relationship
+//
+// Throws UserAlreadyInGroup if the User is already in this Group
 func (db *Database) AddUserToGroup(userId uint, grpId uint) (GroupMember, error) {
 	// TODO set last seen message id?
 	grpMember := GroupMember{GroupID: grpId, UserID: userId}
@@ -190,12 +201,15 @@ func (db *Database) AddUserToGroup(userId uint, grpId uint) (GroupMember, error)
 		if isUniqueViolation(err, "composite_grp_member_idx") {
 			return GroupMember{}, UserAlreadyInGroup
 		}
-		return GroupMember{}, db.handleDbError(err)
+		return GroupMember{}, errors.Trace(err)
 	}
 
-	return grpMember, err
+	return grpMember, nil
 }
 
+// GetGroupMember Gets the GroupMember of the User and Group.
+//
+// Throws EntityNotFound when GroupMember is not found.
 func (db *Database) GetGroupMember(userId uint, groupId uint) (GroupMember, error) {
 	var grpMember GroupMember
 	err := db.conn.Where(&GroupMember{UserID: userId, GroupID: groupId}).First(&grpMember).Error
@@ -203,26 +217,34 @@ func (db *Database) GetGroupMember(userId uint, groupId uint) (GroupMember, erro
 		if isNotFoundInDb(err) {
 			return GroupMember{}, EntityNotFound
 		}
-		return GroupMember{}, db.handleDbError(err)
+		return GroupMember{}, errors.Trace(err)
 	}
 	return grpMember, nil
 }
 
+// CreateGroup Creates a Group
 func (db *Database) CreateGroup(group *Group) error {
-	return db.handleDbError(db.conn.Omit("OwnerID", "ActiveOutingID").Create(group).Error)
+	return errors.Trace(db.conn.Omit("OwnerID", "ActiveOutingID").Create(group).Error)
 }
 
-// UpdateGroupOwner Updates the group owner. Does not check if the new owner is a GroupMember of this Group.
+// UpdateGroupOwner Updates the Group owner.
+//
+// Does not check if the new owner is a GroupMember of this Group.
 func (db *Database) UpdateGroupOwner(groupID uint, ownerID uint) error {
-	return db.handleDbError(db.conn.Model(&Group{ID: groupID}).Update("OwnerID", ownerID).Error)
+	return errors.Trace(db.conn.Model(&Group{ID: groupID}).Update("OwnerID", ownerID).Error)
 }
 
+// CreateMessage Creates a Message
 func (db *Database) CreateMessage(msg *Message) error {
-	return db.handleDbError(db.conn.Create(msg).Error)
+	return errors.Trace(db.conn.Create(msg).Error)
 }
 
-// SetLastSeenMessageIDIfNewer Sets the LastSeenMessageID if it's newer, for this GroupMember in the same group the message
-// exists in and for this User. This does nothing if the message is not in any groups of the user.
+// SetLastSeenMessageIDIfNewer Sets the LastSeenMessageID of the GroupMember if it's newer.
+// The GroupMember is derived from the Group the Message belongs to (via transitive By relationship)
+// and the User given in the parameters.
+//
+// Does nothing if such a GroupMember is not found (Message is not in any Groups of the User), or if
+// the Message itself is not found.
 func (db *Database) SetLastSeenMessageIDIfNewer(userId uint, messageId uint) error {
 	err := db.conn.Exec(
 		`UPDATE group_members AS gm SET last_seen_message_id = @messageId WHERE gm.user_id = @userId and gm.group_id =
@@ -236,9 +258,13 @@ func (db *Database) SetLastSeenMessageIDIfNewer(userId uint, messageId uint) err
 			"userId":    userId,
 		}).
 		Error
-	return db.handleDbError(err)
+	return errors.Trace(err)
 }
 
+// GetMessagesRelative Gets {count} number of Messages relative (before or after) to the given cursor Message,
+// assuming the Message is from a Group that the User is in.
+//
+// Throws EntityNotFound if the Message itself is not found.
 func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint, before bool) ([]Message, error) {
 	var msg Message
 	var messages []Message
@@ -263,7 +289,7 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 		if isNotFoundInDb(err) {
 			return nil, EntityNotFound
 		}
-		return nil, db.handleDbError(err)
+		return nil, errors.Trace(err)
 	}
 
 	// Goddamn Gorm doesn't let you orderby, limit, then orderby again
@@ -280,7 +306,7 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 		Error
 
 	if err != nil {
-		return nil, db.handleDbError(err)
+		return nil, errors.Trace(err)
 	}
 
 	// manually sort
@@ -291,6 +317,7 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 	return messages, nil
 }
 
+// GetMessages Gets Messages within a time range
 func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) ([]Message, error) {
 	var messages []Message
 
@@ -304,7 +331,7 @@ func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) ([
 		Error
 
 	if err != nil {
-		return nil, db.handleDbError(err)
+		return nil, errors.Trace(err)
 	}
 
 	return messages, nil
@@ -335,7 +362,7 @@ func (db *Database) GetUnreadMessagesCountForGroups(userId uint, groupIds []uint
 		Error
 
 	if err != nil {
-		return nil, db.handleDbError(err)
+		return nil, errors.Trace(err)
 	}
 
 	countMap := make(map[uint]uint)
@@ -360,7 +387,7 @@ func (db *Database) GetLastMessagesForGroups(groupIds []uint) (map[uint]Message,
 		Error
 
 	if err != nil {
-		return nil, db.handleDbError(err)
+		return nil, errors.Trace(err)
 	}
 
 	lastMessages := make(map[uint]Message)
@@ -371,14 +398,17 @@ func (db *Database) GetLastMessagesForGroups(groupIds []uint) (map[uint]Message,
 	return lastMessages, nil
 }
 
+// CreateOuting Creates an Outing
 func (db *Database) CreateOuting(outing *Outing) error {
-	return db.handleDbError(db.conn.Create(outing).Error)
+	return errors.Trace(db.conn.Create(outing).Error)
 }
 
+// CreateOutingStep Creates an OutingStep
 func (db *Database) CreateOutingStep(outingStep *OutingStep) error {
-	return db.handleDbError(db.conn.Create(outingStep).Error)
+	return errors.Trace(db.conn.Create(outingStep).Error)
 }
 
+// UpsertOutingStepVote Vote for an OutingStep
 func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 	err := db.conn.Clauses(clause.OnConflict{
 		UpdateAll: true,
@@ -388,12 +418,17 @@ func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 		if isUniqueViolation(err, "fk_outing_steps_votes") {
 			return EntityNotFound
 		}
-		return db.handleDbError(err)
+		return errors.Trace(err)
 	}
 
 	return nil
 }
 
+// GetOuting Gets an Outing by its ID
+//
+// Does not check if the User belongs to the Group belonging to the Outing
+//
+// Throws EntityNotFound if the Outing is not found.
 func (db *Database) GetOuting(outingId uint) (Outing, error) {
 	var outing Outing
 	err := db.conn.Model(&Outing{ID: outingId}).
@@ -404,7 +439,7 @@ func (db *Database) GetOuting(outingId uint) (Outing, error) {
 		if isNotFoundInDb(err) {
 			return Outing{}, EntityNotFound
 		}
-		return Outing{}, db.handleDbError(err)
+		return Outing{}, errors.Trace(err)
 	}
 
 	return outing, nil
@@ -415,6 +450,11 @@ type OutingAndGroupID struct {
 	OutingID uint
 }
 
+// GetOutingAndGroupForOutingStep Gets the Outing ID and Group ID for an OutingStep
+//
+// Does not check if the User belongs to the Group belonging to the OutingStep via Outing
+//
+// Throws EntityNotFound if the OutingStep is not found.
 func (db *Database) GetOutingAndGroupForOutingStep(outingStepId uint) (OutingAndGroupID, error) {
 	var res OutingAndGroupID
 	err := db.conn.Table("outing_steps os").
@@ -426,7 +466,7 @@ func (db *Database) GetOutingAndGroupForOutingStep(outingStepId uint) (OutingAnd
 		Error
 
 	if err != nil {
-		return OutingAndGroupID{}, db.handleDbError(err)
+		return OutingAndGroupID{}, errors.Trace(err)
 	}
 
 	// not possible to have 0 as ids: means that we didn't find the rows
@@ -437,6 +477,9 @@ func (db *Database) GetOutingAndGroupForOutingStep(outingStepId uint) (OutingAnd
 	return res, nil
 }
 
+// GetAllOutings Gets all Outings for a Group
+//
+// Does not check if the User belongs to the Group
 func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	var outings []Outing
 
@@ -448,13 +491,16 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 		Error
 
 	if err != nil {
-		return nil, db.handleDbError(err)
+		return nil, errors.Trace(err)
 	}
 
 	return outings, nil
 }
 
-func (db *Database) GetActiveOuting(groupId uint) (Outing, error) {
+// GetActiveOuting Gets the active Outing for a Group
+//
+// Does not check if the User belongs to the Group
+func (db *Database) GetActiveOuting(groupId uint) (*Outing, error) {
 	var outing Outing
 	err := db.conn.Model(&Outing{}).
 		Where("id = (select active_outing_id from groups where id = ?)", groupId).
@@ -465,24 +511,29 @@ func (db *Database) GetActiveOuting(groupId uint) (Outing, error) {
 
 	if err != nil {
 		if isNotFoundInDb(err) {
-			return Outing{}, EntityNotFound
+			return nil, nil
 		}
-		return Outing{}, db.handleDbError(err)
+		return nil, errors.Trace(err)
 	}
-	return outing, nil
+	return &outing, nil
 }
 
+// UpdateActiveOuting Sets the active Outing for a Group
+//
+// Does not check if the User belongs to the Group
 func (db *Database) UpdateActiveOuting(groupId uint, outingId uint) error {
-	return db.handleDbError(db.conn.Model(&Group{}).
+	return errors.Trace(db.conn.Model(&Group{}).
 		Where("id = ?", groupId).
 		Update("active_outing_id", outingId).
 		Error)
 }
 
+// CreateGroupInvite Creates a Group Invite
 func (db *Database) CreateGroupInvite(inv *GroupInvite) error {
-	return db.handleDbError(db.conn.Create(inv).Error)
+	return errors.Trace(db.conn.Create(inv).Error)
 }
 
+// GetGroupInvites Gets all the GroupInvite for a Group
 func (db *Database) GetGroupInvites(groupId uint) ([]GroupInvite, error) {
 	var invites []GroupInvite
 
@@ -491,19 +542,21 @@ func (db *Database) GetGroupInvites(groupId uint) ([]GroupInvite, error) {
 		Find(&invites).Error
 
 	if err != nil {
-		return nil, db.handleDbError(err)
+		return nil, errors.Trace(err)
 	}
 
 	return invites, nil
 }
 
 // InvalidateInvite Sets the invite to inactive if the User belongs to this GroupInvite's Group
-// No error is thrown
 func (db *Database) InvalidateInvite(userId uint, inviteId uuid.UUID) error {
-	return db.handleDbError(db.conn.Exec(`UPDATE group_invites SET active = FALSE WHERE id = ? AND 
+	return errors.Trace(db.conn.Exec(`UPDATE group_invites SET active = FALSE WHERE id = ? AND 
 		group_id IN (SELECT group_id FROM group_members WHERE user_id = ?)`, inviteId, userId).Error)
 }
 
+// JoinByInvite Joins a Group by a GroupInvite
+//
+// Throws UserAlreadyInGroup if the User is already in this Group
 func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, error) {
 	var invite GroupInvite
 	err := db.conn.Table("group_invites gi").
@@ -512,9 +565,9 @@ func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, 
 		First(&invite).Error
 
 	if err != nil {
-		return GroupInvite{}, db.handleDbError(err)
+		return GroupInvite{}, errors.Trace(err)
 	}
 
 	_, err = db.AddUserToGroup(userId, invite.GroupID)
-	return invite, db.handleDbError(err)
+	return invite, errors.Trace(err)
 }

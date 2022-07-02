@@ -295,7 +295,7 @@ func (controller *OutingController) GetActive(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, ToOutingDto(outing))
+	ctx.JSON(http.StatusOK, ToOutingDto(*outing))
 }
 
 // Vote godoc
