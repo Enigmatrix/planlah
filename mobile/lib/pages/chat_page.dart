@@ -164,7 +164,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
   }
 
   void viewPastOutings() {
-    print(widget.chatGroup.id);
     outingService
       .getAllOutings(widget.chatGroup.id)
       .then((value) {
@@ -199,7 +198,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
 
   Widget buildMessage(MessageDto message) {
-    // Hard code for now
     bool isUser = message.user.username == widget.userInfo.username;
     return Column(
         children: <Widget>[
@@ -278,20 +276,18 @@ class _GroupChatPageState extends State<GroupChatPage> {
           ),
 
           Flexible(
-              child: Container(
-                child: TextField(
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 15.0,
-                  ),
-                  controller: textEditingController,
-                  decoration: const InputDecoration.collapsed(
-                    hintText: "Type here",
-                    hintStyle: TextStyle(
-                        color: Colors.black
-                    )
-                  ),
-                )
+              child: TextField(
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 15.0,
+                ),
+                controller: textEditingController,
+                decoration: const InputDecoration.collapsed(
+                  hintText: "Type here",
+                  hintStyle: TextStyle(
+                      color: Colors.black
+                  )
+                ),
               )
           ),
 

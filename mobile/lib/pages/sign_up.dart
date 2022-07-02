@@ -109,7 +109,6 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       // Prevent keyboard from messing up layout
       resizeToAvoidBottomInset: false,
