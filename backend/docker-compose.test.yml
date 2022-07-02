@@ -10,13 +10,5 @@ services:
     volumes:
       - test_db_volume:/var/lib/postgresql/data
 
-  adminer: # only for debug
-    image: adminer
-    restart: always
-    environment:
-      ADMINER_DESIGN: 'dracula'
-    ports:
-      - "8081:8080"
-
 volumes:
   test_db_volume: { }
