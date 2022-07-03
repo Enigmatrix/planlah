@@ -1,7 +1,10 @@
 package integrationtests
 
 import (
+	"github.com/google/uuid"
 	"github.com/lib/pq"
+	"github.com/samber/lo"
+	"math"
 	"testing"
 	"time"
 
@@ -70,7 +73,7 @@ func (s *DataIntegrationTestSuite) TearDownTest() {
 	s.Require().NoError(err)
 }
 
-func (s *DataIntegrationTestSuite) Test_InitMigrate() {
+func (s *DataIntegrationTestSuite) Test_InitMigrate_Succeeds() {
 	s.NotNil(s.db)
 	// there should be 7 Users
 	for i := 1; i <= 7; i++ {
@@ -91,7 +94,7 @@ func (s *DataIntegrationTestSuite) Test_InitMigrate() {
 	s.ErrorIs(err, data.EntityNotFound)
 }
 
-func (s *DataIntegrationTestSuite) Test_CreateUser() {
+func (s *DataIntegrationTestSuite) Test_CreateUser_Succeeds() {
 	user := data.User{
 		Username:    "user1",
 		Name:        "User1",
@@ -204,7 +207,7 @@ func (s *DataIntegrationTestSuite) Test_CreateUser_ThrowsUsernameTakenFirst_When
 	s.Empty(newUser.ID)
 }
 
-func (s *DataIntegrationTestSuite) Test_GetUserByFirebaseUid_OnlyPopulatesID() {
+func (s *DataIntegrationTestSuite) Test_GetUserByFirebaseUid_Succeeds_AndOnlyPopulatesID() {
 	// exists in initial migration
 	firebaseUid := "firebaseUid1"
 	user, err := s.db.GetUserByFirebaseUid(firebaseUid)
@@ -223,7 +226,7 @@ func (s *DataIntegrationTestSuite) Test_GetUserByFirebaseUid_ThrowsEntityNotFoun
 	s.Empty(user)
 }
 
-func (s *DataIntegrationTestSuite) Test_GetUser_PopulatesUser() {
+func (s *DataIntegrationTestSuite) Test_GetUser_Succeeds_AndPopulatesUser() {
 	// exists in initial migration
 	id := uint(1)
 	user, err := s.db.GetUser(id)
@@ -243,7 +246,7 @@ func (s *DataIntegrationTestSuite) Test_GetUser_ThrowsEntityNotFound_WhenNoSuchU
 	s.Empty(user)
 }
 
-func (s *DataIntegrationTestSuite) Test_GetAllGroups() {
+func (s *DataIntegrationTestSuite) Test_GetAllGroups_Succeeds() {
 	// populated in initial migration
 	groups, err := s.db.GetAllGroups(1)
 	s.NoError(err)
@@ -279,7 +282,7 @@ func (s *DataIntegrationTestSuite) Test_GetAllGroups_NewUserHasNoGroups() {
 	// TODO add more checks
 }
 
-func (s *DataIntegrationTestSuite) Test_GetGroup() {
+func (s *DataIntegrationTestSuite) Test_GetGroup_Succeeds() {
 	// populated in initial migration
 	groups, err := s.db.GetGroup(4, 3)
 	s.NoError(err)
@@ -302,7 +305,7 @@ func (s *DataIntegrationTestSuite) Test_GetGroup_ThrowsEntityNotFound_WhenNoSuch
 	s.Empty(groups)
 }
 
-func (s *DataIntegrationTestSuite) Test_AddUserToGroup() {
+func (s *DataIntegrationTestSuite) Test_AddUserToGroup_Succeeds() {
 	grpMember, err := s.db.AddUserToGroup(1, 4)
 	s.NoError(err)
 	s.Equal(uint(1), grpMember.UserID)
@@ -317,7 +320,7 @@ func (s *DataIntegrationTestSuite) Test_AddUserToGroup_ThrowsUserAlreadyInGroup_
 	s.Empty(grpMember)
 }
 
-func (s *DataIntegrationTestSuite) Test_GetGroupMember() {
+func (s *DataIntegrationTestSuite) Test_GetGroupMember_Succeeds() {
 	grpMember, err := s.db.GetGroupMember(1, 1)
 	s.NoError(err)
 	s.Equal(uint(1), grpMember.UserID)
@@ -330,7 +333,7 @@ func (s *DataIntegrationTestSuite) Test_GetGroupMember_Nil_WhenNotAGroupMember()
 	s.Nil(grpMember)
 }
 
-func (s *DataIntegrationTestSuite) Test_CreateGroup() {
+func (s *DataIntegrationTestSuite) Test_CreateGroup_Succeeds() {
 	group := data.Group{
 		Name:        "name1",
 		Description: "description1",
@@ -347,12 +350,12 @@ func (s *DataIntegrationTestSuite) Test_CreateGroup() {
 	s.Equal(group, groupActual)
 }
 
-func (s *DataIntegrationTestSuite) Test_UpdateGroupOwner() {
+func (s *DataIntegrationTestSuite) Test_UpdateGroupOwner_Succeeds() {
 	err := s.db.UpdateGroupOwner(1, 1)
 	s.NoError(err)
 }
 
-func (s *DataIntegrationTestSuite) Test_CreateMessage() {
+func (s *DataIntegrationTestSuite) Test_CreateMessage_Succeeds() {
 	msg := data.Message{
 		Content: "message1",
 		SentAt:  time.Now(),
@@ -515,4 +518,652 @@ func (s *DataIntegrationTestSuite) Test_SetLastSeenMessageIDIfNewer_DoesNothing_
 	s.Equal(int64(0), cnt)
 }
 
-// TODO continue from GetMessagesRelative
+func (s *DataIntegrationTestSuite) Test_GetMessagesRelative_Succeeds_AfterInCorrectOrder() {
+	msgs, err := s.db.GetMessagesRelative(1, 11, 50, false)
+	s.NoError(err)
+	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
+		return t.ID
+	})
+	s.Equal([]uint{11, 12, 13, 14, 15}, ids)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetMessagesRelative_Succeeds_BeforeInCorrectOrder() {
+	msgs, err := s.db.GetMessagesRelative(1, 11, 50, true)
+	s.NoError(err)
+	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
+		return t.ID
+	})
+	// the order must be the same as well
+	s.Equal([]uint{9, 10, 11}, ids)
+	s.NotEqual([]uint{11, 10, 9}, ids)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetMessagesRelative_Succeeds_AfterInCorrectOrderAndLimitCount() {
+	msgs, err := s.db.GetMessagesRelative(1, 11, 2, false)
+	s.NoError(err)
+	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
+		return t.ID
+	})
+	s.Equal([]uint{11, 12}, ids)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetMessagesRelative_Succeeds_BeforeInCorrectOrderAndLimitCount() {
+	msgs, err := s.db.GetMessagesRelative(1, 11, 2, true)
+	s.NoError(err)
+	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
+		return t.ID
+	})
+	// the order must be the same as well
+	s.Equal([]uint{10, 11}, ids)
+	s.NotEqual([]uint{10, 9}, ids)
+	s.NotEqual([]uint{11, 10}, ids)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetMessagesRelative_ThrowsEntityNotFound_WhenMessageIsNotInUserGroups() {
+	msgs, err := s.db.GetMessagesRelative(3, 5, 50, true)
+	s.ErrorIs(err, data.EntityNotFound)
+	s.Empty(msgs)
+	msgs, err = s.db.GetMessagesRelative(3, 5, 50, false)
+	s.ErrorIs(err, data.EntityNotFound)
+	s.Empty(msgs)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetMessagesRelative_ThrowsEntityNotFound_WhenNoSuchMessage() {
+	msgs, err := s.db.GetMessagesRelative(3, 100, 50, true)
+	s.ErrorIs(err, data.EntityNotFound)
+	s.Empty(msgs)
+	msgs, err = s.db.GetMessagesRelative(3, 100, 50, false)
+	s.ErrorIs(err, data.EntityNotFound)
+	s.Empty(msgs)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetMessages_Succeeds() {
+	initial, err := time.ParseInLocation("2006-01-02 15:04", "2016-01-01 00:00", time.FixedZone("UTC+10", 10*60*60))
+	s.Require().NoError(err)
+	msgs, err := s.db.GetMessages(3, initial.Add(8*time.Minute), initial.Add(14*time.Minute))
+	s.NoError(err)
+	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
+		return t.ID
+	})
+	s.Equal(ids, []uint{9, 10, 11, 12, 13, 14}) // exclude last one due to exclusive >
+}
+
+func (s *DataIntegrationTestSuite) Test_GetMessages_Succeeds_Limited() {
+	initial, err := time.ParseInLocation("2006-01-02 15:04", "2016-01-01 00:00", time.FixedZone("UTC+10", 10*60*60))
+	s.Require().NoError(err)
+	msgs, err := s.db.GetMessages(3, initial.Add(11*time.Minute), initial.Add(13*time.Minute))
+	s.NoError(err)
+	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
+		return t.ID
+	})
+	s.Equal(ids, []uint{12, 13}) // exclude last one due to exclusive >
+}
+
+func (s *DataIntegrationTestSuite) Test_GetMessages_Empty_WhenNoSuchGroup() {
+	msgs, err := s.db.GetMessages(100, time.UnixMilli(0), time.UnixMilli(math.MaxInt64))
+	s.NoError(err)
+	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
+		return t.ID
+	})
+	s.Equal(ids, []uint{})
+}
+
+func (s *DataIntegrationTestSuite) Test_GetMessages_Empty_WhenTimeRangeInvalid() {
+	msgs, err := s.db.GetMessages(3, time.UnixMilli(math.MaxInt64), time.UnixMilli(0))
+	s.NoError(err)
+	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
+		return t.ID
+	})
+	s.Equal(ids, []uint{})
+}
+
+func (s *DataIntegrationTestSuite) Test_CreateOuting_Succeeds() {
+	outing := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "description1",
+		Start:       time.Now(),
+		End:         time.Now().Add(time.Hour),
+	}
+	err := s.db.CreateOuting(&outing)
+	s.NoError(err)
+	s.NotEmpty(outing.ID)
+}
+
+func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
+	outing := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "description1",
+		Start:       time.Now(),
+		End:         time.Now().Add(time.Hour),
+	}
+	err := s.db.CreateOuting(&outing)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(outing.ID)
+
+	outingStep := data.OutingStep{
+		OutingID:     outing.ID,
+		Name:         "name1",
+		Description:  "description1",
+		WhereName:    "where1",
+		WherePoint:   "wherePoint1",
+		Start:        time.Now(),
+		End:          time.Now().Add(time.Hour),
+		VoteDeadline: time.Now().Add(time.Hour * 5),
+	}
+	err = s.db.CreateOutingStep(&outingStep)
+	s.NoError(err)
+	s.NotEmpty(outingStep.ID)
+}
+
+func (s *DataIntegrationTestSuite) createSampleOutingStep() data.OutingStep {
+	outing := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "description1",
+		Start:       time.Now(),
+		End:         time.Now().Add(time.Hour),
+	}
+	err := s.db.CreateOuting(&outing)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(outing.ID)
+
+	outingStep := data.OutingStep{
+		OutingID:     outing.ID,
+		Name:         "name1",
+		Description:  "description1",
+		WhereName:    "where1",
+		WherePoint:   "wherePoint1",
+		Start:        time.Now(),
+		End:          time.Now().Add(time.Hour),
+		VoteDeadline: time.Now().Add(time.Hour * 5),
+	}
+	err = s.db.CreateOutingStep(&outingStep)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(outingStep.ID)
+
+	return outingStep
+}
+
+func (s *DataIntegrationTestSuite) upsertOutingStepVote_getSolidaryVote() data.OutingStepVote {
+	outings, err := s.db.GetAllOutings(3)
+	s.Require().NoError(err)
+	s.Require().Len(outings, 1)
+	s.Require().Len(outings[0].Steps, 1)
+	s.Require().Len(outings[0].Steps[0].Votes, 1)
+	return outings[0].Steps[0].Votes[0]
+}
+
+func (s *DataIntegrationTestSuite) Test_UpsertOutingStepVote_Succeeds_WhenNoPreviousVoteAndVoteTrue() {
+	outingStep := s.createSampleOutingStep()
+
+	vote := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          true,
+		VotedAt:       time.Now(),
+	}
+	err := s.db.UpsertOutingStepVote(&vote)
+	s.NoError(err)
+
+	dbVote := s.upsertOutingStepVote_getSolidaryVote()
+	s.Equal(vote.OutingStepID, dbVote.OutingStepID)
+	s.Equal(vote.GroupMemberID, dbVote.GroupMemberID)
+	s.Equal(true, dbVote.Vote)
+}
+
+func (s *DataIntegrationTestSuite) Test_UpsertOutingStepVote_Succeeds_WhenNoPreviousVoteAndVoteFalse() {
+	outingStep := s.createSampleOutingStep()
+
+	vote := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          false,
+		VotedAt:       time.Now(),
+	}
+	err := s.db.UpsertOutingStepVote(&vote)
+	s.NoError(err)
+
+	dbVote := s.upsertOutingStepVote_getSolidaryVote()
+	s.Equal(vote.OutingStepID, dbVote.OutingStepID)
+	s.Equal(vote.GroupMemberID, dbVote.GroupMemberID)
+	s.Equal(false, dbVote.Vote)
+}
+
+func (s *DataIntegrationTestSuite) Test_UpsertOutingStepVote_Succeeds_WhenPreviousVoteTrueAndVoteTrue() {
+	outingStep := s.createSampleOutingStep()
+
+	vote := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          true,
+		VotedAt:       time.Now(),
+	}
+	err := s.db.UpsertOutingStepVote(&vote)
+	s.Require().NoError(err)
+	dbVote := s.upsertOutingStepVote_getSolidaryVote()
+	s.Require().Equal(vote.OutingStepID, dbVote.OutingStepID)
+	s.Require().Equal(vote.GroupMemberID, dbVote.GroupMemberID)
+	s.Require().Equal(true, dbVote.Vote)
+
+	vote1 := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          true,
+		VotedAt:       time.Now(),
+	}
+	err = s.db.UpsertOutingStepVote(&vote1)
+	s.NoError(err)
+	dbVote1 := s.upsertOutingStepVote_getSolidaryVote()
+	s.Equal(vote1.OutingStepID, dbVote1.OutingStepID)
+	s.Equal(vote1.GroupMemberID, dbVote1.GroupMemberID)
+	s.Equal(true, dbVote1.Vote)
+}
+
+func (s *DataIntegrationTestSuite) Test_UpsertOutingStepVote_Succeeds_WhenPreviousVoteTrueAndVoteFalse() {
+	outingStep := s.createSampleOutingStep()
+
+	vote := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          true,
+		VotedAt:       time.Now(),
+	}
+	err := s.db.UpsertOutingStepVote(&vote)
+	s.Require().NoError(err)
+	dbVote := s.upsertOutingStepVote_getSolidaryVote()
+	s.Require().Equal(vote.OutingStepID, dbVote.OutingStepID)
+	s.Require().Equal(vote.GroupMemberID, dbVote.GroupMemberID)
+	s.Require().Equal(true, dbVote.Vote)
+
+	vote1 := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          false,
+		VotedAt:       time.Now(),
+	}
+	err = s.db.UpsertOutingStepVote(&vote1)
+	s.NoError(err)
+	dbVote1 := s.upsertOutingStepVote_getSolidaryVote()
+	s.Equal(vote1.OutingStepID, dbVote1.OutingStepID)
+	s.Equal(vote1.GroupMemberID, dbVote1.GroupMemberID)
+	s.Equal(false, dbVote1.Vote)
+}
+
+func (s *DataIntegrationTestSuite) Test_UpsertOutingStepVote_Succeeds_WhenPreviousVoteFalseAndVoteTrue() {
+	outingStep := s.createSampleOutingStep()
+
+	vote := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          false,
+		VotedAt:       time.Now(),
+	}
+	err := s.db.UpsertOutingStepVote(&vote)
+	s.Require().NoError(err)
+	dbVote := s.upsertOutingStepVote_getSolidaryVote()
+	s.Require().Equal(vote.OutingStepID, dbVote.OutingStepID)
+	s.Require().Equal(vote.GroupMemberID, dbVote.GroupMemberID)
+	s.Require().Equal(false, dbVote.Vote)
+
+	vote1 := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          true,
+		VotedAt:       time.Now(),
+	}
+	err = s.db.UpsertOutingStepVote(&vote1)
+	s.NoError(err)
+	dbVote1 := s.upsertOutingStepVote_getSolidaryVote()
+	s.Equal(vote1.OutingStepID, dbVote1.OutingStepID)
+	s.Equal(vote1.GroupMemberID, dbVote1.GroupMemberID)
+	s.Equal(true, dbVote1.Vote)
+}
+
+func (s *DataIntegrationTestSuite) Test_UpsertOutingStepVote_Succeeds_WhenPreviousVoteFalseAndVoteFalse() {
+	outingStep := s.createSampleOutingStep()
+
+	vote := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          false,
+		VotedAt:       time.Now(),
+	}
+	err := s.db.UpsertOutingStepVote(&vote)
+	s.Require().NoError(err)
+	dbVote := s.upsertOutingStepVote_getSolidaryVote()
+	s.Require().Equal(vote.OutingStepID, dbVote.OutingStepID)
+	s.Require().Equal(vote.GroupMemberID, dbVote.GroupMemberID)
+	s.Require().Equal(false, dbVote.Vote)
+
+	vote1 := data.OutingStepVote{
+		GroupMemberID: 9,
+		OutingStepID:  outingStep.ID,
+		Vote:          false,
+		VotedAt:       time.Now(),
+	}
+	err = s.db.UpsertOutingStepVote(&vote1)
+	s.NoError(err)
+	dbVote1 := s.upsertOutingStepVote_getSolidaryVote()
+	s.Equal(vote1.OutingStepID, dbVote1.OutingStepID)
+	s.Equal(vote1.GroupMemberID, dbVote1.GroupMemberID)
+	s.Equal(false, dbVote1.Vote)
+}
+
+// TODO no need to test OutingStepVote's EntityNotFound, just rewrite it
+
+func (s *DataIntegrationTestSuite) Test_GetOuting_Succeeds() {
+	outing := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "description1",
+		Start:       time.Now(),
+		End:         time.Now().Add(time.Hour),
+	}
+	err := s.db.CreateOuting(&outing)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(outing.ID)
+
+	dbOuting, err := s.db.GetOuting(outing.ID)
+	s.NoError(err)
+	s.Equal(outing.ID, dbOuting.ID)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetOuting_ThrowsEntityNotFound_WhenNoSuchOuting() {
+	dbOuting, err := s.db.GetOuting(uint(100))
+	s.ErrorIs(err, data.EntityNotFound)
+	s.Empty(dbOuting)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetOutingAndGroupForOutingStep_Succeeds() {
+	outingStep := s.createSampleOutingStep()
+	v, err := s.db.GetOutingAndGroupForOutingStep(outingStep.ID)
+	s.NoError(err)
+	s.Equal(data.OutingAndGroupID{
+		GroupID:  3,
+		OutingID: 1,
+	}, v)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetOutingAndGroupForOutingStep_ThrowsEntityNotFound_WhenNoSuchOutingStep() {
+	v, err := s.db.GetOutingAndGroupForOutingStep(uint(100))
+	s.ErrorIs(err, data.EntityNotFound)
+	s.Empty(v)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetAllOutings_Succeeds_WhenNoOutings() {
+	v, err := s.db.GetAllOutings(3)
+	s.NoError(err)
+	s.Len(v, 0)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetAllOutings_Succeeds_WhenMoreOutings() {
+	outing1 := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "desc1",
+		Start:       time.Time{},
+		End:         time.Time{},
+	}
+	err := s.db.CreateOuting(&outing1)
+	s.Require().NoError(err)
+
+	outing2 := data.Outing{
+		GroupID:     3,
+		Name:        "name2",
+		Description: "desc2",
+		Start:       time.Time{},
+		End:         time.Time{},
+	}
+	err = s.db.CreateOuting(&outing2)
+	s.Require().NoError(err)
+
+	// in another group
+	outing3 := data.Outing{
+		GroupID:     2,
+		Name:        "name3",
+		Description: "desc3",
+		Start:       time.Time{},
+		End:         time.Time{},
+	}
+	err = s.db.CreateOuting(&outing3)
+	s.Require().NoError(err)
+
+	outings, err := s.db.GetAllOutings(3)
+	s.NoError(err)
+	s.Equal(lo.Map(outings, func(t data.Outing, _ int) uint {
+		return t.ID
+	}), []uint{outing1.ID, outing2.ID})
+
+	outings, err = s.db.GetAllOutings(2)
+	s.NoError(err)
+	s.Equal(lo.Map(outings, func(t data.Outing, _ int) uint {
+		return t.ID
+	}), []uint{outing3.ID})
+}
+
+func (s *DataIntegrationTestSuite) Test_GetActiveOuting_Nil_WhenNoActiveOuting() {
+	outing, err := s.db.GetActiveOuting(3)
+	s.NoError(err)
+	s.Nil(outing)
+}
+
+func (s *DataIntegrationTestSuite) Test_GetActiveOuting_Succeeds() {
+	outing1 := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "desc1",
+		Start:       time.Time{},
+		End:         time.Time{},
+	}
+	err := s.db.CreateOuting(&outing1)
+	s.Require().NoError(err)
+
+	err = s.db.UpdateActiveOuting(3, outing1.ID)
+	s.Require().NoError(err)
+
+	dbOuting, err := s.db.GetActiveOuting(3)
+	s.NoError(err)
+	s.Equal(outing1.ID, dbOuting.ID)
+}
+
+func (s *DataIntegrationTestSuite) Test_UpdateActiveOuting_Succeeds_WhenNoActiveOuting() {
+	outing1 := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "desc1",
+		Start:       time.Time{},
+		End:         time.Time{},
+	}
+	err := s.db.CreateOuting(&outing1)
+	s.Require().NoError(err)
+
+	dbOuting, err := s.db.GetActiveOuting(3)
+	s.Require().NoError(err)
+	s.Require().Nil(dbOuting)
+
+	err = s.db.UpdateActiveOuting(3, outing1.ID)
+	s.NoError(err)
+
+	dbOuting, err = s.db.GetActiveOuting(3)
+	s.Require().NoError(err)
+	s.Require().Equal(outing1.ID, dbOuting.ID)
+}
+
+func (s *DataIntegrationTestSuite) Test_UpdateActiveOuting_Succeeds_WhenExistsActiveOuting() {
+	outing1 := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "desc1",
+		Start:       time.Time{},
+		End:         time.Time{},
+	}
+	err := s.db.CreateOuting(&outing1)
+	s.Require().NoError(err)
+
+	dbOuting, err := s.db.GetActiveOuting(3)
+	s.Require().NoError(err)
+	s.Require().Nil(dbOuting)
+
+	err = s.db.UpdateActiveOuting(3, outing1.ID)
+	s.NoError(err)
+
+	dbOuting, err = s.db.GetActiveOuting(3)
+	s.Require().NoError(err)
+	s.Require().Equal(outing1.ID, dbOuting.ID)
+
+	outing2 := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "desc1",
+		Start:       time.Time{},
+		End:         time.Time{},
+	}
+	err = s.db.CreateOuting(&outing2)
+	s.Require().NoError(err)
+
+	err = s.db.UpdateActiveOuting(3, outing2.ID)
+	s.NoError(err)
+
+	dbOuting, err = s.db.GetActiveOuting(3)
+	s.Require().NoError(err)
+	s.Require().Equal(outing2.ID, dbOuting.ID)
+}
+
+func (s *DataIntegrationTestSuite) Test_CreateGroupInvite_Succeeds_NonNilExpiry() {
+	timeNow := time.Now().Add(time.Hour)
+	exp := &timeNow
+	inv := data.GroupInvite{
+		Expiry:  exp,
+		Active:  true,
+		GroupID: 3,
+	}
+	err := s.db.CreateGroupInvite(&inv)
+	s.NoError(err)
+	s.NotEmpty(inv.ID)
+}
+
+func (s *DataIntegrationTestSuite) Test_CreateGroupInvite_Succeeds_NilExpiry() {
+	inv := data.GroupInvite{
+		Expiry:  nil,
+		Active:  true,
+		GroupID: 3,
+	}
+	err := s.db.CreateGroupInvite(&inv)
+	s.NoError(err)
+	s.NotEmpty(inv.ID)
+}
+
+func (s *DataIntegrationTestSuite) Test_CreateGroupInvite_Succeeds_WithDifferentID() {
+	timeNow := time.Now().Add(time.Hour)
+	exp := &timeNow
+	inv := data.GroupInvite{
+		Expiry:  exp,
+		Active:  true,
+		GroupID: 3,
+	}
+	err := s.db.CreateGroupInvite(&inv)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(inv.ID)
+
+	inv2 := data.GroupInvite{
+		GroupID: 3,
+	}
+	err = s.db.CreateGroupInvite(&inv2)
+	s.NoError(err)
+	s.NotEmpty(inv.ID)
+	s.NotEqual(inv.ID, inv2.ID)
+}
+
+func (s *DataIntegrationTestSuite) initGroupInviteStates() []data.GroupInvite {
+	timeNow := time.Now().Add(time.Hour)
+	exp := &timeNow
+	inv := data.GroupInvite{
+		Expiry:  exp,
+		Active:  true,
+		GroupID: 3,
+	}
+	err := s.db.CreateGroupInvite(&inv)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(inv.ID)
+
+	inv2 := data.GroupInvite{
+		Expiry:  nil,
+		Active:  true,
+		GroupID: 3,
+	}
+	err = s.db.CreateGroupInvite(&inv2)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(inv2.ID)
+
+	inv3 := data.GroupInvite{
+		Expiry:  nil,
+		Active:  true,
+		GroupID: 2,
+	}
+	err = s.db.CreateGroupInvite(&inv3)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(inv3.ID)
+	return []data.GroupInvite{inv, inv2, inv3}
+}
+
+func (s *DataIntegrationTestSuite) Test_GetGroupInvites_Succeeds() {
+	invsdb := s.initGroupInviteStates()
+
+	invs, err := s.db.GetGroupInvites(3)
+	s.NoError(err)
+	s.Equal(lo.Map(invs, func(t data.GroupInvite, _ int) uuid.UUID {
+		return t.ID
+	}), []uuid.UUID{invsdb[0].ID, invsdb[1].ID})
+
+	invs, err = s.db.GetGroupInvites(2)
+	s.NoError(err)
+	s.Equal(lo.Map(invs, func(t data.GroupInvite, _ int) uuid.UUID {
+		return t.ID
+	}), []uuid.UUID{invsdb[2].ID})
+}
+
+func (s *DataIntegrationTestSuite) Test_InvalidateInvite_Succeeds() {
+	invsdb := s.initGroupInviteStates()
+
+	invs, err := s.db.GetGroupInvites(3)
+	s.Require().NoError(err)
+	s.Require().Equal(lo.Map(invs, func(t data.GroupInvite, _ int) uuid.UUID {
+		return t.ID
+	}), []uuid.UUID{invsdb[0].ID, invsdb[1].ID})
+
+	invs, err = s.db.GetGroupInvites(2)
+	s.Require().NoError(err)
+	s.Require().Equal(lo.Map(invs, func(t data.GroupInvite, _ int) uuid.UUID {
+		return t.ID
+	}), []uuid.UUID{invsdb[2].ID})
+
+	err = s.db.InvalidateInvite(1, invsdb[0].ID)
+	s.NoError(err)
+
+	invs, err = s.db.GetGroupInvites(3)
+	s.Require().NoError(err)
+	s.Require().Equal(lo.Map(invs, func(t data.GroupInvite, _ int) uuid.UUID {
+		return t.ID
+	}), []uuid.UUID{invsdb[1].ID})
+}
+
+func (s *DataIntegrationTestSuite) Test_JoinByInvite_ThrowsUserAlreadyInGroup_WhenUserAlreadyInGroup() {
+	invsdb := s.initGroupInviteStates()
+	_, err := s.db.JoinByInvite(1, invsdb[0].ID)
+	s.ErrorIs(err, data.UserAlreadyInGroup)
+}
+
+func (s *DataIntegrationTestSuite) Test_JoinByInvite_ThrowsEntityNotFound_WhenNoSuchInvite() {
+	_, err := s.db.JoinByInvite(1, uuid.UUID{})
+	s.ErrorIs(err, data.EntityNotFound)
+}
+
+func (s *DataIntegrationTestSuite) Test_JoinByInvite_Succeeds() {
+	invsdb := s.initGroupInviteStates()
+	inv, err := s.db.JoinByInvite(3, invsdb[2].ID) // join group 2
+	s.NoError(err)
+	s.NotEmpty(inv)
+	s.Equal(inv.GroupID, uint(2))
+}
