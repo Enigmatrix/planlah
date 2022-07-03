@@ -4,7 +4,7 @@ from google_images_search import GoogleImagesSearch
 import pandas as pd
 from tqdm import tqdm
 
-"""This script obtains the network url for attractions and restaurants"""
+"""This script obtains the network url for attractions separated for my sanity"""
 
 
 # define search params

@@ -1,13 +1,12 @@
+import time
+
 from google_images_search import GoogleImagesSearch
 import pandas as pd
 from tqdm import tqdm
 
-"""This script obtains the network url for attractions and restaurants"""
 
+"""This script obtains the network url for restaurants separated for my sanity"""
 
-# you can provide API key and CX using arguments,
-# or you can set environment variables: GCS_DEVELOPER_KEY, GCS_CX
-gis = GoogleImagesSearch('AIzaSyAeHanRWhE2iIo-BVvCIy4lEhh1B-bEczY', 'cf517b78660ffdb4d')
 
 # define search params
 # option for commonly used search param are shown below for easy reference.
@@ -17,26 +16,43 @@ gis = GoogleImagesSearch('AIzaSyAeHanRWhE2iIo-BVvCIy4lEhh1B-bEczY', 'cf517b78660
 
 
 def get_image_url(name: str) -> str:
+    # you can provide API key and CX using arguments,
+    # or you can set environment variables: GCS_DEVELOPER_KEY, GCS_CX
     _search_params = {
         'q': name,
-        'num': 1,
+        'num': 2,
         'fileType': 'jpg|gif|png',
+        'ignore_urls': 'https://i.ytimg.com/vi',
     }
+    gis = GoogleImagesSearch('AIzaSyAeHanRWhE2iIo-BVvCIy4lEhh1B-bEczY', 'cf517b78660ffdb4d')
     # this will only search for images:
     gis.search(search_params=_search_params)
-    return gis.results()[0].url
+    if len(gis.results()) > 0:
+        if "https://i.ytimg.com/vi" in gis.results()[0].url:
+            return gis.results()[1].url
+        else:
+            return gis.results()[0].url
+    else:
+        return ""
 
-food_links = []
+
+restaurants_links = []
 df = pd.read_csv("RestaurantFinalData.csv")
 
-with tqdm(df.iterrows(), total=len(df)) as pbar:
-    pbar.set_description("Restaurants")
-    for idx, row in pbar:
-        link = get_image_url(row.get("name"))
-        food_links.append(link)
-        pbar.set_postfix_str(link)
-        pbar.update(1)
+i = 0
 
-with open("food_links.txt", "w") as f:
-    for link in food_links:
+try:
+    with tqdm(df.iterrows(), total=len(df)) as pbar:
+        pbar.set_description("restaurants")
+        for idx, row in pbar:
+            link = get_image_url("Singapore" + row.get("name"))
+            restaurants_links.append(link)
+            time.sleep(0.20)
+            pbar.update(1)
+            i = idx
+except TimeoutError:
+    print(f"Stopped at {i}")
+
+with open("restaurant_links.txt", "a") as f:
+    for link in restaurants_links:
         f.write(f"{link}\n")
