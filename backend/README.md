@@ -27,5 +27,5 @@
 ### Swagger
 
 - Run `swag init` to regen docs then visit [Swagger Docs](http://localhost:8080/swagger/index.html)
-    - install `swag` using `go install github.com/swaggo/swag/cmd/swag`
+    - install `swag` using `go install github.com/swaggo/swag/cmd/swag@latest`
 - Use descriptive [Swagger commenting format](https://github.com/swaggo/swag#declarative-comments-format)

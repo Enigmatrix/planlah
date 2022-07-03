@@ -6,6 +6,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/wire"
+	"go.uber.org/zap"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
@@ -13,6 +14,9 @@ import (
 )
 
 var depSet = wire.NewSet(
+	utils.NewConfig,
+	NewLogger,
+
 	services.NewFirebaseApp,
 	services.NewAuthService,
 
@@ -32,9 +36,12 @@ var depSet = wire.NewSet(
 	wire.Struct(new(routes.OutingController), "*"),
 	wire.Struct(new(routes.MiscController), "*"),
 	NewServer,
-	utils.NewConfig,
 )
 
 func InitializeServer() (*gin.Engine, error) {
+	panic(wire.Build(depSet))
+}
+
+func GetLogger() (*zap.Logger, error) {
 	panic(wire.Build(depSet))
 }
