@@ -466,6 +466,9 @@ func (db *Database) CreateOutingStep(outingStep *OutingStep) error {
 }
 
 // UpsertOutingStepVote Vote for an OutingStep
+//
+// Does not check if the GroupMember is in the Group of this OutingStep.
+// Use GetOutingAndGroupForOutingStep for that.
 func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 	err := db.conn.Clauses(clause.OnConflict{
 		UpdateAll: true,
@@ -536,7 +539,7 @@ func (db *Database) GetOutingAndGroupForOutingStep(outingStepId uint) (OutingAnd
 
 // GetAllOutings Gets all Outings for a Group
 //
-// Does not check if the User belongs to the Group
+// Does not check if the User belongs to the Group or if no such Group
 func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	var outings []Outing
 
@@ -616,9 +619,9 @@ func (db *Database) InvalidateInvite(userId uint, inviteId uuid.UUID) error {
 // Throws UserAlreadyInGroup if the User is already in this Group
 func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, error) {
 	var invite GroupInvite
-	err := db.conn.Table("group_invites gi").
-		Where("gi.id = ? AND gi.active = TRUE", inviteId).
-		Where("gi.expiry IS NULL OR gi.expiry > now()").
+	err := db.conn.Model(&GroupInvite{}).
+		Where(&GroupInvite{ID: inviteId, Active: true}).
+		Where("expiry IS NULL OR expiry > now()").
 		First(&invite).Error
 
 	if err != nil {
