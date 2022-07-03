@@ -18,6 +18,8 @@ conn = psycopg2.connect(url)
 
 cur = conn.cursor()
 cur.execute("DROP TABLE IF EXISTS places;")
+cur.execute("DROP TYPE IF EXISTS PLACETYPE")
+cur.execute("CREATE TYPE PLACETYPE AS ENUM('attraction', 'restaurant')")
 cur.execute("CREATE TABLE places ("
             "id serial PRIMARY KEY,"
             "name VARCHAR(255) NOT NULL,"
@@ -26,7 +28,7 @@ cur.execute("CREATE TABLE places ("
             "formatted_address VARCHAR(255) NOT NULL,"
             "image_url TEXT,"
             "about TEXT,"
-            "isPlace BOOLEAN NOT NULL,"
+            "place_type PLACETYPE NOT NULL,"
             "features FLOAT8[] NOT NULL);")
 
 
@@ -51,11 +53,17 @@ def calculate_food_vector(row: pd.Series):
 
 attractions_df = pd.read_csv("AttractionsFinalData.csv")
 
+def get_point(row):
+    if row.get("lat") == "nil":
+        return None
+    else:
+        return f"{row.get('lat')} ,{row.get('lon')}"
+
 for i, row in attractions_df.iterrows():
     cur.execute("INSERT INTO places "
-                "(name, location, position, formatted_address, about, isplace, features)"
-                "VALUES (%s, %s, %s, %s, %s, TRUE, %s)",
-                (row.get("name"), row.get("location"), row.get("position"), row.get("formatted_address"),
+                "(name, location, position, formatted_address, about, place_type, features)"
+                "VALUES (%s, %s, %s, %s, %s, 'attraction', %s)",
+                (row.get("name"), row.get("location"), get_point(row), row.get("formatted_address"),
                  row.get("about"), calculate_attraction_vector(row)))
 
 conn.commit()

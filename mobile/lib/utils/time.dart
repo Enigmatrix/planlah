@@ -36,7 +36,7 @@ class TimeUtil {
         return "Yesterday";
       // Just return the month and day
       default:
-        return "${dt.day} of ${dt.month}";
+        return "${dt.day}/${dt.month}";
     }
   }
 
