@@ -1,34 +1,25 @@
 package main
 
 import (
-	"errors"
-	"fmt"
 	jwt "github.com/appleboy/gin-jwt/v2"
+	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
+	errors2 "github.com/juju/errors"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"log"
+	"go.uber.org/zap"
 	"math/rand"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
+	"time"
 )
 
-// NewServer creates a new server and sets up middleware
-func NewServer(
-	users routes.UserController,
-	groups routes.GroupsController,
-	devPanel routes.DevPanelController,
-	messages routes.MessageController,
-	outings routes.OutingController,
-	misc routes.MiscController,
-	authSvc *services.AuthService) (*gin.Engine, error) {
-	srv := gin.Default()
-
+func authMiddleware(authSvc *services.AuthService) (*jwt.GinJWTMiddleware, gin.HandlerFunc, error) {
 	var secret [256]byte
 	_, err := rand.Read(secret[:])
 	if err != nil {
-		return nil, errors.New(fmt.Sprintf("failed to get random bytes for secret: %v", err))
+		return nil, nil, errors2.Annotate(err, "failed to get random bytes for secret")
 	}
 
 	// https://github.com/appleboy/gin-jwt
@@ -41,7 +32,7 @@ func NewServer(
 		Authenticator: authSvc.Verify,
 		// Transform the User into data that can be encoded (in plaintext) in each JWT Token
 		PayloadFunc: func(payload interface{}) jwt.MapClaims {
-			if user, ok := payload.(*data.User); ok {
+			if user, ok := payload.(data.User); ok {
 				return jwt.MapClaims{
 					identityKey: user.ID,
 				}
@@ -51,35 +42,79 @@ func NewServer(
 	})
 
 	if err != nil {
-		return nil, errors.New(fmt.Sprintf("create JWT middleware: %v", err))
+		return nil, nil, errors2.Annotate(err, "create JWT middleware")
 	}
 
 	err = authMiddleware.MiddlewareInit()
 
 	if err != nil {
-		return nil, errors.New(fmt.Sprintf("initialize JWT middleware: %v", err))
+		return nil, nil, errors2.Annotate(err, "init JWT middleware")
 	}
 
 	authMiddlewareFunc := authMiddleware.MiddlewareFunc()
 
-	unauthapi := srv.Group("api")
-	misc.Register(unauthapi)
+	return authMiddleware, authMiddlewareFunc, nil
+}
 
-	api := srv.Group("api")
-	// protect all routes using JWT middleware
-	api.Use(authMiddlewareFunc)
-	users.Register(api)
-	groups.Register(api)
+func errorHandler(logger *zap.Logger) gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		ctx.Next()
+
+		for _, err := range ctx.Errors {
+			logger.Sugar().Error("middleware", zap.String("handlerName", ctx.HandlerName()), zap.Error(err))
+		}
+	}
+}
+
+// NewServer creates a new server and sets up middleware
+func NewServer(
+	users routes.UserController,
+	groups routes.GroupsController,
+	devPanel routes.DevPanelController,
+	messages routes.MessageController,
+	outings routes.OutingController,
+	misc routes.MiscController,
+	logger *zap.Logger,
+	authSvc *services.AuthService) (*gin.Engine, error) {
+
+	srv := gin.New()
+
+	srv.Use(ginzap.Ginzap(logger, time.RFC3339, true))
+	srv.Use(ginzap.RecoveryWithZap(logger, true))
+
+	authMiddleware, authProtect, err := authMiddleware(authSvc)
+	if err != nil {
+		return nil, errors2.Trace(err)
+	}
+
+	// use our custom error handlers
+	srv.Use(errorHandler(logger))
+
+	// no api prefix
 	srv.GET("/join/:inviteId", groups.JoinByInviteUserLink)
+	// unauthenticated routes
+	{
+		unauthApi := srv.Group("api")
+		unauthApi.POST("users/create", users.Create)
+		unauthApi.POST("auth/verify", authMiddleware.LoginHandler)
+		misc.Register(unauthApi)
+	}
 
-	devPanel.Register(api)
-	messages.Register(api)
-	outings.Register(api)
+	{
+		// protect all routes using JWT middleware
+		api := srv.Group("api")
+		api.Use(authProtect)
+		users.Register(api)
+		groups.Register(api)
+		devPanel.Register(api)
+		messages.Register(api)
+		outings.Register(api)
+	}
 
 	// serve websocket in goroutine.
 	go func() {
 		if err := messages.WsServer.Serve(); err != nil {
-			log.Fatalf("message websocket listen error: %v", err)
+			logger.Sugar().Fatal("message websocket listen error", zap.Error(err))
 		}
 	}()
 
@@ -91,9 +126,6 @@ func NewServer(
 	//	}
 	//}()
 
-	// unauthenticated routes
-	srv.POST("/api/users/create", users.Create)
-	srv.POST("/api/auth/verify", authMiddleware.LoginHandler)
 	// Swagger documentation
 	srv.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 

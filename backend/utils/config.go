@@ -35,7 +35,7 @@ func getConfigOrThrow(config string, msg string) string {
 }
 
 func NewConfig() (*Config, error) {
-	return config.FallibleValue(func() (*Config, error) {
+	return config.LazyFallibleValue(func() (*Config, error) {
 		appMode := getConfigOrThrow("APP_MODE", "Please set APP_MODE environment var to one in {DEV, PROV, ORBITAL}")
 		return &Config{
 			AppMode:            AppMode(appMode),

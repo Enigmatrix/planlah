@@ -22,7 +22,7 @@ insert into group_members (id, user_id, group_id, last_seen_message_id) values (
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (6, 4, 2, NULL) ON CONFLICT DO NOTHING;
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (7, 5, 2, NULL) ON CONFLICT DO NOTHING;
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (8, 6, 2, NULL) ON CONFLICT DO NOTHING;
-insert into group_members (id, user_id, group_id, last_seen_message_id) values ( 9, 1, 3, NULL) ON CONFLICT DO NOTHING;
+insert into group_members (id, user_id, group_id, last_seen_message_id) values (9, 1, 3, NULL) ON CONFLICT DO NOTHING;
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (10, 2, 3, NULL) ON CONFLICT DO NOTHING;
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (11, 3, 3, NULL) ON CONFLICT DO NOTHING;
 insert into group_members (id, user_id, group_id, last_seen_message_id) values (12, 4, 3, NULL) ON CONFLICT DO NOTHING;
@@ -36,21 +36,21 @@ update groups set owner_id = 4 where id = 3;
 update groups set owner_id = 4 where id = 4;
 update groups set owner_id = 4 where id = 5;
 
-insert into messages(id, content, sent_at, by_id) values (1, 'i wanna go mexico and build a wall!', now(), 1) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (2, 'message 2!', now(), 2) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (3, 'message 3!', now(), 3) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (4, 'message 4!', now(), 4) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (5, 'message 5!', now(), 5) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (6, 'message 6!', now(), 6) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (7, 'message 7!', now(), 7) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (8, 'message 8!', now(), 8) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (9, 'message 9!', now(), 9) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (10, 'message 10!', now(), 10) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (11, 'message 11!', now(), 11) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (12, 'message 12!', now(), 12) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (13, 'message 13!', now(), 13) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (14, 'message 14!', now(), 14) ON CONFLICT DO NOTHING;
-insert into messages(id, content, sent_at, by_id) values (15, 'message 15!', now(), 15) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values ( 1, 'i wanna go mexico and build a wall!', '2016-01-01 00:00+10'::timestamptz, 1) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values ( 2, 'message 2!' , '2016-01-01 00:00+10'::timestamptz + interval  '1 minutes', 2) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values ( 3, 'message 3!' , '2016-01-01 00:00+10'::timestamptz + interval  '2 minutes', 3) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values ( 4, 'message 4!' , '2016-01-01 00:00+10'::timestamptz + interval  '3 minutes', 4) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values ( 5, 'message 5!' , '2016-01-01 00:00+10'::timestamptz + interval  '4 minutes', 5) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values ( 6, 'message 6!' , '2016-01-01 00:00+10'::timestamptz + interval  '5 minutes', 6) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values ( 7, 'message 7!' , '2016-01-01 00:00+10'::timestamptz + interval  '6 minutes', 7) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values ( 8, 'message 8!' , '2016-01-01 00:00+10'::timestamptz + interval  '7 minutes', 8) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values ( 9, 'message 9!' , '2016-01-01 00:00+10'::timestamptz + interval  '8 minutes', 9) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values (10, 'message 10!', '2016-01-01 00:00+10'::timestamptz + interval  '9 minutes', 10) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values (11, 'message 11!', '2016-01-01 00:00+10'::timestamptz + interval '10 minutes', 11) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values (12, 'message 12!', '2016-01-01 00:00+10'::timestamptz + interval '11 minutes', 12) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values (13, 'message 13!', '2016-01-01 00:00+10'::timestamptz + interval '12 minutes', 13) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values (14, 'message 14!', '2016-01-01 00:00+10'::timestamptz + interval '13 minutes', 14) ON CONFLICT DO NOTHING;
+insert into messages(id, content, sent_at, by_id) values (15, 'message 15!', '2016-01-01 00:00+10'::timestamptz + interval '14 minutes', 15) ON CONFLICT DO NOTHING;
 
 -- reset the primary key sequences for the tables
 SELECT setval('users_id_seq', (SELECT MAX(id) FROM users)+1);

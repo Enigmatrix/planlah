@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"log"
+	"github.com/juju/errors"
 	"net/http"
 	"time"
 
@@ -76,7 +76,7 @@ type VoteOutingStepDto struct {
 func ToOutingStepVoteDto(outingStepVote data.OutingStepVote) OutingStepVoteDto {
 	return OutingStepVoteDto{
 		Vote: &outingStepVote.Vote,
-		User: ToUserSummaryDto(outingStepVote.GroupMember.User),
+		User: ToUserSummaryDto(*outingStepVote.GroupMember.User),
 	}
 }
 
@@ -107,7 +107,6 @@ func ToOutingStepDtos(outingSteps []data.OutingStep) []OutingStepDto {
 }
 
 func ToOutingDto(outing data.Outing) OutingDto {
-	// TODO: Do the steps and timing
 	return OutingDto{
 		ID:          outing.ID,
 		Name:        outing.Name,
@@ -133,54 +132,52 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Security JWT
 // @Success 200 {object} OutingDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/create [post]
-func (controller *OutingController) Create(ctx *gin.Context) {
-	var createOutingDto CreateOutingDto
-
-	if err := Body(ctx, &createOutingDto); err != nil {
+func (ctr *OutingController) Create(ctx *gin.Context) {
+	var dto CreateOutingDto
+	if Body(ctx, &dto) {
 		return
 	}
 
-	_, err := controller.AuthGroupMember(ctx, createOutingDto.GroupID)
-	if err != nil {
+	if ctr.AuthGroupMember(ctx, dto.GroupID) == nil {
 		return
 	}
 
-	activeOuting := controller.Database.GetActiveOuting(createOutingDto.GroupID)
-	if activeOuting != nil && time.Now().In(time.UTC).Before(activeOuting.End) {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("group already has an active outing"))
+	activeOuting, err := ctr.Database.GetActiveOuting(dto.GroupID)
+	if err == nil && time.Now().In(time.UTC).Before(activeOuting.End) {
+		FailWithMessage(ctx, "group already has an active outing")
+		return
+	} else if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
 	// round down start time to nearest day
-	startTime := createOutingDto.Start
+	startTime := dto.Start
 	startDate := time.Date(startTime.Year(), startTime.Month(), startTime.Day(), 0, 0, 0, 0, startTime.Location())
 
 	// round up end time to nearest day
-	endTime := createOutingDto.End
+	endTime := dto.End
 	endDate := time.Date(endTime.Year(), endTime.Month(), endTime.Day()+1, 0, 0, 0, 0, endTime.Location())
 
 	outing := data.Outing{
-		GroupID:     createOutingDto.GroupID,
-		Name:        createOutingDto.Name,
-		Description: createOutingDto.Description,
+		GroupID:     dto.GroupID,
+		Name:        dto.Name,
+		Description: dto.Description,
 		Start:       startDate,
 		End:         endDate,
 	}
 
-	err = controller.Database.CreateOuting(&outing)
-
+	err = ctr.Database.CreateOuting(&outing)
 	if err != nil {
-		log.Print(err)
-		ctx.Status(http.StatusBadRequest)
+		handleDbError(ctx, err)
 		return
 	}
 
-	err = controller.Database.UpdateActiveOuting(createOutingDto.GroupID, outing.ID)
+	err = ctr.Database.UpdateActiveOuting(dto.GroupID, outing.ID)
 	if err != nil {
-		log.Print(err)
-		ctx.Status(http.StatusBadRequest)
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -195,38 +192,42 @@ func (controller *OutingController) Create(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} OutingStepDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/create_step [post]
-func (controller *OutingController) CreateStep(ctx *gin.Context) {
-	var createOutingStepDto CreateOutingStepDto
-
-	if err := Body(ctx, &createOutingStepDto); err != nil {
+func (ctr *OutingController) CreateStep(ctx *gin.Context) {
+	var dto CreateOutingStepDto
+	if Body(ctx, &dto) {
 		return
 	}
 
-	outingId := createOutingStepDto.OutingID
-	outing := controller.Database.GetOuting(outingId)
+	outingId := dto.OutingID
+	outing, err := ctr.Database.GetOuting(outingId)
+	if errors.Is(err, data.EntityNotFound) {
+		FailWithMessage(ctx, "outing not found")
+		return
+	} else if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
 
-	_, err := controller.AuthGroupMember(ctx, outing.GroupID)
-	if err != nil {
+	if ctr.AuthGroupMember(ctx, outing.GroupID) == nil {
 		return
 	}
 
 	outingStep := data.OutingStep{
 		OutingID:     outingId,
-		Name:         createOutingStepDto.Name,
-		Description:  createOutingStepDto.Description,
-		WhereName:    createOutingStepDto.WhereName,
-		WherePoint:   createOutingStepDto.WherePoint,
-		Start:        createOutingStepDto.Start,
-		End:          createOutingStepDto.End,
-		VoteDeadline: createOutingStepDto.VoteDeadline,
+		Name:         dto.Name,
+		Description:  dto.Description,
+		WhereName:    dto.WhereName,
+		WherePoint:   dto.WherePoint,
+		Start:        dto.Start,
+		End:          dto.End,
+		VoteDeadline: dto.VoteDeadline,
 	}
 
-	err = controller.Database.CreateOutingStep(&outingStep)
+	err = ctr.Database.CreateOutingStep(&outingStep)
 	if err != nil {
-		log.Print(err)
-		ctx.Status(http.StatusBadRequest)
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -241,22 +242,25 @@ func (controller *OutingController) CreateStep(ctx *gin.Context) {
 // @Security JWT
 // @Success 200 {object} []OutingDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/all [get]
-func (controller *OutingController) Get(ctx *gin.Context) {
-	var getOutingsDto GetOutingsDto
+func (ctr *OutingController) Get(ctx *gin.Context) {
+	var dto GetOutingsDto
 
-	if err := Query(ctx, &getOutingsDto); err != nil {
+	if Query(ctx, &dto) {
 		return
 	}
 
-	groupId := getOutingsDto.GroupID
-	_, err := controller.AuthGroupMember(ctx, groupId)
+	groupId := dto.GroupID
+	if ctr.AuthGroupMember(ctx, groupId) == nil {
+		return
+	}
+
+	outings, err := ctr.Database.GetAllOutings(groupId)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
-
-	outings := controller.Database.GetAllOutings(groupId)
 
 	ctx.JSON(http.StatusOK, ToOutingDtos(outings))
 }
@@ -270,28 +274,30 @@ func (controller *OutingController) Get(ctx *gin.Context) {
 // @Success 200
 // @Success 200 {object} OutingDto
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/active [get]
-func (controller *OutingController) GetActive(ctx *gin.Context) {
-	var getActiveOutingDto GetActiveOutingDto
-	if err := Query(ctx, &getActiveOutingDto); err != nil {
+func (ctr *OutingController) GetActive(ctx *gin.Context) {
+	var dto GetActiveOutingDto
+	if Query(ctx, &dto) {
 		return
 	}
 
-	groupId := getActiveOutingDto.GroupID
-	_, err := controller.AuthGroupMember(ctx, groupId)
+	groupId := dto.GroupID
+	if ctr.AuthGroupMember(ctx, groupId) == nil {
+		return
+	}
+
+	outing, err := ctr.Database.GetActiveOuting(groupId)
 	if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
-
-	outing := controller.Database.GetActiveOuting(groupId)
 
 	if outing == nil {
 		ctx.JSON(http.StatusOK, nil)
-		return
+	} else {
+		ctx.JSON(http.StatusOK, ToOutingDto(*outing))
 	}
-
-	ctx.JSON(http.StatusOK, ToOutingDto(*outing))
 }
 
 // Vote godoc
@@ -302,36 +308,39 @@ func (controller *OutingController) GetActive(ctx *gin.Context) {
 // @Security JWT
 // @Success 200
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/outing/vote [put]
-func (controller *OutingController) Vote(ctx *gin.Context) {
-	var outingStepVoteDto VoteOutingStepDto
+func (ctr *OutingController) Vote(ctx *gin.Context) {
+	var dto VoteOutingStepDto
 
-	if err := Body(ctx, &outingStepVoteDto); err != nil {
+	if Body(ctx, &dto) {
 		return
 	}
 
-	o, err := controller.Database.GetOutingAndGroupForOutingStep(outingStepVoteDto.OutingStepID)
-	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+	o, err := ctr.Database.GetOutingAndGroupForOutingStep(dto.OutingStepID)
+	if errors.Is(err, data.EntityNotFound) {
+		FailWithMessage(ctx, "outing step not found")
+		return
+	} else if err != nil {
+		handleDbError(ctx, err)
 		return
 	}
 
-	gm, err := controller.AuthGroupMember(ctx, o.GroupID)
-	if err != nil {
+	grpMember := ctr.AuthGroupMember(ctx, o.GroupID)
+	if grpMember == nil {
 		return
 	}
 
 	outingStepVote := data.OutingStepVote{
-		GroupMemberID: gm.ID,
-		OutingStepID:  outingStepVoteDto.OutingStepID,
-		Vote:          *outingStepVoteDto.Vote,
+		GroupMemberID: grpMember.ID,
+		OutingStepID:  dto.OutingStepID,
+		Vote:          *dto.Vote,
 		VotedAt:       time.Now().In(time.UTC),
 	}
 
-	err = controller.Database.UpsertOutingStepVote(&outingStepVote)
+	err = ctr.Database.UpsertOutingStepVote(&outingStepVote)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -339,11 +348,11 @@ func (controller *OutingController) Vote(ctx *gin.Context) {
 }
 
 // Register the routes for this controller
-func (controller *OutingController) Register(router *gin.RouterGroup) {
+func (ctr *OutingController) Register(router *gin.RouterGroup) {
 	group := router.Group("outing")
-	group.POST("create", controller.Create)
-	group.POST("create_step", controller.CreateStep)
-	group.GET("all", controller.Get)
-	group.GET("active", controller.GetActive)
-	group.PUT("vote", controller.Vote)
+	group.POST("create", ctr.Create)
+	group.POST("create_step", ctr.CreateStep)
+	group.GET("all", ctr.Get)
+	group.GET("active", ctr.GetActive)
+	group.PUT("vote", ctr.Vote)
 }
