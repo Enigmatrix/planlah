@@ -320,6 +320,10 @@ func (ctr *GroupsController) JoinByInvite(ctx *gin.Context) {
 
 	invite, err := ctr.Database.JoinByInvite(userId, inviteId)
 	if err != nil {
+		if errors.Is(err, data.EntityNotFound) {
+			FailWithMessage(ctx, "invite does not exist")
+			return
+		}
 		if errors.Is(err, data.UserAlreadyInGroup) {
 			FailWithMessage(ctx, "user is already in group")
 			return
