@@ -135,7 +135,7 @@ func (db *Database) CreateUser(user *User) error {
 	return nil
 }
 
-// GetUserByFirebaseUid Gets a User given a unique Firebase UID
+// GetUserByFirebaseUid Gets a User given a unique Firebase UID. Only the ID field is populated.
 //
 // Throws EntityNotFound when User is not found
 func (db *Database) GetUserByFirebaseUid(firebaseUid string) (User, error) {
@@ -622,6 +622,9 @@ func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, 
 		First(&invite).Error
 
 	if err != nil {
+		if isNotFoundInDb(err) {
+			return GroupInvite{}, EntityNotFound
+		}
 		return GroupInvite{}, errors.Trace(err)
 	}
 
