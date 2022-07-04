@@ -79,7 +79,7 @@ class _GroupDisplayState extends State<GroupDisplay> {
                     Text(
                       (widget.chatGroup.lastSeenMessage == null)
                       ? ""
-                      : TimeUtil.formatForGroup(widget.chatGroup.lastSeenMessage!.sentAt),
+                      : TimeUtil.formatForGroup(context, widget.chatGroup.lastSeenMessage!.sentAt),
                       // TODO: widget.chatGroup.time,
                       style: TextStyle(
                         fontSize: 12,
