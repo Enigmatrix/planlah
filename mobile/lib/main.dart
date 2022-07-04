@@ -94,6 +94,12 @@ class _AppState extends State<App> {
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.light,
         home: homeWidget,
+        localizationsDelegates: const [
+          DefaultMaterialLocalizations.delegate
+        ],
+        supportedLocales: const [
+          Locale("en")
+        ],
         // home: const SignInPage(),
         getPages: [
           GetPage(name: '/signIn', page: () => const SignInPage()),

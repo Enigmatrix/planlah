@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
+import 'package:lit_relative_date_time/lit_relative_date_time.dart';
 
 class TimeUtil {
   static String now() {
@@ -24,19 +26,19 @@ class TimeUtil {
   // These functions assumes the string is sent from a DTO that has properly
   // formatted it
 
-  static String formatForGroup(String string) {
+  static String formatForGroup(BuildContext context, String string) {
     DateTime dt = DateTime.parse(string);
     DateTime now = DateTime.now();
-    switch (dt.difference(now).inDays) {
-      // Same day
-      case 0:
-        return "${dt.hour}:${dt.minute}";
-      // Yesterday
-      case -1:
-        return "Yesterday";
-      // Just return the month and day
-      default:
-        return "${dt.day} of ${dt.month}";
+
+    // If exactly the same day, just return the time
+    // Else, return the relative datetime
+
+    if (dt.day == now.day && dt.month == now.month && dt.year == now.year) {
+      return "${dt.hour}:${dt.minute}";
+    } else {
+      RelativeDateTime relativeDateTime = RelativeDateTime(dateTime: now, other: dt);
+      RelativeDateFormat relativeDateFormat = RelativeDateFormat(Localizations.localeOf(context));
+      return relativeDateFormat.format(relativeDateTime);
     }
   }
 
