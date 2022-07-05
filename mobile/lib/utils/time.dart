@@ -4,8 +4,8 @@ import 'package:lit_relative_date_time/lit_relative_date_time.dart';
 
 class TimeUtil {
   static String now() {
-    var now = DateTime.now();
-    print(now.toString());
+    var now = DateTime.now().toUtc();
+    print("now = $now");
     // Could the flutter devs really not do this????????????
     return "${DateFormat("yyyy-MM-ddTHH:mm:ss").format(now)}Z";
   }
@@ -43,8 +43,7 @@ class TimeUtil {
   }
 
   static String formatForChatGroup(String string) {
-    DateTime dt = DateTime.parse(string);
-    print("dt = ${dt.toString()}");
+    final dt = DateTime.parse(string).toLocal();
     return "${dt.day}/${dt.month} ${dt.hour}:${dt.minute}";
   }
 }
