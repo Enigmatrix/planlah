@@ -72,6 +72,10 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   void initState() {
     super.initState();
+    refresh();
+  }
+
+  void refresh() {
     // Initialize values that are retrieved from the backend here to avoid
     // calling them again and again.
     futureGroup = FutureGroup();
@@ -92,10 +96,10 @@ class _SignUpPageState extends State<SignUpPage> {
     final imageUrl = user.photoURL!;
     NetworkAssetBundle(Uri.parse(imageUrl))
         .load(imageUrl).then((img) {
-          setState(() {
-            _imageBytes = img.buffer.asUint8List();
-          });
-        });
+      setState(() {
+        _imageBytes = img.buffer.asUint8List();
+      });
+    });
 
     _name = user.displayName ?? "";
   }
@@ -150,7 +154,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   initializeLateVariables();
                   return buildWelcomePage(context);
                 } else {
-                  initState();
+                  refresh();
                   return waitWidget();
                 }
             } else {
