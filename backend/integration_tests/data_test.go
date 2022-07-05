@@ -1,8 +1,6 @@
 package integrationtests
 
 import (
-	"encoding/json"
-	"fmt"
 	"github.com/google/uuid"
 	"github.com/lib/pq"
 	"github.com/samber/lo"
@@ -1168,35 +1166,4 @@ func (s *DataIntegrationTestSuite) Test_JoinByInvite_Succeeds() {
 	s.NoError(err)
 	s.NotEmpty(inv)
 	s.Equal(inv.GroupID, uint(2))
-}
-
-func (s *DataIntegrationTestSuite) TestRegression_Saving_Timestamp() {
-	at := time.Now().Add(time.Hour).In(time.UTC).
-	msg := data.Message{
-		Content: "message!!!",
-		SentAt:  at,
-		ByID:    1,
-	}
-	err := s.db.CreateMessage(&msg)
-	s.Require().NoError(err)
-	s.Require().NotEmpty(msg.ID)
-	s.Require().Equal(msg.SentAt, at)
-
-	var dbMsg data.Message
-	err = s.conn.Where(&data.Message{ID: msg.ID}).Find(&dbMsg).Error
-	s.Require().NoError(err)
-	s.Require().NotEmpty(msg.ID)
-
-	s.True(dbMsg.SentAt.Equal(at))
-	s.True(dbMsg.SentAt.Equal(msg.SentAt))
-
-	type timeStruct struct {
-		At time.Time `form:"start" json:"start" binding:"required" format:"date-time"`
-	}
-	b, err := json.Marshal(timeStruct{At: at})
-	b2, err := json.Marshal(timeStruct{At: dbMsg.SentAt})
-	fmt.Printf("Original\t\t: %s\n", at.String())
-	fmt.Printf("From Db\t\t: %s\n", dbMsg.SentAt.String())
-	fmt.Printf("Json'ed Original\t\t: %s\n", string(b))
-	fmt.Printf("Json'ed From Db\t\t: %s\n", string(b2))
 }
