@@ -23,6 +23,10 @@ type UserSummaryDto struct {
 	ImageLink string `json:"imageLink" binding:"required"`
 }
 
+type UserRefDto struct {
+	ID uint `json:"id" binding:"required"`
+}
+
 type CreateUserDto struct {
 	Name          string   `form:"name" binding:"required"`
 	Username      string   `form:"username" binding:"required"`
