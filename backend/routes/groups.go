@@ -142,6 +142,20 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, ToGroupInviteDto(invite, ctr.Config))
 }
 
+// InviteFriend godoc
+// @Summary [UNIMPL] Invite a friend
+// @Description Invite a friend over to this group. The user must be a friend of the current user.
+// @Param body body UserRefDto true "Reference to User"
+// @Tags Group
+// @Security JWT
+// @Success 200
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/groups/invite_friend [post]
+func (ctr *GroupsController) InviteFriend(ctx *gin.Context) {
+	panic("[UNIMPL]")
+}
+
 // InvalidateInvite godoc
 // @Summary Invalidates an invitation
 // @Description Invalidates an invitation so that no one else can join
@@ -366,6 +380,7 @@ func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group.POST("create", ctr.Create)
 	group.GET("all", ctr.GetAll)
 	group.GET("invites", ctr.GetInvites)
+	group.POST("invite_friend", ctr.InviteFriend)
 	group.PUT("invites/invalidate", ctr.InvalidateInvite)
 	group.POST("invites/create", ctr.CreateInvite)
 	group.GET("join/:inviteId", ctr.JoinByInvite)
