@@ -30,6 +30,9 @@ type GroupSummaryDto struct {
 	Description         string      `json:"description" binding:"required"`
 	LastSeenMessage     *MessageDto `json:"lastSeenMessage"`
 	UnreadMessagesCount uint        `json:"unreadMessagesCount" binding:"required"`
+	// TODO the previous group methods like invite must not work when IsDM=true.
+	// TODO actually set this...
+	IsDM bool `json:"is_dm" binding:"required"`
 }
 
 type GroupInviteDto struct {
@@ -142,7 +145,7 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, ToGroupInviteDto(invite, ctr.Config))
 }
 
-// InviteFriend godoc
+// Jio godoc
 // @Summary [UNIMPL] Invite a friend
 // @Description Invite a friend over to this group. The user must be a friend of the current user.
 // @Param body body UserRefDto true "Reference to User"
@@ -151,8 +154,8 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 // @Success 200
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} services.AuthError
-// @Router /api/groups/invite_friend [post]
-func (ctr *GroupsController) InviteFriend(ctx *gin.Context) {
+// @Router /api/groups/jio [post]
+func (ctr *GroupsController) Jio(ctx *gin.Context) {
 	panic("[UNIMPL]")
 }
 
@@ -218,6 +221,20 @@ func (ctr *GroupsController) GetInvites(ctx *gin.Context) {
 	})
 
 	ctx.JSON(http.StatusOK, inviteDtos)
+}
+
+// CreateDM godoc
+// @Summary [UNIMPL] Create a new DM group (one-to-one).
+// @Description Create a new DM group with a friend. The user must be a friend of this user. If a DM group already exists, that is returned.
+// @Param body body UserRefDto true "Reference to friend to create a DM channel for"
+// @Tags Group
+// @Security JWT
+// @Success 200 {object} GroupSummaryDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/groups/create_dm [post]
+func (ctr *GroupsController) CreateDM(ctx *gin.Context) {
+	panic("[UNIMPL]")
 }
 
 // Create godoc
@@ -378,9 +395,10 @@ func (ctr *GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
 func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group := router.Group("groups")
 	group.POST("create", ctr.Create)
+	group.POST("create_dm", ctr.CreateDM)
 	group.GET("all", ctr.GetAll)
 	group.GET("invites", ctr.GetInvites)
-	group.POST("invite_friend", ctr.InviteFriend)
+	group.POST("jio", ctr.Jio)
 	group.PUT("invites/invalidate", ctr.InvalidateInvite)
 	group.POST("invites/create", ctr.CreateInvite)
 	group.GET("join/:inviteId", ctr.JoinByInvite)
