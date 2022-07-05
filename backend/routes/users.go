@@ -17,6 +17,7 @@ type UserController struct {
 }
 
 type UserSummaryDto struct {
+	ID        uint   `json:"id" binding:"required"`
 	Username  string `json:"username" binding:"required"`
 	Name      string `json:"name" binding:"required"`
 	ImageLink string `json:"imageLink" binding:"required"`
@@ -32,8 +33,18 @@ type CreateUserDto struct {
 	Food          []string `form:"food" binding:"required"`
 }
 
+type Pagination struct {
+	Page int `uri:"page" form:"page" json:"page" binding:"required"`
+}
+
+type SearchUsersDto struct {
+	Pagination
+	Query string `uri:"query" binding:"required"`
+}
+
 func ToUserSummaryDto(user data.User) UserSummaryDto {
 	return UserSummaryDto{
+		ID:        user.ID,
 		Username:  user.Username,
 		Name:      user.Name,
 		ImageLink: user.ImageLink,
@@ -145,6 +156,19 @@ func (ctr *UserController) GetInfo(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, ToUserSummaryDto(user))
 }
 
+// SearchUsers godoc
+// @Summary [UNIMPL] Search for users
+// @Description Search for users containing the specified text in their Name and Username. Increment the {page} variable to view the next (by default 10) users.
+// @Param query query SearchUsersDto true "body"
+// @Security JWT
+// @Tags User
+// @Success 200 {object} []UserSummaryDto
+// @Failure 401 {object} services.AuthError
+// @Router /api/users/me/info [get]
+func (ctr *UserController) SearchUsers(ctx *gin.Context) {
+	panic("[UNIMPL]")
+}
+
 // TODO: To think of better ways to do this. For now its very simple 1/n standardization
 
 func contains(s []string, str string) bool {
@@ -195,4 +219,5 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 func (ctr *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	users.GET("me/info", ctr.GetInfo)
+	users.GET("search", ctr.SearchUsers)
 }
