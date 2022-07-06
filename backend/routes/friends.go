@@ -51,6 +51,10 @@ func (ctr *FriendsController) SendFriendRequest(ctx *gin.Context) {
 
 	status, err := ctr.Database.SendFriendRequest(userId, dto.UserID)
 	if err != nil {
+		if errors.Is(err, data.IsSameUser) {
+			FailWithMessage(ctx, "users are the same")
+			return
+		}
 		if errors.Is(err, data.EntityNotFound) {
 			FailWithMessage(ctx, "user not found")
 			return

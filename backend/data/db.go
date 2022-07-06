@@ -29,6 +29,7 @@ var (
 	FirebaseUidExists   = errors.New("firebase uid taken")
 	UserAlreadyInGroup  = errors.New("user is already in group")
 	FriendRequestExists = errors.New("friend request exists")
+	IsSameUser          = errors.New("users are the same")
 )
 var pageCount uint = 10
 
@@ -189,6 +190,24 @@ var friendSql = `(
 	select to_id from friend_requests where from_id = @thisUserId and status = 'approved'
 )`
 
+// IsFriend Checks if these users are friends
+func (db *Database) IsFriend(user1 uint, user2 uint) (bool, error) {
+	var req FriendRequest
+	err := db.conn.Model(&FriendRequest{}).
+		Where(&FriendRequest{Status: Approved}).
+		Where("(from_id = @user1 and to_id = @user2) or (to_id = @user1 and from_id = @user2)",
+			map[string]interface{}{"user1": user1, "user2": user2}).
+		Find(&req).
+		Error
+	if err != nil {
+		if isNotFoundInDb(err) {
+			return false, nil
+		}
+		return false, errors.Trace(err)
+	}
+	return true, nil
+}
+
 // SearchForFriends Search for friends (users not already friends of the current User) who have name/username
 // matching the query, with pagination
 func (db *Database) SearchForFriends(userId uint, query string, page uint) ([]User, error) {
@@ -214,6 +233,9 @@ func (db *Database) SearchForFriends(userId uint, query string, page uint) ([]Us
 // Throws FriendRequestExists when there is already a friend request from this user to the other user.
 // Throws EntityNotFound when the other user does not exist.
 func (db *Database) SendFriendRequest(fromUserId uint, toUserId uint) (FriendRequestStatus, error) {
+	if fromUserId == toUserId {
+		return Pending, IsSameUser
+	}
 	// accept an existing friend request from the other user
 	res := db.conn.Model(&FriendRequest{}).
 		Where(&FriendRequest{
