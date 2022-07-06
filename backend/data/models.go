@@ -19,6 +19,22 @@ type User struct {
 	GroupMembersAs []GroupMember
 }
 
+type FriendRequestStatus string
+
+const (
+	Approved FriendRequestStatus = "approved"
+	Rejected FriendRequestStatus = "rejected"
+	Pending  FriendRequestStatus = "pending"
+)
+
+type FriendRequests struct {
+	FromID uint                `gorm:"primarykey"`
+	From   *User               `gorm:"foreignKey:FromID"`
+	ToID   uint                `gorm:"primarykey"`
+	To     *User               `gorm:"foreignKey:ToID"`
+	Status FriendRequestStatus `sql:"type:friend_request_status"`
+}
+
 type Group struct {
 	ID             uint         `gorm:"primarykey"`
 	Name           string       `gorm:"not null"`

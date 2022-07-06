@@ -38,7 +38,7 @@ type CreateUserDto struct {
 }
 
 type Pagination struct {
-	Page int `uri:"page" form:"page" json:"page" binding:"required"`
+	Page uint `uri:"page" form:"page" json:"page" binding:"required"`
 }
 
 type SearchUsersDto struct {
@@ -160,17 +160,33 @@ func (ctr *UserController) GetInfo(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, ToUserSummaryDto(user))
 }
 
-// SearchUsers godoc
-// @Summary [UNIMPL] Search for users
-// @Description Search for users containing the specified text in their Name and Username. Increment the {page} variable to view the next (by default 10) users.
+// SearchForFriends godoc
+// @Summary [UNIMPL] Search for friends
+// @Description Search for users containing the specified text in their Name and Username and who are not already friends.
+// @Description Increment the {page} variable to view the next (by default 10) users.
 // @Param query query SearchUsersDto true "body"
 // @Security JWT
 // @Tags User
 // @Success 200 {object} []UserSummaryDto
 // @Failure 401 {object} services.AuthError
-// @Router /api/users/me/info [get]
-func (ctr *UserController) SearchUsers(ctx *gin.Context) {
-	panic("[UNIMPL]")
+// @Router /api/users/search_for_friends [get]
+func (ctr *UserController) SearchForFriends(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
+
+	var dto SearchUsersDto
+	if Body(ctx, &dto) {
+		return
+	}
+
+	users, err := ctr.Database.SearchForFriends(userId, dto.Query, dto.Page)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, lo.Map(users, func(t data.User, _ int) UserSummaryDto {
+		return ToUserSummaryDto(t)
+	}))
 }
 
 // TODO: To think of better ways to do this. For now its very simple 1/n standardization
@@ -223,5 +239,5 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 func (ctr *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	users.GET("me/info", ctr.GetInfo)
-	users.GET("search", ctr.SearchUsers)
+	users.GET("search_for_friends", ctr.SearchForFriends)
 }

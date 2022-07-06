@@ -1167,3 +1167,15 @@ func (s *DataIntegrationTestSuite) Test_JoinByInvite_Succeeds() {
 	s.NotEmpty(inv)
 	s.Equal(inv.GroupID, uint(2))
 }
+
+func (s *DataIntegrationTestSuite) Test_SearchUsers_Succeeds() {
+	users, err := s.db.SearchForFriends(1, "a", 0)
+	s.NoError(err)
+	s.Len(users, 5)
+
+	users, err = s.db.SearchForFriends(1, "dad", 0)
+	s.NoError(err)
+	s.Len(users, 1)
+}
+
+// TODO more cases
