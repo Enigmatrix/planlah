@@ -148,6 +148,7 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 // Jio godoc
 // @Summary [UNIMPL] Invite a friend
 // @Description Invite a friend over to this group. The user must be a friend of the current user.
+// @Description If this group is a DM group, this upgrades the group to a normal group.
 // @Param body body UserRefDto true "Reference to User"
 // @Tags Group
 // @Security JWT
