@@ -24,10 +24,11 @@ import (
 var dbConn utils.Lazy[gorm.DB]
 
 var (
-	EntityNotFound     = errors.New("entity not found")
-	UsernameExists     = errors.New("username taken")
-	FirebaseUidExists  = errors.New("firebase uid taken")
-	UserAlreadyInGroup = errors.New("user is already in group")
+	EntityNotFound      = errors.New("entity not found")
+	UsernameExists      = errors.New("username taken")
+	FirebaseUidExists   = errors.New("firebase uid taken")
+	UserAlreadyInGroup  = errors.New("user is already in group")
+	FriendRequestExists = errors.New("friend request exists")
 )
 var pageCount uint = 10
 
@@ -60,7 +61,7 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 		}
 
 		// add tables here
-		models := []interface{}{&User{}, &FriendRequests{}, &Group{}, &GroupInvite{}, &GroupMember{}, &Message{}, &Outing{}, &OutingStep{}, &OutingStepVote{}}
+		models := []interface{}{&User{}, &FriendRequest{}, &Group{}, &GroupInvite{}, &GroupMember{}, &Message{}, &Outing{}, &OutingStep{}, &OutingStepVote{}}
 
 		// Neat trick to migrate models with complex relationships, run auto migrations once
 		// with DisableForeignKeyConstraintWhenMigrating=true to create the tables without relationships,
@@ -114,6 +115,14 @@ func NewDatabase(conn *gorm.DB) *Database {
 func isUniqueViolation(err error, rel string) bool {
 	var pgErr *pgconn.PgError
 	if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.UniqueViolation && pgErr.ConstraintName == rel {
+		return true
+	}
+	return false
+}
+
+func fkViolation(err error, rel string) bool {
+	var pgErr *pgconn.PgError
+	if errors.As(err, &pgErr) && pgErr.Code == pgerrcode.ForeignKeyViolation && pgErr.ConstraintName == rel {
 		return true
 	}
 	return false
@@ -180,6 +189,8 @@ var friendSql = `(
 	select to_id from friend_requests where from_id = @thisUserId and status = 'approved'
 )`
 
+// SearchForFriends Search for friends (users not already friends of the current User) who have name/username
+// matching the query, with pagination
 func (db *Database) SearchForFriends(userId uint, query string, page uint) ([]User, error) {
 	var users []User
 	// this query makes it slightly ex since we might have a lot of results
@@ -190,6 +201,120 @@ func (db *Database) SearchForFriends(userId uint, query string, page uint) ([]Us
 		Limit(int(pageCount)).
 		Offset(int(page * pageCount)).
 		Find(&users).
+		Error
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return users, nil
+}
+
+// SendFriendRequest Send a friend request to another user. If that user has also a friend request,
+// this friend request is auto accepted.
+//
+// Throws FriendRequestExists when there is already a friend request from this user to the other user.
+// Throws EntityNotFound when the other user does not exist.
+func (db *Database) SendFriendRequest(fromUserId uint, toUserId uint) (FriendRequestStatus, error) {
+	// accept an existing friend request from the other user
+	res := db.conn.Model(&FriendRequest{}).
+		Where(&FriendRequest{
+			FromID: toUserId,
+			ToID:   fromUserId,
+		}).
+		Updates(&FriendRequest{Status: Approved})
+	affected := res.RowsAffected
+	err := res.Error
+	if err != nil {
+		return Pending, errors.Annotate(err, "update prev friend req")
+	}
+	if affected == 1 {
+		return Approved, nil
+	}
+
+	// create new friend request
+	err = db.conn.Create(&FriendRequest{
+		FromID: fromUserId,
+		ToID:   toUserId,
+		Status: Pending,
+	}).Error
+
+	if err != nil {
+		if isUniqueViolation(err, "friend_requests_pkey") {
+			return Pending, FriendRequestExists
+		}
+		if fkViolation(err, "fk_friend_requests_to") {
+			return Pending, EntityNotFound
+		}
+		return Pending, errors.Annotate(err, "create new friend req")
+	}
+
+	return Pending, nil
+}
+
+// ApproveFriendRequest Approves a friend request. The friend request's previous status does not matter.
+// If the friend request is not found, no error is thrown.
+func (db *Database) ApproveFriendRequest(fromUserId uint, toUserId uint) error {
+	res := db.conn.Model(&FriendRequest{}).
+		Where(&FriendRequest{
+			FromID: fromUserId,
+			ToID:   toUserId,
+		}).
+		Updates(&FriendRequest{Status: Approved})
+	err := res.Error
+	if err != nil {
+		return errors.Trace(err)
+	}
+	return nil
+}
+
+// RejectFriendRequest Rejects a friend request. The friend request's previous status must be pending.
+// If the friend request is not found, no error is thrown.
+func (db *Database) RejectFriendRequest(fromUserId uint, toUserId uint) error {
+	res := db.conn.Model(&FriendRequest{}).
+		Where(&FriendRequest{
+			FromID: fromUserId,
+			ToID:   toUserId,
+			Status: Pending,
+		}).
+		Updates(&FriendRequest{Status: Rejected})
+	err := res.Error
+	if err != nil {
+		return errors.Trace(err)
+	}
+	return nil
+}
+
+// PendingFriendRequests Lists all pending friend requests
+func (db *Database) PendingFriendRequests(userId uint, page uint) ([]FriendRequest, error) {
+	var reqs []FriendRequest
+	err := db.conn.Model(&FriendRequest{}).
+		Preload("From").
+		Where(&FriendRequest{
+			ToID:   userId,
+			Status: Pending,
+		}).
+		Find(&reqs).
+		Offset(int(page * pageCount)).
+		Limit(int(pageCount)).
+		Error
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return reqs, nil
+}
+
+// ListFriends Lists all users who are friends of the current user
+func (db *Database) ListFriends(userId uint, page uint) ([]User, error) {
+	var users []User
+	err := db.conn.Model(&FriendRequest{}).
+		Where(&FriendRequest{
+			ToID:   userId,
+			Status: Approved,
+		}).
+		Joins("inner join users u on u.id = from_id").
+		Select("u.*").
+		Find(&users).
+		Offset(int(page * pageCount)).
+		Limit(int(pageCount)).
 		Error
 	if err != nil {
 		return nil, errors.Trace(err)

@@ -27,7 +27,7 @@ const (
 	Pending  FriendRequestStatus = "pending"
 )
 
-type FriendRequests struct {
+type FriendRequest struct {
 	FromID uint                `gorm:"primarykey"`
 	From   *User               `gorm:"foreignKey:FromID"`
 	ToID   uint                `gorm:"primarykey"`

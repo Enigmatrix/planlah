@@ -161,7 +161,7 @@ func (ctr *UserController) GetInfo(ctx *gin.Context) {
 }
 
 // SearchForFriends godoc
-// @Summary [UNIMPL] Search for friends
+// @Summary Search for friends
 // @Description Search for users containing the specified text in their Name and Username and who are not already friends.
 // @Description Increment the {page} variable to view the next (by default 10) users.
 // @Param query query SearchUsersDto true "body"
