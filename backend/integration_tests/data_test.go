@@ -1179,3 +1179,126 @@ func (s *DataIntegrationTestSuite) Test_SearchUsers_Succeeds() {
 }
 
 // TODO more cases
+
+func (s *DataIntegrationTestSuite) Test_SendFriendRequest_Success() {
+	// TODO split these into their own functions
+	stat, err := s.db.SendFriendRequest(1, 3)
+	s.NoError(err)
+	s.Equal(data.Pending, stat)
+
+	stat, err = s.db.SendFriendRequest(1, 3)
+	s.ErrorIs(err, data.FriendRequestExists)
+
+	stat, err = s.db.SendFriendRequest(1, 100)
+	s.ErrorIs(err, data.EntityNotFound)
+
+	stat, err = s.db.SendFriendRequest(3, 1)
+	s.NoError(err)
+	s.Equal(data.Approved, stat)
+}
+
+func (s *DataIntegrationTestSuite) Test_ApproveFriendRequest_Success() {
+	stat, err := s.db.SendFriendRequest(1, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	err = s.db.ApproveFriendRequest(1, 3)
+	s.NoError(err)
+
+	var req data.FriendRequest
+	err = s.conn.Model(&data.FriendRequest{
+		FromID: 1,
+		ToID:   3,
+	}).Find(&req).Error
+	s.Require().NoError(err)
+	s.Equal(req.Status, data.Approved)
+}
+
+func (s *DataIntegrationTestSuite) Test_ApproveFriendRequest_Succeeds_WhenAlreadyRejected() {
+	stat, err := s.db.SendFriendRequest(1, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	err = s.db.RejectFriendRequest(1, 3)
+	s.Require().NoError(err)
+
+	err = s.db.ApproveFriendRequest(1, 3)
+	s.NoError(err)
+
+	var req data.FriendRequest
+	err = s.conn.Model(&data.FriendRequest{
+		FromID: 1,
+		ToID:   3,
+	}).Find(&req).Error
+	s.Require().NoError(err)
+	s.Equal(req.Status, data.Approved)
+}
+
+func (s *DataIntegrationTestSuite) Test_RejectFriendRequest_Success() {
+	stat, err := s.db.SendFriendRequest(1, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	err = s.db.RejectFriendRequest(1, 3)
+	s.NoError(err)
+
+	var req data.FriendRequest
+	err = s.conn.Model(&data.FriendRequest{
+		FromID: 1,
+		ToID:   3,
+	}).Find(&req).Error
+	s.Require().NoError(err)
+	s.Equal(req.Status, data.Rejected)
+}
+
+func (s *DataIntegrationTestSuite) Test_PendingFriendRequests_Success() {
+	stat, err := s.db.SendFriendRequest(1, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	stat, err = s.db.SendFriendRequest(2, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	reqs, err := s.db.PendingFriendRequests(3, 0)
+	s.NoError(err)
+	s.Len(reqs, 2)
+
+	err = s.db.RejectFriendRequest(1, 3)
+	s.Require().NoError(err)
+
+	reqs, err = s.db.PendingFriendRequests(3, 0)
+	s.NoError(err)
+	s.Len(reqs, 1)
+
+	err = s.db.ApproveFriendRequest(2, 3)
+	s.Require().NoError(err)
+
+	reqs, err = s.db.PendingFriendRequests(3, 0)
+	s.NoError(err)
+	s.Len(reqs, 0)
+}
+
+func (s *DataIntegrationTestSuite) Test_ListFriends_Success() {
+	stat, err := s.db.SendFriendRequest(1, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	stat, err = s.db.SendFriendRequest(2, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	err = s.db.ApproveFriendRequest(2, 3)
+	s.Require().NoError(err)
+
+	frens, err := s.db.ListFriends(3, 0)
+	s.NoError(err)
+	s.Len(frens, 1)
+
+	err = s.db.ApproveFriendRequest(1, 3)
+	s.Require().NoError(err)
+
+	frens, err = s.db.ListFriends(3, 0)
+	s.NoError(err)
+	s.Len(frens, 2)
+}
