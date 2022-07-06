@@ -1195,6 +1195,9 @@ func (s *DataIntegrationTestSuite) Test_SendFriendRequest_Success() {
 	stat, err = s.db.SendFriendRequest(3, 1)
 	s.NoError(err)
 	s.Equal(data.Approved, stat)
+
+	stat, err = s.db.SendFriendRequest(4, 4)
+	s.ErrorIs(err, data.IsSameUser)
 }
 
 func (s *DataIntegrationTestSuite) Test_ApproveFriendRequest_Success() {
@@ -1302,3 +1305,5 @@ func (s *DataIntegrationTestSuite) Test_ListFriends_Success() {
 	s.NoError(err)
 	s.Len(frens, 2)
 }
+
+// TODO tests for IsFriends

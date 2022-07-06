@@ -30,9 +30,7 @@ type GroupSummaryDto struct {
 	Description         string      `json:"description" binding:"required"`
 	LastSeenMessage     *MessageDto `json:"lastSeenMessage"`
 	UnreadMessagesCount uint        `json:"unreadMessagesCount" binding:"required"`
-	// TODO the previous group methods like invite must not work when IsDM=true.
-	// TODO actually set this...
-	IsDM bool `json:"is_dm" binding:"required"`
+	IsDM                bool        `json:"isDm" binding:"required"`
 }
 
 type GroupInviteDto struct {
@@ -40,6 +38,11 @@ type GroupInviteDto struct {
 	GroupID uint       `json:"groupId" binding:"required"`
 	Url     string     `json:"url" binding:"required"`
 	Expiry  *time.Time `json:"expiry"` // TODO add comment about null expiry
+}
+
+type JioToGroupDto struct {
+	UserID  uint `json:"userId" binding:"required"`
+	GroupID uint `json:"groupId" binding:"required"`
 }
 
 type GetGroupInvitesDto struct {
@@ -90,6 +93,7 @@ func ToGroupSummaryDto(grp data.GroupInfo) GroupSummaryDto {
 		ImageLink:           grp.ImageLink,
 		LastSeenMessage:     lastMsgDtoRef,
 		UnreadMessagesCount: grp.UnreadMessageCount,
+		IsDM:                grp.IsDM,
 	}
 }
 
@@ -109,7 +113,15 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 		return
 	}
 
-	if ctr.AuthGroupMember(ctx, dto.GroupID) == nil {
+	member := ctr.AuthGroupMember(ctx, dto.GroupID)
+	if member == nil {
+		return
+	}
+
+	// not available for IsDM=true
+	group, err := ctr.Database.GetGroup(member.UserID, member.GroupID)
+	if group.IsDM {
+		FailWithMessage(ctx, "cannot create invites for dm groups")
 		return
 	}
 
@@ -135,7 +147,7 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 		Active:  true,
 	}
 
-	err := ctr.Database.CreateGroupInvite(&invite)
+	err = ctr.Database.CreateGroupInvite(&invite)
 
 	if err != nil {
 		handleDbError(ctx, err)
@@ -146,10 +158,10 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 }
 
 // Jio godoc
-// @Summary [UNIMPL] Invite a friend
+// @Summary Invite a friend
 // @Description Invite a friend over to this group. The user must be a friend of the current user.
 // @Description If this group is a DM group, this upgrades the group to a normal group.
-// @Param body body UserRefDto true "Reference to User"
+// @Param body body JioToGroupDto true "Details of Jio request"
 // @Tags Group
 // @Security JWT
 // @Success 200
@@ -157,7 +169,44 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 // @Failure 401 {object} services.AuthError
 // @Router /api/groups/jio [post]
 func (ctr *GroupsController) Jio(ctx *gin.Context) {
-	panic("[UNIMPL]")
+	var dto JioToGroupDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	member := ctr.AuthGroupMember(ctx, dto.GroupID)
+	if member == nil {
+		return
+	}
+
+	// not available for IsDM=true
+	group, err := ctr.Database.GetGroup(member.UserID, member.GroupID)
+	if group.IsDM {
+		FailWithMessage(ctx, "cannot create invites for dm groups")
+		return
+	}
+
+	isFriend, err := ctr.Database.IsFriend(member.UserID, dto.UserID)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+	if !isFriend {
+		FailWithMessage(ctx, "users are not friends")
+		return
+	}
+
+	_, err = ctr.Database.AddUserToGroup(dto.UserID, dto.GroupID)
+	if err != nil {
+		if errors.Is(err, data.UserAlreadyInGroup) {
+			FailWithMessage(ctx, "user is already in group")
+			return
+		}
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.Status(http.StatusOK)
 }
 
 // InvalidateInvite godoc
@@ -276,6 +325,7 @@ func (ctr *GroupsController) Create(ctx *gin.Context) {
 		Description: dto.Description,
 		Owner:       nil, // TODO can I auto create Owner when this Group is added?
 		ImageLink:   imageUrl,
+		IsDM:        false,
 	}
 	err = ctr.Database.CreateGroup(&group)
 	if err != nil {

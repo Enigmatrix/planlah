@@ -42,6 +42,7 @@ type Group struct {
 	ImageLink      string       `gorm:"not null"`
 	OwnerID        uint         // this will be null when the Group is created, then updated instantly
 	Owner          *GroupMember `gorm:"foreignKey:OwnerID"`
+	IsDM           bool         `gorm:"not null"`
 	ActiveOutingID uint         // this will be null when there is no active outing
 	ActiveOuting   *Outing      `gorm:"foreignKey:ActiveOutingID"`
 	GroupMembers   []GroupMember
