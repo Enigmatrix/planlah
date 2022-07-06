@@ -182,7 +182,7 @@ func (ctr *GroupsController) Jio(ctx *gin.Context) {
 	// not available for IsDM=true
 	group, err := ctr.Database.GetGroup(member.UserID, member.GroupID)
 	if group.IsDM {
-		FailWithMessage(ctx, "cannot create invites for dm groups")
+		FailWithMessage(ctx, "cannot jio for dm groups")
 		return
 	}
 
@@ -284,7 +284,32 @@ func (ctr *GroupsController) GetInvites(ctx *gin.Context) {
 // @Failure 401 {object} services.AuthError
 // @Router /api/groups/create_dm [post]
 func (ctr *GroupsController) CreateDM(ctx *gin.Context) {
-	panic("[UNIMPL]")
+	userId := ctr.AuthUserId(ctx)
+
+	var dto UserRefDto
+	if Body(ctx, &dto) {
+		return
+	}
+
+	grp, err := ctr.Database.CreateDMGroup(userId, dto.ID)
+	if err != nil {
+		if errors.Is(err, data.NotFriend) {
+			FailWithMessage(ctx, "user is not friend of this user")
+			return
+		}
+		if errors.Is(err, data.DMAlreadyExists) {
+			FailWithMessage(ctx, "dm exists between the users")
+			return
+		}
+		handleDbError(ctx, err)
+		return
+	}
+	groupInfo, err := ctr.Database.GetGroup(userId, grp.ID)
+	if err != nil { // this group is always found
+		handleDbError(ctx, err)
+		return
+	}
+	ctx.JSON(http.StatusOK, ToGroupSummaryDto(groupInfo))
 }
 
 // Create godoc

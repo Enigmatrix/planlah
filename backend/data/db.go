@@ -30,6 +30,8 @@ var (
 	UserAlreadyInGroup  = errors.New("user is already in group")
 	FriendRequestExists = errors.New("friend request exists")
 	IsSameUser          = errors.New("users are the same")
+	NotFriend           = errors.New("users are not friends")
+	DMAlreadyExists     = errors.New("dm already exists")
 )
 var pageCount uint = 10
 
@@ -197,7 +199,7 @@ func (db *Database) IsFriend(user1 uint, user2 uint) (bool, error) {
 		Where(&FriendRequest{Status: Approved}).
 		Where("(from_id = @user1 and to_id = @user2) or (to_id = @user1 and from_id = @user2)",
 			map[string]interface{}{"user1": user1, "user2": user2}).
-		Find(&req).
+		First(&req).
 		Error
 	if err != nil {
 		if isNotFoundInDb(err) {
@@ -411,6 +413,31 @@ type GroupInfo struct {
 	LastMessage        *Message
 }
 
+// assumes the groupIds are already DM groupIds
+func (db *Database) loadDMOtherUserInfo(userId uint, groupIds []uint) (map[uint]User, error) {
+	type otherUserInfo struct {
+		GroupID uint
+		User
+	}
+	var others []otherUserInfo
+	err := db.conn.Table("group_members gm").
+		Joins("inner join users u ON u.id = gm.user_id and u.id <> ?", userId).
+		Where("gm.group_id in ?", groupIds).
+		Select("gm.group_id, u.*").
+		Find(&others).
+		Error
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+
+	othersMap := make(map[uint]User)
+	for _, other := range others {
+		othersMap[other.GroupID] = other.User
+	}
+
+	return othersMap, nil
+}
+
 func (db *Database) toGroupInfos(userId uint, groups []Group) ([]GroupInfo, error) {
 	groupIds := lo.Map(groups, func(g Group, _ int) uint {
 		return g.ID
@@ -426,12 +453,29 @@ func (db *Database) toGroupInfos(userId uint, groups []Group) ([]GroupInfo, erro
 		return nil, errors.Trace(err)
 	}
 
+	dmGroupIds := lo.FilterMap(groups, func(t Group, i int) (uint, bool) {
+		if t.IsDM {
+			return t.ID, true
+		}
+		return 0, false
+	})
+	otherUserDMGroups, err := db.loadDMOtherUserInfo(userId, dmGroupIds)
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+
 	groupInfos := lo.Map(groups, func(g Group, _ int) GroupInfo {
 		var lastMsg *Message
 		if msg, ok := lastMsgs[g.ID]; ok {
 			lastMsg = &msg
 		} else {
 			lastMsg = nil
+		}
+		if g.IsDM {
+			otherUser := otherUserDMGroups[g.ID]
+			g.Name = otherUser.Name
+			g.Description = ""
+			g.ImageLink = otherUser.ImageLink
 		}
 		return GroupInfo{
 			Group:              g,
@@ -519,6 +563,52 @@ func (db *Database) GetGroupMember(userId uint, groupId uint) (*GroupMember, err
 // CreateGroup Creates a Group
 func (db *Database) CreateGroup(group *Group) error {
 	return errors.Trace(db.conn.Omit("OwnerID", "ActiveOutingID").Create(group).Error)
+}
+
+// CreateDMGroup Creates a DM Group
+//
+// Throws NotFriend if the Users are not friends.
+// Throws DMAlreadyExists if there exists a DM Group between the two users.
+func (db *Database) CreateDMGroup(userId uint, otherUserId uint) (Group, error) {
+	if v, err := db.IsFriend(userId, otherUserId); err == nil && !v {
+		return Group{}, NotFriend
+	} else if err != nil {
+		return Group{}, errors.Annotate(err, "IsFriend failed")
+	}
+
+	var c int64
+	err := db.conn.Table("group_members gm").
+		Where("gm.user_id = ? or gm.user_id = ?", userId, otherUserId).
+		Group("gm.group_id").
+		Having("count(gm) = 2 and true = (select is_dm from groups where id = gm.group_id)").
+		Count(&c).Error
+
+	if err != nil {
+		return Group{}, errors.Trace(err)
+	}
+	if c == 1 {
+		return Group{}, DMAlreadyExists
+	}
+
+	group := Group{
+		IsDM: true,
+	}
+	err = db.conn.Omit("OwnerID", "ActiveOutingID").Create(&group).Error
+	if err != nil {
+		return Group{}, errors.Trace(err)
+	}
+
+	_, err = db.AddUserToGroup(userId, group.ID)
+	if err != nil {
+		return Group{}, errors.Trace(err)
+	}
+
+	_, err = db.AddUserToGroup(otherUserId, group.ID)
+	if err != nil {
+		return Group{}, errors.Trace(err)
+	}
+
+	return group, nil
 }
 
 // UpdateGroupOwner Updates the Group owner.
