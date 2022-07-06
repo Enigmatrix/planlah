@@ -29,6 +29,7 @@ var (
 	FirebaseUidExists  = errors.New("firebase uid taken")
 	UserAlreadyInGroup = errors.New("user is already in group")
 )
+var pageCount uint = 10
 
 // NewDatabaseConnection Creates a new database connection
 func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, error) {
@@ -52,8 +53,14 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 			return nil, errors.Annotate(err, "opening db")
 		}
 
+		err = db.Exec(`drop type if exists friend_request_status;
+			create type friend_request_status as enum('approved', 'pending', 'rejected');`).Error
+		if err != nil {
+			return nil, errors.Annotate(err, "create friend_request_status enum")
+		}
+
 		// add tables here
-		models := []interface{}{&User{}, &Group{}, &GroupInvite{}, &GroupMember{}, &Message{}, &Outing{}, &OutingStep{}, &OutingStepVote{}}
+		models := []interface{}{&User{}, &FriendRequests{}, &Group{}, &GroupInvite{}, &GroupMember{}, &Message{}, &Outing{}, &OutingStep{}, &OutingStepVote{}}
 
 		// Neat trick to migrate models with complex relationships, run auto migrations once
 		// with DisableForeignKeyConstraintWhenMigrating=true to create the tables without relationships,
@@ -166,6 +173,28 @@ func (db *Database) GetUser(id uint) (User, error) {
 		return User{}, errors.Trace(err)
 	}
 	return user, nil
+}
+
+var friendSql = `(
+	select from_id from friend_requests where to_id = @thisUserId and status = 'approved' union
+	select to_id from friend_requests where from_id = @thisUserId and status = 'approved'
+)`
+
+func (db *Database) SearchForFriends(userId uint, query string, page uint) ([]User, error) {
+	var users []User
+	// this query makes it slightly ex since we might have a lot of results
+	err := db.conn.Model(&User{}).
+		Where("name like '%' || @q || '%' OR username like '%' || @q || '%'", map[string]interface{}{"q": query}).
+		Where("id not in "+friendSql, map[string]interface{}{"thisUserId": userId}).
+		Order("username,name asc").
+		Limit(int(pageCount)).
+		Offset(int(page * pageCount)).
+		Find(&users).
+		Error
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return users, nil
 }
 
 func (db *Database) getUnreadMessagesCountForGroups(userId uint, groupIds []uint) (map[uint]uint, error) {
