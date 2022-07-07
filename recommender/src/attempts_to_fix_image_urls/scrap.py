@@ -10,13 +10,9 @@ Seems to be the best performing method so far
 https://medium.com/@dian.octaviani/method-1-4-automation-of-google-image-scraping-using-selenium-3972ea3aa248
 """
 
-df = pd.read_csv("RestaurantFinalData.csv")
-names = df["name"]
-locations = df["location"]
-chromedriver = ChromeDriverManager().install()
-
-
 # i = 270
+
+chromedriver = ChromeDriverManager().install()
 
 def search_google(search_query):
     search_url = f"https://www.google.com/search?site=&tbm=isch&source=hp&biw=1873&bih=990&q={search_query}"
@@ -52,23 +48,29 @@ def search_google(search_query):
     return img_src
 
 
-links = []
-# Loops through the list of search input
-with open("failures_v2.txt", "r") as f:
-    with tqdm(f.readlines(), total=len(f.readlines())) as pbar:
-        for line in pbar:
-            i = int(line.strip())
-            name = names.get(i) + locations.get(i)
-            try:
-                link = search_google(name)
-                links.append(link)
-            except Exception as e:
-                print(e)
+if __name__ == '__main__':
+    df = pd.read_csv("RestaurantFinalData.csv")
+    names = df["name"]
+    locations = df["location"]
+
+    links = []
+    # Loops through the list of search input
+    with open("failures_v2.txt", "r") as f:
+        with tqdm(f.readlines(), total=len(f.readlines())) as pbar:
+            for line in pbar:
+                i = int(line.strip())
+                name = names.get(i) + locations.get(i)
+                try:
+                    link = search_google(name)
+                    links.append(link)
+                except Exception as e:
+                    print(e)
+
+    # Creating header for file containing image source link
+    with open("failures_recovery.txt", "w") as outfile:
+        for link in links:
+            outfile.write(f"{link}\n")
 
 
-# Creating header for file containing image source link
-with open("failures_recovery.txt", "w") as outfile:
-    for link in links:
-        outfile.write(f"{link}\n")
 
 
