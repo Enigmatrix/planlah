@@ -3,7 +3,6 @@ import os
 import pandas as pd
 from dotenv import load_dotenv
 import psycopg2
-import pandas
 
 from db_utils import get_attractions, get_food
 
@@ -17,6 +16,7 @@ url = f"host={host} user={user} password={password}"
 conn = psycopg2.connect(url)
 
 cur = conn.cursor()
+cur.execute("CREATE EXTENSION postgis;")
 cur.execute("DROP TABLE IF EXISTS places;")
 cur.execute("DROP TYPE IF EXISTS PLACETYPE")
 cur.execute("CREATE TYPE PLACETYPE AS ENUM('attraction', 'restaurant')")
@@ -24,7 +24,7 @@ cur.execute("CREATE TABLE places ("
             "id serial PRIMARY KEY,"
             "name VARCHAR(255) NOT NULL,"
             "location VARCHAR(255) NOT NULL,"
-            "position POINT,"
+            "position geography NOT NULL,"
             "formatted_address VARCHAR(255) NOT NULL,"
             "image_url TEXT,"
             "about TEXT,"
@@ -62,7 +62,7 @@ def get_point(row):
 for i, row in attractions_df.iterrows():
     cur.execute("INSERT INTO places "
                 "(name, location, position, formatted_address, about, place_type, features)"
-                "VALUES (%s, %s, %s, %s, %s, 'attraction', %s)",
+                "VALUES (%s, %s, ST_MakePoint(%s), %s, %s, 'attraction', %s)",
                 (row.get("name"), row.get("location"), get_point(row), row.get("formatted_address"),
                  row.get("about"), calculate_attraction_vector(row)))
 
