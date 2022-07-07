@@ -36,22 +36,25 @@ def get_image_url(name: str) -> str:
 
 
 attractions_links = []
-df = pd.read_csv("AttractionsFinalData.csv")
+df = pd.read_csv("Attractions.csv")
 
-i = 0
+# Stopped at 183
+
+i = 183
 
 try:
     with tqdm(df.iterrows(), total=len(df)) as pbar:
         pbar.set_description("Attractions")
         for idx, row in pbar:
+            if i > idx:
+                continue
             link = get_image_url("Singapore" + row.get("name"))
             attractions_links.append(link)
-            print(row.get("name"))
-            print(link)
             time.sleep(0.20)
             pbar.update(1)
             i = idx
-except TimeoutError:
+except Exception as e:
+    print(e)
     print(f"Stopped at {i}")
 
 with open("attraction_links.txt", "a") as f:
