@@ -24,12 +24,21 @@ type OutingDto struct {
 	Steps       []OutingStepDto `json:"steps" binding:"required"`
 }
 
+type PlaceDto struct {
+	ID               uint           `json:"id" binding:"required"`
+	Name             string         `json:"name" binding:"required"`
+	Location         string         `json:"location" binding:"required"`
+	Position         data.Point     `json:"position" binding:"required"`
+	FormattedAddress string         `json:"formattedAddress" binding:"required"`
+	ImageLink        string         `json:"imageLink" binding:"required"`
+	About            string         `json:"about" binding:"required"`
+	PlaceType        data.PlaceType `json:"placeType" binding:"required"`
+}
+
 type OutingStepDto struct {
 	ID           uint                `json:"id" binding:"required"`
-	Name         string              `json:"name" binding:"required"`
 	Description  string              `json:"description" binding:"required"`
-	WhereName    string              `json:"whereName" binding:"required"`
-	WherePoint   string              `json:"wherePoint" binding:"required"`
+	Place        PlaceDto            `json:"place" binding:"required"`
 	Start        time.Time           `json:"start" binding:"required"`
 	End          time.Time           `json:"end" binding:"required"`
 	Votes        []OutingStepVoteDto `json:"votes" binding:"required"`
@@ -51,10 +60,8 @@ type CreateOutingDto struct {
 
 type CreateOutingStepDto struct {
 	OutingID     uint      `json:"outingId" binding:"required"`
-	Name         string    `json:"name" binding:"required"`
+	PlaceID      uint      `json:"placeId" binding:"required"`
 	Description  string    `json:"description" binding:"required"`
-	WhereName    string    `json:"whereName" binding:"required"`
-	WherePoint   string    `json:"wherePoint" binding:"required"`
 	Start        time.Time `json:"start" binding:"required"`
 	End          time.Time `json:"end" binding:"required"`
 	VoteDeadline time.Time `json:"voteDeadline" binding:"required"`
@@ -86,13 +93,24 @@ func ToOutingStepVoteDtos(outingStepVotes []data.OutingStepVote) []OutingStepVot
 	})
 }
 
+func ToPlaceDto(place *data.Place) PlaceDto {
+	return PlaceDto{
+		ID:               place.ID,
+		Name:             place.Name,
+		Location:         place.Location,
+		Position:         place.Position,
+		FormattedAddress: place.FormattedAddress,
+		ImageLink:        place.ImageUrl,
+		About:            place.About,
+		PlaceType:        place.PlaceType,
+	}
+}
+
 func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {
 	return OutingStepDto{
 		ID:           outingStep.ID,
-		Name:         outingStep.Name,
 		Description:  outingStep.Description,
-		WhereName:    outingStep.WhereName,
-		WherePoint:   outingStep.WherePoint,
+		Place:        ToPlaceDto(outingStep.Place),
 		Start:        outingStep.Start,
 		End:          outingStep.End,
 		Votes:        ToOutingStepVoteDtos(outingStep.Votes),
@@ -216,10 +234,8 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 
 	outingStep := data.OutingStep{
 		OutingID:     outingId,
-		Name:         dto.Name,
 		Description:  dto.Description,
-		WhereName:    dto.WhereName,
-		WherePoint:   dto.WherePoint,
+		PlaceID:      dto.PlaceID,
 		Start:        dto.Start,
 		End:          dto.End,
 		VoteDeadline: dto.VoteDeadline,
@@ -227,6 +243,10 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 
 	err = ctr.Database.CreateOutingStep(&outingStep)
 	if err != nil {
+		if errors.Is(err, data.EntityNotFound) {
+			FailWithMessage(ctx, "place not found")
+			return
+		}
 		handleDbError(ctx, err)
 		return
 	}

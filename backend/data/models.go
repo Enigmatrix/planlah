@@ -1,8 +1,11 @@
 package data
 
 import (
+	"context"
 	"github.com/google/uuid"
 	"github.com/lib/pq"
+	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 	"time"
 )
 
@@ -18,6 +21,13 @@ type User struct {
 	Food           pq.Float64Array `gorm:"type:float8[]"`
 	GroupMembersAs []GroupMember
 }
+
+type PlaceType string
+
+const (
+	Attraction PlaceType = "attraction"
+	Restaurant PlaceType = "restaurant"
+)
 
 type FriendRequestStatus string
 
@@ -90,10 +100,9 @@ type OutingStep struct {
 	ID           uint      `gorm:"primarykey"`
 	OutingID     uint      `gorm:"not null"`
 	Outing       *Outing   `gorm:"foreignKey:OutingID"`
-	Name         string    `gorm:"not null"`
+	PlaceID      uint      `gorm:"not null"`
+	Place        *Place    `gorm:"foreignKey:PlaceID"`
 	Description  string    `gorm:"not null"`
-	WhereName    string    `gorm:"not null"`
-	WherePoint   string    `gorm:"not null"` // TODO find a better type, supposed to be `point`
 	Start        time.Time `gorm:"not null"`
 	End          time.Time `gorm:"not null"`
 	VoteDeadline time.Time `gorm:"not null"`
@@ -107,4 +116,37 @@ type OutingStepVote struct {
 	OutingStep    *OutingStep  `gorm:"foreignKey:OutingStepID"`
 	Vote          bool         `gorm:"not null"`
 	VotedAt       time.Time    `gorm:"not null"`
+}
+
+type Place struct {
+	ID               uint      `gorm:"primarykey"`
+	Name             string    `gorm:"not null; type:varchar(255)"`
+	Location         string    `gorm:"not null; type:varchar(255)"`
+	Position         Point     `gorm:"not null"`
+	FormattedAddress string    `gorm:"not null; type:varchar(255)"`
+	ImageUrl         string    `gorm:"not null"`
+	About            string    `gorm:"not null"`
+	PlaceType        PlaceType `gorm:"not null"`
+	// Features will not be used by us
+}
+
+type Point struct {
+	Longitude float64 `form:"longitude" uri:"longitude" json:"longitude" binding:"required"`
+	Latitude  float64 `form:"latitude" uri:"latitude" json:"latitude" binding:"required"`
+}
+
+func (loc Point) GormDataType() string {
+	return "geometry"
+}
+
+func (loc Point) GormValue(ctx context.Context, db *gorm.DB) clause.Expr {
+	return clause.Expr{
+		SQL:  "ST_MakePoint(?, ?)",
+		Vars: []interface{}{loc.Longitude, loc.Latitude},
+	}
+}
+
+// Scan implements the sql.Scanner interface
+func (loc *Point) Scan(v interface{}) error {
+	panic("unimpl")
 }

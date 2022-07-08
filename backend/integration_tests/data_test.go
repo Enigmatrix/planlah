@@ -700,6 +700,23 @@ func (s *DataIntegrationTestSuite) Test_CreateOuting_Succeeds() {
 }
 
 func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
+	place := data.Place{
+		ID:       0,
+		Name:     "placeName1",
+		Location: "placeLocation1",
+		Position: data.Point{
+			Longitude: 140,
+			Latitude:  50,
+		},
+		FormattedAddress: "placeFmtAddress1",
+		ImageUrl:         "placeImageUrl1",
+		About:            "placeAbout1",
+		PlaceType:        data.Attraction,
+	}
+	err := s.conn.Create(&place).Error
+	s.Require().NoError(err)
+	s.Require().NotEmpty(place.ID)
+
 	outing := data.Outing{
 		GroupID:     3,
 		Name:        "name1",
@@ -707,16 +724,14 @@ func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
 		Start:       time.Now(),
 		End:         time.Now().Add(time.Hour),
 	}
-	err := s.db.CreateOuting(&outing)
+	err = s.db.CreateOuting(&outing)
 	s.Require().NoError(err)
 	s.Require().NotEmpty(outing.ID)
 
 	outingStep := data.OutingStep{
 		OutingID:     outing.ID,
-		Name:         "name1",
+		PlaceID:      place.ID,
 		Description:  "description1",
-		WhereName:    "where1",
-		WherePoint:   "wherePoint1",
 		Start:        time.Now(),
 		End:          time.Now().Add(time.Hour),
 		VoteDeadline: time.Now().Add(time.Hour * 5),
@@ -726,7 +741,7 @@ func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
 	s.NotEmpty(outingStep.ID)
 }
 
-func (s *DataIntegrationTestSuite) createSampleOutingStep() data.OutingStep {
+func (s *DataIntegrationTestSuite) Test_CreateOutingStep_ThrowsEntityNotFound_WhenPlaceIsNotFound() {
 	outing := data.Outing{
 		GroupID:     3,
 		Name:        "name1",
@@ -740,10 +755,50 @@ func (s *DataIntegrationTestSuite) createSampleOutingStep() data.OutingStep {
 
 	outingStep := data.OutingStep{
 		OutingID:     outing.ID,
-		Name:         "name1",
+		PlaceID:      100, // not found
 		Description:  "description1",
-		WhereName:    "where1",
-		WherePoint:   "wherePoint1",
+		Start:        time.Now(),
+		End:          time.Now().Add(time.Hour),
+		VoteDeadline: time.Now().Add(time.Hour * 5),
+	}
+	err = s.db.CreateOutingStep(&outingStep)
+	s.ErrorIs(err, data.EntityNotFound)
+}
+
+func (s *DataIntegrationTestSuite) createSampleOutingStep() data.OutingStep {
+
+	place := data.Place{
+		ID:       0,
+		Name:     "placeName1",
+		Location: "placeLocation1",
+		Position: data.Point{
+			Longitude: 140,
+			Latitude:  50,
+		},
+		FormattedAddress: "placeFmtAddress1",
+		ImageUrl:         "placeImageUrl1",
+		About:            "placeAbout1",
+		PlaceType:        data.Attraction,
+	}
+	err := s.conn.Create(&place).Error
+	s.Require().NoError(err)
+	s.Require().NotEmpty(place.ID)
+
+	outing := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "description1",
+		Start:       time.Now(),
+		End:         time.Now().Add(time.Hour),
+	}
+	err = s.db.CreateOuting(&outing)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(outing.ID)
+
+	outingStep := data.OutingStep{
+		OutingID:     outing.ID,
+		Description:  "description1",
+		PlaceID:      place.ID,
 		Start:        time.Now(),
 		End:          time.Now().Add(time.Hour),
 		VoteDeadline: time.Now().Add(time.Hour * 5),
