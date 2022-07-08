@@ -25,7 +25,7 @@ cur.execute("CREATE TABLE places ("
             "location VARCHAR(255) NOT NULL,"
             "position geography NOT NULL,"
             "formatted_address VARCHAR(255) NOT NULL,"
-            "image_url TEXT,"
+            "image_url TEXT NOT NULL,"
             "about TEXT,"
             "place_type PLACETYPE NOT NULL,"
             "features FLOAT8[] NOT NULL);")
@@ -50,24 +50,24 @@ def calculate_food_vector(row: pd.Series):
     return calculate_feature_vector(row, get_food())
 
 
-attractions_df = pd.read_csv("AttractionsFinalDataV2.csv")
-
-
-def get_point(row):
-    if row.get("lat") == "nil":
-        return None
-    else:
-        return f"{row.get('lat')} ,{row.get('lon')}"
-
-
 # PostGis stores geography as lon, lat
 
+attractions_df = pd.read_csv("AttractionsFinalDataV2.csv")
 for i, row in attractions_df.iterrows():
     cur.execute("INSERT INTO places "
-                "(name, location, position, formatted_address, about, place_type, features)"
-                "VALUES (%s, %s, ST_MakePoint(%s, %s), %s, %s, 'attraction', %s)",
+                "(name, location, position, formatted_address, about, place_type, features, image_url)"
+                "VALUES (%s, %s, ST_MakePoint(%s, %s), %s, %s, 'attraction', %s, %s)",
                 (row.get("name"), row.get("location"), row.get('lon'), row.get('lat'), row.get("formatted_address"),
-                 row.get("about"), calculate_attraction_vector(row)))
+                 row.get("about"), calculate_attraction_vector(row), row.get('image')))
+
+restaurants_df = pd.read_csv("RestaurantFinalDataV2.csv")
+for i, row in restaurants_df.iterrows():
+    cur.execute("INSERT INTO places "
+                "(name, location, position, formatted_address, about, place_type, features, image_url)"
+                "VALUES (%s, %s, ST_MakePoint(%s, %s), %s, %s, 'restaurant', %s, %s)",
+                (row.get("name"), row.get("location"), row.get("lon"), row.get("lat"), row.get("formatted_address"),
+                 row.get("about"), calculate_food_vector(row), row.get('image')))
+
 
 conn.commit()
 conn.close()
