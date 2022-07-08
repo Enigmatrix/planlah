@@ -105,6 +105,7 @@ type OutingStep struct {
 	PlaceID      uint      `gorm:"not null"`
 	Place        *Place    `gorm:"foreignKey:PlaceID"`
 	Description  string    `gorm:"not null"`
+	Approved     bool      `gorm:"not null"`
 	Start        time.Time `gorm:"not null"`
 	End          time.Time `gorm:"not null"`
 	VoteDeadline time.Time `gorm:"not null"`

@@ -17,7 +17,7 @@ type SearchForPlacesDto struct {
 }
 
 type RecommendPlacesDto struct {
-	data.Place
+	data.Point
 	PlaceType data.PlaceType `json:"placeType" binding:"required"`
 }
 
@@ -54,6 +54,7 @@ func ToPlaceDtos(places []data.Place) []PlaceDto {
 // Search godoc
 // @Summary Search for places
 // @Description Search for places given the name
+// @Description Increment the {page} variable to view the next (by default 10) users.
 // @Param query query SearchForPlacesDto true "body"
 // @Tags Places
 // @Success 200 {object} []PlaceDto
