@@ -57,7 +57,7 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 			return nil, errors.Annotate(err, "opening db")
 		}
 
-		err = db.Exec(`CREATE EXTENSION postgis;`).Error
+		err = db.Exec(`CREATE EXTENSION IF NOT EXISTS postgis;`).Error
 		if err != nil {
 			return nil, errors.Annotate(err, "use postgis extension")
 		}
@@ -924,4 +924,20 @@ func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, 
 
 	_, err = db.AddUserToGroup(userId, invite.GroupID)
 	return invite, errors.Trace(err)
+}
+
+func (db *Database) SearchForPlaces(query string, page uint) ([]Place, error) {
+	var places []Place
+	err := db.conn.Model(&Place{}).
+		Select("id, name, location, ST_AsText(position) AS position, formatted_address, image_url, about, place_type").
+		Where("name like '%' || ? || '%'", query).
+		Order("name asc").
+		Limit(int(pageCount)).
+		Offset(int(page * pageCount)).
+		Find(&places).
+		Error
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return places, nil
 }

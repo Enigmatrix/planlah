@@ -75,6 +75,7 @@ func NewServer(
 	outings routes.OutingController,
 	misc routes.MiscController,
 	friends routes.FriendsController,
+	places routes.PlacesController,
 	logger *zap.Logger,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 
@@ -111,6 +112,7 @@ func NewServer(
 		messages.Register(api)
 		outings.Register(api)
 		friends.Register(api)
+		places.Register(api)
 	}
 
 	// serve websocket in goroutine.

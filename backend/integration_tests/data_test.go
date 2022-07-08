@@ -1431,3 +1431,55 @@ func (s *DataIntegrationTestSuite) Test_ListFriends_Success() {
 }
 
 // TODO tests for IsFriends
+
+func (s *DataIntegrationTestSuite) Test_SearchForPlaces_Succeeds() {
+	place := data.Place{
+		ID:       0,
+		Name:     "placeName1",
+		Location: "placeLocation1",
+		Position: data.Point{
+			Longitude: 140.5367,
+			Latitude:  50.1234,
+		},
+		FormattedAddress: "placeFmtAddress1",
+		ImageUrl:         "placeImageUrl1",
+		About:            "placeAbout1",
+		PlaceType:        data.Attraction,
+	}
+	err := s.conn.Create(&place).Error
+	s.Require().NoError(err)
+	s.Require().NotEmpty(place.ID)
+
+	place1 := data.Place{
+		ID:       0,
+		Name:     "placeName2",
+		Location: "placeLocation1",
+		Position: data.Point{
+			Longitude: 120.89333,
+			Latitude:  50.1299,
+		},
+		FormattedAddress: "placeFmtAddress1",
+		ImageUrl:         "placeImageUrl1",
+		About:            "placeAbout1",
+		PlaceType:        data.Attraction,
+	}
+	err = s.conn.Create(&place1).Error
+	s.Require().NoError(err)
+	s.Require().NotEmpty(place.ID)
+
+	places, err := s.db.SearchForPlaces("place", 0)
+	s.NoError(err)
+	s.Len(places, 2)
+	s.Equal(data.Point{
+		Longitude: 140.5367,
+		Latitude:  50.1234,
+	}, places[0].Position)
+	s.Equal(data.Point{
+		Longitude: 120.89333,
+		Latitude:  50.1299,
+	}, places[1].Position)
+
+	places, err = s.db.SearchForPlaces("2", 0)
+	s.NoError(err)
+	s.Len(places, 1)
+}
