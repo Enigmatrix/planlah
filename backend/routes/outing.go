@@ -24,17 +24,6 @@ type OutingDto struct {
 	Steps       []OutingStepDto `json:"steps" binding:"required"`
 }
 
-type PlaceDto struct {
-	ID               uint           `json:"id" binding:"required"`
-	Name             string         `json:"name" binding:"required"`
-	Location         string         `json:"location" binding:"required"`
-	Position         data.Point     `json:"position" binding:"required"`
-	FormattedAddress string         `json:"formattedAddress" binding:"required"`
-	ImageLink        string         `json:"imageLink" binding:"required"`
-	About            string         `json:"about" binding:"required"`
-	PlaceType        data.PlaceType `json:"placeType" binding:"required"`
-}
-
 type OutingStepDto struct {
 	ID           uint                `json:"id" binding:"required"`
 	Description  string              `json:"description" binding:"required"`
@@ -91,19 +80,6 @@ func ToOutingStepVoteDtos(outingStepVotes []data.OutingStepVote) []OutingStepVot
 	return lo.Map(outingStepVotes, func(outingStepVote data.OutingStepVote, _ int) OutingStepVoteDto {
 		return ToOutingStepVoteDto(outingStepVote)
 	})
-}
-
-func ToPlaceDto(place *data.Place) PlaceDto {
-	return PlaceDto{
-		ID:               place.ID,
-		Name:             place.Name,
-		Location:         place.Location,
-		Position:         place.Position,
-		FormattedAddress: place.FormattedAddress,
-		ImageLink:        place.ImageUrl,
-		About:            place.About,
-		PlaceType:        place.PlaceType,
-	}
 }
 
 func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {

@@ -2,7 +2,9 @@ package data
 
 import (
 	"context"
+	"fmt"
 	"github.com/google/uuid"
+	"github.com/juju/errors"
 	"github.com/lib/pq"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
@@ -148,5 +150,16 @@ func (loc Point) GormValue(ctx context.Context, db *gorm.DB) clause.Expr {
 
 // Scan implements the sql.Scanner interface
 func (loc *Point) Scan(v interface{}) error {
-	panic("unimpl")
+	pointText, ok := v.(string)
+	if !ok {
+		return errors.New("parse column as string")
+	}
+	n, err := fmt.Sscanf(pointText, "POINT(%f %f)", &loc.Longitude, &loc.Latitude)
+	if err != nil {
+		return errors.Annotate(err, "scanning in POINT format")
+	}
+	if n != 2 {
+		return errors.New("not enough valid scans")
+	}
+	return nil
 }
