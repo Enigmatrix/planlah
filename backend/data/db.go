@@ -57,6 +57,11 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 			return nil, errors.Annotate(err, "opening db")
 		}
 
+		err = db.Exec(`CREATE EXTENSION postgis;`).Error
+		if err != nil {
+			return nil, errors.Annotate(err, "use postgis extension")
+		}
+
 		err = db.Exec(`drop type if exists friend_request_status;
 			create type friend_request_status as enum('approved', 'pending', 'rejected');`).Error
 		if err != nil {
@@ -64,7 +69,18 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 		}
 
 		// add tables here
-		models := []interface{}{&User{}, &FriendRequest{}, &Group{}, &GroupInvite{}, &GroupMember{}, &Message{}, &Outing{}, &OutingStep{}, &OutingStepVote{}}
+		models := []interface{}{
+			&User{},
+			&FriendRequest{},
+			&Group{},
+			&Place{},
+			&GroupInvite{},
+			&GroupMember{},
+			&Message{},
+			&Outing{},
+			&OutingStep{},
+			&OutingStepVote{},
+		}
 
 		// Neat trick to migrate models with complex relationships, run auto migrations once
 		// with DisableForeignKeyConstraintWhenMigrating=true to create the tables without relationships,
@@ -727,8 +743,17 @@ func (db *Database) CreateOuting(outing *Outing) error {
 }
 
 // CreateOutingStep Creates an OutingStep
+//
+// Throws EntityNotFound when the Place referred to by PlaceID is not found
 func (db *Database) CreateOutingStep(outingStep *OutingStep) error {
-	return errors.Trace(db.conn.Create(outingStep).Error)
+	err := db.conn.Create(outingStep).Error
+	if err != nil {
+		if fkViolation(err, "fk_outing_steps_place") {
+			return EntityNotFound
+		}
+		return errors.Trace(err)
+	}
+	return nil
 }
 
 // UpsertOutingStepVote Vote for an OutingStep
