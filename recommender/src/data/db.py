@@ -16,7 +16,6 @@ url = f"host={host} user={user} password={password}"
 conn = psycopg2.connect(url)
 
 cur = conn.cursor()
-cur.execute("CREATE EXTENSION postgis;")
 cur.execute("DROP TABLE IF EXISTS places;")
 cur.execute("DROP TYPE IF EXISTS PLACETYPE")
 cur.execute("CREATE TYPE PLACETYPE AS ENUM('attraction', 'restaurant')")
@@ -51,7 +50,8 @@ def calculate_food_vector(row: pd.Series):
     return calculate_feature_vector(row, get_food())
 
 
-attractions_df = pd.read_csv("AttractionsFinalData.csv")
+attractions_df = pd.read_csv("AttractionsFinalDataV2.csv")
+
 
 def get_point(row):
     if row.get("lat") == "nil":
@@ -59,11 +59,14 @@ def get_point(row):
     else:
         return f"{row.get('lat')} ,{row.get('lon')}"
 
+
+# PostGis stores geography as lon, lat
+
 for i, row in attractions_df.iterrows():
     cur.execute("INSERT INTO places "
                 "(name, location, position, formatted_address, about, place_type, features)"
-                "VALUES (%s, %s, ST_MakePoint(%s), %s, %s, 'attraction', %s)",
-                (row.get("name"), row.get("location"), get_point(row), row.get("formatted_address"),
+                "VALUES (%s, %s, ST_MakePoint(%s, %s), %s, %s, 'attraction', %s)",
+                (row.get("name"), row.get("location"), row.get('lon'), row.get('lat'), row.get("formatted_address"),
                  row.get("about"), calculate_attraction_vector(row)))
 
 conn.commit()
