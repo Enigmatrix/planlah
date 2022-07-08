@@ -25,7 +25,8 @@ def get_user(userid):
 
 def filter_places(place_type: str, lon: str, lat: str):
     """
-    Refer to https://postgis.net/workshops/postgis-intro/geography.html
+    Refer to https://postgis.net/workshops/postgis-intro/geography.html.
+    Our filter radius is 2km or 2000m.
     """
     conn = get_db_connection()
     cur = conn.cursor()
