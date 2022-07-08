@@ -5,7 +5,6 @@ import (
 	"github.com/samber/lo"
 	"net/http"
 	"planlah.sg/backend/data"
-	"time"
 )
 
 type PlacesController struct {
@@ -19,7 +18,7 @@ type SearchForPlacesDto struct {
 
 type RecommendPlacesDto struct {
 	data.Place
-	Time time.Time `uri:"time" binding:"required"`
+	PlaceType data.PlaceType `json:"placeType" binding:"required"`
 }
 
 type PlaceDto struct {
