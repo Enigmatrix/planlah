@@ -19,6 +19,22 @@ type User struct {
 	GroupMembersAs []GroupMember
 }
 
+type FriendRequestStatus string
+
+const (
+	Approved FriendRequestStatus = "approved"
+	Rejected FriendRequestStatus = "rejected"
+	Pending  FriendRequestStatus = "pending"
+)
+
+type FriendRequest struct {
+	FromID uint                `gorm:"primarykey"`
+	From   *User               `gorm:"foreignKey:FromID"`
+	ToID   uint                `gorm:"primarykey"`
+	To     *User               `gorm:"foreignKey:ToID"`
+	Status FriendRequestStatus `sql:"type:friend_request_status"`
+}
+
 type Group struct {
 	ID             uint         `gorm:"primarykey"`
 	Name           string       `gorm:"not null"`
@@ -26,6 +42,7 @@ type Group struct {
 	ImageLink      string       `gorm:"not null"`
 	OwnerID        uint         // this will be null when the Group is created, then updated instantly
 	Owner          *GroupMember `gorm:"foreignKey:OwnerID"`
+	IsDM           bool         `gorm:"not null"`
 	ActiveOutingID uint         // this will be null when there is no active outing
 	ActiveOuting   *Outing      `gorm:"foreignKey:ActiveOutingID"`
 	GroupMembers   []GroupMember
