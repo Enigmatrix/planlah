@@ -15,18 +15,22 @@ type OutingController struct {
 }
 
 type OutingDto struct {
-	ID          uint            `json:"id" binding:"required"`
-	Name        string          `json:"name" binding:"required"`
-	Description string          `json:"description" binding:"required"`
-	GroupID     uint            `json:"groupId" binding:"required"`
-	Start       time.Time       `json:"start" binding:"required"`
-	End         time.Time       `json:"end" binding:"required"`
-	Steps       []OutingStepDto `json:"steps" binding:"required"`
+	ID          uint      `json:"id" binding:"required"`
+	Name        string    `json:"name" binding:"required"`
+	Description string    `json:"description" binding:"required"`
+	GroupID     uint      `json:"groupId" binding:"required"`
+	Start       time.Time `json:"start" binding:"required"`
+	End         time.Time `json:"end" binding:"required"`
+	// Array of Conflicting Steps (in terms of time). If there is no conflict for a step,
+	// then it becomes an array of that singular step among these arrays of steps.
+	// See: https://github.com/Enigmatrix/planlah/issues/55#issuecomment-1179307936
+	Steps [][]OutingStepDto `json:"steps" binding:"required"`
 }
 
 type OutingStepDto struct {
 	ID           uint                `json:"id" binding:"required"`
 	Description  string              `json:"description" binding:"required"`
+	Approved     bool                `json:"approved" binding:"required"`
 	Place        PlaceDto            `json:"place" binding:"required"`
 	Start        time.Time           `json:"start" binding:"required"`
 	End          time.Time           `json:"end" binding:"required"`
@@ -86,6 +90,7 @@ func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {
 	return OutingStepDto{
 		ID:           outingStep.ID,
 		Description:  outingStep.Description,
+		Approved:     outingStep.Approved,
 		Place:        ToPlaceDto(outingStep.Place),
 		Start:        outingStep.Start,
 		End:          outingStep.End,
@@ -94,10 +99,33 @@ func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {
 	}
 }
 
-func ToOutingStepDtos(outingSteps []data.OutingStep) []OutingStepDto {
-	return lo.Map(outingSteps, func(outingStep data.OutingStep, _ int) OutingStepDto {
+func CollideWith(steps []OutingStepDto, test OutingStepDto) bool {
+	return lo.SomeBy(steps, func(step OutingStepDto) bool {
+		return step.Start.Before(test.End) || step.End.After(test.Start)
+	})
+}
+
+func ToOutingStepDtos(outingSteps []data.OutingStep) [][]OutingStepDto {
+	steps := lo.Map(outingSteps, func(outingStep data.OutingStep, _ int) OutingStepDto {
 		return ToOutingStepDto(outingStep)
 	})
+
+	// O(n^3) algo, but not like ppl will have so many OutingSteps
+	allSteps := make([][]OutingStepDto, 0)
+	for _, step := range steps {
+		added := false
+		for _, existing := range allSteps {
+			if CollideWith(existing, step) {
+				existing = append(existing, step)
+				added = true
+				break
+			}
+		}
+		if !added {
+			allSteps = append(allSteps, []OutingStepDto{step})
+		}
+	}
+	return allSteps
 }
 
 func ToOutingDto(outing data.Outing) OutingDto {
@@ -213,6 +241,7 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 		Description:  dto.Description,
 		PlaceID:      dto.PlaceID,
 		Start:        dto.Start,
+		Approved:     false,
 		End:          dto.End,
 		VoteDeadline: dto.VoteDeadline,
 	}

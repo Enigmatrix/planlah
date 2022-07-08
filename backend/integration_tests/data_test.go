@@ -731,6 +731,7 @@ func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
 	outingStep := data.OutingStep{
 		OutingID:     outing.ID,
 		PlaceID:      place.ID,
+		Approved:     true,
 		Description:  "description1",
 		Start:        time.Now(),
 		End:          time.Now().Add(time.Hour),
@@ -756,6 +757,7 @@ func (s *DataIntegrationTestSuite) Test_CreateOutingStep_ThrowsEntityNotFound_Wh
 	outingStep := data.OutingStep{
 		OutingID:     outing.ID,
 		PlaceID:      100, // not found
+		Approved:     true,
 		Description:  "description1",
 		Start:        time.Now(),
 		End:          time.Now().Add(time.Hour),
@@ -799,6 +801,7 @@ func (s *DataIntegrationTestSuite) createSampleOutingStep() data.OutingStep {
 		OutingID:     outing.ID,
 		Description:  "description1",
 		PlaceID:      place.ID,
+		Approved:     true,
 		Start:        time.Now(),
 		End:          time.Now().Add(time.Hour),
 		VoteDeadline: time.Now().Add(time.Hour * 5),
