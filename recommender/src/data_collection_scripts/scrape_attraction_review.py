@@ -10,7 +10,7 @@ browser = Chrome()
 results = []
 error_logs = []
 
-with open("src/data/attraction_review_links.txt", "r") as f:
+with open("src/data_collection_scripts/attraction_review_links.txt", "r") as f:
     for idx, url in enumerate(f.readlines()):
         url = url[:-1]
         print(f"{idx}. {url=}")

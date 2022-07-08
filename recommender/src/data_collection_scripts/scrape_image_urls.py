@@ -20,7 +20,7 @@ results = []
 error_logs = []
 
 # RestaurantFinalData is a subset of restaurant review links. Therefore, advance to the next line in restaurant final
-# data until we obtain the corresponding review link, then we scrape the network image.
+# data_collection_scripts until we obtain the corresponding review link, then we scrape the network image.
 
 df = pd.read_csv("RestaurantFinalData2.csv")
 headers = {"User-Agent": "Mozilla/5.0 (X11; CrOS x86_64 12871.102.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.141 Safari/537.36"}

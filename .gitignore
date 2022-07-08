@@ -1,14 +1,5 @@
 
-.idea/modules.xml
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
-*.iml
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
+.idea
 *.xml
-backend/.idea/workspace.xml
-recommender/src/.DS_Store
 .DS_Store
-recommender/src/data/.env
+.env

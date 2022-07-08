@@ -52,7 +52,7 @@ def calculate_food_vector(row: pd.Series):
 
 # PostGis stores geography as lon, lat
 
-attractions_df = pd.read_csv("AttractionsFinalDataV2.csv")
+attractions_df = pd.read_csv("data_collection_scripts/AttractionsFinalDataV2.csv")
 for i, row in attractions_df.iterrows():
     cur.execute("INSERT INTO places "
                 "(name, location, position, formatted_address, about, place_type, features, image_url)"
@@ -60,7 +60,7 @@ for i, row in attractions_df.iterrows():
                 (row.get("name"), row.get("location"), row.get('lon'), row.get('lat'), row.get("formatted_address"),
                  row.get("about"), calculate_attraction_vector(row), row.get('image')))
 
-restaurants_df = pd.read_csv("RestaurantFinalDataV2.csv")
+restaurants_df = pd.read_csv("data_collection_scripts/RestaurantFinalDataV2.csv")
 for i, row in restaurants_df.iterrows():
     cur.execute("INSERT INTO places "
                 "(name, location, position, formatted_address, about, place_type, features, image_url)"
