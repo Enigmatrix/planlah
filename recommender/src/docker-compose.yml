@@ -1,8 +1,0 @@
-version: "3.8"
-services:
-  recommender:
-    build: .
-    ports:
-      - "5003:5000"
-    volumes:
-      - .:/recommender

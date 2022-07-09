@@ -23,13 +23,11 @@ def recommend():
     and the places feature vector.
     Then we sort and return top 5.
     """
-    print("Endpoint called...")
     userid = request.args.get("userid")
     lon = request.args.get("lon")
     lat = request.args.get("lat")
     place_type = request.args.get("place_type")
     user = get_user(userid)
-    print(user)
     if user is None:
         return Response(status=HTTPStatus.BAD_REQUEST, response="user does not exist")
 
@@ -47,11 +45,9 @@ def recommend():
         "results": [idx for idx, _ in places[:TOP_K]]
     }
     # TODO: return the actual response after done debugging tomorrow
-    return results
-    # return Response(status=HTTPStatus.OK, response=results)
+    return Response(status=HTTPStatus.OK, response=results)
 
 
 if __name__ == '__main__':
     init_db.main()
-    print("Running......................")
     recommender.run(host="0.0.0.0")
