@@ -805,7 +805,7 @@ func (db *Database) GetOutingWithSteps(outingId uint) (Outing, error) {
 	var outing Outing
 	err := db.conn.Where(&Outing{ID: outingId}).
 		Preload("Steps").
-		Preload("Steps.Place").
+		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
 		First(&outing).
 		Error
@@ -861,7 +861,7 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	err := db.conn.Model(&Outing{}).
 		Where("group_id = ?", groupId).
 		Preload("Steps").
-		Preload("Steps.Place").
+		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
 		Find(&outings).
 		Error
@@ -901,7 +901,7 @@ func (db *Database) GetActiveOuting(groupId uint) (*Outing, error) {
 	var outing Outing
 	err := db.conn.Model(&Outing{}).
 		Preload("Steps").
-		Preload("Steps.Place").
+		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
 		Where("id = (select active_outing_id from groups where id = ?)", groupId).
 		First(&outing).
@@ -973,10 +973,13 @@ func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, 
 	return invite, errors.Trace(err)
 }
 
+func SelectPlaces(tx *gorm.DB) *gorm.DB {
+	return tx.Select("id, name, location, ST_AsText(position) AS position, formatted_address, image_url, about, place_type")
+}
+
 func (db *Database) SearchForPlaces(query string, page uint) ([]Place, error) {
 	var places []Place
-	err := db.conn.Model(&Place{}).
-		Select("id, name, location, ST_AsText(position) AS position, formatted_address, image_url, about, place_type").
+	err := SelectPlaces(db.conn.Model(&Place{})).
 		Where("name like '%' || ? || '%'", query).
 		Order("name asc").
 		Limit(int(pageCount)).
