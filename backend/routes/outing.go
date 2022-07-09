@@ -1,8 +1,10 @@
 package routes
 
 import (
+	"fmt"
 	"github.com/juju/errors"
 	"net/http"
+	"planlah.sg/backend/jobs"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -12,24 +14,28 @@ import (
 
 type OutingController struct {
 	BaseController
+	JobRunner *jobs.Runner
 }
 
 type OutingDto struct {
-	ID          uint            `json:"id" binding:"required"`
-	Name        string          `json:"name" binding:"required"`
-	Description string          `json:"description" binding:"required"`
-	GroupID     uint            `json:"groupId" binding:"required"`
-	Start       time.Time       `json:"start" binding:"required"`
-	End         time.Time       `json:"end" binding:"required"`
-	Steps       []OutingStepDto `json:"steps" binding:"required"`
+	ID          uint      `json:"id" binding:"required"`
+	Name        string    `json:"name" binding:"required"`
+	Description string    `json:"description" binding:"required"`
+	GroupID     uint      `json:"groupId" binding:"required"`
+	Start       time.Time `json:"start" binding:"required"`
+	End         time.Time `json:"end" binding:"required"`
+	// Array of Conflicting Steps (in terms of start-end conflicts).
+	// If there is no conflict for a step, then it becomes an array of
+	// that singular step among these arrays of steps.
+	// See: https://github.com/Enigmatrix/planlah/issues/55#issuecomment-1179307936
+	Steps [][]OutingStepDto `json:"steps" binding:"required"`
 }
 
 type OutingStepDto struct {
 	ID           uint                `json:"id" binding:"required"`
-	Name         string              `json:"name" binding:"required"`
 	Description  string              `json:"description" binding:"required"`
-	WhereName    string              `json:"whereName" binding:"required"`
-	WherePoint   string              `json:"wherePoint" binding:"required"`
+	Approved     bool                `json:"approved" binding:"required"`
+	Place        PlaceDto            `json:"place" binding:"required"`
 	Start        time.Time           `json:"start" binding:"required"`
 	End          time.Time           `json:"end" binding:"required"`
 	Votes        []OutingStepVoteDto `json:"votes" binding:"required"`
@@ -46,17 +52,15 @@ type CreateOutingDto struct {
 	Description string    `json:"description" binding:"required"`
 	GroupID     uint      `json:"groupId" binding:"required"`
 	Start       time.Time `json:"start" binding:"required"`
-	End         time.Time `json:"end" binding:"required"`
+	End         time.Time `json:"end" binding:"required,gtfield=Start"`
 }
 
 type CreateOutingStepDto struct {
 	OutingID     uint      `json:"outingId" binding:"required"`
-	Name         string    `json:"name" binding:"required"`
+	PlaceID      uint      `json:"placeId" binding:"required"`
 	Description  string    `json:"description" binding:"required"`
-	WhereName    string    `json:"whereName" binding:"required"`
-	WherePoint   string    `json:"wherePoint" binding:"required"`
 	Start        time.Time `json:"start" binding:"required"`
-	End          time.Time `json:"end" binding:"required"`
+	End          time.Time `json:"end" binding:"required,gtfield=Start"`
 	VoteDeadline time.Time `json:"voteDeadline" binding:"required"`
 }
 
@@ -89,10 +93,9 @@ func ToOutingStepVoteDtos(outingStepVotes []data.OutingStepVote) []OutingStepVot
 func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {
 	return OutingStepDto{
 		ID:           outingStep.ID,
-		Name:         outingStep.Name,
 		Description:  outingStep.Description,
-		WhereName:    outingStep.WhereName,
-		WherePoint:   outingStep.WherePoint,
+		Approved:     outingStep.Approved,
+		Place:        ToPlaceDto(outingStep.Place),
 		Start:        outingStep.Start,
 		End:          outingStep.End,
 		Votes:        ToOutingStepVoteDtos(outingStep.Votes),
@@ -100,9 +103,13 @@ func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {
 	}
 }
 
-func ToOutingStepDtos(outingSteps []data.OutingStep) []OutingStepDto {
-	return lo.Map(outingSteps, func(outingStep data.OutingStep, _ int) OutingStepDto {
-		return ToOutingStepDto(outingStep)
+func ToOutingStepDtos(outingSteps []data.OutingStep) [][]OutingStepDto {
+	colliding := jobs.CollidingOutingSteps(outingSteps)
+
+	return lo.Map(colliding, func(collideSet []data.OutingStep, _ int) []OutingStepDto {
+		return lo.Map(outingSteps, func(outingStep data.OutingStep, _ int) OutingStepDto {
+			return ToOutingStepDto(outingStep)
+		})
 	})
 }
 
@@ -124,7 +131,7 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 	})
 }
 
-// Create godoc
+// CreateOuting godoc
 // @Summary Create a new Outing
 // @Description Create a new Outing plan
 // @Param body body CreateOutingDto true "Initial details of Outing"
@@ -134,7 +141,7 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} services.AuthError
 // @Router /api/outing/create [post]
-func (ctr *OutingController) Create(ctx *gin.Context) {
+func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 	var dto CreateOutingDto
 	if Body(ctx, &dto) {
 		return
@@ -185,8 +192,8 @@ func (ctr *OutingController) Create(ctx *gin.Context) {
 }
 
 // CreateStep godoc
-// @Summary Create an Outing Step
-// @Description Create an Outing Step
+// @Summary CreateOuting an Outing Step
+// @Description CreateOuting an Outing Step
 // @Param body body CreateOutingStepDto true "Details for Outing Step"
 // @Tags Outing
 // @Security JWT
@@ -214,20 +221,45 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 		return
 	}
 
+	if outing.Start.After(dto.Start) || outing.End.Before(dto.End) {
+		FailWithMessage(ctx, "outing step has invalid start and end (not within outing)")
+		return
+	}
+
+	// round the time to nearest minute
+	dto.VoteDeadline = dto.VoteDeadline.Round(time.Minute)
+
+	if time.Now().After(dto.VoteDeadline) || outing.Start.After(dto.VoteDeadline) {
+		FailWithMessage(ctx, fmt.Sprintf("outing step has invalid voteDeadline (%s)", dto.VoteDeadline))
+		return
+	}
+
 	outingStep := data.OutingStep{
 		OutingID:     outingId,
-		Name:         dto.Name,
 		Description:  dto.Description,
-		WhereName:    dto.WhereName,
-		WherePoint:   dto.WherePoint,
+		PlaceID:      dto.PlaceID,
 		Start:        dto.Start,
+		Approved:     false,
 		End:          dto.End,
 		VoteDeadline: dto.VoteDeadline,
 	}
 
 	err = ctr.Database.CreateOutingStep(&outingStep)
 	if err != nil {
+		if errors.Is(err, data.EntityNotFound) {
+			FailWithMessage(ctx, "place not found")
+			return
+		}
 		handleDbError(ctx, err)
+		return
+	}
+
+	err = ctr.JobRunner.QueueVoteDeadlineJob(outingStep.VoteDeadline, jobs.VoteDeadlineJobArgs{
+		OutingStepId: outingStep.ID,
+		OutingId:     outingStep.OutingID,
+	})
+	if err != nil {
+		// TODO how to handle
 		return
 	}
 
@@ -350,7 +382,7 @@ func (ctr *OutingController) Vote(ctx *gin.Context) {
 // Register the routes for this controller
 func (ctr *OutingController) Register(router *gin.RouterGroup) {
 	group := router.Group("outing")
-	group.POST("create", ctr.Create)
+	group.POST("create", ctr.CreateOuting)
 	group.POST("create_step", ctr.CreateStep)
 	group.GET("all", ctr.Get)
 	group.GET("active", ctr.GetActive)

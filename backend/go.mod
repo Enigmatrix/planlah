@@ -30,6 +30,7 @@ require (
 	cloud.google.com/go/firestore v1.6.1 // indirect
 	cloud.google.com/go/iam v0.1.1 // indirect
 	github.com/KyleBanks/depth v1.2.1 // indirect
+	github.com/btubbs/pgq v0.0.0-20190101193147-0a3335913e86 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-contrib/zap v0.0.2 // indirect
@@ -47,6 +48,7 @@ require (
 	github.com/google/go-cmp v0.5.8 // indirect
 	github.com/googleapis/gax-go/v2 v2.1.1 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/guregu/null v4.0.0+incompatible // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgio v1.0.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
@@ -56,15 +58,19 @@ require (
 	github.com/jackc/pgx/v4 v4.16.1 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/jmoiron/sqlx v1.3.5 // indirect
+	github.com/joomcode/errorx v1.1.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/juju/errors v0.0.0-20220622220526-54a94488269b // indirect
+	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/sirupsen/logrus v1.4.2 // indirect
 	github.com/stretchr/objx v0.4.0 // indirect
 	github.com/stretchr/testify v1.8.0 // indirect
 	github.com/ugorji/go/codec v1.2.7 // indirect

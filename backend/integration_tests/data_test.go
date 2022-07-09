@@ -700,6 +700,23 @@ func (s *DataIntegrationTestSuite) Test_CreateOuting_Succeeds() {
 }
 
 func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
+	place := data.Place{
+		ID:       0,
+		Name:     "placeName1",
+		Location: "placeLocation1",
+		Position: data.Point{
+			Longitude: 140,
+			Latitude:  50,
+		},
+		FormattedAddress: "placeFmtAddress1",
+		ImageUrl:         "placeImageUrl1",
+		About:            "placeAbout1",
+		PlaceType:        data.Attraction,
+	}
+	err := s.conn.Create(&place).Error
+	s.Require().NoError(err)
+	s.Require().NotEmpty(place.ID)
+
 	outing := data.Outing{
 		GroupID:     3,
 		Name:        "name1",
@@ -707,16 +724,15 @@ func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
 		Start:       time.Now(),
 		End:         time.Now().Add(time.Hour),
 	}
-	err := s.db.CreateOuting(&outing)
+	err = s.db.CreateOuting(&outing)
 	s.Require().NoError(err)
 	s.Require().NotEmpty(outing.ID)
 
 	outingStep := data.OutingStep{
 		OutingID:     outing.ID,
-		Name:         "name1",
+		PlaceID:      place.ID,
+		Approved:     true,
 		Description:  "description1",
-		WhereName:    "where1",
-		WherePoint:   "wherePoint1",
 		Start:        time.Now(),
 		End:          time.Now().Add(time.Hour),
 		VoteDeadline: time.Now().Add(time.Hour * 5),
@@ -726,7 +742,7 @@ func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
 	s.NotEmpty(outingStep.ID)
 }
 
-func (s *DataIntegrationTestSuite) createSampleOutingStep() data.OutingStep {
+func (s *DataIntegrationTestSuite) Test_CreateOutingStep_ThrowsEntityNotFound_WhenPlaceIsNotFound() {
 	outing := data.Outing{
 		GroupID:     3,
 		Name:        "name1",
@@ -740,10 +756,52 @@ func (s *DataIntegrationTestSuite) createSampleOutingStep() data.OutingStep {
 
 	outingStep := data.OutingStep{
 		OutingID:     outing.ID,
-		Name:         "name1",
+		PlaceID:      100, // not found
+		Approved:     true,
 		Description:  "description1",
-		WhereName:    "where1",
-		WherePoint:   "wherePoint1",
+		Start:        time.Now(),
+		End:          time.Now().Add(time.Hour),
+		VoteDeadline: time.Now().Add(time.Hour * 5),
+	}
+	err = s.db.CreateOutingStep(&outingStep)
+	s.ErrorIs(err, data.EntityNotFound)
+}
+
+func (s *DataIntegrationTestSuite) createSampleOutingStep() data.OutingStep {
+
+	place := data.Place{
+		ID:       0,
+		Name:     "placeName1",
+		Location: "placeLocation1",
+		Position: data.Point{
+			Longitude: 140,
+			Latitude:  50,
+		},
+		FormattedAddress: "placeFmtAddress1",
+		ImageUrl:         "placeImageUrl1",
+		About:            "placeAbout1",
+		PlaceType:        data.Attraction,
+	}
+	err := s.conn.Create(&place).Error
+	s.Require().NoError(err)
+	s.Require().NotEmpty(place.ID)
+
+	outing := data.Outing{
+		GroupID:     3,
+		Name:        "name1",
+		Description: "description1",
+		Start:       time.Now(),
+		End:         time.Now().Add(time.Hour),
+	}
+	err = s.db.CreateOuting(&outing)
+	s.Require().NoError(err)
+	s.Require().NotEmpty(outing.ID)
+
+	outingStep := data.OutingStep{
+		OutingID:     outing.ID,
+		Description:  "description1",
+		PlaceID:      place.ID,
+		Approved:     true,
 		Start:        time.Now(),
 		End:          time.Now().Add(time.Hour),
 		VoteDeadline: time.Now().Add(time.Hour * 5),
@@ -1376,3 +1434,59 @@ func (s *DataIntegrationTestSuite) Test_ListFriends_Success() {
 }
 
 // TODO tests for IsFriends
+
+func (s *DataIntegrationTestSuite) Test_SearchForPlaces_Succeeds() {
+	place := data.Place{
+		ID:       0,
+		Name:     "placeName1",
+		Location: "placeLocation1",
+		Position: data.Point{
+			Longitude: 140.5367,
+			Latitude:  50.1234,
+		},
+		FormattedAddress: "placeFmtAddress1",
+		ImageUrl:         "placeImageUrl1",
+		About:            "placeAbout1",
+		PlaceType:        data.Attraction,
+	}
+	err := s.conn.Create(&place).Error
+	s.Require().NoError(err)
+	s.Require().NotEmpty(place.ID)
+
+	place1 := data.Place{
+		ID:       0,
+		Name:     "placeName2",
+		Location: "placeLocation1",
+		Position: data.Point{
+			Longitude: 120.89333,
+			Latitude:  50.1299,
+		},
+		FormattedAddress: "placeFmtAddress1",
+		ImageUrl:         "placeImageUrl1",
+		About:            "placeAbout1",
+		PlaceType:        data.Attraction,
+	}
+	err = s.conn.Create(&place1).Error
+	s.Require().NoError(err)
+	s.Require().NotEmpty(place.ID)
+
+	places, err := s.db.SearchForPlaces("place", 0)
+	s.NoError(err)
+	s.Len(places, 2)
+	s.Equal(data.Point{
+		Longitude: 140.5367,
+		Latitude:  50.1234,
+	}, places[0].Position)
+	s.Equal(data.Point{
+		Longitude: 120.89333,
+		Latitude:  50.1299,
+	}, places[1].Position)
+
+	places, err = s.db.SearchForPlaces("2", 0)
+	s.NoError(err)
+	s.Len(places, 1)
+}
+
+// TODO add more tests for ApproveOutingStep
+// TODO add more tests for DeleteOutingSteps
+// TODO add more tests for DeleteOutingStep

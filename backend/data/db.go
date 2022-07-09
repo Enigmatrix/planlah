@@ -57,6 +57,11 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 			return nil, errors.Annotate(err, "opening db")
 		}
 
+		err = db.Exec(`CREATE EXTENSION IF NOT EXISTS postgis;`).Error
+		if err != nil {
+			return nil, errors.Annotate(err, "use postgis extension")
+		}
+
 		err = db.Exec(`drop type if exists friend_request_status;
 			create type friend_request_status as enum('approved', 'pending', 'rejected');`).Error
 		if err != nil {
@@ -64,7 +69,18 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 		}
 
 		// add tables here
-		models := []interface{}{&User{}, &FriendRequest{}, &Group{}, &GroupInvite{}, &GroupMember{}, &Message{}, &Outing{}, &OutingStep{}, &OutingStepVote{}}
+		models := []interface{}{
+			&User{},
+			&FriendRequest{},
+			&Group{},
+			&Place{},
+			&GroupInvite{},
+			&GroupMember{},
+			&Message{},
+			&Outing{},
+			&OutingStep{},
+			&OutingStepVote{},
+		}
 
 		// Neat trick to migrate models with complex relationships, run auto migrations once
 		// with DisableForeignKeyConstraintWhenMigrating=true to create the tables without relationships,
@@ -727,8 +743,17 @@ func (db *Database) CreateOuting(outing *Outing) error {
 }
 
 // CreateOutingStep Creates an OutingStep
+//
+// Throws EntityNotFound when the Place referred to by PlaceID is not found
 func (db *Database) CreateOutingStep(outingStep *OutingStep) error {
-	return errors.Trace(db.conn.Create(outingStep).Error)
+	err := db.conn.Create(outingStep).Error
+	if err != nil {
+		if fkViolation(err, "fk_outing_steps_place") {
+			return EntityNotFound
+		}
+		return errors.Trace(err)
+	}
+	return nil
 }
 
 // UpsertOutingStepVote Vote for an OutingStep
@@ -758,6 +783,30 @@ func (db *Database) UpsertOutingStepVote(outingStep *OutingStepVote) error {
 func (db *Database) GetOuting(outingId uint) (Outing, error) {
 	var outing Outing
 	err := db.conn.Where(&Outing{ID: outingId}).
+		First(&outing).
+		Error
+
+	if err != nil {
+		if isNotFoundInDb(err) {
+			return Outing{}, EntityNotFound
+		}
+		return Outing{}, errors.Trace(err)
+	}
+
+	return outing, nil
+}
+
+// GetOutingWithSteps Gets an Outing by its ID and it's OutingStep + OutingStep.Place (and OutingStepVote)
+//
+// Does not check if the User belongs to the Group belonging to the Outing
+//
+// Throws EntityNotFound if the Outing is not found.
+func (db *Database) GetOutingWithSteps(outingId uint) (Outing, error) {
+	var outing Outing
+	err := db.conn.Where(&Outing{ID: outingId}).
+		Preload("Steps").
+		Preload("Steps.Place", SelectPlaces).
+		Preload("Steps.Votes").
 		First(&outing).
 		Error
 
@@ -812,6 +861,7 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	err := db.conn.Model(&Outing{}).
 		Where("group_id = ?", groupId).
 		Preload("Steps").
+		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
 		Find(&outings).
 		Error
@@ -823,15 +873,37 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	return outings, nil
 }
 
+// ApproveOutingStep Approves the outing step
+func (db *Database) ApproveOutingStep(outingStepId uint) error {
+	err := db.conn.Model(&OutingStep{}).Where(&OutingStep{ID: outingStepId}).
+		Update("approved", true).Error
+	return errors.Trace(err)
+}
+
+// DeleteOutingStep Delete the outing step with the same ID
+func (db *Database) DeleteOutingStep(outingStepId uint) error {
+	err := db.conn.Delete(OutingStep{}, outingStepId).Error
+	return errors.Trace(err)
+}
+
+// DeleteOutingSteps Deletes outings steps with the same ID
+func (db *Database) DeleteOutingSteps(outingSteps []OutingStep) error {
+	err := db.conn.Delete(OutingStep{}, lo.Map(outingSteps, func(t OutingStep, _ int) uint {
+		return t.ID
+	})).Error
+	return errors.Trace(err)
+}
+
 // GetActiveOuting Gets the active Outing for a Group
 //
 // Does not check if the User belongs to the Group
 func (db *Database) GetActiveOuting(groupId uint) (*Outing, error) {
 	var outing Outing
 	err := db.conn.Model(&Outing{}).
-		Where("id = (select active_outing_id from groups where id = ?)", groupId).
 		Preload("Steps").
+		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
+		Where("id = (select active_outing_id from groups where id = ?)", groupId).
 		First(&outing).
 		Error
 
@@ -899,4 +971,23 @@ func (db *Database) JoinByInvite(userId uint, inviteId uuid.UUID) (GroupInvite, 
 
 	_, err = db.AddUserToGroup(userId, invite.GroupID)
 	return invite, errors.Trace(err)
+}
+
+func SelectPlaces(tx *gorm.DB) *gorm.DB {
+	return tx.Select("id, name, location, ST_AsText(position) AS position, formatted_address, image_url, about, place_type")
+}
+
+func (db *Database) SearchForPlaces(query string, page uint) ([]Place, error) {
+	var places []Place
+	err := SelectPlaces(db.conn.Model(&Place{})).
+		Where("name like '%' || ? || '%'", query).
+		Order("name asc").
+		Limit(int(pageCount)).
+		Offset(int(page * pageCount)).
+		Find(&places).
+		Error
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return places, nil
 }

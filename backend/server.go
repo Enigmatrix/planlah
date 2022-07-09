@@ -4,12 +4,13 @@ import (
 	jwt "github.com/appleboy/gin-jwt/v2"
 	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
-	errors2 "github.com/juju/errors"
+	errors "github.com/juju/errors"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"go.uber.org/zap"
 	"math/rand"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/jobs"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
 	"time"
@@ -19,7 +20,7 @@ func authMiddleware(authSvc *services.AuthService) (*jwt.GinJWTMiddleware, gin.H
 	var secret [256]byte
 	_, err := rand.Read(secret[:])
 	if err != nil {
-		return nil, nil, errors2.Annotate(err, "failed to get random bytes for secret")
+		return nil, nil, errors.Annotate(err, "failed to get random bytes for secret")
 	}
 
 	// https://github.com/appleboy/gin-jwt
@@ -42,13 +43,13 @@ func authMiddleware(authSvc *services.AuthService) (*jwt.GinJWTMiddleware, gin.H
 	})
 
 	if err != nil {
-		return nil, nil, errors2.Annotate(err, "create JWT middleware")
+		return nil, nil, errors.Annotate(err, "create JWT middleware")
 	}
 
 	err = authMiddleware.MiddlewareInit()
 
 	if err != nil {
-		return nil, nil, errors2.Annotate(err, "init JWT middleware")
+		return nil, nil, errors.Annotate(err, "init JWT middleware")
 	}
 
 	authMiddlewareFunc := authMiddleware.MiddlewareFunc()
@@ -75,7 +76,9 @@ func NewServer(
 	outings routes.OutingController,
 	misc routes.MiscController,
 	friends routes.FriendsController,
+	places routes.PlacesController,
 	logger *zap.Logger,
+	jobRunner *jobs.Runner,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 
 	srv := gin.New()
@@ -85,7 +88,7 @@ func NewServer(
 
 	authMiddleware, authProtect, err := authMiddleware(authSvc)
 	if err != nil {
-		return nil, errors2.Trace(err)
+		return nil, errors.Trace(err)
 	}
 
 	// use our custom error handlers
@@ -111,6 +114,12 @@ func NewServer(
 		messages.Register(api)
 		outings.Register(api)
 		friends.Register(api)
+		places.Register(api)
+	}
+
+	err = jobRunner.Run()
+	if err != nil {
+		return nil, errors.Annotate(err, "start job runner")
 	}
 
 	// serve websocket in goroutine.
