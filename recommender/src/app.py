@@ -4,6 +4,7 @@ from http import HTTPStatus
 from db import filter_places, get_user
 from db_utils import get_user_features
 from distance import calculate_similarity_metric
+import init_db
 
 
 recommender = Flask(__name__)
@@ -22,13 +23,13 @@ def recommend():
     and the places feature vector.
     Then we sort and return top 5.
     """
-
+    print("Endpoint called...")
     userid = request.args.get("userid")
     lon = request.args.get("lon")
     lat = request.args.get("lat")
     place_type = request.args.get("place_type")
-
     user = get_user(userid)
+    print(user)
     if user is None:
         return Response(status=HTTPStatus.BAD_REQUEST, response="user does not exist")
 
@@ -51,4 +52,6 @@ def recommend():
 
 
 if __name__ == '__main__':
-    recommender.run()
+    init_db.main()
+    print("Running......................")
+    recommender.run(host="0.0.0.0")

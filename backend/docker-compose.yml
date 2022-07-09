@@ -15,8 +15,18 @@ services:
     restart: always
     environment:
       ADMINER_DESIGN: 'dracula'
+    depends_on:
+      - db
     ports:
       - "8081:8080" # only for debug
+
+  recommender:
+    build: ../recommender/src
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "5003:5000"
 
   app:
     build:
