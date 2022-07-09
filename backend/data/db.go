@@ -796,6 +796,30 @@ func (db *Database) GetOuting(outingId uint) (Outing, error) {
 	return outing, nil
 }
 
+// GetOutingWithSteps Gets an Outing by its ID and it's OutingStep + OutingStep.Place (and OutingStepVote)
+//
+// Does not check if the User belongs to the Group belonging to the Outing
+//
+// Throws EntityNotFound if the Outing is not found.
+func (db *Database) GetOutingWithSteps(outingId uint) (Outing, error) {
+	var outing Outing
+	err := db.conn.Where(&Outing{ID: outingId}).
+		Preload("Steps").
+		Preload("Steps.Place").
+		Preload("Steps.Votes").
+		First(&outing).
+		Error
+
+	if err != nil {
+		if isNotFoundInDb(err) {
+			return Outing{}, EntityNotFound
+		}
+		return Outing{}, errors.Trace(err)
+	}
+
+	return outing, nil
+}
+
 type OutingAndGroupID struct {
 	GroupID  uint
 	OutingID uint
@@ -837,6 +861,7 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	err := db.conn.Model(&Outing{}).
 		Where("group_id = ?", groupId).
 		Preload("Steps").
+		Preload("Steps.Place").
 		Preload("Steps.Votes").
 		Find(&outings).
 		Error
@@ -848,15 +873,37 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	return outings, nil
 }
 
+// ApproveOutingStep Approves the outing step
+func (db *Database) ApproveOutingStep(outingStepId uint) error {
+	err := db.conn.Model(&OutingStep{}).Where(&OutingStep{ID: outingStepId}).
+		Update("approved", true).Error
+	return errors.Trace(err)
+}
+
+// DeleteOutingStep Delete the outing step with the same ID
+func (db *Database) DeleteOutingStep(outingStepId uint) error {
+	err := db.conn.Delete(OutingStep{}, outingStepId).Error
+	return errors.Trace(err)
+}
+
+// DeleteOutingSteps Deletes outings steps with the same ID
+func (db *Database) DeleteOutingSteps(outingSteps []OutingStep) error {
+	err := db.conn.Delete(OutingStep{}, lo.Map(outingSteps, func(t OutingStep, _ int) uint {
+		return t.ID
+	})).Error
+	return errors.Trace(err)
+}
+
 // GetActiveOuting Gets the active Outing for a Group
 //
 // Does not check if the User belongs to the Group
 func (db *Database) GetActiveOuting(groupId uint) (*Outing, error) {
 	var outing Outing
 	err := db.conn.Model(&Outing{}).
-		Where("id = (select active_outing_id from groups where id = ?)", groupId).
 		Preload("Steps").
+		Preload("Steps.Place").
 		Preload("Steps.Votes").
+		Where("id = (select active_outing_id from groups where id = ?)", groupId).
 		First(&outing).
 		Error
 

@@ -1486,3 +1486,7 @@ func (s *DataIntegrationTestSuite) Test_SearchForPlaces_Succeeds() {
 	s.NoError(err)
 	s.Len(places, 1)
 }
+
+// TODO add more tests for ApproveOutingStep
+// TODO add more tests for DeleteOutingSteps
+// TODO add more tests for DeleteOutingStep
