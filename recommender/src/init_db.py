@@ -34,10 +34,6 @@ def main():
     user = os.getenv('DB_USER')
     password = os.getenv('DB_PASSWORD')
 
-    print(f"{host=}")
-    print(f"{user=}")
-    print(f"{password=}")
-
     url = f"host={host} user={user} password={password}"
     conn = psycopg2.connect(url)
 
