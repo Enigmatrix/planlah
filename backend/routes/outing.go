@@ -14,7 +14,7 @@ import (
 
 type OutingController struct {
 	BaseController
-	JobRunner jobs.JobsRunner
+	JobRunner *jobs.Runner
 }
 
 type OutingDto struct {

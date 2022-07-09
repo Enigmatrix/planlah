@@ -78,7 +78,7 @@ func NewServer(
 	friends routes.FriendsController,
 	places routes.PlacesController,
 	logger *zap.Logger,
-	jobRunner *jobs.JobsRunner,
+	jobRunner *jobs.Runner,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 
 	srv := gin.New()
