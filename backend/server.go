@@ -117,10 +117,12 @@ func NewServer(
 		places.Register(api)
 	}
 
-	err = jobRunner.Run()
-	if err != nil {
-		return nil, errors.Annotate(err, "start job runner")
-	}
+	go func(jobRunner *jobs.Runner) {
+		err := jobRunner.Run()
+		if err != nil {
+			logger.Fatal("start job runner", zap.Error(err))
+		}
+	}(jobRunner)
 
 	// serve websocket in goroutine.
 	go func() {
