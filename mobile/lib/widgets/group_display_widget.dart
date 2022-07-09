@@ -1,18 +1,23 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/group.dart';
 import 'package:mobile/pages/chat_page.dart';
+import 'package:mobile/utils/time.dart';
 
 import '../model/chat_group.dart';
+import '../model/user.dart';
 
 
 class GroupDisplay extends StatefulWidget {
   GroupSummaryDto chatGroup;
+  UserInfo userInfo;
   // ChatGroup chatGroup;
 
   GroupDisplay({
     Key? key,
     required this.chatGroup,
+    required this.userInfo,
   }) : super(key: key);
 
   @override
@@ -24,7 +29,10 @@ class _GroupDisplayState extends State<GroupDisplay> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(() => ChatPage(chatGroup: widget.chatGroup));
+        Get.to(() => GroupChatPage(
+          chatGroup: widget.chatGroup,
+          userInfo: widget.userInfo,
+        ));
       },
       child: Container(
         padding: const EdgeInsets.only(
@@ -40,7 +48,7 @@ class _GroupDisplayState extends State<GroupDisplay> {
                   children: <Widget>[
                     CircleAvatar(
                       // TODO: Figure out images
-                      backgroundImage: NetworkImage("https://media1.popsugar-assets.com/files/thumbor/0ebv7kCHr0T-_O3RfQuBoYmUg1k/475x60:1974x1559/fit-in/500x500/filters:format_auto-!!-:strip_icc-!!-/2019/09/09/023/n/1922398/9f849ffa5d76e13d154137.01128738_/i/Taylor-Swift.jpg"),
+                      backgroundImage: NetworkImage(widget.chatGroup.imageLink),
                       maxRadius: 30,
                     ),
                     const SizedBox(width: 16),
@@ -69,7 +77,9 @@ class _GroupDisplayState extends State<GroupDisplay> {
                         )
                     ),
                     Text(
-                      "23.59",
+                      (widget.chatGroup.lastSeenMessage == null)
+                      ? ""
+                      : TimeUtil.formatForGroup(context, widget.chatGroup.lastSeenMessage!.sentAt),
                       // TODO: widget.chatGroup.time,
                       style: TextStyle(
                         fontSize: 12,

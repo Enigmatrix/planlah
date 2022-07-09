@@ -18,5 +18,15 @@ services:
     ports:
       - "8081:8080" # only for debug
 
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    restart: always
+    volumes:
+      - .:/opt/app/api
+    ports:
+      - "8070:8080"
+
 volumes:
   db_volume: { }

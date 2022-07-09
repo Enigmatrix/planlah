@@ -13,3 +13,17 @@ class MessageDto {
     sentAt = json["sentAt"],
     user = UserSummaryDto.fromJson(json["user"]);
 }
+
+class SendMessageDto {
+  String content;
+  int groupId;
+
+  SendMessageDto(this.content, this.groupId);
+
+  Map<String, dynamic> toJson() {
+    return {
+      "content": content,
+      "groupId": groupId
+    };
+  }
+}

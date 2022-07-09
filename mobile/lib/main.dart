@@ -1,9 +1,9 @@
 import 'dart:developer';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/model/user.dart' as user;
+import 'package:mobile/links.dart';
 import 'package:mobile/pages/dev_panel.dart';
 import 'package:mobile/pages/home.dart';
 import 'package:mobile/pages/sign_in.dart';
@@ -12,12 +12,14 @@ import 'package:mobile/pages/sign_up.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile/services/config.dart';
+import 'package:mobile/services/dev_panel.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/message.dart';
 import 'package:mobile/services/misc.dart';
 import 'package:mobile/services/outing.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/theme.dart';
+import 'package:mobile/widgets/wait_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,9 +30,12 @@ void main() async {
   Get.put(GroupService());
   Get.put(UserService());
   Get.put(MessageService());
+  Get.put(DevPanelService());
+  Get.put(Config());
   Get.put(MiscService());
   Get.put(OutingService());
 
+  await initUniLinks();
   runApp(const App());
 }
 
@@ -45,25 +50,13 @@ class _AppState extends State<App> {
   late AuthService auth;
   late UserService userSvc;
 
+  late user.UserInfo userInfo;
+
   @override
   void initState() {
     super.initState();
     auth = Get.find();
     userSvc = Get.find();
-  }
-
-  Widget waitWidget() {
-    return Center(
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            SizedBox(
-              width: 60,
-              height: 60,
-              child: CircularProgressIndicator(),
-            ),
-          ]),
-    );
   }
 
   @override
@@ -85,7 +78,9 @@ class _AppState extends State<App> {
               if (snapshot.data!.hasError) {
                 return const SignUpPage();
               } else {
-                return const HomePage();
+                userInfo = snapshot.data!.body!;
+                print("UserInfo = ${userInfo}");
+                return HomePage(userInfo: userInfo);
               }
             } else {
               return waitWidget();
@@ -99,11 +94,17 @@ class _AppState extends State<App> {
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.light,
         home: homeWidget,
+        localizationsDelegates: const [
+          DefaultMaterialLocalizations.delegate
+        ],
+        supportedLocales: const [
+          Locale("en")
+        ],
         // home: const SignInPage(),
         getPages: [
           GetPage(name: '/signIn', page: () => const SignInPage()),
           GetPage(name: '/signUp', page: () => const SignUpPage()),
-          GetPage(name: '/home', page: () => const HomePage()),
+          GetPage(name: '/home', page: () => HomePage(userInfo: userInfo)),
           GetPage(name: '/groups', page: () => const GroupsPage()),
           GetPage(name: '/dev_panel', page: () => DevPanelPage()),
         ]);

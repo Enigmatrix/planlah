@@ -38,10 +38,12 @@ class CreateUserDto {
 class UserSummaryDto {
   String username;
   String name;
+  String imageLink;
 
-  UserSummaryDto(this.username, this.name);
+  UserSummaryDto(this.username, this.name, this.imageLink);
 
   UserSummaryDto.fromJson(Map<String, dynamic> json):
-      username = json["nickname"],
-      name = json["name"];
+      username = json["username"],
+      name = json["name"],
+      imageLink = json["imageLink"];
 }

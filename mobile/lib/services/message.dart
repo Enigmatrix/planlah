@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:mobile/dto/chat.dart';
 import 'package:mobile/services/auth.dart';
 import 'package:mobile/services/base_connect.dart';
+import 'package:mobile/utils/time.dart';
 
 import '../model/message.dart';
 
@@ -30,28 +31,24 @@ class MessageService extends BaseConnect {
   Future<Response<MessageInfo>> getInfo() => get<MessageInfo>("/messages/me");
 
   Future<Response<List<MessageDto>?>> getMessages(int groupId) async {
-    final now = DateTime.now();
-    final selectedTime = DateTime(now.year, now.month, now.day, now.hour, now.minute);
-    print(selectedTime.toString());
+    print(TimeUtil.now());
     return await get(
         "/messages/all",
         query: {
           "groupId": groupId.toString(),
           "start": "2022-06-01T17:23:02.019Z",
-          "end": "2022-06-23T17:23:02.019Z",
-          // "end": selectedTime.toString(),
+          // TODO: Fix timezone locale bug (??????)
+          // "end": "2022-06-30T17:23:02.019Z"
+          "end": TimeUtil.now(),
         },
         decoder: decoderForList(MessageDto.fromJson)
     );
   }
 
-  Future<Response<void>> sendMessage(String message, int groupId) async {
+  Future<Response<void>> sendMessage(SendMessageDto dto) async {
     return await post<void>(
         "/messages/send",
-        {
-          "content": message,
-          "groupId": groupId.toString(),
-        }
+        dto.toJson()
     );
   }
 

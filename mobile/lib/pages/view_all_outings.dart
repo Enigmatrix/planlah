@@ -21,16 +21,18 @@ class _ViewAllOutingsPageState extends State<ViewAllOutingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "View your past outings!",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18.0,
+          ),
+        ),
+      ),
       body: Column(
         children: <Widget>[
           Image.asset("assets/undraw_moments_0y20.png"),
-          const Text(
-            "View your past outings!",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 30.0,
-            ),
-          ),
           const Text(
             "Click on any card to relieve your memories"
           ),
@@ -50,7 +52,7 @@ class _ViewAllOutingsPageState extends State<ViewAllOutingsPage> {
     // TODO: Only a temporary way to display the different outings
     return InkWell(
       onTap: () {
-        Get.to(() => OutingPage(outing: outingDto));
+        Get.to(() => OutingPage(outing: outingDto, isActive: false));
       },
       child: Card(
         child: Text(outingDto.name),

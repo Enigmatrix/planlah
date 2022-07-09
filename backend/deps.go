@@ -6,6 +6,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/wire"
+	"go.uber.org/zap"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/routes"
 	"planlah.sg/backend/services"
@@ -13,10 +14,18 @@ import (
 )
 
 var depSet = wire.NewSet(
+	utils.NewConfig,
+	NewLogger,
+
 	services.NewFirebaseApp,
 	services.NewAuthService,
-	services.NewFirebaseStorageImageService,
-	wire.Bind(new(services.ImageService), new(*services.FirebaseStorageImageService)),
+
+	// wire.Bind(new(services.ImageService), new(*services.FirebaseStorageImageService)),
+	// services.NewFirebaseStorageImageService,
+	// use ImageKit instead of sad firebase
+	services.NewImageKitImageService,
+	wire.Bind(new(services.ImageService), new(*services.ImageKitImageService)),
+
 	data.NewDatabaseConnection,
 	data.NewDatabase,
 	wire.Struct(new(routes.BaseController), "*"),
@@ -26,10 +35,14 @@ var depSet = wire.NewSet(
 	wire.Struct(new(routes.MessageController), "*"),
 	wire.Struct(new(routes.OutingController), "*"),
 	wire.Struct(new(routes.MiscController), "*"),
+	wire.Struct(new(routes.FriendsController), "*"),
 	NewServer,
-	utils.NewConfig,
 )
 
 func InitializeServer() (*gin.Engine, error) {
+	panic(wire.Build(depSet))
+}
+
+func GetLogger() (*zap.Logger, error) {
 	panic(wire.Build(depSet))
 }

@@ -17,6 +17,20 @@ class OutingService extends BaseConnect {
   }
 
   /// Create a new Outing for a Group
-  Future<Response<void>> create(CreateOutingDto dto) async => await post<void>("/outing/create", dto.toJson());
+  Future<Response<OutingDto?>> create(CreateOutingDto dto) async {
+    return await post<OutingDto?>(
+        "/outing/create",
+        dto.toJson(),
+        decoder: decoderFor(OutingDto.fromJson)
+    );
+  }
 
+  /// Get the active Outing for a Group
+  Future<Response<OutingDto?>> getActiveOuting(GetActiveOutingDto dto) async {
+    return await get(
+      "/outing/active",
+      query: dto.toJson(),
+      decoder: decoderFor(OutingDto.fromJson)
+    );
+  }
 }

@@ -13,12 +13,15 @@ import 'package:mobile/pages/social_post.dart';
 import 'package:mobile/services/auth.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+
+  UserInfo userInfo;
+  HomePage({
+    Key? key,
+    required this.userInfo,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageWidgetState();
-
-
 }
 
 class _HomePageWidgetState extends State<HomePage> {
@@ -28,11 +31,13 @@ class _HomePageWidgetState extends State<HomePage> {
   static GroupInfo groupInfo1 = GroupInfo(
       owner: UserInfo(
         name: "Bruno Mars",
+        username: "Bruno",
         imageUrl: "https://www.biography.com/.image/c_fill%2Ccs_srgb%2Cfl_progressive%2Ch_400%2Cq_auto:good%2Cw_620/MTg4NTc2ODg1MjEzNTA1MTQw/gettyimages-134315104.jpg"
       ),
       members: <UserInfo>[
         UserInfo(
             name: "Sasha Obama",
+            username: "Sasha",
             imageUrl: "https://media.allure.com/photos/5aeb12dfbf1d634fcf6f718e/1:1/w_3455,h_3455,c_limit/SWNS_SASHA_OBAMA_14.jpg"
         )
       ],
@@ -45,15 +50,18 @@ class _HomePageWidgetState extends State<HomePage> {
   static GroupInfo groupInfo2 = GroupInfo(
       owner: UserInfo(
           name: "Taylor Swift",
+          username: "Taylor",
           imageUrl: "https://assets.teenvogue.com/photos/626abe370979f2c5ace0ab29/16:9/w_2560%2Cc_limit/GettyImages-1352932505.jpg"
       ),
       members: <UserInfo>[
         UserInfo(
             name: "Amber Heard",
+            username: "Amber",
             imageUrl: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2022%2F05%2F16%2FAmber-Heard.jpg"
         ),
         UserInfo(
             name: "Bob the builder",
+            username: "Bob the builder",
             imageUrl: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2022%2F05%2F16%2FAmber-Heard.jpg"
         ),
       ],
@@ -63,15 +71,6 @@ class _HomePageWidgetState extends State<HomePage> {
       )
   );
 
-
-  static final List<Widget> _pages = <Widget>[
-    SocialFeedPage(groups: [groupInfo1, groupInfo2]),
-    // SocialFeedPage(),
-    GroupsPage(),
-    ProfilePage(),
-    SettingsPage(),
-  ];
-
   var currentIndex = 0;
 
   void _onItemTapped(int index) {
@@ -79,22 +78,26 @@ class _HomePageWidgetState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
+  
+  Widget getPage(int index) {
+    switch (index) {
+      case 0:
+        return SocialFeedPage(groups: [groupInfo1, groupInfo2]);
+      case 1:
+        return GroupsPage();
+      case 2:
+        print("Is widget null? " + (widget == null).toString());
+        return ProfilePage(userInfo: widget.userInfo);
+      default:
+        return SettingsPage();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text("planlah"),
-      //   actions: <Widget>[
-      //     IconButton(
-      //       onPressed: () {},
-      //       icon: const Icon(Icons.group_add_outlined),
-      //       tooltip: "Create new group",
-      //     )
-      //   ],
-      // ),
       body: Center(
-          child: _pages.elementAt(_selectedIndex)
+          child: getPage(_selectedIndex)
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

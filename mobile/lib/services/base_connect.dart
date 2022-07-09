@@ -14,8 +14,13 @@ class BaseConnect extends GetConnect {
   Decoder<T?> decoderFor<T>(T Function(Map<String, dynamic>) from) {
     return (data) {
       if (checkAuthenticationError(data)) return null;
-      var map = Map<String, dynamic>.from(data);
-      return from(map);
+
+      if (data == null) {
+        return null;
+      } else {
+        var map = Map<String, dynamic>.from(data);
+        return from(map);
+      }
     };
   }
 
@@ -53,6 +58,7 @@ class BaseConnect extends GetConnect {
 
     // TODO make this configurable
     httpClient.baseUrl = "http://localhost:8080/api";
+    // httpClient.baseUrl = "http://enigmatrix.me:8085/api";
 
     httpClient.addRequestModifier<dynamic>((request) async {
       if (token == null) return request;

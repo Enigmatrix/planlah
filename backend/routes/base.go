@@ -1,10 +1,8 @@
 package routes
 
 import (
-	"errors"
-	"fmt"
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"go.uber.org/zap"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/services"
 	"planlah.sg/backend/utils"
@@ -14,26 +12,31 @@ type BaseController struct {
 	Database *data.Database
 	Auth     *services.AuthService
 	Config   *utils.Config
+	Logger   *zap.Logger
 }
 
-func (ctr *BaseController) AuthUserId(ctx *gin.Context) (uint, error) {
+// AuthUserId Gets the authenticated User ID
+func (ctr *BaseController) AuthUserId(ctx *gin.Context) uint {
 	// this will always succeed, as the rejection will come from go-jwt
-	// even before we get here. However, we still check for error in case
-	// the spec changes in the future.
-	return ctr.Auth.AuthenticatedUserId(ctx), nil
+	// even before we get here.
+	return ctr.Auth.AuthenticatedUserId(ctx)
 }
 
-func (ctr *BaseController) AuthGroupMember(ctx *gin.Context, grpID uint) (*data.GroupMember, error) {
-	userId, err := ctr.AuthUserId(ctx)
+// AuthGroupMember Gets the authenticated User's GroupMember for the given Group, or nil
+// if the User is not a member of this Group
+func (ctr *BaseController) AuthGroupMember(ctx *gin.Context, grpID uint) *data.GroupMember {
+	userId := ctr.AuthUserId(ctx)
+	grpMember, err := ctr.Database.GetGroupMember(userId, grpID)
+
 	if err != nil {
-		return nil, err
+		handleDbError(ctx, err)
+		return grpMember
 	}
 
-	groupMember := ctr.Database.GetGroupMember(userId, grpID)
-	if ctr == nil {
-		err := errors.New(fmt.Sprintf("user is not a member of group %d", grpID))
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
-		return nil, err
+	if grpMember == nil {
+		FailWithMessage(ctx, "user is not a member of this group")
+		return nil
 	}
-	return groupMember, nil
+
+	return grpMember
 }

@@ -1,14 +1,14 @@
 package routes
 
 import (
-	"errors"
-	"net/http"
-	"planlah.sg/backend/services"
-
 	"github.com/gin-gonic/gin"
+	"github.com/juju/errors"
 	"github.com/lib/pq"
 	"github.com/samber/lo"
+	"go.uber.org/zap"
+	"net/http"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/services"
 )
 
 type UserController struct {
@@ -17,9 +17,14 @@ type UserController struct {
 }
 
 type UserSummaryDto struct {
+	ID        uint   `json:"id" binding:"required"`
 	Username  string `json:"username" binding:"required"`
 	Name      string `json:"name" binding:"required"`
 	ImageLink string `json:"imageLink" binding:"required"`
+}
+
+type UserRefDto struct {
+	ID uint `json:"id" binding:"required"`
 }
 
 type CreateUserDto struct {
@@ -32,8 +37,18 @@ type CreateUserDto struct {
 	Food          []string `form:"food" binding:"required"`
 }
 
-func ToUserSummaryDto(user *data.User) UserSummaryDto {
+type Pagination struct {
+	Page uint `uri:"page" form:"page" json:"page" binding:"required"`
+}
+
+type SearchUsersDto struct {
+	Pagination
+	Query string `uri:"query" binding:"required"`
+}
+
+func ToUserSummaryDto(user data.User) UserSummaryDto {
 	return UserSummaryDto{
+		ID:        user.ID,
 		Username:  user.Username,
 		Name:      user.Name,
 		ImageLink: user.ImageLink,
@@ -49,59 +64,76 @@ func ToUserSummaryDto(user *data.User) UserSummaryDto {
 // @Tags User
 // @Success 200
 // @Failure 400 {object} ErrorMessage
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/users/create [post]
-func (controller *UserController) Create(ctx *gin.Context) {
-	var createUserDto CreateUserDto
-	if err := Form(ctx, &createUserDto); err != nil {
+func (ctr *UserController) Create(ctx *gin.Context) {
+	var dto CreateUserDto
+	if Form(ctx, &dto) {
 		return
 	}
 
 	// maybe only allow upto a certain file size in meta (_ in below line)
 	file, _, err := ctx.Request.FormFile("image")
-
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("image file field missing"))
+		FailWithMessage(ctx, "image file field missing")
 		return
 	}
 
-	imageUrl := controller.ImageService.UploadUserImage(file)
-
-	firebaseUid, err := controller.Auth.GetFirebaseUid(createUserDto.FirebaseToken)
+	imageUrl, err := ctr.ImageService.UploadUserImage(file)
 	if err != nil {
-		ctx.JSON(http.StatusUnauthorized, NewErrorMessage(err.Error()))
+		// TODO handle this
 		return
 	}
 
-	genderValidated := lo.Contains(GetGenders(), createUserDto.Gender)
+	firebaseUid, err := ctr.Auth.GetFirebaseUid(dto.FirebaseToken)
+	if err != nil {
+		ctr.Logger.Warn("firebase error", zap.Error(err))
+		// TODO make this prettier
+		ctx.JSON(http.StatusUnauthorized, gin.H{"message": "invalid firebase token"})
+		return
+	}
+
+	// TODO all these FailWithMessages should be validation messages
+
+	genderValidated := lo.Contains(GetGenders(), dto.Gender)
 	if !genderValidated {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("Gender not recognized"))
+		FailWithMessage(ctx, "gender not recognized")
+		return
 	}
 
-	attractionVector, err := calculateAttractionVector(createUserDto.Attractions)
+	attractionVector, err := calculateAttractionVector(dto.Attractions)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("Not enough attractions chosen"))
+		FailWithMessage(ctx, "not enough attractions chosen")
+		return
 	}
 
-	foodVector, err := calculateFoodVector(createUserDto.Food)
+	foodVector, err := calculateFoodVector(dto.Food)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage("Not enough food chosen"))
+		FailWithMessage(ctx, "not enough food chosen")
+		return
 	}
 
 	user := data.User{
-		Name:        createUserDto.Name,
-		Username:    createUserDto.Username,
-		Gender:      createUserDto.Gender,
-		Town:        createUserDto.Town,
+		Name:        dto.Name,
+		Username:    dto.Username,
+		Gender:      dto.Gender,
+		Town:        dto.Town,
 		FirebaseUid: *firebaseUid,
 		ImageLink:   imageUrl,
 		Attractions: attractionVector,
 		Food:        foodVector,
 	}
 
-	err = controller.Database.CreateUser(&user)
+	err = ctr.Database.CreateUser(&user)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, NewErrorMessage(err.Error()))
+		if errors.Is(err, data.UsernameExists) {
+			FailWithMessage(ctx, "username exists")
+			return
+		} else if errors.Is(err, data.FirebaseUidExists) {
+			FailWithMessage(ctx, "account already exists for this user")
+			return
+		}
+		handleDbError(ctx, err)
 		return
 	}
 
@@ -114,16 +146,47 @@ func (controller *UserController) Create(ctx *gin.Context) {
 // @Security JWT
 // @Tags User
 // @Success 200 {object} UserSummaryDto
-// @Failure 401 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
 // @Router /api/users/me/info [get]
-func (controller *UserController) GetInfo(ctx *gin.Context) {
-	userId, err := controller.AuthUserId(ctx)
-	if err != nil {
+func (ctr *UserController) GetInfo(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
+
+	user, err := ctr.Database.GetUser(userId)
+	if err != nil { // this User is always found
+		handleDbError(ctx, err)
 		return
 	}
 
-	user := controller.Database.GetUser(userId)
 	ctx.JSON(http.StatusOK, ToUserSummaryDto(user))
+}
+
+// SearchForFriends godoc
+// @Summary Search for friends
+// @Description Search for users containing the specified text in their Name and Username and who are not already friends.
+// @Description Increment the {page} variable to view the next (by default 10) users.
+// @Param query query SearchUsersDto true "body"
+// @Security JWT
+// @Tags User
+// @Success 200 {object} []UserSummaryDto
+// @Failure 401 {object} services.AuthError
+// @Router /api/users/search_for_friends [get]
+func (ctr *UserController) SearchForFriends(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
+
+	var dto SearchUsersDto
+	if Body(ctx, &dto) {
+		return
+	}
+
+	users, err := ctr.Database.SearchForFriends(userId, dto.Query, dto.Page)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, lo.Map(users, func(t data.User, _ int) UserSummaryDto {
+		return ToUserSummaryDto(t)
+	}))
 }
 
 // TODO: To think of better ways to do this. For now its very simple 1/n standardization
@@ -173,7 +236,8 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 }
 
 // Register the routes for this controller
-func (controller *UserController) Register(router *gin.RouterGroup) {
+func (ctr *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
-	users.GET("me/info", controller.GetInfo)
+	users.GET("me/info", ctr.GetInfo)
+	users.GET("search_for_friends", ctr.SearchForFriends)
 }

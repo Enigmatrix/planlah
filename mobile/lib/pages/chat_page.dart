@@ -1,70 +1,79 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:intl/intl.dart';
 import 'package:mobile/dto/chat.dart';
 import 'package:mobile/dto/group.dart';
 import 'package:mobile/dto/outing.dart';
-import 'package:mobile/model/chat_group.dart';
-import 'package:mobile/main.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:mobile/pages/outing_page.dart';
 import 'package:mobile/pages/view_all_outings.dart';
 import 'package:mobile/services/message.dart';
 import 'package:mobile/services/outing.dart';
 
-import '../model/chat_message.dart';
-import '../model/outing_list.dart';
-import '../model/outing_steps.dart';
+import '../model/user.dart';
+import '../utils/time.dart';
 import 'CreateOutingPage.dart';
 
-class ChatPage extends StatefulWidget {
+class GroupChatPage extends StatefulWidget {
   GroupSummaryDto chatGroup;
+  UserInfo userInfo;
 
-  ChatPage({
+  GroupChatPage({
     Key? key,
     required this.chatGroup,
+    required this.userInfo,
   }) : super(key: key);
 
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  State<GroupChatPage> createState() => _GroupChatPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _GroupChatPageState extends State<GroupChatPage> {
 
+  // Services
   final messageService = Get.find<MessageService>();
   final outingService = Get.find<OutingService>();
 
+  // Messages sent in the group
   late var messages = <MessageDto>[];
+  // Check if group is currently in an outing
+  OutingDto? activeOuting;
+  // List of previous outings that the group has been in
   late var outings = <OutingDto>[];
+
+  ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    messageService.getMessages(widget.chatGroup.id)
+    updateMessages();
+  }
+
+  void updateMessages() async {
+    await messageService.getMessages(widget.chatGroup.id)
       .then((value) {
-      setState(() {
-        messages = value.body!;
-      });
+        setState(() {
+          messages = value.body!;
+        });
     });
-    // messageService.getMessages(widget.chatGroup.id)
-    //   .catchError((error) {
-    //   print(error);
-    //   return <MessageDto>[];
-    // }).then((value) {
-    //   setState(() {
-    //     messages = value.body!;
-    //     print("Messages "+ messages.toString());
-    //   });
-    // });
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
+    appBar: buildAppBar(),
+    body: Stack(
+      children: <Widget>[
+        Column(
+          children: [
+            buildMessageList(messages),
+            buildInputWidget()
+          ],
+        )
+      ],
+    ),
+  );
+
+  AppBar buildAppBar() {
+    return AppBar(
       actions: <Widget>[
         Container(
           padding: const EdgeInsets.only(right: 32),
@@ -77,8 +86,7 @@ class _ChatPageState extends State<ChatPage> {
               children: <Widget>[
                 CircleAvatar(
                   backgroundImage: NetworkImage(
-                    "https://media1.popsugar-assets.com/files/thumbor/0ebv7kCHr0T-_O3RfQuBoYmUg1k/475x60:1974x1559/fit-in/500x500/filters:format_auto-!!-:strip_icc-!!-/2019/09/09/023/n/1922398/9f849ffa5d76e13d154137.01128738_/i/Taylor-Swift.jpg",
-                    // TODO: widget.chatGroup.photoUrl,
+                    widget.chatGroup.imageLink,
                   ),
                   maxRadius: 20,
                 ),
@@ -95,19 +103,22 @@ class _ChatPageState extends State<ChatPage> {
           ),
         ),
         IconButton(
-            onPressed: () {
-              // TODO: Itinerary
+          onPressed: () async {
+            var response = await outingService.getActiveOuting(GetActiveOutingDto(widget.chatGroup.id));
+            if (response.isOk) {
+              activeOuting = response.body;
+            } else {
+
+            }
+            if (activeOuting == null) {
               Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
-              // if (widget.chatGroup.getGroupInfo().isInOuting()) {
-              //   // Display currently itinerary
-              //   Get.to(() => OutingPage(outing: Outing.getOuting()));
-              // } else {
-              //   Get.to(() => CreateOutingPage());
-              // }
-            },
-            icon: const Icon(
-                Icons.assignment
-            ),
+            } else {
+              Get.to(() => OutingPage(outing: activeOuting!, isActive: true));
+            }
+          },
+          icon: const Icon(
+              Icons.assignment
+          ),
         ),
         PopupMenuButton(
             icon: const Icon(
@@ -116,17 +127,16 @@ class _ChatPageState extends State<ChatPage> {
             itemBuilder: (BuildContext context) {
               return <PopupMenuItem>[
                 PopupMenuItem(
-                  onTap: () {
-                    // TODO: Display group description, same thing as above
-                  },
-                  child: const Text("About")
+                    onTap: () {
+                      // TODO: Display group description, same thing as above
+                    },
+                    child: const Text("About")
                 ),
                 PopupMenuItem(
-                  onTap: () {
-                    // TODO: Add past outings page
-                    viewPastOutings();
-                  },
-                  child: const Text("See past outings")
+                    onTap: () {
+                      viewPastOutings();
+                    },
+                    child: const Text("See past outings")
                 ),
                 PopupMenuItem(
                     onTap: () {
@@ -150,21 +160,10 @@ class _ChatPageState extends State<ChatPage> {
             }
         ),
       ],
-    ),
-    body: Stack(
-      children: <Widget>[
-        Column(
-          children: [
-            buildChat(messages),
-            buildInputWidget(),
-          ],
-        )
-      ],
-    )
-  );
+    );
+  }
 
   void viewPastOutings() {
-    print(widget.chatGroup.id);
     outingService
       .getAllOutings(widget.chatGroup.id)
       .then((value) {
@@ -185,12 +184,12 @@ class _ChatPageState extends State<ChatPage> {
   }
 
 
-  Widget buildChat(List<MessageDto> messages) {
-    final ScrollController scrollController = ScrollController();
-    return Flexible(
+  Widget buildMessageList(List<MessageDto> messages) {
+    return Expanded(
         child: ListView.builder(
+          reverse: true,
           padding: const EdgeInsets.all(10.0),
-          itemBuilder: (context, index) => buildMessage(messages[index]),
+          itemBuilder: (context, index) => buildMessage(messages[messages.length - 1 - index]),
           itemCount: messages.length,
           controller: scrollController,
         )
@@ -199,8 +198,7 @@ class _ChatPageState extends State<ChatPage> {
 
 
   Widget buildMessage(MessageDto message) {
-    // Hard code for now
-    bool isUser = Random().nextDouble() <= 0.5;
+    bool isUser = message.user.username == widget.userInfo.username;
     return Column(
         children: <Widget>[
           Row(
@@ -235,7 +233,7 @@ class _ChatPageState extends State<ChatPage> {
               Container(
                 margin: const EdgeInsets.only(left: 5.0, top: 5.0, bottom: 5.0),
                 child: Text(
-                  message.sentAt,
+                  TimeUtil.formatForChatGroup(message.sentAt),
                   style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 12.0,
@@ -278,20 +276,18 @@ class _ChatPageState extends State<ChatPage> {
           ),
 
           Flexible(
-              child: Container(
-                child: TextField(
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 15.0,
-                  ),
-                  controller: textEditingController,
-                  decoration: const InputDecoration.collapsed(
-                    hintText: "Type here",
-                    hintStyle: TextStyle(
-                        color: Colors.black
-                    )
-                  ),
-                )
+              child: TextField(
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 15.0,
+                ),
+                controller: textEditingController,
+                decoration: const InputDecoration.collapsed(
+                  hintText: "Type here",
+                  hintStyle: TextStyle(
+                      color: Colors.black
+                  )
+                ),
               )
           ),
 
@@ -302,7 +298,10 @@ class _ChatPageState extends State<ChatPage> {
               color: Colors.white,
               child: IconButton(
                 icon: const Icon(Icons.send),
-                onPressed: () {},
+                onPressed: () {
+                  sendMessage(textEditingController.value.text);
+                  textEditingController.clear();
+                },
                 color: Colors.blue,
               ),
             ),
@@ -310,6 +309,11 @@ class _ChatPageState extends State<ChatPage> {
         ],
       ),
     );
+  }
+
+  void sendMessage(String message) async {
+    await messageService.sendMessage(SendMessageDto(message, widget.chatGroup.id));
+    updateMessages();
   }
 
 

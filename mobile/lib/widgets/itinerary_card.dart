@@ -13,6 +13,53 @@ class ItineraryCard extends StatefulWidget {
 
   @override
   State<ItineraryCard> createState() => _ItineraryCardState();
+
+  static Widget buildAboutPlace(BuildContext context, OutingStepDto dto) {
+    // TODO: Actually build the dialog with a list of reviews
+    return AlertDialog(
+        title: Text(
+          dto.name,
+          style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20
+          ),
+        ),
+        content: Column(
+          children: <Widget>[
+            Expanded(
+              child: Center(
+                child: Text(
+                    dto.description
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                TextButton.icon(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                        Icons.check
+                    ),
+                    label: const Text("Okay")
+                ),
+                TextButton.icon(
+                    onPressed: () {
+                      // TODO: Leave a review
+                    },
+                    icon: const Icon(
+                        Icons.reviews
+                    ),
+                    label: const Text("Review")
+                )
+              ],
+            )
+          ],
+        )
+    );
+  }
 }
 
 class _ItineraryCardState extends State<ItineraryCard> {
@@ -27,14 +74,14 @@ class _ItineraryCardState extends State<ItineraryCard> {
                   // TODO: Add location info
                   showDialog(
                       context: context,
-                      builder: buildAboutPlace
+                      builder: (context) => ItineraryCard.buildAboutPlace(context, widget.outingStep)
                   );
                 },
                 child: Column(
                   children: <Widget>[
                     Text(widget.outingStep.name),
                     // TODO: Temporary
-                    Image.network("https://cdn.britannica.com/86/182086-050-5FB81069/singer-Taylor-swift-2013.jpg")
+                    Image.network(widget.outingStep.wherePoint)
                   ],
                 ),
               )
@@ -57,53 +104,6 @@ class _ItineraryCardState extends State<ItineraryCard> {
           )
         ],
       ),
-    );
-  }
-
-  Widget buildAboutPlace(BuildContext context) {
-    // TODO: Actually build the dialog with a list of reviews
-    return AlertDialog(
-      title: Text(
-        widget.outingStep.name,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20
-        ),
-      ),
-      content: Column(
-        children: <Widget>[
-          Expanded(
-            child: Center(
-              child: Text(
-                  widget.outingStep.description
-              ),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              TextButton.icon(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                      Icons.check
-                  ),
-                  label: const Text("Okay")
-              ),
-              TextButton.icon(
-                  onPressed: () {
-                    // TODO: Leave a review
-                  },
-                  icon: const Icon(
-                      Icons.reviews
-                  ),
-                  label: const Text("Review")
-              )
-            ],
-          )
-        ],
-      )
     );
   }
 }
