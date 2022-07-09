@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-type JobsRunner struct {
+type Runner struct {
 	worker *pgq.Worker
 }
 
@@ -34,13 +34,13 @@ CREATE INDEX IF NOT EXISTS idx_pgq_jobs_fetch
 COMMIT;
 `
 
-var jobsRunner utils.Lazy[JobsRunner]
+var jobsRunner utils.Lazy[Runner]
 
 // NewJobsRunner Creates a Jobs runner
 func NewJobsRunner(conn *gorm.DB,
 	voteDeadlineJob *VoteDeadlineJob,
-) (*JobsRunner, error) {
-	return jobsRunner.LazyFallibleValue(func() (*JobsRunner, error) {
+) (*Runner, error) {
+	return jobsRunner.LazyFallibleValue(func() (*Runner, error) {
 		sqlDb, err := conn.DB()
 		if err != nil {
 			return nil, errors.Annotate(err, "jobsRunner get sqldb")
@@ -60,11 +60,11 @@ func NewJobsRunner(conn *gorm.DB,
 			return nil, errors.Annotatef(err, "register job %s", VoteDeadlineJobName)
 		}
 
-		return &JobsRunner{worker: worker}, nil
+		return &Runner{worker: worker}, nil
 	})
 }
 
-func (runner *JobsRunner) QueueVoteDeadlineJob(at time.Time, args VoteDeadlineJobArgs) error {
+func (runner *Runner) QueueVoteDeadlineJob(at time.Time, args VoteDeadlineJobArgs) error {
 	bytes, err := json.Marshal(args)
 	if err != nil {
 		return errors.Annotate(err, "serialize VoteDeadlineJobArgs")
@@ -73,6 +73,6 @@ func (runner *JobsRunner) QueueVoteDeadlineJob(at time.Time, args VoteDeadlineJo
 	return errors.Annotate(err, "enqueue VoteDeadlineJob")
 }
 
-func (runner *JobsRunner) Run() error {
+func (runner *Runner) Run() error {
 	return errors.Annotate(runner.worker.Run(), "run jobsRunner")
 }
