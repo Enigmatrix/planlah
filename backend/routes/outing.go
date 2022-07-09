@@ -48,7 +48,7 @@ type CreateOutingDto struct {
 	Description string    `json:"description" binding:"required"`
 	GroupID     uint      `json:"groupId" binding:"required"`
 	Start       time.Time `json:"start" binding:"required"`
-	End         time.Time `json:"end" binding:"required"`
+	End         time.Time `json:"end" binding:"required,gtfield=Start"`
 }
 
 type CreateOutingStepDto struct {
@@ -56,7 +56,7 @@ type CreateOutingStepDto struct {
 	PlaceID      uint      `json:"placeId" binding:"required"`
 	Description  string    `json:"description" binding:"required"`
 	Start        time.Time `json:"start" binding:"required"`
-	End          time.Time `json:"end" binding:"required"`
+	End          time.Time `json:"end" binding:"required,gtfield=Start"`
 	VoteDeadline time.Time `json:"voteDeadline" binding:"required"`
 }
 
@@ -146,7 +146,7 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 	})
 }
 
-// Create godoc
+// CreateOuting godoc
 // @Summary Create a new Outing
 // @Description Create a new Outing plan
 // @Param body body CreateOutingDto true "Initial details of Outing"
@@ -156,7 +156,7 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} services.AuthError
 // @Router /api/outing/create [post]
-func (ctr *OutingController) Create(ctx *gin.Context) {
+func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 	var dto CreateOutingDto
 	if Body(ctx, &dto) {
 		return
@@ -207,8 +207,8 @@ func (ctr *OutingController) Create(ctx *gin.Context) {
 }
 
 // CreateStep godoc
-// @Summary Create an Outing Step
-// @Description Create an Outing Step
+// @Summary CreateOuting an Outing Step
+// @Description CreateOuting an Outing Step
 // @Param body body CreateOutingStepDto true "Details for Outing Step"
 // @Tags Outing
 // @Security JWT
@@ -233,6 +233,16 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 	}
 
 	if ctr.AuthGroupMember(ctx, outing.GroupID) == nil {
+		return
+	}
+
+	if outing.Start.After(dto.Start) || outing.End.Before(dto.End) {
+		FailWithMessage(ctx, "outing step has invalid start and end (not within outing)")
+		return
+	}
+
+	if time.Now().After(dto.VoteDeadline) || outing.Start.After(dto.VoteDeadline) {
+		FailWithMessage(ctx, "outing step has invalid voteDeadline")
 		return
 	}
 
@@ -375,7 +385,7 @@ func (ctr *OutingController) Vote(ctx *gin.Context) {
 // Register the routes for this controller
 func (ctr *OutingController) Register(router *gin.RouterGroup) {
 	group := router.Group("outing")
-	group.POST("create", ctr.Create)
+	group.POST("create", ctr.CreateOuting)
 	group.POST("create_step", ctr.CreateStep)
 	group.GET("all", ctr.Get)
 	group.GET("active", ctr.GetActive)
