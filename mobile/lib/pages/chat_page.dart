@@ -48,6 +48,14 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   ScrollController scrollController = ScrollController();
 
+  // For the menu options
+  static const String ABOUT  = "About";
+  static const String SEE_PAST_OUTINGS = "See past outings";
+  static const String INVITE_LINK = "Invite Link";
+  static const String JIO = "Jio";
+  static const String KICK = "Kick";
+  static const String LEAVE = "Leave";
+
   @override
   void initState() {
     super.initState();
@@ -131,6 +139,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
     );
   }
 
+
   /// Solution to dialog closing immediately in a pop up menu
   /// https://stackoverflow.com/questions/69939559/showdialog-bug-dialog-isnt-triggered-from-popupmenubutton-in-flutter
   Widget buildMenuOptions() {
@@ -140,7 +149,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
         ),
         onSelected: (value) async {
           switch (value) {
-            case "jio":
+            case INVITE_LINK:
               return showDialog(context: context, builder: buildCreateGroupInviteWidget);
             default:
               throw UnimplementedError();
@@ -152,33 +161,37 @@ class _GroupChatPageState extends State<GroupChatPage> {
                 onTap: () {
                   // TODO: Display group description, same thing as above
                 },
-                value: "About",
-                child: const Text("About")
+                value: ABOUT,
+                child: const Text(ABOUT)
             ),
             PopupMenuItem(
                 onTap: () {
                   viewPastOutings();
                 },
-                value: "See past outings",
-                child: const Text("See past outings")
+                value: SEE_PAST_OUTINGS,
+                child: const Text(SEE_PAST_OUTINGS)
             ),
             const PopupMenuItem(
-              child: const Text("Jio"),
-              value: "jio",
+              value: JIO,
+              child: Text(JIO),
+            ),
+            const PopupMenuItem(
+              value: INVITE_LINK,
+              child: Text(INVITE_LINK)
             ),
             PopupMenuItem(
                 onTap: () {
                   // TODO: Kick people
                 },
-                value: "Kick",
-                child: const Text("Kick")
+                value: KICK,
+                child: const Text(KICK)
             ),
             PopupMenuItem(
                 onTap: () {
                   // TODO: Leave group
                 },
-                value: "Leave",
-                child: const Text("Leave")
+                value: LEAVE,
+                child: const Text(LEAVE)
             ),
           ];
         }
@@ -224,7 +237,10 @@ class _GroupChatPageState extends State<GroupChatPage> {
         title: "Invite link",
         content: Column(
           children: <Widget>[
-            Text(inviteLink),
+            Text(
+              inviteLink,
+              textAlign: TextAlign.center,
+            ),
             IconButton(
                 onPressed: () {
                   Clipboard.setData(ClipboardData(text: inviteLink));
