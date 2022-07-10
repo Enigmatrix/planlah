@@ -1,9 +1,10 @@
 package main
 
 import (
+	"log"
+
 	"github.com/joho/godotenv"
 	"go.uber.org/zap"
-	"log"
 	_ "planlah.sg/backend/docs" // to get generated swagger docs to be enabled
 	"planlah.sg/backend/utils"
 )
@@ -36,7 +37,12 @@ func NewLogger(config *utils.Config) *zap.Logger {
 }
 
 func main() {
-	err := godotenv.Load()
+	err := godotenv.Load("./.env")
+	if err != nil {
+		log.Printf("[WARN] loading base .env file: %v", err)
+	}
+
+	err = godotenv.Load("../.env")
 	if err != nil {
 		log.Fatalf("loading .env file: %v", err)
 		return

@@ -44,8 +44,7 @@ def recommend():
     results = {
         "results": [idx for idx, _ in places[:TOP_K]]
     }
-    # TODO: return the actual response after done debugging tomorrow
-    return Response(status=HTTPStatus.OK, response=results)
+    return results
 
 
 if __name__ == '__main__':

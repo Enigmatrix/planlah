@@ -3,12 +3,13 @@ package data
 import (
 	"context"
 	"fmt"
+	"time"
+
 	"github.com/google/uuid"
 	"github.com/juju/errors"
 	"github.com/lib/pq"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
-	"time"
 )
 
 type User struct {
@@ -122,13 +123,13 @@ type OutingStepVote struct {
 }
 
 type Place struct {
-	ID               uint      `gorm:"primarykey"`
-	Name             string    `gorm:"not null; type:varchar(255)"`
-	Location         string    `gorm:"not null; type:varchar(255)"`
-	Position         Point     `gorm:"not null"`
-	FormattedAddress string    `gorm:"not null; type:varchar(255)"`
-	ImageUrl         string    `gorm:"not null"`
-	About            string    `gorm:"not null"`
+	ID               uint   `gorm:"primarykey"`
+	Name             string `gorm:"not null; type:varchar(255)"`
+	Location         string `gorm:"not null; type:varchar(255)"`
+	Position         Point  `gorm:"not null"`
+	FormattedAddress string `gorm:"not null; type:varchar(255)"`
+	ImageUrl         string `gorm:"not null"`
+	About            string
 	PlaceType        PlaceType `gorm:"not null"`
 	// Features will not be used by us
 }
@@ -139,7 +140,7 @@ type Point struct {
 }
 
 func (loc Point) GormDataType() string {
-	return "geometry"
+	return "geography"
 }
 
 func (loc Point) GormValue(ctx context.Context, db *gorm.DB) clause.Expr {

@@ -43,7 +43,7 @@ type Pagination struct {
 
 type SearchUsersDto struct {
 	Pagination
-	Query string `uri:"query" binding:"required"`
+	Query string `form:"query" binding:"required"`
 }
 
 func ToUserSummaryDto(user data.User) UserSummaryDto {
