@@ -23,7 +23,7 @@ class Point {
   };
 }
 
-class Place {
+class PlaceDto {
   int id;
   String name;
   String about;
@@ -34,7 +34,7 @@ class Place {
   Point position;
 
 
-  Place(this.id,
+  PlaceDto(this.id,
     this.name,
     this.about,
     this.formattedAddress,
@@ -43,7 +43,7 @@ class Place {
     this.placeType,
     this.position);
 
-  Place.fromJson(Map<String, dynamic> json) :
+  PlaceDto.fromJson(Map<String, dynamic> json) :
       id = json["id"],
       name = json["name"],
       about = json["about"],

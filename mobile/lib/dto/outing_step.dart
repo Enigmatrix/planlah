@@ -49,7 +49,7 @@ class OutingStepVoteDto {
 
 class OutingStepDto {
   int id;
-  Place place;
+  PlaceDto place;
   String description;
   String start;
   String end;
@@ -68,7 +68,7 @@ class OutingStepDto {
 
   OutingStepDto.fromJson(Map<String, dynamic> json):
         id = json["id"],
-        place = Place.fromJson(json["place"]),
+        place = PlaceDto.fromJson(json["place"]),
         description = json["description"],
         start = json["start"],
         end = json["end"],
