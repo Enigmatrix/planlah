@@ -372,17 +372,27 @@ func (db *Database) PendingFriendRequests(userId uint, page Pagination) ([]Frien
 // ListFriends Lists all users who are friends of the current user
 func (db *Database) ListFriends(userId uint, page Pagination) ([]User, error) {
 	var users []User
-	err := db.conn.Model(&FriendRequest{}).
-		Where(&FriendRequest{
-			ToID:   userId,
-			Status: Approved,
-		}).
-		Joins("inner join users u on u.id = from_id").
-		Select("u.*").
-		Find(&users).
-		Offset(page.Offset()).
-		Limit(page.Limit()).
+
+	err := db.conn.Raw(`
+SELECT u.*
+FROM users AS u
+INNER JOIN
+(
+	SELECT from_id
+	FROM friend_requests
+	WHERE to_id = ?
+	AND status = 'approved'
+	UNION
+	SELECT to_id
+	FROM friend_requests
+	WHERE from_id = ?
+	AND status = 'approved'
+) AS friend_id
+ON u.id = friend_id.from_id
+LIMIT ? OFFSET ?`, userId, userId, pageCount, page*pageCount).
+		Scan(&users).
 		Error
+
 	if err != nil {
 		return nil, errors.Trace(err)
 	}
