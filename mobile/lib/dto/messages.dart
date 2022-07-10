@@ -1,4 +1,3 @@
-import 'package:mobile/dto/chat.dart';
 import 'package:mobile/dto/user.dart';
 
 class MessageDto {

@@ -45,6 +45,11 @@ type JioToGroupDto struct {
 	GroupID uint `json:"groupId" binding:"required"`
 }
 
+type LeaveGroupDto struct {
+	UserID  uint `json:"userId" binding:"required"`
+	GroupID uint `json:"groupId" binding:"required"`
+}
+
 type GetGroupInvitesDto struct {
 	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
 }
@@ -170,7 +175,7 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 // @Router /api/groups/jio [post]
 func (ctr *GroupsController) Jio(ctx *gin.Context) {
 	var dto JioToGroupDto
-	if Query(ctx, &dto) {
+	if Body(ctx, &dto) {
 		return
 	}
 
@@ -197,6 +202,48 @@ func (ctr *GroupsController) Jio(ctx *gin.Context) {
 	}
 
 	_, err = ctr.Database.AddUserToGroup(dto.UserID, dto.GroupID)
+	if err != nil {
+		if errors.Is(err, data.UserAlreadyInGroup) {
+			FailWithMessage(ctx, "user is already in group")
+			return
+		}
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.Status(http.StatusOK)
+}
+
+// Leave godoc
+// @Summary Leave a group
+// @Description The user leaves a specified group chat.
+// @Description If this group is a DM group, this does nothing.
+// @Param body body LeaveGroupDto true "Details of Leave request"
+// @Tags Group
+// @Security JWT
+// @Success 200
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/groups/leave [post]
+func (ctr *GroupsController) Leave(ctx *gin.Context) {
+	var dto LeaveGroupDto
+	if Body(ctx, &dto) {
+		return
+	}
+
+	member := ctr.AuthGroupMember(ctx, dto.GroupID)
+	if member == nil {
+		return
+	}
+
+	// not available for IsDM=true
+	group, err := ctr.Database.GetGroup(member.UserID, member.GroupID)
+	if group.IsDM {
+		FailWithMessage(ctx, "cannot leave a dm group")
+		return
+	}
+
+	err = ctr.Database.RemoveUserFromGroup(dto.UserID, dto.GroupID)
 	if err != nil {
 		if errors.Is(err, data.UserAlreadyInGroup) {
 			FailWithMessage(ctx, "user is already in group")
@@ -475,6 +522,7 @@ func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group.GET("all", ctr.GetAll)
 	group.GET("invites", ctr.GetInvites)
 	group.POST("jio", ctr.Jio)
+	group.POST("leave", ctr.Leave)
 	group.PUT("invites/invalidate", ctr.InvalidateInvite)
 	group.POST("invites/create", ctr.CreateInvite)
 	group.GET("join/:inviteId", ctr.JoinByInvite)

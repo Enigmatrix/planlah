@@ -57,7 +57,7 @@ class BaseConnect extends GetConnect {
     unauthClient = GetHttpClient();
 
     // TODO make this configurable
-    httpClient.baseUrl = "http://localhost:8080/api";
+    httpClient.baseUrl = "http://localhost:8070/api";
     // httpClient.baseUrl = "http://enigmatrix.me:8085/api";
 
     httpClient.addRequestModifier<dynamic>((request) async {
