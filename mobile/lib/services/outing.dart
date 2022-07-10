@@ -19,11 +19,10 @@ class OutingService extends BaseConnect {
   }
 
   /// Create a new Outing for a Group
-  Future<Response<OutingDto?>> create(CreateOutingDto dto) async {
+  Future<Response> createOuting(CreateOutingDto dto) async {
     return await post<OutingDto?>(
         "/outing/create",
         dto.toJson(),
-        decoder: decoderFor(OutingDto.fromJson)
     );
   }
 
@@ -37,11 +36,10 @@ class OutingService extends BaseConnect {
   }
 
   /// Create an OutingStep
-  Future<Response<OutingStepDto?>> createOutingStep(CreateOutingStepDto dto) async {
+  Future<Response> createOutingStep(CreateOutingStepDto dto) async {
     return await post(
         "/outing/create_step",
         dto.toJson(),
-        decoder: decoderFor(OutingStepDto.fromJson)
     );
   }
 

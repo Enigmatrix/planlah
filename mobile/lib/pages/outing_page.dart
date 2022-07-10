@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobile/dto/outing.dart';
+import 'package:mobile/dto/outing_step.dart';
 import 'package:mobile/main.dart';
 import 'package:mobile/model/chat_group.dart';
 import 'package:mobile/pages/create_outing_step_page.dart';
@@ -67,9 +68,9 @@ class _OutingPageState extends State<OutingPage> {
         slivers: [
           SliverList(delegate: TimelineTileBuilderDelegate(
             (context, index) {
-              return buildTimelineTile(index);
+              return buildTimelineTile(context, outing.steps[index]);
             },
-            childCount: outing.outingStepDto.length
+            childCount: outing.steps.length
           ))
         ],
       ),
@@ -78,18 +79,19 @@ class _OutingPageState extends State<OutingPage> {
   }
 
 
-  Widget buildTimelineTile(int index) {
-    return const Text("");
+  Widget buildTimelineTile(BuildContext context, List<OutingStepDto> conflictingSteps) {
+    return Text("w");
     // return TimelineTile(
     //   node: TimelineNode(
     //     indicator: Container(
     //       decoration: BoxDecoration(
-    //           border: (index == widget.outing.getCurrentOuting())
-    //               ? Border.all(color: Colors.redAccent.shade700)
-    //               : Border.all(color: Colors.blueAccent.shade100)
+    //           // border: (index == widget.outing.getCurrentOuting())
+    //           //     ? Border.all(color: Colors.redAccent.shade700)
+    //           //     : Border.all(color: Colors.blueAccent.shade100)
     //       ),
     //       child: Text(
-    //           formatTime(outingDto.getOutingStep(index))
+    //           "CONFLICT"
+    //           // formatTime(outingDto.getOutingStep(index))
     //       ),
     //     ),
     //     startConnector: getStartConnector(index),

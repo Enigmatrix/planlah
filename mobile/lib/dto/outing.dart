@@ -29,11 +29,11 @@ class OutingDto {
   int groupId;
   String start;
   String end;
-  List<List<OutingStepDto>> outingStepDto;
+  List<List<OutingStepDto>> steps;
 
 
   OutingDto(this.id, this.name, this.description, this.groupId, this.start,
-      this.end, this.outingStepDto);
+      this.end, this.steps);
 
   OutingDto.fromJson(Map<String, dynamic> json)
       :  id = json['id'],
@@ -42,15 +42,7 @@ class OutingDto {
          groupId = json["groupId"],
          start = json["start"],
          end = json["end"],
-         outingStepDto = OutingStepDto.fromJsonToList(json["steps"]);
-
-  int getSize() {
-    return outingStepDto.length;
-  }
-
-  int getCurrentOuting() {
-    return getSize() - 1;
-  }
+         steps = OutingStepDto.fromJsonToList(json["steps"]);
 }
 
 class GetActiveOutingDto {

@@ -137,7 +137,7 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Param body body CreateOutingDto true "Initial details of Outing"
 // @Tags Outing
 // @Security JWT
-// @Success 200 {object} OutingDto
+// @Success 200
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} services.AuthError
 // @Router /api/outing/create [post]
@@ -189,7 +189,7 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, ToOutingDto(outing))
+	ctx.Status(http.StatusOK)
 }
 
 // CreateStep godoc
@@ -198,7 +198,7 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 // @Param body body CreateOutingStepDto true "Details for Outing Step"
 // @Tags Outing
 // @Security JWT
-// @Success 200 {object} OutingStepDto
+// @Success 200
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} services.AuthError
 // @Router /api/outing/create_step [post]
@@ -230,7 +230,7 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 	// round the time to nearest minute
 	dto.VoteDeadline = dto.VoteDeadline.Round(time.Minute)
 
-	if time.Now().After(dto.VoteDeadline) || outing.Start.After(dto.VoteDeadline) {
+	if time.Now().After(dto.VoteDeadline) || outing.Start.Before(dto.VoteDeadline) {
 		FailWithMessage(ctx, fmt.Sprintf("outing step has invalid voteDeadline (%s)", dto.VoteDeadline))
 		return
 	}
@@ -264,7 +264,7 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, ToOutingStepDto(outingStep))
+	ctx.Status(http.StatusOK)
 }
 
 // Get godoc
