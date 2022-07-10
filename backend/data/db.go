@@ -258,7 +258,7 @@ func (db *Database) SearchForFriends(userId uint, query string, page Pagination)
 	var users []User
 	// this query makes it slightly ex since we might have a lot of results
 	err := db.conn.Model(&User{}).
-		Where("name like '%' || @q || '%' OR username like '%' || @q || '%'", map[string]interface{}{"q": query}).
+		Where("name ilike '%' || @q || '%' OR username ilike '%' || @q || '%'", map[string]interface{}{"q": query}).
 		Where("id not in "+friendSql, map[string]interface{}{"thisUserId": userId}).
 		Order("username,name asc").
 		Limit(page.Limit()).
@@ -1007,7 +1007,7 @@ func SelectPlaces(tx *gorm.DB) *gorm.DB {
 func (db *Database) SearchForPlaces(query string, page Pagination) ([]Place, error) {
 	var places []Place
 	err := SelectPlaces(db.conn.Model(&Place{})).
-		Where("name like '%' || ? || '%'", query).
+		Where("name ilike '%' || ? || '%'", query).
 		Order("name asc").
 		Limit(page.Limit()).
 		Offset(page.Offset()).
