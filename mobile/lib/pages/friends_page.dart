@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/services/friends.dart';
 
+import 'add_friends_page.dart';
 import 'friend_requests_page.dart';
 
 class FriendsPage extends StatefulWidget {
@@ -22,6 +23,9 @@ class _FriendsPageState extends State<FriendsPage> {
 
   // For pagination
   int currentPage = 0;
+
+  static const String ADD = "ADD";
+  static const String REQUEST = "REQUEST";
 
   @override
   void initState() {
@@ -49,21 +53,41 @@ class _FriendsPageState extends State<FriendsPage> {
       appBar: AppBar(
         title: const Text("Friends"),
         actions: <Widget>[
-          ElevatedButton.icon(
-              onPressed: () {
-                _navigateAndRefresh(context);
-              },
-              icon: const Icon(Icons.person_add),
-              label: const Text("")
-          ),
+          buildAddFriendButton(),
+          buildFriendRequestsButton(),
         ],
       ),
       body: content,
     );
   }
+  
+  Widget buildFriendRequestsButton() {
+    return ElevatedButton(
+      onPressed: () {
+        _navigateAndRefresh(context, REQUEST);
+      },
+      child: const Icon(Icons.person_pin_sharp),
+    );
+  }
 
-  void _navigateAndRefresh(BuildContext context) async {
-    final result = await Get.to(() => const FriendRequestPage());
+  
+  Widget buildAddFriendButton() {
+    return ElevatedButton(
+        onPressed: () {
+          _navigateAndRefresh(context, ADD);
+        },
+        child: const Icon(Icons.person_add),
+    );
+  }
+  
+  void _navigateAndRefresh(BuildContext context, String type) async {
+    var result;
+    if (type == ADD) {
+      result = await Get.to(() => const AddFriendPage());
+    } else {
+      result = await Get.to(() => const FriendRequestPage());
+    }
+
     if (result != null) {
       _loadFriends();
     }
