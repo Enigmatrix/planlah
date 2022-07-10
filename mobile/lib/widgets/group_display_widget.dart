@@ -1,23 +1,21 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/group.dart';
 import 'package:mobile/pages/chat_page.dart';
 import 'package:mobile/utils/time.dart';
 
-import '../model/chat_group.dart';
-import '../model/user.dart';
+import '../dto/user.dart';
 
 
 class GroupDisplay extends StatefulWidget {
   GroupSummaryDto chatGroup;
-  UserInfo userInfo;
+  UserSummaryDto userSummaryDto;
   // ChatGroup chatGroup;
 
   GroupDisplay({
     Key? key,
     required this.chatGroup,
-    required this.userInfo,
+    required this.userSummaryDto,
   }) : super(key: key);
 
   @override
@@ -31,7 +29,7 @@ class _GroupDisplayState extends State<GroupDisplay> {
       onTap: () {
         Get.to(() => GroupChatPage(
           chatGroup: widget.chatGroup,
-          userInfo: widget.userInfo,
+          userSummaryDto: widget.userSummaryDto,
         ));
       },
       child: Container(

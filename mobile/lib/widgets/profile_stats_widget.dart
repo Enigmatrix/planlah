@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../model/user.dart';
+import '../dto/user.dart';
 
 class ProfileStatsWidget extends StatelessWidget {
-  final UserInfo user;
+  final UserSummaryDto user;
 
   const ProfileStatsWidget({
     Key? key,

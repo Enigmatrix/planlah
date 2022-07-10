@@ -1,9 +1,9 @@
-import 'package:mobile/model/user.dart';
 
+import '../dto/user.dart';
 import 'location.dart';
 
 class ReviewInfo {
-  final UserInfo user;
+  final UserSummaryDto user;
   final String content;
   final LocationInfo location;
 
