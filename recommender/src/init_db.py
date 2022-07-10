@@ -53,7 +53,6 @@ def main():
         conn = psycopg2.connect(url)
         cur = conn.cursor()
     print("Initializing table places...")
-    cur.execute("DROP TABLE IF EXISTS places;")
     cur.execute("DROP TYPE IF EXISTS PLACETYPE")
     cur.execute("CREATE TYPE PLACETYPE AS ENUM('attraction', 'restaurant')")
     cur.execute("CREATE TABLE places ("
