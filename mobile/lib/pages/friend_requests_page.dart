@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/friends.dart';
 import 'package:mobile/services/friends.dart';
-import 'package:mobile/theme.dart';
-
-import '../dto/user.dart';
 
 class FriendRequestPage extends StatefulWidget {
   const FriendRequestPage({Key? key}) : super(key: key);
@@ -58,7 +55,7 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
 
   Widget buildFriendRequestGridViewItem(BuildContext context, int index) {
     var friendRequest = _friendRequests[index];
-    var userInfo = friendRequest.from;
+    var UserSummaryDto = friendRequest.from;
     return GridTile(
       child: Container(
         decoration: BoxDecoration(
@@ -72,11 +69,11 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
               Hero(
                   tag: index,
                   child: CircleAvatar(
-                    backgroundImage: NetworkImage(userInfo.imageLink),
+                    backgroundImage: NetworkImage(UserSummaryDto.imageLink),
                   )
               ),
-              Text(userInfo.name),
-              Text(userInfo.username),
+              Text(UserSummaryDto.name),
+              Text(UserSummaryDto.username),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[

@@ -9,18 +9,18 @@ import 'package:mobile/pages/view_all_outings.dart';
 import 'package:mobile/services/message.dart';
 import 'package:mobile/services/outing.dart';
 
-import '../model/user.dart';
+import '../dto/user.dart';
 import '../utils/time.dart';
 import 'CreateOutingPage.dart';
 
 class GroupChatPage extends StatefulWidget {
   GroupSummaryDto chatGroup;
-  UserInfo userInfo;
+  UserSummaryDto userSummaryDto;
 
   GroupChatPage({
     Key? key,
     required this.chatGroup,
-    required this.userInfo,
+    required this.userSummaryDto,
   }) : super(key: key);
 
   @override
@@ -198,7 +198,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
 
   Widget buildMessage(MessageDto message) {
-    bool isUser = message.user.username == widget.userInfo.username;
+    bool isUser = message.user.username == widget.userSummaryDto.username;
     return Column(
         children: <Widget>[
           Row(

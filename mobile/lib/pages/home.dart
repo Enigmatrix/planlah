@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:mobile/pages/groups_page.dart';
 import 'package:mobile/model/group.dart';
 import 'package:mobile/model/location.dart';
-import 'package:mobile/model/user.dart';
 import 'package:mobile/pages/profile.dart';
 import 'package:mobile/pages/settings.dart';
 import 'package:mobile/pages/social_feed.dart';
 import 'package:mobile/pages/friends_page.dart';
-import 'package:mobile/pages/social_post.dart';
-import 'package:mobile/services/auth.dart';
+
+import '../dto/user.dart';
 
 class HomePage extends StatefulWidget {
 
-  UserInfo userInfo;
+  UserSummaryDto userSummaryDto;
   HomePage({
     Key? key,
-    required this.userInfo,
+    required this.userSummaryDto,
   }) : super(key: key);
 
   @override
@@ -28,16 +26,10 @@ class _HomePageWidgetState extends State<HomePage> {
 
   // Hard code for now
   static GroupInfo groupInfo1 = GroupInfo(
-      owner: UserInfo(
-        name: "Bruno Mars",
-        username: "Bruno",
-        imageUrl: "https://www.biography.com/.image/c_fill%2Ccs_srgb%2Cfl_progressive%2Ch_400%2Cq_auto:good%2Cw_620/MTg4NTc2ODg1MjEzNTA1MTQw/gettyimages-134315104.jpg"
+      owner: UserSummaryDto(55, "Bruno Mars", "Bruno", "https://www.biography.com/.image/c_fill%2Ccs_srgb%2Cfl_progressive%2Ch_400%2Cq_auto:good%2Cw_620/MTg4NTc2ODg1MjEzNTA1MTQw/gettyimages-134315104.jpg"
       ),
-      members: <UserInfo>[
-        UserInfo(
-            name: "Sasha Obama",
-            username: "Sasha",
-            imageUrl: "https://media.allure.com/photos/5aeb12dfbf1d634fcf6f718e/1:1/w_3455,h_3455,c_limit/SWNS_SASHA_OBAMA_14.jpg"
+      members: <UserSummaryDto>[
+        UserSummaryDto(54, "Sasha Obama", "Sasha", "https://media.allure.com/photos/5aeb12dfbf1d634fcf6f718e/1:1/w_3455,h_3455,c_limit/SWNS_SASHA_OBAMA_14.jpg"
         )
       ],
       currentLocation: LocationInfo(
@@ -47,21 +39,12 @@ class _HomePageWidgetState extends State<HomePage> {
   );
 
   static GroupInfo groupInfo2 = GroupInfo(
-      owner: UserInfo(
-          name: "Taylor Swift",
-          username: "Taylor",
-          imageUrl: "https://assets.teenvogue.com/photos/626abe370979f2c5ace0ab29/16:9/w_2560%2Cc_limit/GettyImages-1352932505.jpg"
+      owner: UserSummaryDto(56, "Taylor Swift", "Taylor", "https://assets.teenvogue.com/photos/626abe370979f2c5ace0ab29/16:9/w_2560%2Cc_limit/GettyImages-1352932505.jpg"
       ),
-      members: <UserInfo>[
-        UserInfo(
-            name: "Amber Heard",
-            username: "Amber",
-            imageUrl: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2022%2F05%2F16%2FAmber-Heard.jpg"
+      members: <UserSummaryDto>[
+        UserSummaryDto(57, "Amber Heard", "Amber", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2022%2F05%2F16%2FAmber-Heard.jpg"
         ),
-        UserInfo(
-            name: "Bob the builder",
-            username: "Bob the builder",
-            imageUrl: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2022%2F05%2F16%2FAmber-Heard.jpg"
+        UserSummaryDto(58, "Bob the builder", "Bob the builder", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2022%2F05%2F16%2FAmber-Heard.jpg"
         ),
       ],
       currentLocation: LocationInfo(
@@ -87,7 +70,7 @@ class _HomePageWidgetState extends State<HomePage> {
       case 2:
         return FriendsPage();
       case 3:
-        return ProfilePage(userInfo: widget.userInfo);
+        return ProfilePage(userSummaryDto: widget.userSummaryDto);
       default:
         return SettingsPage();
     }
