@@ -18,6 +18,11 @@ class UserService extends BaseConnect {
   }
 
   Future<Response<List<UserSummaryDto>?>> searchForFriends(int page, String query) async {
-    
+    SearchUsersDto dto = SearchUsersDto(page, query);
+    return await get(
+      "/users/search_for_friends",
+      query: dto.toJson(),
+      decoder: decoderForList(UserSummaryDto.fromJson)
+    );
   }
 }

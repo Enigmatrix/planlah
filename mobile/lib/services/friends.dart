@@ -15,6 +15,14 @@ class FriendService extends BaseConnect {
     );
   }
 
+  Future<Response<dynamic>> sendFriendRequest(int userId) async {
+    CreateFriendRequestDto dto = CreateFriendRequestDto(userId);
+    return await post(
+      "/friends/requests/send",
+      dto.toJson()
+    );
+  }
+
   Future<Response<List<FriendRequestDto>?>> getFriendRequests(int pageNumber) async {
     var query = {
       "page": pageNumber.toString()
