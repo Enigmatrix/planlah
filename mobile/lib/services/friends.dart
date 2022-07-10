@@ -26,5 +26,21 @@ class FriendService extends BaseConnect {
     );
   }
 
+  Future<Response<void>> approveFriendRequest(int userId) async {
+    var dto = FriendRequestRefDto(userId).toJson();
+    return await put(
+        "/friends/requests/approve",
+        dto
+    );
+  }
+
+  Future<Response<void>> rejectFriendRequest(int userId) async {
+    var dto = FriendRequestRefDto(userId).toJson();
+    return await put(
+        "/friends/requests/reject",
+        dto
+    );
+  }
+
 
 }
