@@ -48,3 +48,15 @@ class UserSummaryDto {
       name = json["name"],
       imageLink = json["imageLink"];
 }
+
+class SearchUsersDto {
+  int page;
+  String query;
+
+  SearchUsersDto(this.page, this.query);
+
+  Map<String, dynamic> toJson() => {
+    "page": page.toString(),
+    "query": query
+  };
+}

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/services/friends.dart';
 
-import 'add_friends_page.dart';
+import '../services/user.dart';
 import 'friend_requests_page.dart';
 
 class FriendsPage extends StatefulWidget {
@@ -23,9 +23,6 @@ class _FriendsPageState extends State<FriendsPage> {
 
   // For pagination
   int currentPage = 0;
-
-  static const String ADD = "ADD";
-  static const String REQUEST = "REQUEST";
 
   @override
   void initState() {
@@ -64,7 +61,7 @@ class _FriendsPageState extends State<FriendsPage> {
   Widget buildFriendRequestsButton() {
     return ElevatedButton(
       onPressed: () {
-        _navigateAndRefresh(context, REQUEST);
+        _navigateAndRefresh(context);
       },
       child: const Icon(Icons.person_pin_sharp),
     );
@@ -72,22 +69,19 @@ class _FriendsPageState extends State<FriendsPage> {
 
   
   Widget buildAddFriendButton() {
-    return ElevatedButton(
+    return IconButton(
         onPressed: () {
-          _navigateAndRefresh(context, ADD);
+          showSearch(
+              context: context,
+              delegate: FriendSearch()
+          );
         },
-        child: const Icon(Icons.person_add),
+        icon: const Icon(Icons.search)
     );
   }
   
-  void _navigateAndRefresh(BuildContext context, String type) async {
-    var result;
-    if (type == ADD) {
-      result = await Get.to(() => const AddFriendPage());
-    } else {
-      result = await Get.to(() => const FriendRequestPage());
-    }
-
+  void _navigateAndRefresh(BuildContext context) async {
+    var result = await Get.to(() => const FriendRequestPage());
     if (result != null) {
       _loadFriends();
     }
@@ -123,4 +117,155 @@ class _FriendsPageState extends State<FriendsPage> {
 
     );
   }
+}
+
+class FriendSearch extends SearchDelegate<UserSummaryDto> {
+  final userService = Get.find<UserService>();
+  final friendService = Get.find<FriendService>();
+  List<UserSummaryDto> results = [];
+
+  static const pending = "pending";
+  static const isSameUser = "users are the same";
+  static const friendReqExists = "friend request exists";
+
+
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query = "";
+          },
+          icon: const Icon(Icons.clear)
+      )
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, UserSummaryDto(55, "Jotham", "Jotham", "https://supermariorun.com/assets/img/stage/mario03.png"));
+        },
+        icon: const Icon(Icons.arrow_back)
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: Page number???
+    userService.searchForFriends(0, query).then((response) => {
+      if (response.isOk) {
+        results = response.body!
+      } else {
+        results = []
+      }
+    });
+    if (results.isEmpty) {
+      return const Center(child: Text("No results"));
+    } else {
+      return ListView.builder(
+          itemCount: results.length,
+          itemBuilder: buildUserListTile
+      );
+    }
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return Container();
+  }
+
+  Widget buildUserListTile(BuildContext context, int index) {
+    UserSummaryDto user = results[index];
+    return ListTile(
+      onTap: () {
+        showDialog(context: context, builder: (context) => buildUserRequestDialog(context, user));
+      },
+      leading: buildUserAvatar(user),
+      title: Text(user.username),
+    );
+  }
+
+  Widget buildUserRequestDialog(BuildContext context, UserSummaryDto user) {
+    return Dialog(
+      child: Container(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ),
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            buildUserAvatar(user),
+            Text(user.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text(user.username),
+            IconButton(
+                onPressed: () {
+                  sendFriendRequest(user);
+                },
+                icon: const Icon(Icons.person_add)
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  void sendFriendRequest(UserSummaryDto user) async {
+    Response<dynamic> response = await friendService.sendFriendRequest(user.id);
+    String status;
+
+    if (response.isOk) {
+      // Response is a String if ok
+      status = response.body!;
+    } else {
+      // Response is a ErrorMessage if not
+      status = response.body!["message"];
+    }
+
+    triggerSnackBar(status);
+  }
+
+  void triggerSnackBar(String status) {
+    // TODO: Fix snack bar not showing again after first appearance
+    switch (status) {
+      case pending:
+        Get.snackbar(
+          "Success",
+          "Your friend request has been sent!",
+          backgroundColor: Colors.green,
+          snackPosition: SnackPosition.BOTTOM
+        ).show().then((value) => Get.closeAllSnackbars());
+        break;
+      case friendReqExists:
+        Get.snackbar(
+          "Error",
+          "Already sent a friend request",
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM
+        ).show().then((value) => Get.closeAllSnackbars());
+        break;
+      case isSameUser:
+        Get.snackbar(
+            "Error",
+            "Same user",
+            backgroundColor: Colors.red,
+            snackPosition: SnackPosition.BOTTOM
+        ).show().then((value) => Get.closeAllSnackbars());
+        break;
+      default:
+        return;
+    }
+  }
+
+  Widget buildUserAvatar(UserSummaryDto user) {
+    return Hero(
+      tag: user.id,
+      child: CircleAvatar(
+        backgroundImage: NetworkImage(user.imageLink),
+      ),
+    );
+  }
+
 }

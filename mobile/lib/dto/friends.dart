@@ -18,3 +18,13 @@ class FriendRequestRefDto {
     "userId": userId
   };
 }
+
+class CreateFriendRequestDto {
+  int userId;
+
+  CreateFriendRequestDto(this.userId);
+
+  Map<String, dynamic> toJson() => {
+    "id": userId
+  };
+}
