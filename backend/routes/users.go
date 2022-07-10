@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/services"
+	"strconv"
 )
 
 type UserController struct {
@@ -64,7 +65,7 @@ func ToUserSummaryDto(user data.User) UserSummaryDto {
 // @Router /api/users/create [post]
 func (ctr *UserController) Create(ctx *gin.Context) {
 	var dto CreateUserDto
-	if Form(ctx, &dto) {
+	if Body(ctx, &dto) {
 		return
 	}
 
@@ -170,7 +171,7 @@ func (ctr *UserController) SearchForFriends(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
 
 	var dto SearchUsersDto
-	if Body(ctx, &dto) {
+	if Query(ctx, &dto) {
 		return
 	}
 
