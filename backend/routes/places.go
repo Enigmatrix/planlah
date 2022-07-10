@@ -1,8 +1,12 @@
 package routes
 
 import (
+	"encoding/json"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/samber/lo"
+	"go.uber.org/zap"
+	"io"
 	"net/http"
 	"planlah.sg/backend/data"
 )
@@ -19,6 +23,10 @@ type SearchForPlacesDto struct {
 type RecommendPlacesDto struct {
 	data.Point
 	PlaceType data.PlaceType `json:"placeType" binding:"required"`
+}
+
+type RecommendPlacesResultDto struct {
+	Result []uint `json:"result" binding:"required"`
 }
 
 type PlaceDto struct {
@@ -86,14 +94,45 @@ func (ctr *PlacesController) Search(ctx *gin.Context) {
 // @Failure 401 {object} services.AuthError
 // @Router /api/places/recommend [get]
 func (ctr *PlacesController) Recommend(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
+
 	var dto RecommendPlacesDto
 	if Query(ctx, &dto) {
 		return
 	}
 
-	// TODO forward the request to recommender service
+	if dto.PlaceType != data.Attraction && dto.PlaceType != data.Restaurant {
+		FailWithMessage(ctx, "invalid placeType")
+		return
+	}
 
-	// ctx.JSON(http.StatusOK, ToPlaceDtos(places))
+	resp, err := http.Get(fmt.Sprintf("%s/recommend/?userid=%d&lon=%f&lat=%f&place_type=%s",
+		ctr.Config.RecommenderUrl, userId, dto.Longitude, dto.Latitude, dto.PlaceType))
+	if err != nil {
+		// TODO handle error
+		return
+	}
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			ctr.Logger.Warn("close recommender req body", zap.Error(err))
+		}
+	}(resp.Body)
+
+	var response RecommendPlacesResultDto
+	err = json.NewDecoder(resp.Body).Decode(&response)
+	if err != nil {
+		// TODO handle error
+		return
+	}
+
+	places, err := ctr.Database.GetPlaces(response.Result)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, ToPlaceDtos(places))
 }
 
 // Register the routes for this controller

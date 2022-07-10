@@ -14,6 +14,7 @@ type Config struct {
 	ImageKitPublicKey  string
 	ImageKitPrivateKey string
 	ImageKitUrlPath    string
+	RecommenderUrl     string
 }
 
 type AppMode string
@@ -46,6 +47,7 @@ func NewConfig() (*Config, error) {
 			ImageKitPublicKey:  getConfigOrThrow("IMAGE_KIT_PUBLIC_KEY", "Please set IMAGE_KIT_PUBLIC_KEY environment var."),
 			ImageKitPrivateKey: getConfigOrThrow("IMAGE_KIT_PRIVATE_KEY", "Please set IMAGE_KIT_PRIVATE_KEY environment var."),
 			ImageKitUrlPath:    getConfigOrThrow("IMAGE_KIT_URL_PATH", "Please set IMAGE_KIT_URL_PATH environment var."),
+			RecommenderUrl:     getConfigOrThrow("RECOMMENDER_URL", "Please set RECOMMENDER_URL environment var."),
 		}, nil
 	})
 }

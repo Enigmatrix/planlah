@@ -117,6 +117,7 @@ func NewServer(
 		places.Register(api)
 	}
 
+	// run jobs in goroutine
 	go func(jobRunner *jobs.Runner) {
 		err := jobRunner.Run()
 		if err != nil {
