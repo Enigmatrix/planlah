@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/services"
+	"strconv"
 )
 
 type UserController struct {
@@ -42,7 +43,7 @@ type Pagination struct {
 }
 
 type SearchUsersDto struct {
-	Pagination
+	Page  string `form:"page" query:"page" binding:"required"`
 	Query string `form:"query" binding:"required"`
 }
 
@@ -68,7 +69,7 @@ func ToUserSummaryDto(user data.User) UserSummaryDto {
 // @Router /api/users/create [post]
 func (ctr *UserController) Create(ctx *gin.Context) {
 	var dto CreateUserDto
-	if Form(ctx, &dto) {
+	if Body(ctx, &dto) {
 		return
 	}
 
@@ -174,11 +175,16 @@ func (ctr *UserController) SearchForFriends(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
 
 	var dto SearchUsersDto
-	if Body(ctx, &dto) {
+	if Query(ctx, &dto) {
 		return
 	}
 
-	users, err := ctr.Database.SearchForFriends(userId, dto.Query, dto.Page)
+	page, err := strconv.Atoi(dto.Page)
+	if err != nil {
+		FailWithMessage(ctx, "Failed to convert page to int")
+	}
+
+	users, err := ctr.Database.SearchForFriends(userId, dto.Query, uint(page))
 	if err != nil {
 		handleDbError(ctx, err)
 		return
