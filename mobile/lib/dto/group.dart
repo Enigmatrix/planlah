@@ -51,3 +51,37 @@ class CreateGroupDto {
         "image": MultipartFile(image, filename: "groupAvatar.png")
     };
 }
+
+/// Cool way to make an enum that supports string values in Dart
+abstract class ExpiryOption {
+    static String get oneHour => "oneHour";
+    static String get oneDay => "oneDay";
+    static String get never => "never";
+}
+
+class CreateGroupInviteDto {
+    String expiryOption;
+    int groupId;
+
+    CreateGroupInviteDto(this.expiryOption, this.groupId);
+
+    Map<String, dynamic> toJson() => {
+        "expiryOption": expiryOption,
+        "groupId": groupId
+    };
+}
+
+class GroupInviteDto {
+    String expiry;
+    int groupId;
+    String id;
+    String url;
+
+    GroupInviteDto(this.expiry, this.groupId, this.id, this.url);
+
+    GroupInviteDto.fromJson(Map<String, dynamic> json)
+        :   expiry = json["expiry"] ?? "never",  // if expiryOption == null, this will be null
+            groupId = json["groupId"],
+            id = json["id"],
+            url = json["url"];
+}

@@ -4,14 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/group.dart';
-import 'package:mobile/dto/user.dart';
-import 'package:mobile/dto/outing.dart';
-import 'package:mobile/pages/chat_page.dart';
 import 'package:mobile/pages/create_group.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/widgets/group_display_widget.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
 
 import '../model/chat_group.dart';
 import '../model/user.dart';
@@ -50,7 +46,7 @@ class _GroupsPageState extends State<GroupsPage> {
         userInfo = value.body!;
       });
     });
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       updateGroups();
     });
     // groups = allGroups;
