@@ -8,3 +8,13 @@ class FriendRequestDto {
   FriendRequestDto.fromJson(Map<String, dynamic> json):
       from = UserSummaryDto.fromJson(json["from"]);
 }
+
+class FriendRequestRefDto {
+  int userId;
+
+  FriendRequestRefDto(this.userId);
+
+  Map<String, dynamic> toJson() => {
+    "userId": userId
+  };
+}

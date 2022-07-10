@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
@@ -14,6 +13,8 @@ class FriendsPage extends StatefulWidget {
 }
 
 class _FriendsPageState extends State<FriendsPage> {
+
+  // TODO: Use a StreamBuilder to refresh and paginate the friend list
 
   final friendService = Get.find<FriendService>();
 
@@ -50,7 +51,7 @@ class _FriendsPageState extends State<FriendsPage> {
         actions: <Widget>[
           ElevatedButton.icon(
               onPressed: () {
-                Get.to(() => FriendRequestPage());
+                _navigateAndRefresh(context);
               },
               icon: const Icon(Icons.person_add),
               label: const Text("")
@@ -59,6 +60,13 @@ class _FriendsPageState extends State<FriendsPage> {
       ),
       body: content,
     );
+  }
+
+  void _navigateAndRefresh(BuildContext context) async {
+    final result = await Get.to(() => const FriendRequestPage());
+    if (result != null) {
+      _loadFriends();
+    }
   }
 
   Widget buildNoFriendsWidget() {

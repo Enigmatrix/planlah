@@ -36,26 +36,51 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Friend Requests"),
+        leading: IconButton(
+          // Potentially hacky way to force refresh of previous page?
+          onPressed: () {
+            Get.back(result: "refresh");
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
         actions: <Widget>[
 
         ],
       ),
-      body: GridView.builder(
-        padding: const EdgeInsets.all(6),
-        itemCount: _friendRequests.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 16,
+      body: buildContent()
+    );
+  }
+
+  Widget buildContent() {
+    Widget content;
+    if (_friendRequests.length == 0) {
+      content = const Center(
+        child: Text(
+          "You currently have no friend requests"
         ),
-        itemBuilder: buildFriendRequestGridViewItem,
-      )
+      );
+    } else {
+      content = buildGridView();
+    }
+    return content;
+  }
+
+  Widget buildGridView() {
+    return GridView.builder(
+      padding: const EdgeInsets.all(6),
+      itemCount: _friendRequests.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
+      ),
+      itemBuilder: buildFriendRequestGridViewItem,
     );
   }
 
   Widget buildFriendRequestGridViewItem(BuildContext context, int index) {
     var friendRequest = _friendRequests[index];
-    var UserSummaryDto = friendRequest.from;
+    var userSummaryDto = friendRequest.from;
     return GridTile(
       child: Container(
         decoration: BoxDecoration(
@@ -69,20 +94,20 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
               Hero(
                   tag: index,
                   child: CircleAvatar(
-                    backgroundImage: NetworkImage(UserSummaryDto.imageLink),
+                    backgroundImage: NetworkImage(userSummaryDto.imageLink),
                   )
               ),
-              Text(UserSummaryDto.name),
-              Text(UserSummaryDto.username),
+              Text(userSummaryDto.name),
+              Text(userSummaryDto.username),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => approveFriendRequest(userSummaryDto.id),
                     child: const Icon(Icons.check_sharp),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => rejectFriendRequest(userSummaryDto.id),
                     child: const Icon(Icons.highlight_remove),
                   ),
                 ],
@@ -92,6 +117,16 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
         ),
       )
     );
+  }
+
+  void approveFriendRequest(int userId) async {
+    await friendService.approveFriendRequest(userId);
+    _loadFriendRequests();
+  }
+
+  void rejectFriendRequest(int userId) async {
+    await friendService.rejectFriendRequest(userId);
+    _loadFriendRequests();
   }
 
 }
