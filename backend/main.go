@@ -37,7 +37,12 @@ func NewLogger(config *utils.Config) *zap.Logger {
 }
 
 func main() {
-	err := godotenv.Load("../.env")
+	err := godotenv.Load("./.env")
+	if err != nil {
+		log.Printf("[WARN] loading base .env file: %v", err)
+	}
+
+	err = godotenv.Load("../.env")
 	if err != nil {
 		log.Fatalf("loading .env file: %v", err)
 		return
