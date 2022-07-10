@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/services/friends.dart';
+
+import 'friend_requests_page.dart';
 
 class FriendsPage extends StatefulWidget {
   const FriendsPage({Key? key}) : super(key: key);
@@ -44,6 +47,15 @@ class _FriendsPageState extends State<FriendsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Friends"),
+        actions: <Widget>[
+          ElevatedButton.icon(
+              onPressed: () {
+                Get.to(() => FriendRequestPage());
+              },
+              icon: const Icon(Icons.person_add),
+              label: const Text("")
+          ),
+        ],
       ),
       body: content,
     );
@@ -76,6 +88,7 @@ class _FriendsPageState extends State<FriendsPage> {
       title: Text(
         _friend.name,
       ),
+
     );
   }
 }
