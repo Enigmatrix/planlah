@@ -13,6 +13,7 @@ import 'package:mobile/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile/services/config.dart';
 import 'package:mobile/services/dev_panel.dart';
+import 'package:mobile/services/friends.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/message.dart';
 import 'package:mobile/services/misc.dart';
@@ -34,6 +35,7 @@ void main() async {
   Get.put(Config());
   Get.put(MiscService());
   Get.put(OutingService());
+  Get.put(FriendService());
 
   await initUniLinks();
   runApp(const App());
