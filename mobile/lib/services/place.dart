@@ -8,8 +8,8 @@ import 'package:mobile/services/base_connect.dart';
 class PlaceService extends BaseConnect {
   Future<Response<List<PlaceDto>?>> search(String query, int page) async => await get('/places/search',
       query: {
+        "page": page.toString(),
         "query": query,
-        "page": page
       },
       decoder: decoderForList(PlaceDto.fromJson));
 

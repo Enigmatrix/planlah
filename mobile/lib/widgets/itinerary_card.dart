@@ -1,6 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:mobile/model/outing_steps.dart';
-
 import '../dto/outing.dart';
 import '../dto/outing_step.dart';
 
