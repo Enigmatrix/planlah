@@ -81,6 +81,7 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 			&Outing{},
 			&OutingStep{},
 			&OutingStepVote{},
+			&Post{},
 		}
 
 		// Neat trick to migrate models with complex relationships, run auto migrations once
@@ -562,6 +563,19 @@ func (db *Database) AddUserToGroup(userId uint, grpId uint) (GroupMember, error)
 	}
 
 	return grpMember, nil
+}
+
+// RemoveUserFromGroup Removes a User from a Group
+func (db *Database) RemoveUserFromGroup(userId uint, grpId uint) error {
+
+	grpMember := GroupMember{GroupID: grpId, UserID: userId}
+	err := db.conn.Delete(grpMember).Error
+
+	if err != nil {
+		return errors.Trace(err)
+	}
+
+	return nil
 }
 
 // GetGroupMember Gets the GroupMember of the User and Group.
