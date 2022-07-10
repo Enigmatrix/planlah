@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:mobile/dto/outing.dart';
-import 'package:mobile/dto/outing_step.dart';
 import 'package:mobile/main.dart';
 import 'package:mobile/model/chat_group.dart';
 import 'package:mobile/pages/create_outing_step_page.dart';
@@ -46,17 +44,13 @@ class _OutingPageState extends State<OutingPage> {
     isActive = widget.isActive;
   }
 
-  fmtDate(DateTime d) => DateFormat("MM/dd").format(d.toLocal());
-  pdate(String date) => DateTime.parse(date).toLocal();
 
   @override
   Widget build(BuildContext context) {
-    print(outing.steps[1].length);
-    final range = "${fmtDate(pdate(outing.start))} - ${fmtDate(pdate(outing.end))}";
     return Scaffold(
       appBar: AppBar(
         leading:  isActive ? const Icon(Icons.place) : const Icon(Icons.history),
-        title: Text("${outing.name} ($range)"),
+        title: Text(outing.name),
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -69,9 +63,9 @@ class _OutingPageState extends State<OutingPage> {
         slivers: [
           SliverList(delegate: TimelineTileBuilderDelegate(
             (context, index) {
-              return buildTimelineTile(context, outing.steps[index]);
+              return buildTimelineTile(index);
             },
-            childCount: outing.steps.length
+            childCount: outing.outingStepDto.length
           ))
         ],
       ),
@@ -79,16 +73,20 @@ class _OutingPageState extends State<OutingPage> {
     return Text("");
   }
 
-  Widget buildTimelineTileConflicts(BuildContext context, List<OutingStepDto> conflictingSteps) {
+
+  Widget buildTimelineTile(int index) {
+    return const Text("");
     // return TimelineTile(
     //   node: TimelineNode(
     //     indicator: Container(
     //       decoration: BoxDecoration(
-    //         // border: (index == widget.outing.getCurrentOuting())
-    //         //     ? Border.all(color: Colors.redAccent.shade700)
-    //         //     : Border.all(color: Colors.blueAccent.shade100)
+    //           border: (index == widget.outing.getCurrentOuting())
+    //               ? Border.all(color: Colors.redAccent.shade700)
+    //               : Border.all(color: Colors.blueAccent.shade100)
     //       ),
-    //       child: child,
+    //       child: Text(
+    //           formatTime(outingDto.getOutingStep(index))
+    //       ),
     //     ),
     //     startConnector: getStartConnector(index),
     //     endConnector: getEndConnector(index),
@@ -102,43 +100,5 @@ class _OutingPageState extends State<OutingPage> {
     //     child: Text("Opposite Content"),
     //   ),
     // );
-    return Text("whayt ${conflictingSteps.length}");
-  }
-
-  String fmtDateTime(String d) {
-    final dt = DateTime.parse(d).toLocal();
-    return DateFormat("MM/dd HH:mm").format(dt);
-  }
-
-  Widget buildTimelineTileNoConflicts(BuildContext context, OutingStepDto step) {
-    return TimelineTile(
-      node: TimelineNode(
-        indicator: Container(
-          decoration: const BoxDecoration(),
-          child: Text(fmtDateTime(step.start)),
-        ),
-        startConnector: const SolidLineConnector(),
-        endConnector: const SolidLineConnector(),
-      ),
-      nodeAlign: TimelineNodeAlign.start,
-      contents: buildOutingStepCard(step),
-    );
-  }
-
-  Widget buildOutingStepCard(OutingStepDto step) {
-    return Card(
-      child: ListTile(
-        title: Text(step.description),
-      ),
-    );
-  }
-
-
-  Widget buildTimelineTile(BuildContext context, List<OutingStepDto> conflictingSteps) {
-    if (conflictingSteps.length == 1) {
-      return buildTimelineTileNoConflicts(context, conflictingSteps[0]);
-    } else {
-      return buildTimelineTileConflicts(context, conflictingSteps);
-    }
   }
 }

@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -59,7 +56,6 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: null,
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -194,7 +190,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
 
   void createOuting() async {
 
-    var response = await outingService.createOuting(CreateOutingDto(
+    var response = await outingService.create(CreateOutingDto(
       outingName,
       outingDesc,
       widget.groupId,
@@ -202,11 +198,15 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
       range!.end.toUtc().toIso8601String(),
     ));
 
-    if (response.isOk) {
+    if (response.isOk && response.body != null) {
       Get.off(OutingPage(outing: response.body!, isActive: true));
     } else {
-      final msg = jsonDecode(response.bodyString!)["message"];
-      log(msg);
+      Get.snackbar(
+        "Error",
+        "We encountered an error creating your outing",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red
+      ).show();
     }
   }
 }
