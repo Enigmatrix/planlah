@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
@@ -93,6 +95,7 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
           border: OutlineInputBorder(),
           labelText: "Description",
         ),
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
             return "Please enter a description for your outing";
@@ -294,16 +297,29 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: ElevatedButton(
-          onPressed: () {
-            if (_descKey.currentState!.validate() &&
-                date != null &&
-                timeRange != null &&
-                place != null &&
-                voteDeadline != null) {
-              createOuting();
-            } else {
-              // TODO thorw error at user face
+          onPressed: () async {
+            if (!_descKey.currentState!.validate()) {
+              await showError("Description invalid!");
+              return;
             }
+            if (date == null) {
+              await showError("Please select a date");
+              return;
+            }
+            if (timeRange == null) {
+              await showError("Please select a time range");
+              return;
+            }
+            if (place == null) {
+              await showError("Please select where to go");
+              return;
+            }
+            if (voteDeadline == null) {
+              await showError("Please select a voting deadline");
+              return;
+            }
+
+            await createOutingStep();
           },
           child: const Text(
             "Let's go",
@@ -312,13 +328,39 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     );
   }
 
-  void createOuting() async {
+  Future<void> showError(String err) async {
+    log(err);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: Colors.red,
+      content: Row(
+        children: [
+          const Icon(Icons.error_outline, color: Colors.white,),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Text(err, style: const TextStyle(color: Colors.white),),
+          ),
+        ],
+      ),
+    ));
+    // lmao wtf getx kills itself
+    /*await Get.snackbar("Error", err,
+        colorText: Colors.white,
+        borderRadius: 4.0,
+        icon: const Icon(Icons.error_outline),
+        snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red)
+        .show();*/
+  }
+
+  Future<void> createOutingStep() async {
     final startTime = timeRange!.startTime;
     final endTime = timeRange!.endTime;
     final start = DateTime(
         date!.year, date!.month, date!.day, startTime.hour, startTime.minute);
-    final end = DateTime(
+    var end = DateTime(
         date!.year, date!.month, date!.day, endTime.hour, endTime.minute);
+    if (end.isBefore(start)) {
+      end = end.add(const Duration(days: 1));
+    }
 
     var response = await outingService.createOutingStep(CreateOutingStepDto(
         widget.outing.id,
@@ -328,13 +370,11 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
         end.toUtc().toIso8601String(),
         voteDeadline!.toUtc().toIso8601String()));
 
-    if (response.isOk && response.body != null) {
+    if (response.isOk) {
       Get.back();
     } else {
-      log(response.bodyString!);
-      Get.snackbar("Error", "We encountered an error creating your outing",
-              snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red)
-          .show();
+      final msg = jsonDecode(response.bodyString!)["message"];
+      await showError(msg);
     }
   }
 }

@@ -191,7 +191,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
 
   void createOuting() async {
 
-    var response = await outingService.create(CreateOutingDto(
+    var response = await outingService.createOuting(CreateOutingDto(
       outingName,
       outingDesc,
       widget.groupId,
