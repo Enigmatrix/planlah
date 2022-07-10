@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: $DB_PASSWORD
       POSTGRES_USER: $DB_USER
     ports:
-      - "5432:5432" # only for debug
+      - "5432:5432"
     volumes:
       - db_volume:/pgdata
 
@@ -21,7 +21,10 @@ services:
       - "8081:8080" # only for debug
 
   recommender:
-    build: ../recommender/src
+    # need to copy .env file, so the context must be current dir
+    build:
+      dockerfile: recommender/src/Dockerfile
+      context: . 
     restart: always
     depends_on:
       - db
@@ -29,9 +32,10 @@ services:
       - "5003:5000"
 
   app:
+    # need to copy .env file, so the context must be current dir
     build:
-      dockerfile: Dockerfile
-      context: .
+      dockerfile: backend/Dockerfile
+      context: . 
     restart: always
     volumes:
       - .:/opt/app/api

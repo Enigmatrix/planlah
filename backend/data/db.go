@@ -2,16 +2,17 @@ package data
 
 import (
 	"fmt"
-	"github.com/juju/errors"
-	"github.com/samber/lo"
-	"go.uber.org/zap"
-	"gorm.io/gorm/clause"
-	"moul.io/zapgorm2"
 	"os"
 	"path"
 	"runtime"
 	"sort"
 	"time"
+
+	"github.com/juju/errors"
+	"github.com/samber/lo"
+	"go.uber.org/zap"
+	"gorm.io/gorm/clause"
+	"moul.io/zapgorm2"
 
 	"github.com/google/uuid"
 	"github.com/jackc/pgconn"
@@ -73,7 +74,7 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 			&User{},
 			&FriendRequest{},
 			&Group{},
-			&Place{},
+			// &Place{}, recommender will fill up Places table
 			&GroupInvite{},
 			&GroupMember{},
 			&Message{},
@@ -977,6 +978,7 @@ func SelectPlaces(tx *gorm.DB) *gorm.DB {
 	return tx.Select("id, name, location, ST_AsText(position) AS position, formatted_address, image_url, about, place_type")
 }
 
+// SearchForPlaces if their name matches the query
 func (db *Database) SearchForPlaces(query string, page uint) ([]Place, error) {
 	var places []Place
 	err := SelectPlaces(db.conn.Model(&Place{})).
@@ -985,6 +987,18 @@ func (db *Database) SearchForPlaces(query string, page uint) ([]Place, error) {
 		Limit(int(pageCount)).
 		Offset(int(page * pageCount)).
 		Find(&places).
+		Error
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return places, nil
+}
+
+// GetPlaces Gets places by their IDs
+func (db *Database) GetPlaces(placeIds []uint) ([]Place, error) {
+	var places []Place
+	err := SelectPlaces(db.conn.Model(&Place{})).
+		Find(&places, placeIds).
 		Error
 	if err != nil {
 		return nil, errors.Trace(err)
