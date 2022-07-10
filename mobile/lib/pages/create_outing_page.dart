@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:lit_relative_date_time/controller/relative_date_format.dart';
+import 'package:lit_relative_date_time/lit_relative_date_time.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/model/outing_list.dart';
 import 'package:mobile/pages/outing_page.dart';
@@ -24,12 +27,9 @@ class CreateOutingPage extends StatefulWidget {
 
 class _CreateOutingPageState extends State<CreateOutingPage> {
 
-  int _formIndex = 1;
-
   String outingName = "";
   String outingDesc = "";
-  String outingStart = DateTime.now().toLocal().toString();
-  String outingEnd = "";
+  DateTimeRange? range;
 
   final outingService = Get.find<OutingService>();
 
@@ -82,7 +82,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
         ),
         buildOutingNameTextBox(),
         buildOutingDescriptionTextBox(),
-        buildEndingTimeButton(context),
+        buildDateRangeButton(context),
         buildCreateOutingButton()
       ],
     );
@@ -132,11 +132,9 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
           return null;
         },
         onChanged: (value) {
-          setState(
-                  () {
+          setState(() {
                 outingDesc = value;
-              }
-          );
+          });
         },
         keyboardType: TextInputType.multiline,
         maxLines: null,
@@ -144,53 +142,30 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
     );
   }
 
-  Widget buildEndingTimeButton(BuildContext context) {
-    if (outingEnd == "") {
-      return buildTimeButton(context, "When will your outing end?");
+  Widget buildDateRangeButton(BuildContext context) {
+    String text;
+    Widget icon;
+    if (range == null) {
+       text = "When's the fun?";
+       icon = const Icon(Icons.timelapse_rounded);
     } else {
-      return Column(
-        children: <Widget>[
-          Text(
-            "Your current outing will end at $outingEnd"
-          ),
-          buildTimeButton(context, "Change when your outing ends")
-        ],
-      );
+      final fmt = (DateTime d) => DateFormat("MM/dd").format(d.toLocal());
+      text = "${fmt(range!.start)} to ${fmt(range!.end)}";
+      icon = const Icon(Icons.edit);
     }
-  }
 
-  Widget buildTimeButton(BuildContext context, String label) {
-    return ElevatedButton.icon(
-        onPressed: () {
-          getEndTime(context);
-        },
-        icon: const Icon(Icons.lock_clock_outlined),
-        label: Text(
-            label
-        )
-    );
-  }
-
-  void getEndTime(BuildContext context) async {
-    TimeOfDay now = TimeOfDay.now();
-    showCustomTimePicker(
-        context: context,
-        initialTime: TimeOfDay.now(),
-        selectableTimePredicate: (time) =>
-          time!.hour >= now.hour &&
-          time.minute >= now.minute,
-        onFailValidation: (context) => Get.snackbar(
-          "Invalid time",
-          "",
-          snackPosition: SnackPosition.TOP,
-          backgroundColor: Colors.red
-        ).show()
-    ).then((time) {
+    return ElevatedButton.icon(onPressed: () async {
+      final firstDate = DateTime.now();
+      // only because lastDate is a required parameter
+      var lastDate = DateTime(firstDate.year + 1, firstDate.month, firstDate.day);
+      final chosenRange = await showDateRangePicker(context: context,
+          firstDate: firstDate,
+          lastDate: lastDate,
+      );
       setState(() {
-        outingEnd = time!.toString();
-        outingEnd = outingEnd.substring(10, 15);
+        range = chosenRange;
       });
-    });
+    }, icon: icon, label: Text(text));
   }
 
   Widget buildCreateOutingButton() {
@@ -198,18 +173,11 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
         onPressed: () {
           if (_nameKey.currentState!.validate() &&
               _descKey.currentState!.validate() &&
-              outingEnd != "") {
+              range != null) {
             createOuting();
-          } else if (outingEnd == "") {
-              // Seems hard to do the validation on the customTimePicker side
-              // so do it here
-              Get.snackbar(
-                  "Invalid selection",
-                  "Please input when your outing ends",
-                  snackPosition: SnackPosition.BOTTOM,
-                  backgroundColor: Colors.red
-              ).show();
-            }
+          } else {
+            // TODO thorw error at user face
+          }
         },
         child: const Text(
           "Let's go",
@@ -222,24 +190,14 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
 
   void createOuting() async {
 
-    print(outingStart);
-    print(outingEnd);
-
-    String chosen = DateTime.now().toLocal().toString();
-    print(chosen);
-    // Change hour
-    chosen = chosen.replaceRange(11, 13, outingEnd.substring(0, 2));
-    // Change minute
-    chosen = chosen.replaceRange(14, 16, outingEnd.substring(3, 5));
-    print(chosen);
-
     var response = await outingService.create(CreateOutingDto(
       outingName,
       outingDesc,
       widget.groupId,
-      TimeUtil.formatForDto(outingStart),
-      TimeUtil.formatForDto(chosen)
+      range!.start.toUtc().toIso8601String(),
+      range!.end.toUtc().toIso8601String(),
     ));
+
     if (response.isOk && response.body != null) {
       Get.off(OutingPage(outing: response.body!, isActive: true));
     } else {

@@ -152,10 +152,11 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 	}
 
 	activeOuting, err := ctr.Database.GetActiveOuting(dto.GroupID)
-	if err == nil && time.Now().In(time.UTC).Before(activeOuting.End) {
+	if activeOuting != nil && time.Now().In(time.UTC).Before(activeOuting.End) {
 		FailWithMessage(ctx, "group already has an active outing")
 		return
-	} else if err != nil {
+	}
+	if err != nil {
 		handleDbError(ctx, err)
 		return
 	}
