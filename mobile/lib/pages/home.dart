@@ -7,6 +7,7 @@ import 'package:mobile/model/user.dart';
 import 'package:mobile/pages/profile.dart';
 import 'package:mobile/pages/settings.dart';
 import 'package:mobile/pages/social_feed.dart';
+import 'package:mobile/pages/friends_page.dart';
 import 'package:mobile/pages/social_post.dart';
 import 'package:mobile/services/auth.dart';
 
@@ -84,7 +85,8 @@ class _HomePageWidgetState extends State<HomePage> {
       case 1:
         return GroupsPage();
       case 2:
-        print("Is widget null? " + (widget == null).toString());
+        return FriendsPage();
+      case 3:
         return ProfilePage(userInfo: widget.userInfo);
       default:
         return SettingsPage();
@@ -98,6 +100,7 @@ class _HomePageWidgetState extends State<HomePage> {
           child: getPage(_selectedIndex)
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.feed),
@@ -108,13 +111,13 @@ class _HomePageWidgetState extends State<HomePage> {
               label: "Groups"
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.person_pin_sharp),
+            label: "Friends",
+          ),
+          BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: "Profile"
           ),
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.settings),
-          //     label: "Settings"
-          // ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber,
