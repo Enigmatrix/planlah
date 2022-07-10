@@ -2,16 +2,17 @@ package data
 
 import (
 	"fmt"
-	"github.com/juju/errors"
-	"github.com/samber/lo"
-	"go.uber.org/zap"
-	"gorm.io/gorm/clause"
-	"moul.io/zapgorm2"
 	"os"
 	"path"
 	"runtime"
 	"sort"
 	"time"
+
+	"github.com/juju/errors"
+	"github.com/samber/lo"
+	"go.uber.org/zap"
+	"gorm.io/gorm/clause"
+	"moul.io/zapgorm2"
 
 	"github.com/google/uuid"
 	"github.com/jackc/pgconn"
@@ -73,7 +74,7 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 			&User{},
 			&FriendRequest{},
 			&Group{},
-			&Place{},
+			// &Place{}, recommender will fill up Places table
 			&GroupInvite{},
 			&GroupMember{},
 			&Message{},
