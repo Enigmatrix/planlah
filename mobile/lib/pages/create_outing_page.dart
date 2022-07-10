@@ -56,6 +56,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: null,
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[

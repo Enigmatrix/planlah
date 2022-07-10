@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/main.dart';
 import 'package:mobile/model/chat_group.dart';
@@ -44,13 +45,16 @@ class _OutingPageState extends State<OutingPage> {
     isActive = widget.isActive;
   }
 
+  fmtDate(DateTime d) => DateFormat("MM/dd").format(d.toLocal());
+  pdate(String date) => DateTime.parse(date).toLocal();
 
   @override
   Widget build(BuildContext context) {
+    final range = "${fmtDate(pdate(outing.start))} - ${fmtDate(pdate(outing.end))}";
     return Scaffold(
       appBar: AppBar(
         leading:  isActive ? const Icon(Icons.place) : const Icon(Icons.history),
-        title: Text(outing.name),
+        title: Text("${outing.name} ($range)"),
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {

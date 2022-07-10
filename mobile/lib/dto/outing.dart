@@ -1,7 +1,6 @@
 import 'package:mobile/dto/place.dart';
 import 'package:mobile/dto/user.dart';
-
-import 'outing_step.dart';
+import 'package:mobile/dto/outing_step.dart';
 
 class CreateOutingDto {
   String name;
