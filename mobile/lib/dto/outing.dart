@@ -1,4 +1,7 @@
+import 'package:mobile/dto/place.dart';
 import 'package:mobile/dto/user.dart';
+
+import '../utils/time.dart';
 
 class CreateOutingDto {
   String name;
@@ -52,37 +55,27 @@ class OutingStepVoteDto {
 
 class OutingStepDto {
   int id;
-  String name;
   String description;
-  String whereName;
-  String wherePoint;
-  String start;
-  String end;
-  List<OutingStepVoteDto> outingStepVoteDtos;
-  String voteDeadline;
+  bool approved;
+  PlaceDto placeDto;
+  DateTime start;
+  DateTime end;
+  List<OutingStepVoteDto> votes;
+  DateTime voteDeadline;
 
 
-  OutingStepDto(
-      this.id,
-      this.name,
-      this.description,
-      this.whereName,
-      this.wherePoint,
-      this.start,
-      this.end,
-      this.outingStepVoteDtos,
-      this.voteDeadline);
+  OutingStepDto(this.id, this.description, this.approved, this.placeDto,
+      this.start, this.end, this.votes, this.voteDeadline);
 
   OutingStepDto.fromJson(Map<String, dynamic> json):
-      id = json["id"],
-      name = json["name"],
-      description = json["description"],
-      whereName = json["whereName"],
-      wherePoint = json["wherePoint"],
-      start = json["start"],
-      end = json["end"],
-      outingStepVoteDtos = OutingStepVoteDto.fromJsonToList(json["votes"]),
-      voteDeadline = json["voteDeadline"];
+    id = json["id"],
+    description = json["description"],
+    approved = json["approved"],
+    placeDto = PlaceDto.fromJson(json["place"]),
+    start = TimeUtil.parseFromDto(json["start"]),
+    end = TimeUtil.parseFromDto(json["end"]),
+    votes = OutingStepVoteDto.fromJsonToList(json["votes"]),
+    voteDeadline = TimeUtil.parseFromDto(json["voteDeadline"]);
 
   static List<OutingStepDto> fromJsonToList(List<dynamic> json) {
     List<OutingStepDto> result = [];
@@ -90,82 +83,6 @@ class OutingStepDto {
       result.add(OutingStepDto.fromJson(json[i]));
     }
     return result;
-  }
-
-  // TODO: Temporary
-  static List<OutingStepDto> getHistoricalOutingStepDtos() {
-    return [
-      OutingStepDto(
-          1,
-          "Arbys",
-          "Excellent junk food",
-          "Clementi",
-          "https://www.hospitalitynewsmag.com/wp-content/uploads/2022/01/Arbys_Sandwich_Lineup-scaled.jpg",
-          "1100",
-          "1200",
-          [
-
-          ],
-          "1455"
-      ),
-      OutingStepDto(
-          1,
-          "Wendys",
-          "Cheap junk food",
-          "Clementi",
-          "https://www.asiaone.com/sites/default/files/soshiok/article/images/featured/20150504_wendys_st.jpg",
-          "1200",
-          "1400",
-          [
-
-          ],
-          "1455"
-      ),
-      OutingStepDto(
-          1,
-          "Harvard",
-          "Best school ever",
-          "Cambridge,_Massachusetts",
-          "https://imageio.forbes.com/specials-images/imageserve/1209892117/0x0.jpg?format=jpg&width=1200",
-          "1400",
-          "1500",
-          [
-
-          ],
-          "1455"
-      ),
-    ];
-  }
-
-  static List<OutingStepDto> getVotingStepDtos() {
-    return [
-      OutingStepDto(
-          1,
-          "Princeton",
-          "2nd Best school ever",
-          "Princeton, New Jersey",
-          "https://www.princeton.edu/sites/default/files/styles/half_2x/public/images/2020/06/20170816_CL_DJA_152%281%29.jpg?itok=gk_-O3D3",
-          "1500",
-          "1800",
-          [
-
-          ],
-          "1455"
-      ),
-      OutingStepDto(
-          1,
-          "Yale",
-          "3rd Best school ever",
-          "New Haven",
-          "https://img2.storyblok.com/fit-in/1200x630/f/64062/1200x676/0121c6cae0/how-to-get-into-yale.jpg",
-          "1500",
-          "1800",
-          [
-
-          ],
-          "1455"
-      ),
-    ];
   }
 }
 
