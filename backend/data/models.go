@@ -167,12 +167,12 @@ func (loc *Point) Scan(v interface{}) error {
 }
 
 type Post struct {
-	ID           uint      `gorm:"primarykey"`
-	UserID       uint      `gorm:"not null"`
-	User         *User     `gorm:"foreignKey:UserID"`
-	OutingStepID uint      `gorm:"not null"`
-	OutingStep   uint      `gorm:"foreignKey:OutingStepID"`
-	Text         string    `gorm:"not null"`
-	ImageLink    string    `gorm:"not null"`
-	PostedAt     time.Time `gorm:"not null"`
+	ID           uint        `gorm:"primarykey"`
+	UserID       uint        `gorm:"not null"`
+	User         *User       `gorm:"foreignKey:UserID"`
+	OutingStepID uint        `gorm:"not null"`
+	OutingStep   *OutingStep `gorm:"foreignKey:OutingStepID"`
+	Text         string      `gorm:"not null"`
+	ImageLink    string      `gorm:"not null"`
+	PostedAt     time.Time   `gorm:"not null"`
 }

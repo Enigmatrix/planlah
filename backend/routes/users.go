@@ -9,7 +9,6 @@ import (
 	"net/http"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/services"
-	"strconv"
 )
 
 type UserController struct {
@@ -179,12 +178,12 @@ func (ctr *UserController) SearchForFriends(ctx *gin.Context) {
 		return
 	}
 
-	page, err := strconv.Atoi(dto.Page)
+	pageNo, err := convertPageToUInt(dto.Page)
 	if err != nil {
 		FailWithMessage(ctx, "Failed to convert page to int")
 	}
 
-	users, err := ctr.Database.SearchForFriends(userId, dto.Query, uint(page))
+	users, err := ctr.Database.SearchForFriends(userId, dto.Query, pageNo)
 	if err != nil {
 		handleDbError(ctx, err)
 		return

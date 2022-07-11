@@ -6,7 +6,6 @@ import (
 	"github.com/samber/lo"
 	"net/http"
 	"planlah.sg/backend/data"
-	"strconv"
 )
 
 type FriendsController struct {
@@ -140,12 +139,12 @@ func (ctr *FriendsController) ListFriendRequests(ctx *gin.Context) {
 		return
 	}
 
-	page, err := strconv.Atoi(dto.Page)
+	pageNo, err := convertPageToUInt(dto.Page)
 	if err != nil {
 		FailWithMessage(ctx, "Failed to convert page to int")
 	}
 
-	reqs, err := ctr.Database.PendingFriendRequests(userId, uint(page))
+	reqs, err := ctr.Database.PendingFriendRequests(userId, pageNo)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -175,12 +174,12 @@ func (ctr *FriendsController) ListFriends(ctx *gin.Context) {
 		return
 	}
 
-	page, err := strconv.Atoi(dto.Page)
+	pageNo, err := convertPageToUInt(dto.Page)
 	if err != nil {
 		FailWithMessage(ctx, "Failed to convert page to int")
 	}
 
-	reqs, err := ctr.Database.ListFriends(userId, uint(page))
+	reqs, err := ctr.Database.ListFriends(userId, pageNo)
 	if err != nil {
 		handleDbError(ctx, err)
 		return

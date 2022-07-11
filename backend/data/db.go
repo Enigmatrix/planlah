@@ -1034,3 +1034,40 @@ func (db *Database) GetPlaces(placeIds []uint) ([]Place, error) {
 	}
 	return places, nil
 }
+
+// SearchForPosts Search for posts made by friends, with pagination
+func (db *Database) SearchForPosts(userId uint, page uint) ([]Post, error) {
+	var posts []Post
+	// These Preloads are essential to avoid nil pointer references
+	// Gorm does not load the relations by default so when you try to initialize these variables to their data classes
+	// without doing the preloads, you will run into pain and tears
+	err := db.conn.Model(&Post{}).
+		Preload("OutingStep.Place", SelectPlaces).
+		Preload("OutingStep.Votes").
+		Preload("User").
+		Preload("OutingStep").
+		Raw(`
+SELECT p.*
+FROM posts AS p
+INNER JOIN
+(
+    SELECT from_id
+    FROM friend_requests
+    WHERE to_id = ?
+    AND status = 'approved'
+    UNION
+    SELECT to_id
+    FROM friend_requests
+    WHERE from_id = ?
+    AND status = 'approved'
+) AS friend_id
+ON p.user_id = friend_id.from_id
+LIMIT ? OFFSET ?`, userId, userId, pageCount, page*pageCount).
+		Find(&posts).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return posts, nil
+}
