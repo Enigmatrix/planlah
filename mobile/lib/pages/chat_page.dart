@@ -12,18 +12,18 @@ import 'package:mobile/services/message.dart';
 import 'package:mobile/services/outing.dart';
 import 'package:group_button/group_button.dart';
 
-import '../model/user.dart';
+import '../dto/user.dart';
 import '../utils/time.dart';
 import 'CreateOutingPage.dart';
 
 class GroupChatPage extends StatefulWidget {
-  final GroupSummaryDto chatGroup;
-  final UserInfo userInfo;
+  GroupSummaryDto chatGroup;
+  UserSummaryDto userSummaryDto;
 
-  const GroupChatPage({
+  GroupChatPage({
     Key? key,
     required this.chatGroup,
-    required this.userInfo,
+    required this.userSummaryDto,
   }) : super(key: key);
 
   @override
@@ -197,7 +197,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
         }
     );
   }
-  
+
   Widget buildCreateGroupInviteWidget(BuildContext context) {
     return AlertDialog(
       title: const Text("Choose when your invite link expires"),
@@ -297,7 +297,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
 
   Widget buildMessage(MessageDto message) {
-    bool isUser = message.user.username == widget.userInfo.username;
+    bool isUser = message.user.username == widget.userSummaryDto.username;
     return Column(
         children: <Widget>[
           Row(

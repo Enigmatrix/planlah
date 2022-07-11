@@ -1,10 +1,4 @@
-
-// TODO: Add
-import 'package:mobile/model/group.dart';
-import 'package:mobile/model/user.dart';
-
 import 'chat_message.dart';
-import 'location.dart';
 
 class ChatGroup {
   final String groupId;

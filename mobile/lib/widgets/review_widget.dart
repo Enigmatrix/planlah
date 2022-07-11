@@ -27,7 +27,7 @@ class ReviewWidget extends StatelessWidget {
                 color: Colors.grey,
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                    image: NetworkImage(reviewInfo.user.imageUrl)
+                    image: NetworkImage(reviewInfo.user.imageLink)
                 )
               ),
             ),

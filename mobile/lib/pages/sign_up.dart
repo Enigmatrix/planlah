@@ -9,7 +9,6 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/services.dart';
 import 'package:get/state_manager.dart';
 import 'package:mobile/dto/user.dart';
-import 'package:mobile/model/user.dart' as u;
 import 'package:mobile/pages/home.dart';
 import 'package:mobile/pages/sign_up_components/fadeindexedstack.dart';
 import 'package:mobile/services/misc.dart';
@@ -710,10 +709,10 @@ class _SignUpPageState extends State<SignUpPage> {
         _imageBytes
     ));
     if (response.isOk) {
-      u.UserInfo userInfo;
+      UserSummaryDto userSummaryDto;
       await user.getInfo().then((value) {
-        userInfo = value.body!;
-        Get.off(() => HomePage(userInfo: userInfo));
+        userSummaryDto = value.body!;
+        Get.off(() => HomePage(userSummaryDto: userSummaryDto));
       });
     } else {
       Get.snackbar(

@@ -40,7 +40,7 @@ class SocialPost extends StatelessWidget {
                   color: Colors.grey,
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: NetworkImage(group.owner.imageUrl)
+                      image: NetworkImage(group.owner.imageLink)
                   )
                 ),
               ),

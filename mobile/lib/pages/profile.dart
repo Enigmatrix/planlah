@@ -4,19 +4,19 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/model/review_info.dart';
-import 'package:mobile/model/user.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/widgets/review_widget.dart';
 
+import '../dto/user.dart';
 import '../model/location.dart';
 import '../widgets/profile_stats_widget.dart';
 import '../widgets/profile_widget.dart';
 
 class ProfilePage extends StatefulWidget {
-  UserInfo userInfo;
+  UserSummaryDto userSummaryDto;
   ProfilePage({
     Key? key,
-    required this.userInfo
+    required this.userSummaryDto
   }) : super(key: key);
 
   @override
@@ -32,10 +32,10 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
   }
 
-  // void setUserInfo() {
+  // void setUserSummaryDto() {
   //   userService.getInfo().then((value) {
   //     setState(() {
-  //       userInfo = value.body!;
+  //       UserSummaryDto = value.body!;
   //     });
   //   });
   // }
@@ -52,16 +52,16 @@ class _ProfilePageState extends State<ProfilePage> {
         physics: const BouncingScrollPhysics(),
         children: [
           ProfileWidget(
-              imagePath: widget.userInfo.imageUrl,
+              imagePath: widget.userSummaryDto.imageLink,
               onClicked: () {}
           ),
           // To add padding
           const SizedBox(height: 24),
           buildName(),
-          ProfileStatsWidget(user: widget.userInfo),
+          ProfileStatsWidget(user: widget.userSummaryDto),
           buildReview(
               ReviewInfo(
-                user: widget.userInfo,
+                user: widget.userSummaryDto,
                 content: "Nice ambience, well presented food and friendly service. Service staff makes good food recommendations and every dish was tasty! This restaurant is unique, not the typical Cantonese restaurant. Highly recommended.",
                 location: LocationInfo(
                     imageUrl: "https://images.squarespace-cdn.com/content/v1/5c3eefdb31d4dfcaa782d593/1547793235504-3W9IWWVFND06BOVFW0WS/DSD_8606.JPG?format=1500w",
@@ -77,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget buildName() => Column(
     children: [
       Text(
-          widget.userInfo.name,
+          widget.userSummaryDto.name,
           style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16
@@ -85,7 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       const SizedBox(height: 4),
       Text(
-          widget.userInfo.username,
+          widget.userSummaryDto.username,
           style: const TextStyle(
               color: Colors.grey
           )
