@@ -234,7 +234,7 @@ func (db *Database) SearchForFriends(userId uint, query string, page uint) ([]Us
 	var users []User
 	// this query makes it slightly ex since we might have a lot of results
 	err := db.conn.Model(&User{}).
-		Where("name like '%' || @q || '%' OR username like '%' || @q || '%'", map[string]interface{}{"q": query}).
+		Where("name ilike '%' || @q || '%' OR username ilike '%' || @q || '%'", map[string]interface{}{"q": query}).
 		Where("id not in "+friendSql, map[string]interface{}{"thisUserId": userId}).
 		Order("username,name asc").
 		Limit(int(pageCount)).
