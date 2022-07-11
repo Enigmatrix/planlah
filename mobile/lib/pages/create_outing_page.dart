@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -190,24 +193,21 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
   }
 
   void createOuting() async {
+    final end = range!.end.toUtc().add(const Duration(days: 1));
 
     var response = await outingService.createOuting(CreateOutingDto(
       outingName,
       outingDesc,
       widget.groupId,
       range!.start.toUtc().toIso8601String(),
-      range!.end.toUtc().toIso8601String(),
+      end.toIso8601String(),
     ));
 
-    if (response.isOk && response.body != null) {
+    if (response.isOk) {
+      var response = await outingService.getActiveOuting(GetActiveOutingDto(widget.groupId));
       Get.off(OutingPage(outing: response.body!, isActive: true));
     } else {
-      Get.snackbar(
-        "Error",
-        "We encountered an error creating your outing",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.red
-      ).show();
+      log(response.bodyString!);
     }
   }
 }
