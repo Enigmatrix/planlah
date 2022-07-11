@@ -1,32 +1,56 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile/main.dart';
 import 'package:mobile/pages/social_post.dart';
+import 'package:mobile/services/posts.dart';
 
-import '../model/group.dart';
+import '../dto/posts.dart';
 
-class SocialFeedPage extends StatelessWidget {
-  final List<GroupInfo> groups;
+class SocialFeedPage extends StatefulWidget {
+  const SocialFeedPage({Key? key}) : super(key: key);
 
-  const SocialFeedPage({required this.groups});
+  @override
+  State<SocialFeedPage> createState() => _SocialFeedPageState();
+}
 
+class _SocialFeedPageState extends State<SocialFeedPage> {
+
+  final postService = Get.find<PostService>();
+
+  int pageNumber = 0;
+  List<PostDto> posts = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadPosts();
+  }
+
+  void loadPosts() async {
+    Response<List<PostDto>?> response = await postService.getPosts(pageNumber);
+    if (response.isOk) {
+      print("Social feed");
+      print(response.body!.length);
+      setState(() {
+        posts = response.body!;
+      });
+      // List.from(posts)..addAll(response.body!);
+    } 
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Feed"),
+      ),
       body: ListView.builder(
-        itemCount: groups.length,
-          itemBuilder: (context, index) {
-            return SocialPost(
-                group: groups[index]
-            );
-          }
+        itemCount: posts.length,
+        itemBuilder: (context, index) {
+          return SocialPost(post: posts[index]);
+        }
       ),
     );
-    // return Scaffold(
-    //   appBar: AppBar(
-    //
-    //   ),
-    //   body: ,
-    // );
   }
 }
