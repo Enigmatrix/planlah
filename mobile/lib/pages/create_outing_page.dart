@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -199,15 +202,11 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
       range!.end.toUtc().toIso8601String(),
     ));
 
-    if (response.isOk && response.body != null) {
+    if (response.isOk) {
       Get.off(OutingPage(outing: response.body!, isActive: true));
     } else {
-      Get.snackbar(
-        "Error",
-        "We encountered an error creating your outing",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.red
-      ).show();
+      final msg = jsonDecode(response.bodyString!)["message"];
+      log(msg);
     }
   }
 }

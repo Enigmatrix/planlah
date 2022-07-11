@@ -20,7 +20,7 @@ class OutingService extends BaseConnect {
 
   /// Create a new Outing for a Group
   Future<Response> createOuting(CreateOutingDto dto) async {
-    return await post<OutingDto?>(
+    return await post(
         "/outing/create",
         dto.toJson(),
     );

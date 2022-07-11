@@ -107,7 +107,7 @@ func ToOutingStepDtos(outingSteps []data.OutingStep) [][]OutingStepDto {
 	colliding := jobs.CollidingOutingSteps(outingSteps)
 
 	return lo.Map(colliding, func(collideSet []data.OutingStep, _ int) []OutingStepDto {
-		return lo.Map(outingSteps, func(outingStep data.OutingStep, _ int) OutingStepDto {
+		return lo.Map(collideSet, func(outingStep data.OutingStep, _ int) OutingStepDto {
 			return ToOutingStepDto(outingStep)
 		})
 	})

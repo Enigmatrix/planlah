@@ -32,21 +32,21 @@ func AnyStepsCollidesWith(steps []data.OutingStep, test data.OutingStep) bool {
 
 func CollidingOutingSteps(outingSteps []data.OutingStep) [][]data.OutingStep {
 	// O(n^3) algo, but not like ppl will have so many OutingSteps
-	allSteps := make([][]data.OutingStep, 0)
+	collidingStepSet := make([][]data.OutingStep, 0)
 	for _, step := range outingSteps {
 		added := false
-		for _, existing := range allSteps {
-			if AnyStepsCollidesWith(existing, step) {
-				existing = append(existing, step)
+		for i, collidingSteps := range collidingStepSet {
+			if AnyStepsCollidesWith(collidingSteps, step) {
+				collidingStepSet[i] = append(collidingSteps, step)
 				added = true
 				break
 			}
 		}
 		if !added {
-			allSteps = append(allSteps, []data.OutingStep{step})
+			collidingStepSet = append(collidingStepSet, []data.OutingStep{step})
 		}
 	}
-	return allSteps
+	return collidingStepSet
 }
 
 func (job *VoteDeadlineJob) Run(ctx context.Context, j *gue.Job) error {

@@ -51,6 +51,7 @@ class _OutingPageState extends State<OutingPage> {
 
   @override
   Widget build(BuildContext context) {
+    print(outing.steps[1].length);
     final range = "${fmtDate(pdate(outing.start))} - ${fmtDate(pdate(outing.end))}";
     return Scaffold(
       appBar: AppBar(
@@ -78,21 +79,16 @@ class _OutingPageState extends State<OutingPage> {
     return Text("");
   }
 
-
-  Widget buildTimelineTile(BuildContext context, List<OutingStepDto> conflictingSteps) {
-    return Text("w");
+  Widget buildTimelineTileConflicts(BuildContext context, List<OutingStepDto> conflictingSteps) {
     // return TimelineTile(
     //   node: TimelineNode(
     //     indicator: Container(
     //       decoration: BoxDecoration(
-    //           // border: (index == widget.outing.getCurrentOuting())
-    //           //     ? Border.all(color: Colors.redAccent.shade700)
-    //           //     : Border.all(color: Colors.blueAccent.shade100)
+    //         // border: (index == widget.outing.getCurrentOuting())
+    //         //     ? Border.all(color: Colors.redAccent.shade700)
+    //         //     : Border.all(color: Colors.blueAccent.shade100)
     //       ),
-    //       child: Text(
-    //           "CONFLICT"
-    //           // formatTime(outingDto.getOutingStep(index))
-    //       ),
+    //       child: child,
     //     ),
     //     startConnector: getStartConnector(index),
     //     endConnector: getEndConnector(index),
@@ -106,5 +102,43 @@ class _OutingPageState extends State<OutingPage> {
     //     child: Text("Opposite Content"),
     //   ),
     // );
+    return Text("whayt ${conflictingSteps.length}");
+  }
+
+  String fmtDateTime(String d) {
+    final dt = DateTime.parse(d).toLocal();
+    return DateFormat("MM/dd HH:mm").format(dt);
+  }
+
+  Widget buildTimelineTileNoConflicts(BuildContext context, OutingStepDto step) {
+    return TimelineTile(
+      node: TimelineNode(
+        indicator: Container(
+          decoration: const BoxDecoration(),
+          child: Text(fmtDateTime(step.start)),
+        ),
+        startConnector: const SolidLineConnector(),
+        endConnector: const SolidLineConnector(),
+      ),
+      nodeAlign: TimelineNodeAlign.start,
+      contents: buildOutingStepCard(step),
+    );
+  }
+
+  Widget buildOutingStepCard(OutingStepDto step) {
+    return Card(
+      child: ListTile(
+        title: Text(step.description),
+      ),
+    );
+  }
+
+
+  Widget buildTimelineTile(BuildContext context, List<OutingStepDto> conflictingSteps) {
+    if (conflictingSteps.length == 1) {
+      return buildTimelineTileNoConflicts(context, conflictingSteps[0]);
+    } else {
+      return buildTimelineTileConflicts(context, conflictingSteps);
+    }
   }
 }
