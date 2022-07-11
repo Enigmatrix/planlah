@@ -52,6 +52,25 @@ class _OutingPageState extends State<OutingPage> {
   fmtDate(DateTime d) => DateFormat("MM/dd").format(d.toLocal());
   DateTime pdate(String date) => DateTime.parse(date).toLocal();
 
+  Widget buildOutingStepHelp() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(Icons.help, size: 32.0),
+            Text("  Create a new Step using ", style: TextStyle(fontSize: 20.0),),
+            Icon(Icons.add, size: 32.0),
+          ],
+        )
+      ]
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final range =
@@ -79,7 +98,7 @@ class _OutingPageState extends State<OutingPage> {
               Colors.grey[100]!,
               Colors.blue[100]!,
             ])),
-        child: CustomScrollView(
+        child: outing.steps.isEmpty ? buildOutingStepHelp() : CustomScrollView(
           slivers: [
             SliverList(
               delegate: TimelineTileBuilderDelegate(
