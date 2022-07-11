@@ -118,12 +118,7 @@ func NewServer(
 	}
 
 	// run jobs in goroutine
-	go func(jobRunner *jobs.Runner) {
-		err := jobRunner.Run()
-		if err != nil {
-			logger.Fatal("start job runner", zap.Error(err))
-		}
-	}(jobRunner)
+	jobRunner.Run()
 
 	// serve websocket in goroutine.
 	go func() {
