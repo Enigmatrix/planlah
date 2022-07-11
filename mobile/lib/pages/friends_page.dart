@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/services/friends.dart';
+import 'package:mobile/widgets/wait_widget.dart';
 
 import '../services/user.dart';
 import 'friend_requests_page.dart';
@@ -153,21 +154,52 @@ class FriendSearch extends SearchDelegate<UserSummaryDto> {
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: Page number???
-    userService.searchForFriends(0, query).then((response) => {
-      if (response.isOk) {
-        results = response.body!
-      } else {
-        results = []
+    if (query == "") {
+      return buildNoResults();
+    }
+    return FutureBuilder(
+      future: userService.searchForFriends(0, query),
+      builder: (BuildContext context, AsyncSnapshot<Response<List<UserSummaryDto>?>> snapshot) {
+        if (snapshot.hasData) {
+          if (snapshot.data!.hasError) {
+            return buildErrorResults();
+          } else {
+            results = snapshot.data!.body!;
+            if (results.isEmpty) {
+              return buildNoResults();
+            } else {
+              return buildSearchResults();
+            }
+          }
+        } else {
+          return waitWidget();
+        }
       }
-    });
-    if (results.isEmpty) {
-      return const Center(child: Text("No results"));
+    );
+  }
+
+  Widget buildErrorResults() {
+    return const Center(child: Text("Encountered an error while searching"));
+  }
+
+  Widget buildNoResults() {
+    return const Center(child: Text("No data found"));
+  }
+
+  Widget buildSearchResults() {
+    return ListView.builder(
+        itemCount: results.length,
+        itemBuilder: buildUserListTile
+    );
+  }
+
+
+  void searchFriends() async {
+    Response<List<UserSummaryDto>?> response = await userService.searchForFriends(0, query);
+    if (response.isOk) {
+      results = response.body!;
     } else {
-      return ListView.builder(
-          itemCount: results.length,
-          itemBuilder: buildUserListTile
-      );
+      results = [];
     }
   }
 
@@ -202,7 +234,7 @@ class FriendSearch extends SearchDelegate<UserSummaryDto> {
             Text(user.username),
             IconButton(
                 onPressed: () {
-                  sendFriendRequest(user);
+                  sendFriendRequest(context, user);
                 },
                 icon: const Icon(Icons.person_add)
             )
@@ -212,10 +244,9 @@ class FriendSearch extends SearchDelegate<UserSummaryDto> {
     );
   }
 
-  void sendFriendRequest(UserSummaryDto user) async {
+  void sendFriendRequest(BuildContext context, UserSummaryDto user) async {
     Response<dynamic> response = await friendService.sendFriendRequest(user.id);
     String status;
-
     if (response.isOk) {
       // Response is a String if ok
       status = response.body!;
@@ -223,40 +254,42 @@ class FriendSearch extends SearchDelegate<UserSummaryDto> {
       // Response is a ErrorMessage if not
       status = response.body!["message"];
     }
-
-    triggerSnackBar(status);
+    triggerSnackBar(context, status);
   }
 
-  void triggerSnackBar(String status) {
-    // TODO: Fix snack bar not showing again after first appearance
+  void triggerSnackBar(BuildContext context, String status) {
+    SnackBar snackBar;
     switch (status) {
       case pending:
-        Get.snackbar(
-          "Success",
-          "Your friend request has been sent!",
+        snackBar = const SnackBar(
+          content: Text("Your friend request has been sent!"),
           backgroundColor: Colors.green,
-          snackPosition: SnackPosition.BOTTOM
-        ).show().then((value) => Get.closeAllSnackbars());
+          duration: Duration(seconds: 1)
+        );
         break;
       case friendReqExists:
-        Get.snackbar(
-          "Error",
-          "Already sent a friend request",
+        snackBar = const SnackBar(
+          content: Text("Already sent a friend request!"),
           backgroundColor: Colors.red,
-          snackPosition: SnackPosition.BOTTOM
-        ).show().then((value) => Get.closeAllSnackbars());
+          duration: Duration(seconds: 1)
+        );
         break;
       case isSameUser:
-        Get.snackbar(
-            "Error",
-            "Same user",
-            backgroundColor: Colors.red,
-            snackPosition: SnackPosition.BOTTOM
-        ).show().then((value) => Get.closeAllSnackbars());
+        snackBar = const SnackBar(
+          content: Text("Same user!"),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 1)
+        );
         break;
       default:
-        return;
+        snackBar = const SnackBar(
+          content: Text("Something went wrong!"),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 1),
+        );
+        break;
     }
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   Widget buildUserAvatar(UserSummaryDto user) {
