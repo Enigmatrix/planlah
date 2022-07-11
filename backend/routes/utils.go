@@ -8,6 +8,7 @@ import (
 	"github.com/samber/lo"
 	"io"
 	"net/http"
+	"strconv"
 )
 
 type FriendlyError interface {
@@ -114,4 +115,12 @@ func handleDbError(ctx *gin.Context, err error) bool {
 	_ = ctx.AbortWithError(http.StatusInternalServerError, err)
 
 	return true
+}
+
+func convertPageToUInt(page string) (uint, error) {
+	pageNo, err := strconv.Atoi(page)
+	if err != nil {
+		return 0, errors.New("Failed to convert page to uint")
+	}
+	return uint(pageNo), nil
 }
