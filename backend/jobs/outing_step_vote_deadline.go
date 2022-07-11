@@ -7,12 +7,18 @@ import (
 	"github.com/samber/lo"
 	"github.com/vgarvardt/gue/v3"
 	"planlah.sg/backend/data"
+	"sync"
 )
 
 var VoteDeadlineJobName = "voteDeadlineJob"
 
 type VoteDeadlineJob struct {
 	Database *data.Database
+	mu       sync.Mutex // only allow one job to run at a time
+}
+
+func NewVoteDeadlineJob(database *data.Database) VoteDeadlineJob {
+	return VoteDeadlineJob{Database: database, mu: sync.Mutex{}}
 }
 
 type VoteDeadlineJobArgs struct {
@@ -50,6 +56,9 @@ func CollidingOutingSteps(outingSteps []data.OutingStep) [][]data.OutingStep {
 }
 
 func (job *VoteDeadlineJob) Run(ctx context.Context, j *gue.Job) error {
+	job.mu.Lock()
+	defer job.mu.Unlock()
+
 	var args VoteDeadlineJobArgs
 	err := json.Unmarshal(j.Args, &args)
 	if err != nil {

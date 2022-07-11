@@ -1,7 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:duration/duration.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
+import 'package:mobile/dto/group.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/dto/outing_step.dart';
+import 'package:mobile/dto/user.dart';
 import 'package:mobile/main.dart';
 import 'package:mobile/model/chat_group.dart';
 import 'package:mobile/pages/create_outing_step_page.dart';
@@ -20,18 +26,14 @@ class OutingPage extends StatefulWidget {
   OutingDto outing;
   bool isActive;
 
-  OutingPage({
-    Key? key,
-    required this.outing,
-    required this.isActive
-  }) : super(key: key);
+  OutingPage({Key? key, required this.outing, required this.isActive})
+      : super(key: key);
 
   @override
   State<OutingPage> createState() => _OutingPageState();
 }
 
 class _OutingPageState extends State<OutingPage> {
-
   // The current card the user has voted on
   int currentVote = -1;
 
@@ -46,65 +48,363 @@ class _OutingPageState extends State<OutingPage> {
     isActive = widget.isActive;
   }
 
+  final bottomPadding = 100.0; // show the floatingActionBar without hiding any content
   fmtDate(DateTime d) => DateFormat("MM/dd").format(d.toLocal());
-  pdate(String date) => DateTime.parse(date).toLocal();
+  DateTime pdate(String date) => DateTime.parse(date).toLocal();
 
   @override
   Widget build(BuildContext context) {
-    final range = "${fmtDate(pdate(outing.start))} - ${fmtDate(pdate(outing.end))}";
+    final range =
+        "${fmtDate(pdate(outing.start))} - ${fmtDate(pdate(outing.end))}";
     return Scaffold(
       appBar: AppBar(
-        leading:  isActive ? const Icon(Icons.place) : const Icon(Icons.history),
+        leading:
+            isActive ? const Icon(Icons.timeline) : const Icon(Icons.history),
         title: Text("${outing.name} ($range)"),
       ),
+
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             // Add OutingStep
             Get.to(CreateOutingStepPage(outing: widget.outing));
           },
-          child: const Icon(Icons.add)
-      ),
-      body: CustomScrollView(
-        slivers: [
-          SliverList(delegate: TimelineTileBuilderDelegate(
-            (context, index) {
-              return buildTimelineTile(context, outing.steps[index]);
-            },
-            childCount: outing.steps.length
-          ))
-        ],
+          child: const Icon(Icons.add)),
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                stops: const [0.2, 0.7],
+                colors: [
+              Colors.grey[100]!,
+              Colors.blue[100]!,
+            ])),
+        child: CustomScrollView(
+          slivers: [
+            SliverList(
+              delegate: TimelineTileBuilderDelegate(
+                (context, index) {
+                  return buildTimelineTile(context, outing.steps[index], index == outing.steps.length - 1);
+                },
+                childCount: outing.steps.length,
+              )
+            ),
+          ],
+        ),
       ),
     );
     return Text("");
   }
 
+  Widget buildTimelineTileConflicts(
+      BuildContext context, List<OutingStepDto> conflictingSteps, bool isLast) {
+    conflictingSteps.sort((a, b) => pdate(a.start).compareTo(pdate(b.start)));
+    final step = conflictingSteps[0];
+    return TimelineTile(
+        node: TimelineNode(
+          indicator: Container(
+            decoration: const BoxDecoration(),
+            child: Card(
+                shape: const CircleBorder(),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(fmtDateTime(step.start),
+                      style: TextStyle(fontSize: 12.0)),
+                )),
+          ),
+          startConnector: const SolidLineConnector(),
+          endConnector: const SolidLineConnector(),
+        ),
+        nodeAlign: TimelineNodeAlign.start,
+        contents: Card(
+          color: Colors.orange,
+          elevation: 8.0,
+          margin: EdgeInsets.only(top: 12.0, right: 8.0, bottom: isLast ? bottomPadding : 0.0),
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Column(
+              children: [
+                const ListTile(
+                  leading: Icon(Icons.warning),
+                  title: Text(
+                    "CONFLICTS",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  ),
+                  dense: true,
+                  minVerticalPadding: 0,
+                  minLeadingWidth: 0,
+                  visualDensity: VisualDensity.compact,
+                ),
+                Column(
+                  children: conflictingSteps
+                      .map((step) => buildOutingStepCard(step, true))
+                      .toList(),
+                ),
+              ],
+            ),
+          ),
+        ));
+  }
 
-  Widget buildTimelineTile(BuildContext context, List<OutingStepDto> conflictingSteps) {
-    return Text("w");
-    // return TimelineTile(
-    //   node: TimelineNode(
-    //     indicator: Container(
-    //       decoration: BoxDecoration(
-    //           // border: (index == widget.outing.getCurrentOuting())
-    //           //     ? Border.all(color: Colors.redAccent.shade700)
-    //           //     : Border.all(color: Colors.blueAccent.shade100)
-    //       ),
-    //       child: Text(
-    //           "CONFLICT"
-    //           // formatTime(outingDto.getOutingStep(index))
-    //       ),
-    //     ),
-    //     startConnector: getStartConnector(index),
-    //     endConnector: getEndConnector(index),
-    //   ),
-    //   nodeAlign: TimelineNodeAlign.start,
-    //   contents: ItineraryCard(
-    //     outingStep: outingDto.getOutingStep(index),
-    //   ),
-    //   oppositeContents: const Padding(
-    //     padding: EdgeInsets.all(8.0),
-    //     child: Text("Opposite Content"),
-    //   ),
-    // );
+  String fmtDateTime(String d) {
+    final dt = DateTime.parse(d).toLocal();
+    return DateFormat("MM/dd\nHH:mm").format(dt);
+  }
+
+  String fmtTime(String d) {
+    final dt = DateTime.parse(d).toLocal();
+    return DateFormat("HH:mm").format(dt);
+  }
+
+  String dur(OutingStepDto step) {
+    final s = DateTime.parse(step.start).toLocal();
+    final e = DateTime.parse(step.end).toLocal();
+    return prettyDuration(e.difference(s));
+  }
+
+  Widget buildTimelineTileNoConflicts(
+      BuildContext context, OutingStepDto step, bool isLast) {
+    return TimelineTile(
+      node: TimelineNode(
+        indicator: Container(
+          decoration: const BoxDecoration(),
+          child: Card(
+              shape: const CircleBorder(),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  fmtDateTime(step.start),
+                  style: const TextStyle(fontSize: 12.0),
+                ),
+              )),
+        ),
+        startConnector: const SolidLineConnector(),
+        endConnector: const SolidLineConnector(),
+      ),
+      nodeAlign: TimelineNodeAlign.start,
+      contents: Padding(
+        padding: EdgeInsets.only(top: 12.0, right: 8.0, bottom: isLast ? bottomPadding : 0.0),
+        child: buildOutingStepCard(step, false),
+      ),
+    );
+  }
+
+  static const titleStyle =
+      TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold);
+
+  Widget buildVotePart(bool vote, List<OutingStepVoteDto> votes) {
+    const border = CircleBorder(
+      side: BorderSide(color: Colors.indigo, width: 1));
+    const Color voteColor = Colors.red;
+    var voteBtnChild = ElevatedButton.icon(
+      onPressed: () {},
+      icon: const Icon(Icons.close, color: voteColor),
+      label: const Text("NO", style: TextStyle(color: voteColor)),
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+              side: const BorderSide(color: voteColor, width: 1.0)
+          )
+        ),
+        backgroundColor: MaterialStateProperty.all(Colors.white)
+      ),
+    );
+    var alignment = MainAxisAlignment.end;
+    if (vote) {
+      const Color voteColor = Colors.green;
+      voteBtnChild = ElevatedButton.icon(
+        onPressed: () {},
+        icon: const Icon(Icons.check, color: voteColor),
+        label: const Text("YES", style: TextStyle(color: voteColor)),
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                    side: const BorderSide(color: voteColor, width: 1.0)
+                )
+            ),
+            backgroundColor: MaterialStateProperty.all(Colors.white)
+        ),
+      );
+      alignment = MainAxisAlignment.start;
+    }
+    votes = votes.where((element) => element.vote == vote).toList();
+
+    // for test
+    votes = {
+      OutingStepVoteDto(
+          true,
+          UserSummaryDto("Akash", "akash",
+              "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
+      OutingStepVoteDto(
+          true,
+          UserSummaryDto("WWE", "wwe",
+              "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
+      OutingStepVoteDto(
+          true,
+          UserSummaryDto("Akash", "akash",
+              "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
+      OutingStepVoteDto(
+          true,
+          UserSummaryDto("WWE", "wwe",
+              "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
+    }.toList();
+
+    int shown = 3;
+    double shift = 16.0;
+    int more = votes.length - shown;
+    votes = votes.take(shown).toList();
+
+    final elements = votes
+        .asMap()
+        .map((i, v) => MapEntry(
+            i,
+            Positioned(
+              top: 0,
+              bottom: 0,
+              right: !vote ? shift * i : null,
+              left: vote ? shift * i : null,
+              child: Material(
+                elevation: 4.0,
+                shape: border,
+                child: CircleAvatar(
+                  radius: 14.0,
+                  backgroundImage:
+                      CachedNetworkImageProvider(v.userSummaryDto.imageLink),
+                ),
+              ),
+            )))
+        .values
+        .toList();
+
+    if (more > 0) {
+      final restCount = Positioned(
+          top: 0,
+          bottom: 0,
+          right: !vote ? shift * shown : null,
+          left: vote ? shift * shown : null,
+          child: Material(
+            elevation: 4.0,
+            shape: border,
+            child: CircleAvatar(
+              radius: 14.0,
+              backgroundColor: Colors.grey,
+              child: Text("+$more", style: const TextStyle(fontSize: 11.0)),
+            ),
+          ));
+      elements.add(restCount);
+    }
+
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Column(
+          children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child:
+                SizedBox(
+                  height: 32,
+                child: Row(mainAxisSize: MainAxisSize.max, children: [
+                  Expanded(
+                    child: Stack(
+                      children: elements
+                    ),
+                  )
+                ]),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: alignment,
+              children: [voteBtnChild],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildOutingStepCard(OutingStepDto step, bool isConflicting) {
+    return Card(
+        elevation: isConflicting ? 2.0 : 8.0,
+        color: isConflicting ? Colors.orange[100]! : Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              title: Text("${step.description} @ ${step.place.name}",
+                  style: titleStyle, overflow: TextOverflow.ellipsis,),
+              subtitle: Row(
+                children: [
+                  Text(fmtTime(step.start),
+                      style: const TextStyle(
+                          color: Colors.blueAccent, fontSize: 13.0)),
+                  const Text(" till ",
+                      style: TextStyle(color: Colors.grey, fontSize: 13.0)),
+                  Text(fmtTime(step.end),
+                      style: const TextStyle(
+                          color: Colors.blueAccent, fontSize: 13.0)),
+                  const Text(", ",
+                      style: TextStyle(color: Colors.grey, fontSize: 13.0)),
+                  Text(dur(step),
+                      style:
+                          const TextStyle(color: Colors.blue, fontSize: 13.0)),
+                ],
+              ),
+              minVerticalPadding: 0,
+              visualDensity: VisualDensity.compact,
+              dense: true,
+              contentPadding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: ListTile(
+                leading: const Icon(Icons.place),
+                dense: true,
+                horizontalTitleGap: 10,
+                minLeadingWidth: 0,
+                minVerticalPadding: 0,
+                // contentPadding: EdgeInsets.zero,
+                visualDensity: VisualDensity.compact,
+                title: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    step.place.formattedAddress.trim(),
+                    style: TextStyle(
+                        color: Colors.black.withOpacity(0.6), fontSize: 12.0),
+                  ),
+                ),
+              ),
+            ),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 200.0),
+              child: CachedNetworkImage(
+                imageUrl: step.place.imageLink,
+                fit: BoxFit.fill,
+              ),
+            ),
+            if (!step.approved)
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  buildVotePart(true, step.outingStepVoteDtos),
+                  buildVotePart(false, step.outingStepVoteDtos),
+                ],
+              )
+          ],
+        ));
+  }
+
+  Widget buildTimelineTile(
+      BuildContext context, List<OutingStepDto> conflictingSteps, bool isLast) {
+    if (conflictingSteps.length == 1) {
+      return buildTimelineTileNoConflicts(context, conflictingSteps[0], isLast);
+    } else {
+      return buildTimelineTileConflicts(context, conflictingSteps, isLast);
+    }
   }
 }
