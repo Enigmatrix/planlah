@@ -1,9 +1,11 @@
 package jobs
 
 import (
+	"context"
 	"encoding/json"
 	"github.com/juju/errors"
 	"github.com/samber/lo"
+	"github.com/vgarvardt/gue/v3"
 	"planlah.sg/backend/data"
 )
 
@@ -47,9 +49,9 @@ func CollidingOutingSteps(outingSteps []data.OutingStep) [][]data.OutingStep {
 	return allSteps
 }
 
-func (job *VoteDeadlineJob) Run(bytes []byte) error {
+func (job *VoteDeadlineJob) Run(ctx context.Context, j *gue.Job) error {
 	var args VoteDeadlineJobArgs
-	err := json.Unmarshal(bytes, &args)
+	err := json.Unmarshal(j.Args, &args)
 	if err != nil {
 		return errors.Annotate(err, "parse voteDeadlineJob args")
 	}
