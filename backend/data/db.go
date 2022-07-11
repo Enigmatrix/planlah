@@ -36,15 +36,20 @@ var (
 )
 var pageCount uint = 10
 
+func DatabaseConnectionString(config *utils.Config) string {
+	dsn := fmt.Sprintf("host=%s user=%s password=%s",
+		config.DatabaseHost,
+		config.DatabaseUser,
+		config.DatabasePassword,
+	)
+	return dsn
+}
+
 // NewDatabaseConnection Creates a new database connection
 func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, error) {
 	// TODO should this really be a singleton?
 	return dbConn.LazyFallibleValue(func() (*gorm.DB, error) {
-		dsn := fmt.Sprintf("host=%s user=%s password=%s",
-			config.DatabaseHost,
-			config.DatabaseUser,
-			config.DatabasePassword,
-		)
+		dsn := DatabaseConnectionString(config)
 		pg := postgres.Open(dsn)
 
 		dblogger := zapgorm2.New(logger)
