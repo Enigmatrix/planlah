@@ -1,9 +1,15 @@
 package routes
 
-import "time"
+import (
+	"github.com/gin-gonic/gin"
+	"time"
+)
 
 type PostsController struct {
 	BaseController
+}
+
+type ListPostsDto struct {
 }
 
 type MakePostDto struct {
@@ -16,4 +22,12 @@ type PostDto struct {
 	Text       string         `json:"text" binding:"required"`
 	ImageLink  string         `json:"imageLink" binding:"required"`
 	PostedAt   time.Time      `json:"posted_at" binding:"required"`
+}
+
+func (ctr *PostsController) GetAll(ctx *gin.Context) {
+}
+
+func (ctr *PostsController) Register(router *gin.RouterGroup) {
+	group := router.Group("posts")
+	group.GET("all", ctr.GetAll)
 }
