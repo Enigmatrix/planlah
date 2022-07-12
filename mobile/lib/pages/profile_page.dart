@@ -67,8 +67,8 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget buildErrorPage(BuildContext context) {
-    return const Scaffold(
-      body: Text(
+    return const Center(
+      child: Text(
         "We encountered an issue loading the user profile! Please refresh the page",
         style: TextStyle(
             color: Colors.red,

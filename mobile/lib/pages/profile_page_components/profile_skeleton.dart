@@ -54,7 +54,7 @@ class _ProfilePageSkeletonState extends State<ProfilePageSkeleton> {
       body: Column(
         children: <Widget>[
           widget.profilePictureWidgetBuilder(context, widget.user),
-          buildName(context),
+          buildNameWidget(context),
           widget.profileHeaderWidgetBuilder(context, widget.user),
           widget.profileContentWidgetBuilder(context, widget.user),
         ],
@@ -62,9 +62,20 @@ class _ProfilePageSkeletonState extends State<ProfilePageSkeleton> {
     );
   }
 
-  Widget buildName(BuildContext context) {
-    return Text(
-      widget.user.username
+  Widget buildNameWidget(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Text(
+          widget.user.username,
+          style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold
+          ),
+        ),
+        Text(
+          widget.user.name
+        )
+      ],
     );
   }
 }
