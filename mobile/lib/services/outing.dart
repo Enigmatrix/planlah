@@ -43,5 +43,16 @@ class OutingService extends BaseConnect {
     );
   }
 
+  /// Vote for an OutingStep
+  Future<Response> vote(int outingStepId, bool vote) async {
+    return await put(
+        "/outing/vote",
+        {
+          "vote": vote,
+          "outingStepId": outingStepId
+        },
+    );
+  }
+
 
 }

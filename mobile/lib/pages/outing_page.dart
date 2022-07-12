@@ -15,6 +15,8 @@ import 'package:mobile/services/user.dart';
 import 'package:timelines/timelines.dart';
 import 'package:get/get.dart';
 
+import '../services/outing.dart';
+
 /// Displays the current outing
 
 class OutingPage extends StatefulWidget {
@@ -37,6 +39,7 @@ class _OutingPageState extends State<OutingPage> {
   late UserInfo thisUser;
 
   final userSvc = Get.find<UserService>();
+  final outingSvc = Get.find<OutingService>();
 
   @override
   void initState() {
@@ -218,7 +221,8 @@ class _OutingPageState extends State<OutingPage> {
   static const titleStyle =
       TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold);
 
-  Widget buildVotePart(bool vote, List<OutingStepVoteDto> votes) {
+  Widget buildVotePart(bool vote, OutingStepDto step) {
+    var votes = step.outingStepVoteDtos;
     const border = CircleBorder(
       side: BorderSide(color: Colors.indigo, width: 1));
     var alignment = MainAxisAlignment.end;
@@ -260,7 +264,14 @@ class _OutingPageState extends State<OutingPage> {
     bool hasUserVoted = votes.any((element) => element.userSummaryDto.id == thisUser.id);
 
     var voteBtnChild = ElevatedButton.icon(
-      onPressed: () {},
+      onPressed: () async {
+        final resp = await outingSvc.vote(step.id, vote);
+        if (resp.isOk) {
+          // TODO display voting
+        } else {
+          log("outingSvc.vote err: ${resp.bodyString}");
+        }
+      },
       icon: Icon(voteIcon, color: hasUserVoted ? voteBg : voteColor),
       label: Text(voteText, style: TextStyle(color: hasUserVoted ? voteBg : voteColor)),
       style: ButtonStyle(
@@ -413,8 +424,8 @@ class _OutingPageState extends State<OutingPage> {
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  buildVotePart(true, step.outingStepVoteDtos),
-                  buildVotePart(false, step.outingStepVoteDtos),
+                  buildVotePart(true, step),
+                  buildVotePart(false, step),
                 ],
               )
           ],

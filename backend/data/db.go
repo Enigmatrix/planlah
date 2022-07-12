@@ -833,6 +833,8 @@ func (db *Database) GetOutingWithSteps(outingId uint) (Outing, error) {
 		Preload("Steps").
 		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
+		Preload("Steps.Votes.GroupMember").
+		Preload("Steps.Votes.GroupMember.User").
 		First(&outing).
 		Error
 
@@ -889,6 +891,8 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 		Preload("Steps").
 		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
+		Preload("Steps.Votes.GroupMember").
+		Preload("Steps.Votes.GroupMember.User").
 		Find(&outings).
 		Error
 
@@ -929,6 +933,8 @@ func (db *Database) GetActiveOuting(groupId uint) (*Outing, error) {
 		Preload("Steps").
 		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
+		Preload("Steps.Votes.GroupMember").
+		Preload("Steps.Votes.GroupMember.User").
 		Where("id = (select active_outing_id from groups where id = ?)", groupId).
 		First(&outing).
 		Error
