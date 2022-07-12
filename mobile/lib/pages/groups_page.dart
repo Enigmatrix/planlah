@@ -41,13 +41,9 @@ class _GroupsPageState extends State<GroupsPage> {
   @override
   initState() {
     super.initState();
+    loadUserInfo();
     updateGroups();
-    userService.getInfo().then((value) {
-      setState(() {
-        userSummaryDto = value.body!;
-      });
-    });
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       updateGroups();
     });
     // groups = allGroups;
@@ -57,6 +53,17 @@ class _GroupsPageState extends State<GroupsPage> {
   void dispose() {
     timer.cancel();
     super.dispose();
+  }
+
+  void loadUserInfo() async {
+    Response<UserSummaryDto?> response = await userService.getInfo();
+    setState(() {
+      if (response.isOk) {
+        userSummaryDto = response.body!;
+      } else {
+        loadUserInfo();
+      }
+    });
   }
 
   void updateGroups() {

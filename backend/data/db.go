@@ -389,7 +389,7 @@ INNER JOIN
 	AND status = 'approved'
 ) AS friend_id
 ON u.id = friend_id.from_id
-LIMIT ? OFFSET ?`, userId, userId, pageCount, page*pageCount).
+LIMIT ? OFFSET ?`, userId, userId, page.Limit(), page.Offset()).
 		Scan(&users).
 		Error
 
