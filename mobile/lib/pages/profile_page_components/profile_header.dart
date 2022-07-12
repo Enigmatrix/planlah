@@ -1,6 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/dto/user.dart';
+import 'package:mobile/pages/profile_page_components/profile_skeleton.dart';
 
+
+class ProfileHeader {
+
+  static WidgetValueBuilder getOtherProfileHeaderBuilder() {
+    return (BuildContext context, UserSummaryDto user) {
+      return Column(
+        children: <Widget>[
+          ProfileHeaderWidget(userSummaryDto: user),
+          IconButton(
+              onPressed: () {
+                // TODO: To redirect to the DM
+              },
+              icon: const Icon(Icons.mail)
+          )
+        ],
+      );
+    };
+  }
+
+  static WidgetValueBuilder getUserProfileHeaderBuilder() {
+    return (BuildContext context, UserSummaryDto user) {
+      return ProfileHeaderWidget(userSummaryDto: user);
+    };
+  }
+
+}
 
 /// Common Profile Header used by both user and other.
 /// Displays number of posts, reviews and friends.

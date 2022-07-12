@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
-import 'package:mobile/pages/profile_page_components/value_widget_builder.dart';
 import 'package:mobile/services/user.dart';
 
 /// The base skeleton that the user profile page and the other user profile page
@@ -16,6 +15,7 @@ import 'package:mobile/services/user.dart';
 ///
 /// typedef Function(BuildContext context, UserSummaryDto user) => Widget
 
+typedef WidgetValueBuilder = Widget Function(BuildContext context, UserSummaryDto user);
 
 class ProfilePageSkeleton extends StatefulWidget {
 

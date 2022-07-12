@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/pages/profile_page_components/value_widget_builder.dart';
+import 'package:mobile/pages/profile_page_components/profile_skeleton.dart';
+import 'package:mobile/widgets/profile_widget.dart';
 
 import '../../dto/user.dart';
 
-class OtherProfilePicture {
+class ProfilePicture {
+
+  static WidgetValueBuilder getUserProfilePictureBuilder() {
+    return (BuildContext context, UserSummaryDto user) {
+      return ProfileWidget(imagePath: user.imageLink, onClicked: () {});
+    };
+  }
+
   static WidgetValueBuilder getOtherProfilePictureBuilder() {
     return (BuildContext context, UserSummaryDto user) {
       return Center(
@@ -27,4 +35,6 @@ class OtherProfilePicture {
       ),
     );
   }
+
+
 }

@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
-import 'package:mobile/pages/profile_page_components/other_profile_content.dart';
-import 'package:mobile/pages/profile_page_components/other_profile_header.dart';
-import 'package:mobile/pages/profile_page_components/other_profile_picture.dart';
+import 'package:mobile/pages/profile_page_components/profile_content_components.dart';
+import 'package:mobile/pages/profile_page_components/profile_header.dart';
+import 'package:mobile/pages/profile_page_components/profile_picture.dart';
 import 'package:mobile/pages/profile_page_components/profile_skeleton.dart';
-import 'package:mobile/pages/profile_page_components/user_profile_content.dart';
-import 'package:mobile/pages/profile_page_components/user_profile_header.dart';
-import 'package:mobile/pages/profile_page_components/user_profile_picture.dart';
-import 'package:mobile/pages/profile_page_components/value_widget_builder.dart';
 import 'package:mobile/services/user.dart';
 
 import '../widgets/wait_widget.dart';
@@ -40,7 +36,6 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future<Response<UserSummaryDto?>> getUserInfo() async {
-    print("Inside profile page...");
     if (widget.userId == -1) {
       return await userService.getInfo();
     } else {
@@ -55,7 +50,6 @@ class _ProfilePageState extends State<ProfilePage> {
         builder: (BuildContext context, AsyncSnapshot<Response<UserSummaryDto?>> snapshot) {
           if (snapshot.hasData) {
             if (snapshot.data!.isOk) {
-              print(snapshot.data!.body!);
               return ProfilePageSkeleton(
                 user: snapshot.data!.body!,
                 profilePictureWidgetBuilder: profilePictureWidgetBuilder,
@@ -89,13 +83,13 @@ class _ProfilePageState extends State<ProfilePage> {
   void initializeWidgetBuilders(BuildContext context) {
     // -1 denotes it being the user's own profile
     if (widget.userId == -1) {
-      profilePictureWidgetBuilder = UserProfilePicture.getUserProfilePictureBuilder();
-      profileHeaderWidgetBuilder = UserProfileHeader.getUserProfileHeaderBuilder();
-      profileContentWidgetBuilder = UserProfileContent.getUserProfileContentBuilder();
+      profilePictureWidgetBuilder = ProfilePicture.getUserProfilePictureBuilder();
+      profileHeaderWidgetBuilder = ProfileHeader.getUserProfileHeaderBuilder();
+      profileContentWidgetBuilder = ProfileContent.getProfileContentBuilder();
     } else {
-      profilePictureWidgetBuilder = OtherProfilePicture.getOtherProfilePictureBuilder();
-      profileHeaderWidgetBuilder = OtherProfileHeader.getOtherProfileHeaderBuilder();
-      profileContentWidgetBuilder = OtherProfileContent.getOtherProfileContentBuilder();
+      profilePictureWidgetBuilder = ProfilePicture.getOtherProfilePictureBuilder();
+      profileHeaderWidgetBuilder = ProfileHeader.getOtherProfileHeaderBuilder();
+      profileContentWidgetBuilder = ProfileContent.getProfileContentBuilder();
     }
   }
 }
