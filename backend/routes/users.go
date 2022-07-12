@@ -142,7 +142,7 @@ func (ctr *UserController) Create(ctx *gin.Context) {
 }
 
 // GetInfo godoc
-// @Summary Gets info about a user
+// @Summary Gets info about the logged-in user
 // @Description Gets info about a user (me = current user)
 // @Security JWT
 // @Tags User
@@ -154,6 +154,29 @@ func (ctr *UserController) GetInfo(ctx *gin.Context) {
 
 	user, err := ctr.Database.GetUser(userId)
 	if err != nil { // this User is always found
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, ToUserSummaryDto(user))
+}
+
+// GetUserInfo godoc
+// @Summary Gets info about a user given a user id
+// @Description Gets info about a user given his user id
+// @Security JWT
+// @Tags User
+// @Success 200 {object} UserSummaryDto
+// @Failure 401 {object} services.AuthError
+// @Router /api/users/get [get]
+func (ctr *UserController) GetUserInfo(ctx *gin.Context) {
+	var dto UserRefDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	user, err := ctr.Database.GetUser(dto.ID)
+	if err != nil {
 		handleDbError(ctx, err)
 		return
 	}
@@ -245,5 +268,6 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 func (ctr *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	users.GET("me/info", ctr.GetInfo)
+	users.GET("get", ctr.GetUserInfo)
 	users.GET("search_for_friends", ctr.SearchForFriends)
 }
