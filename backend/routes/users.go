@@ -25,7 +25,7 @@ type UserSummaryDto struct {
 }
 
 type UserRefDto struct {
-	ID uint `json:"id" binding:"required"`
+	ID uint `json:"id" form:"id" query:"id" binding:"required"`
 }
 
 type CreateUserDto struct {
@@ -164,6 +164,7 @@ func (ctr *UserController) GetInfo(ctx *gin.Context) {
 // GetUserInfo godoc
 // @Summary Gets info about a user given a user id
 // @Description Gets info about a user given his user id
+// @Param query query UserRefDto true "body"
 // @Security JWT
 // @Tags User
 // @Success 200 {object} UserSummaryDto

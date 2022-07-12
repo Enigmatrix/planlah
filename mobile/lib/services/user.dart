@@ -10,7 +10,7 @@ class UserService extends BaseConnect {
 
   Future<Response<UserSummaryDto?>> getUserInfo(int id) async {
     UserRefDto dto = UserRefDto(id);
-    return await get(
+    return await get<UserSummaryDto?>(
       "/users/get",
       query: dto.toJson(),
       decoder: decoderFor(UserSummaryDto.fromJson)

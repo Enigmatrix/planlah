@@ -48,16 +48,14 @@ class _ProfilePageSkeletonState extends State<ProfilePageSkeleton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+
+      ),
       body: Column(
         children: <Widget>[
+          widget.profilePictureWidgetBuilder(context, widget.user),
           buildName(context),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              widget.profilePictureWidgetBuilder(context, widget.user),
-              widget.profileHeaderWidgetBuilder(context, widget.user),
-            ],
-          ),
+          widget.profileHeaderWidgetBuilder(context, widget.user),
           widget.profileContentWidgetBuilder(context, widget.user),
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
+import 'package:mobile/pages/profile_page.dart';
 import 'package:mobile/services/friends.dart';
 import 'package:mobile/widgets/wait_widget.dart';
 
@@ -106,6 +107,9 @@ class _FriendsPageState extends State<FriendsPage> {
 
     return ListTile(
       // TODO: Friend profile page
+      onTap: () {
+        Get.to(() => ProfilePage(userId: _friend.id));
+      },
       leading: Hero(
         tag: index,
         child: CircleAvatar(
