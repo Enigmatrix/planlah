@@ -1,24 +1,19 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:duration/duration.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
-import 'package:mobile/dto/group.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/dto/outing_step.dart';
 import 'package:mobile/dto/user.dart';
-import 'package:mobile/main.dart';
-import 'package:mobile/model/chat_group.dart';
+import 'package:mobile/model/user.dart';
 import 'package:mobile/pages/create_outing_step_page.dart';
-import 'package:mobile/pages/suggestion.dart';
-import 'package:mobile/widgets/itinerary_card.dart';
+import 'package:mobile/services/user.dart';
 import 'package:timelines/timelines.dart';
 import 'package:get/get.dart';
-
-import '../model/outing_list.dart';
-import '../model/outing_steps.dart';
-import 'suggestion.dart';
 
 /// Displays the current outing
 
@@ -39,6 +34,9 @@ class _OutingPageState extends State<OutingPage> {
 
   late OutingDto outing;
   late bool isActive;
+  late UserInfo thisUser;
+
+  final userSvc = Get.find<UserService>();
 
   @override
   void initState() {
@@ -46,6 +44,14 @@ class _OutingPageState extends State<OutingPage> {
 
     outing = widget.outing;
     isActive = widget.isActive;
+
+    userSvc.getInfo().then((value) {
+      if (value.isOk) {
+        setState(() => { thisUser = value.body! });
+      } else {
+        log("userSvc.getInfo err: ${value.bodyString}");
+      }
+    });
   }
 
   final bottomPadding = 100.0; // show the floatingActionBar without hiding any content
@@ -128,7 +134,7 @@ class _OutingPageState extends State<OutingPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(fmtDateTime(step.start),
-                      style: TextStyle(fontSize: 12.0)),
+                      style: const TextStyle(fontSize: 12.0)),
                 )),
           ),
           startConnector: const SolidLineConnector(),
@@ -215,61 +221,58 @@ class _OutingPageState extends State<OutingPage> {
   Widget buildVotePart(bool vote, List<OutingStepVoteDto> votes) {
     const border = CircleBorder(
       side: BorderSide(color: Colors.indigo, width: 1));
-    const Color voteColor = Colors.red;
-    var voteBtnChild = ElevatedButton.icon(
-      onPressed: () {},
-      icon: const Icon(Icons.close, color: voteColor),
-      label: const Text("NO", style: TextStyle(color: voteColor)),
-      style: ButtonStyle(
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4),
-              side: const BorderSide(color: voteColor, width: 1.0)
-          )
-        ),
-        backgroundColor: MaterialStateProperty.all(Colors.white)
-      ),
-    );
     var alignment = MainAxisAlignment.end;
+    var voteColor = Colors.red;
+    var voteText = "NO";
+    var voteIcon = Icons.close;
+    var voteBg = Colors.white;
+
     if (vote) {
-      const Color voteColor = Colors.green;
-      voteBtnChild = ElevatedButton.icon(
-        onPressed: () {},
-        icon: const Icon(Icons.check, color: voteColor),
-        label: const Text("YES", style: TextStyle(color: voteColor)),
-        style: ButtonStyle(
-            shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                    side: const BorderSide(color: voteColor, width: 1.0)
-                )
-            ),
-            backgroundColor: MaterialStateProperty.all(Colors.white)
-        ),
-      );
+      voteColor = Colors.green;
+      voteIcon = Icons.check;
+      voteText = "YES";
       alignment = MainAxisAlignment.start;
     }
+
     votes = votes.where((element) => element.vote == vote).toList();
 
     // for test
-    votes = {
-      OutingStepVoteDto(
-          true,
-          UserSummaryDto("Akash", "akash",
-              "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
-      OutingStepVoteDto(
-          true,
-          UserSummaryDto("WWE", "wwe",
-              "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
-      OutingStepVoteDto(
-          true,
-          UserSummaryDto("Akash", "akash",
-              "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
-      OutingStepVoteDto(
-          true,
-          UserSummaryDto("WWE", "wwe",
-              "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
-    }.toList();
+    // votes = {
+    //   OutingStepVoteDto(
+    //       true,
+    //       UserSummaryDto(1, "Akash", "akash",
+    //           "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
+    //   OutingStepVoteDto(
+    //       true,
+    //       UserSummaryDto(2, "WWE", "wwe",
+    //           "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
+    //   OutingStepVoteDto(
+    //       true,
+    //       UserSummaryDto(3, "Akash", "akash",
+    //           "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
+    //   OutingStepVoteDto(
+    //       true,
+    //       UserSummaryDto(4, "WWE", "wwe",
+    //           "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
+    // }.toList();
+
+
+    bool hasUserVoted = votes.any((element) => element.userSummaryDto.id == thisUser.id);
+
+    var voteBtnChild = ElevatedButton.icon(
+      onPressed: () {},
+      icon: Icon(voteIcon, color: hasUserVoted ? voteBg : voteColor),
+      label: Text(voteText, style: TextStyle(color: hasUserVoted ? voteBg : voteColor)),
+      style: ButtonStyle(
+          shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
+                  side: BorderSide(color: hasUserVoted ? voteBg : voteColor, width: 1.0)
+              )
+          ),
+          backgroundColor: MaterialStateProperty.all(!hasUserVoted ? voteBg : voteColor)
+      ),
+    );
 
     int shown = 3;
     double shift = 16.0;
@@ -309,8 +312,8 @@ class _OutingPageState extends State<OutingPage> {
             shape: border,
             child: CircleAvatar(
               radius: 14.0,
-              backgroundColor: Colors.grey,
-              child: Text("+$more", style: const TextStyle(fontSize: 11.0)),
+              backgroundColor: const Color.fromARGB(0x22, 0x22, 0x22, 0x22),
+              child: Text("+$more", style: const TextStyle(fontSize: 11.0, color: Colors.blue)),
             ),
           ));
       elements.add(restCount);
