@@ -245,7 +245,6 @@ func calculateVector(tags, allCategories []string) (pq.Float64Array, error) {
 	}
 
 	return featureVector, nil
-
 }
 
 func calculateAttractionVector(attractions []string) (pq.Float64Array, error) {
