@@ -89,28 +89,27 @@ type Message struct {
 }
 
 type Outing struct {
-	ID          uint      `gorm:"primarykey"`
-	GroupID     uint      `gorm:"not null"`
-	Group       *Group    `gorm:"foreignKey:GroupID"`
-	Name        string    `gorm:"not null"`
-	Description string    `gorm:"not null"`
-	Start       time.Time `gorm:"not null"`
-	End         time.Time `gorm:"not null"`
-	Steps       []OutingStep
-}
-
-type OutingStep struct {
 	ID           uint      `gorm:"primarykey"`
-	OutingID     uint      `gorm:"not null"`
-	Outing       *Outing   `gorm:"foreignKey:OutingID"`
-	PlaceID      uint      `gorm:"not null"`
-	Place        *Place    `gorm:"foreignKey:PlaceID"`
+	GroupID      uint      `gorm:"not null"`
+	Group        *Group    `gorm:"foreignKey:GroupID"`
+	Name         string    `gorm:"not null"`
 	Description  string    `gorm:"not null"`
-	Approved     bool      `gorm:"not null"`
 	Start        time.Time `gorm:"not null"`
 	End          time.Time `gorm:"not null"`
 	VoteDeadline time.Time `gorm:"not null"`
-	Votes        []OutingStepVote
+	Steps        []OutingStep
+}
+
+type OutingStep struct {
+	ID          uint      `gorm:"primarykey"`
+	OutingID    uint      `gorm:"not null"`
+	Outing      *Outing   `gorm:"foreignKey:OutingID"`
+	PlaceID     uint      `gorm:"not null"`
+	Place       *Place    `gorm:"foreignKey:PlaceID"`
+	Description string    `gorm:"not null"`
+	Start       time.Time `gorm:"not null"`
+	End         time.Time `gorm:"not null"`
+	Votes       []OutingStepVote
 }
 
 type OutingStepVote struct {

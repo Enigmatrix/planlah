@@ -35,7 +35,6 @@ var (
 	NotFriend           = errors.New("users are not friends")
 	DMAlreadyExists     = errors.New("dm already exists")
 )
-var pageCount uint = 10
 
 func DatabaseConnectionString(config *utils.Config) string {
 	dsn := fmt.Sprintf("host=%s user=%s password=%s",
@@ -901,13 +900,6 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	}
 
 	return outings, nil
-}
-
-// ApproveOutingStep Approves the outing step
-func (db *Database) ApproveOutingStep(outingStepId uint) error {
-	err := db.conn.Model(&OutingStep{}).Where(&OutingStep{ID: outingStepId}).
-		Update("approved", true).Error
-	return errors.Trace(err)
 }
 
 // DeleteOutingStep Delete the outing step with the same ID
