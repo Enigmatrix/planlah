@@ -9,7 +9,6 @@ import (
 	"net/http"
 	"planlah.sg/backend/data"
 	"planlah.sg/backend/services"
-	"strconv"
 )
 
 type UserController struct {
@@ -38,12 +37,8 @@ type CreateUserDto struct {
 	Food          []string `form:"food" binding:"required"`
 }
 
-type Pagination struct {
-	Page uint `uri:"page" form:"page" json:"page" binding:"required"`
-}
-
 type SearchUsersDto struct {
-	Page  string `form:"page" query:"page" binding:"required"`
+	data.Pagination
 	Query string `form:"query" binding:"required"`
 }
 
@@ -203,12 +198,7 @@ func (ctr *UserController) SearchForFriends(ctx *gin.Context) {
 		return
 	}
 
-	page, err := strconv.Atoi(dto.Page)
-	if err != nil {
-		FailWithMessage(ctx, "Failed to convert page to int")
-	}
-
-	users, err := ctr.Database.SearchForFriends(userId, dto.Query, uint(page))
+	users, err := ctr.Database.SearchForFriends(userId, dto.Query, dto.Pagination)
 	if err != nil {
 		handleDbError(ctx, err)
 		return

@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:get/get.dart';
 import 'package:mobile/dto/group.dart';
 import 'package:mobile/dto/group_invite.dart';
@@ -21,6 +23,14 @@ class GroupService extends BaseConnect {
         "/groups/create",
         formData,
       decoder: decoderFor(GroupSummaryDto.fromJson)
+    );
+  }
+
+  Future<Response<GroupInviteDto?>> getGroupInvite(CreateGroupInviteDto dto) async {
+    return await post(
+      "/groups/invites/create",
+      dto.toJson(),
+      decoder: decoderFor(GroupInviteDto.fromJson)
     );
   }
 

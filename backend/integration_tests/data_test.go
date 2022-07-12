@@ -1296,11 +1296,11 @@ func (s *DataIntegrationTestSuite) Test_JoinByInvite_Succeeds() {
 }
 
 func (s *DataIntegrationTestSuite) Test_SearchUsers_Succeeds() {
-	users, err := s.db.SearchForFriends(1, "a", 0)
+	users, err := s.db.SearchForFriends(1, "a", data.Pagination{Page: "0"})
 	s.NoError(err)
 	s.Len(users, 5)
 
-	users, err = s.db.SearchForFriends(1, "dad", 0)
+	users, err = s.db.SearchForFriends(1, "dad", data.Pagination{Page: "0"})
 	s.NoError(err)
 	s.Len(users, 1)
 }
@@ -1390,21 +1390,21 @@ func (s *DataIntegrationTestSuite) Test_PendingFriendRequests_Success() {
 	s.Require().NoError(err)
 	s.Require().Equal(data.Pending, stat)
 
-	reqs, err := s.db.PendingFriendRequests(3, 0)
+	reqs, err := s.db.PendingFriendRequests(3, data.Pagination{Page: "0"})
 	s.NoError(err)
 	s.Len(reqs, 2)
 
 	err = s.db.RejectFriendRequest(1, 3)
 	s.Require().NoError(err)
 
-	reqs, err = s.db.PendingFriendRequests(3, 0)
+	reqs, err = s.db.PendingFriendRequests(3, data.Pagination{Page: "0"})
 	s.NoError(err)
 	s.Len(reqs, 1)
 
 	err = s.db.ApproveFriendRequest(2, 3)
 	s.Require().NoError(err)
 
-	reqs, err = s.db.PendingFriendRequests(3, 0)
+	reqs, err = s.db.PendingFriendRequests(3, data.Pagination{Page: "0"})
 	s.NoError(err)
 	s.Len(reqs, 0)
 }
@@ -1421,14 +1421,14 @@ func (s *DataIntegrationTestSuite) Test_ListFriends_Success() {
 	err = s.db.ApproveFriendRequest(2, 3)
 	s.Require().NoError(err)
 
-	frens, err := s.db.ListFriends(3, 0)
+	frens, err := s.db.ListFriends(3, data.Pagination{Page: "0"})
 	s.NoError(err)
 	s.Len(frens, 1)
 
 	err = s.db.ApproveFriendRequest(1, 3)
 	s.Require().NoError(err)
 
-	frens, err = s.db.ListFriends(3, 0)
+	frens, err = s.db.ListFriends(3, data.Pagination{Page: "0"})
 	s.NoError(err)
 	s.Len(frens, 2)
 }
@@ -1470,7 +1470,7 @@ func (s *DataIntegrationTestSuite) Test_SearchForPlaces_Succeeds() {
 	s.Require().NoError(err)
 	s.Require().NotEmpty(place.ID)
 
-	places, err := s.db.SearchForPlaces("place", 0)
+	places, err := s.db.SearchForPlaces("place", data.Pagination{Page: "0"})
 	s.NoError(err)
 	s.Len(places, 2)
 	s.Equal(data.Point{
@@ -1482,7 +1482,7 @@ func (s *DataIntegrationTestSuite) Test_SearchForPlaces_Succeeds() {
 		Latitude:  50.1299,
 	}, places[1].Position)
 
-	places, err = s.db.SearchForPlaces("2", 0)
+	places, err = s.db.SearchForPlaces("2", data.Pagination{Page: "0"})
 	s.NoError(err)
 	s.Len(places, 1)
 }

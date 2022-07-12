@@ -29,8 +29,8 @@ class OutingPage extends StatefulWidget {
 
 class _OutingPageState extends State<OutingPage> {
 
-  OutingDto outingDto = OutingDto(1, "123", "123", 5, "1500", "1800", OutingStepDto.getHistoricalOutingStepDtos());
-  List<OutingStepDto> placesToVote = OutingStepDto.getVotingStepDtos();
+  late OutingDto outingDto;
+  late List<OutingStepDto> placesToVote;
   // The current card the user has voted on
   int currentVote = -1;
 
@@ -122,7 +122,7 @@ class _OutingPageState extends State<OutingPage> {
                 builder: (context) => ItineraryCard.buildAboutPlace(context, placesToVote[index])
             );
           },
-          child: Image.network(placesToVote[index].wherePoint),
+          child: Image.network(""),
         ),
       ),
     );

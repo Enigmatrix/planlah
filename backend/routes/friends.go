@@ -6,7 +6,6 @@ import (
 	"github.com/samber/lo"
 	"net/http"
 	"planlah.sg/backend/data"
-	"strconv"
 )
 
 type FriendsController struct {
@@ -14,11 +13,11 @@ type FriendsController struct {
 }
 
 type ListFriendsDto struct {
-	Page string `form:"page" query:"page" binding:"required"`
+	data.Pagination
 }
 
 type ListFriendRequestsDto struct {
-	Page string `form:"page" query:"page" binding:"required"`
+	data.Pagination
 }
 
 type CreateFriendRequestDto struct {
@@ -140,12 +139,7 @@ func (ctr *FriendsController) ListFriendRequests(ctx *gin.Context) {
 		return
 	}
 
-	page, err := strconv.Atoi(dto.Page)
-	if err != nil {
-		FailWithMessage(ctx, "Failed to convert page to int")
-	}
-
-	reqs, err := ctr.Database.PendingFriendRequests(userId, uint(page))
+	reqs, err := ctr.Database.PendingFriendRequests(userId, dto.Pagination)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -175,12 +169,7 @@ func (ctr *FriendsController) ListFriends(ctx *gin.Context) {
 		return
 	}
 
-	page, err := strconv.Atoi(dto.Page)
-	if err != nil {
-		FailWithMessage(ctx, "Failed to convert page to int")
-	}
-
-	reqs, err := ctr.Database.ListFriends(userId, uint(page))
+	reqs, err := ctr.Database.ListFriends(userId, dto.Pagination)
 	if err != nil {
 		handleDbError(ctx, err)
 		return

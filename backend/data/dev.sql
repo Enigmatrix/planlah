@@ -62,6 +62,9 @@ insert into messages(id, content, sent_at, by_id) values (13, 'message 13!', '20
 insert into messages(id, content, sent_at, by_id) values (14, 'message 14!', '2016-01-01 00:00+10'::timestamptz + interval '13 minutes', 14) ON CONFLICT DO NOTHING;
 insert into messages(id, content, sent_at, by_id) values (15, 'message 15!', '2016-01-01 00:00+10'::timestamptz + interval '14 minutes', 15) ON CONFLICT DO NOTHING;
 
+-- INSERT INTO outings(id, group_id, name, description, start, end) values (1, 1, 'Food Makbang Trip', 'We are all obese Americans', '2016-01-01 00:00+10', '2016-01-01 12:00+10') ON CONFLICT DO NOTHING;
+-- INSERT INTO outings(id, group_id, name, description, start, end) values (2, 2, 'Vegetarian Massacre', 'We are on a holy quest to eradicate vegetarians', '2016-01-01 00:00+10', '2016-01-01 12:00+10') ON CONFLICT DO NOTHING;
+
 -- reset the primary key sequences for the tables
 SELECT setval('users_id_seq', (SELECT MAX(id) FROM users)+1);
 SELECT setval('groups_id_seq', (SELECT MAX(id) FROM groups)+1);

@@ -1,66 +1,95 @@
 package jobs
 
 import (
+	"context"
 	"encoding/json"
-	"github.com/btubbs/pgq"
+	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/juju/errors"
-	"gorm.io/gorm"
+	"github.com/vgarvardt/gue/v3"
+	"github.com/vgarvardt/gue/v3/adapter/pgxv4"
+	"go.uber.org/zap"
+	"golang.org/x/sync/errgroup"
+	"planlah.sg/backend/data"
 	"planlah.sg/backend/utils"
 	"time"
 )
 
 type Runner struct {
-	worker *pgq.Worker
+	client     *gue.Client
+	workerPool *gue.WorkerPool
+	logger     *zap.Logger
 }
 
 const initJobsSql = `
-BEGIN;
-CREATE TABLE IF NOT EXISTS pgq_jobs (
-  id SERIAL PRIMARY KEY,
-  created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
-  queue_name TEXT NOT NULL,
-  data BYTEA NOT NULL,
-  run_after TIMESTAMP WITH TIME ZONE NOT NULL,
-  retry_waits TEXT[] NOT NULL,
-  ran_at TIMESTAMP WITH TIME ZONE,
-  error TEXT
+CREATE TABLE IF NOT EXISTS gue_jobs
+(
+    job_id      BIGSERIAL   NOT NULL PRIMARY KEY,
+    priority    SMALLINT    NOT NULL,
+    run_at      TIMESTAMPTZ NOT NULL,
+    job_type    TEXT        NOT NULL,
+    args        JSON        NOT NULL,
+    error_count INTEGER     NOT NULL DEFAULT 0,
+    last_error  TEXT,
+    queue       TEXT        NOT NULL,
+    created_at  TIMESTAMPTZ NOT NULL,
+    updated_at  TIMESTAMPTZ NOT NULL
 );
 
--- Add an index for fast fetching of jobs by queue_name, sorted by run_after.  But only
--- index jobs that haven't been done yet, in case the user is keeping the job history around.
-CREATE INDEX IF NOT EXISTS idx_pgq_jobs_fetch
-	ON pgq_jobs (queue_name, run_after)
-	WHERE ran_at IS NULL;
-COMMIT;
+CREATE INDEX IF NOT EXISTS idx_gue_jobs_selector ON gue_jobs (queue, run_at, priority);
+
+COMMENT ON TABLE gue_jobs IS '1';
 `
 
 var jobsRunner utils.Lazy[Runner]
 
 // NewJobsRunner Creates a Jobs runner
-func NewJobsRunner(conn *gorm.DB,
+func NewJobsRunner(config *utils.Config, logger *zap.Logger,
 	voteDeadlineJob *VoteDeadlineJob,
 ) (*Runner, error) {
 	return jobsRunner.LazyFallibleValue(func() (*Runner, error) {
-		sqlDb, err := conn.DB()
+		dsn := data.DatabaseConnectionString(config)
+
+		pgxCfg, err := pgxpool.ParseConfig(dsn)
 		if err != nil {
-			return nil, errors.Annotate(err, "jobsRunner get sqldb")
+			return nil, errors.Annotate(err, "parse pgx config")
 		}
 
-		_, err = sqlDb.Exec(initJobsSql)
+		pgxPool, err := pgxpool.ConnectConfig(context.Background(), pgxCfg)
 		if err != nil {
-			return nil, errors.Annotate(err, "jobsRunner init sql")
+			return nil, errors.Annotate(err, "create pgx connect config")
 		}
 
-		// the default log is logrus, maybe try overriding it with a zap adapter
-		worker := pgq.NewWorker(sqlDb)
+		poolAdapter := pgxv4.NewConnPool(pgxPool)
 
-		// register worker functions
-		err = worker.RegisterQueue(VoteDeadlineJobName, voteDeadlineJob.Run)
+		_, err = poolAdapter.Exec(context.Background(), initJobsSql)
 		if err != nil {
-			return nil, errors.Annotatef(err, "register job %s", VoteDeadlineJobName)
+			return nil, errors.Annotate(err, "migrate initial jobs")
 		}
 
-		return &Runner{worker: worker}, nil
+		gc := gue.NewClient(poolAdapter)
+		if gc == nil {
+			return nil, errors.Annotate(err, "create pgx client")
+		}
+
+		finishedJobsLog := func(ctx context.Context, j *gue.Job, err error) {
+			if err != nil {
+				logger.Error("job error", zap.String("job", j.Type), zap.Error(err))
+			} else {
+				logger.Info("job success", zap.String("job", j.Type))
+			}
+		}
+
+		wm := gue.WorkMap{
+			VoteDeadlineJobName: voteDeadlineJob.Run,
+		}
+
+		// create a pool w/ 2 workers
+		workerPool := gue.NewWorkerPool(gc, wm, 4, gue.WithPoolHooksJobDone(finishedJobsLog))
+		if workerPool == nil {
+			return nil, errors.Annotate(err, "init worker pool")
+		}
+
+		return &Runner{client: gc, workerPool: workerPool, logger: logger}, nil
 	})
 }
 
@@ -69,10 +98,27 @@ func (runner *Runner) QueueVoteDeadlineJob(at time.Time, args VoteDeadlineJobArg
 	if err != nil {
 		return errors.Annotate(err, "serialize VoteDeadlineJobArgs")
 	}
-	_, err = runner.worker.EnqueueJob(VoteDeadlineJobName, bytes, pgq.After(at)) // ignore jobID
-	return errors.Annotate(err, "enqueue VoteDeadlineJob")
+	j := gue.Job{
+		RunAt: at,
+		Type:  VoteDeadlineJobName,
+		Args:  bytes,
+	}
+	err = runner.client.Enqueue(context.Background(), &j)
+	if err != nil {
+		return errors.Annotate(err, "enqueue VoteDeadlineJob")
+	}
+	return nil
 }
 
-func (runner *Runner) Run() error {
-	return errors.Annotate(runner.worker.Run(), "run jobsRunner")
+func (runner *Runner) Run() {
+	// work jobs in goroutine
+	g, gctx := errgroup.WithContext(context.Background())
+	g.Go(func() error {
+		err := runner.workerPool.Run(gctx)
+		if err != nil {
+			runner.logger.Fatal("workerPool err", zap.Error(err))
+			return err
+		}
+		return err
+	})
 }

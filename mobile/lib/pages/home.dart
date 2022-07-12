@@ -64,7 +64,7 @@ class _HomePageWidgetState extends State<HomePage> {
   Widget getPage(int index) {
     switch (index) {
       case 0:
-        return SocialFeedPage(groups: [groupInfo1, groupInfo2]);
+        return SocialFeedPage();
       case 1:
         return GroupsPage();
       case 2:

@@ -13,7 +13,7 @@ class SuggestionPage extends StatefulWidget {
 
 class _SuggestionPageState extends State<SuggestionPage> {
 
-  List<OutingStepDto> steps = OutingStepDto.getHistoricalOutingStepDtos();
+  late List<OutingStepDto> steps;
 
   @override
   Widget build(BuildContext context) {
@@ -61,12 +61,12 @@ class _SuggestionPageState extends State<SuggestionPage> {
     return Card(
       child: ListTile(
         leading: Text(
-          stepDto.name,
+          stepDto.placeDto.name,
         ),
-        title: Image.network(stepDto.wherePoint),
+        title: Image.network(stepDto.placeDto.imageLink),
         onTap: () {
           Get.defaultDialog(
-            title: stepDto.name,
+            title: stepDto.placeDto.name,
             content: Column(
               children: <Widget>[
                 Padding(

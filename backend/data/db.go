@@ -6,6 +6,7 @@ import (
 	"path"
 	"runtime"
 	"sort"
+	"strconv"
 	"time"
 
 	"github.com/juju/errors"
@@ -36,15 +37,20 @@ var (
 )
 var pageCount uint = 10
 
+func DatabaseConnectionString(config *utils.Config) string {
+	dsn := fmt.Sprintf("host=%s user=%s password=%s",
+		config.DatabaseHost,
+		config.DatabaseUser,
+		config.DatabasePassword,
+	)
+	return dsn
+}
+
 // NewDatabaseConnection Creates a new database connection
 func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, error) {
 	// TODO should this really be a singleton?
 	return dbConn.LazyFallibleValue(func() (*gorm.DB, error) {
-		dsn := fmt.Sprintf("host=%s user=%s password=%s",
-			config.DatabaseHost,
-			config.DatabaseUser,
-			config.DatabasePassword,
-		)
+		dsn := DatabaseConnectionString(config)
 		pg := postgres.Open(dsn)
 
 		dblogger := zapgorm2.New(logger)
@@ -153,6 +159,25 @@ func isNotFoundInDb(err error) bool {
 	return errors.Is(err, gorm.ErrRecordNotFound)
 }
 
+const DefaultPaginationLoad = 10
+
+type Pagination struct {
+	// Page to load (this is actually an int, see #69)
+	Page string `uri:"page" form:"page" json:"page" binding:"required"`
+}
+
+func (p Pagination) Limit() int {
+	return DefaultPaginationLoad
+}
+
+func (p Pagination) Offset() int {
+	page, err := strconv.Atoi(p.Page)
+	if err != nil {
+		page = 0
+	}
+	return page * DefaultPaginationLoad
+}
+
 // CreateUser Creates a new User if they do not already exist.
 //
 // Throws UsernameExists when a User with that username already exists.
@@ -230,15 +255,15 @@ func (db *Database) IsFriend(user1 uint, user2 uint) (bool, error) {
 
 // SearchForFriends Search for friends (users not already friends of the current User) who have name/username
 // matching the query, with pagination
-func (db *Database) SearchForFriends(userId uint, query string, page uint) ([]User, error) {
+func (db *Database) SearchForFriends(userId uint, query string, page Pagination) ([]User, error) {
 	var users []User
 	// this query makes it slightly ex since we might have a lot of results
 	err := db.conn.Model(&User{}).
 		Where("name ilike '%' || @q || '%' OR username ilike '%' || @q || '%'", map[string]interface{}{"q": query}).
 		Where("id not in "+friendSql, map[string]interface{}{"thisUserId": userId}).
 		Order("username,name asc").
-		Limit(int(pageCount)).
-		Offset(int(page * pageCount)).
+		Limit(page.Limit()).
+		Offset(page.Offset()).
 		Find(&users).
 		Error
 	if err != nil {
@@ -326,7 +351,7 @@ func (db *Database) RejectFriendRequest(fromUserId uint, toUserId uint) error {
 }
 
 // PendingFriendRequests Lists all pending friend requests
-func (db *Database) PendingFriendRequests(userId uint, page uint) ([]FriendRequest, error) {
+func (db *Database) PendingFriendRequests(userId uint, page Pagination) ([]FriendRequest, error) {
 	var reqs []FriendRequest
 	err := db.conn.Model(&FriendRequest{}).
 		Preload("From").
@@ -335,8 +360,8 @@ func (db *Database) PendingFriendRequests(userId uint, page uint) ([]FriendReque
 			Status: Pending,
 		}).
 		Find(&reqs).
-		Offset(int(page * pageCount)).
-		Limit(int(pageCount)).
+		Offset(page.Offset()).
+		Limit(page.Limit()).
 		Error
 	if err != nil {
 		return nil, errors.Trace(err)
@@ -345,7 +370,7 @@ func (db *Database) PendingFriendRequests(userId uint, page uint) ([]FriendReque
 }
 
 // ListFriends Lists all users who are friends of the current user
-func (db *Database) ListFriends(userId uint, page uint) ([]User, error) {
+func (db *Database) ListFriends(userId uint, page Pagination) ([]User, error) {
 	var users []User
 
 	err := db.conn.Raw(`
@@ -364,7 +389,7 @@ INNER JOIN
 	AND status = 'approved'
 ) AS friend_id
 ON u.id = friend_id.from_id
-LIMIT ? OFFSET ?`, userId, userId, pageCount, page*pageCount).
+LIMIT ? OFFSET ?`, userId, userId, page.Limit(), page.Offset()).
 		Scan(&users).
 		Error
 
@@ -1003,13 +1028,13 @@ func SelectPlaces(tx *gorm.DB) *gorm.DB {
 }
 
 // SearchForPlaces if their name matches the query
-func (db *Database) SearchForPlaces(query string, page uint) ([]Place, error) {
+func (db *Database) SearchForPlaces(query string, page Pagination) ([]Place, error) {
 	var places []Place
 	err := SelectPlaces(db.conn.Model(&Place{})).
 		Where("name like '%' || ? || '%'", query).
 		Order("name asc").
-		Limit(int(pageCount)).
-		Offset(int(page * pageCount)).
+		Limit(page.Limit()).
+		Offset(page.Offset()).
 		Find(&places).
 		Error
 	if err != nil {
@@ -1028,4 +1053,41 @@ func (db *Database) GetPlaces(placeIds []uint) ([]Place, error) {
 		return nil, errors.Trace(err)
 	}
 	return places, nil
+}
+
+// SearchForPosts Search for posts made by friends, with pagination
+func (db *Database) SearchForPosts(userId uint, page uint) ([]Post, error) {
+	var posts []Post
+	// These Preloads are essential to avoid nil pointer references
+	// Gorm does not load the relations by default so when you try to initialize these variables to their data classes
+	// without doing the preloads, you will run into pain and tears
+	err := db.conn.Model(&Post{}).
+		Preload("OutingStep.Place", SelectPlaces).
+		Preload("OutingStep.Votes").
+		Preload("User").
+		Preload("OutingStep").
+		Raw(`
+SELECT p.*
+FROM posts AS p
+INNER JOIN
+(
+    SELECT from_id
+    FROM friend_requests
+    WHERE to_id = ?
+    AND status = 'approved'
+    UNION
+    SELECT to_id
+    FROM friend_requests
+    WHERE from_id = ?
+    AND status = 'approved'
+) AS friend_id
+ON p.user_id = friend_id.from_id
+LIMIT ? OFFSET ?`, userId, userId, pageCount, page*pageCount).
+		Find(&posts).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return posts, nil
 }
