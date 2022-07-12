@@ -17,8 +17,8 @@ type VoteDeadlineJob struct {
 	mu       sync.Mutex // only allow one job to run at a time
 }
 
-func NewVoteDeadlineJob(database *data.Database) VoteDeadlineJob {
-	return VoteDeadlineJob{Database: database, mu: sync.Mutex{}}
+func NewVoteDeadlineJob(database *data.Database) *VoteDeadlineJob {
+	return &VoteDeadlineJob{Database: database, mu: sync.Mutex{}}
 }
 
 type VoteDeadlineJobArgs struct {
