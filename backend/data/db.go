@@ -161,6 +161,7 @@ func isNotFoundInDb(err error) bool {
 const DefaultPaginationLoad = 10
 
 type Pagination struct {
+	// Page to load (this is actually an int, see #69)
 	Page string `uri:"page" form:"page" json:"page" binding:"required"`
 }
 
