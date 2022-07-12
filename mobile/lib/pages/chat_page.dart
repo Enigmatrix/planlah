@@ -12,6 +12,7 @@ import 'package:mobile/services/message.dart';
 import 'package:mobile/services/outing.dart';
 import 'package:group_button/group_button.dart';
 
+import '../dto/group_invite.dart';
 import '../dto/user.dart';
 import '../utils/time.dart';
 import 'CreateOutingPage.dart';
@@ -44,7 +45,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
   // List of previous outings that the group has been in
   late var outings = <OutingDto>[];
   // Expiry option chosen for group invite link
-  String expiryOption = ExpiryOption.never;
+  late ExpiryOption expiryOption;
 
   ScrollController scrollController = ScrollController();
 
@@ -205,10 +206,20 @@ class _GroupChatPageState extends State<GroupChatPage> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           GroupButton<String>(
-            buttons: [ExpiryOption.oneHour, ExpiryOption.oneDay, ExpiryOption.never],
+            buttons: [ExpiryOption.OneHour.userText, ExpiryOption.OneDay.userText, ExpiryOption.Never.userText],
             onSelected: (selected, index, isSelected) {
               setState(() {
-                expiryOption = selected;
+                switch (index) {
+                  case 0:
+                    expiryOption = ExpiryOption.OneHour;
+                    break;
+                  case 1:
+                    expiryOption = ExpiryOption.OneDay;
+                    break;
+                  case 2:
+                    expiryOption = ExpiryOption.Never;
+                    break;
+                }
               });
               return selected;
             },
@@ -226,8 +237,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
   }
 
   void createGroupInvite() async {
-    print(expiryOption);
-    print(widget.chatGroup.id);
     CreateGroupInviteDto dto = CreateGroupInviteDto(expiryOption, widget.chatGroup.id);
     var response = await groupService.getGroupInvite(dto);
     navigator?.pop();
