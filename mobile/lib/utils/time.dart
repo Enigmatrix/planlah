@@ -42,8 +42,21 @@ class TimeUtil {
     }
   }
 
-  static String formatForChatGroup(String string) {
+  static String formatDateTimeForSocialPost(DateTime dt) {
+    return "${dt.day}/${dt.month}/${dt.year} at ${dt.hour}:${dt.minute}";
+  }
+
+  static String formatForFrontend(String string) {
     final dt = DateTime.parse(string).toLocal();
     return "${dt.day}/${dt.month} ${dt.hour}:${dt.minute}";
   }
+
+  static DateTime parseFromDto(String? string) {
+    if (string == null) {
+      return DateTime.now();
+    } else {
+      return DateTime.parse(string).toLocal();
+    }
+  }
+
 }

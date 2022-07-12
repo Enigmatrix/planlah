@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile/main.dart';
 import 'package:mobile/pages/social_post.dart';
 import 'package:mobile/services/posts.dart';
 
@@ -30,13 +29,10 @@ class _SocialFeedPageState extends State<SocialFeedPage> {
   void loadPosts() async {
     Response<List<PostDto>?> response = await postService.getPosts(pageNumber);
     if (response.isOk) {
-      print("Social feed");
-      print(response.body!.length);
       setState(() {
-        posts = response.body!;
+        posts.addAll(response.body!);
       });
-      // List.from(posts)..addAll(response.body!);
-    } 
+    }
   }
 
   @override

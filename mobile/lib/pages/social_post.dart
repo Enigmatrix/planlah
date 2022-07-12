@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/utils/time.dart';
 
 import '../dto/posts.dart';
 
@@ -8,13 +9,14 @@ class SocialPost extends StatelessWidget {
   SocialPost({required this.post});
 
   String formatHeaderContent() {
-    return "was at ${post.outingStep.placeDto.name} at ${post.postedAt}";
+    return "was at ${post.outingStep.placeDto.name} on ${TimeUtil.formatDateTimeForSocialPost(post.postedAt)}";
   }
 
   Widget buildHeader() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
+
         // Profile photo
         Container(
           width: 40,

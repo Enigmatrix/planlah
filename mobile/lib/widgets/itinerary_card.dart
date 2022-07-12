@@ -18,7 +18,7 @@ class ItineraryCard extends StatefulWidget {
     // TODO: Actually build the dialog with a list of reviews
     return AlertDialog(
         title: Text(
-          dto.name,
+          dto.placeDto.name,
           style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20
@@ -79,9 +79,9 @@ class _ItineraryCardState extends State<ItineraryCard> {
                 },
                 child: Column(
                   children: <Widget>[
-                    Text(widget.outingStep.name),
+                    Text(widget.outingStep.placeDto.name),
                     // TODO: Temporary
-                    Image.network(widget.outingStep.wherePoint)
+                    Image.network(widget.outingStep.placeDto.imageLink)
                   ],
                 ),
               )
