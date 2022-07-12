@@ -161,20 +161,12 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 		return
 	}
 
-	// round down start time to nearest day
-	startTime := dto.Start
-	startDate := time.Date(startTime.Year(), startTime.Month(), startTime.Day(), 0, 0, 0, 0, startTime.Location())
-
-	// round up end time to nearest day
-	endTime := dto.End
-	endDate := time.Date(endTime.Year(), endTime.Month(), endTime.Day()+1, 0, 0, 0, 0, endTime.Location())
-
 	outing := data.Outing{
 		GroupID:     dto.GroupID,
 		Name:        dto.Name,
 		Description: dto.Description,
-		Start:       startDate,
-		End:         endDate,
+		Start:       dto.Start,
+		End:         dto.End,
 	}
 
 	err = ctr.Database.CreateOuting(&outing)
