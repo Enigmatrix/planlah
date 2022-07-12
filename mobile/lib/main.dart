@@ -82,7 +82,6 @@ class _AppState extends State<App> {
                 return const SignUpPage();
               } else {
                 userSummaryDto = snapshot.data!.body!;
-                print("UserSummaryDto = ${UserSummaryDto}");
                 return HomePage(userSummaryDto: userSummaryDto);
               }
             } else {

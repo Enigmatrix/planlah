@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/pages/groups_page.dart';
 import 'package:mobile/model/group.dart';
 import 'package:mobile/model/location.dart';
-import 'package:mobile/pages/profile.dart';
+import 'package:mobile/pages/profile_page.dart';
 import 'package:mobile/pages/settings.dart';
 import 'package:mobile/pages/social_feed.dart';
 import 'package:mobile/pages/friends_page.dart';
@@ -70,7 +70,7 @@ class _HomePageWidgetState extends State<HomePage> {
       case 2:
         return FriendsPage();
       case 3:
-        return ProfilePage(userSummaryDto: widget.userSummaryDto);
+        return const ProfilePage(userId: -1);
       default:
         return SettingsPage();
     }

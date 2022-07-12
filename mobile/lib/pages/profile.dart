@@ -32,14 +32,6 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
   }
 
-  // void setUserSummaryDto() {
-  //   userService.getInfo().then((value) {
-  //     setState(() {
-  //       UserSummaryDto = value.body!;
-  //     });
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     // TODO: Obtain user information properly. For now hard code.

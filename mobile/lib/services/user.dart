@@ -3,14 +3,19 @@ import 'package:mobile/dto/user.dart';
 import 'package:mobile/services/base_connect.dart';
 
 class UserService extends BaseConnect {
-  Future<Response<UserSummaryDto?>> getInfo() async => await get<UserSummaryDto?>('/users/me/info', decoder: decoderFor<UserSummaryDto>((m) {
-    return UserSummaryDto(
-      m["id"] ?? "empty id",
-      m["name"] ?? "empty name",
-      m["username"] ?? "empty username",
-      m["imageLink"] ?? "empty url",
+  Future<Response<UserSummaryDto?>> getInfo() async => await get<UserSummaryDto?>(
+      '/users/me/info',
+      decoder: decoderFor(UserSummaryDto.fromJson)
+  );
+
+  Future<Response<UserSummaryDto?>> getUserInfo(int id) async {
+    UserRefDto dto = UserRefDto(id);
+    return await get(
+      "/users/get",
+      query: dto.toJson(),
+      decoder: decoderFor(UserSummaryDto.fromJson)
     );
-  }));
+  }
 
   Future<Response<void>> create(CreateUserDto dto) async {
     final formData = FormData(dto.toJson());

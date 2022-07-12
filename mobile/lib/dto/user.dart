@@ -43,10 +43,10 @@ class UserSummaryDto {
   UserSummaryDto(this.id, this.username, this.name, this.imageLink);
 
   UserSummaryDto.fromJson(Map<String, dynamic> json):
-      id = json["id"],
-      username = json["username"],
-      name = json["name"],
-      imageLink = json["imageLink"];
+      id = json["id"] ?? "empty id",
+      username = json["username"] ?? "empty username",
+      name = json["name"] ?? "empty name",
+      imageLink = json["imageLink"] ?? "empty image link";
 }
 
 class SearchUsersDto {
@@ -58,5 +58,15 @@ class SearchUsersDto {
   Map<String, dynamic> toJson() => {
     "page": page.toString(),
     "query": query
+  };
+}
+
+class UserRefDto {
+  int id;
+
+  UserRefDto(this.id);
+
+  Map<String, dynamic> toJson() => {
+    "id": id
   };
 }
