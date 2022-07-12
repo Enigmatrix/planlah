@@ -28,12 +28,14 @@ class _HomePageWidgetState extends State<HomePage> {
   // Hard code for now
   static GroupInfo groupInfo1 = GroupInfo(
       owner: UserInfo(
+        id: 1,
         name: "Bruno Mars",
         username: "Bruno",
         imageUrl: "https://www.biography.com/.image/c_fill%2Ccs_srgb%2Cfl_progressive%2Ch_400%2Cq_auto:good%2Cw_620/MTg4NTc2ODg1MjEzNTA1MTQw/gettyimages-134315104.jpg"
       ),
       members: <UserInfo>[
         UserInfo(
+            id: 2,
             name: "Sasha Obama",
             username: "Sasha",
             imageUrl: "https://media.allure.com/photos/5aeb12dfbf1d634fcf6f718e/1:1/w_3455,h_3455,c_limit/SWNS_SASHA_OBAMA_14.jpg"
@@ -47,17 +49,20 @@ class _HomePageWidgetState extends State<HomePage> {
 
   static GroupInfo groupInfo2 = GroupInfo(
       owner: UserInfo(
+          id: 3,
           name: "Taylor Swift",
           username: "Taylor",
           imageUrl: "https://assets.teenvogue.com/photos/626abe370979f2c5ace0ab29/16:9/w_2560%2Cc_limit/GettyImages-1352932505.jpg"
       ),
       members: <UserInfo>[
         UserInfo(
+            id: 4,
             name: "Amber Heard",
             username: "Amber",
             imageUrl: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2022%2F05%2F16%2FAmber-Heard.jpg"
         ),
         UserInfo(
+            id: 5,
             name: "Bob the builder",
             username: "Bob the builder",
             imageUrl: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2022%2F05%2F16%2FAmber-Heard.jpg"
