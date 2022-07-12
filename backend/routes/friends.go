@@ -13,11 +13,11 @@ type FriendsController struct {
 }
 
 type ListFriendsDto struct {
-	Pagination
+	data.Pagination
 }
 
 type ListFriendRequestsDto struct {
-	Pagination
+	data.Pagination
 }
 
 type CreateFriendRequestDto struct {
@@ -139,7 +139,7 @@ func (ctr *FriendsController) ListFriendRequests(ctx *gin.Context) {
 		return
 	}
 
-	reqs, err := ctr.Database.PendingFriendRequests(userId, dto.Page)
+	reqs, err := ctr.Database.PendingFriendRequests(userId, dto.Pagination)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -169,7 +169,7 @@ func (ctr *FriendsController) ListFriends(ctx *gin.Context) {
 		return
 	}
 
-	reqs, err := ctr.Database.ListFriends(userId, dto.Page)
+	reqs, err := ctr.Database.ListFriends(userId, dto.Pagination)
 	if err != nil {
 		handleDbError(ctx, err)
 		return

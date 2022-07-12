@@ -16,7 +16,7 @@ type PlacesController struct {
 }
 
 type SearchForPlacesDto struct {
-	Pagination
+	data.Pagination
 	Query string `form:"query" binding:"required"`
 }
 
@@ -76,7 +76,7 @@ func (ctr *PlacesController) Search(ctx *gin.Context) {
 		return
 	}
 
-	places, err := ctr.Database.SearchForPlaces(dto.Query, dto.Page)
+	places, err := ctr.Database.SearchForPlaces(dto.Query, dto.Pagination)
 	if err != nil {
 		handleDbError(ctx, err)
 		return

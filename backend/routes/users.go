@@ -37,12 +37,8 @@ type CreateUserDto struct {
 	Food          []string `form:"food" binding:"required"`
 }
 
-type Pagination struct {
-	Page uint `uri:"page" form:"page" json:"page" binding:"required"`
-}
-
 type SearchUsersDto struct {
-	Pagination
+	data.Pagination
 	Query string `form:"query" binding:"required"`
 }
 
@@ -178,7 +174,7 @@ func (ctr *UserController) SearchForFriends(ctx *gin.Context) {
 		return
 	}
 
-	users, err := ctr.Database.SearchForFriends(userId, dto.Query, dto.Page)
+	users, err := ctr.Database.SearchForFriends(userId, dto.Query, dto.Pagination)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
