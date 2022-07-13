@@ -569,7 +569,7 @@ class _OutingPageState extends State<OutingPage> {
     count1 = max(0, count1);
     count2 = min(100, count2);
 
-    if (yesCount == 0) {
+    if (yesCount == 0 && noCount != 0) {
       count1 = 0;
       count2 = 0;
     } else if (noCount == 0) {
