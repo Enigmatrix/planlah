@@ -393,45 +393,70 @@ class _OutingPageState extends State<OutingPage> {
     int more = votes.length - shown;
     votes = votes.take(shown).toList();
 
-    final elements = votes
-        .asMap()
-        .map((i, v) => MapEntry(
-            i,
-            Positioned(
-              top: 0,
-              bottom: 0,
-              right: !vote ? shift * i : null,
-              left: vote ? shift * i : null,
-              child: Material(
-                elevation: 4.0,
-                shape: border,
-                child: CircleAvatar(
-                  radius: 14.0,
-                  backgroundImage:
-                      CachedNetworkImageProvider(v.userSummaryDto.imageLink),
-                ),
-              ),
-            )))
-        .values
-        .toList();
+    List<Widget> elements;
 
-    if (more > 0) {
-      final restCount = Positioned(
+    if (votes.isEmpty) {
+      elements = [Positioned(
           top: 0,
           bottom: 0,
-          right: !vote ? shift * shown : null,
-          left: vote ? shift * shown : null,
-          child: Material(
-            elevation: 4.0,
-            shape: border,
-            child: CircleAvatar(
-              radius: 14.0,
-              backgroundColor: const Color.fromARGB(0x22, 0x22, 0x22, 0x22),
-              child: Text("+$more",
-                  style: const TextStyle(fontSize: 11.0, color: Colors.blue)),
+          right: !vote ? 0 : null,
+          left: vote ? 0 : null,
+          child: const Card(
+            elevation: 2.0,
+            color: Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
             ),
-          ));
-      elements.add(restCount);
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Center(
+                child: Text("NO VOTES",
+                      style: TextStyle(fontSize: 11.0, color: Colors.blue, fontWeight: FontWeight.bold)
+                ),
+              ),
+            ),
+          ))];
+    } else {
+      elements = votes
+          .asMap()
+          .map((i, v) => MapEntry(
+          i,
+          Positioned(
+            top: 0,
+            bottom: 0,
+            right: !vote ? shift * i : null,
+            left: vote ? shift * i : null,
+            child: Material(
+              elevation: 4.0,
+              shape: border,
+              child: CircleAvatar(
+                radius: 14.0,
+                backgroundImage:
+                CachedNetworkImageProvider(v.userSummaryDto.imageLink),
+              ),
+            ),
+          )))
+          .values
+          .toList();
+
+      if (more > 0) {
+        final restCount = Positioned(
+            top: 0,
+            bottom: 0,
+            right: !vote ? shift * shown : null,
+            left: vote ? shift * shown : null,
+            child: Material(
+              elevation: 4.0,
+              shape: border,
+              child: CircleAvatar(
+                radius: 14.0,
+                backgroundColor: const Color.fromARGB(0x22, 0x22, 0x22, 0x22),
+                child: Text("+$more",
+                    style: const TextStyle(fontSize: 11.0, color: Colors.blue)),
+              ),
+            ));
+        elements.add(restCount);
+      }
     }
 
     return Flexible(
