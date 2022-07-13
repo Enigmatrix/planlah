@@ -133,7 +133,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
       child = Text(fmt.format(rel));
     }
     return Card(
-        margin: const EdgeInsets.only(top: 16.0, left: 24.0, right: 24.0, bottom: 8.0),
+        margin: const EdgeInsets.only(top: 8.0, left: 24.0, right: 24.0, bottom: 8.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
           side: const BorderSide(color: Colors.grey, width: 0.8),
@@ -182,29 +182,45 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
   }
 
   Widget buildDateRangeButton(BuildContext context) {
+
     String text;
     Widget icon;
     if (range == null) {
-       text = "When's the fun?";
-       icon = const Icon(Icons.timelapse_rounded);
+      text = "When's the fun?";
+      icon = const Icon(Icons.timelapse_rounded);
     } else {
       final fmt = (DateTime d) => DateFormat("MM/dd").format(d.toLocal());
-      text = "${fmt(range!.start)} to ${fmt(range!.end)}";
+      if (range!.start == range!.end) {
+        text = fmt(range!.start);
+      } else {
+        text = "${fmt(range!.start)} to ${fmt(range!.end)}";
+      }
       icon = const Icon(Icons.edit);
     }
 
-    return ElevatedButton.icon(onPressed: () async {
-      final firstDate = DateTime.now();
-      // only because lastDate is a required parameter
-      var lastDate = DateTime(firstDate.year + 1, firstDate.month, firstDate.day);
-      final chosenRange = await showDateRangePicker(context: context,
-          firstDate: firstDate,
-          lastDate: lastDate,
-      );
-      setState(() {
-        range = chosenRange;
-      });
-    }, icon: icon, label: Text(text));
+    return Card(
+        margin: const EdgeInsets.only(top: 4.0, left: 24.0, right: 24.0, bottom: 2.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: const BorderSide(color: Colors.grey, width: 0.8),
+        ),
+        child: ListTile(
+          onTap: () async {
+            final firstDate = DateTime.now();
+            // only because lastDate is a required parameter
+            var lastDate = DateTime(firstDate.year + 1, firstDate.month, firstDate.day);
+            final chosenRange = await showDateRangePicker(context: context,
+              firstDate: firstDate,
+              lastDate: lastDate,
+            );
+            setState(() {
+              range = chosenRange;
+            });
+          },
+          leading: icon,
+          title: Text(text)
+        )
+    );
   }
 
   Widget buildCreateOutingButton() {
