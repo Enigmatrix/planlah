@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'dart:developer';
+import 'dart:developer' as dev;
+import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:duration/duration.dart';
@@ -38,13 +39,12 @@ class _OutingPageState extends State<OutingPage> {
   late OutingDto outing;
   late bool isActive;
   late UserInfo thisUser;
-  bool showVoting = true;
 
   final userSvc = Get.find<UserService>();
   final outingSvc = Get.find<OutingService>();
 
-  late StreamSubscription timerWaitStream;
-
+  bool showVoting = true;
+  StreamSubscription? timerWaitStream;
 
   @override
   void initState() {
@@ -55,18 +55,22 @@ class _OutingPageState extends State<OutingPage> {
 
     userSvc.getInfo().then((value) {
       if (value.isOk) {
-        setState(() => { thisUser = value.body! });
+        setState(() => {thisUser = value.body!});
       } else {
-        log("userSvc.getInfo err: ${value.bodyString}");
+        dev.log("userSvc.getInfo err: ${value.bodyString}");
       }
     });
 
-    updateShowVoting();
-
-    // Run a 1 second periodic timer until the voteDeadline
-    timerWaitStream = Stream.periodic(const Duration(seconds: 1)).listen((_) {
+    if (isActive) {
       updateShowVoting();
-    });
+
+      // Run a 1 second periodic timer until the voteDeadline
+      timerWaitStream = Stream.periodic(const Duration(seconds: 1)).listen((_) {
+        updateShowVoting();
+      });
+    } else {
+      showVoting = false;
+    }
   }
 
   void updateShowVoting() {
@@ -79,30 +83,33 @@ class _OutingPageState extends State<OutingPage> {
   @override
   void dispose() {
     super.dispose();
-    timerWaitStream.cancel(); // this is a Future ... wtv
+    timerWaitStream?.cancel(); // this is a Future ... wtv
   }
 
-  final bottomPadding = 100.0; // show the floatingActionBar without hiding any content
+  final bottomPadding =
+      100.0; // show the floatingActionBar without hiding any content
   fmtDate(DateTime d) => DateFormat("MM/dd").format(d.toLocal());
   DateTime pdate(String date) => DateTime.parse(date).toLocal();
 
   Widget buildOutingStepHelp() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(Icons.help, size: 32.0),
-            Text("  Create a new Step using ", style: TextStyle(fontSize: 20.0),),
-            Icon(Icons.add, size: 32.0),
-          ],
-        )
-      ]
-    );
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.help, size: 32.0),
+              Text(
+                "  Create a new Step using ",
+                style: TextStyle(fontSize: 20.0),
+              ),
+              Icon(Icons.add, size: 32.0),
+            ],
+          )
+        ]);
   }
 
   @override
@@ -115,7 +122,6 @@ class _OutingPageState extends State<OutingPage> {
             isActive ? const Icon(Icons.timeline) : const Icon(Icons.history),
         title: Text("${outing.name} ($range)"),
       ),
-
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             // Add OutingStep
@@ -127,74 +133,87 @@ class _OutingPageState extends State<OutingPage> {
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                stops: const [0.2, 0.7],
+                stops: const [
+              0.2,
+              0.7
+            ],
                 colors: [
               Colors.grey[300]!,
               Colors.blue[100]!,
             ])),
-        child: outing.steps.isEmpty ? buildOutingStepHelp() :
-          CustomScrollView(
-            slivers: [
-              if (showVoting)
-                SliverToBoxAdapter(
-                  child: buildVoteDeadlineTimeline(context, outing.steps.isEmpty)
-                ),
-              SliverList(
-                  delegate: TimelineTileBuilderDelegate(
-                        (context, index) {
-                      return buildOutingStepTimelineTile(context, outing.steps[index], index == outing.steps.length - 1);
+        child: outing.steps.isEmpty
+            ? buildOutingStepHelp()
+            : CustomScrollView(
+                slivers: [
+                  if (showVoting)
+                    SliverToBoxAdapter(
+                        child: buildVoteDeadlineTimeline(
+                            context, outing.steps.isEmpty)),
+                  SliverList(
+                      delegate: TimelineTileBuilderDelegate(
+                    (context, index) {
+                      return buildOutingStepTimelineTile(
+                          context,
+                          outing.steps[index],
+                          index == outing.steps.length - 1);
                     },
                     childCount: outing.steps.length,
-                  )
+                  )),
+                ],
               ),
-            ],
-          ),
-        ),
+      ),
     );
     return Text("");
   }
 
   Widget buildVoteDeadlineTimeline(BuildContext context, bool noSteps) {
     return TimelineTile(
-        node: TimelineNode(
-          indicator: Container(
-            decoration: const BoxDecoration(),
-            child: Card(
-                color: Colors.indigo[400],
-                shape: const CircleBorder(),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(fmtDateTime(outing.voteDeadline),
-                      style: TextStyle(fontSize: 12.0, color: Colors.grey[400]!)),
-                )),
-          ),
-          startConnector: const SolidLineConnector(),
-          endConnector: const SolidLineConnector(),
+      node: TimelineNode(
+        indicator: Container(
+          decoration: const BoxDecoration(),
+          child: Card(
+              color: Colors.indigo[400],
+              shape: const CircleBorder(),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(fmtDateTime(outing.voteDeadline),
+                    style: TextStyle(fontSize: 12.0, color: Colors.grey[400]!)),
+              )),
         ),
-        nodeAlign: TimelineNodeAlign.start,
-        contents: Card(
-          color: Colors.indigo[500]!,
-          elevation: 8.0,
-          margin: EdgeInsets.only(right: 12.0, left: 4.0, bottom: noSteps ? bottomPadding : 0.0),
-          child: Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: ListTile(
-                  leading: Icon(Icons.how_to_vote, color: Colors.grey[500]!,),
-                  title: Text(
-                    "Vote ends at ${durTill(DateTime.now(), pdate(outing.voteDeadline))}",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0, color: Colors.grey[300]!),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  dense: true,
-                  minVerticalPadding: 0,
-                  minLeadingWidth: 0,
-                  visualDensity: VisualDensity.compact,
-                ),
+        startConnector: const SolidLineConnector(),
+        endConnector: const SolidLineConnector(),
+      ),
+      nodeAlign: TimelineNodeAlign.start,
+      contents: Card(
+        color: Colors.indigo[500]!,
+        elevation: 8.0,
+        margin: EdgeInsets.only(
+            right: 12.0, left: 4.0, bottom: noSteps ? bottomPadding : 0.0),
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: ListTile(
+            leading: Icon(
+              Icons.how_to_vote,
+              color: Colors.grey[500]!,
             ),
+            title: Text(
+              "Vote ends at ${durTill(DateTime.now(), pdate(outing.voteDeadline))}",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15.0,
+                  color: Colors.grey[300]!),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            dense: true,
+            minVerticalPadding: 0,
+            minLeadingWidth: 0,
+            visualDensity: VisualDensity.compact,
           ),
-        );
+        ),
+      ),
+    );
   }
 
   Widget buildOutingStepTimelineTileConflicts(
@@ -220,7 +239,8 @@ class _OutingPageState extends State<OutingPage> {
         contents: Card(
           color: Colors.orange,
           elevation: 8.0,
-          margin: EdgeInsets.only(top: 12.0, right: 8.0, bottom: isLast ? bottomPadding : 0.0),
+          margin: EdgeInsets.only(
+              top: 12.0, right: 8.0, bottom: isLast ? bottomPadding : 0.0),
           child: Padding(
             padding: const EdgeInsets.all(4.0),
             child: Column(
@@ -266,7 +286,8 @@ class _OutingPageState extends State<OutingPage> {
 
   String durTill(DateTime s, DateTime e) {
     var odiff = e.difference(s);
-    var diff = Duration(days: odiff.inDays, hours: odiff.inHours, minutes: odiff.inMinutes);
+    var diff = Duration(
+        days: odiff.inDays, hours: odiff.inHours, minutes: odiff.inMinutes);
     if (diff < const Duration(minutes: 5)) {
       diff = Duration(minutes: odiff.inMinutes, seconds: odiff.inSeconds);
     }
@@ -294,7 +315,8 @@ class _OutingPageState extends State<OutingPage> {
       ),
       nodeAlign: TimelineNodeAlign.start,
       contents: Padding(
-        padding: EdgeInsets.only(top: 12.0, right: 8.0, bottom: isLast ? bottomPadding : 0.0),
+        padding: EdgeInsets.only(
+            top: 12.0, right: 8.0, bottom: isLast ? bottomPadding : 0.0),
         child: buildOutingStepCard(step, false),
       ),
     );
@@ -305,8 +327,8 @@ class _OutingPageState extends State<OutingPage> {
 
   Widget buildVotePart(bool vote, OutingStepDto step) {
     var votes = step.outingStepVoteDtos;
-    const border = CircleBorder(
-      side: BorderSide(color: Colors.indigo, width: 1));
+    const border =
+        CircleBorder(side: BorderSide(color: Colors.indigo, width: 1));
     var alignment = MainAxisAlignment.end;
     var voteColor = Colors.red;
     var voteText = "NO";
@@ -342,8 +364,8 @@ class _OutingPageState extends State<OutingPage> {
     //           "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
     // }.toList();
 
-
-    bool hasUserVoted = votes.any((element) => element.userSummaryDto.id == thisUser.id);
+    bool hasUserVoted =
+        votes.any((element) => element.userSummaryDto.id == thisUser.id);
 
     var voteBtnChild = ElevatedButton.icon(
       onPressed: () async {
@@ -351,20 +373,19 @@ class _OutingPageState extends State<OutingPage> {
         if (resp.isOk) {
           // TODO display voting
         } else {
-          log("outingSvc.vote err: ${resp.bodyString}");
+          dev.log("outingSvc.vote err: ${resp.bodyString}");
         }
       },
       icon: Icon(voteIcon, color: hasUserVoted ? voteBg : voteColor),
-      label: Text(voteText, style: TextStyle(color: hasUserVoted ? voteBg : voteColor)),
+      label: Text(voteText,
+          style: TextStyle(color: hasUserVoted ? voteBg : voteColor)),
       style: ButtonStyle(
-          shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4),
-                  side: BorderSide(color: hasUserVoted ? voteBg : voteColor, width: 1.0)
-              )
-          ),
-          backgroundColor: MaterialStateProperty.all(!hasUserVoted ? voteBg : voteColor)
-      ),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+              side: BorderSide(
+                  color: hasUserVoted ? voteBg : voteColor, width: 1.0))),
+          backgroundColor:
+              MaterialStateProperty.all(!hasUserVoted ? voteBg : voteColor)),
     );
 
     int shown = 3;
@@ -406,7 +427,8 @@ class _OutingPageState extends State<OutingPage> {
             child: CircleAvatar(
               radius: 14.0,
               backgroundColor: const Color.fromARGB(0x22, 0x22, 0x22, 0x22),
-              child: Text("+$more", style: const TextStyle(fontSize: 11.0, color: Colors.blue)),
+              child: Text("+$more",
+                  style: const TextStyle(fontSize: 11.0, color: Colors.blue)),
             ),
           ));
       elements.add(restCount);
@@ -417,16 +439,13 @@ class _OutingPageState extends State<OutingPage> {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child:
-                SizedBox(
-                  height: 32,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 32,
                 child: Row(mainAxisSize: MainAxisSize.max, children: [
                   Expanded(
-                    child: Stack(
-                      children: elements
-                    ),
+                    child: Stack(children: elements),
                   )
                 ]),
               ),
@@ -451,8 +470,11 @@ class _OutingPageState extends State<OutingPage> {
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              title: Text("${step.description} @ ${step.place.name}",
-                  style: titleStyle, overflow: TextOverflow.ellipsis,),
+              title: Text(
+                "${step.description} @ ${step.place.name}",
+                style: titleStyle,
+                overflow: TextOverflow.ellipsis,
+              ),
               subtitle: Row(
                 children: [
                   Text(fmtTime(step.start),
@@ -473,7 +495,8 @@ class _OutingPageState extends State<OutingPage> {
               minVerticalPadding: 0,
               visualDensity: VisualDensity.compact,
               dense: true,
-              contentPadding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
+              contentPadding:
+                  const EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
@@ -503,23 +526,66 @@ class _OutingPageState extends State<OutingPage> {
               ),
             ),
             if (showVoting)
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  buildVotePart(true, step),
-                  buildVotePart(false, step),
-                ],
-              )
+              buildVoteCompletePart(step)
           ],
         ));
+  }
+
+  Widget buildVoteCompletePart(OutingStepDto step) {
+    final yesCount = step.outingStepVoteDtos.where((element) => element.vote).length;
+    final noCount = step.outingStepVoteDtos.length - yesCount;
+    final yesPercent = yesCount / (yesCount + noCount);
+    // TODO show undecidedCount
+
+    double round = 10.0;
+    double count1 = yesPercent - round;
+    double count2 = yesPercent + round;
+
+    count1 = max(0, count1);
+    count2 = min(100, count2);
+
+    if (yesCount == 0) {
+      count1 = 0;
+      count2 = 0;
+    } else if (noCount == 0) {
+      count1 = 1.0;
+      count2 = 1.0;
+    }
+
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    stops: [count1, count2],
+                    colors: [
+                      Colors.green[300]!,
+                      Colors.red[300]!,
+                    ])),
+          ),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            buildVotePart(true, step),
+            buildVotePart(false, step),
+          ],
+        )
+      ],
+    );
   }
 
   Widget buildOutingStepTimelineTile(
       BuildContext context, List<OutingStepDto> conflictingSteps, bool isLast) {
     if (conflictingSteps.length == 1) {
-      return buildOutingStepTimelineTileNoConflicts(context, conflictingSteps[0], isLast);
+      return buildOutingStepTimelineTileNoConflicts(
+          context, conflictingSteps[0], isLast);
     } else {
-      return buildOutingStepTimelineTileConflicts(context, conflictingSteps, isLast);
+      return buildOutingStepTimelineTileConflicts(
+          context, conflictingSteps, isLast);
     }
   }
 }
