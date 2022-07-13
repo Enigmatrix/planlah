@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -37,9 +38,14 @@ class _OutingPageState extends State<OutingPage> {
   late OutingDto outing;
   late bool isActive;
   late UserInfo thisUser;
+  bool showVoting = true;
 
   final userSvc = Get.find<UserService>();
   final outingSvc = Get.find<OutingService>();
+
+  late Timer timer;
+  late StreamSubscription timerWaitStream;
+
 
   @override
   void initState() {
@@ -55,6 +61,28 @@ class _OutingPageState extends State<OutingPage> {
         log("userSvc.getInfo err: ${value.bodyString}");
       }
     });
+
+    // Set timer to 1 minute before voteDeadline (timers are not always accurate)
+    // Then, run a 1 second periodic timer until the voteDeadline
+    timer = Timer(pdate(outing.voteDeadline).add(-const Duration(minutes: 1)).difference(DateTime.now()), () {
+      timerWaitStream = Stream.periodic(const Duration(seconds: 1)).listen((_) {
+        updateShowVoting();
+      });
+    });
+  }
+
+  void updateShowVoting() {
+    final _showVoting = DateTime.now().isAfter(pdate(outing.voteDeadline));
+    if (_showVoting != showVoting) {
+      setState(() { showVoting = _showVoting; });
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    timer.cancel();
+    timerWaitStream.cancel(); // this is a Future ... wtv
   }
 
   final bottomPadding = 100.0; // show the floatingActionBar without hiding any content
@@ -422,7 +450,7 @@ class _OutingPageState extends State<OutingPage> {
                 fit: BoxFit.fill,
               ),
             ),
-            if (true) // TODO set this!!!!!!
+            if (showVoting)
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
