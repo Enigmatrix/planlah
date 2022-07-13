@@ -43,7 +43,6 @@ class _OutingPageState extends State<OutingPage> {
   final userSvc = Get.find<UserService>();
   final outingSvc = Get.find<OutingService>();
 
-  late Timer timer;
   late StreamSubscription timerWaitStream;
 
 
@@ -62,26 +61,24 @@ class _OutingPageState extends State<OutingPage> {
       }
     });
 
-    // Set timer to 1 minute before voteDeadline (timers are not always accurate)
-    // Then, run a 1 second periodic timer until the voteDeadline
-    timer = Timer(pdate(outing.voteDeadline).add(-const Duration(minutes: 1)).difference(DateTime.now()), () {
-      timerWaitStream = Stream.periodic(const Duration(seconds: 1)).listen((_) {
-        updateShowVoting();
-      });
+    updateShowVoting();
+
+    // Run a 1 second periodic timer until the voteDeadline
+    timerWaitStream = Stream.periodic(const Duration(seconds: 1)).listen((_) {
+      updateShowVoting();
     });
   }
 
   void updateShowVoting() {
-    final _showVoting = DateTime.now().isAfter(pdate(outing.voteDeadline));
-    if (_showVoting != showVoting) {
-      setState(() { showVoting = _showVoting; });
-    }
+    setState(() {
+      final _showVoting = DateTime.now().isBefore(pdate(outing.voteDeadline));
+      showVoting = _showVoting;
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
-    timer.cancel();
     timerWaitStream.cancel(); // this is a Future ... wtv
   }
 
@@ -112,7 +109,6 @@ class _OutingPageState extends State<OutingPage> {
   Widget build(BuildContext context) {
     final range =
         "${fmtDate(pdate(outing.start))} - ${fmtDate(pdate(outing.end))}";
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         leading:
@@ -133,16 +129,19 @@ class _OutingPageState extends State<OutingPage> {
                 end: Alignment.bottomRight,
                 stops: const [0.2, 0.7],
                 colors: [
-              Colors.grey[100]!,
+              Colors.grey[300]!,
               Colors.blue[100]!,
             ])),
         child: outing.steps.isEmpty ? buildOutingStepHelp() :
           CustomScrollView(
             slivers: [
+              SliverToBoxAdapter(
+                child: buildVoteDeadlineTimeline(context, outing.steps.isEmpty)
+              ),
               SliverList(
                   delegate: TimelineTileBuilderDelegate(
                         (context, index) {
-                      return buildTimelineTile(context, outing.steps[index], index == outing.steps.length - 1);
+                      return buildOutingStepTimelineTile(context, outing.steps[index], index == outing.steps.length - 1);
                     },
                     childCount: outing.steps.length,
                   )
@@ -154,7 +153,50 @@ class _OutingPageState extends State<OutingPage> {
     return Text("");
   }
 
-  Widget buildTimelineTileConflicts(
+  Widget buildVoteDeadlineTimeline(BuildContext context, bool noSteps) {
+    return TimelineTile(
+        node: TimelineNode(
+          indicator: Container(
+            decoration: const BoxDecoration(),
+            child: Card(
+                color: Colors.indigo[400],
+                shape: const CircleBorder(),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(fmtDateTime(outing.voteDeadline),
+                      style: TextStyle(fontSize: 12.0, color: Colors.grey[400]!)),
+                )),
+          ),
+          startConnector: const SolidLineConnector(),
+          endConnector: const SolidLineConnector(),
+        ),
+        nodeAlign: TimelineNodeAlign.start,
+        contents: Card(
+          color: Colors.indigo[500]!,
+          elevation: 8.0,
+          margin: EdgeInsets.only(right: 12.0, left: 4.0, bottom: noSteps ? bottomPadding : 0.0),
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: ListTile(
+                  leading: Icon(Icons.how_to_vote, color: Colors.grey[500]!,),
+                  title: Text(
+                    "Vote ends at ${durTill(DateTime.now(), pdate(outing.voteDeadline))}",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0, color: Colors.grey[300]!),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  dense: true,
+                  minVerticalPadding: 0,
+                  minLeadingWidth: 0,
+                  visualDensity: VisualDensity.compact,
+                ),
+            ),
+          ),
+        );
+  }
+
+  Widget buildOutingStepTimelineTileConflicts(
       BuildContext context, List<OutingStepDto> conflictingSteps, bool isLast) {
     conflictingSteps.sort((a, b) => pdate(a.start).compareTo(pdate(b.start)));
     final step = conflictingSteps[0];
@@ -218,10 +260,19 @@ class _OutingPageState extends State<OutingPage> {
   String dur(OutingStepDto step) {
     final s = DateTime.parse(step.start).toLocal();
     final e = DateTime.parse(step.end).toLocal();
-    return prettyDuration(e.difference(s));
+    return durTill(s, e);
   }
 
-  Widget buildTimelineTileNoConflicts(
+  String durTill(DateTime s, DateTime e) {
+    var odiff = e.difference(s);
+    var diff = Duration(days: odiff.inDays, hours: odiff.inHours, minutes: odiff.inMinutes);
+    if (diff < const Duration(minutes: 1)) {
+      diff = Duration(seconds: odiff.inSeconds);
+    }
+    return prettyDuration(diff, abbreviated: true);
+  }
+
+  Widget buildOutingStepTimelineTileNoConflicts(
       BuildContext context, OutingStepDto step, bool isLast) {
     return TimelineTile(
       node: TimelineNode(
@@ -462,12 +513,12 @@ class _OutingPageState extends State<OutingPage> {
         ));
   }
 
-  Widget buildTimelineTile(
+  Widget buildOutingStepTimelineTile(
       BuildContext context, List<OutingStepDto> conflictingSteps, bool isLast) {
     if (conflictingSteps.length == 1) {
-      return buildTimelineTileNoConflicts(context, conflictingSteps[0], isLast);
+      return buildOutingStepTimelineTileNoConflicts(context, conflictingSteps[0], isLast);
     } else {
-      return buildTimelineTileConflicts(context, conflictingSteps, isLast);
+      return buildOutingStepTimelineTileConflicts(context, conflictingSteps, isLast);
     }
   }
 }
