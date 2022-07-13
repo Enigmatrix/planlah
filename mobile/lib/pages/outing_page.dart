@@ -135,9 +135,10 @@ class _OutingPageState extends State<OutingPage> {
         child: outing.steps.isEmpty ? buildOutingStepHelp() :
           CustomScrollView(
             slivers: [
-              SliverToBoxAdapter(
-                child: buildVoteDeadlineTimeline(context, outing.steps.isEmpty)
-              ),
+              if (showVoting)
+                SliverToBoxAdapter(
+                  child: buildVoteDeadlineTimeline(context, outing.steps.isEmpty)
+                ),
               SliverList(
                   delegate: TimelineTileBuilderDelegate(
                         (context, index) {
@@ -266,8 +267,8 @@ class _OutingPageState extends State<OutingPage> {
   String durTill(DateTime s, DateTime e) {
     var odiff = e.difference(s);
     var diff = Duration(days: odiff.inDays, hours: odiff.inHours, minutes: odiff.inMinutes);
-    if (diff < const Duration(minutes: 1)) {
-      diff = Duration(seconds: odiff.inSeconds);
+    if (diff < const Duration(minutes: 5)) {
+      diff = Duration(minutes: odiff.inMinutes, seconds: odiff.inSeconds);
     }
     return prettyDuration(diff, abbreviated: true);
   }

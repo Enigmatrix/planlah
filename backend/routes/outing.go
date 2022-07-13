@@ -113,13 +113,14 @@ func ToOutingStepDtos(outingSteps []data.OutingStep) [][]OutingStepDto {
 
 func ToOutingDto(outing data.Outing) OutingDto {
 	return OutingDto{
-		ID:          outing.ID,
-		Name:        outing.Name,
-		Description: outing.Description,
-		GroupID:     outing.GroupID,
-		Start:       outing.Start,
-		End:         outing.End,
-		Steps:       ToOutingStepDtos(outing.Steps),
+		ID:           outing.ID,
+		Name:         outing.Name,
+		Description:  outing.Description,
+		GroupID:      outing.GroupID,
+		Start:        outing.Start,
+		End:          outing.End,
+		VoteDeadline: outing.VoteDeadline,
+		Steps:        ToOutingStepDtos(outing.Steps),
 	}
 }
 
