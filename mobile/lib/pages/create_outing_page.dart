@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:lit_relative_date_time/controller/relative_date_format.dart';
@@ -33,6 +34,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
   String outingName = "";
   String outingDesc = "";
   DateTimeRange? range;
+  DateTime? voteDeadline;
 
   final outingService = Get.find<OutingService>();
 
@@ -87,6 +89,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
         buildOutingNameTextBox(),
         buildOutingDescriptionTextBox(),
         buildDateRangeButton(context),
+        buildSelectVoteDeadlineButton(),
         buildCreateOutingButton()
       ],
     );
@@ -117,6 +120,38 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
         keyboardType: TextInputType.multiline,
         maxLines: null,
       ),
+    );
+  }
+
+  Widget buildSelectVoteDeadlineButton() {
+    Widget child;
+    if (voteDeadline == null) {
+      child = const Text("Vote Deadline");
+    } else {
+      final fmt = RelativeDateFormat(Localizations.localeOf(context));
+      final rel = RelativeDateTime(dateTime: DateTime.now(), other: voteDeadline!);
+      child = Text(fmt.format(rel));
+    }
+    return Card(
+        margin: const EdgeInsets.only(top: 16.0, left: 24.0, right: 24.0, bottom: 8.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: const BorderSide(color: Colors.grey, width: 0.8),
+        ),
+        child: ListTile(
+          onTap: () async {
+            final startTime = range?.start.toLocal();
+            final chosenVoteDeadline = await DatePicker.showDateTimePicker(context,
+                minTime: DateTime.now().toLocal(),
+                maxTime: startTime, showTitleActions: true
+            );
+            setState(() {
+              voteDeadline = chosenVoteDeadline;
+            });
+          },
+          leading: const Icon(Icons.how_to_vote),
+          title: child,
+        )
     );
   }
 
@@ -174,14 +209,30 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
 
   Widget buildCreateOutingButton() {
     return ElevatedButton(
-        onPressed: () {
-          if (_nameKey.currentState!.validate() &&
-              _descKey.currentState!.validate() &&
-              range != null) {
-            createOuting();
-          } else {
-            // TODO thorw error at user face
+        onPressed: () async {
+          if (voteDeadline == null) {
+            await showError("Please select a voting deadline");
+            return;
           }
+          if (range == null) {
+            await showError("Please outing dates!");
+            return;
+          }
+          if (voteDeadline!.isAfter(range!.start)) {
+            await showError("Vote deadline must be before outing!");
+            return;
+          }
+          if (!_nameKey.currentState!.validate()) {
+            await showError("Name must not be empty");
+            return;
+          }
+
+          if (!_descKey.currentState!.validate()) {
+            await showError("Description must not be empty");
+            return;
+          }
+
+          await createOuting();
         },
         child: const Text(
           "Let's go",
@@ -192,7 +243,30 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
     );
   }
 
-  void createOuting() async {
+  Future<void> showError(String err) async {
+    log(err);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: Colors.red,
+      content: Row(
+        children: [
+          const Icon(Icons.error_outline, color: Colors.white,),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Text(err, style: const TextStyle(color: Colors.white),),
+          ),
+        ],
+      ),
+    ));
+    // lmao wtf getx kills itself
+    /*await Get.snackbar("Error", err,
+        colorText: Colors.white,
+        borderRadius: 4.0,
+        icon: const Icon(Icons.error_outline),
+        snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red)
+        .show();*/
+  }
+
+  Future<void> createOuting() async {
     final end = range!.end.toUtc().add(const Duration(days: 1));
 
     var response = await outingService.createOuting(CreateOutingDto(
@@ -201,6 +275,7 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
       widget.groupId,
       range!.start.toUtc().toIso8601String(),
       end.toIso8601String(),
+      voteDeadline!.toUtc().toIso8601String()
     ));
 
     if (response.isOk) {

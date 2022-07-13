@@ -84,6 +84,7 @@ class _OutingPageState extends State<OutingPage> {
   Widget build(BuildContext context) {
     final range =
         "${fmtDate(pdate(outing.start))} - ${fmtDate(pdate(outing.end))}";
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         leading:
@@ -107,19 +108,20 @@ class _OutingPageState extends State<OutingPage> {
               Colors.grey[100]!,
               Colors.blue[100]!,
             ])),
-        child: outing.steps.isEmpty ? buildOutingStepHelp() : CustomScrollView(
-          slivers: [
-            SliverList(
-              delegate: TimelineTileBuilderDelegate(
-                (context, index) {
-                  return buildTimelineTile(context, outing.steps[index], index == outing.steps.length - 1);
-                },
-                childCount: outing.steps.length,
-              )
-            ),
-          ],
+        child: outing.steps.isEmpty ? buildOutingStepHelp() :
+          CustomScrollView(
+            slivers: [
+              SliverList(
+                  delegate: TimelineTileBuilderDelegate(
+                        (context, index) {
+                      return buildTimelineTile(context, outing.steps[index], index == outing.steps.length - 1);
+                    },
+                    childCount: outing.steps.length,
+                  )
+              ),
+            ],
+          ),
         ),
-      ),
     );
     return Text("");
   }
@@ -420,7 +422,7 @@ class _OutingPageState extends State<OutingPage> {
                 fit: BoxFit.fill,
               ),
             ),
-            if (!step.approved)
+            if (true) // TODO set this!!!!!!
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [

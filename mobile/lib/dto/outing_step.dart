@@ -7,7 +7,6 @@ class CreateOutingStepDto {
   int placeId;
   String start;
   String end;
-  String voteDeadline;
 
 
   CreateOutingStepDto(
@@ -15,8 +14,7 @@ class CreateOutingStepDto {
       this.description,
       this.placeId,
       this.start,
-      this.end,
-      this.voteDeadline);
+      this.end);
 
   Map<String, dynamic> toJson() => {
     "description": description,
@@ -24,7 +22,6 @@ class CreateOutingStepDto {
     "placeId": placeId,
     "start": start,
     "end": end,
-    "voteDeadline": voteDeadline,
   };
 }
 
@@ -54,8 +51,6 @@ class OutingStepDto {
   String start;
   String end;
   List<OutingStepVoteDto> outingStepVoteDtos;
-  String voteDeadline;
-  bool approved;
 
   OutingStepDto(
       this.id,
@@ -63,9 +58,7 @@ class OutingStepDto {
       this.description,
       this.start,
       this.end,
-      this.outingStepVoteDtos,
-      this.voteDeadline,
-      this.approved);
+      this.outingStepVoteDtos);
 
   OutingStepDto.fromJson(Map<String, dynamic> json):
         id = json["id"],
@@ -73,9 +66,7 @@ class OutingStepDto {
         description = json["description"],
         start = json["start"],
         end = json["end"],
-        approved = json["approved"] == true,
-        outingStepVoteDtos = OutingStepVoteDto.fromJsonToList(json["votes"]),
-        voteDeadline = json["voteDeadline"];
+        outingStepVoteDtos = OutingStepVoteDto.fromJsonToList(json["votes"]);
 
   static List<List<OutingStepDto>> fromJsonToList(List<dynamic> json) {
     List<List<OutingStepDto>> result = [];

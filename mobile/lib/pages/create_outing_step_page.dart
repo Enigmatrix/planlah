@@ -32,7 +32,6 @@ class CreateOutingStepPage extends StatefulWidget {
 
 class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
   String stepDesc = "";
-  DateTime? voteDeadline;
   DateTime? date;
   TimeRange? timeRange;
   PlaceDto? place;
@@ -80,7 +79,6 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
         buildOutingDescriptionTextBox(),
         buildPlaceSelectionButton(),
         buildDatetimeRangeButton(context),
-        buildSelectVoteDeadlineButton(),
         buildCreateOutingStepButton()
       ],
     );
@@ -261,38 +259,6 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     );
   }
 
-  Widget buildSelectVoteDeadlineButton() {
-    Widget child;
-    if (voteDeadline == null) {
-      child = const Text("Vote Deadline");
-    } else {
-      final fmt = RelativeDateFormat(Localizations.localeOf(context));
-      final rel = RelativeDateTime(dateTime: DateTime.now(), other: voteDeadline!);
-      child = Text(fmt.format(rel));
-    }
-    return Card(
-        margin: const EdgeInsets.only(top: 16.0, left: 24.0, right: 24.0, bottom: 8.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-          side: const BorderSide(color: Colors.grey, width: 0.8),
-        ),
-      child: ListTile(
-        onTap: () async {
-          final startTime = DateTime.parse(widget.outing.start).toLocal();
-          final chosenVoteDeadline = await DatePicker.showDateTimePicker(context,
-              minTime: DateTime.now().toLocal(),
-              maxTime: startTime, showTitleActions: true
-          );
-          setState(() {
-            voteDeadline = chosenVoteDeadline;
-          });
-        },
-        leading: const Icon(Icons.how_to_vote),
-        title: child,
-      )
-    );
-  }
-
   Widget buildCreateOutingStepButton() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -314,11 +280,6 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
               await showError("Please select where to go");
               return;
             }
-            if (voteDeadline == null) {
-              await showError("Please select a voting deadline");
-              return;
-            }
-
             await createOutingStep();
           },
           child: const Text(
@@ -367,8 +328,7 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
         stepDesc,
         place!.id,
         start.toUtc().toIso8601String(),
-        end.toUtc().toIso8601String(),
-        voteDeadline!.toUtc().toIso8601String()));
+        end.toUtc().toIso8601String()));
 
     if (response.isOk) {
       Get.back();
