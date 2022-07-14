@@ -13,10 +13,11 @@ class GroupSummaryDto {
     String description;
     MessageDto? lastSeenMessage;
     int? unreadMessageCount;
+    bool isDm;
 
 
     GroupSummaryDto(this.id, this.name, this.imageLink, this.description,
-      this.lastSeenMessage, this.unreadMessageCount);
+        this.lastSeenMessage, this.unreadMessageCount, this.isDm);
 
     GroupSummaryDto.fromJson(Map<String, dynamic> json)
         : id = json['id'],
@@ -24,8 +25,8 @@ class GroupSummaryDto {
           imageLink = json["imageLink"],
           description = json['description'],
           lastSeenMessage = json["lastSeenMessage"] == null ? null : MessageDto.fromJson(json["lastSeenMessage"]),
-          unreadMessageCount = json["unreadMessagesCount"];
-
+          unreadMessageCount = json["unreadMessagesCount"],
+          isDm = json["isDm"];
 
     Map<String, dynamic> toJson() => {
         'description': description,
@@ -49,5 +50,15 @@ class CreateGroupDto {
         "name": name,
         "description": description,
         "image": MultipartFile(image, filename: "groupAvatar.png")
+    };
+}
+
+class RefGroupDto {
+    int groupId;
+
+    RefGroupDto(this.groupId);
+
+    Map<String, dynamic> toJson() => {
+        "groupId": groupId.toString()
     };
 }

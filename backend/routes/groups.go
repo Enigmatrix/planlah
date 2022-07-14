@@ -67,6 +67,10 @@ type JoinGroupInviteDto struct {
 	InviteID string `uri:"inviteId" json:"inviteId" binding:"required,uuid"`
 }
 
+type GroupRefDto struct {
+	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
+}
+
 type ExpiryOption string
 
 const (
@@ -514,6 +518,39 @@ func (ctr *GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
 	ctx.Redirect(http.StatusTemporaryRedirect, "planlah://join/"+dto.InviteID)
 }
 
+// GetGroupMembers godoc
+// @Summary Gets all members in a group
+// @Description Gets all members in a group
+// @Param query query GroupRefDto true "body"
+// @Tags Group
+// @Security JWT
+// @Success 200 {object} []UserSummaryDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/groups/get_members [get]
+func (ctr *GroupsController) GetGroupMembers(ctx *gin.Context) {
+	var dto GroupRefDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	if ctr.AuthGroupMember(ctx, dto.GroupID) == nil {
+		return
+	}
+
+	users, err := ctr.Database.GetAllGroupMembers(dto.GroupID)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	userDtos := lo.Map(users, func(user data.User, i int) UserSummaryDto {
+		return ToUserSummaryDto(user)
+	})
+
+	ctx.JSON(http.StatusOK, userDtos)
+}
+
 // Register the routes for this controller
 func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group := router.Group("groups")
@@ -526,4 +563,5 @@ func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group.PUT("invites/invalidate", ctr.InvalidateInvite)
 	group.POST("invites/create", ctr.CreateInvite)
 	group.GET("join/:inviteId", ctr.JoinByInvite)
+	group.GET("get_members", ctr.GetGroupMembers)
 }

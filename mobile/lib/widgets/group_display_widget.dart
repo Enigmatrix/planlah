@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/group.dart';
-import 'package:mobile/pages/chat_page.dart';
+import 'package:mobile/pages/group_chat_page.dart';
 import 'package:mobile/utils/time.dart';
 
 import '../dto/user.dart';

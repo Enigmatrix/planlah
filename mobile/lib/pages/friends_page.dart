@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
-import 'package:mobile/pages/profile_page.dart';
+import 'package:mobile/pages/friend_components.dart';
 import 'package:mobile/services/friends.dart';
 import 'package:mobile/widgets/wait_widget.dart';
 
@@ -98,28 +98,7 @@ class _FriendsPageState extends State<FriendsPage> {
   Widget buildFriendsList() {
     return ListView.builder(
       itemCount: _friends.length,
-      itemBuilder: buildFriendTile,
-    );
-  }
-
-  Widget buildFriendTile(BuildContext context, int index) {
-    var _friend = _friends[index];
-
-    return ListTile(
-      // TODO: Friend profile page
-      onTap: () {
-        Get.to(() => ProfilePage(userId: _friend.id));
-      },
-      leading: Hero(
-        tag: index,
-        child: CircleAvatar(
-          backgroundImage: NetworkImage(_friend.imageLink),
-        ),
-      ),
-      title: Text(
-        _friend.name,
-      ),
-
+      itemBuilder: (context, index) => FriendComponents.buildFriendTile(context, _friends[index]),
     );
   }
 }

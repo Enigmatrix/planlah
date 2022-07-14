@@ -5,7 +5,9 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:mobile/dto/chat.dart';
 import 'package:mobile/dto/group.dart';
 import 'package:mobile/dto/outing.dart';
+import 'package:mobile/pages/friend_components.dart';
 import 'package:mobile/pages/outing_page.dart';
+import 'package:mobile/pages/profile_page.dart';
 import 'package:mobile/pages/view_all_outings.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/message.dart';
@@ -32,12 +34,10 @@ class GroupChatPage extends StatefulWidget {
 }
 
 class _GroupChatPageState extends State<GroupChatPage> {
-
   // Services
   final messageService = Get.find<MessageService>();
   final outingService = Get.find<OutingService>();
   final groupService = Get.find<GroupService>();
-
   // Messages sent in the group
   late var messages = <MessageDto>[];
   // Check if group is currently in an outing
@@ -46,6 +46,8 @@ class _GroupChatPageState extends State<GroupChatPage> {
   late var outings = <OutingDto>[];
   // Expiry option chosen for group invite link
   late ExpiryOption expiryOption;
+
+  late var groupMembers = <UserSummaryDto>[];
 
   ScrollController scrollController = ScrollController();
 
@@ -61,6 +63,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
   void initState() {
     super.initState();
     updateMessages();
+    getGroupMembers();
   }
 
   void updateMessages() async {
@@ -70,6 +73,16 @@ class _GroupChatPageState extends State<GroupChatPage> {
         messages = resp.body!;
       });
     }
+  }
+
+  void getGroupMembers() async {
+    Response<List<UserSummaryDto>?> resp = await groupService.getAllGroupMembers(widget.chatGroup.id);
+    if (resp.isOk) {
+      setState(() {
+        groupMembers = resp.body!;
+      });
+    }
+
   }
 
   @override
@@ -115,18 +128,14 @@ class _GroupChatPageState extends State<GroupChatPage> {
   }
 
   Widget buildGroupProfileDialog(BuildContext context) {
+    double radius = MediaQuery.of(context).size.width / 4;
     return Dialog(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Container(
-            width: MediaQuery.of(context).size.width / 2,
-            height: MediaQuery.of(context).size.height / 2,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(widget.chatGroup.imageLink)
-              )
-            ),
+          CircleAvatar(
+            radius: radius,
+            backgroundImage: NetworkImage(widget.chatGroup.imageLink)
           ),
           Text(
               widget.chatGroup.name
@@ -134,7 +143,12 @@ class _GroupChatPageState extends State<GroupChatPage> {
           Text(
             widget.chatGroup.description
           ),
-          const SizedBox(height: 4)
+          Expanded(
+            child: ListView.builder(
+              itemCount: groupMembers.length,
+              itemBuilder: (context, index) => FriendComponents.buildFriendTile(context, groupMembers[index])
+            ),
+          )
         ],
       ),
     );
@@ -168,6 +182,15 @@ class _GroupChatPageState extends State<GroupChatPage> {
     );
   }
 
+  int getFriendUserId() {
+    // Used only if in a DM
+    if (!widget.chatGroup.isDm) {
+      throw ArgumentError.value("Not supported for groups!");
+    } else {
+      return groupMembers[0].id == widget.userSummaryDto.id ? groupMembers[1].id : groupMembers[0].id;
+    }
+  }
+
 
   /// Solution to dialog closing immediately in a pop up menu
   /// https://stackoverflow.com/questions/69939559/showdialog-bug-dialog-isnt-triggered-from-popupmenubutton-in-flutter
@@ -180,6 +203,15 @@ class _GroupChatPageState extends State<GroupChatPage> {
           switch (value) {
             case INVITE_LINK:
               return showDialog(context: context, builder: buildCreateGroupInviteWidget);
+            case ABOUT:
+              if (widget.chatGroup.isDm) {
+                return showDialog(context: context, builder: buildGroupProfileDialog);
+              } else {
+                // Get friend's user id
+                int userId = getFriendUserId();
+                Get.to(() => ProfilePage(userId: userId));
+                return;
+              }
             default:
               throw UnimplementedError();
           }
@@ -321,6 +353,4 @@ class _GroupChatPageState extends State<GroupChatPage> {
     await messageService.sendMessage(SendMessageDto(message, widget.chatGroup.id));
     updateMessages();
   }
-
-
 }

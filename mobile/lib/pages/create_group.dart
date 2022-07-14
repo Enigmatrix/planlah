@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:mobile/dto/group.dart';
-import 'package:mobile/pages/chat_page.dart';
+import 'package:mobile/pages/group_chat_page.dart';
 
 import 'package:mobile/services/group.dart';
 

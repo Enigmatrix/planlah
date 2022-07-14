@@ -1091,3 +1091,25 @@ LIMIT ? OFFSET ?`, userId, userId, pageCount, page*pageCount).
 	}
 	return posts, nil
 }
+
+func (db *Database) GetAllGroupMembers(groupId uint) ([]User, error) {
+	var users []User
+	err := db.conn.Model(&User{}).
+		Raw(`
+SELECT u.*
+FROM users AS u
+INNER JOIN
+(
+	SELECT user_id
+	FROM group_members
+	WHERE group_id = ?
+) AS g
+ON u.id = g.user_id`, groupId).
+		Find(&users).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return users, nil
+}
