@@ -50,7 +50,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
   ScrollController scrollController = ScrollController();
 
   // For the menu options
-  static const String ABOUT  = "About";
+  static const String ABOUT = "About";
   static const String SEE_PAST_OUTINGS = "See past outings";
   static const String INVITE_LINK = "Invite Link";
   static const String JIO = "Jio";
@@ -64,12 +64,12 @@ class _GroupChatPageState extends State<GroupChatPage> {
   }
 
   void updateMessages() async {
-    await messageService.getMessages(widget.chatGroup.id)
-      .then((value) {
-        setState(() {
-          messages = value.body!;
-        });
-    });
+    Response<List<MessageDto>?> resp = await messageService.getMessages(widget.chatGroup.id);
+    if (resp.isOk) {
+      setState(() {
+        messages = resp.body!;
+      });
+    }
   }
 
   @override
@@ -115,8 +115,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
   }
 
   Widget buildGroupProfileDialog(BuildContext context) {
-    print(widget.chatGroup.imageLink);
-
     return Dialog(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -190,7 +188,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
           return <PopupMenuItem<String>>[
             PopupMenuItem(
                 onTap: () {
-                  // TODO: Display group description, same thing as above
+                  showDialog(context: context, builder: buildGroupProfileDialog);
                 },
                 value: ABOUT,
                 child: const Text(ABOUT)
@@ -345,7 +343,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
                 : MainAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
+                padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                 width: 200.0,
                 decoration: BoxDecoration(
                   color: isUser

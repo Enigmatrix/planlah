@@ -4,8 +4,7 @@ import 'package:lit_relative_date_time/lit_relative_date_time.dart';
 
 class TimeUtil {
   static String now() {
-    var now = DateTime.now().toUtc();
-    print("now = $now");
+    var now = DateTime.now().toLocal();
     // Could the flutter devs really not do this????????????
     return "${DateFormat("yyyy-MM-ddTHH:mm:ss").format(now)}Z";
   }
