@@ -259,45 +259,53 @@ class _GroupChatPageState extends State<GroupChatPage> {
               throw UnimplementedError();
           }
         },
-        itemBuilder: (BuildContext context) {
-          return <PopupMenuItem<String>>[
-            const PopupMenuItem(
-                value: ABOUT,
-                child: Text(ABOUT)
-            ),
-            PopupMenuItem(
-                onTap: () {
-                  viewPastOutings();
-                },
-                value: SEE_PAST_OUTINGS,
-                child: const Text(SEE_PAST_OUTINGS)
-            ),
-            const PopupMenuItem(
-              value: JIO,
-              child: Text(JIO),
-            ),
-            const PopupMenuItem(
-              value: INVITE_LINK,
-              child: Text(INVITE_LINK)
-            ),
-            PopupMenuItem(
-                onTap: () {
-                  // TODO: Kick people
-                },
-                value: KICK,
-                child: const Text(KICK)
-            ),
-            PopupMenuItem(
-                onTap: () {
-                  // TODO: Leave group
-                },
-                value: LEAVE,
-                child: const Text(LEAVE)
-            ),
-          ];
-        }
+        itemBuilder: buildPopUpMenuItems
     );
   }
+
+  List<PopupMenuItem<String>> buildPopUpMenuItems(BuildContext context) {
+    var widgets =  <PopupMenuItem<String>>[
+      const PopupMenuItem(
+          value: ABOUT,
+          child: Text(ABOUT)
+      ),
+      PopupMenuItem(
+          onTap: () {
+            viewPastOutings();
+          },
+          value: SEE_PAST_OUTINGS,
+          child: const Text(SEE_PAST_OUTINGS)
+      )
+    ];
+    if (!widget.chatGroup.isDm) {
+      widgets.addAll([
+        const PopupMenuItem(
+          value: JIO,
+          child: Text(JIO),
+        ),
+        const PopupMenuItem(
+            value: INVITE_LINK,
+            child: Text(INVITE_LINK)
+        ),
+        PopupMenuItem(
+            onTap: () {
+              // TODO: Kick people
+            },
+            value: KICK,
+            child: const Text(KICK)
+        ),
+        PopupMenuItem(
+            onTap: () {
+              // TODO: Leave group
+            },
+            value: LEAVE,
+            child: const Text(LEAVE)
+        ),
+      ]);
+    }
+    return widgets;
+  }
+
 
   Widget buildCreateGroupInviteWidget(BuildContext context) {
     return AlertDialog(
