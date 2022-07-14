@@ -14,8 +14,8 @@ import 'package:group_button/group_button.dart';
 
 import '../dto/group_invite.dart';
 import '../dto/user.dart';
-import '../utils/time.dart';
 import 'CreateOutingPage.dart';
+import 'chat_components.dart';
 
 class GroupChatPage extends StatefulWidget {
   GroupSummaryDto chatGroup;
@@ -79,8 +79,8 @@ class _GroupChatPageState extends State<GroupChatPage> {
       children: <Widget>[
         Column(
           children: [
-            buildMessageList(messages),
-            buildInputWidget()
+            ChatComponents.buildMessageList(scrollController, messages, widget.userSummaryDto),
+            ChatComponents.buildInputWidget(sendMessage),
           ],
         )
       ],
@@ -297,8 +297,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
     }
   }
 
-
-
   void viewPastOutings() {
     outingService
       .getAllOutings(widget.chatGroup.id)
@@ -317,134 +315,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
             }
           });
       });
-  }
-
-
-  Widget buildMessageList(List<MessageDto> messages) {
-    return Expanded(
-        child: ListView.builder(
-          reverse: true,
-          padding: const EdgeInsets.all(10.0),
-          itemBuilder: (context, index) => buildMessage(messages[messages.length - 1 - index]),
-          itemCount: messages.length,
-          controller: scrollController,
-        )
-    );
-  }
-
-
-  Widget buildMessage(MessageDto message) {
-    bool isUser = message.user.username == widget.userSummaryDto.username;
-    return Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: isUser
-                ? MainAxisAlignment.end
-                : MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
-                width: 200.0,
-                decoration: BoxDecoration(
-                  color: isUser
-                      ? Colors.grey
-                      : Colors.greenAccent,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                margin: const EdgeInsets.only(right: 10.0),
-                child: Text(
-                  message.content,
-                  style: isUser
-                      ? const TextStyle(color: Colors.white)
-                      : const TextStyle(color: Colors.black),
-                ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: isUser
-              ? MainAxisAlignment.end
-              : MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(left: 5.0, top: 5.0, bottom: 5.0),
-                child: Text(
-                  TimeUtil.formatForFrontend(message.sentAt),
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12.0,
-                    fontStyle: FontStyle.normal
-                  ),
-                ),
-              )
-            ],
-          )
-        ]
-      );
-  }
-
-  Widget buildInputWidget() {
-    final TextEditingController textEditingController = TextEditingController();
-    return Container(
-      width: double.infinity,
-      height: 50.0,
-      decoration: const BoxDecoration(
-        border: Border(
-          top: BorderSide(
-            color: Colors.white,
-            width: 0.5,
-          ),
-        ),
-        color: Colors.white
-      ),
-      child: Row(
-        children: <Widget>[
-          Material(
-            color: Colors.white,
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 1.0),
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.face),
-                color: Colors.grey,
-              ),
-            ),
-          ),
-
-          Flexible(
-              child: TextField(
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 15.0,
-                ),
-                controller: textEditingController,
-                decoration: const InputDecoration.collapsed(
-                  hintText: "Type here",
-                  hintStyle: TextStyle(
-                      color: Colors.black
-                  )
-                ),
-              )
-          ),
-
-          Material(
-            color: Colors.white,
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 8.0),
-              color: Colors.white,
-              child: IconButton(
-                icon: const Icon(Icons.send),
-                onPressed: () {
-                  sendMessage(textEditingController.value.text);
-                  textEditingController.clear();
-                },
-                color: Colors.blue,
-              ),
-            ),
-          )
-        ],
-      ),
-    );
   }
 
   void sendMessage(String message) async {
