@@ -84,6 +84,7 @@ class _FriendsPageState extends State<FriendsPage> {
   }
   
   void _navigateAndRefresh(BuildContext context) async {
+    // TODO: Fix with sockets
     var result = await Get.to(() => const FriendRequestPage());
     if (result != null) {
       _loadFriends();

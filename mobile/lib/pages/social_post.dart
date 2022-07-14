@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile/pages/profile_page.dart';
 import 'package:mobile/utils/time.dart';
 
 import '../dto/posts.dart';
@@ -16,19 +18,23 @@ class SocialPost extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-
         // Profile photo
-        Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-            color: Colors.grey,
-            shape: BoxShape.circle,
-            image: DecorationImage(
-                image: NetworkImage(
-                    post.user.imageLink
+        InkWell(
+          onTap: () {
+            Get.to(() => ProfilePage(userId: post.user.id));
+          },
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+                color: Colors.grey,
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: NetworkImage(
+                        post.user.imageLink
+                    )
                 )
-            )
+            ),
           ),
         ),
         Column(
