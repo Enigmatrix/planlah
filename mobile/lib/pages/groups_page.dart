@@ -181,6 +181,7 @@ class _GroupsPageState extends State<GroupsPage> {
             color: Colors.pink[50]
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const <Widget>[
             Icon(
               Icons.group_add,
@@ -188,7 +189,7 @@ class _GroupsPageState extends State<GroupsPage> {
               size: 20,
             ),
             SizedBox(
-              width: 2,
+              width: 4,
             ),
             Text(
               "Create New",

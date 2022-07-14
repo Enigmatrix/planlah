@@ -89,34 +89,8 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   AppBar buildAppBar() {
     return AppBar(
+      title: buildGroupTitle(),
       actions: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(right: 32),
-          child: InkWell(
-            onTap: () {
-              // TODO: Group description
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    widget.chatGroup.imageLink,
-                  ),
-                  maxRadius: 20,
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  widget.chatGroup.name,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
         IconButton(
           onPressed: () async {
             var response = await outingService.getActiveOuting(GetActiveOutingDto(widget.chatGroup.id));
@@ -137,6 +111,33 @@ class _GroupChatPageState extends State<GroupChatPage> {
         ),
         buildMenuOptions()
       ],
+    );
+  }
+
+  Widget buildGroupTitle() {
+    return InkWell(
+      onTap: () {
+        // TODO: Group description
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          CircleAvatar(
+            backgroundImage: NetworkImage(
+              widget.chatGroup.imageLink,
+            ),
+            maxRadius: 20,
+          ),
+          const SizedBox(width: 4),
+          Text(
+            widget.chatGroup.name,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 

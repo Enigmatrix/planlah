@@ -44,52 +44,65 @@ class _GroupDisplayState extends State<GroupDisplay> {
             Expanded(
                 child: Row(
                   children: <Widget>[
-                    CircleAvatar(
-                      // TODO: Figure out images
-                      backgroundImage: NetworkImage(widget.chatGroup.imageLink),
-                      maxRadius: 30,
-                    ),
+                    buildGroupIcon(),
                     const SizedBox(width: 16),
-                    Expanded(
-                        child: Container(
-                          color: Colors.transparent,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                widget.chatGroup.name,
-                                style: const TextStyle(fontSize: 16),
-                              ),
-                              const SizedBox(height: 6),
-                              Text(
-                                widget.chatGroup.description,
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.grey.shade600,
-                                  fontWeight: FontWeight.normal
-                                  // TODO: widget.chatGroup.isMessageRead ? FontWeight.normal : FontWeight.bold
-                                ),
-                              )
-                            ],
-                          )
-                        )
-                    ),
-                    Text(
-                      (widget.chatGroup.lastSeenMessage == null)
-                      ? ""
-                      : TimeUtil.formatForGroup(context, widget.chatGroup.lastSeenMessage!.sentAt),
-                      // TODO: widget.chatGroup.time,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.normal
-                        //TODO: widget.chatGroup.isMessageRead ? FontWeight.normal : FontWeight.bold
-                      ),
-                    )
+                    buildGroupChatHeader(),
                   ]
                 )
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildGroupIcon() {
+    return CircleAvatar(
+      backgroundImage: NetworkImage(widget.chatGroup.imageLink),
+      maxRadius: 30,
+    );
+  }
+
+  Widget buildGroupChatHeader() {
+    return Expanded(
+        child: Container(
+            color: Colors.transparent,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  widget.chatGroup.name,
+                  style: const TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      widget.chatGroup.description,
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.grey.shade600,
+                          fontWeight: FontWeight.normal
+                      ),
+                    ),
+                    buildTimeAgoLabel()
+                  ],
+                )
+              ],
+            )
+        )
+    );
+  }
+
+  Widget buildTimeAgoLabel() {
+    return Text(
+      (widget.chatGroup.lastSeenMessage == null)
+          ? ""
+          : TimeUtil.formatForGroup(context, widget.chatGroup.lastSeenMessage!.sentAt),
+      style: const TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.normal
       ),
     );
   }
