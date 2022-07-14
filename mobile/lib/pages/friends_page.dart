@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/friend_components.dart';
+import 'package:mobile/pages/profile_page.dart';
 import 'package:mobile/services/friends.dart';
 import 'package:mobile/widgets/wait_widget.dart';
 
@@ -98,7 +99,7 @@ class _FriendsPageState extends State<FriendsPage> {
   Widget buildFriendsList() {
     return ListView.builder(
       itemCount: _friends.length,
-      itemBuilder: (context, index) => FriendComponents.buildFriendTile(context, _friends[index]),
+      itemBuilder: (context, index) => FriendComponents.buildFriendTile(context, _friends[index], () => ProfilePage(userId: _friends[index].id)),
     );
   }
 }

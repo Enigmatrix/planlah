@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile/pages/profile_page.dart';
 
 import '../dto/user.dart';
 
+typedef PageBuilder = Widget Function();
+
 class FriendComponents {
-  static Widget buildFriendTile(BuildContext context, UserSummaryDto _friend) {
+  static Widget buildFriendTile(BuildContext context, UserSummaryDto _friend, PageBuilder page) {
     return ListTile(
       onTap: () {
-        Get.to(() => ProfilePage(userId: _friend.id));
+        Get.to(() => page());
       },
       leading: Hero(
-        tag: _friend.name,
+        tag: _friend.username,
         child: CircleAvatar(
           backgroundImage: NetworkImage(_friend.imageLink),
         ),

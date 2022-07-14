@@ -146,12 +146,21 @@ class _GroupChatPageState extends State<GroupChatPage> {
           Expanded(
             child: ListView.builder(
               itemCount: groupMembers.length,
-              itemBuilder: (context, index) => FriendComponents.buildFriendTile(context, groupMembers[index])
+              itemBuilder: buildGroupMemberList
             ),
           )
         ],
       ),
     );
+  }
+
+  Widget buildGroupMemberList(BuildContext context, int index) {
+    var user = groupMembers[index];
+    if (user.id == widget.userSummaryDto.id) {
+      return FriendComponents.buildFriendTile(context, user, () => ProfilePage(userId: -1));
+    } else {
+      return FriendComponents.buildFriendTile(context, user, () => ProfilePage(userId: user.id));
+    }
   }
 
   Widget buildGroupTitle() {
