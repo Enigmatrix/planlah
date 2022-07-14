@@ -138,10 +138,37 @@ class _GroupChatPageState extends State<GroupChatPage> {
             backgroundImage: NetworkImage(widget.chatGroup.imageLink)
           ),
           Text(
-              widget.chatGroup.name
+            widget.chatGroup.name,
+            style: const TextStyle(
+              fontSize: 26.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           Text(
             widget.chatGroup.description
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Expanded(
+                  child: Container(
+                    alignment: AlignmentGeometry.lerp(null, null, 0.0),
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlue,
+                      borderRadius: BorderRadius.circular(64.0),
+                    ),
+                    child: const Text(
+                      "Group members",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0
+                      ),
+                    ),
+                  ),
+              )
+            ],
           ),
           Expanded(
             child: ListView.builder(
@@ -157,7 +184,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
   Widget buildGroupMemberList(BuildContext context, int index) {
     var user = groupMembers[index];
     if (user.id == widget.userSummaryDto.id) {
-      return FriendComponents.buildFriendTile(context, user, () => ProfilePage(userId: -1));
+      return FriendComponents.buildFriendTile(context, user, () => const ProfilePage(userId: -1));
     } else {
       return FriendComponents.buildFriendTile(context, user, () => ProfilePage(userId: user.id));
     }
@@ -200,7 +227,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
     }
   }
 
-
   /// Solution to dialog closing immediately in a pop up menu
   /// https://stackoverflow.com/questions/69939559/showdialog-bug-dialog-isnt-triggered-from-popupmenubutton-in-flutter
   Widget buildMenuOptions() {
@@ -211,28 +237,30 @@ class _GroupChatPageState extends State<GroupChatPage> {
         onSelected: (value) async {
           switch (value) {
             case INVITE_LINK:
-              return showDialog(context: context, builder: buildCreateGroupInviteWidget);
+              showDialog(context: context, builder: buildCreateGroupInviteWidget);
+              break;
             case ABOUT:
-              if (widget.chatGroup.isDm) {
-                return showDialog(context: context, builder: buildGroupProfileDialog);
+              if (!widget.chatGroup.isDm) {
+                showDialog(context: context, builder: buildGroupProfileDialog);
+                break;
               } else {
                 // Get friend's user id
                 int userId = getFriendUserId();
                 Get.to(() => ProfilePage(userId: userId));
                 return;
               }
+            case SEE_PAST_OUTINGS:
+              viewPastOutings();
+              return;
             default:
               throw UnimplementedError();
           }
         },
         itemBuilder: (BuildContext context) {
           return <PopupMenuItem<String>>[
-            PopupMenuItem(
-                onTap: () {
-                  showDialog(context: context, builder: buildGroupProfileDialog);
-                },
+            const PopupMenuItem(
                 value: ABOUT,
-                child: const Text(ABOUT)
+                child: Text(ABOUT)
             ),
             PopupMenuItem(
                 onTap: () {

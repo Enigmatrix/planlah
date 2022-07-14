@@ -63,7 +63,6 @@ class OutingStepDto {
   List<OutingStepVoteDto> votes;
   DateTime voteDeadline;
 
-
   OutingStepDto(this.id, this.description, this.approved, this.placeDto,
       this.start, this.end, this.votes, this.voteDeadline);
 
