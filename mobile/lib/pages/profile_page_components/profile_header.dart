@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
+import 'package:mobile/pages/group_chat_page.dart';
 import 'package:mobile/pages/profile_page_components/profile_skeleton.dart';
+import 'package:mobile/services/group.dart';
+
+import '../../services/user.dart';
 
 
 class ProfileHeader {
@@ -12,13 +17,30 @@ class ProfileHeader {
           ProfileHeaderWidget(userSummaryDto: user),
           IconButton(
               onPressed: () {
-                // TODO: To redirect to the DM
+                getDM(user.id);
               },
               icon: const Icon(Icons.mail)
           )
         ],
       );
     };
+  }
+
+  static void getDM(int userId) async {
+    final groupService = Get.find<GroupService>();
+    final userService = Get.find<UserService>();
+    var resp = await groupService.createDM(userId);
+    var userInfoResp = await userService.getInfo();
+    if (resp.isOk && userInfoResp.isOk) {
+      Get.to(() => GroupChatPage(chatGroup: resp.body!, userSummaryDto: userInfoResp.body!));
+    } else {
+      Get.snackbar(
+        "Failure",
+        "Error status",
+        backgroundColor: Colors.red,
+        snackPosition: SnackPosition.BOTTOM
+      );
+    }
   }
 
   static WidgetValueBuilder getUserProfileHeaderBuilder() {

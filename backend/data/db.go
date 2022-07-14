@@ -631,6 +631,45 @@ func (db *Database) CreateGroup(group *Group) error {
 	return errors.Trace(db.conn.Omit("OwnerID", "ActiveOutingID").Create(group).Error)
 }
 
+func (db Database) GetDMGroup(userId, otherUserId uint) (GroupInfo, error) {
+	if v, err := db.IsFriend(userId, otherUserId); err == nil && !v {
+		return GroupInfo{}, NotFriend
+	} else if err != nil {
+		return GroupInfo{}, errors.Annotate(err, "IsFriend failed")
+	}
+	var grp GroupInfo
+	// There might be a better way to do the SQL query but this is what I thought of at 3am
+	err := db.conn.Model(&GroupMember{}).
+		Raw(`
+SELECT g.*
+FROM groups AS g
+INNER JOIN
+(
+    SELECT * 
+    FROM
+    (
+        SELECT COUNT(*) AS count, gm.group_id
+        FROM group_members AS gm
+        WHERE gm.user_id = ? OR gm.user_id = ?
+        GROUP BY gm.group_id
+    ) AS temp
+    WHERE temp.count = 2
+)  AS gm
+ON g.id = gm.group_id
+WHERE g.is_dm = true`, userId, otherUserId).
+		First(&grp).
+		Error
+
+	if err != nil {
+		if isNotFoundInDb(err) {
+			return GroupInfo{}, EntityNotFound
+		}
+		return GroupInfo{}, errors.Trace(err)
+	}
+
+	return grp, nil
+}
+
 // CreateDMGroup Creates a DM Group
 //
 // Throws NotFriend if the Users are not friends.
@@ -659,6 +698,7 @@ func (db *Database) CreateDMGroup(userId uint, otherUserId uint) (Group, error) 
 	group := Group{
 		IsDM: true,
 	}
+
 	err = db.conn.Omit("OwnerID", "ActiveOutingID").Create(&group).Error
 	if err != nil {
 		return Group{}, errors.Trace(err)

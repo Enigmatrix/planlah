@@ -342,6 +342,18 @@ func (ctr *GroupsController) CreateDM(ctx *gin.Context) {
 		return
 	}
 
+	groupInfo, err := ctr.Database.GetDMGroup(userId, dto.ID)
+
+	if err != nil && !errors.Is(err, data.EntityNotFound) {
+		handleDbError(ctx, err)
+		return
+	}
+
+	if err == nil {
+		ctx.JSON(http.StatusOK, ToGroupSummaryDto(groupInfo))
+		return
+	}
+
 	grp, err := ctr.Database.CreateDMGroup(userId, dto.ID)
 	if err != nil {
 		if errors.Is(err, data.NotFriend) {
@@ -355,7 +367,7 @@ func (ctr *GroupsController) CreateDM(ctx *gin.Context) {
 		handleDbError(ctx, err)
 		return
 	}
-	groupInfo, err := ctr.Database.GetGroup(userId, grp.ID)
+	groupInfo, err = ctr.Database.GetGroup(userId, grp.ID)
 	if err != nil { // this group is always found
 		handleDbError(ctx, err)
 		return

@@ -24,7 +24,7 @@ type UserSummaryDto struct {
 }
 
 type UserRefDto struct {
-	ID uint `json:"id" form:"id" query:"id" binding:"required"`
+	ID uint `json:"id,string" form:"id" query:"id" binding:"required"`
 }
 
 type CreateUserDto struct {

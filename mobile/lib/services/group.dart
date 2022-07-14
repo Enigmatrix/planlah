@@ -44,4 +44,15 @@ class GroupService extends BaseConnect {
       decoder: decoderForList(UserSummaryDto.fromJson)
     );
   }
+  
+  /// Creates a new DM group with a friend. If it already exists,
+  /// the DM group is returned.
+  Future<Response<GroupSummaryDto?>> createDM(int userId) async {
+    UserRefDto dto = UserRefDto(userId);
+    return await post(
+      "/groups/create_dm",
+      dto.toJson(),
+      decoder: decoderFor(GroupSummaryDto.fromJson)
+    );
+  }
 }

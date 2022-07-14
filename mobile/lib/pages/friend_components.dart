@@ -19,6 +19,7 @@ class FriendComponents {
       ),
       title: Text(
         _friend.name,
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }

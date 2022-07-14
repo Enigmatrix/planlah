@@ -190,40 +190,50 @@ class _GroupChatPageState extends State<GroupChatPage> {
     }
   }
 
+  void handleProfile() {
+    if (!widget.chatGroup.isDm) {
+      showDialog(context: context, builder: buildGroupProfileDialog);
+    } else {
+      // Get friend's user id
+      int userId = getFriend().id;
+      Get.to(() => ProfilePage(userId: userId));
+    }
+  }
+
   Widget buildGroupTitle() {
     return InkWell(
-      onTap: () {
-        // TODO: Group description
-        showDialog(context: context, builder: buildGroupProfileDialog);
-      },
+      onTap: handleProfile,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           CircleAvatar(
             backgroundImage: NetworkImage(
-              widget.chatGroup.imageLink,
+              widget.chatGroup.isDm ? getFriend().imageLink : widget.chatGroup.imageLink,
             ),
             maxRadius: 20,
           ),
           const SizedBox(width: 4),
-          Text(
-            widget.chatGroup.name,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
+          Expanded(
+            child: Text(
+              widget.chatGroup.isDm ? getFriend().name : widget.chatGroup.name,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
+          )
         ],
       ),
     );
   }
 
-  int getFriendUserId() {
+  UserSummaryDto getFriend() {
     // Used only if in a DM
     if (!widget.chatGroup.isDm) {
       throw ArgumentError.value("Not supported for groups!");
     } else {
-      return groupMembers[0].id == widget.userSummaryDto.id ? groupMembers[1].id : groupMembers[0].id;
+      return groupMembers[0].id == widget.userSummaryDto.id ? groupMembers[1] : groupMembers[0];
     }
   }
 
@@ -240,15 +250,8 @@ class _GroupChatPageState extends State<GroupChatPage> {
               showDialog(context: context, builder: buildCreateGroupInviteWidget);
               break;
             case ABOUT:
-              if (!widget.chatGroup.isDm) {
-                showDialog(context: context, builder: buildGroupProfileDialog);
-                break;
-              } else {
-                // Get friend's user id
-                int userId = getFriendUserId();
-                Get.to(() => ProfilePage(userId: userId));
-                return;
-              }
+              handleProfile();
+              return;
             case SEE_PAST_OUTINGS:
               viewPastOutings();
               return;
