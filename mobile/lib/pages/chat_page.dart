@@ -114,10 +114,39 @@ class _GroupChatPageState extends State<GroupChatPage> {
     );
   }
 
+  Widget buildGroupProfileDialog(BuildContext context) {
+    print(widget.chatGroup.imageLink);
+
+    return Dialog(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Container(
+            width: MediaQuery.of(context).size.width / 2,
+            height: MediaQuery.of(context).size.height / 2,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(widget.chatGroup.imageLink)
+              )
+            ),
+          ),
+          Text(
+              widget.chatGroup.name
+          ),
+          Text(
+            widget.chatGroup.description
+          ),
+          const SizedBox(height: 4)
+        ],
+      ),
+    );
+  }
+
   Widget buildGroupTitle() {
     return InkWell(
       onTap: () {
         // TODO: Group description
+        showDialog(context: context, builder: buildGroupProfileDialog);
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
