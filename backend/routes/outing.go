@@ -18,12 +18,13 @@ type OutingController struct {
 }
 
 type OutingDto struct {
-	ID          uint      `json:"id" binding:"required"`
-	Name        string    `json:"name" binding:"required"`
-	Description string    `json:"description" binding:"required"`
-	GroupID     uint      `json:"groupId" binding:"required"`
-	Start       time.Time `json:"start" binding:"required"`
-	End         time.Time `json:"end" binding:"required"`
+	ID           uint      `json:"id" binding:"required"`
+	Name         string    `json:"name" binding:"required"`
+	Description  string    `json:"description" binding:"required"`
+	GroupID      uint      `json:"groupId" binding:"required"`
+	Start        time.Time `json:"start" binding:"required"`
+	End          time.Time `json:"end" binding:"required"`
+	VoteDeadline time.Time `json:"voteDeadline" binding:"required"`
 	// Array of Conflicting Steps (in terms of start-end conflicts).
 	// If there is no conflict for a step, then it becomes an array of
 	// that singular step among these arrays of steps.
@@ -32,14 +33,13 @@ type OutingDto struct {
 }
 
 type OutingStepDto struct {
-	ID           uint                `json:"id" binding:"required"`
-	Description  string              `json:"description" binding:"required"`
-	Approved     bool                `json:"approved" binding:"required"`
-	Place        PlaceDto            `json:"place" binding:"required"`
-	Start        time.Time           `json:"start" binding:"required"`
-	End          time.Time           `json:"end" binding:"required"`
-	Votes        []OutingStepVoteDto `json:"votes" binding:"required"`
-	VoteDeadline time.Time           `json:"voteDeadline" binding:"required"`
+	ID          uint                `json:"id" binding:"required"`
+	Description string              `json:"description" binding:"required"`
+	Approved    bool                `json:"approved" binding:"required"`
+	Place       PlaceDto            `json:"place" binding:"required"`
+	Start       time.Time           `json:"start" binding:"required"`
+	End         time.Time           `json:"end" binding:"required"`
+	Votes       []OutingStepVoteDto `json:"votes" binding:"required"`
 }
 
 type OutingStepVoteDto struct {
@@ -48,20 +48,20 @@ type OutingStepVoteDto struct {
 }
 
 type CreateOutingDto struct {
-	Name        string    `json:"name" binding:"required"`
-	Description string    `json:"description" binding:"required"`
-	GroupID     uint      `json:"groupId" binding:"required"`
-	Start       time.Time `json:"start" binding:"required"`
-	End         time.Time `json:"end" binding:"required,gtfield=Start"`
-}
-
-type CreateOutingStepDto struct {
-	OutingID     uint      `json:"outingId" binding:"required"`
-	PlaceID      uint      `json:"placeId" binding:"required"`
+	Name         string    `json:"name" binding:"required"`
 	Description  string    `json:"description" binding:"required"`
+	GroupID      uint      `json:"groupId" binding:"required"`
 	Start        time.Time `json:"start" binding:"required"`
 	End          time.Time `json:"end" binding:"required,gtfield=Start"`
 	VoteDeadline time.Time `json:"voteDeadline" binding:"required"`
+}
+
+type CreateOutingStepDto struct {
+	OutingID    uint      `json:"outingId" binding:"required"`
+	PlaceID     uint      `json:"placeId" binding:"required"`
+	Description string    `json:"description" binding:"required"`
+	Start       time.Time `json:"start" binding:"required"`
+	End         time.Time `json:"end" binding:"required,gtfield=Start"`
 }
 
 type GetOutingsDto struct {
@@ -92,14 +92,12 @@ func ToOutingStepVoteDtos(outingStepVotes []data.OutingStepVote) []OutingStepVot
 
 func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {
 	return OutingStepDto{
-		ID:           outingStep.ID,
-		Description:  outingStep.Description,
-		Approved:     outingStep.Approved,
-		Place:        ToPlaceDto(outingStep.Place),
-		Start:        outingStep.Start,
-		End:          outingStep.End,
-		Votes:        ToOutingStepVoteDtos(outingStep.Votes),
-		VoteDeadline: outingStep.VoteDeadline,
+		ID:          outingStep.ID,
+		Description: outingStep.Description,
+		Place:       ToPlaceDto(outingStep.Place),
+		Start:       outingStep.Start,
+		End:         outingStep.End,
+		Votes:       ToOutingStepVoteDtos(outingStep.Votes),
 	}
 }
 
@@ -107,7 +105,7 @@ func ToOutingStepDtos(outingSteps []data.OutingStep) [][]OutingStepDto {
 	colliding := jobs.CollidingOutingSteps(outingSteps)
 
 	return lo.Map(colliding, func(collideSet []data.OutingStep, _ int) []OutingStepDto {
-		return lo.Map(outingSteps, func(outingStep data.OutingStep, _ int) OutingStepDto {
+		return lo.Map(collideSet, func(outingStep data.OutingStep, _ int) OutingStepDto {
 			return ToOutingStepDto(outingStep)
 		})
 	})
@@ -115,13 +113,14 @@ func ToOutingStepDtos(outingSteps []data.OutingStep) [][]OutingStepDto {
 
 func ToOutingDto(outing data.Outing) OutingDto {
 	return OutingDto{
-		ID:          outing.ID,
-		Name:        outing.Name,
-		Description: outing.Description,
-		GroupID:     outing.GroupID,
-		Start:       outing.Start,
-		End:         outing.End,
-		Steps:       ToOutingStepDtos(outing.Steps),
+		ID:           outing.ID,
+		Name:         outing.Name,
+		Description:  outing.Description,
+		GroupID:      outing.GroupID,
+		Start:        outing.Start,
+		End:          outing.End,
+		VoteDeadline: outing.VoteDeadline,
+		Steps:        ToOutingStepDtos(outing.Steps),
 	}
 }
 
@@ -137,7 +136,7 @@ func ToOutingDtos(outings []data.Outing) []OutingDto {
 // @Param body body CreateOutingDto true "Initial details of Outing"
 // @Tags Outing
 // @Security JWT
-// @Success 200 {object} OutingDto
+// @Success 200
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} services.AuthError
 // @Router /api/outing/create [post]
@@ -152,28 +151,30 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 	}
 
 	activeOuting, err := ctr.Database.GetActiveOuting(dto.GroupID)
-	if err == nil && time.Now().In(time.UTC).Before(activeOuting.End) {
+	if activeOuting != nil && time.Now().In(time.UTC).Before(activeOuting.End) {
 		FailWithMessage(ctx, "group already has an active outing")
 		return
-	} else if err != nil {
+	}
+	if err != nil {
 		handleDbError(ctx, err)
 		return
 	}
 
-	// round down start time to nearest day
-	startTime := dto.Start
-	startDate := time.Date(startTime.Year(), startTime.Month(), startTime.Day(), 0, 0, 0, 0, startTime.Location())
+	// round the time to nearest minute
+	dto.VoteDeadline = dto.VoteDeadline.Round(time.Minute)
 
-	// round up end time to nearest day
-	endTime := dto.End
-	endDate := time.Date(endTime.Year(), endTime.Month(), endTime.Day()+1, 0, 0, 0, 0, endTime.Location())
+	if time.Now().After(dto.VoteDeadline) || dto.Start.Before(dto.VoteDeadline) {
+		FailWithMessage(ctx, fmt.Sprintf("outing step has invalid voteDeadline (%s)", dto.VoteDeadline))
+		return
+	}
 
 	outing := data.Outing{
-		GroupID:     dto.GroupID,
-		Name:        dto.Name,
-		Description: dto.Description,
-		Start:       startDate,
-		End:         endDate,
+		GroupID:      dto.GroupID,
+		Name:         dto.Name,
+		Description:  dto.Description,
+		Start:        dto.Start,
+		End:          dto.End,
+		VoteDeadline: dto.VoteDeadline,
 	}
 
 	err = ctr.Database.CreateOuting(&outing)
@@ -188,7 +189,15 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, ToOutingDto(outing))
+	err = ctr.JobRunner.QueueVoteDeadlineJob(outing.VoteDeadline, jobs.VoteDeadlineJobArgs{
+		OutingId: outing.ID,
+	})
+	if err != nil {
+		// TODO how to handle
+		return
+	}
+
+	ctx.Status(http.StatusOK)
 }
 
 // CreateStep godoc
@@ -197,7 +206,7 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 // @Param body body CreateOutingStepDto true "Details for Outing Step"
 // @Tags Outing
 // @Security JWT
-// @Success 200 {object} OutingStepDto
+// @Success 200
 // @Failure 400 {object} ErrorMessage
 // @Failure 401 {object} services.AuthError
 // @Router /api/outing/create_step [post]
@@ -226,22 +235,12 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 		return
 	}
 
-	// round the time to nearest minute
-	dto.VoteDeadline = dto.VoteDeadline.Round(time.Minute)
-
-	if time.Now().After(dto.VoteDeadline) || outing.Start.After(dto.VoteDeadline) {
-		FailWithMessage(ctx, fmt.Sprintf("outing step has invalid voteDeadline (%s)", dto.VoteDeadline))
-		return
-	}
-
 	outingStep := data.OutingStep{
-		OutingID:     outingId,
-		Description:  dto.Description,
-		PlaceID:      dto.PlaceID,
-		Start:        dto.Start,
-		Approved:     false,
-		End:          dto.End,
-		VoteDeadline: dto.VoteDeadline,
+		OutingID:    outingId,
+		Description: dto.Description,
+		PlaceID:     dto.PlaceID,
+		Start:       dto.Start,
+		End:         dto.End,
 	}
 
 	err = ctr.Database.CreateOutingStep(&outingStep)
@@ -254,16 +253,7 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 		return
 	}
 
-	err = ctr.JobRunner.QueueVoteDeadlineJob(outingStep.VoteDeadline, jobs.VoteDeadlineJobArgs{
-		OutingStepId: outingStep.ID,
-		OutingId:     outingStep.OutingID,
-	})
-	if err != nil {
-		// TODO how to handle
-		return
-	}
-
-	ctx.JSON(http.StatusOK, ToOutingStepDto(outingStep))
+	ctx.Status(http.StatusOK)
 }
 
 // Get godoc

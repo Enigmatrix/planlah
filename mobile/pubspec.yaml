@@ -53,7 +53,10 @@ dependencies:
   reorderables: ^0.5.0
   async: ^2.8.2
   lit_relative_date_time: ^1.2.0
+  time_range_picker: ^2.2.0
+  flutter_datetime_picker: ^1.5.1
   group_button: ^5.0.1
+  duration: ^3.0.11
 
 dev_dependencies:
   flutter_test:

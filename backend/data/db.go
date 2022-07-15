@@ -35,7 +35,6 @@ var (
 	NotFriend           = errors.New("users are not friends")
 	DMAlreadyExists     = errors.New("dm already exists")
 )
-var pageCount uint = 10
 
 func DatabaseConnectionString(config *utils.Config) string {
 	dsn := fmt.Sprintf("host=%s user=%s password=%s",
@@ -258,7 +257,7 @@ func (db *Database) SearchForFriends(userId uint, query string, page Pagination)
 	var users []User
 	// this query makes it slightly ex since we might have a lot of results
 	err := db.conn.Model(&User{}).
-		Where("name like '%' || @q || '%' OR username like '%' || @q || '%'", map[string]interface{}{"q": query}).
+		Where("name ilike '%' || @q || '%' OR username ilike '%' || @q || '%'", map[string]interface{}{"q": query}).
 		Where("id not in "+friendSql, map[string]interface{}{"thisUserId": userId}).
 		Order("username,name asc").
 		Limit(page.Limit()).
@@ -833,6 +832,8 @@ func (db *Database) GetOutingWithSteps(outingId uint) (Outing, error) {
 		Preload("Steps").
 		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
+		Preload("Steps.Votes.GroupMember").
+		Preload("Steps.Votes.GroupMember.User").
 		First(&outing).
 		Error
 
@@ -889,6 +890,8 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 		Preload("Steps").
 		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
+		Preload("Steps.Votes.GroupMember").
+		Preload("Steps.Votes.GroupMember.User").
 		Find(&outings).
 		Error
 
@@ -899,24 +902,12 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	return outings, nil
 }
 
-// ApproveOutingStep Approves the outing step
-func (db *Database) ApproveOutingStep(outingStepId uint) error {
-	err := db.conn.Model(&OutingStep{}).Where(&OutingStep{ID: outingStepId}).
-		Update("approved", true).Error
-	return errors.Trace(err)
-}
-
-// DeleteOutingStep Delete the outing step with the same ID
-func (db *Database) DeleteOutingStep(outingStepId uint) error {
-	err := db.conn.Delete(OutingStep{}, outingStepId).Error
-	return errors.Trace(err)
-}
-
 // DeleteOutingSteps Deletes outings steps with the same ID
 func (db *Database) DeleteOutingSteps(outingSteps []OutingStep) error {
-	err := db.conn.Delete(OutingStep{}, lo.Map(outingSteps, func(t OutingStep, _ int) uint {
+	ids := lo.Map(outingSteps, func(t OutingStep, _ int) uint {
 		return t.ID
-	})).Error
+	})
+	err := db.conn.Where("id in ?", ids).Delete(OutingStep{}).Error
 	return errors.Trace(err)
 }
 
@@ -929,6 +920,8 @@ func (db *Database) GetActiveOuting(groupId uint) (*Outing, error) {
 		Preload("Steps").
 		Preload("Steps.Place", SelectPlaces).
 		Preload("Steps.Votes").
+		Preload("Steps.Votes.GroupMember").
+		Preload("Steps.Votes.GroupMember.User").
 		Where("id = (select active_outing_id from groups where id = ?)", groupId).
 		First(&outing).
 		Error
@@ -1007,7 +1000,7 @@ func SelectPlaces(tx *gorm.DB) *gorm.DB {
 func (db *Database) SearchForPlaces(query string, page Pagination) ([]Place, error) {
 	var places []Place
 	err := SelectPlaces(db.conn.Model(&Place{})).
-		Where("name like '%' || ? || '%'", query).
+		Where("name ilike '%' || ? || '%'", query).
 		Order("name asc").
 		Limit(page.Limit()).
 		Offset(page.Offset()).

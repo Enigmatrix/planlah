@@ -5,6 +5,7 @@ import (
 	"github.com/lib/pq"
 	"github.com/samber/lo"
 	"math"
+	"planlah.sg/backend/jobs"
 	"testing"
 	"time"
 
@@ -688,11 +689,12 @@ func (s *DataIntegrationTestSuite) Test_GetMessages_Empty_WhenTimeRangeInvalid()
 
 func (s *DataIntegrationTestSuite) Test_CreateOuting_Succeeds() {
 	outing := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "description1",
-		Start:       time.Now(),
-		End:         time.Now().Add(time.Hour),
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "description1",
+		Start:        time.Now(),
+		End:          time.Now().Add(time.Hour),
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err := s.db.CreateOuting(&outing)
 	s.NoError(err)
@@ -718,24 +720,23 @@ func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
 	s.Require().NotEmpty(place.ID)
 
 	outing := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "description1",
-		Start:       time.Now(),
-		End:         time.Now().Add(time.Hour),
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "description1",
+		Start:        time.Now(),
+		End:          time.Now().Add(time.Hour),
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err = s.db.CreateOuting(&outing)
 	s.Require().NoError(err)
 	s.Require().NotEmpty(outing.ID)
 
 	outingStep := data.OutingStep{
-		OutingID:     outing.ID,
-		PlaceID:      place.ID,
-		Approved:     true,
-		Description:  "description1",
-		Start:        time.Now(),
-		End:          time.Now().Add(time.Hour),
-		VoteDeadline: time.Now().Add(time.Hour * 5),
+		OutingID:    outing.ID,
+		PlaceID:     place.ID,
+		Description: "description1",
+		Start:       time.Now(),
+		End:         time.Now().Add(time.Hour),
 	}
 	err = s.db.CreateOutingStep(&outingStep)
 	s.NoError(err)
@@ -744,24 +745,23 @@ func (s *DataIntegrationTestSuite) Test_CreateOutingStep_Succeeds() {
 
 func (s *DataIntegrationTestSuite) Test_CreateOutingStep_ThrowsEntityNotFound_WhenPlaceIsNotFound() {
 	outing := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "description1",
-		Start:       time.Now(),
-		End:         time.Now().Add(time.Hour),
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "description1",
+		Start:        time.Now(),
+		End:          time.Now().Add(time.Hour),
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err := s.db.CreateOuting(&outing)
 	s.Require().NoError(err)
 	s.Require().NotEmpty(outing.ID)
 
 	outingStep := data.OutingStep{
-		OutingID:     outing.ID,
-		PlaceID:      100, // not found
-		Approved:     true,
-		Description:  "description1",
-		Start:        time.Now(),
-		End:          time.Now().Add(time.Hour),
-		VoteDeadline: time.Now().Add(time.Hour * 5),
+		OutingID:    outing.ID,
+		PlaceID:     100, // not found
+		Description: "description1",
+		Start:       time.Now(),
+		End:         time.Now().Add(time.Hour),
 	}
 	err = s.db.CreateOutingStep(&outingStep)
 	s.ErrorIs(err, data.EntityNotFound)
@@ -787,24 +787,23 @@ func (s *DataIntegrationTestSuite) createSampleOutingStep() data.OutingStep {
 	s.Require().NotEmpty(place.ID)
 
 	outing := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "description1",
-		Start:       time.Now(),
-		End:         time.Now().Add(time.Hour),
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "description1",
+		Start:        time.Now(),
+		End:          time.Now().Add(time.Hour),
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err = s.db.CreateOuting(&outing)
 	s.Require().NoError(err)
 	s.Require().NotEmpty(outing.ID)
 
 	outingStep := data.OutingStep{
-		OutingID:     outing.ID,
-		Description:  "description1",
-		PlaceID:      place.ID,
-		Approved:     true,
-		Start:        time.Now(),
-		End:          time.Now().Add(time.Hour),
-		VoteDeadline: time.Now().Add(time.Hour * 5),
+		OutingID:    outing.ID,
+		Description: "description1",
+		PlaceID:     place.ID,
+		Start:       time.Now(),
+		End:         time.Now().Add(time.Hour),
 	}
 	err = s.db.CreateOutingStep(&outingStep)
 	s.Require().NoError(err)
@@ -982,11 +981,12 @@ func (s *DataIntegrationTestSuite) Test_UpsertOutingStepVote_Succeeds_WhenPrevio
 
 func (s *DataIntegrationTestSuite) Test_GetOuting_Succeeds() {
 	outing := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "description1",
-		Start:       time.Now(),
-		End:         time.Now().Add(time.Hour),
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "description1",
+		Start:        time.Now(),
+		End:          time.Now().Add(time.Hour),
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err := s.db.CreateOuting(&outing)
 	s.Require().NoError(err)
@@ -1027,32 +1027,35 @@ func (s *DataIntegrationTestSuite) Test_GetAllOutings_Succeeds_WhenNoOutings() {
 
 func (s *DataIntegrationTestSuite) Test_GetAllOutings_Succeeds_WhenMoreOutings() {
 	outing1 := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "desc1",
-		Start:       time.Time{},
-		End:         time.Time{},
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "desc1",
+		Start:        time.Time{},
+		End:          time.Time{},
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err := s.db.CreateOuting(&outing1)
 	s.Require().NoError(err)
 
 	outing2 := data.Outing{
-		GroupID:     3,
-		Name:        "name2",
-		Description: "desc2",
-		Start:       time.Time{},
-		End:         time.Time{},
+		GroupID:      3,
+		Name:         "name2",
+		Description:  "desc2",
+		Start:        time.Time{},
+		End:          time.Time{},
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err = s.db.CreateOuting(&outing2)
 	s.Require().NoError(err)
 
 	// in another group
 	outing3 := data.Outing{
-		GroupID:     2,
-		Name:        "name3",
-		Description: "desc3",
-		Start:       time.Time{},
-		End:         time.Time{},
+		GroupID:      2,
+		Name:         "name3",
+		Description:  "desc3",
+		Start:        time.Time{},
+		End:          time.Time{},
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err = s.db.CreateOuting(&outing3)
 	s.Require().NoError(err)
@@ -1078,11 +1081,12 @@ func (s *DataIntegrationTestSuite) Test_GetActiveOuting_Nil_WhenNoActiveOuting()
 
 func (s *DataIntegrationTestSuite) Test_GetActiveOuting_Succeeds() {
 	outing1 := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "desc1",
-		Start:       time.Time{},
-		End:         time.Time{},
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "desc1",
+		Start:        time.Time{},
+		End:          time.Time{},
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err := s.db.CreateOuting(&outing1)
 	s.Require().NoError(err)
@@ -1097,11 +1101,12 @@ func (s *DataIntegrationTestSuite) Test_GetActiveOuting_Succeeds() {
 
 func (s *DataIntegrationTestSuite) Test_UpdateActiveOuting_Succeeds_WhenNoActiveOuting() {
 	outing1 := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "desc1",
-		Start:       time.Time{},
-		End:         time.Time{},
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "desc1",
+		Start:        time.Time{},
+		End:          time.Time{},
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err := s.db.CreateOuting(&outing1)
 	s.Require().NoError(err)
@@ -1120,11 +1125,12 @@ func (s *DataIntegrationTestSuite) Test_UpdateActiveOuting_Succeeds_WhenNoActive
 
 func (s *DataIntegrationTestSuite) Test_UpdateActiveOuting_Succeeds_WhenExistsActiveOuting() {
 	outing1 := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "desc1",
-		Start:       time.Time{},
-		End:         time.Time{},
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "desc1",
+		Start:        time.Time{},
+		End:          time.Time{},
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err := s.db.CreateOuting(&outing1)
 	s.Require().NoError(err)
@@ -1141,11 +1147,12 @@ func (s *DataIntegrationTestSuite) Test_UpdateActiveOuting_Succeeds_WhenExistsAc
 	s.Require().Equal(outing1.ID, dbOuting.ID)
 
 	outing2 := data.Outing{
-		GroupID:     3,
-		Name:        "name1",
-		Description: "desc1",
-		Start:       time.Time{},
-		End:         time.Time{},
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "desc1",
+		Start:        time.Time{},
+		End:          time.Time{},
+		VoteDeadline: time.Now().Add(-time.Hour),
 	}
 	err = s.db.CreateOuting(&outing2)
 	s.Require().NoError(err)
@@ -1468,7 +1475,7 @@ func (s *DataIntegrationTestSuite) Test_SearchForPlaces_Succeeds() {
 	}
 	err = s.conn.Create(&place1).Error
 	s.Require().NoError(err)
-	s.Require().NotEmpty(place.ID)
+	s.Require().NotEmpty(place1.ID)
 
 	places, err := s.db.SearchForPlaces("place", data.Pagination{Page: "0"})
 	s.NoError(err)
@@ -1490,3 +1497,251 @@ func (s *DataIntegrationTestSuite) Test_SearchForPlaces_Succeeds() {
 // TODO add more tests for ApproveOutingStep
 // TODO add more tests for DeleteOutingSteps
 // TODO add more tests for DeleteOutingStep
+
+func (s *DataIntegrationTestSuite) runVoteDeadlineJob(outingId uint) error {
+	job := jobs.NewVoteDeadlineJob(s.db)
+	return job.RunCore(outingId)
+}
+
+func (s *DataIntegrationTestSuite) Test_VoteDeadlineJob_Succeeds_WhenNoOutings() {
+	_, outing1, _ := s.setupOutingAndPlace()
+
+	err := s.runVoteDeadlineJob(outing1)
+	s.NoError(err)
+
+	outing1Db, err := s.db.GetOutingWithSteps(outing1)
+	s.Require().NoError(err)
+
+	s.Len(outing1Db.Steps, 0)
+
+}
+
+func (s *DataIntegrationTestSuite) setupOutingAndPlace() (time.Time, uint, uint) {
+	now := time.Now()
+
+	outing1 := data.Outing{
+		GroupID:      3,
+		Name:         "name1",
+		Description:  "desc1",
+		Start:        now.Add(time.Hour * 10),
+		End:          now.Add(time.Hour * 20),
+		VoteDeadline: now.Add(time.Hour * 9),
+	}
+	err := s.db.CreateOuting(&outing1)
+	s.Require().NoError(err)
+
+	place1 := data.Place{
+		ID:       0,
+		Name:     "placeName2",
+		Location: "placeLocation1",
+		Position: data.Point{
+			Longitude: 120.89333,
+			Latitude:  50.1299,
+		},
+		FormattedAddress: "placeFmtAddress1",
+		ImageUrl:         "placeImageUrl1",
+		About:            "placeAbout1",
+		PlaceType:        data.Attraction,
+	}
+	err = s.conn.Create(&place1).Error
+	s.Require().NoError(err)
+	s.Require().NotEmpty(place1.ID)
+
+	return now, outing1.ID, place1.ID
+}
+
+func (s *DataIntegrationTestSuite) Test_VoteDeadlineJob_Succeeds_WhenOneOuting() {
+	now, outing1, place1 := s.setupOutingAndPlace()
+
+	outingStep1 := data.OutingStep{
+		OutingID:    outing1,
+		PlaceID:     place1,
+		Description: "outingStep1",
+		Start:       now.Add(time.Hour * 11),
+		End:         now.Add(time.Hour * 12),
+		Votes:       nil,
+	}
+
+	err := s.db.CreateOutingStep(&outingStep1)
+	s.Require().NoError(err)
+
+	err = s.runVoteDeadlineJob(outing1)
+	s.NoError(err)
+
+	outing1Db, err := s.db.GetOutingWithSteps(outing1)
+	s.Require().NoError(err)
+
+	s.Len(outing1Db.Steps, 1)
+}
+
+func (s *DataIntegrationTestSuite) Test_VoteDeadlineJob_Succeeds_WhenTwoNonIntersectingOutings() {
+	now, outing1, place1 := s.setupOutingAndPlace()
+
+	outingStep1 := data.OutingStep{
+		OutingID:    outing1,
+		PlaceID:     place1,
+		Description: "outingStep1",
+		Start:       now.Add(time.Hour * 11),
+		End:         now.Add(time.Hour * 12),
+		Votes:       nil,
+	}
+	err := s.db.CreateOutingStep(&outingStep1)
+	s.Require().NoError(err)
+
+	outingStep2 := data.OutingStep{
+		OutingID:    outing1,
+		PlaceID:     place1,
+		Description: "outingStep2",
+		Start:       now.Add(time.Hour * 12),
+		End:         now.Add(time.Hour * 13),
+		Votes:       nil,
+	}
+	err = s.db.CreateOutingStep(&outingStep2)
+	s.Require().NoError(err)
+
+	err = s.runVoteDeadlineJob(outing1)
+	s.NoError(err)
+
+	outing1Db, err := s.db.GetOutingWithSteps(outing1)
+	s.Require().NoError(err)
+
+	s.Len(outing1Db.Steps, 2)
+}
+
+func (s *DataIntegrationTestSuite) Test_VoteDeadlineJob_Succeeds_WhenTwoIntersectingOutings() {
+	now, outing1, place1 := s.setupOutingAndPlace()
+
+	outingStep1 := data.OutingStep{
+		OutingID:    outing1,
+		PlaceID:     place1,
+		Description: "outingStep1",
+		Start:       now.Add(time.Hour * 11),
+		End:         now.Add(time.Hour * 12),
+		Votes:       nil,
+	}
+	err := s.db.CreateOutingStep(&outingStep1)
+	s.Require().NoError(err)
+
+	outingStep2 := data.OutingStep{
+		OutingID:    outing1,
+		PlaceID:     place1,
+		Description: "outingStep2",
+		Start:       now.Add(time.Hour * 11),
+		End:         now.Add(time.Hour * 13),
+		Votes:       nil,
+	}
+	err = s.db.CreateOutingStep(&outingStep2)
+	s.Require().NoError(err)
+
+	err = s.runVoteDeadlineJob(outing1)
+	s.NoError(err)
+
+	outing1Db, err := s.db.GetOutingWithSteps(outing1)
+	s.Require().NoError(err)
+
+	s.Len(outing1Db.Steps, 1)
+}
+
+func (s *DataIntegrationTestSuite) Test_VoteDeadlineJob_Succeeds_WhenOneUnapprovedOuting() {
+	now, outing1, place1 := s.setupOutingAndPlace()
+
+	outingStep1 := data.OutingStep{
+		OutingID:    outing1,
+		PlaceID:     place1,
+		Description: "outingStep1",
+		Start:       now.Add(time.Hour * 11),
+		End:         now.Add(time.Hour * 12),
+		Votes:       nil,
+	}
+	err := s.db.CreateOutingStep(&outingStep1)
+	s.Require().NoError(err)
+
+	// Only one No vote
+	err = s.db.UpsertOutingStepVote(&data.OutingStepVote{
+		GroupMemberID: 1,
+		OutingStepID:  outingStep1.ID,
+		Vote:          false,
+		VotedAt:       now,
+	})
+
+	err = s.runVoteDeadlineJob(outing1)
+	s.NoError(err)
+
+	outing1Db, err := s.db.GetOutingWithSteps(outing1)
+	s.Require().NoError(err)
+
+	s.Len(outing1Db.Steps, 0)
+}
+
+func (s *DataIntegrationTestSuite) Test_VoteDeadlineJob_Succeeds_WhenOneApprovedOuting() {
+	now, outing1, place1 := s.setupOutingAndPlace()
+
+	outingStep1 := data.OutingStep{
+		OutingID:    outing1,
+		PlaceID:     place1,
+		Description: "outingStep1",
+		Start:       now.Add(time.Hour * 11),
+		End:         now.Add(time.Hour * 12),
+		Votes:       nil,
+	}
+	err := s.db.CreateOutingStep(&outingStep1)
+	s.Require().NoError(err)
+
+	// Only one No vote
+	err = s.db.UpsertOutingStepVote(&data.OutingStepVote{
+		GroupMemberID: 1,
+		OutingStepID:  outingStep1.ID,
+		Vote:          true,
+		VotedAt:       now,
+	})
+
+	err = s.runVoteDeadlineJob(outing1)
+	s.NoError(err)
+
+	outing1Db, err := s.db.GetOutingWithSteps(outing1)
+	s.Require().NoError(err)
+
+	s.Len(outing1Db.Steps, 1)
+}
+
+func (s *DataIntegrationTestSuite) Test_VoteDeadlineJob_Succeeds_WhenOneApprovedOneUnapprovedIntersectingOuting() {
+	now, outing1, place1 := s.setupOutingAndPlace()
+
+	outingStep1 := data.OutingStep{
+		OutingID:    outing1,
+		PlaceID:     place1,
+		Description: "outingStep1",
+		Start:       now.Add(time.Hour * 11),
+		End:         now.Add(time.Hour * 12),
+		Votes:       nil,
+	}
+	err := s.db.CreateOutingStep(&outingStep1)
+	s.Require().NoError(err)
+
+	outingStep2 := data.OutingStep{
+		OutingID:    outing1,
+		PlaceID:     place1,
+		Description: "outingStep2",
+		Start:       now.Add(time.Hour * 11),
+		End:         now.Add(time.Hour * 12),
+		Votes:       nil,
+	}
+	err = s.db.CreateOutingStep(&outingStep2)
+	s.Require().NoError(err)
+
+	// Only one No vote
+	err = s.db.UpsertOutingStepVote(&data.OutingStepVote{
+		GroupMemberID: 1,
+		OutingStepID:  outingStep1.ID,
+		Vote:          true,
+		VotedAt:       now,
+	})
+
+	err = s.runVoteDeadlineJob(outing1)
+	s.NoError(err)
+
+	outing1Db, err := s.db.GetOutingWithSteps(outing1)
+	s.Require().NoError(err)
+
+	s.Len(outing1Db.Steps, 1)
+}
