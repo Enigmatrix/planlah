@@ -62,17 +62,8 @@ func checkApproved(outingStep data.OutingStep) bool {
 	return voteYes >= voteNo
 }
 
-// TODO need to unit test this!
-
-func (job *VoteDeadlineJob) Run(ctx context.Context, j *gue.Job) error {
-
-	var args VoteDeadlineJobArgs
-	err := json.Unmarshal(j.Args, &args)
-	if err != nil {
-		return errors.Annotate(err, "parse voteDeadlineJob args")
-	}
-
-	outing, err := job.Database.GetOutingWithSteps(args.OutingId)
+func (job *VoteDeadlineJob) RunCore(outingId uint) error {
+	outing, err := job.Database.GetOutingWithSteps(outingId)
 	if err != nil {
 		if errors.Is(err, data.EntityNotFound) {
 			return errors.Annotate(err, "outing not found")
@@ -81,9 +72,20 @@ func (job *VoteDeadlineJob) Run(ctx context.Context, j *gue.Job) error {
 	}
 
 	// remove all unapproved steps
-	steps := lo.Filter(outing.Steps, func(t data.OutingStep, _ int) bool {
-		return checkApproved(t)
-	})
+	unapproved := make([]data.OutingStep, 0)
+	steps := make([]data.OutingStep, 0)
+	for _, step := range outing.Steps {
+		if checkApproved(step) {
+			steps = append(steps, step)
+		} else {
+			unapproved = append(unapproved, step)
+		}
+	}
+
+	err = job.Database.DeleteOutingSteps(unapproved)
+	if err != nil {
+		return errors.Annotate(err, "delete unapproved outing steps")
+	}
 
 	// Sort the outing steps makes it easier to find collisions
 	sort.Slice(steps, func(i, j int) bool {
@@ -112,4 +114,14 @@ func (job *VoteDeadlineJob) Run(ctx context.Context, j *gue.Job) error {
 	}
 
 	return nil
+}
+
+func (job *VoteDeadlineJob) Run(ctx context.Context, j *gue.Job) error {
+	var args VoteDeadlineJobArgs
+	err := json.Unmarshal(j.Args, &args)
+	if err != nil {
+		return errors.Annotate(err, "parse voteDeadlineJob args")
+	}
+
+	return job.RunCore(args.OutingId)
 }

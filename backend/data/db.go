@@ -902,17 +902,12 @@ func (db *Database) GetAllOutings(groupId uint) ([]Outing, error) {
 	return outings, nil
 }
 
-// DeleteOutingStep Delete the outing step with the same ID
-func (db *Database) DeleteOutingStep(outingStepId uint) error {
-	err := db.conn.Delete(OutingStep{}, outingStepId).Error
-	return errors.Trace(err)
-}
-
 // DeleteOutingSteps Deletes outings steps with the same ID
 func (db *Database) DeleteOutingSteps(outingSteps []OutingStep) error {
-	err := db.conn.Delete(OutingStep{}, lo.Map(outingSteps, func(t OutingStep, _ int) uint {
+	ids := lo.Map(outingSteps, func(t OutingStep, _ int) uint {
 		return t.ID
-	})).Error
+	})
+	err := db.conn.Where("id in ?", ids).Delete(OutingStep{}).Error
 	return errors.Trace(err)
 }
 

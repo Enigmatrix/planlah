@@ -101,15 +101,15 @@ type Outing struct {
 }
 
 type OutingStep struct {
-	ID          uint      `gorm:"primarykey"`
-	OutingID    uint      `gorm:"not null"`
-	Outing      *Outing   `gorm:"foreignKey:OutingID"`
-	PlaceID     uint      `gorm:"not null"`
-	Place       *Place    `gorm:"foreignKey:PlaceID"`
-	Description string    `gorm:"not null"`
-	Start       time.Time `gorm:"not null"`
-	End         time.Time `gorm:"not null"`
-	Votes       []OutingStepVote
+	ID          uint             `gorm:"primarykey"`
+	OutingID    uint             `gorm:"not null"`
+	Outing      *Outing          `gorm:"foreignKey:OutingID"`
+	PlaceID     uint             `gorm:"not null"`
+	Place       *Place           `gorm:"foreignKey:PlaceID"`
+	Description string           `gorm:"not null"`
+	Start       time.Time        `gorm:"not null"`
+	End         time.Time        `gorm:"not null"`
+	Votes       []OutingStepVote `gorm:"OnDelete:CASCADE;"`
 }
 
 type OutingStepVote struct {
