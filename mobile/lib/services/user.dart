@@ -19,7 +19,10 @@ class UserService extends BaseConnect {
 
   Future<Response<void>> create(CreateUserDto dto) async {
     final formData = FormData(dto.toJson());
-    return await post<void>('/users/create', formData);
+    return await post<void>(
+        '/users/create',
+        formData
+    );
   }
 
   Future<Response<List<UserSummaryDto>?>> searchForFriends(int page, String query) async {

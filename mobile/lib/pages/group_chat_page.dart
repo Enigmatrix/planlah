@@ -16,8 +16,8 @@ import 'package:group_button/group_button.dart';
 
 import '../dto/group_invite.dart';
 import '../dto/user.dart';
-import 'CreateOutingPage.dart';
 import 'chat_components.dart';
+import 'create_outing_page.dart';
 
 class GroupChatPage extends StatefulWidget {
   GroupSummaryDto chatGroup;

@@ -64,7 +64,7 @@ func ToUserSummaryDto(user data.User) UserSummaryDto {
 // @Router /api/users/create [post]
 func (ctr *UserController) Create(ctx *gin.Context) {
 	var dto CreateUserDto
-	if Body(ctx, &dto) {
+	if Form(ctx, &dto) {
 		return
 	}
 
@@ -259,5 +259,6 @@ func (ctr *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	users.GET("me/info", ctr.GetInfo)
 	users.GET("get", ctr.GetUserInfo)
+	users.GET("create", ctr.Create)
 	users.GET("search_for_friends", ctr.SearchForFriends)
 }

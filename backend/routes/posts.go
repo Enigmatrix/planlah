@@ -13,7 +13,7 @@ type PostsController struct {
 }
 
 type ListPostsDto struct {
-	Page string `form:"page" query:"page" binding:"required"`
+	Page data.Pagination
 }
 
 type MakePostDto struct {
@@ -56,12 +56,7 @@ func (ctr *PostsController) GetAll(ctx *gin.Context) {
 		return
 	}
 
-	pageNo, err := convertPageToUInt(dto.Page)
-	if err != nil {
-		FailWithMessage(ctx, "Failed to convert page to int")
-	}
-
-	reqs, err := ctr.Database.SearchForPosts(userId, pageNo)
+	reqs, err := ctr.Database.SearchForPosts(userId, dto.Page)
 	if err != nil {
 		handleDbError(ctx, err)
 		return

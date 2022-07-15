@@ -11,7 +11,7 @@ class SocialPost extends StatelessWidget {
   SocialPost({required this.post});
 
   String formatHeaderContent() {
-    return "was at ${post.outingStep.placeDto.name} on ${TimeUtil.formatDateTimeForSocialPost(post.postedAt)}";
+    return "was at ${post.outingStep.place.name} on ${TimeUtil.formatDateTimeForSocialPost(post.postedAt)}";
   }
 
   Widget buildHeader() {

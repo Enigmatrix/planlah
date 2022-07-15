@@ -11,7 +11,6 @@ import 'package:intl/intl.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/dto/outing_step.dart';
 import 'package:mobile/dto/user.dart';
-import 'package:mobile/model/user.dart';
 import 'package:mobile/pages/create_outing_step_page.dart';
 import 'package:mobile/services/user.dart';
 import 'package:timelines/timelines.dart';
@@ -38,7 +37,7 @@ class _OutingPageState extends State<OutingPage> {
 
   late OutingDto outing;
   late bool isActive;
-  late UserInfo thisUser;
+  late UserSummaryDto thisUser;
 
   final userSvc = Get.find<UserService>();
   final outingSvc = Get.find<OutingService>();
@@ -163,7 +162,6 @@ class _OutingPageState extends State<OutingPage> {
               ),
       ),
     );
-    return Text("");
   }
 
   Widget buildVoteDeadlineTimeline(BuildContext context, bool noSteps) {

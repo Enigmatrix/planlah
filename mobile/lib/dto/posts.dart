@@ -1,6 +1,7 @@
-import 'package:mobile/dto/outing.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/utils/time.dart';
+
+import 'outing_step.dart';
 
 class PostDto {
   int id;
