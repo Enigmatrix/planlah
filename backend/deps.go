@@ -29,7 +29,7 @@ var depSet = wire.NewSet(
 	wire.Bind(new(services.ImageService), new(*services.ImageKitImageService)),
 
 	// jobs
-	wire.Struct(new(jobs.VoteDeadlineJob), "*"),
+	jobs.NewVoteDeadlineJob,
 	jobs.NewJobsRunner,
 
 	// database

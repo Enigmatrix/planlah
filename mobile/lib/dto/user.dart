@@ -43,10 +43,10 @@ class UserSummaryDto {
   UserSummaryDto(this.id, this.username, this.name, this.imageLink);
 
   UserSummaryDto.fromJson(Map<String, dynamic> json):
-      id = json["id"] ?? "empty id",
-      username = json["username"] ?? "empty username",
-      name = json["name"] ?? "empty name",
-      imageLink = json["imageLink"] ?? "empty image link";
+      id = json["id"],
+      username = json["username"],
+      name = json["name"],
+      imageLink = json["imageLink"];
 }
 
 class SearchUsersDto {

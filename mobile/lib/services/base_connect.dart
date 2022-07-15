@@ -14,6 +14,7 @@ class BaseConnect extends GetConnect {
   Decoder<T?> decoderFor<T>(T Function(Map<String, dynamic>) from) {
     return (data) {
       if (checkAuthenticationError(data)) return null;
+      if (checkBadRequest(data)) return null;
 
       if (data == null) {
         return null;
@@ -27,6 +28,7 @@ class BaseConnect extends GetConnect {
   Decoder<List<T>?> decoderForList<T>(T Function(Map<String, dynamic>) from) {
     return (data) {
       if (checkAuthenticationError(data)) return null;
+      if (checkBadRequest(data)) return null;
       var list = List.from(data);
       return list.map((x) => from(x)).toList();
     };
@@ -35,9 +37,21 @@ class BaseConnect extends GetConnect {
   Decoder<List<String>?> decoderForListString() {
     return (data) {
       if (checkAuthenticationError(data)) return null;
+      if (checkBadRequest(data)) return null;
       var list = List.from(data);
       return list.map((x) => x as String).toList();
     };
+  }
+
+  bool checkBadRequest(dynamic data) {
+    try {
+      var map = Map<String, dynamic>.from(data);
+      if (map.containsKey("kind")) { // auth error
+        return true;
+      }
+    } on TypeError catch (_) {}
+
+    return false;
   }
 
   bool checkAuthenticationError(dynamic data) {

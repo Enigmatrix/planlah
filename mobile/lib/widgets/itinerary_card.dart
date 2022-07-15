@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
-import 'package:mobile/model/outing_steps.dart';
-
 import '../dto/outing.dart';
+import '../dto/outing_step.dart';
 
 class ItineraryCard extends StatefulWidget {
   OutingStepDto outingStep;
@@ -18,7 +17,7 @@ class ItineraryCard extends StatefulWidget {
     // TODO: Actually build the dialog with a list of reviews
     return AlertDialog(
         title: Text(
-          dto.placeDto.name,
+          dto.place.name,
           style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20
@@ -79,9 +78,9 @@ class _ItineraryCardState extends State<ItineraryCard> {
                 },
                 child: Column(
                   children: <Widget>[
-                    Text(widget.outingStep.placeDto.name),
+                    Text(widget.outingStep.place.name),
                     // TODO: Temporary
-                    Image.network(widget.outingStep.placeDto.imageLink)
+                    Image.network(widget.outingStep.place.imageLink)
                   ],
                 ),
               )

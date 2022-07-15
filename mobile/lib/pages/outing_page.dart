@@ -1,15 +1,23 @@
+import 'dart:async';
+import 'dart:developer' as dev;
+import 'dart:math';
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:duration/duration.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:intl/intl.dart';
 import 'package:mobile/dto/outing.dart';
-import 'package:mobile/main.dart';
-import 'package:mobile/model/chat_group.dart';
-import 'package:mobile/pages/suggestion.dart';
-import 'package:mobile/widgets/itinerary_card.dart';
+import 'package:mobile/dto/outing_step.dart';
+import 'package:mobile/dto/user.dart';
+import 'package:mobile/model/user.dart';
+import 'package:mobile/pages/create_outing_step_page.dart';
+import 'package:mobile/services/user.dart';
 import 'package:timelines/timelines.dart';
 import 'package:get/get.dart';
 
-import '../model/outing_list.dart';
-import '../model/outing_steps.dart';
-import 'suggestion.dart';
+import '../services/outing.dart';
 
 /// Displays the current outing
 
@@ -17,238 +25,592 @@ class OutingPage extends StatefulWidget {
   OutingDto outing;
   bool isActive;
 
-  OutingPage({
-    Key? key,
-    required this.outing,
-    required this.isActive
-  }) : super(key: key);
+  OutingPage({Key? key, required this.outing, required this.isActive})
+      : super(key: key);
 
   @override
   State<OutingPage> createState() => _OutingPageState();
 }
 
 class _OutingPageState extends State<OutingPage> {
-
-  late OutingDto outingDto;
-  late List<OutingStepDto> placesToVote;
   // The current card the user has voted on
   int currentVote = -1;
 
+  late OutingDto outing;
+  late bool isActive;
+  late UserInfo thisUser;
+
+  final userSvc = Get.find<UserService>();
+  final outingSvc = Get.find<OutingService>();
+
+  bool showVoting = true;
+  StreamSubscription? timerWaitStream;
+
+  @override
+  void initState() {
+    super.initState();
+
+    outing = widget.outing;
+    isActive = widget.isActive;
+
+    userSvc.getInfo().then((value) {
+      if (value.isOk) {
+        setState(() => {thisUser = value.body!});
+      } else {
+        dev.log("userSvc.getInfo err: ${value.bodyString}");
+      }
+    });
+
+    if (isActive) {
+      updateShowVoting();
+
+      // Run a 1 second periodic timer until the voteDeadline
+      timerWaitStream = Stream.periodic(const Duration(seconds: 1)).listen((_) {
+        updateShowVoting();
+      });
+    } else {
+      showVoting = false;
+    }
+  }
+
+  void updateShowVoting() {
+    setState(() {
+      final _showVoting = DateTime.now().isBefore(pdate(outing.voteDeadline));
+      showVoting = _showVoting;
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    timerWaitStream?.cancel(); // this is a Future ... wtv
+  }
+
+  final bottomPadding =
+      100.0; // show the floatingActionBar without hiding any content
+  fmtDate(DateTime d) => DateFormat("MM/dd").format(d.toLocal());
+  DateTime pdate(String date) => DateTime.parse(date).toLocal();
+
+  Widget buildOutingStepHelp() {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.help, size: 32.0),
+              Text(
+                "  Create a new Step using ",
+                style: TextStyle(fontSize: 20.0),
+              ),
+              Icon(Icons.add, size: 32.0),
+            ],
+          )
+        ]);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final range =
+        "${fmtDate(pdate(outing.start))} - ${fmtDate(pdate(outing.end))}";
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          (widget.isActive)
-              ? "Active: ${widget.outing.name}"
-              : "History: ${widget.outing.name}",
-          style: const TextStyle(
-            fontWeight: FontWeight.bold
-          ),
-        ),
+        leading:
+            isActive ? const Icon(Icons.timeline) : const Icon(Icons.history),
+        title: Text("${outing.name} ($range)"),
       ),
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverList(
-              delegate: TimelineTileBuilderDelegate(
-                (BuildContext context, int index) {
-                  return buildTimelineTile(index);
-                },
-                childCount: outingDto.getSize(),
-              )
-          ),
-          buildSecondPart()
-        ],
-      )
-    );
-  }
-
-  Widget buildSecondPart() {
-    if (widget.isActive) {
-      return SliverList(
-          delegate: SliverChildBuilderDelegate(
-            buildVotingTab,
-            childCount: placesToVote.length + 1,
-          )
-      );
-    } else {
-      return SliverList(
-        delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return const Center(
-                child: Text(
-                  "End of your outing :)",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-              );
-            },
-          childCount: 1
-        ),
-      );
-    }
-  }
-
-  final Icon voteIcon = const Icon(Icons.where_to_vote_sharp);
-
-  Widget buildVotingCard(BuildContext context, int index) {
-    return Card(
-      child: ListTile(
-        // TODO: Actually properly do this after milestone 2
-        leading: ElevatedButton.icon(
+      floatingActionButton: FloatingActionButton(
           onPressed: () {
-            if (index == currentVote) {
-
-            } else {
-              setState(() {
-                currentVote = index;
-              });
-            }
+            // Add OutingStep
+            Get.to(CreateOutingStepPage(outing: widget.outing));
           },
-          icon: voteIcon,
-          label: buildVoteLabel(index),
-          style: ButtonStyle(
-              backgroundColor: (index == currentVote)
-                  ? MaterialStateProperty.all<Color>(Colors.green)
-                  : MaterialStateProperty.all<Color>(Colors.blue)
-          )
-        ),
-        title: InkWell(
-          onTap: () {
-            showDialog(
-                context: context,
-                builder: (context) => ItineraryCard.buildAboutPlace(context, placesToVote[index])
-            );
-          },
-          child: Image.network(""),
-        ),
+          child: const Icon(Icons.add)),
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                stops: const [
+              0.2,
+              0.7
+            ],
+                colors: [
+              Colors.grey[300]!,
+              Colors.blue[100]!,
+            ])),
+        child: outing.steps.isEmpty
+            ? buildOutingStepHelp()
+            : CustomScrollView(
+                slivers: [
+                  if (showVoting)
+                    SliverToBoxAdapter(
+                        child: buildVoteDeadlineTimeline(
+                            context, outing.steps.isEmpty)),
+                  SliverList(
+                      delegate: TimelineTileBuilderDelegate(
+                    (context, index) {
+                      return buildOutingStepTimelineTile(
+                          context,
+                          outing.steps[index],
+                          index == outing.steps.length - 1);
+                    },
+                    childCount: outing.steps.length,
+                  )),
+                ],
+              ),
       ),
     );
+    return Text("");
   }
 
-  Widget buildVoteLabel(int index) {
-    return Text(
-      "Vote",
-      style: TextStyle(
-        color: (index == currentVote) ? Colors.green : Colors.grey
-      ),
-    );
-  }
-
-
-  Widget buildVotingTab(BuildContext context, int index) {
-    if (index == 0) {
-      return Column(
-        children: <Widget>[
-          const Text(
-            "Voting starts here",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 26
-            ),
-          ),
-          buildVotingCard(context, index),
-        ],
-      );
-    }
-    else if (index == placesToVote.length) {
-      return Column(
-        children: <Widget>[
-          ElevatedButton.icon(
-              onPressed: (){
-                // TODO:
-                Get.snackbar(
-                  "Work in progress",
-                  "Bob the builder says hi :)",
-                  backgroundColor: Colors.yellow
-                ).show();
-              },
-              icon: voteIcon,
-              label: const Text(
-                "Confirm your vote!"
-              )
-          ),
-          const Text(
-            "Suggest a place!",
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.black87
-            ),
-          ),
-          buildSuggestionButton(),
-        ],
-      );
-    } else {
-      return buildVotingCard(context, index);
-    }
-  }
-  
-  Widget buildSuggestionButton() {
-    return TextButton(
-        onPressed: () {
-          // Suggestion interface
-          Get.to(() => SuggestionPage());
-        },
-        child: Text(
-          "Suggest",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.blueAccent.shade700
-          ),
-        )
-    );
-  }
-
-  Widget buildTimelineTile(int index) {
+  Widget buildVoteDeadlineTimeline(BuildContext context, bool noSteps) {
     return TimelineTile(
       node: TimelineNode(
         indicator: Container(
-          decoration: BoxDecoration(
-              border: (index == widget.outing.getCurrentOuting())
-                  ? Border.all(color: Colors.redAccent.shade700)
-                  : Border.all(color: Colors.blueAccent.shade100)
-          ),
-          child: Text(
-              formatTime(outingDto.getOutingStep(index))
-          ),
+          decoration: const BoxDecoration(),
+          child: Card(
+              color: Colors.indigo[400],
+              shape: const CircleBorder(),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(fmtDateTime(outing.voteDeadline),
+                    style: TextStyle(fontSize: 12.0, color: Colors.grey[400]!)),
+              )),
         ),
-        startConnector: getStartConnector(index),
-        endConnector: getEndConnector(index),
+        startConnector: const SolidLineConnector(),
+        endConnector: const SolidLineConnector(),
       ),
       nodeAlign: TimelineNodeAlign.start,
-      contents: ItineraryCard(
-        outingStep: outingDto.getOutingStep(index),
-      ),
-      oppositeContents: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text("Opposite Content"),
+      contents: Card(
+        color: Colors.indigo[500]!,
+        elevation: 8.0,
+        margin: EdgeInsets.only(
+            right: 12.0, left: 4.0, bottom: noSteps ? bottomPadding : 0.0),
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: ListTile(
+            leading: Icon(
+              Icons.how_to_vote,
+              color: Colors.grey[500]!,
+            ),
+            title: Text(
+              "Vote ends at ${durTill(DateTime.now(), pdate(outing.voteDeadline))}",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15.0,
+                  color: Colors.grey[300]!),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            dense: true,
+            minVerticalPadding: 0,
+            minLeadingWidth: 0,
+            visualDensity: VisualDensity.compact,
+          ),
+        ),
       ),
     );
   }
-  
-  Widget? getStartConnector(int index) {
-    if (index == 0) {
-      return null;
-    } else if (index <= outingDto.getCurrentOuting()) {
-      return const DashedLineConnector();
-    } else {
-      return const SolidLineConnector();
-    }
+
+  Widget buildOutingStepTimelineTileConflicts(
+      BuildContext context, List<OutingStepDto> conflictingSteps, bool isLast) {
+    conflictingSteps.sort((a, b) => pdate(a.start).compareTo(pdate(b.start)));
+    final step = conflictingSteps[0];
+    return TimelineTile(
+        node: TimelineNode(
+          indicator: Container(
+            decoration: const BoxDecoration(),
+            child: Card(
+                shape: const CircleBorder(),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(fmtDateTime(step.start),
+                      style: const TextStyle(fontSize: 12.0)),
+                )),
+          ),
+          startConnector: const SolidLineConnector(),
+          endConnector: const SolidLineConnector(),
+        ),
+        nodeAlign: TimelineNodeAlign.start,
+        contents: Card(
+          color: Colors.orange,
+          elevation: 8.0,
+          margin: EdgeInsets.only(
+              top: 12.0, right: 8.0, bottom: isLast ? bottomPadding : 0.0),
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Column(
+              children: [
+                const ListTile(
+                  leading: Icon(Icons.warning),
+                  title: Text(
+                    "CONFLICTS",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  ),
+                  dense: true,
+                  minVerticalPadding: 0,
+                  minLeadingWidth: 0,
+                  visualDensity: VisualDensity.compact,
+                ),
+                Column(
+                  children: conflictingSteps
+                      .map((step) => buildOutingStepCard(step, true))
+                      .toList(),
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 
-  Widget? getEndConnector(int index) {
-    if (index >= outingDto.getCurrentOuting()) {
-      return null;
-    } else if (index < outingDto.getCurrentOuting()) {
-      return const DashedLineConnector();
-    } else {
-      return const SolidLineConnector();
-    }
+  String fmtDateTime(String d) {
+    final dt = DateTime.parse(d).toLocal();
+    return DateFormat("MM/dd\nHH:mm").format(dt);
   }
-  
-  String formatTime(OutingStepDto outingStep) {
-    return "${outingStep.start} - ${outingStep.end}";
+
+  String fmtTime(String d) {
+    final dt = DateTime.parse(d).toLocal();
+    return DateFormat("HH:mm").format(dt);
+  }
+
+  String dur(OutingStepDto step) {
+    final s = DateTime.parse(step.start).toLocal();
+    final e = DateTime.parse(step.end).toLocal();
+    return durTill(s, e);
+  }
+
+  String durTill(DateTime s, DateTime e) {
+    var odiff = e.difference(s);
+    var diff = Duration(
+        days: odiff.inDays, hours: odiff.inHours, minutes: odiff.inMinutes);
+    if (diff < const Duration(minutes: 5)) {
+      diff = Duration(minutes: odiff.inMinutes, seconds: odiff.inSeconds);
+    }
+    return prettyDuration(diff, abbreviated: true);
+  }
+
+  Widget buildOutingStepTimelineTileNoConflicts(
+      BuildContext context, OutingStepDto step, bool isLast) {
+    return TimelineTile(
+      node: TimelineNode(
+        indicator: Container(
+          decoration: const BoxDecoration(),
+          child: Card(
+              shape: const CircleBorder(),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  fmtDateTime(step.start),
+                  style: const TextStyle(fontSize: 12.0),
+                ),
+              )),
+        ),
+        startConnector: const SolidLineConnector(),
+        endConnector: const SolidLineConnector(),
+      ),
+      nodeAlign: TimelineNodeAlign.start,
+      contents: Padding(
+        padding: EdgeInsets.only(
+            top: 12.0, right: 8.0, bottom: isLast ? bottomPadding : 0.0),
+        child: buildOutingStepCard(step, false),
+      ),
+    );
+  }
+
+  static const titleStyle =
+      TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold);
+
+  Widget buildVotePart(bool vote, OutingStepDto step) {
+    var votes = step.outingStepVoteDtos;
+    const border =
+        CircleBorder(side: BorderSide(color: Colors.indigo, width: 1));
+    var alignment = MainAxisAlignment.end;
+    var voteColor = Colors.red;
+    var voteText = "NO";
+    var voteIcon = Icons.close;
+    var voteBg = Colors.white;
+
+    if (vote) {
+      voteColor = Colors.green;
+      voteIcon = Icons.check;
+      voteText = "YES";
+      alignment = MainAxisAlignment.start;
+    }
+
+    votes = votes.where((element) => element.vote == vote).toList();
+
+    // for test
+    // votes = {
+    //   OutingStepVoteDto(
+    //       true,
+    //       UserSummaryDto(1, "Akash", "akash",
+    //           "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
+    //   OutingStepVoteDto(
+    //       true,
+    //       UserSummaryDto(2, "WWE", "wwe",
+    //           "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
+    //   OutingStepVoteDto(
+    //       true,
+    //       UserSummaryDto(3, "Akash", "akash",
+    //           "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
+    //   OutingStepVoteDto(
+    //       true,
+    //       UserSummaryDto(4, "WWE", "wwe",
+    //           "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
+    // }.toList();
+
+    bool hasUserVoted =
+        votes.any((element) => element.userSummaryDto.id == thisUser.id);
+
+    var voteBtnChild = ElevatedButton.icon(
+      onPressed: () async {
+        final resp = await outingSvc.vote(step.id, vote);
+        if (resp.isOk) {
+          // TODO display voting
+        } else {
+          dev.log("outingSvc.vote err: ${resp.bodyString}");
+        }
+      },
+      icon: Icon(voteIcon, color: hasUserVoted ? voteBg : voteColor),
+      label: Text(voteText,
+          style: TextStyle(color: hasUserVoted ? voteBg : voteColor)),
+      style: ButtonStyle(
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+              side: BorderSide(
+                  color: hasUserVoted ? voteBg : voteColor, width: 1.0))),
+          backgroundColor:
+              MaterialStateProperty.all(!hasUserVoted ? voteBg : voteColor)),
+    );
+
+    int shown = 3;
+    double shift = 16.0;
+    int more = votes.length - shown;
+    votes = votes.take(shown).toList();
+
+    List<Widget> elements;
+
+    if (votes.isEmpty) {
+      elements = [Positioned(
+          top: 0,
+          bottom: 0,
+          right: !vote ? 0 : null,
+          left: vote ? 0 : null,
+          child: const Card(
+            elevation: 2.0,
+            color: Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Center(
+                child: Text("NO VOTES",
+                      style: TextStyle(fontSize: 11.0, color: Colors.blue, fontWeight: FontWeight.bold)
+                ),
+              ),
+            ),
+          ))];
+    } else {
+      elements = votes
+          .asMap()
+          .map((i, v) => MapEntry(
+          i,
+          Positioned(
+            top: 0,
+            bottom: 0,
+            right: !vote ? shift * i : null,
+            left: vote ? shift * i : null,
+            child: Material(
+              elevation: 4.0,
+              shape: border,
+              child: CircleAvatar(
+                radius: 14.0,
+                backgroundImage:
+                CachedNetworkImageProvider(v.userSummaryDto.imageLink),
+              ),
+            ),
+          )))
+          .values
+          .toList();
+
+      if (more > 0) {
+        final restCount = Positioned(
+            top: 0,
+            bottom: 0,
+            right: !vote ? shift * shown : null,
+            left: vote ? shift * shown : null,
+            child: Material(
+              elevation: 4.0,
+              shape: border,
+              child: CircleAvatar(
+                radius: 14.0,
+                backgroundColor: const Color.fromARGB(0x22, 0x22, 0x22, 0x22),
+                child: Text("+$more",
+                    style: const TextStyle(fontSize: 11.0, color: Colors.blue)),
+              ),
+            ));
+        elements.add(restCount);
+      }
+    }
+
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 32,
+                child: Row(mainAxisSize: MainAxisSize.max, children: [
+                  Expanded(
+                    child: Stack(children: elements),
+                  )
+                ]),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: alignment,
+              children: [voteBtnChild],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildOutingStepCard(OutingStepDto step, bool isConflicting) {
+    return Card(
+        elevation: isConflicting ? 2.0 : 8.0,
+        color: isConflicting ? Colors.orange[100]! : Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              title: Text(
+                "${step.description} @ ${step.place.name}",
+                style: titleStyle,
+                overflow: TextOverflow.ellipsis,
+              ),
+              subtitle: Row(
+                children: [
+                  Text(fmtTime(step.start),
+                      style: const TextStyle(
+                          color: Colors.blueAccent, fontSize: 13.0)),
+                  const Text(" till ",
+                      style: TextStyle(color: Colors.grey, fontSize: 13.0)),
+                  Text(fmtTime(step.end),
+                      style: const TextStyle(
+                          color: Colors.blueAccent, fontSize: 13.0)),
+                  const Text(", ",
+                      style: TextStyle(color: Colors.grey, fontSize: 13.0)),
+                  Text(dur(step),
+                      style:
+                          const TextStyle(color: Colors.blue, fontSize: 13.0)),
+                ],
+              ),
+              minVerticalPadding: 0,
+              visualDensity: VisualDensity.compact,
+              dense: true,
+              contentPadding:
+                  const EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: ListTile(
+                leading: const Icon(Icons.place),
+                dense: true,
+                horizontalTitleGap: 10,
+                minLeadingWidth: 0,
+                minVerticalPadding: 0,
+                // contentPadding: EdgeInsets.zero,
+                visualDensity: VisualDensity.compact,
+                title: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    step.place.formattedAddress.trim(),
+                    style: TextStyle(
+                        color: Colors.black.withOpacity(0.6), fontSize: 12.0),
+                  ),
+                ),
+              ),
+            ),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 200.0),
+              child: CachedNetworkImage(
+                imageUrl: step.place.imageLink,
+                fit: BoxFit.fill,
+              ),
+            ),
+            if (showVoting)
+              buildVoteCompletePart(step)
+          ],
+        ));
+  }
+
+  Widget buildVoteCompletePart(OutingStepDto step) {
+    final yesCount = step.outingStepVoteDtos.where((element) => element.vote).length;
+    final noCount = step.outingStepVoteDtos.length - yesCount;
+    final yesPercent = yesCount / (yesCount + noCount);
+    // TODO show undecidedCount
+
+    double round = 10.0;
+    double count1 = yesPercent - round;
+    double count2 = yesPercent + round;
+
+    count1 = max(0, count1);
+    count2 = min(100, count2);
+
+    if (yesCount == 0 && noCount != 0) {
+      count1 = 0;
+      count2 = 0;
+    } else if (noCount == 0) {
+      count1 = 1.0;
+      count2 = 1.0;
+    }
+
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    stops: [count1, count2],
+                    colors: [
+                      Colors.green[300]!,
+                      Colors.red[300]!,
+                    ])),
+          ),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            buildVotePart(true, step),
+            buildVotePart(false, step),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget buildOutingStepTimelineTile(
+      BuildContext context, List<OutingStepDto> conflictingSteps, bool isLast) {
+    if (conflictingSteps.length == 1) {
+      return buildOutingStepTimelineTileNoConflicts(
+          context, conflictingSteps[0], isLast);
+    } else {
+      return buildOutingStepTimelineTileConflicts(
+          context, conflictingSteps, isLast);
+    }
   }
 }

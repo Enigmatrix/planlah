@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/dto/outing_step.dart';
 
 import '../dto/outing.dart';
 
@@ -13,10 +14,14 @@ class SuggestionPage extends StatefulWidget {
 
 class _SuggestionPageState extends State<SuggestionPage> {
 
-  late List<OutingStepDto> steps;
-
+  // List<OutingStepDto> steps = OutingStepDto.getHistoricalOutingStepDtos();
   @override
   Widget build(BuildContext context) {
+    return const Text("suggestions todo");
+  }
+
+  @override
+  Widget buildLegacy(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -45,12 +50,12 @@ class _SuggestionPageState extends State<SuggestionPage> {
             const Text(
               "Click on a card to find out more information"
             ),
-            Expanded(
+            /*Expanded(
                 child: ListView.builder(
                   itemCount: steps.length,
                   itemBuilder: (context, index) => buildSuggestionCard(context, steps[index])
                 )
-            ),
+            ),*/
           ],
         ),
       )
@@ -61,12 +66,12 @@ class _SuggestionPageState extends State<SuggestionPage> {
     return Card(
       child: ListTile(
         leading: Text(
-          stepDto.placeDto.name,
+          stepDto.description,
         ),
-        title: Image.network(stepDto.placeDto.imageLink),
+        title: Image.network(stepDto.place.location),
         onTap: () {
           Get.defaultDialog(
-            title: stepDto.placeDto.name,
+            title: stepDto.description,
             content: Column(
               children: <Widget>[
                 Padding(

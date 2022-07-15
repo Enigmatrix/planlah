@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/services/base_connect.dart';
 
+import '../dto/outing_step.dart';
+
 class OutingService extends BaseConnect {
   /// Get all Outings for a Group
   Future<Response<List<OutingDto>?>> getAllOutings(int groupId) async {
@@ -17,11 +19,10 @@ class OutingService extends BaseConnect {
   }
 
   /// Create a new Outing for a Group
-  Future<Response<OutingDto?>> create(CreateOutingDto dto) async {
+  Future<Response> createOuting(CreateOutingDto dto) async {
     return await post<OutingDto?>(
         "/outing/create",
         dto.toJson(),
-        decoder: decoderFor(OutingDto.fromJson)
     );
   }
 
@@ -33,4 +34,25 @@ class OutingService extends BaseConnect {
       decoder: decoderFor(OutingDto.fromJson)
     );
   }
+
+  /// Create an OutingStep
+  Future<Response> createOutingStep(CreateOutingStepDto dto) async {
+    return await post(
+        "/outing/create_step",
+        dto.toJson(),
+    );
+  }
+
+  /// Vote for an OutingStep
+  Future<Response> vote(int outingStepId, bool vote) async {
+    return await put(
+        "/outing/vote",
+        {
+          "vote": vote,
+          "outingStepId": outingStepId
+        },
+    );
+  }
+
+
 }
