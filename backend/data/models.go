@@ -109,7 +109,7 @@ type OutingStep struct {
 	Description string           `gorm:"not null"`
 	Start       time.Time        `gorm:"not null"`
 	End         time.Time        `gorm:"not null"`
-	Votes       []OutingStepVote `gorm:"OnDelete:CASCADE;"`
+	Votes       []OutingStepVote `gorm:"constraint:OnDelete:CASCADE;"`
 }
 
 type OutingStepVote struct {
