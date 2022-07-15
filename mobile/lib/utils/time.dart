@@ -4,8 +4,7 @@ import 'package:lit_relative_date_time/lit_relative_date_time.dart';
 
 class TimeUtil {
   static String now() {
-    var now = DateTime.now().toUtc();
-    print("now = $now");
+    var now = DateTime.now().toLocal();
     // Could the flutter devs really not do this????????????
     return "${DateFormat("yyyy-MM-ddTHH:mm:ss").format(now)}Z";
   }
@@ -28,7 +27,7 @@ class TimeUtil {
 
   static String formatForGroup(BuildContext context, String string) {
     DateTime dt = DateTime.parse(string);
-    DateTime now = DateTime.now();
+    DateTime now = DateTime.now().toLocal();
 
     // If exactly the same day, just return the time
     // Else, return the relative datetime
@@ -42,8 +41,21 @@ class TimeUtil {
     }
   }
 
-  static String formatForChatGroup(String string) {
+  static String formatDateTimeForSocialPost(DateTime dt) {
+    return "${dt.day}/${dt.month}/${dt.year} at ${dt.hour}:${dt.minute}";
+  }
+
+  static String formatForFrontend(String string) {
     final dt = DateTime.parse(string).toLocal();
     return "${dt.day}/${dt.month} ${dt.hour}:${dt.minute}";
   }
+
+  static DateTime parseFromDto(String? string) {
+    if (string == null) {
+      return DateTime.now();
+    } else {
+      return DateTime.parse(string).toLocal();
+    }
+  }
+
 }

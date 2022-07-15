@@ -13,10 +13,11 @@ class GroupSummaryDto {
     String description;
     MessageDto? lastSeenMessage;
     int? unreadMessageCount;
+    bool isDm;
 
 
     GroupSummaryDto(this.id, this.name, this.imageLink, this.description,
-      this.lastSeenMessage, this.unreadMessageCount);
+        this.lastSeenMessage, this.unreadMessageCount, this.isDm);
 
     GroupSummaryDto.fromJson(Map<String, dynamic> json)
         : id = json['id'],
@@ -24,8 +25,8 @@ class GroupSummaryDto {
           imageLink = json["imageLink"],
           description = json['description'],
           lastSeenMessage = json["lastSeenMessage"] == null ? null : MessageDto.fromJson(json["lastSeenMessage"]),
-          unreadMessageCount = json["unreadMessagesCount"];
-
+          unreadMessageCount = json["unreadMessagesCount"],
+          isDm = json["isDm"];
 
     Map<String, dynamic> toJson() => {
         'description': description,
@@ -52,36 +53,12 @@ class CreateGroupDto {
     };
 }
 
-/// Cool way to make an enum that supports string values in Dart
-abstract class ExpiryOption {
-    static String get oneHour => "oneHour";
-    static String get oneDay => "oneDay";
-    static String get never => "never";
-}
-
-class CreateGroupInviteDto {
-    String expiryOption;
+class RefGroupDto {
     int groupId;
 
-    CreateGroupInviteDto(this.expiryOption, this.groupId);
+    RefGroupDto(this.groupId);
 
     Map<String, dynamic> toJson() => {
-        "expiryOption": expiryOption,
-        "groupId": groupId
+        "groupId": groupId.toString()
     };
-}
-
-class GroupInviteDto {
-    String expiry;
-    int groupId;
-    String id;
-    String url;
-
-    GroupInviteDto(this.expiry, this.groupId, this.id, this.url);
-
-    GroupInviteDto.fromJson(Map<String, dynamic> json)
-        :   expiry = json["expiry"] ?? "never",  // if expiryOption == null, this will be null
-            groupId = json["groupId"],
-            id = json["id"],
-            url = json["url"];
 }

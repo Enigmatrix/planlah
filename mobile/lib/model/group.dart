@@ -1,5 +1,5 @@
-import 'package:mobile/model/user.dart';
 
+import '../dto/user.dart';
 import 'location.dart';
 
 class GroupSummaryInfo {
@@ -12,8 +12,8 @@ class GroupSummaryInfo {
 }
 
 class GroupInfo {
-  UserInfo owner;
-  List<UserInfo> members;
+  UserSummaryDto owner;
+  List<UserSummaryDto> members;
   // TODO: To add actual itinerary and current location legitly
   LocationInfo currentLocation;
 

@@ -86,6 +86,7 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 			&Outing{},
 			&OutingStep{},
 			&OutingStepVote{},
+			&Post{},
 		}
 
 		// Neat trick to migrate models with complex relationships, run auto migrations once
@@ -370,17 +371,27 @@ func (db *Database) PendingFriendRequests(userId uint, page Pagination) ([]Frien
 // ListFriends Lists all users who are friends of the current user
 func (db *Database) ListFriends(userId uint, page Pagination) ([]User, error) {
 	var users []User
-	err := db.conn.Model(&FriendRequest{}).
-		Where(&FriendRequest{
-			ToID:   userId,
-			Status: Approved,
-		}).
-		Joins("inner join users u on u.id = from_id").
-		Select("u.*").
-		Find(&users).
-		Offset(page.Offset()).
-		Limit(page.Limit()).
+
+	err := db.conn.Raw(`
+SELECT u.*
+FROM users AS u
+INNER JOIN
+(
+	SELECT from_id
+	FROM friend_requests
+	WHERE to_id = ?
+	AND status = 'approved'
+	UNION
+	SELECT to_id
+	FROM friend_requests
+	WHERE from_id = ?
+	AND status = 'approved'
+) AS friend_id
+ON u.id = friend_id.from_id
+LIMIT ? OFFSET ?`, userId, userId, page.Limit(), page.Offset()).
+		Scan(&users).
 		Error
+
 	if err != nil {
 		return nil, errors.Trace(err)
 	}
@@ -588,6 +599,19 @@ func (db *Database) AddUserToGroup(userId uint, grpId uint) (GroupMember, error)
 	return grpMember, nil
 }
 
+// RemoveUserFromGroup Removes a User from a Group
+func (db *Database) RemoveUserFromGroup(userId uint, grpId uint) error {
+
+	grpMember := GroupMember{GroupID: grpId, UserID: userId}
+	err := db.conn.Delete(grpMember).Error
+
+	if err != nil {
+		return errors.Trace(err)
+	}
+
+	return nil
+}
+
 // GetGroupMember Gets the GroupMember of the User and Group.
 func (db *Database) GetGroupMember(userId uint, groupId uint) (*GroupMember, error) {
 	var grpMember GroupMember
@@ -604,6 +628,45 @@ func (db *Database) GetGroupMember(userId uint, groupId uint) (*GroupMember, err
 // CreateGroup Creates a Group
 func (db *Database) CreateGroup(group *Group) error {
 	return errors.Trace(db.conn.Omit("OwnerID", "ActiveOutingID").Create(group).Error)
+}
+
+func (db Database) GetDMGroup(userId, otherUserId uint) (GroupInfo, error) {
+	if v, err := db.IsFriend(userId, otherUserId); err == nil && !v {
+		return GroupInfo{}, NotFriend
+	} else if err != nil {
+		return GroupInfo{}, errors.Annotate(err, "IsFriend failed")
+	}
+	var grp GroupInfo
+	// There might be a better way to do the SQL query but this is what I thought of at 3am
+	err := db.conn.Model(&GroupMember{}).
+		Raw(`
+SELECT g.*
+FROM groups AS g
+INNER JOIN
+(
+    SELECT * 
+    FROM
+    (
+        SELECT COUNT(*) AS count, gm.group_id
+        FROM group_members AS gm
+        WHERE gm.user_id = ? OR gm.user_id = ?
+        GROUP BY gm.group_id
+    ) AS temp
+    WHERE temp.count = 2
+)  AS gm
+ON g.id = gm.group_id
+WHERE g.is_dm = true`, userId, otherUserId).
+		First(&grp).
+		Error
+
+	if err != nil {
+		if isNotFoundInDb(err) {
+			return GroupInfo{}, EntityNotFound
+		}
+		return GroupInfo{}, errors.Trace(err)
+	}
+
+	return grp, nil
 }
 
 // CreateDMGroup Creates a DM Group
@@ -634,6 +697,7 @@ func (db *Database) CreateDMGroup(userId uint, otherUserId uint) (Group, error) 
 	group := Group{
 		IsDM: true,
 	}
+
 	err = db.conn.Omit("OwnerID", "ActiveOutingID").Create(&group).Error
 	if err != nil {
 		return Group{}, errors.Trace(err)
@@ -1022,4 +1086,63 @@ func (db *Database) GetPlaces(placeIds []uint) ([]Place, error) {
 		return nil, errors.Trace(err)
 	}
 	return places, nil
+}
+
+// SearchForPosts Search for posts made by friends, with pagination
+func (db *Database) SearchForPosts(userId uint, page Pagination) ([]Post, error) {
+	var posts []Post
+	// These Preloads are essential to avoid nil pointer references
+	// Gorm does not load the relations by default so when you try to initialize these variables to their data classes
+	// without doing the preloads, you will run into pain and tears
+	err := db.conn.Model(&Post{}).
+		Preload("OutingStep.Place", SelectPlaces).
+		Preload("OutingStep.Votes").
+		Preload("User").
+		Preload("OutingStep").
+		Raw(`
+SELECT p.*
+FROM posts AS p
+INNER JOIN
+(
+    SELECT from_id
+    FROM friend_requests
+    WHERE to_id = ?
+    AND status = 'approved'
+    UNION
+    SELECT to_id
+    FROM friend_requests
+    WHERE from_id = ?
+    AND status = 'approved'
+) AS friend_id
+ON p.user_id = friend_id.from_id
+LIMIT ? OFFSET ?`, userId, userId, page.Limit(), page.Offset()).
+		Find(&posts).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return posts, nil
+}
+
+func (db *Database) GetAllGroupMembers(groupId uint) ([]User, error) {
+	var users []User
+	err := db.conn.Model(&User{}).
+		Raw(`
+SELECT u.*
+FROM users AS u
+INNER JOIN
+(
+	SELECT user_id
+	FROM group_members
+	WHERE group_id = ?
+) AS g
+ON u.id = g.user_id`, groupId).
+		Find(&users).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return users, nil
 }

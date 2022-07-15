@@ -4,13 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/group.dart';
+import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/create_group.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/widgets/group_display_widget.dart';
 
+import '../dto/user.dart';
 import '../model/chat_group.dart';
-import '../model/user.dart';
 
 class GroupsPage extends StatefulWidget {
   const GroupsPage({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _GroupsPageState extends State<GroupsPage> {
   // What's actually displayed
   late List<ChatGroup> groups = [];
   // Used to pass into the chat groups
-  late UserInfo userInfo;
+  late UserSummaryDto userSummaryDto;
 
   // Update the groups
   late Timer timer;
@@ -40,12 +41,8 @@ class _GroupsPageState extends State<GroupsPage> {
   @override
   initState() {
     super.initState();
+    loadUserInfo();
     updateGroups();
-    userService.getInfo().then((value) {
-      setState(() {
-        userInfo = value.body!;
-      });
-    });
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       updateGroups();
     });
@@ -56,6 +53,17 @@ class _GroupsPageState extends State<GroupsPage> {
   void dispose() {
     timer.cancel();
     super.dispose();
+  }
+
+  void loadUserInfo() async {
+    Response<UserSummaryDto?> response = await userService.getInfo();
+    setState(() {
+      if (response.isOk) {
+        userSummaryDto = response.body!;
+      } else {
+        loadUserInfo();
+      }
+    });
   }
 
   void updateGroups() {
@@ -163,7 +171,7 @@ class _GroupsPageState extends State<GroupsPage> {
     return InkWell(
       onTap: () {
         // Add new group here
-        Get.to(() => CreateGroupPage(userInfo: userInfo));
+        Get.to(() => CreateGroupPage(userSummaryDto: userSummaryDto));
       },
       child: Container(
         padding: const EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
@@ -173,6 +181,7 @@ class _GroupsPageState extends State<GroupsPage> {
             color: Colors.pink[50]
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const <Widget>[
             Icon(
               Icons.group_add,
@@ -180,7 +189,7 @@ class _GroupsPageState extends State<GroupsPage> {
               size: 20,
             ),
             SizedBox(
-              width: 2,
+              width: 4,
             ),
             Text(
               "Create New",
@@ -205,7 +214,7 @@ class _GroupsPageState extends State<GroupsPage> {
         // To add page to redirect to
         return GroupDisplay(
           chatGroup: groups[index],
-          userInfo: userInfo,
+          userSummaryDto: userSummaryDto,
         );
       },
     );

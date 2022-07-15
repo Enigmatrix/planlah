@@ -1,94 +1,99 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile/pages/profile_page.dart';
+import 'package:mobile/utils/time.dart';
 
-import '../model/group.dart';
+import '../dto/posts.dart';
 
 class SocialPost extends StatelessWidget {
-  GroupInfo group;
+  PostDto post;
 
-  SocialPost({required this.group});
+  SocialPost({required this.post});
+
+  String formatHeaderContent() {
+    return "was at ${post.outingStep.place.name} on ${TimeUtil.formatDateTimeForSocialPost(post.postedAt)}";
+  }
+
+  Widget buildHeader() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        // Profile photo
+        InkWell(
+          onTap: () {
+            Get.to(() => ProfilePage(userId: post.user.id));
+          },
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+                color: Colors.grey,
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: NetworkImage(
+                        post.user.imageLink
+                    )
+                )
+            ),
+          ),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              post.user.username,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              formatHeaderContent(),
+            )
+          ],
+        ),
+        const Icon(Icons.menu),
+      ]
+    );
+  }
+
+  Widget buildPicture() {
+    return Container(
+      height: 400,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(
+            post.imageLink,
+          ),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Widget buildContent() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      // TODO: Add social info, unless we don't want that, idk
+      children: [
+        // View itinerary
+        // TODO: Actually view the itinerary.
+        OutlinedButton.icon(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.remove_red_eye_outlined
+          ),
+          label: const Text("View Itinerary"),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    String post;
-    switch (group.members.length) {
-      case 0:
-      // TODO: Add gender
-      // TODO: Make "__ others clickable"
-        post = "by himself";
-        break;
-      case 1:
-        post = "with one other";
-        break;
-      default:
-        post = "with ${group.members.length} others";
-        break;
-    }
-    String description = "is at ${group.currentLocation.name} $post";
     return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // Profile photo
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: NetworkImage(group.owner.imageUrl)
-                  )
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    group.owner.name,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    description
-                  )
-                ],
-              ),
-              const Icon(Icons.menu),
-          ]
-          ),
-        ),
-        // Picture
-        Container(
-          height: 400,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(
-                group.currentLocation.imageUrl,
-              ),
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        // Statuses
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          // TODO: Add social info, unless we don't want that, idk
-          children: [
-            // View itinerary
-            // TODO: Actually view the itinerary.
-            OutlinedButton.icon(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.remove_red_eye_outlined
-              ),
-              label: const Text("View Itinerary"),
-            ),
-          ],
-        )
-
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        buildHeader(),
+        buildPicture(),
+        buildContent(),
       ],
     );
   }

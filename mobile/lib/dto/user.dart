@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:get/get.dart';
 
 class CreateUserDto {
@@ -48,4 +47,26 @@ class UserSummaryDto {
       username = json["username"],
       name = json["name"],
       imageLink = json["imageLink"];
+}
+
+class SearchUsersDto {
+  int page;
+  String query;
+
+  SearchUsersDto(this.page, this.query);
+
+  Map<String, dynamic> toJson() => {
+    "page": page.toString(),
+    "query": query
+  };
+}
+
+class UserRefDto {
+  int id;
+
+  UserRefDto(this.id);
+
+  Map<String, dynamic> toJson() => {
+    "id": id.toString()
+  };
 }

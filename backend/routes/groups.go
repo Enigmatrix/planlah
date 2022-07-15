@@ -45,6 +45,11 @@ type JioToGroupDto struct {
 	GroupID uint `json:"groupId" binding:"required"`
 }
 
+type LeaveGroupDto struct {
+	UserID  uint `json:"userId" binding:"required"`
+	GroupID uint `json:"groupId" binding:"required"`
+}
+
 type GetGroupInvitesDto struct {
 	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
 }
@@ -60,6 +65,10 @@ type InvalidateGroupInviteDto struct {
 
 type JoinGroupInviteDto struct {
 	InviteID string `uri:"inviteId" json:"inviteId" binding:"required,uuid"`
+}
+
+type GroupRefDto struct {
+	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
 }
 
 type ExpiryOption string
@@ -170,7 +179,7 @@ func (ctr *GroupsController) CreateInvite(ctx *gin.Context) {
 // @Router /api/groups/jio [post]
 func (ctr *GroupsController) Jio(ctx *gin.Context) {
 	var dto JioToGroupDto
-	if Query(ctx, &dto) {
+	if Body(ctx, &dto) {
 		return
 	}
 
@@ -197,6 +206,48 @@ func (ctr *GroupsController) Jio(ctx *gin.Context) {
 	}
 
 	_, err = ctr.Database.AddUserToGroup(dto.UserID, dto.GroupID)
+	if err != nil {
+		if errors.Is(err, data.UserAlreadyInGroup) {
+			FailWithMessage(ctx, "user is already in group")
+			return
+		}
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.Status(http.StatusOK)
+}
+
+// Leave godoc
+// @Summary Leave a group
+// @Description The user leaves a specified group chat.
+// @Description If this group is a DM group, this does nothing.
+// @Param body body LeaveGroupDto true "Details of Leave request"
+// @Tags Group
+// @Security JWT
+// @Success 200
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/groups/leave [post]
+func (ctr *GroupsController) Leave(ctx *gin.Context) {
+	var dto LeaveGroupDto
+	if Body(ctx, &dto) {
+		return
+	}
+
+	member := ctr.AuthGroupMember(ctx, dto.GroupID)
+	if member == nil {
+		return
+	}
+
+	// not available for IsDM=true
+	group, err := ctr.Database.GetGroup(member.UserID, member.GroupID)
+	if group.IsDM {
+		FailWithMessage(ctx, "cannot leave a dm group")
+		return
+	}
+
+	err = ctr.Database.RemoveUserFromGroup(dto.UserID, dto.GroupID)
 	if err != nil {
 		if errors.Is(err, data.UserAlreadyInGroup) {
 			FailWithMessage(ctx, "user is already in group")
@@ -291,6 +342,18 @@ func (ctr *GroupsController) CreateDM(ctx *gin.Context) {
 		return
 	}
 
+	groupInfo, err := ctr.Database.GetDMGroup(userId, dto.ID)
+
+	if err != nil && !errors.Is(err, data.EntityNotFound) {
+		handleDbError(ctx, err)
+		return
+	}
+
+	if err == nil {
+		ctx.JSON(http.StatusOK, ToGroupSummaryDto(groupInfo))
+		return
+	}
+
 	grp, err := ctr.Database.CreateDMGroup(userId, dto.ID)
 	if err != nil {
 		if errors.Is(err, data.NotFriend) {
@@ -304,7 +367,7 @@ func (ctr *GroupsController) CreateDM(ctx *gin.Context) {
 		handleDbError(ctx, err)
 		return
 	}
-	groupInfo, err := ctr.Database.GetGroup(userId, grp.ID)
+	groupInfo, err = ctr.Database.GetGroup(userId, grp.ID)
 	if err != nil { // this group is always found
 		handleDbError(ctx, err)
 		return
@@ -467,6 +530,39 @@ func (ctr *GroupsController) JoinByInviteUserLink(ctx *gin.Context) {
 	ctx.Redirect(http.StatusTemporaryRedirect, "planlah://join/"+dto.InviteID)
 }
 
+// GetGroupMembers godoc
+// @Summary Gets all members in a group
+// @Description Gets all members in a group
+// @Param query query GroupRefDto true "body"
+// @Tags Group
+// @Security JWT
+// @Success 200 {object} []UserSummaryDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/groups/get_members [get]
+func (ctr *GroupsController) GetGroupMembers(ctx *gin.Context) {
+	var dto GroupRefDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	if ctr.AuthGroupMember(ctx, dto.GroupID) == nil {
+		return
+	}
+
+	users, err := ctr.Database.GetAllGroupMembers(dto.GroupID)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	userDtos := lo.Map(users, func(user data.User, i int) UserSummaryDto {
+		return ToUserSummaryDto(user)
+	})
+
+	ctx.JSON(http.StatusOK, userDtos)
+}
+
 // Register the routes for this controller
 func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group := router.Group("groups")
@@ -475,7 +571,9 @@ func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group.GET("all", ctr.GetAll)
 	group.GET("invites", ctr.GetInvites)
 	group.POST("jio", ctr.Jio)
+	group.POST("leave", ctr.Leave)
 	group.PUT("invites/invalidate", ctr.InvalidateInvite)
 	group.POST("invites/create", ctr.CreateInvite)
 	group.GET("join/:inviteId", ctr.JoinByInvite)
+	group.GET("get_members", ctr.GetGroupMembers)
 }
