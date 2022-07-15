@@ -1089,7 +1089,7 @@ func (db *Database) GetPlaces(placeIds []uint) ([]Place, error) {
 }
 
 // SearchForPosts Search for posts made by friends, with pagination
-func (db *Database) SearchForPosts(userId uint, page uint) ([]Post, error) {
+func (db *Database) SearchForPosts(userId uint, page Pagination) ([]Post, error) {
 	var posts []Post
 	// These Preloads are essential to avoid nil pointer references
 	// Gorm does not load the relations by default so when you try to initialize these variables to their data classes
@@ -1115,7 +1115,7 @@ INNER JOIN
     AND status = 'approved'
 ) AS friend_id
 ON p.user_id = friend_id.from_id
-LIMIT ? OFFSET ?`, userId, userId, pageCount, page*pageCount).
+LIMIT ? OFFSET ?`, userId, userId, page.Limit(), page.Offset()).
 		Find(&posts).
 		Error
 
