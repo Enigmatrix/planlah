@@ -234,7 +234,8 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
             await showError("Please outing dates!");
             return;
           }
-          if (voteDeadline!.isAfter(range!.start)) {
+          final sameDay = DateUtils.isSameDay(range!.start.toLocal(), DateTime.now().toLocal());
+          if (!sameDay && voteDeadline!.isAfter(range!.start)) {
             await showError("Vote deadline must be before outing!");
             return;
           }
@@ -283,13 +284,19 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
   }
 
   Future<void> createOuting() async {
+    var start = range!.start.toUtc();
     final end = range!.end.toUtc().add(const Duration(days: 1));
+    final sameDay = DateUtils.isSameDay(range!.start.toLocal(), DateTime.now().toLocal());
+
+    if (sameDay) {
+      start = voteDeadline!.toUtc();
+    }
 
     var response = await outingService.createOuting(CreateOutingDto(
       outingName,
       outingDesc,
       widget.groupId,
-      range!.start.toUtc().toIso8601String(),
+      start.toIso8601String(),
       end.toIso8601String(),
       voteDeadline!.toUtc().toIso8601String()
     ));
