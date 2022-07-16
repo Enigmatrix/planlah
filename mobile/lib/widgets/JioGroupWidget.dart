@@ -32,8 +32,6 @@ class _JioFriendsToGroupWidgetState extends State<JioFriendsToGroupWidget> {
 
   loadUsers(int groupId, int newPage) async {
     var response = await groupService.getFriendsToJio(groupId, newPage);
-    print("Trying to get friends to jio...");
-    print(response.body!.length);
     setState(() {
       if (response.isOk) {
         users = response.body!;
@@ -129,6 +127,7 @@ class _JioFriendsToGroupWidgetState extends State<JioFriendsToGroupWidget> {
     if (response.hasError) {
       showErrorSnackbar(context);
     }
+    loadUsers(widget.groupId, page);
   }
 
   void showErrorSnackbar(BuildContext context) {
