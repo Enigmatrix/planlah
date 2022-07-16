@@ -163,7 +163,7 @@ const DefaultPaginationLoad = 10
 
 type Pagination struct {
 	// Page to load (this is actually an int, see #69)
-	Page string `uri:"page" form:"page" json:"page" binding:"required"`
+	Page string `uri:"page" form:"page" json:"page" query:"page" binding:"required"`
 }
 
 func (p Pagination) Limit() int {
@@ -1200,7 +1200,7 @@ func (db Database) GetReviews(placeId uint, page Pagination) ([]Review, error) {
 
 	err := db.conn.
 		Preload("User").
-		Preload("Place").
+		Preload("Place", SelectPlaces).
 		Raw(`
 SELECT *
 FROM reviews
@@ -1212,5 +1212,30 @@ LIMIT ? OFFSET ?`, placeId, page.Limit(), page.Offset()).
 	if err != nil {
 		return nil, errors.Trace(err)
 	}
-	return reviews, err
+	return reviews, nil
+}
+
+type OverallReview struct {
+	NumRatings    uint    `json:"numRatings" binding:"required"`
+	OverallRating float32 `json:"overallRating" binding:"required"`
+}
+
+func (db Database) GetOverallReview(placeId uint) (OverallReview, error) {
+
+	var overall OverallReview
+
+	err := db.conn.
+		Model(&Review{}).
+		Raw(`
+SELECT COUNT(*) AS num_ratings, AVG(rating) AS overall_rating
+FROM reviews
+WHERE place_id = ?`, placeId).
+		Scan(&overall).
+		Error
+
+	if err != nil {
+		return OverallReview{}, errors.Trace(err)
+	}
+
+	return overall, nil
 }

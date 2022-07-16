@@ -40,6 +40,38 @@ class SearchForReviewsDto {
 
   Map<String, dynamic> toJson() => {
     "page": page.toString(),
-    "placeId": placeId
+    "placeID": placeId.toString()
   };
 }
+
+class GetOverallReviewDto {
+  int placeId;
+
+  GetOverallReviewDto(this.placeId);
+
+  Map<String, dynamic> toJson() => {
+    "placeID": placeId.toString()
+  };
+}
+
+class OverallReviewDto {
+  double overallRating;
+  int numRatings;
+
+  OverallReviewDto(this.overallRating, this.numRatings);
+
+  OverallReviewDto.fromJson(Map<String, dynamic> json):
+    overallRating = json["overallRating"].toDouble(),
+    numRatings = json["numRatings"];
+}
+
+
+
+
+
+
+
+
+
+
+

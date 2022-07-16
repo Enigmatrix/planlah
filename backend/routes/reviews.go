@@ -18,7 +18,7 @@ type CreateReviewDto struct {
 }
 
 type SearchForReviewsDto struct {
-	PlaceID uint `form:"query" binding:"required"`
+	PlaceID uint `json:"placeID" form:"placeID" binding:"required"`
 	Page    data.Pagination
 }
 
@@ -28,6 +28,15 @@ type ReviewDto struct {
 	Place   PlaceDto       `json:"place" binding:"required"`
 	Content string         `json:"content" binding:"required"`
 	Rating  uint           `json:"rating" binding:"required"`
+}
+
+type GetOverallReviewDto struct {
+	PlaceID uint `form:"placeID" binding:"required"`
+}
+
+type OverallReviewDto struct {
+	OverallRating float32 `json:"overallRating" binding:"required"`
+	NumRatings    uint    `json:"numRatings" binding:"required"`
 }
 
 func ToReviewDto(review data.Review) ReviewDto {
@@ -106,9 +115,35 @@ func (ctr ReviewsController) GetReviews(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, ToReviewDtos(reviews))
 }
 
+// GetOverallReview godoc
+// @Summary Get overall review for the place
+// @Description Get overall review for this place
+// @Param query query GetOverallReviewDto true "body"
+// @Tags Reviews
+// @Security JWT
+// @Success 200 {object} OverallReviewDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/reviews/get_overall [get]
+func (ctr ReviewsController) GetOverallReview(ctx *gin.Context) {
+	var dto GetOverallReviewDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	overall, err := ctr.Database.GetOverallReview(dto.PlaceID)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, overall)
+}
+
 // Register the routes for this controller
 func (ctr *ReviewsController) Register(router *gin.RouterGroup) {
 	reviews := router.Group("reviews")
 	reviews.GET("get", ctr.GetReviews)
+	reviews.GET("get_overall", ctr.GetOverallReview)
 	reviews.POST("create", ctr.CreateReview)
 }

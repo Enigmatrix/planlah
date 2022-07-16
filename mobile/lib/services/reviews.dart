@@ -21,4 +21,13 @@ class ReviewService extends BaseConnect {
     );
   }
 
+  Future<Response<OverallReviewDto?>> getOverallReview(int placeId) async {
+    GetOverallReviewDto dto = GetOverallReviewDto(placeId);
+    return await get<OverallReviewDto?>(
+      "/reviews/get_overall",
+      query: dto.toJson(),
+      decoder: decoderFor(OverallReviewDto.fromJson)
+    );
+  }
+
 }
