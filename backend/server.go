@@ -123,7 +123,7 @@ func NewServer(
 	}
 
 	// run jobs in goroutine
-	jobRunner.Run()
+	go jobRunner.Run()
 	go hub.Run()
 
 	// Swagger documentation
