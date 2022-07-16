@@ -55,4 +55,21 @@ class GroupService extends BaseConnect {
       decoder: decoderFor(GroupSummaryDto.fromJson)
     );
   }
+
+  Future<Response<List<UserSummaryDto>?>> getFriendsToJio(int groupId, int page) async {
+    JioFriendsDto dto = JioFriendsDto(groupId, page);
+    return await get(
+      "/groups/get_friends_to_jio",
+      query: dto.toJson(),
+      decoder: decoderForList(UserSummaryDto.fromJson)
+    );
+  }
+
+  Future<Response<void>> jio(int userId, int groupId) async {
+    JioToGroupDto dto = JioToGroupDto(userId, groupId);
+    return await post(
+      "/groups/jio",
+      dto.toJson(),
+    );
+  }
 }

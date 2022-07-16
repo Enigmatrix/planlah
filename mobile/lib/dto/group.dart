@@ -62,3 +62,27 @@ class RefGroupDto {
         "groupId": groupId.toString()
     };
 }
+
+class JioFriendsDto {
+    int groupId;
+    int page;
+
+    JioFriendsDto(this.groupId, this.page);
+
+    Map<String, dynamic> toJson() => {
+        "page": page.toString(),
+        "groupId": groupId.toString()
+    };
+}
+
+class JioToGroupDto {
+    int userId;
+    int groupId;
+
+    JioToGroupDto(this.userId, this.groupId);
+
+    Map<String, dynamic> toJson() => {
+        "userId": userId,
+        "groupId": groupId,
+    };
+}

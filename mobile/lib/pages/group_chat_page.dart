@@ -13,6 +13,7 @@ import 'package:mobile/services/group.dart';
 import 'package:mobile/services/message.dart';
 import 'package:mobile/services/outing.dart';
 import 'package:group_button/group_button.dart';
+import 'package:mobile/widgets/JioGroupWidget.dart';
 
 import '../dto/group_invite.dart';
 import '../dto/user.dart';
@@ -255,6 +256,9 @@ class _GroupChatPageState extends State<GroupChatPage> {
             case SEE_PAST_OUTINGS:
               viewPastOutings();
               return;
+            case JIO:
+              showDialog(context: context, builder: buildJioGroupWidget);
+              return;
             default:
               throw UnimplementedError();
           }
@@ -342,6 +346,10 @@ class _GroupChatPageState extends State<GroupChatPage> {
         ],
       ),
     );
+  }
+
+  Widget buildJioGroupWidget(BuildContext context) {
+    return JioFriendsToGroupWidget(groupId: widget.chatGroup.id);
   }
 
   void createGroupInvite() async {

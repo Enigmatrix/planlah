@@ -71,6 +71,11 @@ type GroupRefDto struct {
 	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
 }
 
+type JioFriendsDto struct {
+	Page    data.Pagination
+	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
+}
+
 type ExpiryOption string
 
 const (
@@ -563,6 +568,41 @@ func (ctr *GroupsController) GetGroupMembers(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, userDtos)
 }
 
+// GetFriendsToJio godoc
+// @Summary Gets all friends who are not in a group
+// @Description Gets all friends who are not in a group
+// @Param query query JioFriendsDto true "body"
+// @Tags Group
+// @Security JWT
+// @Success 200 {object} []UserSummaryDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/groups/get_friends_to_jio [get]
+func (ctr *GroupsController) GetFriendsToJio(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
+
+	var dto JioFriendsDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	if ctr.AuthGroupMember(ctx, dto.GroupID) == nil {
+		return
+	}
+
+	users, err := ctr.Database.GetFriendsToJio(userId, dto.GroupID, dto.Page)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	userDtos := lo.Map(users, func(user data.User, i int) UserSummaryDto {
+		return ToUserSummaryDto(user)
+	})
+
+	ctx.JSON(http.StatusOK, userDtos)
+}
+
 // Register the routes for this controller
 func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group := router.Group("groups")
@@ -576,4 +616,5 @@ func (ctr *GroupsController) Register(router *gin.RouterGroup) {
 	group.POST("invites/create", ctr.CreateInvite)
 	group.GET("join/:inviteId", ctr.JoinByInvite)
 	group.GET("get_members", ctr.GetGroupMembers)
+	group.GET("get_friends_to_jio", ctr.GetFriendsToJio)
 }
