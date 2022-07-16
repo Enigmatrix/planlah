@@ -122,21 +122,6 @@ func NewServer(
 	// run jobs in goroutine
 	jobRunner.Run()
 
-	// serve websocket in goroutine.
-	go func() {
-		if err := messages.WsServer.Serve(); err != nil {
-			logger.Sugar().Fatal("message websocket listen error", zap.Error(err))
-		}
-	}()
-
-	// the websocket gets cleaned anyway, so don't bother closing it
-
-	//defer func() {
-	//	if err := messages.WsServer.Close(); err != nil {
-	//		log.Fatalf("message websocket close error: %v", err)
-	//	}
-	//}()
-
 	// Swagger documentation
 	srv.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 

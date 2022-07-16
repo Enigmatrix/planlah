@@ -2,20 +2,15 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	socketio "github.com/googollee/go-socket.io"
-	"github.com/googollee/go-socket.io/engineio"
 	"github.com/juju/errors"
 	"github.com/samber/lo"
-	"go.uber.org/zap"
 	"net/http"
 	"planlah.sg/backend/data"
-	"strconv"
 	"time"
 )
 
 type MessageController struct {
 	BaseController
-	WsServer *socketio.Server `wire:"-"` // we will be initializing this ourselves
 }
 
 type SendMessageDto struct {
@@ -93,19 +88,6 @@ func (ctr *MessageController) Send(ctx *gin.Context) {
 		handleDbError(ctx, err)
 		return
 	}
-
-	user, err := ctr.Database.GetUser(groupMember.UserID)
-	if err != nil { // the user is always found
-		handleDbError(ctx, err)
-		return
-	}
-
-	ctr.WsServer.BroadcastToRoom("/", strconv.Itoa(int(dto.GroupID)), "message", MessageDto{
-		ID:      msg.ID,
-		SentAt:  msg.SentAt,
-		Content: msg.Content,
-		User:    ToUserSummaryDto(user),
-	})
 
 	ctx.Status(http.StatusOK)
 }
@@ -228,72 +210,12 @@ func (ctr *MessageController) Get(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, ToMessageDtos(messages))
 }
 
-func (ctr *MessageController) OnSocketError(conn socketio.Conn, err error) {
-	ctr.Logger.Warn("websocket", zap.Error(err))
-}
-
-func (ctr *MessageController) OnSocketConnect(conn socketio.Conn) error {
-	header := conn.RemoteHeader()
-
-	// there will not be an error as we are the ones setting it
-	userId, _ := strconv.Atoi(header.Get("User-Id"))
-	groupId, _ := strconv.Atoi(header.Get("Group-Id"))
-	groupMemberId, _ := strconv.Atoi(header.Get("Group-Member-Id"))
-	conn.SetContext(data.GroupMember{
-		ID:      uint(groupMemberId),
-		UserID:  uint(userId),
-		GroupID: uint(groupId),
-	})
-	conn.Join(strconv.Itoa(groupId))
-	return nil
-}
-
 // Register the routes for this controller
 func (ctr *MessageController) Register(router *gin.RouterGroup) {
-	ctr.WsServer = socketio.NewServer(&engineio.Options{})
-	if ctr.WsServer == nil {
-		ctr.Logger.Fatal("websocket init")
-	}
-	ctr.WsServer.OnConnect("/", ctr.OnSocketConnect)
-	ctr.WsServer.OnError("/", ctr.OnSocketError)
-
 	group := router.Group("messages")
 	group.POST("send", ctr.Send)
 	group.GET("all", ctr.Get)
 	group.GET("before", ctr.MessagesBefore)
 	group.GET("after", ctr.MessagesAfter)
 	group.PUT("mark_read", ctr.MarkRead)
-
-	group.Any("socket/*any", func(c *gin.Context) {
-
-		var groupId int
-		var err error
-		userId := ctr.Auth.AuthenticatedUserId(c)
-
-		if groupId, err = strconv.Atoi(c.Query("groupId")); err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid groupId"})
-			return
-		}
-
-		groupMember, err := ctr.Database.GetGroupMember(userId, uint(groupId))
-
-		if groupMember == nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "user is not a member of this group"})
-			return
-		}
-		if err != nil {
-			handleDbError(c, err)
-			return
-		}
-
-		// Seriously, engineio.Conn can't be directly modified.
-		// It's sent into ConnInitor function of WsServer by-value so
-		// we can't even modify the context. Instead, I have to rely on silly
-		// tricks like below.
-		c.Request.Header.Set("User-Id", strconv.Itoa(int(userId)))
-		c.Request.Header.Set("Group-Id", strconv.Itoa(groupId))
-		c.Request.Header.Set("Group-Member-Id", strconv.Itoa(int(groupMember.ID)))
-
-		ctr.WsServer.ServeHTTP(c.Writer, c.Request)
-	})
 }
