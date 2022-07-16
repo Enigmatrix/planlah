@@ -12,7 +12,7 @@ type ReviewsController struct {
 }
 
 type CreateReviewDto struct {
-	PlaceID uint   `form:"place_id" binding:"required"`
+	PlaceID uint   `form:"placeID" binding:"required"`
 	Content string `form:"content" binding:"required"`
 	Rating  uint   `form:"rating" binding:"required"`
 }
