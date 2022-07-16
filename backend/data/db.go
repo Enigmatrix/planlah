@@ -1125,6 +1125,7 @@ LIMIT ? OFFSET ?`, userId, userId, page.Limit(), page.Offset()).
 	return posts, nil
 }
 
+// GetAllGroupMembers Gets all users who are in a specified group.
 func (db *Database) GetAllGroupMembers(groupId uint) ([]User, error) {
 	var users []User
 	err := db.conn.Model(&User{}).
@@ -1141,6 +1142,48 @@ ON u.id = g.user_id`, groupId).
 		Find(&users).
 		Error
 
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return users, nil
+}
+
+// GetFriendsToJio Gets all friends of the user who are not in the specified group.
+func (db Database) GetFriendsToJio(userId, groupId uint, page Pagination) ([]User, error) {
+	var users []User
+
+	err := db.conn.Model(&User{}).
+		Raw(`
+WITH friends AS (
+    SELECT u.*
+    FROM users AS u
+    INNER JOIN
+        (
+            SELECT from_id
+            FROM friend_requests
+            WHERE to_id = ?
+            AND status = 'approved'
+            UNION
+            SELECT to_id
+            FROM friend_requests
+            WHERE from_id = ?
+            AND status = 'approved'
+        ) AS f
+    ON u.id = f.from_id
+)
+
+SELECT friends.*
+FROM friends
+WHERE friends.id NOT IN (
+        SELECT friends.id
+        FROM friends
+        INNER JOIN group_members AS gm
+        ON friends.id = gm.user_id
+        WHERE gm.group_id = ?
+LIMIT ? OFFSET ?
+    );`, userId, userId, groupId, page.Limit(), page.Offset()).
+		Find(&users).
+		Error
 	if err != nil {
 		return nil, errors.Trace(err)
 	}

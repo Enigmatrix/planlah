@@ -71,9 +71,3 @@ func (ctr *PostsController) Register(router *gin.RouterGroup) {
 	posts := router.Group("posts")
 	posts.GET("all", ctr.GetAll)
 }
-
-// Front end -> User makes a request -> We get his user id
-// From his user id -> We get his friends -> From his friends -> Get their posts
-func (ctr *PostsController) GetPosts(ctx *gin.Context) {
-
-}
