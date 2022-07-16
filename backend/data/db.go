@@ -87,6 +87,7 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 			&OutingStep{},
 			&OutingStepVote{},
 			&Post{},
+			&Review{},
 		}
 
 		// Neat trick to migrate models with complex relationships, run auto migrations once
@@ -1188,4 +1189,28 @@ LIMIT ? OFFSET ?
 		return nil, errors.Trace(err)
 	}
 	return users, nil
+}
+
+func (db Database) CreateReview(review *Review) error {
+	return errors.Trace(db.conn.Create(review).Error)
+}
+
+func (db Database) GetReviews(placeId uint, page Pagination) ([]Review, error) {
+	var reviews []Review
+
+	err := db.conn.
+		Preload("User").
+		Preload("Place").
+		Raw(`
+SELECT *
+FROM reviews
+WHERE place_id = ?
+LIMIT ? OFFSET ?`, placeId, page.Limit(), page.Offset()).
+		Find(&reviews).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return reviews, err
 }
