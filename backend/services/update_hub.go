@@ -1,20 +1,12 @@
 package services
 
 import (
-	"github.com/gorilla/websocket"
 	"github.com/juju/errors"
 	"planlah.sg/backend/data"
 	lazy "planlah.sg/backend/utils"
 )
 
-// https://github.com/gorilla/websocket/blob/master/examples/chat/client.go
-
-type UpdateClient struct {
-	hub    *UpdateHub
-	userId uint
-	conn   *websocket.Conn
-	send   chan interface{}
-}
+// https://github.com/gorilla/websocket/blob/master/examples/chat/hub.go
 
 type UserMsg struct {
 	userId uint
@@ -34,6 +26,7 @@ type UpdateHub struct {
 
 var updateHub lazy.Lazy[*UpdateHub]
 
+// NewUpdateHub Creates a singleton Hub
 func NewUpdateHub(db *data.Database) *UpdateHub {
 	return updateHub.LazyValue(func() *UpdateHub {
 		return &UpdateHub{

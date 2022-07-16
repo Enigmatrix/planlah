@@ -78,8 +78,10 @@ func NewServer(
 	friends routes.FriendsController,
 	places routes.PlacesController,
 	posts routes.PostsController,
+	session routes.SessionController,
 	logger *zap.Logger,
 	jobRunner *jobs.Runner,
+	hub *services.UpdateHub,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 
 	srv := gin.New()
@@ -117,10 +119,12 @@ func NewServer(
 		friends.Register(api)
 		places.Register(api)
 		posts.Register(api)
+		session.Register(api)
 	}
 
 	// run jobs in goroutine
 	jobRunner.Run()
+	go hub.Run()
 
 	// Swagger documentation
 	srv.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
