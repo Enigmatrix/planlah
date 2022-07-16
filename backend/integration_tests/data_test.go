@@ -76,13 +76,13 @@ func (s *DataIntegrationTestSuite) TearDownTest() {
 
 func (s *DataIntegrationTestSuite) Test_InitMigrate_Succeeds() {
 	s.NotNil(s.db)
-	// there should be 7 Users
-	for i := 1; i <= 7; i++ {
+	// there should be 17 Users
+	for i := 1; i <= 17; i++ {
 		user, err := s.db.GetUser(uint(i))
 		s.Equal(uint(i), user.ID)
 		s.NoError(err)
 	}
-	_, err := s.db.GetUser(uint(8))
+	_, err := s.db.GetUser(uint(18))
 	s.ErrorIs(err, data.EntityNotFound)
 
 	// and only 5 groups
@@ -221,7 +221,7 @@ func (s *DataIntegrationTestSuite) Test_GetUserByFirebaseUid_Succeeds_AndOnlyPop
 
 func (s *DataIntegrationTestSuite) Test_GetUserByFirebaseUid_ThrowsEntityNotFound_WhenNoSuchUser() {
 	// does not exist in initial migration
-	firebaseUid := "firebaseUid8"
+	firebaseUid := "firebaseUid18"
 	user, err := s.db.GetUserByFirebaseUid(firebaseUid)
 	s.ErrorIs(err, data.EntityNotFound)
 	s.Empty(user)
@@ -241,7 +241,7 @@ func (s *DataIntegrationTestSuite) Test_GetUser_Succeeds_AndPopulatesUser() {
 
 func (s *DataIntegrationTestSuite) Test_GetUser_ThrowsEntityNotFound_WhenNoSuchUser() {
 	// does not exist in initial migration
-	id := uint(8)
+	id := uint(18)
 	user, err := s.db.GetUser(id)
 	s.ErrorIs(err, data.EntityNotFound)
 	s.Empty(user)
@@ -1305,11 +1305,15 @@ func (s *DataIntegrationTestSuite) Test_JoinByInvite_Succeeds() {
 func (s *DataIntegrationTestSuite) Test_SearchUsers_Succeeds() {
 	users, err := s.db.SearchForFriends(1, "a", data.Pagination{Page: "0"})
 	s.NoError(err)
+	s.Len(users, 10)
+
+	users, err = s.db.SearchForFriends(1, "a", data.Pagination{Page: "1"})
+	s.NoError(err)
 	s.Len(users, 5)
 
 	users, err = s.db.SearchForFriends(1, "dad", data.Pagination{Page: "0"})
 	s.NoError(err)
-	s.Len(users, 1)
+	s.Len(users, 10)
 }
 
 // TODO more cases

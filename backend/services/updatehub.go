@@ -47,12 +47,12 @@ func NewUpdateHub(db *data.Database) *UpdateHub {
 }
 
 func (h *UpdateHub) SendToGroup(groupId uint, msg any) error {
-	members, err := h.db.GetGroupMembers(groupId)
+	members, err := h.db.GetAllGroupMembers(groupId)
 	if err != nil {
 		return errors.Trace(err)
 	}
 	for _, member := range members {
-		h.messages <- UserMsg{userId: member.UserID, msg: msg}
+		h.messages <- UserMsg{userId: member.ID, msg: msg}
 	}
 	return nil
 }

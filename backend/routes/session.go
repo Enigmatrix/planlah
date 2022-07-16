@@ -22,10 +22,10 @@ func (ctr *SessionController) Register(router *gin.RouterGroup) {
 
 // TODO write doc for this
 func (ctr *SessionController) Connect(ctx *gin.Context) {
-	userId := ctr.AuthUserId(ctx)
-	ws, err := upgrader.Upgrade(ctx.Writer, ctx.Request, nil)
-	if err != nil {
-		// Upgrade will set the correct HTTP status
-		return
-	}
+	//userId := ctr.AuthUserId(ctx)
+	//ws, err := upgrader.Upgrade(ctx.Writer, ctx.Request, nil)
+	//if err != nil {
+	//	// Upgrade will set the correct HTTP status
+	//	return
+	//}
 }
