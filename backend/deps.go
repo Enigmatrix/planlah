@@ -27,7 +27,8 @@ var depSet = wire.NewSet(
 	// use ImageKit instead of sad firebase
 	services.NewImageKitImageService,
 	wire.Bind(new(services.ImageService), new(*services.ImageKitImageService)),
-	services.NewUpdateHub,
+	services.NewWebsocketUpdateHub,
+	wire.Bind(new(services.UpdateHub), new(*services.WebsocketUpdateHub)),
 
 	// jobs
 	jobs.NewVoteDeadlineJob,

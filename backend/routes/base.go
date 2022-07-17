@@ -13,7 +13,7 @@ type BaseController struct {
 	Auth     *services.AuthService
 	Config   *utils.Config
 	Logger   *zap.Logger
-	Hub      *services.UpdateHub
+	Hub      services.UpdateHub
 }
 
 // AuthUserId Gets the authenticated User ID

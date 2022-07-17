@@ -78,33 +78,33 @@ func NewActiveOutingUpdate(groupId uint) *ActiveOutingUpdate {
 	}
 }
 
-type UpdateHub struct {
-	// Map<UserId, Set<UpdateClient>>
-	userClientMapping map[uint]map[*UpdateClient]bool
+type WebsocketUpdateHub struct {
+	// Map<UserId, Set<WebsocketUpdateClient>>
+	userClientMapping map[uint]map[*WebsocketUpdateClient]bool
 
 	messages   chan targetedMsg
-	register   chan *UpdateClient
-	unregister chan *UpdateClient
+	register   chan *WebsocketUpdateClient
+	unregister chan *WebsocketUpdateClient
 
 	db *data.Database
 }
 
-var updateHub = lazy.NewLazy[*UpdateHub]()
+var updateHub = lazy.NewLazy[*WebsocketUpdateHub]()
 
-// NewUpdateHub Creates a singleton Hub
-func NewUpdateHub(db *data.Database) *UpdateHub {
-	return updateHub.LazyValue(func() *UpdateHub {
-		return &UpdateHub{
-			userClientMapping: make(map[uint]map[*UpdateClient]bool),
+// NewWebsocketUpdateHub Creates a singleton Hub
+func NewWebsocketUpdateHub(db *data.Database) *WebsocketUpdateHub {
+	return updateHub.LazyValue(func() *WebsocketUpdateHub {
+		return &WebsocketUpdateHub{
+			userClientMapping: make(map[uint]map[*WebsocketUpdateClient]bool),
 			messages:          make(chan targetedMsg),
-			register:          make(chan *UpdateClient),
-			unregister:        make(chan *UpdateClient),
+			register:          make(chan *WebsocketUpdateClient),
+			unregister:        make(chan *WebsocketUpdateClient),
 			db:                db,
 		}
 	})
 }
 
-func (h *UpdateHub) SendToGroup(groupId uint, msg any) error {
+func (h *WebsocketUpdateHub) SendToGroup(groupId uint, msg any) error {
 	members, err := h.db.GetAllGroupMembers(groupId)
 	if err != nil {
 		return errors.Trace(err)
@@ -115,18 +115,18 @@ func (h *UpdateHub) SendToGroup(groupId uint, msg any) error {
 	return nil
 }
 
-func (h *UpdateHub) SendToUser(userId uint, msg any) error {
+func (h *WebsocketUpdateHub) SendToUser(userId uint, msg any) error {
 	h.messages <- targetedMsg{userId: userId, msg: msg}
 	return nil
 }
 
-func (h *UpdateHub) Run() {
+func (h *WebsocketUpdateHub) Run() {
 	for {
 		select {
 		case client := <-h.register:
 			userClients, found := h.userClientMapping[client.userId]
 			if !found {
-				userClients = make(map[*UpdateClient]bool)
+				userClients = make(map[*WebsocketUpdateClient]bool)
 				h.userClientMapping[client.userId] = userClients
 			}
 			userClients[client] = true
@@ -154,4 +154,10 @@ func (h *UpdateHub) Run() {
 			}
 		}
 	}
+}
+
+type UpdateHub interface {
+	SendToGroup(groupId uint, msg any) error
+	SendToUser(userId uint, msg any) error
+	Run()
 }

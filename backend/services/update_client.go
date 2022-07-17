@@ -8,8 +8,8 @@ import (
 
 // https://github.com/gorilla/websocket/blob/master/examples/chat/client.go
 
-type UpdateClient struct {
-	hub    *UpdateHub
+type WebsocketUpdateClient struct {
+	hub    *WebsocketUpdateHub
 	userId uint
 	conn   *websocket.Conn
 	send   chan interface{}
@@ -39,7 +39,7 @@ const (
 // A goroutine running writePump is started for each connection. The
 // application ensures that there is at most one writer to a connection by
 // executing all writes from this goroutine.
-func (c *UpdateClient) writePump() {
+func (c *WebsocketUpdateClient) writePump() {
 	ticker := time.NewTicker(pingPeriod)
 	defer func() {
 		ticker.Stop()
@@ -74,13 +74,17 @@ func (c *UpdateClient) writePump() {
 	}
 }
 
-func SetupUpdateClient(hub *UpdateHub, w http.ResponseWriter, r *http.Request, userId uint) {
+func SetupUpdateClient(hub UpdateHub, w http.ResponseWriter, r *http.Request, userId uint) {
+	wsHub, ok := hub.(*WebsocketUpdateHub)
+	if !ok {
+		panic("update hub not ws socket")
+	}
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		// Update will write the proper HTTP headers
 		return
 	}
-	client := &UpdateClient{hub: hub, conn: conn, send: make(chan interface{}), userId: userId}
+	client := &WebsocketUpdateClient{hub: wsHub, conn: conn, send: make(chan interface{}), userId: userId}
 	client.hub.register <- client
 
 	// Allow collection of memory referenced by the caller by doing all work in

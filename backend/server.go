@@ -81,7 +81,7 @@ func NewServer(
 	session routes.SessionController,
 	logger *zap.Logger,
 	jobRunner *jobs.Runner,
-	hub *services.UpdateHub,
+	hub services.UpdateHub,
 	authSvc *services.AuthService) (*gin.Engine, error) {
 
 	srv := gin.New()

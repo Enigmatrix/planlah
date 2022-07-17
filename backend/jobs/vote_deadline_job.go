@@ -16,11 +16,11 @@ var VoteDeadlineJobName = "voteDeadlineJob"
 
 type VoteDeadlineJob struct {
 	Database *data.Database
-	Hub      *services.UpdateHub
+	Hub      services.UpdateHub
 	Logger   *zap.Logger
 }
 
-func NewVoteDeadlineJob(database *data.Database, hub *services.UpdateHub, logger *zap.Logger) *VoteDeadlineJob {
+func NewVoteDeadlineJob(database *data.Database, hub services.UpdateHub, logger *zap.Logger) *VoteDeadlineJob {
 	return &VoteDeadlineJob{Database: database, Hub: hub, Logger: logger}
 }
 
