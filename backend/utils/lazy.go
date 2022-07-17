@@ -51,3 +51,10 @@ func (lazy *Lazy[T]) LazyFallibleValue(generate func() (*T, error)) (*T, error) 
 	}
 	return &lazy.value, nil
 }
+
+func (lazy *Lazy[T]) Reset() {
+	lazy.lock.Lock()
+	defer lazy.lock.Unlock()
+
+	atomic.StoreUint32(&lazy.initialized, 0)
+}

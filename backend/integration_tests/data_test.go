@@ -72,6 +72,8 @@ func (s *DataIntegrationTestSuite) TearDownTest() {
 	s.Require().NoError(err)
 	err = sqlDB.Close()
 	s.Require().NoError(err)
+
+	data.ClearDatabaseConnection()
 }
 
 func (s *DataIntegrationTestSuite) Test_InitMigrate_Succeeds() {
