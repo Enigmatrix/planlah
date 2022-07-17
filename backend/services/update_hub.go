@@ -146,8 +146,11 @@ func (h *UpdateHub) Run() {
 
 		case message := <-h.messages:
 			for client := range h.userClientMapping[message.userId] {
-				client.send <- message.msg
-				// h.unregister <- client
+				select {
+				case client.send <- message.msg:
+				default:
+					h.unregister <- client
+				}
 			}
 		}
 	}

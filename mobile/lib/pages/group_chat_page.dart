@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -13,6 +16,7 @@ import 'package:mobile/services/group.dart';
 import 'package:mobile/services/message.dart';
 import 'package:mobile/services/outing.dart';
 import 'package:group_button/group_button.dart';
+import 'package:mobile/services/session.dart';
 import 'package:mobile/widgets/JioGroupWidget.dart';
 
 import '../dto/group_invite.dart';
@@ -51,6 +55,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
   late var groupMembers = <UserSummaryDto>[];
 
   ScrollController scrollController = ScrollController();
+  StreamSubscription? messagesForGroupSub;
 
   // For the menu options
   static const String ABOUT = "About";
@@ -63,8 +68,19 @@ class _GroupChatPageState extends State<GroupChatPage> {
   @override
   void initState() {
     super.initState();
+    final sess = Get.find<SessionService>();
     updateMessages();
+    messagesForGroupSub = sess.messagesForGroup(widget.chatGroup.id).listen((event) {
+      log("UPDATE");
+      updateMessages();
+    });
     getGroupMembers();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    messagesForGroupSub?.cancel();
   }
 
   void updateMessages() async {
@@ -407,6 +423,5 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   void sendMessage(String message) async {
     final resp = await messageService.sendMessage(SendMessageDto(message, widget.chatGroup.id));
-    updateMessages();
   }
 }

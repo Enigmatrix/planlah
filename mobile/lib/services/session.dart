@@ -29,7 +29,7 @@ class SessionService extends BaseConnect {
     var uri = Uri.parse("ws://${BaseConnect.server}/session/updates");
     try {
       var channel = IOWebSocketChannel.connect(uri, headers: { "Authorization": "Bearer ${BaseConnect.token}" });
-      stream = channel.stream.map((str) => jsonDecode(str));
+      stream = channel.stream.asBroadcastStream().map((str) => jsonDecode(str));
     }  on WebSocketChannelException catch (e) {
       log(e.toString());
     }
