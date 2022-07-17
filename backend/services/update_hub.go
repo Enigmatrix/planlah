@@ -156,17 +156,18 @@ func (h *WebsocketUpdateHub) Run() {
 			userClients[client] = true
 
 		case client := <-h.unregister:
-			userClients, found := h.userClientMapping[client.userId]
-			if !found {
-				continue
-			}
-			if _, ok := userClients[client]; ok {
-				delete(userClients, client)
-				close(client.send)
-			}
-			if len(userClients) == 0 {
-				delete(h.userClientMapping, client.userId)
-			}
+			print(client.userId)
+			//userClients, found := h.userClientMapping[client.userId]
+			//if !found {
+			//	continue
+			//}
+			//if _, ok := userClients[client]; ok {
+			//	delete(userClients, client)
+			//	close(client.send)
+			//}
+			//if len(userClients) == 0 {
+			//	delete(h.userClientMapping, client.userId)
+			//}
 
 		case message := <-h.messages:
 			for client := range h.userClientMapping[message.userId] {

@@ -40,7 +40,7 @@ services:
     volumes:
       - .:/opt/app/api
     ports:
-      - "8070:8080"
+      - "8080:8080"
 
 volumes:
   db_volume: { }

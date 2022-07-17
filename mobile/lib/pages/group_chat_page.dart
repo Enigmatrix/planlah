@@ -71,7 +71,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
     final sess = Get.find<SessionService>();
     updateMessages();
     messagesForGroupSub = sess.messagesForGroup(widget.chatGroup.id).listen((event) {
-      log("UPDATE");
+      log("UPDATE MESSAGES");
       updateMessages();
     });
     getGroupMembers();
@@ -99,7 +99,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
         groupMembers = resp.body!;
       });
     }
-
   }
 
   @override

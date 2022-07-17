@@ -4,6 +4,7 @@ import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/friend_components.dart';
 import 'package:mobile/pages/profile_page.dart';
 import 'package:mobile/services/friends.dart';
+import 'package:mobile/services/session.dart';
 import 'package:mobile/widgets/wait_widget.dart';
 
 import '../services/user.dart';
@@ -30,6 +31,7 @@ class _FriendsPageState extends State<FriendsPage> {
   @override
   void initState() {
     super.initState();
+    final sess = Get.find<SessionService>();
     _loadFriends();
   }
 

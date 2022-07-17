@@ -112,6 +112,8 @@ func (ctr *PlacesController) Recommend(ctx *gin.Context) {
 		ctr.Config.RecommenderUrl, userId, dto.Longitude, dto.Latitude, dto.PlaceType))
 	if err != nil {
 		// TODO handle error
+		ctr.Logger.Sugar().Errorf("Error %v", err)
+		ctx.Status(500)
 		return
 	}
 	defer func(Body io.ReadCloser) {
@@ -140,6 +142,7 @@ func (ctr *PlacesController) Recommend(ctx *gin.Context) {
 		return
 	} else if resp.StatusCode == http.StatusInternalServerError {
 		ctr.Logger.Error("recommender internalServerError, see recommender logs")
+		return
 	}
 
 	places, err := ctr.Database.GetPlaces(response.Results)
@@ -147,7 +150,6 @@ func (ctr *PlacesController) Recommend(ctx *gin.Context) {
 		handleDbError(ctx, err)
 		return
 	}
-
 	ctx.JSON(http.StatusOK, ToPlaceDtos(places))
 }
 

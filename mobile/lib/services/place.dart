@@ -10,11 +10,11 @@ class PlaceService extends BaseConnect {
       },
       decoder: decoderForList(PlaceDto.fromJson));
 
-  Future<Response<List<PlaceDto>?>> recommend(Point from, PlaceType type) async => await get('/places/recommend',
+  Future<Response<List<PlaceDto>?>> recommend(Point from, PlaceType type) async => await get<List<PlaceDto>?>('/places/recommend',
       query: {
-        "latitude": from.latitude,
-        "longitude": from.longitude,
-        "placeType": type
+        "latitude": from.latitude.toString(),
+        "longitude": from.longitude.toString(),
+        "placeType": type.text
       },
       decoder: decoderForList(PlaceDto.fromJson));
 }
