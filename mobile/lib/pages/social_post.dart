@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/pages/profile_page.dart';
+import 'package:mobile/theme.dart';
 import 'package:mobile/utils/time.dart';
 
 import '../dto/posts.dart';
@@ -15,42 +16,37 @@ class SocialPost extends StatelessWidget {
   }
 
   Widget buildHeader() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        // Profile photo
-        InkWell(
-          onTap: () {
-            Get.to(() => ProfilePage(userId: post.user.id));
-          },
-          child: Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-                color: Colors.grey,
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: NetworkImage(
-                        post.user.imageLink
-                    )
-                )
-            ),
+    return ListTile(
+      leading: InkWell(
+        onTap: () {
+          Get.to(() => ProfilePage(userId: post.user.id));
+        },
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+              color: Colors.grey,
+              shape: BoxShape.circle,
+              image: DecorationImage(image: NetworkImage(post.user.imageLink))),
+        ),
+      ),
+      title:
+          // Profile photo
+          Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            post.user.username,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+            overflow: TextOverflow.ellipsis,
           ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              post.user.username,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              formatHeaderContent(),
-            )
-          ],
-        ),
-        const Icon(Icons.menu),
-      ]
+          Text(
+            formatHeaderContent(),
+            overflow: TextOverflow.ellipsis,
+          )
+        ],
+      ),
+      trailing: const Icon(Icons.menu),
     );
   }
 
@@ -77,12 +73,17 @@ class SocialPost extends StatelessWidget {
         // TODO: Actually view the itinerary.
         OutlinedButton.icon(
           onPressed: () {},
-          icon: const Icon(
-            Icons.remove_red_eye_outlined
-          ),
+          icon: const Icon(Icons.remove_red_eye_outlined),
           label: const Text("View Itinerary"),
         ),
       ],
+    );
+  }
+
+  Widget buildText() {
+    return Card(
+      elevation: 8.0,
+      child: Text(post.text),
     );
   }
 
@@ -92,10 +93,10 @@ class SocialPost extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         buildHeader(),
+        buildText(),
         buildPicture(),
         buildContent(),
       ],
     );
   }
 }
-
