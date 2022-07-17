@@ -13,4 +13,11 @@ class PostService extends BaseConnect {
       decoder: decoderForList(PostDto.fromJson)
     );
   }
+
+  Future<Response> create(CreatePostDto dto) async {
+    final formData = FormData(dto.toJson());
+    return await post(
+        "/posts/create",
+        formData);
+  }
 }

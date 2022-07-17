@@ -1,3 +1,6 @@
+import 'dart:typed_data';
+
+import 'package:get/get_connect/http/src/multipart/multipart_file.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/utils/time.dart';
 
@@ -21,4 +24,22 @@ class PostDto {
     text = json["text"],
     imageLink = json["imageLink"],
     postedAt = TimeUtil.parseFromDto(json["postedAt"]);
+}
+
+class CreatePostDto {
+  int outingStepId;
+  String text;
+  Uint8List image;
+
+  CreatePostDto(
+      this.outingStepId,
+      this.text,
+      this.image
+      );
+
+  Map<String, dynamic> toJson() => {
+    "outingStepId": outingStepId,
+    "text": text,
+    "image": MultipartFile(image, filename: "post.png") // doesn't matter
+  };
 }
