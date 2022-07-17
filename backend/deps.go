@@ -49,6 +49,7 @@ var depSet = wire.NewSet(
 	wire.Struct(new(routes.FriendsController), "*"),
 	wire.Struct(new(routes.PlacesController), "*"),
 	wire.Struct(new(routes.PostsController), "*"),
+	wire.Struct(new(routes.ReviewsController), "*"),
 	wire.Struct(new(routes.SessionController), "*"),
 	NewServer,
 )

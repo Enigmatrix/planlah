@@ -20,6 +20,7 @@ class BaseConnect extends GetConnect {
         return null;
       } else {
         var map = Map<String, dynamic>.from(data);
+        print(map);
         return from(map);
       }
     };

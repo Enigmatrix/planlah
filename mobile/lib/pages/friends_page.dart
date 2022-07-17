@@ -69,17 +69,16 @@ class _FriendsPageState extends State<FriendsPage> {
       child: const Icon(Icons.person_pin_sharp),
     );
   }
-
   
   Widget buildAddFriendButton() {
     return IconButton(
-        onPressed: () {
-          showSearch(
-              context: context,
-              delegate: FriendSearch()
-          );
-        },
-        icon: const Icon(Icons.search)
+      onPressed: () {
+        showSearch(
+            context: context,
+            delegate: FriendSearch()
+        );
+      },
+      icon: const Icon(Icons.search)
     );
   }
   

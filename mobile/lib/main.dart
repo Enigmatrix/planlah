@@ -19,6 +19,7 @@ import 'package:mobile/services/misc.dart';
 import 'package:mobile/services/outing.dart';
 import 'package:mobile/services/posts.dart';
 import 'package:mobile/services/place.dart';
+import 'package:mobile/services/reviews.dart';
 import 'package:mobile/services/session.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/theme.dart';
@@ -43,6 +44,7 @@ void main() async {
   Get.put(FriendService());
   Get.put(PostService());
   Get.put(SessionService());
+  Get.put(ReviewService());
 
   await initUniLinks();
   runApp(const App());

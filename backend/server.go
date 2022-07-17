@@ -78,6 +78,7 @@ func NewServer(
 	friends routes.FriendsController,
 	places routes.PlacesController,
 	posts routes.PostsController,
+	reviews routes.ReviewsController,
 	session routes.SessionController,
 	logger *zap.Logger,
 	jobRunner *jobs.Runner,
@@ -120,6 +121,7 @@ func NewServer(
 		places.Register(api)
 		posts.Register(api)
 		session.Register(api)
+		reviews.Register(api)
 	}
 
 	// run jobs in goroutine

@@ -175,3 +175,13 @@ type Post struct {
 	ImageLink    string      `gorm:"not null"`
 	PostedAt     time.Time   `gorm:"not null"`
 }
+
+type Review struct {
+	ID      uint   `gorm:"primarykey"`
+	UserID  uint   `gorm:"not null"`
+	User    *User  `gorm:"foreignKey:UserID"`
+	PlaceID uint   `gorm:"not null"`
+	Place   *Place `gorm:"foreignKey:PlaceID"`
+	Content string `gorm:"not null"`
+	Rating  uint   `gorm:"not null"`
+}

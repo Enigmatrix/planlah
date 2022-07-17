@@ -12,6 +12,7 @@ import 'package:mobile/dto/outing.dart';
 import 'package:mobile/dto/outing_step.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/create_outing_step_page.dart';
+import 'package:mobile/pages/place_profile_page.dart';
 import 'package:mobile/services/session.dart';
 import 'package:mobile/services/user.dart';
 import 'package:timelines/timelines.dart';
@@ -511,60 +512,69 @@ class _OutingPageState extends State<OutingPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            ListTile(
-              title: Text(
-                "${step.description} @ ${step.place.name}",
-                style: titleStyle,
-                overflow: TextOverflow.ellipsis,
-              ),
-              subtitle: Row(
-                children: [
-                  Text(fmtTime(step.start),
-                      style: const TextStyle(
-                          color: Colors.blueAccent, fontSize: 13.0)),
-                  const Text(" till ",
-                      style: TextStyle(color: Colors.grey, fontSize: 13.0)),
-                  Text(fmtTime(step.end),
-                      style: const TextStyle(
-                          color: Colors.blueAccent, fontSize: 13.0)),
-                  const Text(", ",
-                      style: TextStyle(color: Colors.grey, fontSize: 13.0)),
-                  Text(dur(step),
-                      style:
-                          const TextStyle(color: Colors.blue, fontSize: 13.0)),
-                ],
-              ),
-              minVerticalPadding: 0,
-              visualDensity: VisualDensity.compact,
-              dense: true,
-              contentPadding:
-                  const EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: ListTile(
-                leading: const Icon(Icons.place),
-                dense: true,
-                horizontalTitleGap: 10,
-                minLeadingWidth: 0,
-                minVerticalPadding: 0,
-                // contentPadding: EdgeInsets.zero,
-                visualDensity: VisualDensity.compact,
-                title: Container(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    step.place.formattedAddress.trim(),
-                    style: TextStyle(
-                        color: Colors.black.withOpacity(0.6), fontSize: 12.0),
+            InkWell(
+              onTap: () {
+                Get.to(() => PlaceProfilePage(place: step.place));
+              },
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text(
+                      "${step.description} @ ${step.place.name}",
+                      style: titleStyle,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    subtitle: Row(
+                      children: [
+                        Text(fmtTime(step.start),
+                            style: const TextStyle(
+                                color: Colors.blueAccent, fontSize: 13.0)),
+                        const Text(" till ",
+                            style: TextStyle(color: Colors.grey, fontSize: 13.0)),
+                        Text(fmtTime(step.end),
+                            style: const TextStyle(
+                                color: Colors.blueAccent, fontSize: 13.0)),
+                        const Text(", ",
+                            style: TextStyle(color: Colors.grey, fontSize: 13.0)),
+                        Text(dur(step),
+                            style:
+                            const TextStyle(color: Colors.blue, fontSize: 13.0)),
+                      ],
+                    ),
+                    minVerticalPadding: 0,
+                    visualDensity: VisualDensity.compact,
+                    dense: true,
+                    contentPadding:
+                    const EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
                   ),
-                ),
-              ),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 200.0),
-              child: CachedNetworkImage(
-                imageUrl: step.place.imageLink,
-                fit: BoxFit.fill,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: ListTile(
+                      leading: const Icon(Icons.place),
+                      dense: true,
+                      horizontalTitleGap: 10,
+                      minLeadingWidth: 0,
+                      minVerticalPadding: 0,
+                      // contentPadding: EdgeInsets.zero,
+                      visualDensity: VisualDensity.compact,
+                      title: Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          step.place.formattedAddress.trim(),
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.6), fontSize: 12.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxHeight: 200.0),
+                    child: CachedNetworkImage(
+                      imageUrl: step.place.imageLink,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ],
               ),
             ),
             if (showVoting)

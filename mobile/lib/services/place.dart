@@ -1,7 +1,4 @@
-import 'dart:typed_data';
-
 import 'package:get/get.dart';
-import 'package:mobile/dto/group.dart';
 import 'package:mobile/dto/place.dart';
 import 'package:mobile/services/base_connect.dart';
 
