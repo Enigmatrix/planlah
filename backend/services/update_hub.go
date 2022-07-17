@@ -33,6 +33,12 @@ type GroupsUpdate struct {
 	UpdateKind
 }
 
+// PostUpdate Event when Post of the User are updated (added/removed)
+type PostUpdate struct {
+	UpdateKind
+	UserID uint `json:"userId"`
+}
+
 // MessageUpdate Event when messages for a Group are changed (new message sent)
 type MessageUpdate struct {
 	UpdateKind
@@ -61,6 +67,13 @@ func NewGroupUpdate(groupId uint) *GroupUpdate {
 func NewGroupsUpdate() *GroupsUpdate {
 	return &GroupsUpdate{
 		UpdateKind: UpdateKind{Kind: "groups"},
+	}
+}
+
+func NewPostUpdate(userId uint) *PostUpdate {
+	return &PostUpdate{
+		UpdateKind: UpdateKind{Kind: "post"},
+		UserID:     userId,
 	}
 }
 
@@ -120,6 +133,17 @@ func (h *WebsocketUpdateHub) SendToUser(userId uint, msg any) error {
 	return nil
 }
 
+func (h *WebsocketUpdateHub) SendToFriends(userId uint, msg any) error {
+	friends, err := h.db.ListAllFriendIDs(userId)
+	if err != nil {
+		return errors.Trace(err)
+	}
+	for _, friendId := range friends {
+		h.messages <- targetedMsg{userId: friendId, msg: msg}
+	}
+	return nil
+}
+
 func (h *WebsocketUpdateHub) Run() {
 	for {
 		select {
@@ -159,5 +183,6 @@ func (h *WebsocketUpdateHub) Run() {
 type UpdateHub interface {
 	SendToGroup(groupId uint, msg any) error
 	SendToUser(userId uint, msg any) error
+	SendToFriends(userId uint, msg any) error
 	Run()
 }
