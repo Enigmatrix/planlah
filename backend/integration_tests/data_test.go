@@ -72,6 +72,8 @@ func (s *DataIntegrationTestSuite) TearDownTest() {
 	s.Require().NoError(err)
 	err = sqlDB.Close()
 	s.Require().NoError(err)
+
+	data.ClearDatabaseConnection()
 }
 
 func (s *DataIntegrationTestSuite) Test_InitMigrate_Succeeds() {
@@ -1502,8 +1504,18 @@ func (s *DataIntegrationTestSuite) Test_SearchForPlaces_Succeeds() {
 // TODO add more tests for DeleteOutingSteps
 // TODO add more tests for DeleteOutingStep
 
+type nullHub struct{}
+
+func (n *nullHub) SendToGroup(groupId uint, msg any) error {
+	return nil
+}
+func (n *nullHub) SendToUser(userId uint, msg any) error {
+	return nil
+}
+func (n *nullHub) Run() {}
+
 func (s *DataIntegrationTestSuite) runVoteDeadlineJob(outingId uint) error {
-	job := jobs.NewVoteDeadlineJob(s.db)
+	job := jobs.NewVoteDeadlineJob(s.db, &nullHub{}, zap.NewNop())
 	return job.RunCore(outingId)
 }
 

@@ -12,6 +12,7 @@ import 'package:mobile/dto/outing.dart';
 import 'package:mobile/dto/outing_step.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/create_outing_step_page.dart';
+import 'package:mobile/services/session.dart';
 import 'package:mobile/services/user.dart';
 import 'package:timelines/timelines.dart';
 import 'package:get/get.dart';
@@ -44,10 +45,12 @@ class _OutingPageState extends State<OutingPage> {
 
   bool showVoting = true;
   StreamSubscription? timerWaitStream;
+  StreamSubscription? actingOutingChangeSub;
 
   @override
   void initState() {
     super.initState();
+    final sess = Get.find<SessionService>();
 
     outing = widget.outing;
     isActive = widget.isActive;
@@ -60,9 +63,23 @@ class _OutingPageState extends State<OutingPage> {
       }
     });
 
-    if (isActive) {
-      updateShowVoting();
 
+    if (isActive) {
+
+      // Watch for changes to active outing
+      actingOutingChangeSub = sess.activeOuting(outing.groupId).listen((event) async {
+        final resp = await outingSvc.getActiveOuting(GetActiveOutingDto(outing.groupId));
+        if (resp.isOk) {
+          setState(() {
+            outing = resp.body!;
+          });
+        } else {
+          dev.log(resp.bodyString ?? "no error body");
+        }
+      });
+
+      //// Wait until voteDeadline to update state
+      updateShowVoting();
       // Run a 1 second periodic timer until the voteDeadline
       timerWaitStream = Stream.periodic(const Duration(seconds: 1)).listen((_) {
         updateShowVoting();
@@ -82,7 +99,9 @@ class _OutingPageState extends State<OutingPage> {
   @override
   void dispose() {
     super.dispose();
-    timerWaitStream?.cancel(); // this is a Future ... wtv
+    // these are Futures ... wtv
+    timerWaitStream?.cancel();
+    actingOutingChangeSub?.cancel();
   }
 
   final bottomPadding =

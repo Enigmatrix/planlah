@@ -45,6 +45,10 @@ func DatabaseConnectionString(config *utils.Config) string {
 	return dsn
 }
 
+func ClearDatabaseConnection() {
+	dbConn.Reset()
+}
+
 // NewDatabaseConnection Creates a new database connection
 func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, error) {
 	// TODO should this really be a singleton?
@@ -53,7 +57,7 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 		pg := postgres.Open(dsn)
 
 		dblogger := zapgorm2.New(logger)
-		dblogger.SetAsDefault() // use zap logger for callbacks
+		// dblogger.SetAsDefault() // use zap logger for callbacks
 		dbconfig := gorm.Config{
 			Logger: dblogger,
 		}

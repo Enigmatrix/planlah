@@ -6,6 +6,7 @@ import (
 	"github.com/go-playground/validator/v10"
 	"github.com/juju/errors"
 	"github.com/samber/lo"
+	"go.uber.org/zap"
 	"io"
 	"net/http"
 	"strconv"
@@ -114,6 +115,14 @@ func handleDbError(ctx *gin.Context, err error) bool {
 
 	_ = ctx.AbortWithError(http.StatusInternalServerError, err)
 
+	return true
+}
+
+func handleHubError(logger *zap.Logger, err error) bool {
+	if err == nil {
+		return false
+	}
+	logger.Warn("hub send err", zap.Error(err))
 	return true
 }
 
