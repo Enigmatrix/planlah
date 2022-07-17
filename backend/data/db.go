@@ -1096,10 +1096,12 @@ func (db *Database) SearchForPosts(userId uint, page Pagination) ([]Post, error)
 	// Gorm does not load the relations by default so when you try to initialize these variables to their data classes
 	// without doing the preloads, you will run into pain and tears
 	err := db.conn.Model(&Post{}).
+		Preload("OutingStep").
 		Preload("OutingStep.Place", SelectPlaces).
 		Preload("OutingStep.Votes").
+		Preload("OutingStep.Votes.GroupMember").
+		Preload("OutingStep.Votes.GroupMember.User").
 		Preload("User").
-		Preload("OutingStep").
 		Raw(`
 SELECT p.*
 FROM posts AS p
