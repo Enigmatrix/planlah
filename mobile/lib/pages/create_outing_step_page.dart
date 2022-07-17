@@ -16,6 +16,7 @@ import 'package:mobile/model/location.dart';
 import 'package:mobile/pages/find_place.dart';
 import 'package:mobile/services/place.dart';
 import 'package:time_range_picker/time_range_picker.dart';
+import 'package:geolocator/geolocator.dart';
 
 import '../services/outing.dart';
 
@@ -37,17 +38,40 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
   PlaceDto? place;
 
   final outingService = Get.find<OutingService>();
+  final placeService = Get.find<PlaceService>();
 
   final _descKey = GlobalKey<FormFieldState>();
 
-  final defaultMargin =
-      const EdgeInsets.only(top: 8.0, left: 24.0, right: 24.0);
+  final defaultMargin = const EdgeInsets.only(top: 8.0, left: 24.0, right: 24.0);
+
+  static const RESTAURANT = "restaurant";
+  static const ATTRACTION = "attraction";
 
   @override
   void initState() {
     super.initState();
+    if (widget.initialPlace == null) {
+      initGeolocator();
+    }
     place = widget.initialPlace;
     date = DateTime.parse(widget.outing.start).toLocal();
+  }
+
+  initGeolocator() async {
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Location permissions are denied!")));
+      }
+    }
+
+    bool serviceStatus = await Geolocator.isLocationServiceEnabled();
+    if (serviceStatus) {
+      print("GPS works");
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Encountered error checking location service!")));
+    }
   }
 
   @override
@@ -124,49 +148,64 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     // place = demoPlace;
     // place = null;
     if (place == null) {
-      return Container(
-        margin: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
-        clipBehavior: Clip.none,
-        child: TextButton(
-          style: TextButton.styleFrom(padding: const EdgeInsets.all(4.0)),
-          clipBehavior: Clip.none,
-          onPressed: () async {
-            final chosenPlace = await showDialog<PlaceDto>(context: context, builder: (buildContext) {
-              return searchChoosePlaceDialog();
-            });
-            setState(() {
-              place = chosenPlace;
-            });
-          },
-          child: Card(
-              shape: RoundedRectangleBorder(
-                //<-- SEE HERE
-                borderRadius: BorderRadius.circular(8.0),
-                side: const BorderSide(color: Colors.grey, width: 0.8),
-              ),
-              child: const ListTile(
-                leading: Icon(Icons.place),
-                title: Text("Choose where to go!"),
-              )),
-        ),
-      );
+      return buildSelectPlaceCard();
     } else {
-      return Card(
-          margin: const EdgeInsets.only(top: 16.0, left: 24.0, right: 24.0, bottom:8.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            side: const BorderSide(color: Colors.grey, width: 0.8),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Stack(
+      return buildChosenPlaceCard();
+    }
+  }
+
+  Widget buildSelectPlaceCard() {
+    return Container(
+      margin: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+      clipBehavior: Clip.none,
+      child: TextButton(
+        style: TextButton.styleFrom(padding: const EdgeInsets.all(4.0)),
+        clipBehavior: Clip.none,
+        onPressed: () async {
+          final chosenPlace = await showDialog<PlaceDto>(context: context, builder: (buildContext) {
+            return searchChoosePlaceDialog();
+          });
+          setState(() {
+            place = chosenPlace;
+          });
+        },
+        child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+              side: const BorderSide(color: Colors.grey, width: 0.8),
+            ),
+            child: ListTile(
+              leading: Icon(Icons.place),
+              title: Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 8.0),
-                    child: Center(child: Text(place!.name, style: const TextStyle(fontSize: 24.0), textAlign: TextAlign.center,)),
-                  ),
-                  Positioned(
+                  Text("Choose where to go!"),
+                  IntrinsicHeight(child: VerticalDivider()),
+                  buildSuggestionButton()
+                ],
+              ),
+              // trailing: buildSuggestionButton(),
+            )),
+      ),
+    );
+  }
+
+  Widget buildChosenPlaceCard() {
+    return Card(
+        margin: const EdgeInsets.only(top: 16.0, left: 24.0, right: 24.0, bottom:8.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: const BorderSide(color: Colors.grey, width: 0.8),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 8.0),
+                  child: Center(child: Text(place!.name, style: const TextStyle(fontSize: 24.0), textAlign: TextAlign.center,)),
+                ),
+                Positioned(
                     right: 0,
                     top: 0,
                     child: IconButton(onPressed: () {
@@ -174,31 +213,60 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
                         place = null;
                       });
                     }, icon: const Icon(Icons.close))
-                  )
-                ],
-              ),
-              Container(
+                )
+              ],
+            ),
+            Container(
                 padding: EdgeInsets.all(8.0),
                 child: CachedNetworkImage(imageUrl: place!.imageLink)
-              ),
-              Row(
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        // TODO redir to Google Maps
-                      },
-                      icon: const Icon(Icons.place)),
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right:8.0, bottom: 8.0),
-                      child: Text(place!.formattedAddress,),
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ));
-    }
+            ),
+            Row(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      // TODO redir to Google Maps
+                    },
+                    icon: const Icon(Icons.place)),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right:8.0, bottom: 8.0),
+                    child: Text(place!.formattedAddress,),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ));
+  }
+
+  Widget buildSuggestionButton() {
+    return Row(
+      children: <Widget>[
+        TextButton(
+          onPressed: () async {
+            // TODO: Add recommend interface call here
+            if (place == null) {
+              Position position = await Geolocator.getCurrentPosition();
+              // TODO: Hardcode the location for now
+              Point p = Point(103.7649, 1.3162);
+              var resp = await placeService.recommend(p, PlaceType.restaurant);
+              if (resp.isOk) {
+                print(resp.body);
+              }
+            }
+            // var resp = placeService.recommend(from, type);
+            showDialog(context: context, builder: buildSuggestionDialog);
+          },
+          child: Text("Suggest!")
+        )
+      ],
+    );
+  }
+
+  Widget buildSuggestionDialog(BuildContext context) {
+    return Dialog(
+
+    );
   }
 
   Widget searchChoosePlaceDialog() {

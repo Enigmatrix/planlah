@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,6 +25,7 @@ import 'package:mobile/services/session.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/theme.dart';
 import 'package:mobile/widgets/wait_widget.dart';
+import 'package:geolocator_android/geolocator_android.dart';
 
 import 'dto/user.dart';
 
@@ -46,8 +48,17 @@ void main() async {
   Get.put(SessionService());
   Get.put(ReviewService());
 
+  registerPlatformInstance();
+
   await initUniLinks();
   runApp(const App());
+}
+
+void registerPlatformInstance() {
+  if (Platform.isAndroid) {
+    GeolocatorAndroid.registerWith();
+    print("Registered Geolocator Android");
+  }
 }
 
 class App extends StatefulWidget {
