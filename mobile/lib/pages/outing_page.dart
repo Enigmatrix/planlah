@@ -589,17 +589,14 @@ class _OutingPageState extends State<OutingPage> {
                 ],
               ),
             ),
-            /*if (showVoting)
+            if (showVoting)
               buildVoteCompletePart(step)
             else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isAfter(currentTime))
               buildInProgressPart(step)
             else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isBefore(currentTime))
               buildCompletedPart(step)
             else
-              buildNotYet(step)*/
-
-            buildInProgressPart(step)
-
+              buildNotYet(step)
           ],
         ));
   }

@@ -234,6 +234,30 @@ func (db *Database) GetUser(id uint) (User, error) {
 	return user, nil
 }
 
+type UserProfile struct {
+	User
+	PostCount   uint
+	ReviewCount uint
+	FriendCount uint
+}
+
+// GetUserProfile Gets a User's Profile by their ID
+//
+// Throws EntityNotFound when User is not found
+func (db *Database) GetUserProfile(id uint) (UserProfile, error) {
+	var user UserProfile
+	err := db.conn.Table("users").Where("id = ?", id).
+		Select(`*, (select count(*) from posts where user_id = id) AS postCount, (select count(*) from reviews where user_id = ?) AS reviewCount,
+		(select count(*) from friend_requests where (to_id = id OR from_id = id) and status = 'approved') AS friendCount`).Find(&user).Error
+	if err != nil {
+		if isNotFoundInDb(err) {
+			return UserProfile{}, EntityNotFound
+		}
+		return UserProfile{}, errors.Trace(err)
+	}
+	return user, nil
+}
+
 var friendSql = `(
 	select from_id from friend_requests where to_id = @thisUserId and status = 'approved' union
 	select to_id from friend_requests where from_id = @thisUserId and status = 'approved'
