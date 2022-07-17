@@ -15,11 +15,11 @@ import '../dto/user.dart';
 
 
 class CreateGroupPage extends StatefulWidget {
-  UserSummaryDto userSummaryDto;
+  UserProfileDto userProfile;
 
   CreateGroupPage({
     Key? key,
-    required this.userSummaryDto
+    required this.userProfile
   }) : super(key: key);
 
   @override
@@ -73,7 +73,7 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
     var response = await groupService.createGroup(CreateGroupDto(createGroupName, createGroupDescription, _imageBytes));
     if (response.isOk) {
       GroupSummaryDto group = response.body!;
-      Get.off(() => GroupChatPage(chatGroup: group, userSummaryDto: widget.userSummaryDto));
+      Get.off(() => GroupChatPage(chatGroup: group, userProfile: widget.userProfile));
     } else {
       if (!mounted) return;
       await ErrorManager.showError(context, response);

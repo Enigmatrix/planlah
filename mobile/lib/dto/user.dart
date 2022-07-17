@@ -49,6 +49,27 @@ class UserSummaryDto {
       imageLink = json["imageLink"];
 }
 
+class UserProfileDto {
+  int id;
+  String username;
+  String name;
+  String imageLink;
+  int postCount;
+  int reviewCount;
+  int friendCount;
+
+  UserProfileDto(this.id, this.username, this.name, this.imageLink, this.postCount, this.reviewCount, this.friendCount);
+
+  UserProfileDto.fromJson(Map<String, dynamic> json):
+        id = json["id"],
+        username = json["username"],
+        name = json["name"],
+        postCount = json["postCount"],
+        reviewCount = json["reviewCount"],
+        friendCount = json["friendCount"],
+        imageLink = json["imageLink"];
+}
+
 class SearchUsersDto {
   int page;
   String query;

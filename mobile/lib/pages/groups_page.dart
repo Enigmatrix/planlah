@@ -35,7 +35,7 @@ class _GroupsPageState extends State<GroupsPage> {
   // What's actually displayed
   late List<ChatGroup> groups = [];
   // Used to pass into the chat groups
-  late UserSummaryDto userSummaryDto;
+  late UserProfileDto userProfile;
 
   @override
   initState() {
@@ -58,10 +58,10 @@ class _GroupsPageState extends State<GroupsPage> {
   }
 
   void loadUserInfo() async {
-    Response<UserSummaryDto?> response = await userService.getInfo();
+    final response = await userService.getInfo();
     setState(() {
       if (response.isOk) {
-        userSummaryDto = response.body!;
+        userProfile = response.body!;
       } else {
         loadUserInfo();
       }
@@ -178,7 +178,7 @@ class _GroupsPageState extends State<GroupsPage> {
     return InkWell(
       onTap: () {
         // Add new group here
-        Get.to(() => CreateGroupPage(userSummaryDto: userSummaryDto));
+        Get.to(() => CreateGroupPage(userProfile: userProfile));
       },
       child: Container(
         padding: const EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
@@ -221,7 +221,7 @@ class _GroupsPageState extends State<GroupsPage> {
         // To add page to redirect to
         return GroupDisplay(
           chatGroup: groups[index],
-          userSummaryDto: userSummaryDto,
+          userProfile: userProfile,
         );
       },
     );

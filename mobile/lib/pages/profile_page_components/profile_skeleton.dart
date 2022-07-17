@@ -13,13 +13,13 @@ import 'package:mobile/services/user.dart';
 ///   buildProfileHeaderWidget (User vs other)
 ///   buildProfileContentWidget (User vs other)
 ///
-/// typedef Function(BuildContext context, UserSummaryDto user) => Widget
+/// typedef Function(BuildContext context, UserProfileDto user) => Widget
 
-typedef WidgetValueBuilder = Widget Function(BuildContext context, UserSummaryDto user);
+typedef WidgetValueBuilder = Widget Function(BuildContext context, UserProfileDto user);
 
 class ProfilePageSkeleton extends StatefulWidget {
 
-  final UserSummaryDto user;
+  final UserProfileDto user;
   final WidgetValueBuilder profilePictureWidgetBuilder;
   final WidgetValueBuilder profileHeaderWidgetBuilder;
   final WidgetValueBuilder profileContentWidgetBuilder;

@@ -72,7 +72,7 @@ class _AppState extends State<App> {
   late AuthService auth;
   late UserService userSvc;
 
-  late UserSummaryDto userSummaryDto;
+  late UserProfileDto user;
 
   @override
   void initState() {
@@ -95,13 +95,13 @@ class _AppState extends State<App> {
       homeWidget = FutureBuilder(
           future: userSvc.getInfo(),
           builder: (BuildContext context,
-              AsyncSnapshot<Response<UserSummaryDto?>> snapshot) {
+              AsyncSnapshot<Response<UserProfileDto?>> snapshot) {
             if (snapshot.hasData) {
               if (snapshot.data!.hasError) {
                 return const SignUpPage();
               } else {
-                userSummaryDto = snapshot.data!.body!;
-                return HomePage(userSummaryDto: userSummaryDto);
+                user = snapshot.data!.body!;
+                return HomePage(userProfile: user);
               }
             } else {
               return waitWidget();
@@ -125,7 +125,7 @@ class _AppState extends State<App> {
         getPages: [
           GetPage(name: '/signIn', page: () => const SignInPage()),
           GetPage(name: '/signUp', page: () => const SignUpPage()),
-          GetPage(name: '/home', page: () => HomePage(userSummaryDto: userSummaryDto)),
+          GetPage(name: '/home', page: () => HomePage(userProfile: user)),
           GetPage(name: '/groups', page: () => const GroupsPage()),
           GetPage(name: '/dev_panel', page: () => DevPanelPage()),
         ]);

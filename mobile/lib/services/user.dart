@@ -3,9 +3,17 @@ import 'package:mobile/dto/user.dart';
 import 'package:mobile/services/base_connect.dart';
 
 class UserService extends BaseConnect {
-  Future<Response<UserSummaryDto?>> getInfo() async => await get<UserSummaryDto?>(
+  Future<Response<UserProfileDto?>> getInfo() async => await get<UserProfileDto?>(
       '/users/me/info',
-      decoder: decoderFor(UserSummaryDto.fromJson)
+      decoder: decoderFor(UserProfileDto.fromJson)
+  );
+
+  Future<Response<UserProfileDto?>> getFriendInfo(int friendId) async => await get<UserProfileDto?>(
+      '/users/friend/info',
+      query: {
+        "id": friendId.toString()
+      },
+      decoder: decoderFor(UserProfileDto.fromJson)
   );
 
   Future<Response<UserSummaryDto?>> getUserInfo(int id) async {

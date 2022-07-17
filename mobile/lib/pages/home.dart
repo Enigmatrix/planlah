@@ -14,10 +14,10 @@ import '../dto/user.dart';
 
 class HomePage extends StatefulWidget {
 
-  UserSummaryDto userSummaryDto;
+  UserProfileDto userProfile;
   HomePage({
     Key? key,
-    required this.userSummaryDto,
+    required this.userProfile,
   }) : super(key: key);
 
   @override

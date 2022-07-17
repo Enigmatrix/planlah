@@ -35,11 +35,11 @@ class _ProfilePageState extends State<ProfilePage> {
     initializeWidgetBuilders(context);
   }
 
-  Future<Response<UserSummaryDto?>> getUserInfo() async {
+  Future<Response<UserProfileDto?>> getUserInfo() async {
     if (widget.userId == -1) {
       return await userService.getInfo();
     } else {
-      return await userService.getUserInfo(widget.userId);
+      return await userService.getFriendInfo(widget.userId);
     }
   }
 
@@ -47,7 +47,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: getUserInfo(),
-        builder: (BuildContext context, AsyncSnapshot<Response<UserSummaryDto?>> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<Response<UserProfileDto?>> snapshot) {
           if (snapshot.hasData) {
             if (snapshot.data!.isOk) {
               return ProfilePageSkeleton(

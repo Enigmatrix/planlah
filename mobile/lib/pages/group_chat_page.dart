@@ -27,12 +27,12 @@ import 'create_outing_page.dart';
 
 class GroupChatPage extends StatefulWidget {
   GroupSummaryDto chatGroup;
-  UserSummaryDto userSummaryDto;
+  UserProfileDto userProfile;
 
   GroupChatPage({
     Key? key,
     required this.chatGroup,
-    required this.userSummaryDto,
+    required this.userProfile,
   }) : super(key: key);
 
   @override
@@ -115,7 +115,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
       children: <Widget>[
         Column(
           children: [
-            ChatComponents.buildMessageList(scrollController, messages, widget.userSummaryDto),
+            ChatComponents.buildMessageList(scrollController, messages, widget.userProfile),
             ChatComponents.buildInputWidget(sendMessage),
           ],
         )
@@ -208,7 +208,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   Widget buildGroupMemberList(BuildContext context, int index) {
     var user = groupMembers[index];
-    if (user.id == widget.userSummaryDto.id) {
+    if (user.id == widget.userProfile.id) {
       return FriendComponents.buildFriendTile(context, user, () => const ProfilePage(userId: -1));
     } else {
       return FriendComponents.buildFriendTile(context, user, () => ProfilePage(userId: user.id));
@@ -258,7 +258,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
     if (!widget.chatGroup.isDm) {
       throw ArgumentError.value("Not supported for groups!");
     } else {
-      return groupMembers[0].id == widget.userSummaryDto.id ? groupMembers[1] : groupMembers[0];
+      return groupMembers[0].id == widget.userProfile.id ? groupMembers[1] : groupMembers[0];
     }
   }
 

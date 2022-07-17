@@ -12,10 +12,10 @@ import '../../services/user.dart';
 class ProfileHeader {
 
   static WidgetValueBuilder getOtherProfileHeaderBuilder() {
-    return (BuildContext context, UserSummaryDto user) {
+    return (BuildContext context, UserProfileDto user) {
       return Column(
         children: <Widget>[
-          ProfileHeaderWidget(userSummaryDto: user),
+          ProfileHeaderWidget(userProfile: user),
           IconButton(
               onPressed: () async {
                 final groupService = Get.find<GroupService>();
@@ -23,7 +23,7 @@ class ProfileHeader {
                 var resp = await groupService.createDM(user.id);
                 var userInfoResp = await userService.getInfo();
                 if (resp.isOk && userInfoResp.isOk) {
-                  Get.to(() => GroupChatPage(chatGroup: resp.body!, userSummaryDto: userInfoResp.body!));
+                  Get.to(() => GroupChatPage(chatGroup: resp.body!, userProfile: userInfoResp.body!));
                 } else {
                   await ErrorManager.showError(context, resp);
                 }
@@ -36,8 +36,8 @@ class ProfileHeader {
   }
 
   static WidgetValueBuilder getUserProfileHeaderBuilder() {
-    return (BuildContext context, UserSummaryDto user) {
-      return ProfileHeaderWidget(userSummaryDto: user);
+    return (BuildContext context, UserProfileDto user) {
+      return ProfileHeaderWidget(userProfile: user);
     };
   }
 
@@ -47,10 +47,10 @@ class ProfileHeader {
 /// Displays number of posts, reviews and friends.
 class ProfileHeaderWidget extends StatefulWidget {
 
-  final UserSummaryDto userSummaryDto;
+  final UserProfileDto userProfile;
   const ProfileHeaderWidget({
     Key? key,
-    required this.userSummaryDto
+    required this.userProfile
   }) : super(key: key);
 
   @override
@@ -64,12 +64,11 @@ class _ProfileHeaderWidgetState extends State<ProfileHeaderWidget> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          // TODO: Implement interfaces to get data for number of posts, reviews and friends
-          buildButton(context, "32", "Posts", () { }),
+          buildButton(context, widget.userProfile.postCount.toString(), "Posts", () { }),
           buildDivider(),
-          buildButton(context, "64", "Reviews", () { }),
+          buildButton(context, widget.userProfile.reviewCount.toString(), "Reviews", () { }),
           buildDivider(),
-          buildButton(context, "128", "Friends", () { }),
+          buildButton(context, widget.userProfile.friendCount.toString(), "Friends", () { }),
         ],
       ),
     );

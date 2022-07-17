@@ -10,7 +10,7 @@ class ProfileContent {
   static WidgetValueBuilder getProfileContentBuilder(
 
       ) {
-    return (BuildContext context, UserSummaryDto user) {
+    return (BuildContext context, UserProfileDto user) {
       return DefaultTabController(
           length: numTabs,
           child: buildTabBar()
@@ -59,7 +59,7 @@ class ProfileContent {
   }
 
   static WidgetValueBuilder getOtherProfileContentBuilder() {
-    return (BuildContext context, UserSummaryDto user) {
+    return (BuildContext context, UserProfileDto user) {
       return CircleAvatar(
         backgroundImage: NetworkImage(user.imageLink),
       );

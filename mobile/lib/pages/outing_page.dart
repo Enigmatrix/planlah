@@ -44,7 +44,7 @@ class _OutingPageState extends State<OutingPage> {
 
   late OutingDto outing;
   late bool isActive;
-  late UserSummaryDto thisUser;
+  late UserProfileDto thisUser;
 
   final userSvc = Get.find<UserService>();
   final outingSvc = Get.find<OutingService>();
