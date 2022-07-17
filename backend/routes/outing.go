@@ -199,7 +199,7 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 		return
 	}
 
-	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupUpdate())
+	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupUpdate(dto.GroupID))
 	if err != nil {
 		ctr.Logger.Warn("hub send err", zap.Error(err))
 	}
@@ -260,7 +260,7 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 		return
 	}
 
-	err = ctr.Hub.SendToGroup(outing.GroupID, services.NewOutingUpdate())
+	err = ctr.Hub.SendToGroup(outing.GroupID, services.NewActiveOutingUpdate(outing.GroupID))
 	if err != nil {
 		ctr.Logger.Warn("hub send err", zap.Error(err))
 	}
@@ -378,7 +378,7 @@ func (ctr *OutingController) Vote(ctx *gin.Context) {
 		return
 	}
 
-	err = ctr.Hub.SendToGroup(o.GroupID, services.NewOutingUpdate())
+	err = ctr.Hub.SendToGroup(o.GroupID, services.NewActiveOutingUpdate(o.GroupID))
 	if err != nil {
 		ctr.Logger.Warn("hub send err", zap.Error(err))
 	}

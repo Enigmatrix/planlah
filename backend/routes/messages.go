@@ -4,8 +4,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/juju/errors"
 	"github.com/samber/lo"
+	"go.uber.org/zap"
 	"net/http"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/services"
 	"time"
 )
 
@@ -87,6 +89,11 @@ func (ctr *MessageController) Send(ctx *gin.Context) {
 	if err != nil {
 		handleDbError(ctx, err)
 		return
+	}
+
+	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewMessageUpdate(dto.GroupID))
+	if err != nil {
+		ctr.Logger.Warn("hub send err", zap.Error(err))
 	}
 
 	ctx.Status(http.StatusOK)

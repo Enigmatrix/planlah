@@ -117,7 +117,7 @@ func (job *VoteDeadlineJob) RunCore(outingId uint) error {
 		return errors.Annotate(err, "delete conflicting outing steps")
 	}
 
-	err = job.Hub.SendToGroup(outing.GroupID, services.NewOutingUpdate())
+	err = job.Hub.SendToGroup(outing.GroupID, services.NewActiveOutingUpdate(outing.GroupID))
 	if err != nil {
 		job.Logger.Warn("hub send err", zap.Error(err))
 	}

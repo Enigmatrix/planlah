@@ -1,9 +1,14 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile/pages/groups_page.dart';
 import 'package:mobile/pages/profile_page.dart';
 import 'package:mobile/pages/settings.dart';
 import 'package:mobile/pages/social_feed.dart';
 import 'package:mobile/pages/friends_page.dart';
+import 'package:mobile/services/session.dart';
 
 import '../dto/user.dart';
 
@@ -29,7 +34,18 @@ class _HomePageWidgetState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
-  
+
+  @override
+  void initState() {
+    super.initState();
+
+    // This is where the user token can exists, so we can init
+    // websockets with it.
+    final session = Get.find<SessionService>();
+    session.initConnection();
+
+  }
+
   Widget getPage(int index) {
     switch (index) {
       case 0:

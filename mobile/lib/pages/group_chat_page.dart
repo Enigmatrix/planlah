@@ -406,7 +406,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
   }
 
   void sendMessage(String message) async {
-    await messageService.sendMessage(SendMessageDto(message, widget.chatGroup.id));
+    final resp = await messageService.sendMessage(SendMessageDto(message, widget.chatGroup.id));
     updateMessages();
   }
 }

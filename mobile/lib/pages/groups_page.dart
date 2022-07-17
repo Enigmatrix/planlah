@@ -43,9 +43,9 @@ class _GroupsPageState extends State<GroupsPage> {
     super.initState();
     loadUserInfo();
     updateGroups();
-    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    /*timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       updateGroups();
-    });
+    });*/
     // groups = allGroups;
   }
 

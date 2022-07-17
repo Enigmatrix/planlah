@@ -26,7 +26,7 @@ func LazyOf[T any](value T) Lazy[T] {
 	}
 }
 
-func (lazy Lazy[T]) LazyValue(generate func() T) T {
+func (lazy *Lazy[T]) LazyValue(generate func() T) T {
 	if atomic.LoadUint32(&lazy.initialized) == 0 {
 		lazy.lock.Lock()
 		defer lazy.lock.Unlock()
@@ -37,7 +37,7 @@ func (lazy Lazy[T]) LazyValue(generate func() T) T {
 	return lazy.value
 }
 
-func (lazy Lazy[T]) LazyFallibleValue(generate func() (*T, error)) (*T, error) {
+func (lazy *Lazy[T]) LazyFallibleValue(generate func() (*T, error)) (*T, error) {
 	if atomic.LoadUint32(&lazy.initialized) == 0 {
 		lazy.lock.Lock()
 		defer lazy.lock.Unlock()
