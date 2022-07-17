@@ -1512,6 +1512,9 @@ func (n *nullHub) SendToGroup(groupId uint, msg any) error {
 func (n *nullHub) SendToUser(userId uint, msg any) error {
 	return nil
 }
+func (n *nullHub) SendToFriends(userId uint, msg any) error {
+	return nil
+}
 func (n *nullHub) Run() {}
 
 func (s *DataIntegrationTestSuite) runVoteDeadlineJob(outingId uint) error {
@@ -1760,4 +1763,45 @@ func (s *DataIntegrationTestSuite) Test_VoteDeadlineJob_Succeeds_WhenOneApproved
 	s.Require().NoError(err)
 
 	s.Len(outing1Db.Steps, 1)
+}
+func (s *DataIntegrationTestSuite) Test_ListAllFriendIDs_Success() {
+	stat, err := s.db.SendFriendRequest(1, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	stat, err = s.db.SendFriendRequest(2, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	stat, err = s.db.SendFriendRequest(3, 4)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	stat, err = s.db.SendFriendRequest(3, 5)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	err = s.db.ApproveFriendRequest(2, 3)
+	s.Require().NoError(err)
+
+	err = s.db.ApproveFriendRequest(3, 5)
+	s.Require().NoError(err)
+
+	frens, err := s.db.ListAllFriendIDs(3)
+	s.NoError(err)
+	s.Len(frens, 2)
+
+	err = s.db.ApproveFriendRequest(1, 3)
+	s.Require().NoError(err)
+
+	frens, err = s.db.ListAllFriendIDs(3)
+	s.NoError(err)
+	s.Len(frens, 3)
+
+	err = s.db.ApproveFriendRequest(3, 4)
+	s.Require().NoError(err)
+
+	frens, err = s.db.ListAllFriendIDs(3)
+	s.NoError(err)
+	s.Len(frens, 4)
 }
