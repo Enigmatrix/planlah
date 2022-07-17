@@ -175,7 +175,7 @@ func (ctr *UserController) GetFriendInfo(ctx *gin.Context) {
 		return
 	}
 
-	user, err := ctr.Database.GetUserProfile(userId)
+	user, err := ctr.Database.GetUserProfile(dto.ID)
 	if err != nil { // this User is always found
 		handleDbError(ctx, err)
 		return
@@ -306,7 +306,7 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 func (ctr *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	users.GET("me/info", ctr.GetInfo)
-	users.GET("friends/info", ctr.GetFriendInfo)
+	users.GET("friend/info", ctr.GetFriendInfo)
 	users.GET("get", ctr.GetUserInfo)
 	users.GET("create", ctr.Create)
 	users.GET("search_for_friends", ctr.SearchForFriends)
