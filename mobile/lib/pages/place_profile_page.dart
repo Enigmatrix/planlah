@@ -69,13 +69,8 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
     var resp = await reviewService.getReviews(widget.place.id, page);
     if (resp.isOk) {
       setState(() {
-        print("Loaded reviews...");
         reviews = resp.body!;
-        print(reviews);
       });
-    } else {
-      print("Failed to load reviews");
-      print(resp.bodyString!);
     }
   }
 
@@ -127,28 +122,31 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
 
   Widget buildReviewListTile(BuildContext context, int index) {
     ReviewDto review = reviews[index];
-    return ListTile(
-      onTap: () {
-        showDialog(
-          context: context,
-          builder: (context) => buildReviewDialog(context, review)
-        );
-      },
-      tileColor: Colors.lightBlue,
-      leading: CircleAvatar(
-        backgroundImage: CachedNetworkImageProvider(
-          review.user.imageLink
+    return Card(
+        elevation: 8.0,
+        child: ListTile(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) => buildReviewDialog(context, review)
+          );
+        },
+        tileColor: Colors.white,
+        leading: CircleAvatar(
+          backgroundImage: CachedNetworkImageProvider(
+            review.user.imageLink
+          ),
         ),
-      ),
-      title: Column(
-        children: <Widget>[
-          buildRatingBar(review.rating.toDouble()),
-          Text(
-            review.content,
-            overflow: TextOverflow.ellipsis,
-          )
-        ],
-      ),
+        title: Column(
+          children: <Widget>[
+            buildRatingBar(review.rating.toDouble()),
+            Text(
+              review.content,
+              overflow: TextOverflow.ellipsis,
+            )
+          ],
+        ),
+     ),
     );
   }
 
@@ -240,15 +238,19 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
               maxRating: MAX_RATING.toDouble(),
             ),
             IconButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_rating == EMPTY_RATING || textController.text.isEmpty) {
                     var snackBar = const SnackBar(
                       content: Text("Please leave a rating and a review!")
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   } else {
-                    submitReview();
-                    textController.text = "";
+                    await submitReview();
+                    loadReviews(page);
+                    getOverallReview();
+                    setState(() {
+                      textController.text = "";
+                    });
                     Navigator.of(context).pop();
                   }
                 },
@@ -260,7 +262,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
     );
   }
   
-  void submitReview() async {
+  submitReview() async {
     await reviewService.createReview(textController.text, widget.place.id, _rating.toInt());
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Review submitted!")));
   }
