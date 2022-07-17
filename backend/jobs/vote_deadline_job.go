@@ -119,7 +119,7 @@ func (job *VoteDeadlineJob) RunCore(outingId uint) error {
 
 	err = job.Hub.SendToGroup(outing.GroupID, services.NewActiveOutingUpdate(outing.GroupID))
 	if err != nil {
-		job.Logger.Warn("hub send err", zap.Error(err))
+		job.Logger.Warn("hub send err in voteDeadlineJob", zap.Error(err))
 	}
 
 	return nil

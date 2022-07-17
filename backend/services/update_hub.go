@@ -58,6 +58,12 @@ func NewGroupUpdate(groupId uint) *GroupUpdate {
 	}
 }
 
+func NewGroupsUpdate() *GroupsUpdate {
+	return &GroupsUpdate{
+		UpdateKind: UpdateKind{Kind: "groups"},
+	}
+}
+
 func NewMessageUpdate(groupId uint) *MessageUpdate {
 	return &MessageUpdate{
 		UpdateKind: UpdateKind{Kind: "message"},

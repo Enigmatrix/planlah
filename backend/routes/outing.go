@@ -3,7 +3,6 @@ package routes
 import (
 	"fmt"
 	"github.com/juju/errors"
-	"go.uber.org/zap"
 	"net/http"
 	"planlah.sg/backend/jobs"
 	"planlah.sg/backend/services"
@@ -200,9 +199,7 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 	}
 
 	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupUpdate(dto.GroupID))
-	if err != nil {
-		ctr.Logger.Warn("hub send err", zap.Error(err))
-	}
+	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
 }
@@ -261,9 +258,7 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 	}
 
 	err = ctr.Hub.SendToGroup(outing.GroupID, services.NewActiveOutingUpdate(outing.GroupID))
-	if err != nil {
-		ctr.Logger.Warn("hub send err", zap.Error(err))
-	}
+	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
 }
@@ -379,9 +374,7 @@ func (ctr *OutingController) Vote(ctx *gin.Context) {
 	}
 
 	err = ctr.Hub.SendToGroup(o.GroupID, services.NewActiveOutingUpdate(o.GroupID))
-	if err != nil {
-		ctr.Logger.Warn("hub send err", zap.Error(err))
-	}
+	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
 }
