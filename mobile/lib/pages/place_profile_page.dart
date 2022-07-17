@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/place.dart';
@@ -30,6 +31,12 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   List<ReviewDto> reviews = [];
 
   int page = 0;
+
+  final textController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  static const double EMPTY_RATING = -1;
+  double _rating = EMPTY_RATING;
 
   static const OVERALL_RATING_STYLE = TextStyle(
     fontSize: 30,
@@ -177,7 +184,10 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
         children: <Widget>[
           ElevatedButton.icon(
               onPressed: () {
-                // TODO: Create review page
+                showDialog(
+                  context: context,
+                  builder: buildReviewForm
+                );
               },
               icon: const Icon(Icons.rate_review),
               label: const Text("Write a review")
@@ -185,6 +195,74 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
         ],
       ),
     );
+  }
+
+  Widget buildReviewForm(BuildContext context) {
+    return AlertDialog(
+      title: Center(
+        child: const Text("Review"),
+      ),
+      content: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Form(
+              key: _formKey,
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    controller: textController,
+                    keyboardType: TextInputType.multiline,
+                    minLines: 12,
+                    maxLines: 12,
+                    decoration: const InputDecoration(
+                        icon: Icon(Icons.drive_file_rename_outline),
+                        labelText: "Write your review"
+                    ),
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return "Please enter some text";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16.0),
+            RatingBar.builder(
+              itemBuilder: (context, index) => const Icon(Icons.star, color: Colors.amber),
+              onRatingUpdate: (rating) {
+                setState(() {
+                  _rating = rating;
+                });
+              },
+              maxRating: MAX_RATING.toDouble(),
+            ),
+            IconButton(
+                onPressed: () {
+                  if (_rating == EMPTY_RATING || textController.text.isEmpty) {
+                    var snackBar = const SnackBar(
+                      content: Text("Please leave a rating and a review!")
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  } else {
+                    submitReview();
+                    textController.text = "";
+                    Navigator.of(context).pop();
+                  }
+                },
+                icon: const Icon(Icons.check)
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+  
+  void submitReview() async {
+    await reviewService.createReview(textController.text, widget.place.id, _rating.toInt());
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Review submitted!")));
   }
 
   Widget buildEmptyContentWidget() {
@@ -219,7 +297,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
         ),
         buildRatingBar(overallReviewDto.overallRating),
         Text(
-          overallReviewDto.numRatings.toString() + " reviews",
+          "${overallReviewDto.numRatings} reviews",
           style: NUM_RATINGS_STYLE
         )
       ],
