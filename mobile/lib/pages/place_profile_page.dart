@@ -65,11 +65,12 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
     }
   }
 
-  loadReviews(int page) async {
-    var resp = await reviewService.getReviews(widget.place.id, page);
+  loadReviews(int newPage) async {
+    var resp = await reviewService.getReviews(widget.place.id, newPage);
     if (resp.isOk) {
       setState(() {
         reviews = resp.body!;
+        page = newPage;
       });
     }
   }
@@ -88,7 +89,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
             imageUrl: widget.place.imageLink
           ),
           buildContent(),
-          buildReviewButton(),
+          buildButtonBar(),
         ],
       ),
     );
@@ -174,23 +175,54 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
     );
   }
 
-  Widget buildReviewButton() {
+  Widget buildButtonBar() {
+    return ButtonBar(
+      alignment: MainAxisAlignment.center,
+      children: <Widget>[
+        buildNavigationButtons(),
+        buildWriteReviewButton(),
+      ],
+    );
+  }
+
+  Widget buildNavigationButtons() {
+    return Expanded(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          page == 0
+              ? SizedBox.shrink()
+              : IconButton(
+            onPressed: () {
+              loadReviews(page - 1);
+            },
+            icon: const Icon(Icons.keyboard_arrow_left),
+          ),
+          reviews.isEmpty
+            ? SizedBox.shrink()
+            : IconButton(
+              onPressed: () {
+                loadReviews(page + 1);
+              },
+              icon: const Icon(Icons.keyboard_arrow_right)
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildWriteReviewButton() {
     return Align(
       alignment: Alignment.bottomRight,
-      child: ButtonBar(
-        alignment: MainAxisAlignment.end,
-        children: <Widget>[
-          ElevatedButton.icon(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: buildReviewForm
-                );
-              },
-              icon: const Icon(Icons.rate_review),
-              label: const Text("Write a review")
-          )
-        ],
+      child: ElevatedButton.icon(
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: buildReviewForm
+            );
+          },
+          icon: const Icon(Icons.rate_review),
+          label: const Text("Write a review")
       ),
     );
   }
