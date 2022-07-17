@@ -7,6 +7,7 @@ import 'package:mobile/dto/group.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/create_group.dart';
 import 'package:mobile/services/group.dart';
+import 'package:mobile/services/session.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/widgets/group_display_widget.dart';
 
@@ -35,15 +36,16 @@ class _GroupsPageState extends State<GroupsPage> {
   // Used to pass into the chat groups
   late UserSummaryDto userSummaryDto;
 
-  // Update the groups
-  late Timer timer;
-
   @override
   initState() {
     super.initState();
     loadUserInfo();
     updateGroups();
-    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    final sess = Get.find<SessionService>();
+    sess.anyMessage().listen((event) {
+      updateGroups();
+    });
+    sess.groups().listen((event) {
       updateGroups();
     });
     // groups = allGroups;
@@ -51,7 +53,6 @@ class _GroupsPageState extends State<GroupsPage> {
 
   @override
   void dispose() {
-    timer.cancel();
     super.dispose();
   }
 

@@ -45,6 +45,10 @@ func DatabaseConnectionString(config *utils.Config) string {
 	return dsn
 }
 
+func ClearDatabaseConnection() {
+	dbConn.Reset()
+}
+
 // NewDatabaseConnection Creates a new database connection
 func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, error) {
 	// TODO should this really be a singleton?
@@ -53,7 +57,7 @@ func NewDatabaseConnection(config *utils.Config, logger *zap.Logger) (*gorm.DB, 
 		pg := postgres.Open(dsn)
 
 		dblogger := zapgorm2.New(logger)
-		dblogger.SetAsDefault() // use zap logger for callbacks
+		// dblogger.SetAsDefault() // use zap logger for callbacks
 		dbconfig := gorm.Config{
 			Logger: dblogger,
 		}
@@ -846,6 +850,21 @@ func (db *Database) CreateOutingStep(outingStep *OutingStep) error {
 	return nil
 }
 
+// GetOutingStep Gets the OutingStep
+//
+// Throws EntityNotFound when the OutingStep is not found
+func (db *Database) GetOutingStep(outingStepId uint) (OutingStep, error) {
+	var outingStep OutingStep
+	err := db.conn.Model(&OutingStep{}).Where(&OutingStep{ID: outingStepId}).First(&outingStep).Error
+	if err != nil {
+		if isNotFoundInDb(err) {
+			return OutingStep{}, EntityNotFound
+		}
+		return OutingStep{}, errors.Trace(err)
+	}
+	return outingStep, nil
+}
+
 // UpsertOutingStepVote Vote for an OutingStep
 //
 // Does not check if the GroupMember is in the Group of this OutingStep.
@@ -1089,6 +1108,11 @@ func (db *Database) GetPlaces(placeIds []uint) ([]Place, error) {
 	return places, nil
 }
 
+// CreatePost Creates a Post
+func (db *Database) CreatePost(post *Post) error {
+	return errors.Trace(db.conn.Create(post).Error)
+}
+
 // SearchForPosts Search for posts made by friends, with pagination
 func (db *Database) SearchForPosts(userId uint, page Pagination) ([]Post, error) {
 	var posts []Post
@@ -1240,4 +1264,27 @@ WHERE place_id = ?`, placeId).
 	}
 
 	return overall, nil
+}
+
+// ListAllFriendIDs Lists all friends of this User, but just the IDs
+func (db *Database) ListAllFriendIDs(userId uint) ([]uint, error) {
+	var friendIds []uint
+	err := db.conn.Raw(`
+SELECT from_id
+FROM friend_requests
+WHERE to_id = ?
+AND status = 'approved'
+
+UNION
+
+SELECT to_id
+FROM friend_requests
+WHERE from_id = ?
+AND status = 'approved'
+`, userId, userId).Scan(&friendIds).Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return friendIds, nil
 }

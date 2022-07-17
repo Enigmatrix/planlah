@@ -6,7 +6,9 @@ import (
 	"github.com/juju/errors"
 	"github.com/samber/lo"
 	"github.com/vgarvardt/gue/v3"
+	"go.uber.org/zap"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/services"
 	"sort"
 )
 
@@ -14,10 +16,12 @@ var VoteDeadlineJobName = "voteDeadlineJob"
 
 type VoteDeadlineJob struct {
 	Database *data.Database
+	Hub      services.UpdateHub
+	Logger   *zap.Logger
 }
 
-func NewVoteDeadlineJob(database *data.Database) *VoteDeadlineJob {
-	return &VoteDeadlineJob{Database: database}
+func NewVoteDeadlineJob(database *data.Database, hub services.UpdateHub, logger *zap.Logger) *VoteDeadlineJob {
+	return &VoteDeadlineJob{Database: database, Hub: hub, Logger: logger}
 }
 
 type VoteDeadlineJobArgs struct {
@@ -111,6 +115,11 @@ func (job *VoteDeadlineJob) RunCore(outingId uint) error {
 	err = job.Database.DeleteOutingSteps(removed)
 	if err != nil {
 		return errors.Annotate(err, "delete conflicting outing steps")
+	}
+
+	err = job.Hub.SendToGroup(outing.GroupID, services.NewActiveOutingUpdate(outing.GroupID))
+	if err != nil {
+		job.Logger.Warn("hub send err in voteDeadlineJob", zap.Error(err))
 	}
 
 	return nil

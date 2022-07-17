@@ -72,6 +72,8 @@ func (s *DataIntegrationTestSuite) TearDownTest() {
 	s.Require().NoError(err)
 	err = sqlDB.Close()
 	s.Require().NoError(err)
+
+	data.ClearDatabaseConnection()
 }
 
 func (s *DataIntegrationTestSuite) Test_InitMigrate_Succeeds() {
@@ -1502,8 +1504,21 @@ func (s *DataIntegrationTestSuite) Test_SearchForPlaces_Succeeds() {
 // TODO add more tests for DeleteOutingSteps
 // TODO add more tests for DeleteOutingStep
 
+type nullHub struct{}
+
+func (n *nullHub) SendToGroup(groupId uint, msg any) error {
+	return nil
+}
+func (n *nullHub) SendToUser(userId uint, msg any) error {
+	return nil
+}
+func (n *nullHub) SendToFriends(userId uint, msg any) error {
+	return nil
+}
+func (n *nullHub) Run() {}
+
 func (s *DataIntegrationTestSuite) runVoteDeadlineJob(outingId uint) error {
-	job := jobs.NewVoteDeadlineJob(s.db)
+	job := jobs.NewVoteDeadlineJob(s.db, &nullHub{}, zap.NewNop())
 	return job.RunCore(outingId)
 }
 
@@ -1748,4 +1763,45 @@ func (s *DataIntegrationTestSuite) Test_VoteDeadlineJob_Succeeds_WhenOneApproved
 	s.Require().NoError(err)
 
 	s.Len(outing1Db.Steps, 1)
+}
+func (s *DataIntegrationTestSuite) Test_ListAllFriendIDs_Success() {
+	stat, err := s.db.SendFriendRequest(1, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	stat, err = s.db.SendFriendRequest(2, 3)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	stat, err = s.db.SendFriendRequest(3, 4)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	stat, err = s.db.SendFriendRequest(3, 5)
+	s.Require().NoError(err)
+	s.Require().Equal(data.Pending, stat)
+
+	err = s.db.ApproveFriendRequest(2, 3)
+	s.Require().NoError(err)
+
+	err = s.db.ApproveFriendRequest(3, 5)
+	s.Require().NoError(err)
+
+	frens, err := s.db.ListAllFriendIDs(3)
+	s.NoError(err)
+	s.Len(frens, 2)
+
+	err = s.db.ApproveFriendRequest(1, 3)
+	s.Require().NoError(err)
+
+	frens, err = s.db.ListAllFriendIDs(3)
+	s.NoError(err)
+	s.Len(frens, 3)
+
+	err = s.db.ApproveFriendRequest(3, 4)
+	s.Require().NoError(err)
+
+	frens, err = s.db.ListAllFriendIDs(3)
+	s.NoError(err)
+	s.Len(frens, 4)
 }

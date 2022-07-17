@@ -5,6 +5,7 @@ import (
 	"github.com/juju/errors"
 	"net/http"
 	"planlah.sg/backend/jobs"
+	"planlah.sg/backend/services"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -197,6 +198,9 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 		return
 	}
 
+	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupUpdate(dto.GroupID))
+	handleHubError(ctr.Logger, err)
+
 	ctx.Status(http.StatusOK)
 }
 
@@ -252,6 +256,9 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 		handleDbError(ctx, err)
 		return
 	}
+
+	err = ctr.Hub.SendToGroup(outing.GroupID, services.NewActiveOutingUpdate(outing.GroupID))
+	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
 }
@@ -365,6 +372,9 @@ func (ctr *OutingController) Vote(ctx *gin.Context) {
 		handleDbError(ctx, err)
 		return
 	}
+
+	err = ctr.Hub.SendToGroup(o.GroupID, services.NewActiveOutingUpdate(o.GroupID))
+	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
 }

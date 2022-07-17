@@ -6,6 +6,7 @@ import (
 	"github.com/samber/lo"
 	"net/http"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/services"
 	"time"
 )
 
@@ -88,6 +89,9 @@ func (ctr *MessageController) Send(ctx *gin.Context) {
 		handleDbError(ctx, err)
 		return
 	}
+
+	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewMessageUpdate(dto.GroupID))
+	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
 }
