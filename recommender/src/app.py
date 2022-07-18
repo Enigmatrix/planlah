@@ -35,8 +35,11 @@ def recommend():
         return Response(status=HTTPStatus.BAD_REQUEST, response="invalid place_type")
 
     places = filter_places(place_type, lon, lat)
-    if places is None:
-        return Response(status=HTTPStatus.BAD_REQUEST, response="could not find places")
+
+    if not places:
+        return {
+            "results": []
+        }
 
     places = calculate_similarity_metric(places, get_user_features(user, place_type))
 
