@@ -312,7 +312,7 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
       p = widget.initialPlace!.position;
     }
     print("Current position lat: ${p.latitude} lon: ${p.longitude}");
-    return placeService.recommend(p, placeType);
+    return await placeService.recommend(p, placeType);
   }
 
   Widget showErrorDialog(BuildContext context, String err) {
