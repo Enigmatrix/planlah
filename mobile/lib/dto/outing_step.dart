@@ -46,6 +46,7 @@ class OutingStepVoteDto {
 
 class OutingStepDto {
   int id;
+  int outingId;
   PlaceDto place;
   String description;
   String start;
@@ -54,6 +55,7 @@ class OutingStepDto {
 
   OutingStepDto(
       this.id,
+      this.outingId,
       this.place,
       this.description,
       this.start,
@@ -62,6 +64,7 @@ class OutingStepDto {
 
   OutingStepDto.fromJson(Map<String, dynamic> json):
         id = json["id"],
+        outingId = json["outingId"],
         place = PlaceDto.fromJson(json["place"]),
         description = json["description"],
         start = json["start"],

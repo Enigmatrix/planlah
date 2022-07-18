@@ -1,13 +1,18 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/pages/outing_page.dart';
 import 'package:mobile/pages/profile_page.dart';
-import 'package:mobile/theme.dart';
+import 'package:mobile/services/outing.dart';
 import 'package:mobile/utils/time.dart';
 
 import '../dto/posts.dart';
 
 class SocialPost extends StatelessWidget {
   PostDto post;
+
+  final outingSvc = Get.find<OutingService>();
 
   SocialPost({required this.post});
 
@@ -68,12 +73,19 @@ class SocialPost extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        // View itinerary
-        // TODO: Actually view the itinerary.
         OutlinedButton.icon(
-          onPressed: () {},
+          onPressed: () async {
+            final outingId = post.outingStep.outingId;
+            final resp = await outingSvc.getOuting(outingId);
+            if (resp.isOk) {
+              final outing = resp.body!;
+              Get.to(() => OutingPage(outing: outing, isActive: false));
+            } else {
+              log(resp.bodyString!);
+            }
+          },
           icon: const Icon(Icons.remove_red_eye_outlined),
-          label: const Text("View Itinerary"),
+          label: Text("View Itinerary"),
         ),
       ],
     );

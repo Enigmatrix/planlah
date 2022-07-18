@@ -154,7 +154,7 @@ class _OutingPageState extends State<OutingPage> {
             isActive ? const Icon(Icons.timeline) : const Icon(Icons.history),
         title: Text("${outing.name} ($range)"),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: !widget.isActive ? null : FloatingActionButton(
           onPressed: () {
             // Add OutingStep
             Get.to(CreateOutingStepPage(outing: widget.outing));
@@ -589,14 +589,15 @@ class _OutingPageState extends State<OutingPage> {
                 ],
               ),
             ),
-            if (showVoting)
-              buildVoteCompletePart(step)
-            else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isAfter(currentTime))
-              buildInProgressPart(step)
-            else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isBefore(currentTime))
-              buildCompletedPart(step)
-            else
-              buildNotYet(step)
+            if (widget.isActive)
+              if (showVoting)
+                buildVoteCompletePart(step)
+              else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isAfter(currentTime))
+                buildInProgressPart(step)
+              else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isBefore(currentTime))
+                  buildCompletedPart(step)
+                else
+                  buildNotYet(step)
           ],
         ));
   }
