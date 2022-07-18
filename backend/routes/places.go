@@ -116,6 +116,7 @@ func (ctr *PlacesController) Recommend(ctx *gin.Context) {
 		ctx.Status(500)
 		return
 	}
+
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {

@@ -4,17 +4,15 @@ import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
-import 'package:intl/date_time_patterns.dart';
 import 'package:intl/intl.dart';
-import 'package:lit_relative_date_time/lit_relative_date_time.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/dto/outing_step.dart';
 import 'package:mobile/dto/place.dart';
-import 'package:mobile/model/location.dart';
 import 'package:mobile/pages/find_place.dart';
 import 'package:mobile/services/place.dart';
+import 'package:mobile/widgets/recommender_dialog.dart';
+import 'package:mobile/widgets/wait_widget.dart';
 import 'package:time_range_picker/time_range_picker.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -44,8 +42,11 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
 
   final defaultMargin = const EdgeInsets.only(top: 8.0, left: 24.0, right: 24.0);
 
-  static const RESTAURANT = "restaurant";
-  static const ATTRACTION = "attraction";
+  static const ERROR_STATUS = "Failed to get places";
+  static const ERROR_FINDING = "We could not find any places for you based off your current location";
+  
+  List<PlaceDto> foodSuggestions = [];
+  List<PlaceDto> attractionSuggestions = [];
 
   @override
   void initState() {
@@ -239,23 +240,28 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
         ));
   }
 
+  // TODO: Fix failure rate for suggestion button
   Widget buildSuggestionButton() {
     return Row(
       children: <Widget>[
         TextButton(
           onPressed: () async {
-            // TODO: Add recommend interface call here
-            if (place == null) {
-              Position position = await Geolocator.getCurrentPosition();
-              // TODO: Hardcode the location for now
-              Point p = Point(103.7649, 1.3162);
-              var resp = await placeService.recommend(p, PlaceType.restaurant);
-              if (resp.isOk) {
-                print(resp.body);
-              }
+            var resp = await showDialog(context: context, builder: buildSuggestionDialog);
+            // resp will be null if the user clicks out of the dialog so just
+            // return immediately
+            if (resp == null) {
+              return;
             }
-            // var resp = placeService.recommend(from, type);
-            showDialog(context: context, builder: buildSuggestionDialog);
+            // Call await on a showDialog to retrieve the value when the dialog is
+            // returned with a value.
+            PlaceDto? p = await showDialog(
+              context: context, 
+              builder: (context) => buildFutureRecommender(resp)
+            );
+            // Set chosen place and rebuild widget
+            setState(() {
+              place = p;
+            });
           },
           child: Text("Suggest!")
         )
@@ -263,9 +269,104 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     );
   }
 
+  Widget buildFutureRecommender(PlaceType placeType) {
+    // TODO: Maybe cache and reuse if lat/long is the same? Idk
+    List<PlaceDto> suggestions = placeType == PlaceType.restaurant ? foodSuggestions : attractionSuggestions;
+    if (suggestions.isEmpty) {
+      return FutureBuilder(
+          future: getSuggestions(placeType),
+          builder: (BuildContext context, AsyncSnapshot<Response<List<PlaceDto>?>> snapshot) {
+            if (snapshot.hasData) {
+              if (snapshot.data!.hasError) {
+                return showErrorDialog(context, ERROR_STATUS);
+              } else if (snapshot.data!.isOk) {
+                if (snapshot.data!.body!.isEmpty) {
+                  return showErrorDialog(context, ERROR_FINDING);
+                } else {
+                  suggestions = snapshot.data!.body!;
+                  return RecommenderDialog(places: snapshot.data!.body!);
+                }
+              } else {
+                return showErrorDialog(context, ERROR_STATUS);
+              }
+            } else {
+              return waitWidget();
+            }
+          }
+      );
+    } else {
+      return RecommenderDialog(places: suggestions);
+    }
+  }
+
+  Future<Response<List<PlaceDto>?>> getSuggestions(PlaceType placeType) async {
+    Point p;
+    // If place is null, obtain current location.
+    // Else use the previous place's location.
+    if (widget.initialPlace == null) {
+      // TODO: Hardcode the location for now. Stuck on emulator always returning default value
+      // Position position = await Geolocator.getCurrentPosition();
+      // p = Point(position.longitude, position.latitude);
+      p = Point(103.7649, 1.3162);
+    } else {
+      p = widget.initialPlace!.position;
+    }
+    print("Current position lat: ${p.latitude} lon: ${p.longitude}");
+    return placeService.recommend(p, placeType);
+  }
+
+  Widget showErrorDialog(BuildContext context, String err) {
+    return AlertDialog(
+      content: Text(
+        err,
+        style: const TextStyle(color: Colors.red),
+      ),
+    );
+  }
+
+  /// Dialog that gives the user the choice for food
+  /// or attractions.
   Widget buildSuggestionDialog(BuildContext context) {
     return Dialog(
-
+      elevation: 8.0,
+      insetPadding: const EdgeInsets.all(32.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            "Food or fun?",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.green
+            ),
+          ),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context, PlaceType.restaurant);
+                },
+                icon: const Icon(
+                  Icons.fastfood,
+                  color: Colors.lightGreenAccent,
+                )
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context, PlaceType.attraction);
+                },
+                icon: const Icon(
+                  Icons.headphones_battery,
+                  color: Colors.pink,
+                )
+              ),
+            ],
+          )
+        ],
+      )
     );
   }
 
