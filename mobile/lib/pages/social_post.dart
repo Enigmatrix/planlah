@@ -67,7 +67,6 @@ class SocialPost extends StatelessWidget {
   Widget buildContent() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-      // TODO: Add social info, unless we don't want that, idk
       children: [
         // View itinerary
         // TODO: Actually view the itinerary.
@@ -81,22 +80,28 @@ class SocialPost extends StatelessWidget {
   }
 
   Widget buildText() {
-    return Card(
-      elevation: 8.0,
+    return Container(
+      alignment: Alignment.topLeft,
+      padding: const EdgeInsets.all(16.0),
       child: Text(post.text),
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        buildHeader(),
-        buildText(),
-        buildPicture(),
-        buildContent(),
-      ],
+    return Card(
+      elevation: 8.0,
+      color: Colors.white,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          buildHeader(),
+          buildText(),
+          buildPicture(),
+          buildContent(),
+        ],
+      ),
     );
   }
 }
