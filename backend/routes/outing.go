@@ -35,6 +35,7 @@ type OutingDto struct {
 
 type OutingStepDto struct {
 	ID          uint                `json:"id" binding:"required"`
+	OutingID    uint                `json:"outingId" binding:"required"`
 	Description string              `json:"description" binding:"required"`
 	Approved    bool                `json:"approved" binding:"required"`
 	Place       PlaceDto            `json:"place" binding:"required"`
@@ -73,6 +74,10 @@ type GetActiveOutingDto struct {
 	GroupID uint `form:"groupId" json:"groupId" binding:"required"`
 }
 
+type OutingRefDto struct {
+	ID uint `form:"id" json:"groupId" binding:"required"`
+}
+
 type VoteOutingStepDto struct {
 	Vote         *bool `json:"vote" binding:"required"`
 	OutingStepID uint  `json:"outingStepId" binding:"required"`
@@ -94,6 +99,7 @@ func ToOutingStepVoteDtos(outingStepVotes []data.OutingStepVote) []OutingStepVot
 func ToOutingStepDto(outingStep data.OutingStep) OutingStepDto {
 	return OutingStepDto{
 		ID:          outingStep.ID,
+		OutingID:    outingStep.OutingID,
 		Description: outingStep.Description,
 		Place:       ToPlaceDto(outingStep.Place),
 		Start:       outingStep.Start,
@@ -234,6 +240,11 @@ func (ctr *OutingController) CreateStep(ctx *gin.Context) {
 		return
 	}
 
+	if time.Now().After(outing.VoteDeadline) {
+		FailWithMessage(ctx, "cannot create outing step after vote deadline")
+		return
+	}
+
 	if outing.Start.After(dto.Start) || outing.End.Before(dto.End) {
 		FailWithMessage(ctx, "outing step has invalid start and end (not within outing)")
 		return
@@ -292,6 +303,36 @@ func (ctr *OutingController) Get(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, ToOutingDtos(outings))
+}
+
+// Find godoc
+// @Summary Find an Outing by ID
+// @Description Find an Outing by ID
+// @Param query query OutingRefDto true "Outing ID"
+// @Tags Outing
+// @Security JWT
+// @Success 200
+// @Success 200 {object} OutingDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/outing/find [get]
+func (ctr *OutingController) Find(ctx *gin.Context) {
+	var dto OutingRefDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	outing, err := ctr.Database.GetOutingWithSteps(dto.ID)
+	if err != nil {
+		if errors.Is(err, data.EntityNotFound) {
+			ctx.JSON(http.StatusOK, nil)
+			return
+		}
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, ToOutingDto(outing))
 }
 
 // GetActive godoc
@@ -360,6 +401,17 @@ func (ctr *OutingController) Vote(ctx *gin.Context) {
 		return
 	}
 
+	outing, err := ctr.Database.GetOuting(o.OutingID)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	if time.Now().After(outing.VoteDeadline) {
+		FailWithMessage(ctx, "cannot vote after vote deadline")
+		return
+	}
+
 	outingStepVote := data.OutingStepVote{
 		GroupMemberID: grpMember.ID,
 		OutingStepID:  dto.OutingStepID,
@@ -386,5 +438,6 @@ func (ctr *OutingController) Register(router *gin.RouterGroup) {
 	group.POST("create_step", ctr.CreateStep)
 	group.GET("all", ctr.Get)
 	group.GET("active", ctr.GetActive)
+	group.GET("find", ctr.Find)
 	group.PUT("vote", ctr.Vote)
 }

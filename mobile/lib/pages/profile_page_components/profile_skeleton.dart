@@ -52,6 +52,7 @@ class _ProfilePageSkeletonState extends State<ProfilePageSkeleton> {
 
       ),
       body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           widget.profilePictureWidgetBuilder(context, widget.user),
           buildNameWidget(context),
