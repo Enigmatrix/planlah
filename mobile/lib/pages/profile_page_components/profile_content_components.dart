@@ -61,7 +61,7 @@ class ProfileContent {
   static Future<Response<List<PostDto>?>> Function(int) loadPostsFor(UserProfileDto user) {
     return (int pageNumber) async {
       final postService = Get.find<PostService>();
-      return await postService.getPostsByFriend(user.id, pageNumber);
+      return await postService.getPostsByUser(user.id, pageNumber);
     };
   }
 
