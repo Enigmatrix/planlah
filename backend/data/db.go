@@ -1166,7 +1166,32 @@ INNER JOIN
     AND status = 'approved'
 ) AS friend_id
 ON p.user_id = friend_id.from_id
+ORDER BY p.posted_at DESC
 LIMIT ? OFFSET ?`, userId, userId, page.Limit(), page.Offset()).
+		Find(&posts).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return posts, nil
+}
+
+// SearchForPostsByFriend Search for posts made by a specific friend, with pagination
+func (db *Database) SearchForPostsByFriend(userId uint, friendId uint, page Pagination) ([]Post, error) {
+	var posts []Post
+
+	err := db.conn.Model(&Post{}).
+		Preload("OutingStep").
+		Preload("OutingStep.Place", SelectPlaces).
+		Preload("OutingStep.Votes").
+		Preload("OutingStep.Votes.GroupMember").
+		Preload("OutingStep.Votes.GroupMember.User").
+		Preload("User").
+		Where(&Post{UserID: friendId}).
+		Limit(page.Limit()).
+		Offset(page.Offset()).
+		Order("posted_at desc").
 		Find(&posts).
 		Error
 

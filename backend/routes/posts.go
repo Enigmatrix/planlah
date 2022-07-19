@@ -19,6 +19,11 @@ type ListPostsDto struct {
 	Page data.Pagination
 }
 
+type ListPostsByFriendDto struct {
+	Page   data.Pagination
+	UserID uint `form:"userId" binding:"required"`
+}
+
 type MakePostDto struct {
 }
 
@@ -65,6 +70,44 @@ func (ctr *PostsController) GetAll(ctx *gin.Context) {
 	}
 
 	reqs, err := ctr.Database.SearchForPosts(userId, dto.Page)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, lo.Map(reqs, func(t data.Post, _ int) PostDto {
+		return ToPostDto(t)
+	}))
+}
+
+// ByFriend godoc
+// @Summary Get all posts by a specific friend
+// @Description Get all posts made by a specific friend. Increment the {page} variable to view the next (by default 10) posts.
+// @Param query query ListPostsByFriendDto true "body"
+// @Security JWT
+// @Tags Posts
+// @Success 200 {object} []PostDto
+// @Failure 401 {object} services.AuthError
+// @Router /api/posts/by_friend [get]
+func (ctr *PostsController) ByFriend(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
+
+	var dto ListPostsByFriendDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	isFriend, err := ctr.Database.IsFriend(userId, dto.UserID)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+	if !isFriend {
+		FailWithMessage(ctx, "users are not friends")
+		return
+	}
+
+	reqs, err := ctr.Database.SearchForPostsByFriend(userId, dto.UserID, dto.Page)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -143,5 +186,6 @@ func (ctr *PostsController) CreatePost(ctx *gin.Context) {
 func (ctr *PostsController) Register(router *gin.RouterGroup) {
 	posts := router.Group("posts")
 	posts.GET("all", ctr.GetAll)
+	posts.GET("by_friend", ctr.ByFriend)
 	posts.POST("create", ctr.CreatePost)
 }

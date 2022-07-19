@@ -24,7 +24,7 @@ class ProfileContent {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     buildTabBar(),
-                    Expanded(child: buildTabBarView())
+                    Expanded(child: buildTabBarView(user))
                   ],
                 ),
               )
@@ -50,23 +50,24 @@ class ProfileContent {
     );
   }
   
-  static Widget buildTabBarView() {
+  static Widget buildTabBarView(UserProfileDto user) {
     return TabBarView(
         children: <Widget>[
-          buildPostsTabChild(),
+          buildPostsTabChild(user),
           buildReviewsTabChild(),
         ]
     );
   }
-
-
-  static Future<Response<List<PostDto>?>> loadPosts(int pageNumber) async {
-    final postService = Get.find<PostService>();
-    return await postService.getPosts(pageNumber);
+  static Future<Response<List<PostDto>?>> Function(int) loadPostsFor(UserProfileDto user) {
+    return (int pageNumber) async {
+      final postService = Get.find<PostService>();
+      return await postService.getPostsByFriend(user.id, pageNumber);
+    };
   }
 
-  static Widget buildPostsTabChild() {
-    return SocialFeed(loadPosts: loadPosts);
+
+  static Widget buildPostsTabChild(UserProfileDto user) {
+    return SocialFeed(loadPosts: loadPostsFor(user));
   }
 
   static Widget buildReviewsTabChild() {
