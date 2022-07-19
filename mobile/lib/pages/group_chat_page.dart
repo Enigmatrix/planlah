@@ -412,12 +412,14 @@ class _GroupChatPageState extends State<GroupChatPage> {
       .then((value) {
           setState(() {
             if (value.body == null || value.body!.isEmpty) {
-              Get.snackbar(
-                "Operation not possible: ",
-                "Your group has not had any outings yet :(",
-                snackPosition: SnackPosition.BOTTOM,
-                backgroundColor: Colors.black
-              );
+
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: ListTile(
+                  title: Text("Operation not possible: "),
+                  subtitle: Text("Your group has not had any outings yet :("),
+                ),
+                backgroundColor: Colors.deepOrange,
+              ));
             } else {
               outings = value.body!;
               Get.to(() => ViewAllOutingsPage(pastOutings: outings));
