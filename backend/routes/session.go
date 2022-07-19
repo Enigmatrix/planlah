@@ -15,7 +15,6 @@ func (ctr *SessionController) Register(router *gin.RouterGroup) {
 	users.Any("updates", ctr.Connect)
 }
 
-// TODO write doc for this
 func (ctr *SessionController) Connect(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
 	services.SetupUpdateClient(ctr.Hub, ctx.Writer, ctx.Request, userId)
