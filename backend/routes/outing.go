@@ -194,7 +194,7 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 		OutingId: outing.ID,
 	})
 	if err != nil {
-		// TODO how to handle
+		handleImageUploadError(ctx, err)
 		return
 	}
 

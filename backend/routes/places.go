@@ -111,15 +111,14 @@ func (ctr *PlacesController) Recommend(ctx *gin.Context) {
 	resp, err := http.Get(fmt.Sprintf("%s/recommend/?userid=%d&lon=%f&lat=%f&place_type=%s",
 		ctr.Config.RecommenderUrl, userId, dto.Longitude, dto.Latitude, dto.PlaceType))
 	if err != nil {
-		// TODO handle error
-		ctr.Logger.Sugar().Errorf("Error %v", err)
-		ctx.Status(500)
+		ctr.Logger.Error("recommender request err", zap.Error(err))
 		return
 	}
+
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {
-			ctr.Logger.Warn("close recommender req body", zap.Error(err))
+			ctr.Logger.Error("close recommender req body", zap.Error(err))
 		}
 	}(resp.Body)
 
@@ -128,16 +127,16 @@ func (ctr *PlacesController) Recommend(ctx *gin.Context) {
 	if resp.StatusCode == http.StatusOK {
 		err = json.NewDecoder(resp.Body).Decode(&response)
 		if err != nil {
-			// TODO handle error
+			ctr.Logger.Error("recommender response json decoder", zap.Error(err))
 			return
 		}
 	} else if resp.StatusCode == http.StatusBadRequest {
 		strErr, err := io.ReadAll(resp.Body)
 		if err != nil {
-			// TODO handle error
+			ctr.Logger.Error("recommender badReq generic error", zap.Error(err))
 			return
 		}
-		ctr.Logger.Warn("recommender badReq",
+		ctr.Logger.Error("recommender badReq",
 			zap.String("err", string(strErr)))
 		return
 	} else if resp.StatusCode == http.StatusInternalServerError {

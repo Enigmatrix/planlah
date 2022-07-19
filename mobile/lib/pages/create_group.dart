@@ -9,6 +9,7 @@ import 'package:mobile/dto/group.dart';
 import 'package:mobile/pages/group_chat_page.dart';
 
 import 'package:mobile/services/group.dart';
+import 'package:mobile/utils/errors.dart';
 
 import '../dto/user.dart';
 
@@ -74,12 +75,8 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
       GroupSummaryDto group = response.body!;
       Get.off(() => GroupChatPage(chatGroup: group, userSummaryDto: widget.userSummaryDto));
     } else {
-      Get.snackbar(
-          "Failure",
-          "Error status",
-          backgroundColor: Colors.red,
-          snackPosition: SnackPosition.TOP
-      );
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
     }
   }
 

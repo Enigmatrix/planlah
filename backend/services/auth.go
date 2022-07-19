@@ -91,8 +91,7 @@ func (authSvc *AuthService) Verify(ctx *gin.Context) (interface{}, error) {
 	if errors.Is(err, data.EntityNotFound) {
 		return nil, errors.New("user does not exist")
 	} else if err != nil {
-		// TODO handle the error here!
-		return nil, err
+		return nil, err // this might be printed to the user?
 	}
 
 	return user, err
