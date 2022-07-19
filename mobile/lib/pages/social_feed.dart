@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/pages/social_post.dart';
 import 'package:mobile/services/posts.dart';
+import 'package:mobile/utils/errors.dart';
 
 import '../dto/posts.dart';
 
@@ -32,6 +33,9 @@ class _SocialFeedPageState extends State<SocialFeedPage> {
       setState(() {
         posts.addAll(response.body!);
       });
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
     }
   }
 

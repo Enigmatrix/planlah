@@ -8,6 +8,7 @@ import 'package:lit_relative_date_time/controller/relative_date_format.dart';
 import 'package:lit_relative_date_time/lit_relative_date_time.dart';
 import 'package:mobile/dto/outing.dart';
 import 'package:mobile/pages/outing_page.dart';
+import 'package:mobile/utils/errors.dart';
 
 import '../services/outing.dart';
 
@@ -298,9 +299,15 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
 
     if (response.isOk) {
       var response = await outingService.getActiveOuting(GetActiveOutingDto(widget.groupId));
-      Get.off(OutingPage(outing: response.body!, isActive: true));
+      if (response.isOk) {
+        Get.off(OutingPage(outing: response.body!, isActive: true));
+      } else {
+        if (!mounted) return;
+        await ErrorManager.showError(context, response);
+      }
     } else {
-      log(response.bodyString!);
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
     }
   }
 }

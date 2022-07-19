@@ -15,6 +15,7 @@ import 'package:mobile/dto/place.dart';
 import 'package:mobile/model/location.dart';
 import 'package:mobile/pages/find_place.dart';
 import 'package:mobile/services/place.dart';
+import 'package:mobile/utils/errors.dart';
 import 'package:time_range_picker/time_range_picker.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -252,6 +253,9 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
               var resp = await placeService.recommend(p, PlaceType.restaurant);
               if (resp.isOk) {
                 print(resp.body);
+              } else {
+                if (!mounted) return;
+                await ErrorManager.showError(context, resp);
               }
             }
             // var resp = placeService.recommend(from, type);
@@ -401,8 +405,8 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     if (response.isOk) {
       Get.back();
     } else {
-      final msg = jsonDecode(response.bodyString!)["message"];
-      await showError(msg);
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
     }
   }
 }

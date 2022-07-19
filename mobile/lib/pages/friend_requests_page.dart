@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/friends.dart';
 import 'package:mobile/services/friends.dart';
+import 'package:mobile/utils/errors.dart';
 
 class FriendRequestPage extends StatefulWidget {
   const FriendRequestPage({Key? key}) : super(key: key);
@@ -26,9 +27,14 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
 
   void _loadFriendRequests() async {
     var response = await friendService.getFriendRequests(pageNumber);
-    setState(() {
-      _friendRequests = response.body!;
-    });
+    if (response.isOk) {
+      setState(() {
+        _friendRequests = response.body!;
+      });
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
+    }
   }
 
   @override
@@ -120,13 +126,23 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
   }
 
   void approveFriendRequest(int userId) async {
-    await friendService.approveFriendRequest(userId);
-    _loadFriendRequests();
+    final response = await friendService.approveFriendRequest(userId);
+    if (response.isOk) {
+      _loadFriendRequests();
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
+    }
   }
 
   void rejectFriendRequest(int userId) async {
-    await friendService.rejectFriendRequest(userId);
-    _loadFriendRequests();
+    final response = await friendService.rejectFriendRequest(userId);
+    if (response.isOk) {
+      _loadFriendRequests();
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
+    }
   }
 
 }

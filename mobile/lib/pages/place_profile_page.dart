@@ -7,6 +7,8 @@ import 'package:mobile/dto/place.dart';
 import 'package:mobile/dto/review.dart';
 import 'package:mobile/services/reviews.dart';
 
+import '../utils/errors.dart';
+
 class PlaceProfilePage extends StatefulWidget {
 
   final PlaceDto place;
@@ -61,7 +63,8 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
         overallReviewDto = resp.body!;
       });
     } else {
-      print(resp.bodyString!);
+      if (!mounted) return;
+      await ErrorManager.showError(context, resp);
     }
   }
 
@@ -72,6 +75,9 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
         reviews = resp.body!;
         page = newPage;
       });
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, resp);
     }
   }
 
@@ -277,7 +283,9 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   } else {
-                    await submitReview();
+                    if (!await submitReview()) {
+                      return;
+                    }
                     loadReviews(page);
                     getOverallReview();
                     setState(() {
@@ -294,9 +302,17 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
     );
   }
   
-  submitReview() async {
-    await reviewService.createReview(textController.text, widget.place.id, _rating.toInt());
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Review submitted!")));
+  Future<bool> submitReview() async {
+    final resp = await reviewService.createReview(textController.text, widget.place.id, _rating.toInt());
+    if (!mounted) return false;
+
+    if (resp.isOk) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Review submitted!")));
+      return true;
+    } else {
+      await ErrorManager.showError(context, resp);
+      return false;
+    }
   }
 
   Widget buildEmptyContentWidget() {
