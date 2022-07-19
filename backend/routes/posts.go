@@ -19,7 +19,7 @@ type ListPostsDto struct {
 	Page data.Pagination
 }
 
-type ListPostsByFriendDto struct {
+type ListPostsByUser struct {
 	Page   data.Pagination
 	UserID uint `form:"userId" binding:"required"`
 }
@@ -80,34 +80,37 @@ func (ctr *PostsController) GetAll(ctx *gin.Context) {
 	}))
 }
 
-// ByFriend godoc
-// @Summary Get all posts by a specific friend
-// @Description Get all posts made by a specific friend. Increment the {page} variable to view the next (by default 10) posts.
-// @Param query query ListPostsByFriendDto true "body"
+// ByUser godoc
+// @Summary Get all posts by a specific user
+// @Description Get all posts made by a specific user. Increment the {page} variable to view the next (by default 10) posts.
+// @Param query query ListPostsByUser true "body"
 // @Security JWT
 // @Tags Posts
 // @Success 200 {object} []PostDto
 // @Failure 401 {object} services.AuthError
-// @Router /api/posts/by_friend [get]
-func (ctr *PostsController) ByFriend(ctx *gin.Context) {
+// @Router /api/posts/by_user [get]
+func (ctr *PostsController) ByUser(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
 
-	var dto ListPostsByFriendDto
+	var dto ListPostsByUser
 	if Query(ctx, &dto) {
 		return
 	}
 
-	isFriend, err := ctr.Database.IsFriend(userId, dto.UserID)
-	if err != nil {
-		handleDbError(ctx, err)
-		return
-	}
-	if !isFriend {
-		FailWithMessage(ctx, "users are not friends")
-		return
+	// if the target UserID is not the current user or not his friends, reject the request
+	if userId != dto.UserID {
+		isFriend, err := ctr.Database.IsFriend(userId, dto.UserID)
+		if err != nil {
+			handleDbError(ctx, err)
+			return
+		}
+		if !isFriend {
+			FailWithMessage(ctx, "users are not friends")
+			return
+		}
 	}
 
-	reqs, err := ctr.Database.SearchForPostsByFriend(userId, dto.UserID, dto.Page)
+	reqs, err := ctr.Database.SearchForPostsByUser(dto.UserID, dto.Page)
 	if err != nil {
 		handleDbError(ctx, err)
 		return
@@ -186,6 +189,6 @@ func (ctr *PostsController) CreatePost(ctx *gin.Context) {
 func (ctr *PostsController) Register(router *gin.RouterGroup) {
 	posts := router.Group("posts")
 	posts.GET("all", ctr.GetAll)
-	posts.GET("by_friend", ctr.ByFriend)
+	posts.GET("by_user", ctr.ByUser)
 	posts.POST("create", ctr.CreatePost)
 }

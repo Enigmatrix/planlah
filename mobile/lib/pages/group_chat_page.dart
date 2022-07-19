@@ -412,7 +412,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
       .then((value) {
           setState(() {
             if (value.body == null || value.body!.isEmpty) {
-
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                 content: ListTile(
                   title: Text("Operation not possible: "),

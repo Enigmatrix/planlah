@@ -14,13 +14,13 @@ class PostService extends BaseConnect {
     );
   }
 
-  Future<Response<List<PostDto>?>> getPostsByFriend(int userId, int pageNumber) async {
+  Future<Response<List<PostDto>?>> getPostsByUser(int userId, int pageNumber) async {
     var query = {
       "page": pageNumber.toString(),
       "userId": userId.toString()
     };
     return await get(
-        "/posts/by_friend",
+        "/posts/by_user",
         query: query,
         decoder: decoderForList(PostDto.fromJson)
     );

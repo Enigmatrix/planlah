@@ -1177,8 +1177,8 @@ LIMIT ? OFFSET ?`, userId, userId, page.Limit(), page.Offset()).
 	return posts, nil
 }
 
-// SearchForPostsByFriend Search for posts made by a specific friend, with pagination
-func (db *Database) SearchForPostsByFriend(userId uint, friendId uint, page Pagination) ([]Post, error) {
+// SearchForPostsByUser Search for posts made by a specific user, with pagination
+func (db *Database) SearchForPostsByUser(userId uint, page Pagination) ([]Post, error) {
 	var posts []Post
 
 	err := db.conn.Model(&Post{}).
@@ -1188,7 +1188,7 @@ func (db *Database) SearchForPostsByFriend(userId uint, friendId uint, page Pagi
 		Preload("OutingStep.Votes.GroupMember").
 		Preload("OutingStep.Votes.GroupMember.User").
 		Preload("User").
-		Where(&Post{UserID: friendId}).
+		Where(&Post{UserID: userId}).
 		Limit(page.Limit()).
 		Offset(page.Offset()).
 		Order("posted_at desc").
