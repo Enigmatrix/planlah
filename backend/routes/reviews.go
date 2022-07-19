@@ -12,14 +12,18 @@ type ReviewsController struct {
 }
 
 type CreateReviewDto struct {
-	PlaceID uint   `form:"placeID" binding:"required"`
+	PlaceID uint   `form:"placeId" binding:"required"`
 	Content string `form:"content" binding:"required"`
 	Rating  uint   `form:"rating" binding:"required"`
 }
 
 type SearchForReviewsDto struct {
-	PlaceID uint `json:"placeID" form:"placeID" binding:"required"`
+	PlaceID uint `json:"placeId" form:"placeId" binding:"required"`
 	Page    data.Pagination
+}
+type SearchForReviewsByUser struct {
+	UserID uint `json:"userId" form:"userId" binding:"required"`
+	Page   data.Pagination
 }
 
 type ReviewDto struct {
@@ -115,6 +119,46 @@ func (ctr ReviewsController) GetReviews(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, ToReviewDtos(reviews))
 }
 
+// GetAllReviewsByUser godoc
+// @Summary Get reviews made by this user, with pagination
+// @Description Get reviews for all places, by the user, given page number
+// @Param query query SearchForReviewsByUser true "body"
+// @Tags Reviews
+// @Security JWT
+// @Success 200 {object} []ReviewDto
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/reviews/by_user [get]
+func (ctr ReviewsController) GetAllReviewsByUser(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
+
+	var dto SearchForReviewsByUser
+	if Query(ctx, &dto) {
+		return
+	}
+
+	// if the target UserID is not the current user or not his friends, reject the request
+	if userId != dto.UserID {
+		isFriend, err := ctr.Database.IsFriend(userId, dto.UserID)
+		if err != nil {
+			handleDbError(ctx, err)
+			return
+		}
+		if !isFriend {
+			FailWithMessage(ctx, "users are not friends")
+			return
+		}
+	}
+
+	reviews, err := ctr.Database.GetReviewsByUser(dto.UserID, dto.Page)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, ToReviewDtos(reviews))
+}
+
 // GetOverallReview godoc
 // @Summary Get overall review for the place
 // @Description Get overall review for this place
@@ -144,6 +188,7 @@ func (ctr ReviewsController) GetOverallReview(ctx *gin.Context) {
 func (ctr *ReviewsController) Register(router *gin.RouterGroup) {
 	reviews := router.Group("reviews")
 	reviews.GET("get", ctr.GetReviews)
+	reviews.GET("by_user", ctr.GetAllReviewsByUser)
 	reviews.GET("get_overall", ctr.GetOverallReview)
 	reviews.POST("create", ctr.CreateReview)
 }

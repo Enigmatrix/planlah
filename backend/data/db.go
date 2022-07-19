@@ -1266,10 +1266,12 @@ LIMIT ? OFFSET ?
 	return users, nil
 }
 
+// CreateReview Creates a Review
 func (db Database) CreateReview(review *Review) error {
 	return errors.Trace(db.conn.Create(review).Error)
 }
 
+// GetReviews Gets all reviews for a Place
 func (db Database) GetReviews(placeId uint, page Pagination) ([]Review, error) {
 	var reviews []Review
 
@@ -1290,11 +1292,31 @@ LIMIT ? OFFSET ?`, placeId, page.Limit(), page.Offset()).
 	return reviews, nil
 }
 
+// GetReviewsByUser Gets all reviews made by a User
+func (db Database) GetReviewsByUser(userId uint, page Pagination) ([]Review, error) {
+	var reviews []Review
+
+	err := db.conn.Model(&Review{}).
+		Preload("User").
+		Preload("Place", SelectPlaces).
+		Where(&Review{UserID: userId}).
+		Limit(page.Limit()).
+		Offset(page.Offset()).
+		Find(&reviews).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return reviews, nil
+}
+
 type OverallReview struct {
 	NumRatings    uint    `json:"numRatings" binding:"required"`
 	OverallRating float32 `json:"overallRating" binding:"required"`
 }
 
+// GetOverallReview Get an overall review (summary) for this place.
 func (db Database) GetOverallReview(placeId uint) (OverallReview, error) {
 
 	var overall OverallReview
