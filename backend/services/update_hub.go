@@ -31,6 +31,7 @@ type GroupUpdate struct {
 // GroupsUpdate Event when Groups of the User are updated (added/removed)
 type GroupsUpdate struct {
 	UpdateKind
+	Added bool `json:"added"`
 }
 
 // PostUpdate Event when Post of the User are updated (added/removed)
@@ -64,9 +65,10 @@ func NewGroupUpdate(groupId uint) *GroupUpdate {
 	}
 }
 
-func NewGroupsUpdate() *GroupsUpdate {
+func NewGroupsUpdate(added bool) *GroupsUpdate {
 	return &GroupsUpdate{
 		UpdateKind: UpdateKind{Kind: "groups"},
+		Added:      added,
 	}
 }
 

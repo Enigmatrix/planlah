@@ -224,7 +224,7 @@ func (ctr *GroupsController) Jio(ctx *gin.Context) {
 	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupUpdate(dto.GroupID))
 	handleHubError(ctr.Logger, err)
 	// Send notification to entering User
-	err = ctr.Hub.SendToUser(dto.UserID, services.NewGroupsUpdate())
+	err = ctr.Hub.SendToUser(dto.UserID, services.NewGroupsUpdate(true))
 	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
@@ -273,7 +273,7 @@ func (ctr *GroupsController) Leave(ctx *gin.Context) {
 	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupUpdate(dto.GroupID))
 	handleHubError(ctr.Logger, err)
 	// Send notification to leaving User
-	err = ctr.Hub.SendToUser(dto.UserID, services.NewGroupsUpdate())
+	err = ctr.Hub.SendToUser(dto.UserID, services.NewGroupsUpdate(false))
 	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
@@ -393,7 +393,7 @@ func (ctr *GroupsController) CreateDM(ctx *gin.Context) {
 	}
 
 	// Send notification to two group members that there is a new group
-	err = ctr.Hub.SendToGroup(groupInfo.ID, services.NewGroupsUpdate())
+	err = ctr.Hub.SendToGroup(groupInfo.ID, services.NewGroupsUpdate(true))
 	handleHubError(ctr.Logger, err)
 
 	ctx.JSON(http.StatusOK, ToGroupSummaryDto(groupInfo))
@@ -464,7 +464,7 @@ func (ctr *GroupsController) Create(ctx *gin.Context) {
 	}
 
 	// Send notification to the only group member that there is a new group
-	err = ctr.Hub.SendToUser(groupMember.UserID, services.NewGroupsUpdate())
+	err = ctr.Hub.SendToUser(groupMember.UserID, services.NewGroupsUpdate(true))
 	handleHubError(ctr.Logger, err)
 
 	ctx.JSON(http.StatusOK, ToGroupSummaryDto(data.GroupInfo{Group: group}))
@@ -540,7 +540,7 @@ func (ctr *GroupsController) JoinByInvite(ctx *gin.Context) {
 	err = ctr.Hub.SendToGroup(group.ID, services.NewGroupUpdate(group.ID))
 	handleHubError(ctr.Logger, err)
 	// Send notification to entering User
-	err = ctr.Hub.SendToUser(userId, services.NewGroupsUpdate())
+	err = ctr.Hub.SendToUser(userId, services.NewGroupsUpdate(true))
 	handleHubError(ctr.Logger, err)
 
 	ctx.JSON(http.StatusOK, ToGroupSummaryDto(group))
