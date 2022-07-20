@@ -337,19 +337,19 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
       child: ElevatedButton(
           onPressed: () async {
             if (!_descKey.currentState!.validate()) {
-              await showError("Description invalid!");
+              await ErrorManager.showErrorMessage(context, "Description invalid!");
               return;
             }
             if (date == null) {
-              await showError("Please select a date");
+              await ErrorManager.showErrorMessage(context, "Please select a date");
               return;
             }
             if (timeRange == null) {
-              await showError("Please select a time range");
+              await ErrorManager.showErrorMessage(context, "Please select a time range");
               return;
             }
             if (place == null) {
-              await showError("Please select where to go");
+              await ErrorManager.showErrorMessage(context, "Please select where to go");
               return;
             }
             await createOutingStep();
@@ -359,29 +359,6 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
             style: TextStyle(fontWeight: FontWeight.bold),
           )),
     );
-  }
-
-  Future<void> showError(String err) async {
-    log(err);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      backgroundColor: Colors.red,
-      content: Row(
-        children: [
-          const Icon(Icons.error_outline, color: Colors.white,),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: Text(err, style: const TextStyle(color: Colors.white),),
-          ),
-        ],
-      ),
-    ));
-    // lmao wtf getx kills itself
-    /*await Get.snackbar("Error", err,
-        colorText: Colors.white,
-        borderRadius: 4.0,
-        icon: const Icon(Icons.error_outline),
-        snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red)
-        .show();*/
   }
 
   Future<void> createOutingStep() async {
