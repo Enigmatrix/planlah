@@ -22,8 +22,10 @@ class CreateOutingStepPage extends StatefulWidget {
   final OutingDto outing;
   final PlaceDto? initialPlace;
 
-  CreateOutingStepPage({Key? key, required this.outing, this.initialPlace})
-      : super(key: key);
+  const CreateOutingStepPage({
+    Key? key,
+    required this.outing,
+    this.initialPlace}) : super(key: key);
 
   @override
   State<CreateOutingStepPage> createState() => _CreateOutingStepPageState();
@@ -177,12 +179,15 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
             ),
             child: ListTile(
               leading: Icon(Icons.place),
-              title: Row(
-                children: [
-                  Text("Choose where to go!"),
-                  IntrinsicHeight(child: VerticalDivider()),
-                  buildSuggestionButton()
-                ],
+              title: IntrinsicHeight(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text("Choose where to go!"),
+                    const VerticalDivider(thickness: 1.0),
+                    buildSuggestionButton()
+                  ],
+                ),
               ),
               // trailing: buildSuggestionButton(),
             )),
@@ -242,30 +247,32 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
 
   // TODO: Fix failure rate for suggestion button
   Widget buildSuggestionButton() {
-    return Row(
-      children: <Widget>[
-        TextButton(
-          onPressed: () async {
-            var resp = await showDialog(context: context, builder: buildSuggestionDialog);
-            // resp will be null if the user clicks out of the dialog so just
-            // return immediately
-            if (resp == null) {
-              return;
-            }
-            // Call await on a showDialog to retrieve the value when the dialog is
-            // returned with a value.
-            PlaceDto? p = await showDialog(
-              context: context, 
-              builder: (context) => buildFutureRecommender(resp)
-            );
-            // Set chosen place and rebuild widget
-            setState(() {
-              place = p;
-            });
-          },
-          child: Text("Suggest!")
-        )
-      ],
+    return Expanded(
+      child: Row(
+        children: <Widget>[
+          ElevatedButton(
+            onPressed: () async {
+              var resp = await showDialog(context: context, builder: buildSuggestionDialog);
+              // resp will be null if the user clicks out of the dialog so just
+              // return immediately
+              if (resp == null) {
+                return;
+              }
+              // Call await on a showDialog to retrieve the value when the dialog is
+              // returned with a value.
+              PlaceDto? p = await showDialog(
+                context: context, 
+                builder: (context) => buildFutureRecommender(resp)
+              );
+              // Set chosen place and rebuild widget
+              setState(() {
+                place = p;
+              });
+            },
+            child: Text("Unsure?")
+          )
+        ],
+      ),
     );
   }
 
@@ -283,7 +290,11 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
                 if (snapshot.data!.body!.isEmpty) {
                   return showErrorDialog(context, ERROR_FINDING);
                 } else {
-                  suggestions = snapshot.data!.body!;
+                  if (placeType == PlaceType.restaurant) {
+                    foodSuggestions = snapshot.data!.body!;
+                  } else {
+                    attractionSuggestions = snapshot.data!.body!;
+                  }
                   return RecommenderDialog(places: snapshot.data!.body!);
                 }
               } else {
@@ -311,7 +322,6 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     } else {
       p = widget.initialPlace!.position;
     }
-    print("Current position lat: ${p.latitude} lon: ${p.longitude}");
     return await placeService.recommend(p, placeType);
   }
 

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:get/get.dart';
 import 'package:mobile/services/auth.dart';
 
@@ -101,6 +99,7 @@ class BaseConnect extends GetConnect {
 
     // retry token verification 3 times
     httpClient.maxAuthRetries = 3;
+    httpClient.timeout = const Duration(seconds: 30);
   }
 
 }
