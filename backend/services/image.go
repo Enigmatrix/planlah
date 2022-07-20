@@ -17,6 +17,7 @@ import (
 type ImageService interface {
 	UploadGroupImage(imgReader io.Reader) (string, error)
 	UploadUserImage(imgReader io.Reader) (string, error)
+	UploadPostImage(imgReader io.Reader) (string, error)
 }
 
 var firebaseStorageImageServiceInstance = lazy.NewLazy[FirebaseStorageImageService]()
@@ -78,6 +79,10 @@ func (svc *FirebaseStorageImageService) UploadUserImage(imgReader io.Reader) (st
 	return svc.uploadImage(imgReader, fmt.Sprintf("users/%s", uuid.New().String()))
 }
 
+func (svc *FirebaseStorageImageService) UploadPostImage(imgReader io.Reader) (string, error) {
+	return svc.uploadImage(imgReader, fmt.Sprintf("posts/%s", uuid.New().String()))
+}
+
 func NewImageKitImageService(config *lazy.Config) (*ImageKitImageService, error) {
 	opts := imagekit.Options{
 		PublicKey:  config.ImageKitPublicKey,
@@ -122,4 +127,8 @@ func (svc *ImageKitImageService) UploadGroupImage(imgReader io.Reader) (string, 
 
 func (svc *ImageKitImageService) UploadUserImage(imgReader io.Reader) (string, error) {
 	return svc.uploadImage(imgReader, "users")
+}
+
+func (svc *ImageKitImageService) UploadPostImage(imgReader io.Reader) (string, error) {
+	return svc.uploadImage(imgReader, "posts")
 }

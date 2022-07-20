@@ -710,10 +710,9 @@ class _SignUpPageState extends State<SignUpPage> {
         _imageBytes
     ));
     if (response.isOk) {
-      UserSummaryDto userSummaryDto;
       await user.getInfo().then((value) {
-        userSummaryDto = value.body!;
-        Get.off(() => HomePage(userSummaryDto: userSummaryDto));
+        final userProfile = value.body!;
+        Get.off(() => HomePage(userProfile: userProfile));
       });
     } else {
       if (!mounted) return;

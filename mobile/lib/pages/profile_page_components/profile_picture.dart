@@ -7,20 +7,20 @@ import '../../dto/user.dart';
 class ProfilePicture {
 
   static WidgetValueBuilder getUserProfilePictureBuilder() {
-    return (BuildContext context, UserSummaryDto user) {
+    return (BuildContext context, UserProfileDto user) {
       return ProfileWidget(imagePath: user.imageLink, onClicked: () {});
     };
   }
 
   static WidgetValueBuilder getOtherProfilePictureBuilder() {
-    return (BuildContext context, UserSummaryDto user) {
+    return (BuildContext context, UserProfileDto user) {
       return Center(
         child: buildImage(user),
       );
     };
   }
 
-  static Widget buildImage(UserSummaryDto user) {
+  static Widget buildImage(UserProfileDto user) {
     final image = NetworkImage(user.imageLink);
 
     return ClipOval(

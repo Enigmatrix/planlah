@@ -223,25 +223,25 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
     return ElevatedButton(
         onPressed: () async {
           if (voteDeadline == null) {
-            await showError("Please select a voting deadline");
+            await ErrorManager.showErrorMessage(context, "Please select a voting deadline");
             return;
           }
           if (range == null) {
-            await showError("Please outing dates!");
+            await ErrorManager.showErrorMessage(context, "Please outing dates!");
             return;
           }
           final sameDay = DateUtils.isSameDay(range!.start.toLocal(), DateTime.now().toLocal());
           if (!sameDay && voteDeadline!.isAfter(range!.start)) {
-            await showError("Vote deadline must be before outing!");
+            await ErrorManager.showErrorMessage(context, "Vote deadline must be before outing!");
             return;
           }
           if (!_nameKey.currentState!.validate()) {
-            await showError("Name must not be empty");
+            await ErrorManager.showErrorMessage(context, "Name must not be empty");
             return;
           }
 
           if (!_descKey.currentState!.validate()) {
-            await showError("Description must not be empty");
+            await ErrorManager.showErrorMessage(context, "Description must not be empty");
             return;
           }
 
@@ -254,29 +254,6 @@ class _CreateOutingPageState extends State<CreateOutingPage> {
           ),
         )
     );
-  }
-
-  Future<void> showError(String err) async {
-    log(err);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      backgroundColor: Colors.red,
-      content: Row(
-        children: [
-          const Icon(Icons.error_outline, color: Colors.white,),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: Text(err, style: const TextStyle(color: Colors.white),),
-          ),
-        ],
-      ),
-    ));
-    // lmao wtf getx kills itself
-    /*await Get.snackbar("Error", err,
-        colorText: Colors.white,
-        borderRadius: 4.0,
-        icon: const Icon(Icons.error_outline),
-        snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red)
-        .show();*/
   }
 
   Future<void> createOuting() async {

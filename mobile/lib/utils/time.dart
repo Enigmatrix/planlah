@@ -42,7 +42,7 @@ class TimeUtil {
   }
 
   static String formatDateTimeForSocialPost(DateTime dt) {
-    return "${dt.day}/${dt.month}/${dt.year} at ${dt.hour}:${dt.minute}";
+    return "${dt.day}/${dt.month} at ${dt.hour}:${dt.minute}";
   }
 
   static String formatForFrontend(String string) {

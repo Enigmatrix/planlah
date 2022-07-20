@@ -8,7 +8,7 @@ typedef MessageFunction = void Function(String content);
 
 class ChatComponents {
 
-  static Widget buildMessageList(ScrollController scrollController, List<MessageDto> messages, UserSummaryDto user) {
+  static Widget buildMessageList(ScrollController scrollController, List<MessageDto> messages, UserProfileDto user) {
     return Expanded(
         child: ListView.builder(
           reverse: true,

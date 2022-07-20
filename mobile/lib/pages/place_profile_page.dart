@@ -11,6 +11,8 @@ import '../utils/errors.dart';
 
 class PlaceProfilePage extends StatefulWidget {
 
+  static const MAX_RATING = 5;
+
   final PlaceDto place;
 
   const PlaceProfilePage({
@@ -26,9 +28,8 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
 
   final ReviewService reviewService = Get.find<ReviewService>();
 
-  late OverallReviewDto overallReviewDto;
+  OverallReviewDto? overallReviewDto;
 
-  static const MAX_RATING = 5;
 
   List<ReviewDto> reviews = [];
 
@@ -102,7 +103,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   }
 
   Widget buildContent() {
-    if (overallReviewDto.numRatings == 0) {
+    if (overallReviewDto == null || overallReviewDto!.numRatings == 0) {
       return buildEmptyContentWidget();
     } else {
       return Expanded(
@@ -273,7 +274,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
                   _rating = rating;
                 });
               },
-              maxRating: MAX_RATING.toDouble(),
+              maxRating: PlaceProfilePage.MAX_RATING.toDouble(),
             ),
             IconButton(
                 onPressed: () async {
@@ -337,17 +338,20 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   }
 
   Widget buildRatingWidget() {
+    if (overallReviewDto == null) {
+      return  const CircularProgressIndicator();
+    }
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Text(
-          overallReviewDto.overallRating.toStringAsFixed(1),
+          overallReviewDto!.overallRating.toStringAsFixed(1),
           style: OVERALL_RATING_STYLE
         ),
-        buildRatingBar(overallReviewDto.overallRating),
+        buildRatingBar(overallReviewDto!.overallRating),
         Text(
-          "${overallReviewDto.numRatings} reviews",
+          "${overallReviewDto!.numRatings} reviews",
           style: NUM_RATINGS_STYLE
         )
       ],
@@ -357,7 +361,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   Widget buildRatingBar(double rating) {
     return RatingBarIndicator(
       rating: rating,
-      itemCount: MAX_RATING,
+      itemCount: PlaceProfilePage.MAX_RATING,
       itemBuilder: (context, index) => const Icon(Icons.star, color: Colors.amber),
       direction: Axis.horizontal,
     );

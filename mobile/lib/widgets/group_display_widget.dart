@@ -9,13 +9,13 @@ import '../dto/user.dart';
 
 class GroupDisplay extends StatefulWidget {
   GroupSummaryDto chatGroup;
-  UserSummaryDto userSummaryDto;
+  UserProfileDto userProfile;
   // ChatGroup chatGroup;
 
   GroupDisplay({
     Key? key,
     required this.chatGroup,
-    required this.userSummaryDto,
+    required this.userProfile,
   }) : super(key: key);
 
   @override
@@ -29,7 +29,7 @@ class _GroupDisplayState extends State<GroupDisplay> {
       onTap: () {
         Get.to(() => GroupChatPage(
           chatGroup: widget.chatGroup,
-          userSummaryDto: widget.userSummaryDto,
+          userProfile: widget.userProfile,
         ));
       },
       child: Container(

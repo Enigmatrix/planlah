@@ -1,12 +1,18 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/pages/outing_page.dart';
 import 'package:mobile/pages/profile_page.dart';
+import 'package:mobile/services/outing.dart';
 import 'package:mobile/utils/time.dart';
 
 import '../dto/posts.dart';
 
 class SocialPost extends StatelessWidget {
   PostDto post;
+
+  final outingSvc = Get.find<OutingService>();
 
   SocialPost({required this.post});
 
@@ -15,42 +21,37 @@ class SocialPost extends StatelessWidget {
   }
 
   Widget buildHeader() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        // Profile photo
-        InkWell(
-          onTap: () {
-            Get.to(() => ProfilePage(userId: post.user.id));
-          },
-          child: Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-                color: Colors.grey,
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: NetworkImage(
-                        post.user.imageLink
-                    )
-                )
-            ),
+    return ListTile(
+      leading: InkWell(
+        onTap: () {
+          Get.to(() => ProfilePage(userId: post.user.id));
+        },
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+              color: Colors.grey,
+              shape: BoxShape.circle,
+              image: DecorationImage(image: NetworkImage(post.user.imageLink))),
+        ),
+      ),
+      title:
+          // Profile photo
+          Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            post.user.username,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+            overflow: TextOverflow.ellipsis,
           ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              post.user.username,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              formatHeaderContent(),
-            )
-          ],
-        ),
-        const Icon(Icons.menu),
-      ]
+          Text(
+            formatHeaderContent(),
+            overflow: TextOverflow.ellipsis,
+          )
+        ],
+      ),
+      trailing: const Icon(Icons.menu),
     );
   }
 
@@ -71,31 +72,48 @@ class SocialPost extends StatelessWidget {
   Widget buildContent() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-      // TODO: Add social info, unless we don't want that, idk
       children: [
-        // View itinerary
-        // TODO: Actually view the itinerary.
         OutlinedButton.icon(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.remove_red_eye_outlined
-          ),
-          label: const Text("View Itinerary"),
+          onPressed: () async {
+            final outingId = post.outingStep.outingId;
+            final resp = await outingSvc.getOuting(outingId);
+            if (resp.isOk) {
+              final outing = resp.body!;
+              Get.to(() => OutingPage(outing: outing, isActive: false));
+            } else {
+              log(resp.bodyString!);
+            }
+          },
+          icon: const Icon(Icons.remove_red_eye_outlined),
+          label: Text("View Itinerary"),
         ),
       ],
     );
   }
 
+  Widget buildText() {
+    return Container(
+      alignment: Alignment.topLeft,
+      padding: const EdgeInsets.all(16.0),
+      child: Text(post.text),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        buildHeader(),
-        buildPicture(),
-        buildContent(),
-      ],
+    return Card(
+      elevation: 8.0,
+      color: Colors.white,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          buildHeader(),
+          buildText(),
+          buildPicture(),
+          buildContent(),
+        ],
+      ),
     );
   }
 }
-

@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'dart:developer' as dev;
+import 'dart:io';
 import 'dart:math';
+import 'dart:typed_data';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:duration/duration.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,6 +16,7 @@ import 'package:mobile/dto/outing_step.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/pages/create_outing_step_page.dart';
 import 'package:mobile/pages/place_profile_page.dart';
+import 'package:mobile/pages/create_post.dart';
 import 'package:mobile/services/session.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/utils/errors.dart';
@@ -40,10 +44,11 @@ class _OutingPageState extends State<OutingPage> {
 
   late OutingDto outing;
   late bool isActive;
-  late UserSummaryDto thisUser;
+  late UserProfileDto thisUser;
 
   final userSvc = Get.find<UserService>();
   final outingSvc = Get.find<OutingService>();
+  late DateTime currentTime;
 
   bool showVoting = true;
   StreamSubscription? timerWaitStream;
@@ -82,11 +87,16 @@ class _OutingPageState extends State<OutingPage> {
         }
       });
 
+      currentTime = DateTime.now().toLocal();
       //// Wait until voteDeadline to update state
       updateShowVoting();
       // Run a 1 second periodic timer until the voteDeadline
       timerWaitStream = Stream.periodic(const Duration(seconds: 1)).listen((_) {
         updateShowVoting();
+        // trigger view refresh
+        setState(() {
+          currentTime = DateTime.now().toLocal();
+        });
       });
     } else {
       showVoting = false;
@@ -144,7 +154,7 @@ class _OutingPageState extends State<OutingPage> {
             isActive ? const Icon(Icons.timeline) : const Icon(Icons.history),
         title: Text("${outing.name} ($range)"),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: !widget.isActive ? null : FloatingActionButton(
           onPressed: () {
             // TODO: Add most recent place to constructor's initialPlace
             if (widget.outing.steps.isNotEmpty) {
@@ -587,10 +597,64 @@ class _OutingPageState extends State<OutingPage> {
                 ],
               ),
             ),
-            if (showVoting)
-              buildVoteCompletePart(step)
+            if (widget.isActive)
+              if (showVoting)
+                buildVoteCompletePart(step)
+              else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isAfter(currentTime))
+                buildInProgressPart(step)
+              else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isBefore(currentTime))
+                  buildCompletedPart(step)
+                else
+                  buildNotYet(step)
           ],
         ));
+  }
+
+  Widget buildNotYet(OutingStepDto step) {
+    return buildStatusPart(const Icon(Icons.circle_outlined, color: Colors.blue), "Soon", false, step);
+  }
+
+  Widget buildInProgressPart(OutingStepDto step) {
+    return buildStatusPart(const Icon(Icons.timer, color: Colors.deepOrange), "Right now!", true, step);
+  }
+
+  Widget buildStatusPart(Icon statusIcon, String statusText, bool showCreatePost, OutingStepDto step) {
+    return ListTile(
+      leading: statusIcon,
+      title: Text(statusText),
+      dense: false,
+      visualDensity: VisualDensity.compact,
+      horizontalTitleGap: 0,
+      trailing: !showCreatePost ? null : ElevatedButton.icon(
+          onPressed: () async {
+            await createPost(step.id);
+          },
+          icon: const Icon(Icons.post_add),
+          label: const Text("Post!"),
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.deepOrange)
+          )
+      ),
+    );
+  }
+
+  Future<void> createPost(int outingStepId) async {
+    var createPostDialog = AlertDialog(
+        title: const Text(
+          "Create a new Post",
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20
+          ),
+        ),
+        content: CreatePostPage(outingStepId: outingStepId,)
+    );
+
+    await showDialog(context: context, builder: (builder) => createPostDialog);
+  }
+
+  Widget buildCompletedPart(OutingStepDto step) {
+    return buildStatusPart(const Icon(Icons.check, color: Colors.green), "Done", true, step);
   }
 
   Widget buildVoteCompletePart(OutingStepDto step) {

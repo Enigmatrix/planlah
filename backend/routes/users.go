@@ -23,6 +23,13 @@ type UserSummaryDto struct {
 	ImageLink string `json:"imageLink" binding:"required"`
 }
 
+type UserProfileDto struct {
+	UserSummaryDto
+	PostCount   uint `json:"postCount" binding:"required"`
+	ReviewCount uint `json:"reviewCount" binding:"required"`
+	FriendCount uint `json:"friendCount" binding:"required"`
+}
+
 type UserRefDto struct {
 	ID uint `json:"id,string" form:"id" query:"id" binding:"required"`
 }
@@ -48,6 +55,15 @@ func ToUserSummaryDto(user data.User) UserSummaryDto {
 		Username:  user.Username,
 		Name:      user.Name,
 		ImageLink: user.ImageLink,
+	}
+}
+
+func ToUserProfileDto(profile data.UserProfile) UserProfileDto {
+	return UserProfileDto{
+		UserSummaryDto: ToUserSummaryDto(profile.User),
+		PostCount:      profile.PostCount,
+		ReviewCount:    profile.ReviewCount,
+		FriendCount:    profile.FriendCount,
 	}
 }
 
@@ -132,24 +148,60 @@ func (ctr *UserController) Create(ctx *gin.Context) {
 	ctx.Status(http.StatusOK)
 }
 
-// GetInfo godoc
-// @Summary Gets info about the logged-in user
-// @Description Gets info about a user (me = current user)
+// GetFriendInfo godoc
+// @Summary Gets info about a friend
+// @Description Gets info about a friend
+// @Param query query UserRefDto true "body"
 // @Security JWT
 // @Tags User
-// @Success 200 {object} UserSummaryDto
+// @Success 200 {object} UserProfileDto
 // @Failure 401 {object} services.AuthError
-// @Router /api/users/me/info [get]
-func (ctr *UserController) GetInfo(ctx *gin.Context) {
+// @Router /api/users/friend/info [get]
+func (ctr *UserController) GetFriendInfo(ctx *gin.Context) {
 	userId := ctr.AuthUserId(ctx)
 
-	user, err := ctr.Database.GetUser(userId)
+	var dto UserRefDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	isFriend, err := ctr.Database.IsFriend(userId, dto.ID)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+	if !isFriend {
+		FailWithMessage(ctx, "users are not friends")
+		return
+	}
+
+	user, err := ctr.Database.GetUserProfile(dto.ID)
 	if err != nil { // this User is always found
 		handleDbError(ctx, err)
 		return
 	}
 
-	ctx.JSON(http.StatusOK, ToUserSummaryDto(user))
+	ctx.JSON(http.StatusOK, ToUserProfileDto(user))
+}
+
+// GetInfo godoc
+// @Summary Gets info about the logged-in user
+// @Description Gets info about a user (me = current user)
+// @Security JWT
+// @Tags User
+// @Success 200 {object} UserProfileDto
+// @Failure 401 {object} services.AuthError
+// @Router /api/users/me/info [get]
+func (ctr *UserController) GetInfo(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
+
+	user, err := ctr.Database.GetUserProfile(userId)
+	if err != nil { // this User is always found
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, ToUserProfileDto(user))
 }
 
 // GetUserInfo godoc
@@ -254,6 +306,7 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 func (ctr *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
 	users.GET("me/info", ctr.GetInfo)
+	users.GET("friend/info", ctr.GetFriendInfo)
 	users.GET("get", ctr.GetUserInfo)
 	users.GET("create", ctr.Create)
 	users.GET("search_for_friends", ctr.SearchForFriends)

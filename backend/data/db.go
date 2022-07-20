@@ -234,6 +234,30 @@ func (db *Database) GetUser(id uint) (User, error) {
 	return user, nil
 }
 
+type UserProfile struct {
+	User
+	PostCount   uint
+	ReviewCount uint
+	FriendCount uint
+}
+
+// GetUserProfile Gets a User's Profile by their ID
+//
+// Throws EntityNotFound when User is not found
+func (db *Database) GetUserProfile(id uint) (UserProfile, error) {
+	var user UserProfile
+	err := db.conn.Table("users").Where("id = ?", id).
+		Select(`*, (select count(*) from posts where user_id = id) AS post_count, (select count(*) from reviews where user_id = id) AS review_count,
+		(select count(*) from friend_requests where (to_id = id OR from_id = id) and status = 'approved') AS friend_count`).Find(&user).Error
+	if err != nil {
+		if isNotFoundInDb(err) {
+			return UserProfile{}, EntityNotFound
+		}
+		return UserProfile{}, errors.Trace(err)
+	}
+	return user, nil
+}
+
 var friendSql = `(
 	select from_id from friend_requests where to_id = @thisUserId and status = 'approved' union
 	select to_id from friend_requests where from_id = @thisUserId and status = 'approved'
@@ -1142,7 +1166,32 @@ INNER JOIN
     AND status = 'approved'
 ) AS friend_id
 ON p.user_id = friend_id.from_id
+ORDER BY p.posted_at DESC
 LIMIT ? OFFSET ?`, userId, userId, page.Limit(), page.Offset()).
+		Find(&posts).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return posts, nil
+}
+
+// SearchForPostsByUser Search for posts made by a specific user, with pagination
+func (db *Database) SearchForPostsByUser(userId uint, page Pagination) ([]Post, error) {
+	var posts []Post
+
+	err := db.conn.Model(&Post{}).
+		Preload("OutingStep").
+		Preload("OutingStep.Place", SelectPlaces).
+		Preload("OutingStep.Votes").
+		Preload("OutingStep.Votes.GroupMember").
+		Preload("OutingStep.Votes.GroupMember.User").
+		Preload("User").
+		Where(&Post{UserID: userId}).
+		Limit(page.Limit()).
+		Offset(page.Offset()).
+		Order("posted_at desc").
 		Find(&posts).
 		Error
 
@@ -1217,10 +1266,12 @@ LIMIT ? OFFSET ?
 	return users, nil
 }
 
+// CreateReview Creates a Review
 func (db Database) CreateReview(review *Review) error {
 	return errors.Trace(db.conn.Create(review).Error)
 }
 
+// GetReviews Gets all reviews for a Place
 func (db Database) GetReviews(placeId uint, page Pagination) ([]Review, error) {
 	var reviews []Review
 
@@ -1241,11 +1292,31 @@ LIMIT ? OFFSET ?`, placeId, page.Limit(), page.Offset()).
 	return reviews, nil
 }
 
+// GetReviewsByUser Gets all reviews made by a User
+func (db Database) GetReviewsByUser(userId uint, page Pagination) ([]Review, error) {
+	var reviews []Review
+
+	err := db.conn.Model(&Review{}).
+		Preload("User").
+		Preload("Place", SelectPlaces).
+		Where(&Review{UserID: userId}).
+		Limit(page.Limit()).
+		Offset(page.Offset()).
+		Find(&reviews).
+		Error
+
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+	return reviews, nil
+}
+
 type OverallReview struct {
 	NumRatings    uint    `json:"numRatings" binding:"required"`
 	OverallRating float32 `json:"overallRating" binding:"required"`
 }
 
+// GetOverallReview Get an overall review (summary) for this place.
 func (db Database) GetOverallReview(placeId uint) (OverallReview, error) {
 
 	var overall OverallReview

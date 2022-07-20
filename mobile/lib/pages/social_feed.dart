@@ -8,7 +8,10 @@ import 'package:mobile/utils/errors.dart';
 import '../dto/posts.dart';
 
 class SocialFeedPage extends StatefulWidget {
-  const SocialFeedPage({Key? key}) : super(key: key);
+
+  Future<Response<List<PostDto>?>> Function(int page) loadPosts;
+
+  SocialFeedPage({Key? key, required this.loadPosts}) : super(key: key);
 
   @override
   State<SocialFeedPage> createState() => _SocialFeedPageState();
@@ -16,7 +19,29 @@ class SocialFeedPage extends StatefulWidget {
 
 class _SocialFeedPageState extends State<SocialFeedPage> {
 
-  final postService = Get.find<PostService>();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Feed"),
+      ),
+      body: SocialFeed(loadPosts: widget.loadPosts),
+    );
+  }
+}
+
+class SocialFeed extends StatefulWidget {
+
+  Future<Response<List<PostDto>?>> Function(int page) loadPosts;
+
+  SocialFeed({Key? key, required this.loadPosts}) : super(key: key);
+
+  @override
+  State<SocialFeed> createState() => _SocialFeedState();
+}
+
+class _SocialFeedState extends State<SocialFeed> {
+
 
   int pageNumber = 0;
   List<PostDto> posts = [];
@@ -28,7 +53,7 @@ class _SocialFeedPageState extends State<SocialFeedPage> {
   }
 
   void loadPosts() async {
-    Response<List<PostDto>?> response = await postService.getPosts(pageNumber);
+    final response = await widget.loadPosts(pageNumber);
     if (response.isOk) {
       setState(() {
         posts.addAll(response.body!);
@@ -41,16 +66,12 @@ class _SocialFeedPageState extends State<SocialFeedPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Feed"),
-      ),
-      body: ListView.builder(
-        itemCount: posts.length,
-        itemBuilder: (context, index) {
-          return SocialPost(post: posts[index]);
-        }
-      ),
+      return ListView.builder(
+          itemCount: posts.length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return SocialPost(post: posts[index]);
+          }
     );
   }
 }

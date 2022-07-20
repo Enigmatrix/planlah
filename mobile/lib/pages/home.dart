@@ -3,21 +3,23 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile/dto/posts.dart';
 import 'package:mobile/pages/groups_page.dart';
 import 'package:mobile/pages/profile_page.dart';
 import 'package:mobile/pages/settings.dart';
 import 'package:mobile/pages/social_feed.dart';
 import 'package:mobile/pages/friends_page.dart';
+import 'package:mobile/services/posts.dart';
 import 'package:mobile/services/session.dart';
 
 import '../dto/user.dart';
 
 class HomePage extends StatefulWidget {
 
-  UserSummaryDto userSummaryDto;
+  UserProfileDto userProfile;
   HomePage({
     Key? key,
-    required this.userSummaryDto,
+    required this.userProfile,
   }) : super(key: key);
 
   @override
@@ -46,10 +48,16 @@ class _HomePageWidgetState extends State<HomePage> {
 
   }
 
+  final postService = Get.find<PostService>();
+
+  Future<Response<List<PostDto>?>> loadPosts(int pageNumber) async {
+    return await postService.getPosts(pageNumber);
+  }
+
   Widget getPage(int index) {
     switch (index) {
       case 0:
-        return SocialFeedPage();
+        return SocialFeedPage(loadPosts: loadPosts);
       case 1:
         return GroupsPage();
       case 2:

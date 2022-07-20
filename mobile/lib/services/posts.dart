@@ -13,4 +13,23 @@ class PostService extends BaseConnect {
       decoder: decoderForList(PostDto.fromJson)
     );
   }
+
+  Future<Response<List<PostDto>?>> getPostsByUser(int userId, int pageNumber) async {
+    var query = {
+      "page": pageNumber.toString(),
+      "userId": userId.toString()
+    };
+    return await get(
+        "/posts/by_user",
+        query: query,
+        decoder: decoderForList(PostDto.fromJson)
+    );
+  }
+
+  Future<Response> create(CreatePostDto dto) async {
+    final formData = FormData(dto.toJson());
+    return await post(
+        "/posts/create",
+        formData);
+  }
 }

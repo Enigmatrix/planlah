@@ -40,7 +40,19 @@ class SearchForReviewsDto {
 
   Map<String, dynamic> toJson() => {
     "page": page.toString(),
-    "placeID": placeId.toString()
+    "placeId": placeId.toString()
+  };
+}
+
+class SearchForReviewsByUserDto {
+  int userId;
+  int page;
+
+  SearchForReviewsByUserDto(this.userId, this.page);
+
+  Map<String, dynamic> toJson() => {
+    "page": page.toString(),
+    "userId": userId.toString()
   };
 }
 
@@ -50,7 +62,7 @@ class GetOverallReviewDto {
   GetOverallReviewDto(this.placeId);
 
   Map<String, dynamic> toJson() => {
-    "placeID": placeId.toString()
+    "placeId": placeId.toString()
   };
 }
 
