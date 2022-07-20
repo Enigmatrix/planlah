@@ -17,6 +17,7 @@ import 'package:mobile/services/message.dart';
 import 'package:mobile/services/outing.dart';
 import 'package:group_button/group_button.dart';
 import 'package:mobile/services/session.dart';
+import 'package:mobile/utils/errors.dart';
 import 'package:mobile/widgets/JioGroupWidget.dart';
 
 import '../dto/group_invite.dart';
@@ -89,6 +90,9 @@ class _GroupChatPageState extends State<GroupChatPage> {
       setState(() {
         messages = resp.body!;
       });
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, resp);
     }
   }
 
@@ -98,6 +102,9 @@ class _GroupChatPageState extends State<GroupChatPage> {
       setState(() {
         groupMembers = resp.body!;
       });
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, resp);
     }
   }
 
@@ -126,7 +133,9 @@ class _GroupChatPageState extends State<GroupChatPage> {
             if (response.isOk) {
               activeOuting = response.body;
             } else {
-
+              if (!mounted) return;
+              await ErrorManager.showError(context, response);
+              return;
             }
             if (activeOuting == null) {
               Get.to(() => CreateOutingPage(groupId: widget.chatGroup.id));
@@ -392,11 +401,8 @@ class _GroupChatPageState extends State<GroupChatPage> {
         )
       );
     } else {
-      Get.snackbar(
-        "Error",
-        "We ran into an error obtaining your group invite link",
-        snackPosition: SnackPosition.BOTTOM,
-      );
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
     }
   }
 
@@ -406,12 +412,14 @@ class _GroupChatPageState extends State<GroupChatPage> {
       .then((value) {
           setState(() {
             if (value.body == null || value.body!.isEmpty) {
-              Get.snackbar(
-                "Operation not possible: ",
-                "Your group has not had any outings yet :(",
-                snackPosition: SnackPosition.BOTTOM,
-                backgroundColor: Colors.black
-              );
+
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: ListTile(
+                  title: Text("Operation not possible: "),
+                  subtitle: Text("Your group has not had any outings yet :("),
+                ),
+                backgroundColor: Colors.deepOrange,
+              ));
             } else {
               outings = value.body!;
               Get.to(() => ViewAllOutingsPage(pastOutings: outings));
@@ -422,5 +430,9 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   void sendMessage(String message) async {
     final resp = await messageService.sendMessage(SendMessageDto(message, widget.chatGroup.id));
+    if (!resp.isOk) {
+      if (!mounted) return;
+      await ErrorManager.showError(context, resp);
+    }
   }
 }

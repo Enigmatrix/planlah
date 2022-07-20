@@ -5,6 +5,7 @@ import 'package:mobile/pages/friend_components.dart';
 import 'package:mobile/pages/profile_page.dart';
 import 'package:mobile/services/friends.dart';
 import 'package:mobile/services/session.dart';
+import 'package:mobile/utils/errors.dart';
 import 'package:mobile/widgets/wait_widget.dart';
 
 import '../services/user.dart';
@@ -37,9 +38,14 @@ class _FriendsPageState extends State<FriendsPage> {
 
   void _loadFriends() async {
     var response = await friendService.getFriends(currentPage);
-    setState(() {
-      _friends = response.body!;
-    });
+    if (response.isOk) {
+      setState(() {
+        _friends = response.body!;
+      });
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
+    }
   }
 
   @override

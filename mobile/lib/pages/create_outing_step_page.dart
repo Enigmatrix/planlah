@@ -13,6 +13,7 @@ import 'package:mobile/pages/find_place.dart';
 import 'package:mobile/services/place.dart';
 import 'package:mobile/widgets/recommender_dialog.dart';
 import 'package:mobile/widgets/wait_widget.dart';
+import 'package:mobile/utils/errors.dart';
 import 'package:time_range_picker/time_range_picker.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -46,7 +47,7 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
 
   static const ERROR_STATUS = "Failed to get places";
   static const ERROR_FINDING = "We could not find any places for you based off your current location";
-  
+
   List<PlaceDto> foodSuggestions = [];
   List<PlaceDto> attractionSuggestions = [];
 
@@ -243,7 +244,6 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
         ));
   }
 
-  // TODO: Fix failure rate for suggestion button
   Widget buildSuggestionButton() {
     return Expanded(
       child: Row(
@@ -259,7 +259,7 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
               // Call await on a showDialog to retrieve the value when the dialog is
               // returned with a value.
               PlaceDto? p = await showDialog(
-                context: context, 
+                context: context,
                 builder: (context) => buildFutureRecommender(resp)
               );
               // Set chosen place and rebuild widget
@@ -510,8 +510,8 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     if (response.isOk) {
       Get.back();
     } else {
-      final msg = jsonDecode(response.bodyString!)["message"];
-      await showError(msg);
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
     }
   }
 }

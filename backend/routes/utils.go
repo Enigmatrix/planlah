@@ -109,12 +109,7 @@ func processValidationError[T any](ctx *gin.Context, err error) {
 }
 
 func handleDbError(ctx *gin.Context, err error) bool {
-	if err == nil {
-		return false
-	}
-
 	_ = ctx.AbortWithError(http.StatusInternalServerError, err)
-
 	return true
 }
 
@@ -123,6 +118,11 @@ func handleHubError(logger *zap.Logger, err error) bool {
 		return false
 	}
 	logger.Warn("hub send err", zap.Error(err))
+	return true
+}
+
+func handleImageUploadError(ctx *gin.Context, err error) bool {
+	_ = ctx.AbortWithError(http.StatusUnprocessableEntity, err)
 	return true
 }
 

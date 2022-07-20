@@ -18,6 +18,7 @@ import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:get/get.dart';
 
 import '../services/auth.dart';
+import '../utils/errors.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -715,12 +716,8 @@ class _SignUpPageState extends State<SignUpPage> {
         Get.off(() => HomePage(userSummaryDto: userSummaryDto));
       });
     } else {
-      Get.snackbar(
-          "Error encountered:",
-          "Your username has already been taken :(",
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.black,
-      );
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
     }
   }
 

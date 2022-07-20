@@ -9,6 +9,7 @@ import 'package:mobile/pages/create_group.dart';
 import 'package:mobile/services/group.dart';
 import 'package:mobile/services/session.dart';
 import 'package:mobile/services/user.dart';
+import 'package:mobile/utils/errors.dart';
 import 'package:mobile/widgets/group_display_widget.dart';
 
 import '../dto/user.dart';
@@ -68,11 +69,16 @@ class _GroupsPageState extends State<GroupsPage> {
   }
 
   void updateGroups() {
-    groupService.getGroup().then((value) {
-      setState(() {
-        allGroupDtos = value.body!;
-        currentGroupDtos = allGroupDtos;
-      });
+    groupService.getGroup().then((value) async {
+      if (value.isOk) {
+        setState(() {
+          allGroupDtos = value.body!;
+          currentGroupDtos = allGroupDtos;
+        });
+      } else {
+        if (!mounted) return;
+        await ErrorManager.showError(context, value);
+      }
     });
   }
 

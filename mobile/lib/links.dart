@@ -35,6 +35,7 @@ handleDeepLink(Uri initialLink) async {
       final inviteId = initialLink.pathSegments[0];
       final groups = Get.find<GroupService>();
       final resp = await groups.joinByInvite(inviteId);
+      // no context, so rely on Getx
       if (resp.isOk) {
         Get.snackbar(
           "Group",

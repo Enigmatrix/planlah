@@ -428,7 +428,7 @@ func (ctr *GroupsController) Create(ctx *gin.Context) {
 
 	imageUrl, err := ctr.ImageService.UploadGroupImage(file)
 	if err != nil {
-		// TODO how to handle this?
+		handleImageUploadError(ctx, err)
 		return
 	}
 

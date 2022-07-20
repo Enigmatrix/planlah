@@ -8,6 +8,7 @@ import 'package:mobile/services/base_connect.dart';
 import 'package:mobile/services/config.dart';
 import 'package:mobile/services/dev_panel.dart';
 import 'package:mobile/services/user.dart';
+import 'package:mobile/utils/errors.dart';
 
 List<Widget> devPanelAction() {
   final config = Get.find<Config>();
@@ -93,7 +94,8 @@ class _DevPanelPageState extends State<DevPanelPage> {
                   onPressed: () async {
                     final res = await devPanel.addToDefaultGroups();
                     if (res.hasError) {
-                      Get.snackbar("ERR", res.bodyString ?? "null body");
+                      if (!mounted) return;
+                      await ErrorManager.showError(context, res);
                     }
                   },
                   child: const Text("ADD")

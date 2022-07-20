@@ -15,6 +15,7 @@ import 'package:mobile/pages/create_outing_step_page.dart';
 import 'package:mobile/pages/place_profile_page.dart';
 import 'package:mobile/services/session.dart';
 import 'package:mobile/services/user.dart';
+import 'package:mobile/utils/errors.dart';
 import 'package:timelines/timelines.dart';
 import 'package:get/get.dart';
 
@@ -56,11 +57,12 @@ class _OutingPageState extends State<OutingPage> {
     outing = widget.outing;
     isActive = widget.isActive;
 
-    userSvc.getInfo().then((value) {
+    userSvc.getInfo().then((value) async {
       if (value.isOk) {
         setState(() => {thisUser = value.body!});
       } else {
-        dev.log("userSvc.getInfo err: ${value.bodyString}");
+        if (!mounted) return;
+        await ErrorManager.showError(context, value);
       }
     });
 
@@ -75,7 +77,8 @@ class _OutingPageState extends State<OutingPage> {
             outing = resp.body!;
           });
         } else {
-          dev.log(resp.bodyString ?? "no error body");
+          if (!mounted) return;
+          await ErrorManager.showError(context, resp);
         }
       });
 
@@ -396,10 +399,9 @@ class _OutingPageState extends State<OutingPage> {
     var voteBtnChild = ElevatedButton.icon(
       onPressed: () async {
         final resp = await outingSvc.vote(step.id, vote);
-        if (resp.isOk) {
-          // TODO display voting
-        } else {
-          dev.log("outingSvc.vote err: ${resp.bodyString}");
+        if (!resp.isOk) {
+          if (!mounted) return;
+          await ErrorManager.showError(context, resp);
         }
       },
       icon: Icon(voteIcon, color: hasUserVoted ? voteBg : voteColor),

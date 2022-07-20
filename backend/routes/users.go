@@ -77,19 +77,15 @@ func (ctr *UserController) Create(ctx *gin.Context) {
 
 	imageUrl, err := ctr.ImageService.UploadUserImage(file)
 	if err != nil {
-		// TODO handle this
+		handleImageUploadError(ctx, err)
 		return
 	}
 
 	firebaseUid, err := ctr.Auth.GetFirebaseUid(dto.FirebaseToken)
 	if err != nil {
 		ctr.Logger.Warn("firebase error", zap.Error(err))
-		// TODO make this prettier
-		ctx.JSON(http.StatusUnauthorized, gin.H{"message": "invalid firebase token"})
 		return
 	}
-
-	// TODO all these FailWithMessages should be validation messages
 
 	genderValidated := lo.Contains(GetGenders(), dto.Gender)
 	if !genderValidated {

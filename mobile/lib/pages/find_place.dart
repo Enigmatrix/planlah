@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/place.dart';
 import 'package:mobile/services/place.dart';
+import 'package:mobile/utils/errors.dart';
 
 class FindPlaceWidget extends StatefulWidget {
   const FindPlaceWidget({Key? key}) : super(key: key);
@@ -22,26 +23,28 @@ class _FindPlaceWidgetState extends State<FindPlaceWidget> {
 
   loadResults(String text) async {
     final resp = await placeService.search(text, 0);
-    setState(() {
-      if (!resp.hasError) {
+    if (resp.isOk) {
+      setState(() {
         results = resp.body!;
         page = 0;
-      } else {
-        log(resp.bodyString ?? "err occurred in find place");
-      }
-    });
+      });
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, resp);
+    }
   }
 
   loadResultsForPage(int npage) async {
     final resp = await placeService.search(queryController.text, npage);
-    setState(() {
-      if (!resp.hasError) {
+    if (resp.isOk) {
+      setState(() {
         results = resp.body!;
         page = npage;
-      } else {
-        log(resp.bodyString ?? "err occurred in find place");
-      }
-    });
+      });
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, resp);
+    }
   }
 
   @override
