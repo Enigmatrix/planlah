@@ -28,7 +28,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
 
   final ReviewService reviewService = Get.find<ReviewService>();
 
-  late OverallReviewDto overallReviewDto;
+  OverallReviewDto? overallReviewDto;
 
 
   List<ReviewDto> reviews = [];
@@ -103,7 +103,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   }
 
   Widget buildContent() {
-    if (overallReviewDto.numRatings == 0) {
+    if (overallReviewDto == null || overallReviewDto!.numRatings == 0) {
       return buildEmptyContentWidget();
     } else {
       return Expanded(
@@ -338,17 +338,20 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   }
 
   Widget buildRatingWidget() {
+    if (overallReviewDto == null) {
+      return  const CircularProgressIndicator();
+    }
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Text(
-          overallReviewDto.overallRating.toStringAsFixed(1),
+          overallReviewDto!.overallRating.toStringAsFixed(1),
           style: OVERALL_RATING_STYLE
         ),
-        buildRatingBar(overallReviewDto.overallRating),
+        buildRatingBar(overallReviewDto!.overallRating),
         Text(
-          "${overallReviewDto.numRatings} reviews",
+          "${overallReviewDto!.numRatings} reviews",
           style: NUM_RATINGS_STYLE
         )
       ],
