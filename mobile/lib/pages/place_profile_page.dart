@@ -11,6 +11,8 @@ import '../utils/errors.dart';
 
 class PlaceProfilePage extends StatefulWidget {
 
+  static const MAX_RATING = 5;
+
   final PlaceDto place;
 
   const PlaceProfilePage({
@@ -28,7 +30,6 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
 
   late OverallReviewDto overallReviewDto;
 
-  static const MAX_RATING = 5;
 
   List<ReviewDto> reviews = [];
 
@@ -273,7 +274,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
                   _rating = rating;
                 });
               },
-              maxRating: MAX_RATING.toDouble(),
+              maxRating: PlaceProfilePage.MAX_RATING.toDouble(),
             ),
             IconButton(
                 onPressed: () async {
@@ -357,7 +358,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   Widget buildRatingBar(double rating) {
     return RatingBarIndicator(
       rating: rating,
-      itemCount: MAX_RATING,
+      itemCount: PlaceProfilePage.MAX_RATING,
       itemBuilder: (context, index) => const Icon(Icons.star, color: Colors.amber),
       direction: Axis.horizontal,
     );
