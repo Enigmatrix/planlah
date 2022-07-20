@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +47,8 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
 
   List<PlaceDto> foodSuggestions = [];
   List<PlaceDto> attractionSuggestions = [];
+
+  static const double title_gap = 2.0;
 
   @override
   void initState() {
@@ -177,18 +176,14 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
               side: const BorderSide(color: Colors.grey, width: 0.8),
             ),
             child: ListTile(
-              leading: Icon(Icons.place),
-              title: IntrinsicHeight(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Text("Choose where to go!"),
-                    const VerticalDivider(thickness: 1.0),
-                    buildSuggestionButton()
-                  ],
-                ),
+              dense: true,
+              horizontalTitleGap: title_gap,
+              leading: const Icon(Icons.place),
+              title: const FittedBox(
+                fit: BoxFit.cover,
+                child: Text("Choose where to go!"),
               ),
-              // trailing: buildSuggestionButton(),
+              trailing: buildSuggestionButton()
             )),
       ),
     );
@@ -245,37 +240,33 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
   }
 
   Widget buildSuggestionButton() {
-    return Expanded(
-      child: Row(
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: () async {
-              var resp = await showDialog(context: context, builder: buildSuggestionDialog);
-              // resp will be null if the user clicks out of the dialog so just
-              // return immediately
-              if (resp == null) {
-                return;
-              }
-              // Call await on a showDialog to retrieve the value when the dialog is
-              // returned with a value.
-              PlaceDto? p = await showDialog(
-                context: context,
-                builder: (context) => buildFutureRecommender(resp)
-              );
-              // Set chosen place and rebuild widget
-              setState(() {
-                place = p;
-              });
-            },
-            child: Text("Unsure?")
-          )
-        ],
+    return FittedBox(
+      fit: BoxFit.cover,
+      child: ElevatedButton(
+        onPressed: () async {
+          var resp = await showDialog(context: context, builder: buildSuggestionDialog);
+          // resp will be null if the user clicks out of the dialog so just
+          // return immediately
+          if (resp == null) {
+            return;
+          }
+          // Call await on a showDialog to retrieve the value when the dialog is
+          // returned with a value.
+          PlaceDto? p = await showDialog(
+            context: context,
+            builder: (context) => buildFutureRecommender(resp)
+          );
+          // Set chosen place and rebuild widget
+          setState(() {
+            place = p;
+          });
+        },
+        child: Text("Unsure?")
       ),
     );
   }
 
   Widget buildFutureRecommender(PlaceType placeType) {
-    // TODO: Maybe cache and reuse if lat/long is the same? Idk
     List<PlaceDto> suggestions = placeType == PlaceType.restaurant ? foodSuggestions : attractionSuggestions;
     if (suggestions.isEmpty) {
       return FutureBuilder(
