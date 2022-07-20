@@ -25,7 +25,7 @@ class _TakePictureScreenState extends State<TakePictureScreen> {
     super.initState();
     _controller = CameraController(
       widget.camera,
-      ResolutionPreset.medium
+      ResolutionPreset.high
     );
     _initializeControllerFuture = _controller.initialize();
   }
@@ -49,7 +49,9 @@ class _TakePictureScreenState extends State<TakePictureScreen> {
           }
         },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
+        enableFeedback: true,
         onPressed: () async {
           try {
             await _initializeControllerFuture;
@@ -58,11 +60,12 @@ class _TakePictureScreenState extends State<TakePictureScreen> {
             if (!mounted) {
               return;
             }
-
             // Once the picture is taken, return the image directly
             Navigator.pop(context, image);
+
           } catch (e) {
             ErrorManager.showErrorMessage(context, e.toString());
+            Navigator.pop(context, null);
           }
         },
         child: const Icon(Icons.camera_alt),
