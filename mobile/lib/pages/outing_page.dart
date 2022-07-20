@@ -144,7 +144,15 @@ class _OutingPageState extends State<OutingPage> {
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             // TODO: Add most recent place to constructor's initialPlace
-            Get.to(() => CreateOutingStepPage(outing: widget.outing));
+            if (widget.outing.steps.isNotEmpty) {
+              int final_index = widget.outing.steps.length - 1;
+              Get.to(() => CreateOutingStepPage(
+                outing: widget.outing,
+                initialPlace: widget.outing.steps[final_index][final_index].place,
+              ));
+            } else {
+              Get.to(() => CreateOutingStepPage(outing: widget.outing));
+            }
           },
           child: const Icon(Icons.add)),
       body: Container(

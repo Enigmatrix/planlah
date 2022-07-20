@@ -148,8 +148,6 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
   Point(1.278406, 103.8442916));
 
   Widget buildPlaceSelectionButton() {
-    // place = demoPlace;
-    // place = null;
     if (place == null) {
       return buildSelectPlaceCard();
     } else {
