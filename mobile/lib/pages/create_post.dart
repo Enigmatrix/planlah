@@ -2,10 +2,12 @@ import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:camera/camera.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/posts.dart';
+import 'package:mobile/pages/take_picture_screen.dart';
 import 'package:mobile/services/posts.dart';
 
 class CreatePostPage extends StatefulWidget {
@@ -55,16 +57,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton.icon(onPressed: () async {
-                    final result = await FilePicker.platform.pickFiles(type: FileType.image);
-
-                    if (result == null) return;
-
-                    final file = File(result.files.single.path!);
-                    setState(() {
-                      _imageBytes = file.readAsBytesSync();
-                    });
-                  }, icon: const Icon(Icons.image),
+                  child: ElevatedButton.icon(
+                      onPressed: obtainImage,
+                      icon: const Icon(Icons.camera_alt),
                       label: _imageBytes == null ?  const Text("Upload Image") : const Text("Choose Another Image")
                   ),
                 ),
@@ -100,6 +95,55 @@ class _CreatePostPageState extends State<CreatePostPage> {
           ],
         )
       ],
+    );
+  }
+
+  void obtainImage() async {
+    String choice = await showDialog(context: context, builder: buildImageChoice);
+    File file;
+    if (choice == "Camera") {
+      // Get the first camera
+      final cameras = await availableCameras();
+      final firstCamera = cameras.first;
+      XFile imageFile = await Get.to(() => TakePictureScreen(camera: firstCamera));
+      file = File(imageFile.path);
+    } else {
+      var result = await FilePicker.platform.pickFiles(type: FileType.image);
+
+      if (result == null) {
+        return;
+      }
+
+      file = File(result.files.single.path!);
+    }
+    if (file == null) return;
+
+    setState(() {
+      _imageBytes = file.readAsBytesSync();
+    });
+  }
+
+  Widget buildImageChoice(BuildContext context) {
+    return Dialog(
+      child: ButtonBar(
+        overflowDirection: VerticalDirection.down,
+        children: <Widget>[
+          ElevatedButton.icon(
+            onPressed: () {
+              Navigator.pop(context, "Camera");
+            },
+            icon: const Icon(Icons.camera_alt),
+            label: const Text("Take a picture"),
+          ),
+          ElevatedButton.icon(
+            onPressed: () {
+              Navigator.pop(context, "File");
+            },
+            icon: const Icon(Icons.image),
+            label: const Text("Upload image"),
+          ),
+        ],
+      ),
     );
   }
 

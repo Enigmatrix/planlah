@@ -30,6 +30,7 @@ import 'package:geolocator_android/geolocator_android.dart';
 import 'dto/user.dart';
 
 void main() async {
+  // Ensures that plugin services are initialized
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 

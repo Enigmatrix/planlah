@@ -1,12 +1,8 @@
 import 'dart:async';
-import 'dart:developer' as dev;
-import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:duration/duration.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -382,26 +378,6 @@ class _OutingPageState extends State<OutingPage> {
     }
 
     votes = votes.where((element) => element.vote == vote).toList();
-
-    // for test
-    // votes = {
-    //   OutingStepVoteDto(
-    //       true,
-    //       UserSummaryDto(1, "Akash", "akash",
-    //           "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
-    //   OutingStepVoteDto(
-    //       true,
-    //       UserSummaryDto(2, "WWE", "wwe",
-    //           "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
-    //   OutingStepVoteDto(
-    //       true,
-    //       UserSummaryDto(3, "Akash", "akash",
-    //           "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
-    //   OutingStepVoteDto(
-    //       true,
-    //       UserSummaryDto(4, "WWE", "wwe",
-    //           "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
-    // }.toList();
 
     bool hasUserVoted =
         votes.any((element) => element.userSummaryDto.id == thisUser.id);

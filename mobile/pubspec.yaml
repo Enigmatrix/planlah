@@ -59,6 +59,9 @@ dependencies:
   duration: ^3.0.11
   web_socket_channel: ^2.2.0
   geolocator: ^8.0.0
+  camera:
+  path_provider:
+  path:
 
 dev_dependencies:
   flutter_test:
