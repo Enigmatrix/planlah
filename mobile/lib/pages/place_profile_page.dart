@@ -186,7 +186,9 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
     return ButtonBar(
       alignment: MainAxisAlignment.center,
       children: <Widget>[
-        buildNavigationButtons(),
+        (overallReviewDto == null || overallReviewDto!.numRatings == 0)
+            ? const SizedBox.shrink()
+            : buildNavigationButtons(),
         buildWriteReviewButton(),
       ],
     );
