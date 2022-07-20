@@ -152,7 +152,6 @@ class _OutingPageState extends State<OutingPage> {
       ),
       floatingActionButton: !widget.isActive ? null : FloatingActionButton(
           onPressed: () {
-            // TODO: Add most recent place to constructor's initialPlace
             if (widget.outing.steps.isNotEmpty) {
               int final_index = widget.outing.steps.length - 1;
               Get.to(() => CreateOutingStepPage(
@@ -521,16 +520,20 @@ class _OutingPageState extends State<OutingPage> {
               ),
             ),
             if (widget.isActive)
-              if (showVoting)
-                buildVoteCompletePart(step)
-              else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isAfter(currentTime))
-                buildInProgressPart(step)
-              else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isBefore(currentTime))
-                  buildCompletedPart(step)
-                else
-                  buildNotYet(step)
+              buildBottomComponent(step)
           ],
         ));
+  }
+
+  Widget buildBottomComponent(OutingStepDto step) {
+    Widget content = showVoting
+      ? buildVoteCompletePart(step)
+      : (pdate(step.start).isBefore(currentTime) && pdate(step.end).isAfter(currentTime))
+        ? buildInProgressPart(step)
+        : (pdate(step.start).isBefore(currentTime) && pdate(step.end).isBefore(currentTime))
+          ? buildCompletedPart(step)
+          : buildNotYet(step);
+    return Expanded(child: content);
   }
 
   Widget buildOutingStepListTileComponent(OutingStepDto step) {

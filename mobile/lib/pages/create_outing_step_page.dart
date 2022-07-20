@@ -137,15 +137,6 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
       ),
     );
   }
-  final demoPlace = PlaceDto(
-  1,
-  "BAM! Restaurant",
-  "IDK YET",
-  "38 Tras Street #38-40, Singapore 078977 Singapore",
-  "https://media-cdn.tripadvisor.com/media/photo-s/10/78/cd/f1/entre-nous-creperie.jpg",
-  "38 Tras St, Singapore 078977",
-  PlaceType.restaurant,
-  Point(1.278406, 103.8442916));
 
   Widget buildPlaceSelectionButton() {
     if (place == null) {
