@@ -76,8 +76,8 @@ class _CreatePostPageState extends State<CreatePostPage> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton.icon(
                 onPressed: obtainImage,
-                icon: const Icon(Icons.camera_alt),
-                label: _imageBytes == null ?  const Text("Upload Image") : const Text("Choose Another Image")
+                icon: const Icon(Icons.image),
+                label: _imageBytes == null ?  const Text("Choose Image") : const Text("Choose Another Image")
             ),
           ),
         ],
