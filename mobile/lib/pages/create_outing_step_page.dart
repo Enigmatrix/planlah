@@ -295,10 +295,9 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     // If place is null, obtain current location.
     // Else use the previous place's location.
     if (widget.initialPlace == null) {
-      // TODO: Hardcode the location for now. Stuck on emulator always returning default value
-      // Position position = await Geolocator.getCurrentPosition();
-      // p = Point(position.longitude, position.latitude);
-      p = Point(103.7649, 1.3162);
+      // This works on the actual android device
+      Position position = await Geolocator.getCurrentPosition();
+      p = Point(position.longitude, position.latitude);
     } else {
       p = widget.initialPlace!.position;
     }
