@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +47,8 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
 
   List<PlaceDto> foodSuggestions = [];
   List<PlaceDto> attractionSuggestions = [];
+
+  static const double title_gap = 2.0;
 
   @override
   void initState() {
@@ -138,15 +137,6 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
       ),
     );
   }
-  final demoPlace = PlaceDto(
-  1,
-  "BAM! Restaurant",
-  "IDK YET",
-  "38 Tras Street #38-40, Singapore 078977 Singapore",
-  "https://media-cdn.tripadvisor.com/media/photo-s/10/78/cd/f1/entre-nous-creperie.jpg",
-  "38 Tras St, Singapore 078977",
-  PlaceType.restaurant,
-  Point(1.278406, 103.8442916));
 
   Widget buildPlaceSelectionButton() {
     if (place == null) {
@@ -177,18 +167,14 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
               side: const BorderSide(color: Colors.grey, width: 0.8),
             ),
             child: ListTile(
-              leading: Icon(Icons.place),
-              title: IntrinsicHeight(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Text("Choose where to go!"),
-                    const VerticalDivider(thickness: 1.0),
-                    buildSuggestionButton()
-                  ],
-                ),
+              dense: true,
+              horizontalTitleGap: title_gap,
+              leading: const Icon(Icons.place),
+              title: const FittedBox(
+                fit: BoxFit.cover,
+                child: Text("Choose where to go!"),
               ),
-              // trailing: buildSuggestionButton(),
+              trailing: buildSuggestionButton()
             )),
       ),
     );
@@ -245,37 +231,33 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
   }
 
   Widget buildSuggestionButton() {
-    return Expanded(
-      child: Row(
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: () async {
-              var resp = await showDialog(context: context, builder: buildSuggestionDialog);
-              // resp will be null if the user clicks out of the dialog so just
-              // return immediately
-              if (resp == null) {
-                return;
-              }
-              // Call await on a showDialog to retrieve the value when the dialog is
-              // returned with a value.
-              PlaceDto? p = await showDialog(
-                context: context,
-                builder: (context) => buildFutureRecommender(resp)
-              );
-              // Set chosen place and rebuild widget
-              setState(() {
-                place = p;
-              });
-            },
-            child: Text("Unsure?")
-          )
-        ],
+    return FittedBox(
+      fit: BoxFit.cover,
+      child: ElevatedButton(
+        onPressed: () async {
+          var resp = await showDialog(context: context, builder: buildSuggestionDialog);
+          // resp will be null if the user clicks out of the dialog so just
+          // return immediately
+          if (resp == null) {
+            return;
+          }
+          // Call await on a showDialog to retrieve the value when the dialog is
+          // returned with a value.
+          PlaceDto? p = await showDialog(
+            context: context,
+            builder: (context) => buildFutureRecommender(resp)
+          );
+          // Set chosen place and rebuild widget
+          setState(() {
+            place = p;
+          });
+        },
+        child: Text("Unsure?")
       ),
     );
   }
 
   Widget buildFutureRecommender(PlaceType placeType) {
-    // TODO: Maybe cache and reuse if lat/long is the same? Idk
     List<PlaceDto> suggestions = placeType == PlaceType.restaurant ? foodSuggestions : attractionSuggestions;
     if (suggestions.isEmpty) {
       return FutureBuilder(
@@ -313,10 +295,9 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     // If place is null, obtain current location.
     // Else use the previous place's location.
     if (widget.initialPlace == null) {
-      // TODO: Hardcode the location for now. Stuck on emulator always returning default value
-      // Position position = await Geolocator.getCurrentPosition();
-      // p = Point(position.longitude, position.latitude);
-      p = Point(103.7649, 1.3162);
+      // This works on the actual android device
+      Position position = await Geolocator.getCurrentPosition();
+      p = Point(position.longitude, position.latitude);
     } else {
       p = widget.initialPlace!.position;
     }

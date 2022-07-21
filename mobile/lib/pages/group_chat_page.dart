@@ -19,6 +19,7 @@ import 'package:group_button/group_button.dart';
 import 'package:mobile/services/session.dart';
 import 'package:mobile/utils/errors.dart';
 import 'package:mobile/widgets/JioGroupWidget.dart';
+import 'package:mobile/widgets/wait_widget.dart';
 
 import '../dto/group_invite.dart';
 import '../dto/user.dart';
@@ -75,7 +76,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
       log("UPDATE MESSAGES");
       updateMessages();
     });
-    getGroupMembers();
+    // getGroupMembers();
   }
 
   @override
@@ -96,32 +97,53 @@ class _GroupChatPageState extends State<GroupChatPage> {
     }
   }
 
-  void getGroupMembers() async {
-    Response<List<UserSummaryDto>?> resp = await groupService.getAllGroupMembers(widget.chatGroup.id);
-    if (resp.isOk) {
-      setState(() {
-        groupMembers = resp.body!;
-      });
-    } else {
-      if (!mounted) return;
-      await ErrorManager.showError(context, resp);
-    }
+  Future<Response<List<UserSummaryDto>?>> getGroupMembers() async {
+    return await groupService.getAllGroupMembers(widget.chatGroup.id);
+    // Response<List<UserSummaryDto>?> resp = await groupService.getAllGroupMembers(widget.chatGroup.id);
+    // if (resp.isOk) {
+    //   setState(() {
+    //     groupMembers = resp.body!;
+    //   });
+    // } else {
+    //   if (!mounted) return;
+    //   await ErrorManager.showError(context, resp);
+    // }
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: buildAppBar(),
-    body: Stack(
-      children: <Widget>[
-        Column(
-          children: [
-            ChatComponents.buildMessageList(scrollController, messages, widget.userProfile),
-            ChatComponents.buildInputWidget(sendMessage),
-          ],
-        )
-      ],
-    ),
-  );
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: getGroupMembers(),
+      builder: (BuildContext context, AsyncSnapshot<Response<List<UserSummaryDto>?>> snapshot) {
+        if (snapshot.hasData) {
+          if (!snapshot.hasError) {
+            groupMembers = snapshot.data!.body!;
+            return buildPage();
+          } else {
+            return const SizedBox.shrink();
+          }
+        } else {
+          return waitWidget();
+        }
+      }
+    );
+  }
+
+  Widget buildPage() {
+    return Scaffold(
+      appBar: buildAppBar(),
+      body: Stack(
+        children: <Widget>[
+          Column(
+            children: [
+              ChatComponents.buildMessageList(scrollController, messages, widget.userProfile),
+              ChatComponents.buildInputWidget(sendMessage),
+            ],
+          )
+        ],
+      ),
+    );
+  }
 
   AppBar buildAppBar() {
     return AppBar(

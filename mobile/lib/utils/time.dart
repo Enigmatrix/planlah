@@ -47,7 +47,7 @@ class TimeUtil {
 
   static String formatForFrontend(String string) {
     final dt = DateTime.parse(string).toLocal();
-    return "${dt.day}/${dt.month} ${dt.hour}:${dt.minute}";
+    return DateFormat('yyyy-MM-dd - kk:mm').format(dt);
   }
 
   static DateTime parseFromDto(String? string) {

@@ -40,6 +40,11 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
   Size size = const Size(1, 1);
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     return Scaffold(

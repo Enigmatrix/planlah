@@ -1,12 +1,8 @@
 import 'dart:async';
-import 'dart:developer' as dev;
-import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:duration/duration.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -156,7 +152,6 @@ class _OutingPageState extends State<OutingPage> {
       ),
       floatingActionButton: !widget.isActive ? null : FloatingActionButton(
           onPressed: () {
-            // TODO: Add most recent place to constructor's initialPlace
             if (widget.outing.steps.isNotEmpty) {
               int final_index = widget.outing.steps.length - 1;
               Get.to(() => CreateOutingStepPage(
@@ -383,26 +378,6 @@ class _OutingPageState extends State<OutingPage> {
 
     votes = votes.where((element) => element.vote == vote).toList();
 
-    // for test
-    // votes = {
-    //   OutingStepVoteDto(
-    //       true,
-    //       UserSummaryDto(1, "Akash", "akash",
-    //           "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
-    //   OutingStepVoteDto(
-    //       true,
-    //       UserSummaryDto(2, "WWE", "wwe",
-    //           "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
-    //   OutingStepVoteDto(
-    //       true,
-    //       UserSummaryDto(3, "Akash", "akash",
-    //           "https://melmagazine.com/wp-content/uploads/2021/01/3a9.png")),
-    //   OutingStepVoteDto(
-    //       true,
-    //       UserSummaryDto(4, "WWE", "wwe",
-    //           "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/OFF-PLAT-JD-GIGACHAD.jpg?strip=all&quality=100&w=1200&h=800&crop=1")),
-    // }.toList();
-
     bool hasUserVoted =
         votes.any((element) => element.userSummaryDto.id == thisUser.id);
 
@@ -538,76 +513,92 @@ class _OutingPageState extends State<OutingPage> {
               },
               child: Column(
                 children: <Widget>[
-                  ListTile(
-                    title: Text(
-                      "${step.description} @ ${step.place.name}",
-                      style: titleStyle,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    subtitle: Row(
-                      children: [
-                        Text(fmtTime(step.start),
-                            style: const TextStyle(
-                                color: Colors.blueAccent, fontSize: 13.0)),
-                        const Text(" till ",
-                            style: TextStyle(color: Colors.grey, fontSize: 13.0)),
-                        Text(fmtTime(step.end),
-                            style: const TextStyle(
-                                color: Colors.blueAccent, fontSize: 13.0)),
-                        const Text(", ",
-                            style: TextStyle(color: Colors.grey, fontSize: 13.0)),
-                        Text(dur(step),
-                            style:
-                            const TextStyle(color: Colors.blue, fontSize: 13.0)),
-                      ],
-                    ),
-                    minVerticalPadding: 0,
-                    visualDensity: VisualDensity.compact,
-                    dense: true,
-                    contentPadding:
-                    const EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: ListTile(
-                      leading: const Icon(Icons.place),
-                      dense: true,
-                      horizontalTitleGap: 10,
-                      minLeadingWidth: 0,
-                      minVerticalPadding: 0,
-                      // contentPadding: EdgeInsets.zero,
-                      visualDensity: VisualDensity.compact,
-                      title: Container(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          step.place.formattedAddress.trim(),
-                          style: TextStyle(
-                              color: Colors.black.withOpacity(0.6), fontSize: 12.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxHeight: 200.0),
-                    child: CachedNetworkImage(
-                      imageUrl: step.place.imageLink,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
+                  buildOutingStepListTileComponent(step),
+                  buildPlaceAddressListTileComponent(step),
+                  buildPlaceImageListTileComponent(step),
                 ],
               ),
             ),
             if (widget.isActive)
-              if (showVoting)
-                buildVoteCompletePart(step)
-              else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isAfter(currentTime))
-                buildInProgressPart(step)
-              else if (pdate(step.start).isBefore(currentTime) && pdate(step.end).isBefore(currentTime))
-                  buildCompletedPart(step)
-                else
-                  buildNotYet(step)
+              buildBottomComponent(step)
           ],
         ));
+  }
+
+  Widget buildBottomComponent(OutingStepDto step) {
+    Widget content = showVoting
+      ? buildVoteCompletePart(step)
+      : (pdate(step.start).isBefore(currentTime) && pdate(step.end).isAfter(currentTime))
+        ? buildInProgressPart(step)
+        : (pdate(step.start).isBefore(currentTime) && pdate(step.end).isBefore(currentTime))
+          ? buildCompletedPart(step)
+          : buildNotYet(step);
+    return Expanded(child: content);
+  }
+
+  Widget buildOutingStepListTileComponent(OutingStepDto step) {
+    return ListTile(
+      title: Text(
+        "${step.description} @ ${step.place.name}",
+        style: titleStyle,
+        overflow: TextOverflow.ellipsis,
+      ),
+      subtitle: Row(
+        children: [
+          Text(fmtTime(step.start),
+              style: const TextStyle(
+                  color: Colors.blueAccent, fontSize: 13.0)),
+          const Text(" till ",
+              style: TextStyle(color: Colors.grey, fontSize: 13.0)),
+          Text(fmtTime(step.end),
+              style: const TextStyle(
+                  color: Colors.blueAccent, fontSize: 13.0)),
+          const Text(", ",
+              style: TextStyle(color: Colors.grey, fontSize: 13.0)),
+          Text(dur(step),
+              style:
+              const TextStyle(color: Colors.blue, fontSize: 13.0)),
+        ],
+      ),
+      minVerticalPadding: 0,
+      visualDensity: VisualDensity.compact,
+      dense: true,
+      contentPadding:
+      const EdgeInsets.only(left: 12.0, right: 12.0, top: 4.0),
+    );
+  }
+
+  Widget buildPlaceAddressListTileComponent(OutingStepDto step) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: ListTile(
+        leading: const Icon(Icons.place),
+        dense: true,
+        horizontalTitleGap: 10,
+        minLeadingWidth: 0,
+        minVerticalPadding: 0,
+        // contentPadding: EdgeInsets.zero,
+        visualDensity: VisualDensity.compact,
+        title: Container(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            step.place.formattedAddress.trim(),
+            style: TextStyle(
+                color: Colors.black.withOpacity(0.6), fontSize: 12.0),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildPlaceImageListTileComponent(OutingStepDto step) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: 200.0),
+      child: CachedNetworkImage(
+        imageUrl: step.place.imageLink,
+        fit: BoxFit.fill,
+      ),
+    );
   }
 
   Widget buildNotYet(OutingStepDto step) {
