@@ -11,11 +11,11 @@ typedef MessageFunction = void Function(String content);
 class ChatComponents {
 
   /// I can't do this...
-  static const Color USER_MESSAGE_BACKGROUND = Colors.grey;
+  static const Color USER_MESSAGE_BACKGROUND = Colors.blue;
   static const Color USER_NAME = Colors.black;
-  static const Color OTHER_MESSAGE_BACKGROUND = Colors.blue;
+  static const Color OTHER_MESSAGE_BACKGROUND = Colors.grey;
   static const Color OTHER_NAME = Colors.black;
-  static const Color TEXT_COLOR = Colors.black;
+  static const Color TEXT_COLOR = Colors.white;
 
   static Widget buildMessageList(
       ScrollController scrollController,
