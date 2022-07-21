@@ -76,7 +76,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
       log("UPDATE MESSAGES");
       updateMessages();
     });
-    // getGroupMembers();
   }
 
   @override
@@ -99,15 +98,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   Future<Response<List<UserSummaryDto>?>> getGroupMembers() async {
     return await groupService.getAllGroupMembers(widget.chatGroup.id);
-    // Response<List<UserSummaryDto>?> resp = await groupService.getAllGroupMembers(widget.chatGroup.id);
-    // if (resp.isOk) {
-    //   setState(() {
-    //     groupMembers = resp.body!;
-    //   });
-    // } else {
-    //   if (!mounted) return;
-    //   await ErrorManager.showError(context, resp);
-    // }
   }
 
   @override
@@ -136,7 +126,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
         children: <Widget>[
           Column(
             children: [
-              ChatComponents.buildMessageList(scrollController, messages, widget.userProfile),
+              ChatComponents.buildMessageList(scrollController, messages, widget.userProfile, widget.chatGroup.isDm),
               ChatComponents.buildInputWidget(sendMessage),
             ],
           )

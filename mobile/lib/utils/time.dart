@@ -33,7 +33,7 @@ class TimeUtil {
     // Else, return the relative datetime
 
     if (dt.day == now.day && dt.month == now.month && dt.year == now.year) {
-      return "${dt.hour}:${dt.minute}";
+      return DateFormat('HH:mm').format(dt);
     } else {
       RelativeDateTime relativeDateTime = RelativeDateTime(dateTime: now, other: dt);
       RelativeDateFormat relativeDateFormat = RelativeDateFormat(Localizations.localeOf(context));
