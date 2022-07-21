@@ -6,6 +6,7 @@ import (
 	"github.com/samber/lo"
 	"net/http"
 	"planlah.sg/backend/data"
+	"planlah.sg/backend/services"
 )
 
 type FriendsController struct {
@@ -67,6 +68,10 @@ func (ctr *FriendsController) SendFriendRequest(ctx *gin.Context) {
 		return
 	}
 
+	// Send notification to potential friend
+	err = ctr.Hub.SendToUser(dto.UserID, services.NewFriendRequestUpdate(dto.UserID))
+	handleHubError(ctr.Logger, err)
+
 	ctx.JSON(http.StatusOK, status)
 }
 
@@ -93,6 +98,10 @@ func (ctr *FriendsController) ApproveFriendRequest(ctx *gin.Context) {
 		return
 	}
 
+	// Send notification to approved friend
+	err = ctr.Hub.SendToUser(dto.UserID, services.NewFriendRequestUpdate(dto.UserID))
+	handleHubError(ctr.Logger, err)
+
 	ctx.Status(http.StatusOK)
 }
 
@@ -118,6 +127,10 @@ func (ctr *FriendsController) RejectFriendRequest(ctx *gin.Context) {
 		handleDbError(ctx, err)
 		return
 	}
+
+	// Send notification to rejected friend
+	err = ctr.Hub.SendToUser(dto.UserID, services.NewFriendRequestUpdate(dto.UserID))
+	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
 }

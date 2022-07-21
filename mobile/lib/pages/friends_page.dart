@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
@@ -12,7 +15,13 @@ import '../services/user.dart';
 import 'friend_requests_page.dart';
 
 class FriendsPage extends StatefulWidget {
-  const FriendsPage({Key? key}) : super(key: key);
+
+  final int userId;
+
+  const FriendsPage({
+    Key? key,
+    required this.userId
+  }) : super(key: key);
 
   @override
   State<FriendsPage> createState() => _FriendsPageState();
@@ -25,6 +34,7 @@ class _FriendsPageState extends State<FriendsPage> {
   final friendService = Get.find<FriendService>();
 
   List<UserSummaryDto> _friends = [];
+  StreamSubscription? friendRequestSubscriber;
 
   // For pagination
   int currentPage = 0;
@@ -34,6 +44,16 @@ class _FriendsPageState extends State<FriendsPage> {
     super.initState();
     final sess = Get.find<SessionService>();
     _loadFriends();
+    friendRequestSubscriber = sess.anyFriendRequest(widget.userId).listen((event) {
+      log("UPDATE FRIEND REQUEST");
+      _loadFriends();
+    });
+  }
+
+  @override
+  void dispose() {
+    friendRequestSubscriber?.cancel();
+    super.dispose();
   }
 
   void _loadFriends() async {
@@ -57,6 +77,7 @@ class _FriendsPageState extends State<FriendsPage> {
     } else {
       content = buildFriendsList();
     }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Friends"),
@@ -92,7 +113,7 @@ class _FriendsPageState extends State<FriendsPage> {
   
   void _navigateAndRefresh(BuildContext context) async {
     // TODO: Fix with sockets
-    var result = await Get.to(() => const FriendRequestPage());
+    var result = await Get.to(() => FriendRequestPage(userId: widget.userId));
     if (result != null) {
       _loadFriends();
     }

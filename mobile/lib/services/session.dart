@@ -9,6 +9,10 @@ class SessionService extends BaseConnect {
 
   late Stream<dynamic> stream;
 
+  Stream anyFriendRequest(int userId) {
+    return stream.where((event) => event["kind"] == "friendRequest" && event["userId"] == userId);
+  }
+
   Stream activeOuting(int groupId) {
     return stream.where((event) => event["kind"] == "activeOuting" && event["groupId"] == groupId);
   }
