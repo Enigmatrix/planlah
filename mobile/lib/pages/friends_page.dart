@@ -126,10 +126,16 @@ class FriendSearch extends SearchDelegate<UserSummaryDto> {
   List<Widget>? buildActions(BuildContext context) {
     return [
       IconButton(
-          onPressed: () {
-            query = "";
-          },
-          icon: const Icon(Icons.clear)
+        onPressed: () {
+          showResults(context);
+        },
+        icon: const Icon(Icons.search)
+      ),
+      IconButton(
+        onPressed: () {
+          query = "";
+        },
+        icon: const Icon(Icons.clear)
       )
     ];
   }

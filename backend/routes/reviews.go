@@ -35,7 +35,7 @@ type ReviewDto struct {
 }
 
 type GetOverallReviewDto struct {
-	PlaceID uint `form:"placeID" binding:"required"`
+	PlaceID uint `form:"placeId" binding:"required"`
 }
 
 type OverallReviewDto struct {
