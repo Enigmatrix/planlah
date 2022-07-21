@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,6 +35,22 @@ class _GroupsPageState extends State<GroupsPage> {
   // Used to pass into the chat groups
   late UserProfileDto userProfile;
 
+  int sortFunction(GroupSummaryDto g1, GroupSummaryDto g2) {
+      // Handle null ties by name
+      if (g1.lastSeenMessage == null && g2.lastSeenMessage == null) {
+        return g1.name.compareTo(g2.name);
+      }
+      // Any group that is null is automatically after
+      if (g1.lastSeenMessage == null) {
+        return 1;
+      }
+      if (g2.lastSeenMessage == null) {
+        return -1;
+      }
+      // Else handle by datetime
+      return DateTime.parse(g2.lastSeenMessage!.sentAt).difference(DateTime.parse(g1.lastSeenMessage!.sentAt)).inSeconds;
+  }
+
   @override
   initState() {
     super.initState();
@@ -73,6 +87,7 @@ class _GroupsPageState extends State<GroupsPage> {
       if (value.isOk) {
         setState(() {
           allGroupDtos = value.body!;
+          allGroupDtos.sort(sortFunction);
           currentGroupDtos = allGroupDtos;
         });
       } else {
@@ -155,21 +170,7 @@ class _GroupsPageState extends State<GroupsPage> {
       results = allGroupDtos.where((group) => group.name.toLowerCase().contains(filter.toLowerCase())).toList();
     }
     setState(() {
-      results.sort((g1, g2) {
-        // Handle null ties by name
-        if (g1.lastSeenMessage == null && g2.lastSeenMessage == null) {
-          return g1.name.compareTo(g2.name);
-        }
-        // Any group that is null is automatically after
-        if (g1.lastSeenMessage == null) {
-          return 1;
-        }
-        if (g2.lastSeenMessage == null) {
-          return -1;
-        }
-        // Else handle by datetime
-        return DateTime.parse(g2.lastSeenMessage!.sentAt).difference(DateTime.parse(g1.lastSeenMessage!.sentAt)).inSeconds;
-      });
+      results.sort(sortFunction);
       currentGroupDtos = results;
     });
   }
