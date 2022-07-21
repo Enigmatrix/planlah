@@ -66,7 +66,7 @@ class ChatComponents {
           (isDm)
             ? const SizedBox.shrink()
             : buildMessageUserComponent(message.user, isUser),
-          Text(
+          SelectableText(
             message.content,
             style: const TextStyle(
               color: TEXT_COLOR

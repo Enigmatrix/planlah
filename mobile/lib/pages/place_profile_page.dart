@@ -311,6 +311,8 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
 
     if (resp.isOk) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Review submitted!")));
+      // refresh the reviews page
+      loadReviews(page);
       return true;
     } else {
       await ErrorManager.showError(context, resp);
