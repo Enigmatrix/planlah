@@ -128,6 +128,10 @@ class ReviewsList extends StatelessWidget {
         ),
         title: Column(
           children: <Widget>[
+            Text(
+              review.placeDto.name,
+              overflow: TextOverflow.ellipsis,
+            ),
             buildRatingBar(review.rating.toDouble()),
             Text(
               review.content,
@@ -146,15 +150,30 @@ class ReviewsList extends StatelessWidget {
         children: <Widget>[
           CircleAvatar(
             backgroundImage: CachedNetworkImageProvider(
-                review.user.imageLink
+              review.user.imageLink
             ),
           ),
-          buildRatingBar(review.rating.toDouble()),
           Flexible(
               child: SingleChildScrollView(
-                child: Text(
-                  review.content,
-                  softWrap: true,
+                child: Column(
+                  children: [
+                    // About place
+                    CachedNetworkImage(
+                        imageUrl: review.placeDto.imageLink
+                    ),
+                    Text(
+                        review.placeDto.name
+                    ),
+                    Text(
+                        review.placeDto.formattedAddress
+                    ),
+                    buildRatingBar(review.rating.toDouble()),
+                    const Divider(),
+                    Text(
+                      review.content,
+                      softWrap: true,
+                    ),
+                  ],
                 ),
               )
           ),
