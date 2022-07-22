@@ -52,6 +52,11 @@ type ActiveOutingUpdate struct {
 	GroupID uint `json:"groupId"`
 }
 
+type FriendRequestUpdate struct {
+	UpdateKind
+	UserID uint `json:"userId"`
+}
+
 func NewUserUpdate() *UserUpdate {
 	return &UserUpdate{
 		UpdateKind{Kind: "user"},
@@ -90,6 +95,13 @@ func NewActiveOutingUpdate(groupId uint) *ActiveOutingUpdate {
 	return &ActiveOutingUpdate{
 		UpdateKind: UpdateKind{Kind: "activeOuting"},
 		GroupID:    groupId,
+	}
+}
+
+func NewFriendRequestUpdate(userId uint) *FriendRequestUpdate {
+	return &FriendRequestUpdate{
+		UpdateKind: UpdateKind{"friendRequest"},
+		UserID:     userId,
 	}
 }
 

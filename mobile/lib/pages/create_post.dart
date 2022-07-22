@@ -110,7 +110,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
               if (!mounted) {
                 return;
               }
-              ScaffoldMessenger.of(context).clearSnackBars();
+              // ScaffoldMessenger.of(context).clearSnackBars();
               Navigator.of(context).pop();
             },
             icon: const Icon(

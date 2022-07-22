@@ -79,7 +79,7 @@ class _GroupDisplayState extends State<GroupDisplay> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      widget.chatGroup.description,
+                      widget.chatGroup.lastSeenMessage?.content ?? "",
                       style: TextStyle(
                           fontSize: 13,
                           color: Colors.grey.shade600,

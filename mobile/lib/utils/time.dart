@@ -26,7 +26,7 @@ class TimeUtil {
   // formatted it
 
   static String formatForGroup(BuildContext context, String string) {
-    DateTime dt = DateTime.parse(string);
+    DateTime dt = DateTime.parse(string).toLocal();
     DateTime now = DateTime.now().toLocal();
 
     // If exactly the same day, just return the time
