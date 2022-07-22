@@ -80,8 +80,8 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   @override
   void dispose() {
-    super.dispose();
     messagesForGroupSub?.cancel();
+    super.dispose();
   }
 
   void updateMessages() async {

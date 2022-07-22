@@ -1,11 +1,21 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/friends.dart';
 import 'package:mobile/services/friends.dart';
+import 'package:mobile/services/session.dart';
 import 'package:mobile/utils/errors.dart';
 
 class FriendRequestPage extends StatefulWidget {
-  const FriendRequestPage({Key? key}) : super(key: key);
+
+  final int userId;
+
+  const FriendRequestPage({
+    Key? key,
+    required this.userId
+  }) : super(key: key);
 
   @override
   State<FriendRequestPage> createState() => _FriendRequestPageState();
@@ -17,12 +27,25 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
 
   List<FriendRequestDto> _friendRequests = [];
 
+  StreamSubscription? friendRequestSubscriber;
+
   int pageNumber = 0;
 
   @override
   void initState() {
     super.initState();
     _loadFriendRequests();
+    final sess = Get.find<SessionService>();
+    friendRequestSubscriber = sess.anyFriendRequest(widget.userId).listen((event) {
+      log("UPDATE FRIEND REQUESTS");
+      _loadFriendRequests();
+    });
+  }
+
+  @override
+  void dispose() {
+    friendRequestSubscriber?.cancel();
+    super.dispose();
   }
 
   void _loadFriendRequests() async {
@@ -59,7 +82,7 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
 
   Widget buildContent() {
     Widget content;
-    if (_friendRequests.length == 0) {
+    if (_friendRequests.isEmpty) {
       content = const Center(
         child: Text(
           "You currently have no friend requests"

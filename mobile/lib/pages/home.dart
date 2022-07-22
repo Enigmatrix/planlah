@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/posts.dart';
@@ -61,7 +58,7 @@ class _HomePageWidgetState extends State<HomePage> {
       case 1:
         return GroupsPage();
       case 2:
-        return FriendsPage();
+        return FriendsPage(userId: widget.userProfile.id);
       case 3:
         return const ProfilePage(userId: -1);
       default:
