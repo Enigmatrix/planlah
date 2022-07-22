@@ -16,6 +16,9 @@ class ChatComponents {
   static const Color OTHER_MESSAGE_BACKGROUND = Colors.grey;
   static const Color OTHER_NAME = Colors.black;
   static const Color TEXT_COLOR = Colors.white;
+  static const Color TIMESTAMP_COLOR = Colors.white70;
+
+  static const double verticalPadding = 6.0;
 
   static Widget buildMessageList(
       ScrollController scrollController,
@@ -24,9 +27,10 @@ class ChatComponents {
       bool isDm
       ) {
     return Expanded(
-        child: ListView.builder(
+        child: ListView.separated(
+          separatorBuilder: (context, index) => const SizedBox(height: verticalPadding),
           reverse: true,
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(16.0),
           itemBuilder: (context, index) => ChatComponents.buildMessage(messages[messages.length - 1 - index], user.id, isDm),
           itemCount: messages.length,
           controller: scrollController,
@@ -37,21 +41,40 @@ class ChatComponents {
   /// Encapsulates UI logic depending on whether its a DM or a group chat message
   static Widget buildMessage(MessageDto message, int userId, bool isDm) {
     bool isUser = message.user.id == userId;
-    return Align(
-      alignment: isUser ? Alignment.bottomRight : Alignment.bottomLeft,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: <Widget>[
-          buildMessageBodyComponent(message, isUser, isDm),
-          buildMessageTimestampComponent(message),
-        ],
+    return Row(
+      mainAxisAlignment: isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+      children: [
+        (!isUser)
+          ? buildUserAvatar(message.user)
+          : const SizedBox.shrink(),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            buildMessageBodyComponent(message, isUser, isDm),
+            // buildMessageTimestampComponent(message),
+          ],
+        ),
+        (isUser)
+          ? buildUserAvatar(message.user)
+          : const SizedBox.shrink()
+      ],
+    );
+  }
+
+  static Widget buildUserAvatar(UserSummaryDto user) {
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => ProfilePage(userId: user.id));
+      },
+      child: CircleAvatar(
+        backgroundImage: NetworkImage(user.imageLink),
       ),
     );
   }
 
   static Widget buildMessageBodyComponent(MessageDto message, bool isUser, bool isDm) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
+      padding: const EdgeInsets.fromLTRB(15.0, 10.0, 0.0, 0.0),
       width: 200.0,
       decoration: BoxDecoration(
         color: isUser
@@ -72,6 +95,8 @@ class ChatComponents {
               color: TEXT_COLOR
             ),
           ),
+          const SizedBox(height: 4),
+          buildMessageTimestampComponent(message)
         ],
       ),
     );
@@ -92,12 +117,12 @@ class ChatComponents {
   }
 
   static Widget buildMessageTimestampComponent(MessageDto message) {
-    return Container(
-      margin: const EdgeInsets.only(left: 5.0, top: 5.0, bottom: 5.0),
+    return Align(
+      alignment: Alignment.bottomRight,
       child: Text(
         TimeUtil.formatForFrontend(message.sentAt),
         style: const TextStyle(
-            color: Colors.grey,
+            color: TIMESTAMP_COLOR,
             fontSize: 12.0,
             fontStyle: FontStyle.normal
         ),
