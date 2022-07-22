@@ -16,23 +16,21 @@ class ProfileContent {
 
   static const numTabs = 2;
 
-  static WidgetValueBuilder getProfileContentBuilder(
-
-      ) {
+  static WidgetValueBuilder getProfileContentBuilder() {
     return (BuildContext context, UserProfileDto user) {
       return Expanded(
         child: DefaultTabController(
-            length: numTabs,
-            child:  Scaffold(
-              body: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    buildTabBar(),
-                    Expanded(child: buildTabBarView(user))
-                  ],
-                ),
-              )
+          length: numTabs,
+          child:  Scaffold(
+            body: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                buildTabBar(),
+                Expanded(child: buildTabBarView(user))
+              ],
+            ),
+          )
         ),
       );
     };
@@ -71,11 +69,9 @@ class ProfileContent {
     };
   }
 
-
   static Widget buildPostsTabChild(UserProfileDto user) {
     return SocialFeed(loadPosts: loadPostsFor(user));
   }
-
 
   static Widget buildReviewsTabChild(UserProfileDto user) {
     final reviewService = Get.find<ReviewService>();
