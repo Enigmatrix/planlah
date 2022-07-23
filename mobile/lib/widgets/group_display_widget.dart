@@ -79,7 +79,11 @@ class _GroupDisplayState extends State<GroupDisplay> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      widget.chatGroup.lastSeenMessage?.content ?? "",
+                      // Dirty trick to simplify the overflow
+                      // Running into render flex issues when trying to use
+                      // a FittedBox widget
+                      firstN(widget.chatGroup.lastSeenMessage?.content),
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                           fontSize: 13,
                           color: Colors.grey.shade600,
@@ -93,6 +97,16 @@ class _GroupDisplayState extends State<GroupDisplay> {
             )
         )
     );
+  }
+
+  static const N = 20;
+
+  String firstN(String? content) {
+    return content == null
+      ? ""
+      : (content.length <= N)
+        ? content
+        : "${content.substring(0, N)}...";
   }
 
   Widget buildTimeAgoLabel() {

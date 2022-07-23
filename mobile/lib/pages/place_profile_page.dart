@@ -82,23 +82,51 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
     }
   }
 
+  // Needed to constraint the image
+  late Size size;
+
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
           widget.place.name
         ),
       ),
-      body: Column(
+      body: Flex(
+        direction: Axis.vertical,
         children: <Widget>[
-          CachedNetworkImage(
-            imageUrl: widget.place.imageLink
-          ),
+          buildAboutPlace(),
           buildContent(),
           buildButtonBar(),
         ],
       ),
+    );
+  }
+
+  Widget buildAboutPlace() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        // Use a constrained box to maintain image resolution if its smaller then
+        // but at the same time prevent it from occupying more then half.
+        ConstrainedBox(
+          constraints: BoxConstraints(maxHeight: size.height / 2),
+          child: CachedNetworkImage(
+            imageUrl: widget.place.imageLink
+          ),
+        ),
+        Text(
+          widget.place.formattedAddress
+        ),
+        Text(
+            (widget.place.about != "NaN")
+                ? widget.place.about
+                : ""
+        ),
+      ],
     );
   }
 
