@@ -45,7 +45,7 @@ class ChatComponents {
       mainAxisAlignment: isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
       children: [
         (!isUser)
-          ? buildUserAvatar(message.user)
+          ? buildUserAvatar(message.user, isUser)
           : const SizedBox.shrink(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -55,16 +55,16 @@ class ChatComponents {
           ],
         ),
         (isUser)
-          ? buildUserAvatar(message.user)
+          ? buildUserAvatar(message.user, isUser)
           : const SizedBox.shrink()
       ],
     );
   }
 
-  static Widget buildUserAvatar(UserSummaryDto user) {
+  static Widget buildUserAvatar(UserSummaryDto user, bool isUser) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => ProfilePage(userId: user.id));
+        Get.to(() => ProfilePage(userId: isUser ? -1 : user.id));
       },
       child: CircleAvatar(
         backgroundImage: NetworkImage(user.imageLink),
