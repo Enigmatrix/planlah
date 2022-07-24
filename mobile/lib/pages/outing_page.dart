@@ -153,10 +153,10 @@ class _OutingPageState extends State<OutingPage> {
       floatingActionButton: !widget.isActive ? null : FloatingActionButton(
           onPressed: () {
             if (widget.outing.steps.isNotEmpty) {
-              int final_index = widget.outing.steps.length - 1;
+              final place = widget.outing.steps.last.last.place;
               Get.to(() => CreateOutingStepPage(
                 outing: widget.outing,
-                initialPlace: widget.outing.steps[final_index][final_index].place,
+                recentPlace: place
               ));
             } else {
               Get.to(() => CreateOutingStepPage(outing: widget.outing));
@@ -533,7 +533,7 @@ class _OutingPageState extends State<OutingPage> {
         : (pdate(step.start).isBefore(currentTime) && pdate(step.end).isBefore(currentTime))
           ? buildCompletedPart(step)
           : buildNotYet(step);
-    return Expanded(child: content);
+    return Flexible(child: content, fit: FlexFit.loose,);
   }
 
   Widget buildOutingStepListTileComponent(OutingStepDto step) {

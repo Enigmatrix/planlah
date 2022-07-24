@@ -65,16 +65,15 @@ class BaseConnect extends GetConnect {
     return false;
   }
 
-  static const String server = "localhost:8080/api";
+  // static const String server = "localhost:8080/api";
+  static const String server = "enigmatrix.me:8085/api";
 
   @override
   void onInit() {
     auth = Get.find<AuthService>();
     unauthClient = GetHttpClient();
 
-    // TODO make this configurable
     httpClient.baseUrl = "http://$server";
-    // httpClient.baseUrl = "http://enigmatrix.me:8085/api";
 
     httpClient.addRequestModifier<dynamic>((request) async {
       if (token == null) return request;
