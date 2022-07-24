@@ -29,8 +29,6 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   final ReviewService reviewService = Get.find<ReviewService>();
 
   OverallReviewDto? overallReviewDto;
-
-
   List<ReviewDto> reviews = [];
 
   int page = 0;
@@ -126,6 +124,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
                 ? widget.place.about
                 : ""
         ),
+        const Divider(height: 4.0),
       ],
     );
   }
