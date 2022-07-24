@@ -85,7 +85,7 @@ class SocialPost extends StatelessWidget {
             }
           },
           icon: const Icon(Icons.remove_red_eye_outlined),
-          label: Text("View Itinerary"),
+          label: Text("View Outing"),
         ),
       ],
     );
