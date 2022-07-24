@@ -7,6 +7,9 @@ import 'package:get/get.dart';
 import 'package:mobile/dto/place.dart';
 import 'package:mobile/services/place.dart';
 import 'package:mobile/utils/errors.dart';
+import 'dart:convert';
+import 'package:image/image.dart' as ImageProcess;
+import 'package:mobile/widgets/place_image.dart';
 
 class FindPlaceWidget extends StatefulWidget {
   const FindPlaceWidget({Key? key}) : super(key: key);
@@ -128,10 +131,7 @@ class _FindPlaceWidgetState extends State<FindPlaceWidget> {
       },
       leading: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: size.width * 0.2),
-        child: CachedNetworkImage(
-          imageUrl: place.imageLink,
-          fit: BoxFit.cover,
-        ),
+        child: PlaceImage(imageLink: place.imageLink)
       ),
       title: Text(place.name),
       subtitle: Text(

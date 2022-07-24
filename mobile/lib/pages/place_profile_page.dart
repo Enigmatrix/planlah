@@ -8,6 +8,7 @@ import 'package:mobile/dto/review.dart';
 import 'package:mobile/services/reviews.dart';
 
 import '../utils/errors.dart';
+import '../widgets/place_image.dart';
 
 class PlaceProfilePage extends StatefulWidget {
 
@@ -112,8 +113,8 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
         // but at the same time prevent it from occupying more then half.
         ConstrainedBox(
           constraints: BoxConstraints(maxHeight: size.height / 2),
-          child: CachedNetworkImage(
-            imageUrl: widget.place.imageLink
+          child: PlaceImage(
+            imageLink: widget.place.imageLink
           ),
         ),
         Text(
