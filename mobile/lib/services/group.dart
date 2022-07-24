@@ -58,6 +58,7 @@ class GroupService extends BaseConnect {
 
   Future<Response<List<UserSummaryDto>?>> getFriendsToJio(int groupId, int page) async {
     JioFriendsDto dto = JioFriendsDto(groupId, page);
+    print("Page in getFriendsToJio $page");
     return await get(
       "/groups/get_friends_to_jio",
       query: dto.toJson(),

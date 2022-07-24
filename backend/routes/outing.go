@@ -204,7 +204,7 @@ func (ctr *OutingController) CreateOuting(ctx *gin.Context) {
 		return
 	}
 
-	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupUpdate(dto.GroupID))
+	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupMemberUpdate(dto.GroupID))
 	handleHubError(ctr.Logger, err)
 
 	ctx.Status(http.StatusOK)
