@@ -583,7 +583,7 @@ First, navigate to your friend's profile page.
 
 Make sure that you have selected `Posts` in the tab bar. 
 
-![](https://i.imgur.com/nFaV3ln.jpg)
+![](https://i.imgur.com/2ck7UJi.jpg)
 
 You can then scroll through your friend's social posts. 
 
