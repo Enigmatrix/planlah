@@ -2,6 +2,7 @@ package services
 
 import (
 	"github.com/juju/errors"
+	"go.uber.org/zap"
 	"planlah.sg/backend/data"
 	lazy "planlah.sg/backend/utils"
 )
@@ -113,13 +114,14 @@ type WebsocketUpdateHub struct {
 	register   chan *WebsocketUpdateClient
 	unregister chan *WebsocketUpdateClient
 
-	db *data.Database
+	db     *data.Database
+	logger *zap.Logger
 }
 
 var updateHub = lazy.NewLazy[*WebsocketUpdateHub]()
 
 // NewWebsocketUpdateHub Creates a singleton Hub
-func NewWebsocketUpdateHub(db *data.Database) *WebsocketUpdateHub {
+func NewWebsocketUpdateHub(db *data.Database, logger *zap.Logger) *WebsocketUpdateHub {
 	return updateHub.LazyValue(func() *WebsocketUpdateHub {
 		return &WebsocketUpdateHub{
 			userClientMapping: make(map[uint]map[*WebsocketUpdateClient]bool),
@@ -127,6 +129,7 @@ func NewWebsocketUpdateHub(db *data.Database) *WebsocketUpdateHub {
 			register:          make(chan *WebsocketUpdateClient),
 			unregister:        make(chan *WebsocketUpdateClient),
 			db:                db,
+			logger:            logger,
 		}
 	})
 }
@@ -158,10 +161,25 @@ func (h *WebsocketUpdateHub) SendToFriends(userId uint, msg any) error {
 	return nil
 }
 
+func (h *WebsocketUpdateHub) unregisterCb(client *WebsocketUpdateClient) {
+	userClients, found := h.userClientMapping[client.userId]
+	if !found {
+		return
+	}
+	if _, ok := userClients[client]; ok {
+		delete(userClients, client)
+		close(client.send)
+	}
+	if len(userClients) == 0 {
+		delete(h.userClientMapping, client.userId)
+	}
+}
+
 func (h *WebsocketUpdateHub) Run() {
 	for {
 		select {
 		case client := <-h.register:
+			h.logger.Info("websocket, register", zap.Uint("userId", client.userId))
 			userClients, found := h.userClientMapping[client.userId]
 			if !found {
 				userClients = make(map[*WebsocketUpdateClient]bool)
@@ -170,25 +188,16 @@ func (h *WebsocketUpdateHub) Run() {
 			userClients[client] = true
 
 		case client := <-h.unregister:
-			print(client.userId)
-			//userClients, found := h.userClientMapping[client.userId]
-			//if !found {
-			//	continue
-			//}
-			//if _, ok := userClients[client]; ok {
-			//	delete(userClients, client)
-			//	close(client.send)
-			//}
-			//if len(userClients) == 0 {
-			//	delete(h.userClientMapping, client.userId)
-			//}
+			h.logger.Info("websocket, unregister", zap.Uint("userId", client.userId))
+			h.unregisterCb(client)
 
 		case message := <-h.messages:
 			for client := range h.userClientMapping[message.userId] {
 				select {
 				case client.send <- message.msg:
 				default:
-					h.unregister <- client
+					h.logger.Info("websocket, unregister (by disconnect)", zap.Uint("userId", client.userId))
+					h.unregisterCb(client)
 				}
 			}
 		}

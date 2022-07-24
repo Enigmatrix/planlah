@@ -836,17 +836,23 @@ func (db *Database) GetMessagesRelative(userId uint, messageId uint, count uint,
 }
 
 // GetMessages Gets Message within a time range
-func (db *Database) GetMessages(groupId uint, start time.Time, end time.Time) ([]Message, error) {
+func (db *Database) GetMessages(groupId uint, start *time.Time, end *time.Time) ([]Message, error) {
 	var messages []Message
 
-	err := db.conn.
+	tx := db.conn.
 		Table("messages").
 		Preload("By").
 		Preload("By.User").
-		Joins("right join group_members on group_members.id = messages.by_id and group_members.group_id = ?", groupId).
-		Where("? > messages.sent_at and messages.sent_at >= ?", end, start).
-		Find(&messages).
-		Error
+		Joins("inner join group_members on group_members.id = messages.by_id and group_members.group_id = ?", groupId)
+
+	if start != nil {
+		tx = tx.Where(" messages.sent_at >= ? ", *start)
+	}
+	if end != nil {
+		tx = tx.Where(" messages.sent_at < ? ", *end)
+	}
+
+	err := tx.Find(&messages).Error
 
 	if err != nil {
 		return nil, errors.Trace(err)

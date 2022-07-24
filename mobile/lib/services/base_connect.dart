@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:mobile/services/auth.dart';
+import 'package:mobile/services/session.dart';
 
 
 class BaseConnect extends GetConnect {
@@ -94,6 +95,13 @@ class BaseConnect extends GetConnect {
       var headers = {'Authorization': "Bearer $token"};
       request.headers.addAll(headers);
       Get.log('unauthenticated error fixed');
+
+
+      // This is where the user token can exist, so we can init
+      // websockets with it.
+      final session = Get.find<SessionService>();
+      session.initConnection();
+
       return request;
     });
 

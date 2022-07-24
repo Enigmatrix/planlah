@@ -29,9 +29,9 @@ type GetRelativeMessagesDto struct {
 }
 
 type GetMessagesDto struct {
-	Start   time.Time `form:"start" json:"start" binding:"required" format:"date-time"`
-	End     time.Time `form:"end" json:"end" binding:"required,gtfield=Start" format:"date-time"`
-	GroupID uint      `form:"groupId" json:"groupId" binding:"required"`
+	Start   *time.Time `form:"start" json:"start"`
+	End     *time.Time `form:"end" json:"end"`
+	GroupID uint       `form:"groupId" json:"groupId" binding:"required"`
 }
 
 type MessageDto struct {

@@ -14,8 +14,6 @@ class MessageService extends BaseConnect {
         "/messages/all",
         query: {
           "groupId": groupId.toString(),
-          "start": "2022-06-01T17:23:02.019Z",
-          "end": TimeUtil.now(),
         },
         decoder: decoderForList(MessageDto.fromJson)
     );
