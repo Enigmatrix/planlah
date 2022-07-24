@@ -64,7 +64,7 @@ func NewUserUpdate() *UserUpdate {
 	}
 }
 
-func NewGroupUpdate(groupId uint) *GroupUpdate {
+func NewGroupMemberUpdate(groupId uint) *GroupUpdate {
 	return &GroupUpdate{
 		UpdateKind: UpdateKind{Kind: "group"},
 		GroupID:    groupId,

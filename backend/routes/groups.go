@@ -221,7 +221,7 @@ func (ctr *GroupsController) Jio(ctx *gin.Context) {
 	}
 
 	// Send notification to other group members + this user
-	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupUpdate(dto.GroupID))
+	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupMemberUpdate(dto.GroupID))
 	handleHubError(ctr.Logger, err)
 	// Send notification to entering User
 	err = ctr.Hub.SendToUser(dto.UserID, services.NewGroupsUpdate(true))
@@ -270,7 +270,7 @@ func (ctr *GroupsController) Leave(ctx *gin.Context) {
 	}
 
 	// Send notification to other group members
-	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupUpdate(dto.GroupID))
+	err = ctr.Hub.SendToGroup(dto.GroupID, services.NewGroupMemberUpdate(dto.GroupID))
 	handleHubError(ctr.Logger, err)
 	// Send notification to leaving User
 	err = ctr.Hub.SendToUser(dto.UserID, services.NewGroupsUpdate(false))
@@ -537,7 +537,7 @@ func (ctr *GroupsController) JoinByInvite(ctx *gin.Context) {
 	}
 
 	// Send notification to other group members + this user that this user has joined
-	err = ctr.Hub.SendToGroup(group.ID, services.NewGroupUpdate(group.ID))
+	err = ctr.Hub.SendToGroup(group.ID, services.NewGroupMemberUpdate(group.ID))
 	handleHubError(ctr.Logger, err)
 	// Send notification to entering User
 	err = ctr.Hub.SendToUser(userId, services.NewGroupsUpdate(true))

@@ -58,6 +58,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   ScrollController scrollController = ScrollController();
   StreamSubscription? messagesForGroupSub;
+  StreamSubscription? membersForGroupSub;
 
   // For the menu options
   static const String ABOUT = "About";
@@ -72,13 +73,15 @@ class _GroupChatPageState extends State<GroupChatPage> {
     super.initState();
     final sess = Get.find<SessionService>();
     updateMessages();
-    messagesForGroupSub = sess.groupUpdate(widget.chatGroup.id).listen((event) {
+    messagesForGroupSub = sess.messageUpdate(widget.chatGroup.id).listen((event) {
       updateMessages();
-      if (!widget.chatGroup.isDm) {
-        print("Updating members!");
-        updateMembers();
-      }
     });
+    // Update the members list if its not a DM
+    if (!widget.chatGroup.isDm) {
+      membersForGroupSub = sess.groupUpdate(widget.chatGroup.id).listen((event) { 
+        updateMembers();
+      });
+    }
   }
 
   @override

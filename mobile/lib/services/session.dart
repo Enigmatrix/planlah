@@ -21,8 +21,12 @@ class SessionService extends BaseConnect {
     return stream.where((event) => event["kind"] == "message");
   }
 
-  Stream groupUpdate(int groupId) {
+  Stream messageUpdate(int groupId) {
     return stream.where((event) => event["kind"] == "message" && event["groupId"] == groupId);
+  }
+  
+  Stream groupUpdate(int groupId) {
+    return stream.where((event) => event["kind"] == "group" && event["groupId"] == groupId);
   }
 
   Stream groups() {
