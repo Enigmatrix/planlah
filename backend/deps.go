@@ -22,11 +22,10 @@ var depSet = wire.NewSet(
 	// services
 	services.NewFirebaseApp,
 	services.NewAuthService,
-	// wire.Bind(new(services.ImageService), new(*services.FirebaseStorageImageService)),
 	// services.NewFirebaseStorageImageService,
-	// use ImageKit instead of sad firebase
-	services.NewImageKitImageService,
-	wire.Bind(new(services.ImageService), new(*services.ImageKitImageService)),
+	// services.NewImageKitImageService,
+	services.NewMinioImageService,
+	wire.Bind(new(services.ImageService), new(*services.MinioImageService)),
 	services.NewWebsocketUpdateHub,
 	wire.Bind(new(services.UpdateHub), new(*services.WebsocketUpdateHub)),
 

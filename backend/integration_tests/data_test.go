@@ -1,13 +1,13 @@
 package integrationtests
 
 import (
+	"testing"
+	"time"
+
 	"github.com/google/uuid"
 	"github.com/lib/pq"
 	"github.com/samber/lo"
-	"math"
 	"planlah.sg/backend/jobs"
-	"testing"
-	"time"
 
 	"go.uber.org/zap"
 	"gorm.io/gorm"
@@ -652,7 +652,9 @@ func (s *DataIntegrationTestSuite) Test_GetMessagesRelative_ThrowsEntityNotFound
 func (s *DataIntegrationTestSuite) Test_GetMessages_Succeeds() {
 	initial, err := time.ParseInLocation("2006-01-02 15:04", "2016-01-01 00:00", time.FixedZone("UTC+10", 10*60*60))
 	s.Require().NoError(err)
-	msgs, err := s.db.GetMessages(3, initial.Add(8*time.Minute), initial.Add(14*time.Minute))
+	st := initial.Add(8 * time.Minute)
+	en := initial.Add(14 * time.Minute)
+	msgs, err := s.db.GetMessages(3, &st, &en)
 	s.NoError(err)
 	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
 		return t.ID
@@ -663,7 +665,9 @@ func (s *DataIntegrationTestSuite) Test_GetMessages_Succeeds() {
 func (s *DataIntegrationTestSuite) Test_GetMessages_Succeeds_Limited() {
 	initial, err := time.ParseInLocation("2006-01-02 15:04", "2016-01-01 00:00", time.FixedZone("UTC+10", 10*60*60))
 	s.Require().NoError(err)
-	msgs, err := s.db.GetMessages(3, initial.Add(11*time.Minute), initial.Add(13*time.Minute))
+	st := initial.Add(11 * time.Minute)
+	en := initial.Add(13 * time.Minute)
+	msgs, err := s.db.GetMessages(3, &st, &en)
 	s.NoError(err)
 	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
 		return t.ID
@@ -672,7 +676,7 @@ func (s *DataIntegrationTestSuite) Test_GetMessages_Succeeds_Limited() {
 }
 
 func (s *DataIntegrationTestSuite) Test_GetMessages_Empty_WhenNoSuchGroup() {
-	msgs, err := s.db.GetMessages(100, time.UnixMilli(0), time.UnixMilli(math.MaxInt64))
+	msgs, err := s.db.GetMessages(100, nil, nil)
 	s.NoError(err)
 	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
 		return t.ID
@@ -681,7 +685,10 @@ func (s *DataIntegrationTestSuite) Test_GetMessages_Empty_WhenNoSuchGroup() {
 }
 
 func (s *DataIntegrationTestSuite) Test_GetMessages_Empty_WhenTimeRangeInvalid() {
-	msgs, err := s.db.GetMessages(3, time.UnixMilli(math.MaxInt64), time.UnixMilli(0))
+	initial, err := time.ParseInLocation("2006-01-02 15:04", "2016-01-01 00:00", time.FixedZone("UTC+10", 10*60*60))
+	st := initial.Add(11 * time.Minute)
+	en := initial.Add(13 * time.Minute)
+	msgs, err := s.db.GetMessages(3, &en, &st)
 	s.NoError(err)
 	ids := lo.Map(msgs, func(t data.Message, _ int) uint {
 		return t.ID
