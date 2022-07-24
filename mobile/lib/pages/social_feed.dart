@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/pages/social_post.dart';
-import 'package:mobile/services/posts.dart';
 import 'package:mobile/utils/errors.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../dto/posts.dart';
 
@@ -42,22 +42,36 @@ class SocialFeed extends StatefulWidget {
 
 class _SocialFeedState extends State<SocialFeed> {
 
+  static const int startingPageNumber = 0;
 
-  int pageNumber = 0;
-  List<PostDto> posts = [];
+  final _pagingController = PagingController<int, PostDto>(
+      firstPageKey: startingPageNumber
+  );
 
   @override
   void initState() {
+    _pagingController.addPageRequestListener((pageKey) {
+      loadPosts(pageKey);
+    });
     super.initState();
-    loadPosts();
   }
 
-  void loadPosts() async {
-    final response = await widget.loadPosts(pageNumber);
+  @override
+  void dispose() {
+    _pagingController.dispose();
+    super.dispose();
+  }
+
+  void loadPosts(int pageKey) async {
+    final response = await widget.loadPosts(pageKey);
     if (response.isOk) {
-      setState(() {
-        posts.addAll(response.body!);
-      });
+      if (response.body!.isEmpty) {
+        // This avoids an infinite loading widget when there is nothing else
+        // to load.
+        _pagingController.appendLastPage(response.body!);
+      } else {
+        _pagingController.appendPage(response.body!, pageKey + 1);
+      }
     } else {
       if (!mounted) return;
       await ErrorManager.showError(context, response);
@@ -66,12 +80,22 @@ class _SocialFeedState extends State<SocialFeed> {
 
   @override
   Widget build(BuildContext context) {
-      return ListView.builder(
-          itemCount: posts.length,
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return SocialPost(post: posts[index]);
-          }
+    return RefreshIndicator(
+      onRefresh: () => Future.sync(() => _pagingController.refresh()),
+      child: PagedListView.separated(
+        pagingController: _pagingController,
+        separatorBuilder: (context, index) => const SizedBox(height: 16),
+        builderDelegate: PagedChildBuilderDelegate<PostDto>(
+          itemBuilder: (context, post, index) => SocialPost(post: post),
+          noMoreItemsIndicatorBuilder: noMoreItemsIndicator
+        ),
+      )
+    );
+  }
+
+  Widget noMoreItemsIndicator(BuildContext context) {
+    return const Center(
+      child: Text("No more items"),
     );
   }
 }

@@ -62,6 +62,8 @@ dependencies:
   camera:
   path_provider:
   path:
+  infinite_scroll_pagination: ^3.2.0
+
 
 dev_dependencies:
   flutter_test:
