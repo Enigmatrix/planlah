@@ -20,6 +20,18 @@ services:
     ports:
       - "8081:8080" # only for debug
 
+  storage: # store images
+    image: minio/minio
+    # command: server --console-address ":9001"
+    ports:
+      - "9001:9001"
+      - "9000:9000"
+    environment:
+      MINIO_ROOT_USER: $STORAGE_USER
+      MINIO_ROOT_PASSWORD: $STORAGE_PASSWORD
+    volumes:
+      - storage_volume:/data
+
   recommender:
     # need to copy .env file, so the context must be current dir
     build:
@@ -44,3 +56,4 @@ services:
 
 volumes:
   db_volume: { }
+  storage_volume: { }
