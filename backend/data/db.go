@@ -1262,8 +1262,8 @@ WHERE friends.id NOT IN (
         INNER JOIN group_members AS gm
         ON friends.id = gm.user_id
         WHERE gm.group_id = ?
-LIMIT ? OFFSET ?
-    );`, userId, userId, groupId, page.Limit(), page.Offset()).
+)
+LIMIT ? OFFSET ?;`, userId, userId, groupId, page.Limit(), page.Offset()).
 		Find(&users).
 		Error
 	if err != nil {

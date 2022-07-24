@@ -72,9 +72,12 @@ class _GroupChatPageState extends State<GroupChatPage> {
     super.initState();
     final sess = Get.find<SessionService>();
     updateMessages();
-    messagesForGroupSub = sess.messagesForGroup(widget.chatGroup.id).listen((event) {
-      log("UPDATE MESSAGES");
+    messagesForGroupSub = sess.groupUpdate(widget.chatGroup.id).listen((event) {
       updateMessages();
+      if (!widget.chatGroup.isDm) {
+        print("Updating members!");
+        updateMembers();
+      }
     });
   }
 
@@ -96,6 +99,19 @@ class _GroupChatPageState extends State<GroupChatPage> {
     }
   }
 
+  void updateMembers() async {
+    Response<List<UserSummaryDto>?> resp = await groupService.getAllGroupMembers(widget.chatGroup.id);
+    if (resp.isOk) {
+      setState(() {
+        groupMembers = resp.body!;
+      });
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, resp);
+    }
+  }
+
+  /// Used to avoid initialization errors
   Future<Response<List<UserSummaryDto>?>> getGroupMembers() async {
     return await groupService.getAllGroupMembers(widget.chatGroup.id);
   }
