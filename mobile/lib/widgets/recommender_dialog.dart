@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/pages/place_profile_page.dart';
+import 'package:mobile/widgets/place_image.dart';
 
 import '../dto/place.dart';
 
@@ -48,7 +49,7 @@ class RecommenderDialog extends StatelessWidget {
           },
           child: Column(
             children: <Widget>[
-              CachedNetworkImage(imageUrl: place.imageLink),
+              PlaceImage(imageLink: place.imageLink),
               Text(place.name),
             ],
           ),

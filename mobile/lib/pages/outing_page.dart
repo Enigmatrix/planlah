@@ -16,6 +16,7 @@ import 'package:mobile/pages/create_post.dart';
 import 'package:mobile/services/session.dart';
 import 'package:mobile/services/user.dart';
 import 'package:mobile/utils/errors.dart';
+import 'package:mobile/widgets/place_image.dart';
 import 'package:timelines/timelines.dart';
 import 'package:get/get.dart';
 
@@ -594,9 +595,8 @@ class _OutingPageState extends State<OutingPage> {
   Widget buildPlaceImageListTileComponent(OutingStepDto step) {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxHeight: 200.0),
-      child: CachedNetworkImage(
-        imageUrl: step.place.imageLink,
-        fit: BoxFit.fill,
+      child: PlaceImage(
+        imageLink: step.place.imageLink,
       ),
     );
   }
