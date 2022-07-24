@@ -1130,7 +1130,8 @@ func (db *Database) SearchForPlaces(query string, page Pagination) ([]Place, err
 func (db *Database) GetPlaces(placeIds []uint) ([]Place, error) {
 	var places []Place
 	err := SelectPlaces(db.conn.Model(&Place{})).
-		Find(&places, placeIds).
+		Where("id in ?", placeIds).
+		Find(&places).
 		Error
 	if err != nil {
 		return nil, errors.Trace(err)
