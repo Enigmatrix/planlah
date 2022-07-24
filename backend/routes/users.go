@@ -84,14 +84,17 @@ func (ctr *UserController) Create(ctx *gin.Context) {
 		return
 	}
 
-	// maybe only allow upto a certain file size in meta (_ in below line)
-	file, _, err := ctx.Request.FormFile("image")
+	file, meta, err := ctx.Request.FormFile("image")
 	if err != nil {
 		FailWithMessage(ctx, "image file field missing")
 		return
 	}
 
-	imageUrl, err := ctr.ImageService.UploadUserImage(file)
+	if !ctr.ImageService.WithinLimits(meta.Size) {
+		FailWithMessage(ctx, "image file too big!")
+		return
+	}
+	imageUrl, err := ctr.ImageService.UploadUserImage(file, meta.Size)
 	if err != nil {
 		handleImageUploadError(ctx, err)
 		return
