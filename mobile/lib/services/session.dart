@@ -30,6 +30,12 @@ class SessionService extends BaseConnect {
     try {
       var channel = IOWebSocketChannel.connect(uri, headers: { "Authorization": "Bearer ${BaseConnect.token}" });
       stream = channel.stream.asBroadcastStream().map((str) => jsonDecode(str));
+      log("websocket connection inited");
+      stream.listen((event) {
+        log(event.toString());
+      }, onError: (e) {
+        print(e.toString()); // consume the error somewhere, then broadcaster will shut up.
+      });
     }  on WebSocketChannelException catch (e) {
       log(e.toString());
     }

@@ -41,11 +41,6 @@ class _HomePageWidgetState extends State<HomePage> {
   void initState() {
     super.initState();
 
-    // This is where the user token can exists, so we can init
-    // websockets with it.
-    final session = Get.find<SessionService>();
-    session.initConnection();
-
   }
 
   final postService = Get.find<PostService>();
