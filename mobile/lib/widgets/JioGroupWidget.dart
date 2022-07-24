@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:mobile/services/group.dart';
 
 import '../dto/user.dart';
@@ -19,24 +20,35 @@ class _JioFriendsToGroupWidgetState extends State<JioFriendsToGroupWidget> {
 
   final groupService = Get.find<GroupService>();
 
-  int page = 0;
-  // List of potential users to jio to the group
-  List<UserSummaryDto> users = [];
-
+  static const int startingPageNumber = 0;
+  final _pagingController = PagingController<int, UserSummaryDto>(
+    firstPageKey: startingPageNumber
+  );
 
   @override
   void initState() {
+    _pagingController.addPageRequestListener((pageKey) {
+      loadFriendsToJio(widget.groupId, pageKey);
+    });
     super.initState();
-    loadUsers(widget.groupId, page);
   }
 
-  loadUsers(int groupId, int newPage) async {
-    var response = await groupService.getFriendsToJio(groupId, newPage);
+  @override
+  void dispose() {
+    _pagingController.dispose();
+    super.dispose();
+  }
+
+  loadFriendsToJio(int groupId, int pageKey) async {
+    var response = await groupService.getFriendsToJio(groupId, pageKey);
     setState(() {
       if (response.isOk) {
-        users = response.body!;
+        if (response.body!.isEmpty) {
+          _pagingController.appendLastPage(response.body!);
+        } else {
+          _pagingController.appendPage(response.body!, pageKey + 1);
+        }
       }
-      page = newPage;
     });
   }
 
@@ -50,61 +62,26 @@ class _JioFriendsToGroupWidgetState extends State<JioFriendsToGroupWidget> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Expanded(
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: users.length,
-                    itemBuilder: buildJioTile
+                child: PagedListView.separated(
+                  pagingController: _pagingController,
+                  separatorBuilder: (context, index) => const SizedBox(height: 4.0),
+                  builderDelegate: PagedChildBuilderDelegate<UserSummaryDto>(
+                    itemBuilder: (context, user, index) => buildJioTile(context, user),
+                    noMoreItemsIndicatorBuilder: noMoreItemsIndicator
+                  ),
                 )
             ),
-            buildNavigationBar(),
           ],
         ),
       )
     );
   }
 
-  Widget buildNavigationBar() {
-    return ButtonBar(
-      alignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        buildPreviousButton(),
-        buildNextButton(),
-      ],
-    );
+  Widget noMoreItemsIndicator(BuildContext context) {
+    return const SizedBox.shrink();
   }
 
-  Widget buildPreviousButton() {
-    var ret;
-    if (page > 0) {
-      ret = IconButton(
-          onPressed: page <= 0 ? null : () async {
-            await loadUsers(widget.groupId, page - 1);
-          },
-          icon: const Icon(Icons.arrow_back)
-      );
-    } else {
-      ret = const SizedBox.shrink();
-    }
-    return ret;
-  }
-
-  Widget buildNextButton() {
-    var ret;
-    if (users.isNotEmpty) {
-      ret = IconButton(
-          onPressed: users.isEmpty ? null : () async {
-            await loadUsers(widget.groupId, page + 1);
-          },
-          icon: const Icon(Icons.arrow_forward)
-      );
-    } else {
-      ret = const SizedBox.shrink();
-    }
-    return ret;
-  }
-
-  Widget buildJioTile(BuildContext context, int index) {
-    UserSummaryDto user = users[index];
+  Widget buildJioTile(BuildContext context, UserSummaryDto user) {
     return ListTile(
       onTap: () {
         jioToGroup(context, user.id);
@@ -127,7 +104,7 @@ class _JioFriendsToGroupWidgetState extends State<JioFriendsToGroupWidget> {
     if (response.hasError) {
       showErrorSnackbar(context);
     }
-    loadUsers(widget.groupId, page);
+    _pagingController.refresh();
   }
 
   void showErrorSnackbar(BuildContext context) {
