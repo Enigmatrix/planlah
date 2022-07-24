@@ -48,8 +48,6 @@ class _SocialFeedState extends State<SocialFeed> {
       firstPageKey: startingPageNumber
   );
 
-  List<PostDto> posts = [];
-
   @override
   void initState() {
     _pagingController.addPageRequestListener((pageKey) {

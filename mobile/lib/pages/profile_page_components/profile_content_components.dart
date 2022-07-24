@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:mobile/dto/posts.dart';
 import 'package:mobile/dto/review.dart';
 import 'package:mobile/pages/place_profile_page.dart';
@@ -9,6 +10,7 @@ import 'package:mobile/pages/profile_page_components/profile_skeleton.dart';
 import 'package:mobile/pages/social_feed.dart';
 import 'package:mobile/services/posts.dart';
 import 'package:mobile/services/reviews.dart';
+import 'package:mobile/utils/errors.dart';
 
 import '../../dto/user.dart';
 
@@ -74,11 +76,7 @@ class ProfileContent {
   }
 
   static Widget buildReviewsTabChild(UserProfileDto user) {
-    final reviewService = Get.find<ReviewService>();
-    return FutureBuilder<Response<List<ReviewDto>?>>(
-      future: (() async => await reviewService.getReviewsByUser(user.id, 0))(),
-        builder: (ctx, snap) => !snap.hasData ? CircularProgressIndicator() : ReviewsList(reviews: snap.data!.body!)
-    );
+    return ReviewFeed(user: user);
   }
 
   static WidgetValueBuilder getOtherProfileContentBuilder() {
@@ -90,23 +88,92 @@ class ProfileContent {
   }
 }
 
-class ReviewsList extends StatelessWidget {
+class ReviewFeed extends StatefulWidget {
+  final UserProfileDto user;
+  const ReviewFeed({
+    Key? key,
+    required this.user
+  }) : super(key: key);
 
-  ReviewsList({Key? key, required this.reviews}) : super(key: key);
+  @override
+  State<ReviewFeed> createState() => _ReviewFeedState();
+}
 
-  List<ReviewDto> reviews;
+class _ReviewFeedState extends State<ReviewFeed> {
 
-  Widget buildReviewsList() {
-    return ListView.separated(
-      padding: const EdgeInsets.all(8.0),
-      itemCount: reviews.length,
-      itemBuilder: buildReviewListTile,
-      separatorBuilder: (context, index) => const SizedBox(height: 4.0),
+  final reviewService = Get.find<ReviewService>();
+
+  static const int startingPageNumber = 0;
+  final _pagingController = PagingController<int, ReviewDto>(
+    firstPageKey: startingPageNumber
+  );
+
+  @override
+  void initState() {
+    _pagingController.addPageRequestListener((pageKey) {
+      loadReviews(pageKey);
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pagingController.dispose();
+    super.dispose();
+  }
+
+  void loadReviews(int pageKey) async {
+    final response = await reviewService.getReviewsByUser(widget.user.id, pageKey);
+    if (response.isOk) {
+      if (response.body!.isEmpty) {
+        _pagingController.appendLastPage(response.body!);
+      } else {
+        _pagingController.appendPage(response.body!, pageKey + 1);
+      }
+    } else {
+      if (!mounted) return;
+      await ErrorManager.showError(context, response);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RefreshIndicator(
+      onRefresh: () => Future.sync(() => _pagingController.refresh()),
+      child: PagedListView.separated(
+        pagingController: _pagingController,
+        separatorBuilder: (context, index) => const SizedBox(height: 16),
+        builderDelegate: PagedChildBuilderDelegate<ReviewDto>(
+          itemBuilder: (context, review, index) => ReviewCard(review: review),
+          noMoreItemsIndicatorBuilder: noMoreItemsIndicator
+        ),
+      ),
     );
   }
 
-  Widget buildReviewListTile(BuildContext context, int index) {
-    ReviewDto review = reviews[index];
+  Widget noMoreItemsIndicator(BuildContext context) {
+    return const Center(
+      child: Text("No more reviews"),
+    );
+  }
+}
+
+
+class ReviewCard extends StatelessWidget {
+
+  final ReviewDto review;
+
+  const ReviewCard({
+    Key? key,
+    required this.review
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildReviewListTile(context, review);
+  }
+
+  Widget buildReviewListTile(BuildContext context, ReviewDto review) {
     return Card(
       elevation: 8.0,
       child: ListTile(
@@ -188,8 +255,4 @@ class ReviewsList extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return buildReviewsList();
-  }
 }
