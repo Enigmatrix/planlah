@@ -346,20 +346,6 @@ class _GroupChatPageState extends State<GroupChatPage> {
             value: INVITE_LINK,
             child: Text(INVITE_LINK)
         ),
-        PopupMenuItem(
-            onTap: () {
-              // TODO: Kick people
-            },
-            value: KICK,
-            child: const Text(KICK)
-        ),
-        PopupMenuItem(
-            onTap: () {
-              // TODO: Leave group
-            },
-            value: LEAVE,
-            child: const Text(LEAVE)
-        ),
       ]);
     }
     return widgets;

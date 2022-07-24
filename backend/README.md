@@ -1,21 +1,16 @@
-## Building & Running
+### Setup
 
 - First build will fail:
-    - need to run `swag init` atleast once (refer below)
-    - need to run `wire` atleast once (refer below)
-
-### Docker
-
-- Paste `.env` file into `/backend`
-- Run `docker-compose up --build` to build the Docker setup (including the database)
-  - Need to run this to get the database running
+  - need to run `swag init` atleast once (refer below)
+  - need to run `wire` atleast once (refer below)
+- Paste the sEcRet `.env` file into `/backend`
+  - Paste `planlah..adminsdk...json` into `/backend`.
+  - Need to set `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the path of the above file.
+  
+### Run
+- (Run the app)`docker-compose up --build` to build the Docker setup (including the database)
   - Visit `localhost:8081` to see an admin interface for the database
-
-### Firebase
-
-- Paste `planlah..adminsdk...json` into `/backend`.
-- Need to set `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the path of the above file.
-  - Can also do this in GoLang's Run configuration (Environment variables)
+  - `localhost:8080` is where the actual server endpoint is
 
 ### Wire (Dependency Injection)
 
