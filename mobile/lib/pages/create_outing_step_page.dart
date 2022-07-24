@@ -18,12 +18,12 @@ import '../services/outing.dart';
 
 class CreateOutingStepPage extends StatefulWidget {
   final OutingDto outing;
-  final PlaceDto? initialPlace;
+  final PlaceDto? recentPlace;
 
   const CreateOutingStepPage({
     Key? key,
     required this.outing,
-    this.initialPlace}) : super(key: key);
+    this.recentPlace}) : super(key: key);
 
   @override
   State<CreateOutingStepPage> createState() => _CreateOutingStepPageState();
@@ -53,10 +53,9 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
   @override
   void initState() {
     super.initState();
-    if (widget.initialPlace == null) {
+    if (widget.recentPlace == null) {
       initGeolocator();
     }
-    place = widget.initialPlace;
     date = DateTime.parse(widget.outing.start).toLocal();
   }
 
@@ -294,12 +293,12 @@ class _CreateOutingStepPageState extends State<CreateOutingStepPage> {
     Point p;
     // If place is null, obtain current location.
     // Else use the previous place's location.
-    if (widget.initialPlace == null) {
+    if (widget.recentPlace == null) {
       // This works on the actual android device
       Position position = await Geolocator.getCurrentPosition();
       p = Point(position.longitude, position.latitude);
     } else {
-      p = widget.initialPlace!.position;
+      p = widget.recentPlace!.position;
     }
     return await placeService.recommend(p, placeType);
   }
