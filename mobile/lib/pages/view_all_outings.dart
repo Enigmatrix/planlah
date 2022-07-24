@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:mobile/pages/outing_page.dart';
 
 import '../dto/outing.dart';
@@ -47,15 +48,23 @@ class _ViewAllOutingsPageState extends State<ViewAllOutingsPage> {
     );
   }
 
+  fmtDate(DateTime d) => DateFormat("MM/dd").format(d.toLocal());
+  DateTime pdate(String date) => DateTime.parse(date).toLocal();
+
   Widget buildOutingCard(BuildContext context, int id) {
     OutingDto outingDto = widget.pastOutings[id];
+    final range =
+        "${fmtDate(pdate(outingDto.start))} - ${fmtDate(pdate(outingDto.end))}";
     // TODO: Only a temporary way to display the different outings
     return InkWell(
       onTap: () {
         Get.to(() => OutingPage(outing: outingDto, isActive: false));
       },
       child: Card(
-        child: Text(outingDto.name),
+        child: ListTile(
+          leading: const Icon(Icons.history),
+            title: Text("${outingDto.name} ($range)")
+        ),
       ),
     );
   }
