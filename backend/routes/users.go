@@ -34,6 +34,14 @@ type UserRefDto struct {
 	ID uint `json:"id,string" form:"id" query:"id" binding:"required"`
 }
 
+type CheckUserNameDto struct {
+	UserName string `json:"username" form:"username" query:"username" binding:"required"`
+}
+
+type CheckUserNameResultDto struct {
+	IsUnique bool `json:"isUnique" form:"isUnique" query:"isUnique" binding:"required"`
+}
+
 type CreateUserDto struct {
 	Name          string   `form:"name" binding:"required"`
 	Username      string   `form:"username" binding:"required"`
@@ -260,6 +268,68 @@ func (ctr *UserController) SearchForFriends(ctx *gin.Context) {
 	}))
 }
 
+// CheckUserName godoc
+// @Summary Check if user name exists
+// @Description Check if the user name is unique
+// @Param query query CheckUserNameDto true "body"
+// @Tags User
+// @Success 200 {object} CheckUserNameResultDto
+// @Router /api/users/check_user_name [get]
+func (ctr *UserController) CheckUserName(ctx *gin.Context) {
+	var dto CheckUserNameDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	isUnique, err := ctr.Database.IsUserNameUnique(dto.UserName)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, CheckUserNameResultDto{IsUnique: isUnique})
+}
+
+// EditImage godoc
+// @Summary Edit a User's image
+// @Description Edit a User's image
+// @Param        image  formData  file  true  "User Image"
+// @Accept       multipart/form-data
+// @Security JWT
+// @Tags User
+// @Success 200
+// @Failure 400 {object} ErrorMessage
+// @Failure 401 {object} services.AuthError
+// @Router /api/users/edit_image [put]
+func (ctr *UserController) EditImage(ctx *gin.Context) {
+	userId := ctr.AuthUserId(ctx)
+
+	file, meta, err := ctx.Request.FormFile("image")
+	if err != nil {
+		FailWithMessage(ctx, "image file field missing")
+		return
+	}
+
+	if !ctr.ImageService.WithinLimits(meta.Size) {
+		FailWithMessage(ctx, "image file too big!")
+		return
+	}
+
+	imageUrl, err := ctr.ImageService.UploadUserImage(file, meta.Size)
+	if err != nil {
+		handleImageUploadError(ctx, err)
+		return
+	}
+
+	err = ctr.Database.UpdateUserImage(userId, imageUrl)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.Status(http.StatusOK)
+}
+
 // TODO: To think of better ways to do this. For now its very simple 1/n standardization
 
 func contains(s []string, str string) bool {
@@ -308,9 +378,9 @@ func calculateFoodVector(food []string) (pq.Float64Array, error) {
 // Register the routes for this controller
 func (ctr *UserController) Register(router *gin.RouterGroup) {
 	users := router.Group("users")
+	users.PUT("edit_image", ctr.EditImage)
 	users.GET("me/info", ctr.GetInfo)
 	users.GET("friend/info", ctr.GetFriendInfo)
 	users.GET("get", ctr.GetUserInfo)
-	users.GET("create", ctr.Create)
 	users.GET("search_for_friends", ctr.SearchForFriends)
 }

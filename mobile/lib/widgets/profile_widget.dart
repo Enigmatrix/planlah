@@ -1,9 +1,16 @@
+import 'dart:developer';
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile/services/user.dart';
 import 'package:mobile/theme.dart';
+import 'package:mobile/utils/errors.dart';
 
 /// Utility widget for displaying the profile picture.
 
-class ProfileWidget extends StatelessWidget {
+class ProfileWidget extends StatefulWidget {
   final String imagePath;
   final VoidCallback onClicked;
 
@@ -12,6 +19,20 @@ class ProfileWidget extends StatelessWidget {
     required this.imagePath,
     required this.onClicked,
   }): super(key: key);
+
+  @override
+  State<ProfileWidget> createState() => _ProfileWidgetState();
+}
+
+class _ProfileWidgetState extends State<ProfileWidget> {
+
+  late String imagePath;
+
+  @override
+  void initState() {
+    super.initState();
+    imagePath = widget.imagePath;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +52,7 @@ class ProfileWidget extends StatelessWidget {
 
   Widget buildImage() {
     final image = NetworkImage(imagePath);
-    
+
     return ClipOval(
       child: Material(
         color: Colors.transparent,
@@ -41,7 +62,7 @@ class ProfileWidget extends StatelessWidget {
             width: 128,
             height: 128,
             child: InkWell(
-              onTap: onClicked,
+              onTap: widget.onClicked,
             ),
         ),
       ),
@@ -54,10 +75,37 @@ class ProfileWidget extends StatelessWidget {
     child: buildCircle(
       color: color,
       all: 8,
-      child: const Icon(
-        Icons.edit,
-        color: Colors.white,
-        size: 20
+      child: InkWell(
+        onTap: () async {
+          final result = await FilePicker.platform.pickFiles(type: FileType.image);
+
+          if (result == null) return;
+
+          final file = File(result.files.single.path!);
+          final imageBytes = file.readAsBytesSync();
+
+          final userSvc = Get.find<UserService>();
+          final resp = await userSvc.editImage(imageBytes);
+          if (resp.isOk) {
+            final resp = await userSvc.getInfo();
+            if (resp.isOk) {
+              setState(() {
+                imagePath = resp.body!.imageLink;
+              });
+            } else {
+              if (!mounted) return;
+              await ErrorManager.showError(context, resp);
+            }
+          } else {
+            if (!mounted) return;
+            await ErrorManager.showError(context, resp);
+          }
+        },
+        child: const Icon(
+            Icons.edit,
+            color: Colors.white,
+          size: 20
+        ),
       )
     )
   );
