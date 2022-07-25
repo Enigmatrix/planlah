@@ -94,8 +94,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
           widget.place.name
         ),
       ),
-      body: Flex(
-        direction: Axis.vertical,
+      body: Column(
         children: <Widget>[
           buildAboutPlace(),
           buildContent(),
@@ -120,11 +119,11 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
         Text(
           widget.place.formattedAddress
         ),
-        // Text(
-        //     (widget.place.about != "NaN")
-        //         ? widget.place.about
-        //         : ""
-        // ),
+        Text(
+            (widget.place.about != "NaN")
+                ? widget.place.about
+                : ""
+        ),
         const Divider(height: 4.0),
       ],
     );
@@ -148,7 +147,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   Widget buildReviewsList() {
     return Expanded(
       child: ListView.separated(
-        padding: const EdgeInsets.all(8.0),
+        // padding: const EdgeInsets.all(8.0),
         itemCount: reviews.length,
         itemBuilder: buildReviewListTile,
         separatorBuilder: (context, index) => const SizedBox(height: 4.0),
@@ -223,8 +222,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
   }
 
   Widget buildNavigationButtons() {
-    return Expanded(
-      child: Row(
+    return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           page == 0
@@ -244,8 +242,7 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
               icon: const Icon(Icons.keyboard_arrow_right)
           ),
         ],
-      ),
-    );
+      );
   }
 
   Widget buildWriteReviewButton() {
