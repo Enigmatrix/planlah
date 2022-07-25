@@ -181,7 +181,7 @@ Minio is an S3-compatible object storage solution to store files and other cruci
 
 Please download a PlantUML renderer to view the class diagram for the planlah application as it is too large to paste as a png file here.
 
-![UML File](../mobile/planlah.puml)
+![UML File](planlah.puml)
 
 Many of the components are made from sub-components taken from the Material-UI library. These components are made from Google's material design, with visuals and experiences that epitomizes modern web applications.
 
