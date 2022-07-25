@@ -344,7 +344,7 @@ func (ctr *GroupsController) GetInvites(ctx *gin.Context) {
 }
 
 // CreateDM godoc
-// @Summary [UNIMPL] Create a new DM group (one-to-one).
+// @Summary Create a new DM group (one-to-one).
 // @Description Create a new DM group with a friend. The user must be a friend of this user. If a DM group already exists, that is returned.
 // @Param body body UserRefDto true "Reference to friend to create a DM channel for"
 // @Tags Group
