@@ -45,5 +45,50 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app needs access to location when open.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This app needs access to location when in the background.</string>
+    <key>NSLocationTemporaryUsageDescriptionDictionary</key>
+    <dict>
+      <key>YourPurposeKey</key>
+      <string>The example App requires temporary access to the device&apos;s precise location.</string>
+    </dict>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>App needs access to photo lib for profile images</string>
+    <key>NSCameraUsageDescription</key>
+    <string>your usage description here</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>your usage description here</string>
+    <key>CLIENT_ID</key>
+    <string>87066124475-ln74gsprbpd9g9oksif043n38km5nrnd.apps.googleusercontent.com</string>
+    <key>REVERSED_CLIENT_ID</key>
+    <string>com.googleusercontent.apps.87066124475-ln74gsprbpd9g9oksif043n38km5nrnd</string>
+    <key>ANDROID_CLIENT_ID</key>
+    <string>87066124475-h346dn3hpgs2fh47lkvf0npaik2ngpar.apps.googleusercontent.com</string>
+    <key>API_KEY</key>
+    <string>AIzaSyDMSdipztBUOECHJ4hrv7PgIZcMnJ-8EdY</string>
+    <key>GCM_SENDER_ID</key>
+    <string>87066124475</string>
+    <key>PLIST_VERSION</key>
+    <string>1</string>
+    <key>BUNDLE_ID</key>
+    <string>sg.planlah.app</string>
+    <key>PROJECT_ID</key>
+    <string>planlah</string>
+    <key>STORAGE_BUCKET</key>
+    <string>planlah.appspot.com</string>
+    <key>IS_ADS_ENABLED</key>
+    <false></false>
+    <key>IS_ANALYTICS_ENABLED</key>
+    <false></false>
+    <key>IS_APPINVITE_ENABLED</key>
+    <true></true>
+    <key>IS_GCM_ENABLED</key>
+    <true></true>
+    <key>IS_SIGNIN_ENABLED</key>
+    <true></true>
+    <key>GOOGLE_APP_ID</key>
+    <string>1:87066124475:ios:983f9bc8ee9f7eddeb499e</string>
 </dict>
 </plist>
