@@ -120,11 +120,11 @@ class _PlaceProfilePageState extends State<PlaceProfilePage> {
         Text(
           widget.place.formattedAddress
         ),
-        Text(
-            (widget.place.about != "NaN")
-                ? widget.place.about
-                : ""
-        ),
+        // Text(
+        //     (widget.place.about != "NaN")
+        //         ? widget.place.about
+        //         : ""
+        // ),
         const Divider(height: 4.0),
       ],
     );
