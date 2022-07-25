@@ -104,7 +104,6 @@ func NewServer(
 	{
 		unauthApi := srv.Group("api")
 		unauthApi.POST("users/create", users.Create)
-		unauthApi.GET("users/check_user_name", users.CheckUserName)
 		unauthApi.POST("auth/verify", authMiddleware.LoginHandler)
 		misc.Register(unauthApi)
 	}

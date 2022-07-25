@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/services/base_connect.dart';
@@ -35,32 +33,12 @@ class UserService extends BaseConnect {
     );
   }
 
-  Future<Response<void>> editImage(Uint8List image) async {
-    final formData = FormData({
-      'image': MultipartFile(image, filename: 'avatar.png') // filename doesn't matter
-    });
-    return await put<void>(
-        '/users/edit_image',
-        formData
-    );
-  }
-
   Future<Response<List<UserSummaryDto>?>> searchForFriends(int page, String query) async {
     SearchUsersDto dto = SearchUsersDto(page, query);
     return await get(
       "/users/search_for_friends",
       query: dto.toJson(),
       decoder: decoderForList(UserSummaryDto.fromJson)
-    );
-  }
-
-  Future<Response<CheckUserNameResultDto?>> checkUserName(String username) async {
-    return await get(
-        "/users/check_user_name",
-        query: {
-          "username": username,
-        },
-        decoder: decoderFor(CheckUserNameResultDto.fromJson)
     );
   }
 }

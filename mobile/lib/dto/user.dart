@@ -34,15 +34,6 @@ class CreateUserDto {
   };
 }
 
-class CheckUserNameResultDto {
-  bool isUnique;
-
-  CheckUserNameResultDto(this.isUnique);
-
-  CheckUserNameResultDto.fromJson(Map<String, dynamic> json):
-        isUnique = json["isUnique"];
-}
-
 class UserSummaryDto {
   int id;
   String username;

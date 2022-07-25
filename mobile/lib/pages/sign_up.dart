@@ -27,18 +27,6 @@ class SignUpPage extends StatefulWidget {
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class Debouncer {
-  final int milliseconds;
-  Timer? _timer;
-
-  Debouncer({required this.milliseconds});
-
-  run(VoidCallback action) {
-    _timer?.cancel();
-    _timer = Timer(Duration(milliseconds: milliseconds), action);
-  }
-}
-
 class _SignUpPageState extends State<SignUpPage> {
   int _formIndex = 0;
 
@@ -58,10 +46,6 @@ class _SignUpPageState extends State<SignUpPage> {
   final next = const Icon(
       Icons.navigate_next_rounded
   );
-
-
-  final _usernameDebouncer = Debouncer(milliseconds: 500);
-  String? _usernameError;
 
   // Basic account details
   var _name = "";
@@ -236,21 +220,12 @@ class _SignUpPageState extends State<SignUpPage> {
               color: Colors.black),
         ),
         TextField(
-          decoration: InputDecoration(labelText: "Username", errorText: _usernameError),
+          decoration: const InputDecoration(labelText: "Username"),
           onChanged: (value) {
-            _usernameDebouncer.run(() async {
-              final resp = await user.checkUserName(value);
-              if (resp.isOk) {
-                final isUnique = resp.body!.isUnique;
-                setState(() {
-                  _usernameError = isUnique ? null : "Username exists!";
-                });
-              }
-            });
             setState(
                     () {
-                  _username = value;
-                  checkStatus();
+                      _username = value;
+                      checkStatus();
                     }
             );
           },

@@ -65,8 +65,8 @@ class BaseConnect extends GetConnect {
     return false;
   }
 
-  static const String server = "localhost:8080/api";
-  // static const String server = "enigmatrix.me:8085/api";
+  // static const String server = "localhost:8080/api";
+  static const String server = "enigmatrix.me:8085/api";
 
   @override
   void onInit() {

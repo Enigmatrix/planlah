@@ -258,22 +258,6 @@ func (db *Database) GetUserProfile(id uint) (UserProfile, error) {
 	return user, nil
 }
 
-// UpdateUserImage Updates a User's ImageLink
-func (db *Database) UpdateUserImage(id uint, url string) error {
-	err := db.conn.Model(&User{}).Where(&User{ID: id}).Updates(&User{ImageLink: url}).Error
-	return errors.Trace(err)
-}
-
-// IsUserNameUnique Check if the user name is unique
-func (db *Database) IsUserNameUnique(username string) (bool, error) {
-	var cnt int64
-	err := db.conn.Model(&User{}).Where(&User{Username: username}).Count(&cnt).Error
-	if err != nil {
-		return false, errors.Trace(err)
-	}
-	return cnt == 0, nil
-}
-
 var friendSql = `(
 	select from_id from friend_requests where to_id = @thisUserId and status = 'approved' union
 	select to_id from friend_requests where from_id = @thisUserId and status = 'approved'
@@ -1146,8 +1130,7 @@ func (db *Database) SearchForPlaces(query string, page Pagination) ([]Place, err
 func (db *Database) GetPlaces(placeIds []uint) ([]Place, error) {
 	var places []Place
 	err := SelectPlaces(db.conn.Model(&Place{})).
-		Where("id in ?", placeIds).
-		Find(&places).
+		Find(&places, placeIds).
 		Error
 	if err != nil {
 		return nil, errors.Trace(err)
