@@ -53,4 +53,14 @@ class UserService extends BaseConnect {
       decoder: decoderForList(UserSummaryDto.fromJson)
     );
   }
+
+  Future<Response<CheckUserNameResultDto?>> checkUserName(String username) async {
+    return await get(
+        "/users/check_user_name",
+        query: {
+          "username": username,
+        },
+        decoder: decoderFor(CheckUserNameResultDto.fromJson)
+    );
+  }
 }

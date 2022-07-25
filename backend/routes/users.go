@@ -34,6 +34,14 @@ type UserRefDto struct {
 	ID uint `json:"id,string" form:"id" query:"id" binding:"required"`
 }
 
+type CheckUserNameDto struct {
+	UserName string `json:"username" form:"username" query:"username" binding:"required"`
+}
+
+type CheckUserNameResultDto struct {
+	IsUnique bool `json:"isUnique" form:"isUnique" query:"isUnique" binding:"required"`
+}
+
 type CreateUserDto struct {
 	Name          string   `form:"name" binding:"required"`
 	Username      string   `form:"username" binding:"required"`
@@ -258,6 +266,28 @@ func (ctr *UserController) SearchForFriends(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, lo.Map(users, func(t data.User, _ int) UserSummaryDto {
 		return ToUserSummaryDto(t)
 	}))
+}
+
+// CheckUserName godoc
+// @Summary Check if user name exists
+// @Description Check if the user name is unique
+// @Param query query CheckUserNameDto true "body"
+// @Tags User
+// @Success 200 {object} CheckUserNameResultDto
+// @Router /api/users/check_user_name [get]
+func (ctr *UserController) CheckUserName(ctx *gin.Context) {
+	var dto CheckUserNameDto
+	if Query(ctx, &dto) {
+		return
+	}
+
+	isUnique, err := ctr.Database.IsUserNameUnique(dto.UserName)
+	if err != nil {
+		handleDbError(ctx, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, CheckUserNameResultDto{IsUnique: isUnique})
 }
 
 // EditImage godoc

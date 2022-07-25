@@ -264,6 +264,16 @@ func (db *Database) UpdateUserImage(id uint, url string) error {
 	return errors.Trace(err)
 }
 
+// IsUserNameUnique Check if the user name is unique
+func (db *Database) IsUserNameUnique(username string) (bool, error) {
+	var cnt int64
+	err := db.conn.Model(&User{}).Where(&User{Username: username}).Count(&cnt).Error
+	if err != nil {
+		return false, errors.Trace(err)
+	}
+	return cnt == 0, nil
+}
+
 var friendSql = `(
 	select from_id from friend_requests where to_id = @thisUserId and status = 'approved' union
 	select to_id from friend_requests where from_id = @thisUserId and status = 'approved'
