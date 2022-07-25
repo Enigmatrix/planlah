@@ -123,7 +123,7 @@ The central repository that we perform continuous integration on is at the follo
 6. Work on the changes, committing your code locally everytime a new feature or change has been implemented using the GoLand/ Android Studio VCS.
 7. Rebase with `origin/main` frequently to avoid painful merge conflicts.
 8. After all changes are made, `cd` into `/backend` and run `./test.sh`. Ensure that the test passes before proceeding to the next step.
-1. To test the feature if it's in the backend, run `swag init` to regenerate the Swaggger documentation, then visit the [Swagger documentation link](localhost:8080/swagger/index.html) to test API with queries.
+1. To test the feature if it's in the backend, run `swag init` to regenerate the Swagger documentation, then visit the [Swagger documentation link](localhost:8080/swagger/index.html) to test API with queries.
 9. Once the test passes, push the code from your local repository to the remote repository using `git push origin {branch name}`
 10. Create a Pull request on Github, referencing the issue that describes the feature using closing keywords e.g. `fix #42`, where the issue is 42.
 11. Another developer from the team will review your code, providing feedback if necessary
