@@ -246,9 +246,9 @@ type UserProfile struct {
 // Throws EntityNotFound when User is not found
 func (db *Database) GetUserProfile(id uint) (UserProfile, error) {
 	var user UserProfile
-	err := db.conn.Table("users").Where("id = ?", id).
-		Select(`*, (select count(*) from posts where user_id = id) AS post_count, (select count(*) from reviews where user_id = id) AS review_count,
-		(select count(*) from friend_requests where (to_id = id OR from_id = id) and status = 'approved') AS friend_count`).Find(&user).Error
+	err := db.conn.Table("users u").Where("u.id = ?", id).
+		Select(`u.*, (select count(p) from posts p where p.user_id = u.id) AS post_count, (select count(r) from reviews r where r.user_id = u.id) AS review_count,
+		(select count(f) from friend_requests f where (f.to_id = u.id OR f.from_id = u.id) and status = 'approved') AS friend_count`).Find(&user).Error
 	if err != nil {
 		if isNotFoundInDb(err) {
 			return UserProfile{}, EntityNotFound
