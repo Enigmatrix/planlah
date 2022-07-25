@@ -258,6 +258,12 @@ func (db *Database) GetUserProfile(id uint) (UserProfile, error) {
 	return user, nil
 }
 
+// UpdateUserImage Updates a User's ImageLink
+func (db *Database) UpdateUserImage(id uint, url string) error {
+	err := db.conn.Model(&User{}).Where(&User{ID: id}).Updates(&User{ImageLink: url}).Error
+	return errors.Trace(err)
+}
+
 var friendSql = `(
 	select from_id from friend_requests where to_id = @thisUserId and status = 'approved' union
 	select to_id from friend_requests where from_id = @thisUserId and status = 'approved'

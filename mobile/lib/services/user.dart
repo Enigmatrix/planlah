@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
 import 'package:mobile/services/base_connect.dart';
@@ -29,6 +31,16 @@ class UserService extends BaseConnect {
     final formData = FormData(dto.toJson());
     return await post<void>(
         '/users/create',
+        formData
+    );
+  }
+
+  Future<Response<void>> editImage(Uint8List image) async {
+    final formData = FormData({
+      'image': MultipartFile(image, filename: 'avatar.png') // filename doesn't matter
+    });
+    return await put<void>(
+        '/users/edit_image',
         formData
     );
   }
