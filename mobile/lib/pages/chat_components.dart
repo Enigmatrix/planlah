@@ -74,7 +74,7 @@ class ChatComponents {
 
   static Widget buildMessageBodyComponent(MessageDto message, bool isUser, bool isDm) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(15.0, 10.0, 0.0, 0.0),
+      padding: const EdgeInsets.fromLTRB(15.0, 10.0, 5.0, 2.0),
       width: 200.0,
       decoration: BoxDecoration(
         color: isUser
@@ -149,15 +149,10 @@ class ChatComponents {
           Material(
             color: Colors.white,
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 1.0),
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.face),
-                color: Colors.grey,
-              ),
+              margin: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 4.0),
+              child: const Icon(Icons.face),
             ),
           ),
-
           Flexible(
               child: TextField(
                 style: const TextStyle(

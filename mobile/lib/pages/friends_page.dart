@@ -103,8 +103,8 @@ class _FriendsPageState extends State<FriendsPage> {
     return IconButton(
       onPressed: () {
         showSearch(
-            context: context,
-            delegate: FriendSearch()
+          context: context,
+          delegate: FriendSearch()
         );
       },
       icon: const Icon(Icons.search)
