@@ -186,54 +186,59 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   Widget buildGroupProfileDialog(BuildContext context) {
     double radius = MediaQuery.of(context).size.width / 4;
-    return Dialog(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          CircleAvatar(
-            radius: radius,
-            backgroundImage: NetworkImage(widget.chatGroup.imageLink)
-          ),
-          Text(
-            widget.chatGroup.name,
-            style: const TextStyle(
-              fontSize: 26.0,
-              fontWeight: FontWeight.bold,
+    return Card(
+      margin: const EdgeInsets.all(16.0),
+      child: Container(
+        margin: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            CircleAvatar(
+              radius: radius,
+              backgroundImage: NetworkImage(widget.chatGroup.imageLink)
             ),
-          ),
-          Text(
-            widget.chatGroup.description
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Expanded(
-                  child: Container(
-                    alignment: AlignmentGeometry.lerp(null, null, 0.0),
-                    decoration: BoxDecoration(
-                      color: Colors.lightBlue,
-                      borderRadius: BorderRadius.circular(64.0),
-                    ),
-                    child: const Text(
-                      "Group members",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0
+            const SizedBox(height: 4.0),
+            Text(
+              widget.chatGroup.name,
+              style: const TextStyle(
+                fontSize: 26.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              widget.chatGroup.description
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Expanded(
+                    child: Container(
+                      alignment: AlignmentGeometry.lerp(null, null, 0.0),
+                      decoration: BoxDecoration(
+                        color: Colors.lightBlue,
+                        borderRadius: BorderRadius.circular(64.0),
+                      ),
+                      child: const Text(
+                        "Group members",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0
+                        ),
                       ),
                     ),
-                  ),
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: groupMembers.length,
-              itemBuilder: buildGroupMemberList
+                )
+              ],
             ),
-          )
-        ],
+            Expanded(
+              child: ListView.builder(
+                itemCount: groupMembers.length,
+                itemBuilder: buildGroupMemberList
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
