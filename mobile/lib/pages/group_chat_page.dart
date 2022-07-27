@@ -146,6 +146,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
           Column(
             children: [
               ChatComponents.buildMessageList(scrollController, messages, widget.userProfile, widget.chatGroup.isDm),
+              const Divider(),
               ChatComponents.buildInputWidget(sendMessage),
             ],
           )
