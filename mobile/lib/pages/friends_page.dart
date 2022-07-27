@@ -91,11 +91,11 @@ class _FriendsPageState extends State<FriendsPage> {
   }
   
   Widget buildFriendRequestsButton() {
-    return ElevatedButton(
+    return IconButton(
       onPressed: () {
         _navigateAndRefresh(context);
       },
-      child: const Icon(Icons.person_pin_sharp),
+      icon: const Icon(Icons.person_pin_sharp),
     );
   }
   
@@ -112,7 +112,6 @@ class _FriendsPageState extends State<FriendsPage> {
   }
   
   void _navigateAndRefresh(BuildContext context) async {
-    // TODO: Fix with sockets
     var result = await Get.to(() => FriendRequestPage(userId: widget.userId));
     if (result != null) {
       _loadFriends();
