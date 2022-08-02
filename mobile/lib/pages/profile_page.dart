@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile/dto/user.dart';
+import 'package:mobile/pages/not_friend_page.dart';
 import 'package:mobile/pages/profile_page_components/profile_content_components.dart';
 import 'package:mobile/pages/profile_page_components/profile_header.dart';
 import 'package:mobile/pages/profile_page_components/profile_picture.dart';
@@ -67,15 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget buildErrorPage(BuildContext context) {
-    return const Center(
-      child: Text(
-        "We encountered an issue loading the user profile! Please refresh the page",
-        style: TextStyle(
-            color: Colors.red,
-            fontWeight: FontWeight.bold
-        ),
-      ),
-    );
+    return NotFriendPage(userId: widget.userId);
   }
 
   /// Initialize the widget builders based on whether it should be the
