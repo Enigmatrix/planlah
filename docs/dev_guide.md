@@ -313,7 +313,29 @@ The primary form of testing done for the frontend aspect of our application was 
 
 For milestone 2's testing, we shared our apk with the other Orbital teams in our cluster. As most of them did not have android devices or means to run the apk with an Android emulator, we created a short 5 minute video where we held a walkthrough of the app on a Samsung Tab S8. After the video, some feedback we received regarded the username uniqueness validation being done earlier in the form, which we took to heart and implemented by milestone 3. 
 
-For milestone 3's hands-on user testing, we invited our friends to download the release version apk and tell us their feedback regarding UI/UX and any potential sources of confusion regarding the application. We first sent our playtesters a link to our user guide and had them ask us any questions before we set up a Discord voice call with them as they used the application and gathered real time feedback. The testers are asked to rate ease of use as well as report any bugs. Most of the feedback we received pertained towards the color scheme we had used for our group chat feature, as such we swapped the colors (blue for user and grey for others) to fit the given feedback. 
+For milestone 3's hands-on user testing, we adopted the following workflow.
+
+## Setup
+1. Send the User guide to our tester (internal friends and friends of friends) and ask them to spend around 5-15 minutes reading through it
+2. Send the tester a link to our apk 
+3. Hop in a Discord voice call with them and listen to their comments as they use the application
+4. Ask them to fill up a Google Form
+
+## App Testing
+1. Observe and guide them as they use our app
+    1. Let them use the app on their own and ask them if they have any questions as they use the app
+    2. If possible, ask them to share their screen using Discord (virtually everyone was able to)
+    3. Tell them to try and create a group
+    4. Tell them to try and plan an outing
+    5. Tell them to suggest a place
+    6. Tell them to be suggested a place (use the Recommendation interface)
+    7. Ask them to try corner cases that they think would break the app, and see if our app can handle it
+    8. Note down stuff that does not work or which they felt was not ideal
+## Questions and Feedback
+1. Ask for their overall feedback and comments on the current app
+2. Ask them for their overall feedback on the UI/UX
+3. Ask them for their overall feedback on the app’s usability (With an emphasis on the Outings feature) 
+4. Ask them to complete the Google Form
 
 ### Swagger (Expert Testing)
 
