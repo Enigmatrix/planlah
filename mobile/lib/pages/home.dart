@@ -13,8 +13,8 @@ import '../dto/user.dart';
 
 class HomePage extends StatefulWidget {
 
-  UserProfileDto userProfile;
-  HomePage({
+  final UserProfileDto userProfile;
+  const HomePage({
     Key? key,
     required this.userProfile,
   }) : super(key: key);

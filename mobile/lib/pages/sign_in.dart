@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mobile/pages/dev_panel.dart';
+import 'package:mobile/pages/home.dart';
 import 'package:mobile/services/auth.dart';
 
 import '../services/config.dart';
@@ -104,7 +105,7 @@ class GoogleSignInState extends State<GoogleSignIn> {
                     } else {
                       // this means the user already has an account,
                       // either but install+uninstall or from another device
-                      await Get.offAndToNamed('home');
+                      await Get.off(() => HomePage(userProfile: info!.body!));
                     }
 
                     return;
